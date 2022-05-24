@@ -46,7 +46,7 @@ Redis的数据是存在内存中，是个内存数据库，所以读写速度非
 2. 一般用于存放**数据不重复排序的集合，比如排行榜**
 3. 常用命令```zadd,zscore,zrange,zcard```
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/extral/5.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/extral/5.png)
 
 ### 衍生问题
 - 为什么list和set使用跳表？[跳表原理](https://zhengstars.website/archives/%E8%B7%B3%E8%A1%A8)
@@ -145,7 +145,7 @@ Redis支持持久化，且有两种不同的持久化操作，**一般会RDB+AOF
 更新数据库成功，如果删除缓存失败或者还没有来的及删除，那么，其他线程从缓存中读取到的就是旧值，还是会发生不一致。
 > 利用消息队列，更新数据库，成功后往队列发送消息，消息达到后删除缓存，可以利用消息队列的重试机制达到最终一致性（建议使用）<br>
 > 缺点：需要引入第三方中间件，维护成本高，且引入消息队列需要考虑消息丢失、顺序等问题
-![image.png](/https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/extral/6.png)
+![image.png](/https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/extral/6.png)
 
 2. 先删除缓存，后更新数据库
 请求A先删除Redis中的数据，然后去数据库进行更新操作，此时请求B看到Redis中的数据是空的，就会去数据库中查询，补录到缓存，但是此时请求A并没有更新成功，或者事务还未提交。
