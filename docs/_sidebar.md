@@ -5,10 +5,8 @@
 
 
 * 后端
-  * redis
-      * [Redis](md/Redis/Redis-redis.md)
-      * [Redis实现分布式锁与Redisson](md/Redis/Redis实现分布式锁与Redisson-redis-separate-lock.md)
-      * 
+    * [Redis](md/Redis/Redis-redis.md)
+    * [Redis实现分布式锁与Redisson](md/Redis/Redis实现分布式锁与Redisson-redis-separate-lock.md)
     
 
 
