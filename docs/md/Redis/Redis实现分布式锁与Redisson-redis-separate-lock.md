@@ -1,13 +1,5 @@
----
-title: Redis实现分布式锁与Redisson
-date: 2021-08-18 12:54:13.502
-updated: 2021-08-18 13:55:23.702
-url: /archives/redis-separate-lock
-categories: 
-tags: Redis | 分布式锁
----
 
-# 要点
+## 要点
 Redis要实现分布式锁，以下条件应该得到满足
 
 **互斥性**
