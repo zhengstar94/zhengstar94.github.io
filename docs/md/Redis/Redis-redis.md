@@ -3,7 +3,7 @@
 Redis的数据是存在内存中，是个内存数据库，所以读写速度非常快，一般用于缓存方向，另外也可以做分布式锁，甚至消息队列。
 
 ## 缓存处理的流程
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/extral/4.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/extral/4.png)
 
 1. 如果用户请求的数据在缓存中就直接返回；
 2. 缓存中不存在就查看数据库是否存在；
