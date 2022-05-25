@@ -1,0 +1,245 @@
+
+### 接口分离原则
+> 多个特定的客户端接口要好于一个通用性的总接口。<br>
+> 通过遵守接口分离原则，接口的设计变得更加简洁，而且各种客户类不需要实现自己不需要实现的接口。
+
+**解读**
+
+- 客户端不应该依赖它不需要实现的接口。
+- 不建立庞大臃肿的接口，应尽量细化接口，接口中的方法应该尽量少。
+**需要注意的是：接口的粒度也不能太小。如果过小，则会造成接口数量过多，使设计复杂化。**
+
+#### 类图对比
+
+**未实践接口分离原则：**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/02/image-20436483b1e14d339e094ba3c8e06b48.png)
+
+```c
+//================== RestaurantProtocol.h ==================
+
+@protocol RestaurantProtocol <NSObject>
+
+- (void)placeOnlineOrder;         //下订单：online
+- (void)placeTelephoneOrder;      //下订单：通过电话
+- (void)placeWalkInCustomerOrder; //下订单：在店里
+
+- (void)payOnline;                //支付订单：online
+- (void)payInPerson;              //支付订单：在店里支付
+
+@end
+```
+
+```c
+//================== OnlineClient.h ==================
+
+#import "RestaurantProtocol.h"
+
+@interface OnlineClient : NSObject<RestaurantProtocol>
+@end
+
+
+
+//================== OnlineClient.m ==================
+
+@implementation OnlineClient
+
+- (void)placeOnlineOrder{
+    NSLog(@"place on line order");
+}
+
+- (void)placeTelephoneOrder{
+    //not necessarily
+}
+
+- (void)placeWalkInCustomerOrder{
+    //not necessarily
+}
+
+- (void)payOnline{
+    NSLog(@"pay on line");
+}
+
+- (void)payInPerson{
+    //not necessarily
+}
+@end
+```
+
+```c
+//================== TelephoneClient.h ==================
+
+#import "RestaurantProtocol.h"
+
+@interface TelephoneClient : NSObject<RestaurantProtocol>
+@end
+
+
+
+//================== TelephoneClient.m ==================
+
+@implementation TelephoneClient
+
+- (void)placeOnlineOrder{
+    //not necessarily
+}
+
+- (void)placeTelephoneOrder{
+    NSLog(@"place telephone order");
+}
+
+- (void)placeWalkInCustomerOrder{
+    //not necessarily
+}
+
+- (void)payOnline{
+    NSLog(@"pay on line");
+}
+
+- (void)payInPerson{
+    //not necessarily
+}
+
+@end
+```
+
+```c
+//================== WalkinClient.h ==================
+
+#import "RestaurantProtocol.h"
+
+@interface WalkinClient : NSObject<RestaurantProtocol>
+@end
+
+
+
+//================== WalkinClient.m ==================
+
+@implementation WalkinClient
+
+- (void)placeOnlineOrder{
+   //not necessarily
+}
+
+- (void)placeTelephoneOrder{
+    //not necessarily
+}
+
+- (void)placeWalkInCustomerOrder{
+    NSLog(@"place walk in customer order");
+}
+
+- (void)payOnline{
+   //not necessarily
+}
+
+- (void)payInPerson{
+    NSLog(@"pay in person");
+}
+
+@end
+```
+
+**实践了接口分离原则：**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/02/image-7841dae613334a55a860757932e1984c.png)
+
+```c
+//================== RestaurantPlaceOrderProtocol.h ==================
+
+@protocol RestaurantPlaceOrderProtocol <NSObject>
+
+- (void)placeOrder;
+
+@end
+```
+
+**支付接口：**
+```c
+//================== RestaurantPaymentProtocol.h ==================
+
+@protocol RestaurantPaymentProtocol <NSObject>
+
+- (void)payOrder;
+
+@end
+```
+```c
+//================== Client.h ==================
+
+#import "RestaurantPlaceOrderProtocol.h"
+#import "RestaurantPaymentProtocol.h"
+
+@interface Client : NSObject<RestaurantPlaceOrderProtocol,RestaurantPaymentProtocol>
+@end
+```
+```c
+//================== OnlineClient.h ==================
+
+#import "Client.h"
+@interface OnlineClient : Client
+@end
+
+
+
+//================== OnlineClient.m ==================
+
+@implementation OnlineClient
+
+- (void)placeOrder{
+    NSLog(@"place on line order");
+}
+
+- (void)payOrder{
+    NSLog(@"pay on line");
+}
+
+@end
+```
+```c
+//================== TelephoneClient.h ==================
+#import "Client.h"
+@interface TelephoneClient : Client
+@end
+
+
+
+//================== TelephoneClient.m ==================
+@implementation TelephoneClient
+
+- (void)placeOrder{
+    NSLog(@"place telephone order");
+}
+
+- (void)payOrder{
+    NSLog(@"pay on line");
+}
+
+@end
+```
+```c
+//================== WalkinClient.h ==================
+
+#import "Client.h"
+@interface WalkinClient : Client
+@end
+
+
+
+//================== WalkinClient.m ==================
+
+@implementation WalkinClient
+
+- (void)placeOrder{
+    NSLog(@"place walk in customer order");
+}
+
+- (void)payOrder{
+    NSLog(@"pay in person");
+}
+
+@end
+```
+
+
+
