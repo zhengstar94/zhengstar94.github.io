@@ -44,9 +44,14 @@
       * [AQS源码分析](md/Thread/AQS源码分析-aqs源码分析.md)
       * [CountDownLatch](md/Thread/CountDownLatch-countdownlatch.md)
     
-  * [计算机基础](md/computerBase/计算机网络-计算机网络.md)
-    * [TCP的三次握手与四次挥手](md/computerBase/TCP的三次握手与四次挥手-tcp-connection.md)
-    * [BIO、NIO、AIO](md/computerBase/IO模型之BIO、NIO、AIO-io模型.md)
+  * [计算机基础](md/ComputerBase/计算机网络-计算机网络.md)
+    * [TCP的三次握手与四次挥手](md/ComputerBase/TCP的三次握手与四次挥手-tcp-connection.md)
+    * [BIO、NIO、AIO](md/ComputerBase/IO模型之BIO、NIO、AIO-io模型.md)
+
+  * [JVM](md/JVM/JVM与垃圾回收-jvm.md)
+    * [JVM类加载与双亲委派](md/JVM/JVM%20之%20类加载与双亲委派-jvm之类加载与双亲委派.md)
+    * [线上问题排查思路](md/JVM/Java%20应用线上问题排查思路、常用工具小结-java-porblem-sort-out.md)
+    * [JVM调优工具与调优实战](md/JVM/JVM调优工具与调优实战-jvm-optimize.md)
     
   * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
     * [排序算法](md/Algorithm/排序算法-排序算法.md)

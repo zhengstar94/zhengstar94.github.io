@@ -1,0 +1,375 @@
+
+# Jmap(生成堆转储快照)
+
+可以用来查看内存信息，实例个数以及占用内存大小
+
+1. 先通过jps找到对应项目的进程（19967）
+> jps:类似 UNIX 的 ps 命令。用于**查看所有 Java 进程**的启动类、传入参数和 Java 虚拟机参数等信息；
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-988f845052da4d789752a72cbb76b757.png)
+
+2. 通过jmap命令 `-histo`
+> jmap:用于生成堆转储快照
+
+**需要在对应文件目录执行以下语句，目的是为了生成输出文件`log.txt`**
+
+```linux
+jmap -histo 19976 > ./log.txt
+```
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-46ec2d858bd74c31bcc82cc4e3ce07ef.png)
+
+- num:序号
+- instances:实例数量
+- bytes:占用空间大小
+- class name: 类名称, [C is a char[],[S is a short[], I is a int[], [B is a byte[],[[l is int[][]
+
+
+3. 通过jmap命令 `-heap` 查看堆信息
+
+```linux
+jmap -heap 19976
+```
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-e8b0460acd214739b5c849b21455edb0.png)
+
+4. 利用jmap导出dump文件 `-dump`（快照信息）
+
+**需要在对应文件目录执行以下语句，目的是为了生成dump文件
+`eureka.hprof`，可以利用可视化工具进行打开**
+
+```linux
+jmap -dump:format=b,file=eureka.hprof 19976
+```
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-c2da2dbc5d5f4bdd80ae301047a9e23a.png)
+
+利用命令`jvisualvm`打开jdk自带可视化工具，并把`eureka.hprof`文件导入进去
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-5e2a73f8e08645eca1b4e9c4c97f768e.png)
+
+> 可以设置内存溢出的时候自动导出dump文件(内存很大的时候，可能会导不出来)<br>
+> 	1. -XX:+HeapDumpOnOutOfMemoryError<br>
+> 	2. -XX:HeapDumpPath=./(路径)	
+
+## 1. IDEA中配置信息
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-928ed89b07094b7dba0ea0697640481c.png)
+
+## 2. 示例代码
+
+```java
+public class OOMTest {
+
+public static List<Object> list = new ArrayList<();
+ 	// JVM设置
+ 	//-Xms10M -Xmx10M -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=D:\jvm. dump
+ 	public static void main(string[] args) {
+ 		List<Object> list = new ArrayList<>();
+ 		int i = 0;
+ 		int j = 0;
+ 		while (true) {
+ 			list. add(new User(i++,UUID.randomUUID().tostring()));
+ 			new User (j--,UUID.randomUUID().toString());
+```
+
+## 3. 利用命令`jvisualvm`打开jdk自带可视化工具，导入dump文件
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-8660b155db264995ae30e7a1285f173f.png)
+
+> 发现char[]，String，User实例数比较多，因为该代码不断new User，且，User里面包含String属性，String底层就是char[]，所以导致OOM。
+
+# jstack
+
+## jstack查看死锁
+
+1. 用jstack加上进程id查找死锁，如下示例：
+
+```java
+public class DeadLockTest {
+	private static object lock1 = new object(); 
+	private static object lock2 = new object();
+
+	public static void main(string[] args) { 
+		new Thread(() -> {
+ 			synchronized (lock1) {
+ 				try {
+					System.out.printin("thread1 begin"); 
+					Thread.sleep (5000);
+ 				} catch (InterruptedException e) {
+ 				}
+				synchronized (lock2) {
+ 					system.out.printin("thread1 end");
+				}
+			}
+ 		}).start();
+
+		new Thread(() -> {
+ 			synchronized (lock2) {
+ 				try {
+					System.out.printin("thread2 begin"); 
+					Thread.sleep (5000);
+ 				} catch (InterruptedException e) {
+ 				}
+				synchronized (lock1) {
+ 					system.out.printin("thread2 end");
+				}
+			}
+ 		}).start();
+
+		system.out.printin("main thread end");
+
+	}
+}
+```
+
+**执行后的情况：**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-79952f7c532444ccbd52a73a45a2dc36.png)
+
+程序停止不动，没有结束，没有执行两个线程的end方法
+
+2. 利用jstack命令查看并定位死锁的位置
+
+- 先利用jps查看程序进程id(20672)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-15deacb460ad481ab8f199cb07e3486b.png)
+
+- 利用jstack查看该进程信息
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-ad685ee6d4964319a419b084f561b6c4.png)
+
+> "Thread-1"线程名<br>
+> prio-5优先级=5<br>
+> tid=0x000000001fa9e000 线程id<br>
+> nid=0x2d64 线程对应的本地线程标识nid<br>
+> 段落引用java.lang.Thread.State: BLOCKED线程状态<br>
+
+- 往后翻发现一些进程的死锁
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-31d4597bf38d4ca69e2cbfbb925a1693.png)
+
+> 可以看到 Thread-1与Thread-0死锁的代码位置
+
+3. 也可以用命令`jvisualvm`打开jdk自带可视化工具自动检查死锁，会自动检查出死锁，点击`线程Dump`，也可以看到类似上面的死锁信息
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-21254489aff441b790f698ec7d485b28.png)
+
+## jstack找出占用cpu最高的线程堆栈信息
+
+1. 示例代码
+
+```java
+public class Math {
+
+	public static final int initData = 666;
+	public static User user = new User();
+
+	public int compute() { //一个方法对应一块栈帧内存区域
+		int a = 1;
+		int b =2:
+		int c= (a + b) * 10;
+		return c;
+	}
+
+	public static void main(string[] args) {
+		Math math = new Math();
+		while (true){
+			math.compute();
+		}
+	}
+}
+```
+
+2. 利用jstack查看
+
+先利用top命令查看，发现有一个java程序CPU飙高(21919)
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-46f4f20cbb524354b0ca3238dfa33c7a.png)
+
+- 1. 利用命令top -p <pid>，显示你的java进程的内存情况，pid是你的java程序
+
+`top -p 20919`
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-9525c843b1984d3e9ba023dfa4bbb871.png)
+
+- 2. 按H，获取每个线程的内存情况
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-4e15e3de44b94028b4b50355cc9241c6.png)
+
+
+- 3. 找到内存和cpu占用最高的线程tid(21920)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-464975dfe975490db319fe263020c5c4.png)
+
+- 4. 把(21920)转为十六进制(55a0)，此为线程id的十六进制表示，注意字母小写
+
+- 5. 执行jstack 19663|grep -A 10 55a0,得到线程堆栈信息中4cd0这个线程所在行的后面10行,从堆栈中可以发现导致cpu飙高的调用方法
+
+`jstack 21919|grep -A 10 55a0`
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-965f0cadbb334fb083008d8a4fc40fdc.png)
+
+# Jinfo
+查看正在运行的Java应用程序的扩展参数<br>
+- 查看jvm的参数
+
+`jinfo -flags 21968`
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-118985821c7646cf94e2c43df720aadc.png)
+
+
+- 查看java系统参数
+
+`jinfo -sysprops 21968`
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-1d6587121aa64ebb863c6161911fc2b4.png)
+
+
+# jstat(重点)
+jstat命令可以查看堆内存各部分的使用量,以及加载类的数量。命令的格式如下:
+
+jstat [-命令选项] [vmid] [间隔时间(毫秒) [查询次数]
+
+**注意:使用的jdk版本是jdk8**
+
+`jstat -gc 21968`
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-126c8adeed7a42ee9226f7033856cfd8.png)
+
+> - NGCMN:新生代最小容量
+> - NGCMX:新生代最大容量
+> - NGC:当前新生代容量
+> - SOC:第一个幸存区大小
+> - S1C:第二个幸存区的大小
+> - EC:伊甸园区的大小
+> - OGCMN:老年代最小容量
+> - OGCMX:老年代最大容量
+> - OGC:当前老年代大小
+> - OC:当前老年代大小
+> - MCMN:最小元数据容量
+> - MCMX:最大元数据容量
+> - MC:当前元数据空间大小
+> - CCSMN:最小压缩类空间大小
+> - CCSMX:最大压缩类空间大小
+> - CCSC:当前压缩类空间大小
+> - YGC:年轻代gc次数
+> - FGC:老年代GC次数
+
+## JVM运行情况预估
+
+`jstat -gc 21968 1000 10` 代表每隔1秒执行1次，总共10次
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-bb7feeb0e23f4c66be858ab51daa537b.png)
+
+
+# 系统频繁Full GC导致系统卡顿是怎么回事
+
+**年轻代对象增长的速率**<br>
+可以执行命令jstat-gc pid 1000 10 (每隔1秒执行1次命令,共执行10次),通过观察EU(eden区的使用)来估算每秒eden大概新增多少对象,如果系统负截不高,可以把频率1秒换成1分钟,甚至10分钟来观察整体情况,注意,一般系统可能有高峰期和日常期,所以需要在不同的时间分别估算不同情况下对象增长速率。
+
+**Young GC的触发频率和每次耗时**<br>
+知道年轻代对象增长速率我们就能推根据eden区的大小推算出Young GC大概多久触发一次, Young GC的平均耗时可以通过YGCT/YGC公式出,根据结果我们大概就能知道**系统大概多久会因为Young GC的执行而卡顿多久**。
+
+**每次Young GC后有多少对象存活和进入老年代**<br>
+这个因为之前已经大概知道Young GC的频率,假设是每5分钟一次,那么可以执行命令jstat-gc pid 300000 10 ,观察每次结果eden,survivor和老年代使用的变化情况,在每次gc后eden区使用一般会大幅减少, survivor和老年代都有可能增长,这些增长的对象就是每次Young GC后存活的对象,同时还可以看出每次Young GC后进去老年代大概多少对象,从而可以推算出**老年代对象增长速率**。
+
+**Full GC的胜发频率和每次耗时**<br>
+知道了老年代对象的增长速率就可以推算出Full GC的触发频率了, Full GC的每次耗时可以用公式FGCT/FGC计算得出.
+
+
+**优化思路**其实简单来说就是尽量让每次Young GC后的存活对象小于Survivor区域的50%,都留存在年轻代里。尽量别让对象进入老年代。尽量减少Full GC的频率,避免频繁Full GC对JVM性能的影响.
+
+**实例：**
+
+- 机器配置: 2核4G
+- JVM内存大小: 2G
+- 系统运行时间:7天
+- 期间发生的Full GC次数和耗时: 500多次, 200多秒
+- 期间发生的Young GC次数和耗时: 1万多次, 500多秒
+
+
+大致算下来每天会发生70多次Full GC,平均每小时3次,每次Full GC在400毫秒左右;（Full GC尽量几天发生一次）<br>
+每天会发生1000多次Young GC,每分钟会发生1次,每次Young GC在50毫秒左右。
+
+
+JVM参数配置如下：
+
+1. -Xms1536M -Xmx1536M -Xmn512M -Xss256K -XX:SurvivorRatio=6 -XX:Metaspacesize=256M -XX:MaxMetaspacesize=256M
+2. -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingoccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly
+
+下图为猜测运行时数据区：
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-b649a0001cdd4dbcadcc0171c4228bb3.png)
+
+**需要思考：为什么每20分钟会有700多M对象进入老年代？**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-d20b710e79674127bc1cae202fcf8275.png)
+
+**执行一阵子后，发现YGC与FullGC变大**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-30eeb00fbce7456e9f61a6d0c2efcc05.png)
+
+- 对于对象动态年龄判断机制导致的full gc较为频繁可以先试着优化JVM参数，把年轻带适当调整大一些
+
+1. -Xms1536M -Xmx1536M -Xmn1024M -Xss256K -XX:SurvivorRatio=6 -XX:Metaspacesize=256M -XX:MaxMetaspacesize=256M
+2. -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingoccupancyFraction=92 -XX:+UseCMSInitiatingOccupancyOnly
+
+下图为更改参数后运行时数据区：
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-f93ede0728664deab77eb71b5549af45.png)
+
+**执行后发现，没有什么变化，而且Full GC变多了**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-e07836d44d464917a661bddbbe758acb.png)
+
+**推测下full gc比minor gc还多的原因有哪些？**
+
+1. 元空间不够导致的多余full gc
+2. 显示调用System.gc()造成多余的full gc,这种一般线上尽量通过-XX:+DisableExplicitGC参数禁用,如果加上了这个JVM启动参数,那么代码中调用System.gc()没有任何效果
+3. 老年代空间分配担保机制
+
+
+最快速度分析完这些我们推测的原因以及优化后,我们发现young gc和ullg依然很频繁了,而且看到有大量的对象频繁的被挪动到老年代,这种情况我们可以借助`jmap`命令大概看下是什么对象
+
+1. 先打开`jvisualvm`打开可视化工具，找到对应线程，查看`抽象器`中的`内存`，效果与`jmap`相同
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-faf0bb11d9c845469b756a4c1656ecf6.png)
+
+发现byte[]的变动非常大，与之相关的只可能是下面的User
+
+2. 我们可以查看`抽象器`中的`CPU`
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-a32099bd329a4397b6fa2bdc297e213a.png)
+
+可以看到与我们相关的是一个`com.jvm.User<init>` 与`com.jvm.IndexController.processUserData()`，定位发现确实是该位置产生问题，User内部的成员变量byte本身100k(初始化赋值)，每次查询5000次导致每次产生对象大小为500M，所以把查询5000次改为500次发现问题解决。
+
+
+
+
+# 总结
+
+- jmap：可以用来查看内存信息，实例个数以及占用内存大小
+- jstack：分析线程状态
+- jstat：jstat命令可以查看堆内存各部分的使用量,以及加载类的数量。
+
+
+步骤：
+1. 死锁情况
+- 1. 先用jps查看程序进程的id
+- 2. 利用jstack + 进程id 查看该进程的信息，找到对应的死锁代码的位置
+- 3. 也可以利用jvisualvm 打开jdk自带的可视化工具自动检查死锁
+
+2. jstack找出cpu最高的线程堆栈信息
+- 1. 先利用top命令，查看发现有一个java程序cpu飙高，找到对应的pid进程号21919
+- 2. 利用top -p命令显示进程的内存情况，再按H找到内存和cpu占用最高的线程tid 21920
+- 3. 把线程id转为十六进制(21920)转为十六进制(55a0)
+- 4. 执行jstack 21919|grep -A 10 55a0 就可以发现导致cpu飙高的调用方法
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
