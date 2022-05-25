@@ -7,6 +7,7 @@
 * 后端
   * [基础](md/Base/基础-基础.md)
       * [注解与反射](md/Base/注解与反射-annotation.md)
+      * [序列化与反序列化](md/Base/序列化与反序列化-xu-lie-hua-yu-fan-xu-lie-hua.md)
       * [Java8Stream流递归树遍历](md/Base/Java8%20Stream流递归解决树形遍历-java8-stream-recursion-tree.md)
   * [集合](md/Collection/Collection.md)
     * [ArrayList与LinkedList](md/Collection/ArrayList%20与%20LinkedList-arraylist-linkedlist.md)
@@ -39,5 +40,11 @@
       * [AQS抽象队列同步器](md/Thread/AQS(抽象队列同步器)-aqs.md)
       * [AQS源码分析](md/Thread/AQS源码分析-aqs源码分析.md)
       * [CountDownLatch](md/Thread/CountDownLatch-countdownlatch.md)
+  * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
+    * [排序算法](md/Algorithm/排序算法-排序算法.md)
+    * [二分查找part1](md/Algorithm/Binary%20Search%20二分查找-binary-search.md)
+    * [二分查找part2](md/Algorithm/binary_search-binarysearch.md)
+    * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
+    * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
 
 
