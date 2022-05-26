@@ -121,6 +121,7 @@
     * [日志的使用？](md/SystemDesign/日志的使用-use-log.md)
     * [短信验证服务(阿里云)](md/SystemDesign/短信验证服务(阿里云)-phone-message.md)
     * [订单主动过期释放，如何实现？](md/SystemDesign/订单主动过期释放，如何实现？-order-to-expire.md)
+    * [手写LRU](md/SystemDesign/手写LRU-hand-lru.md)
     
   * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
     * [排序算法](md/Algorithm/排序算法-排序算法.md)
@@ -141,5 +142,10 @@
     * [适配器模式](md/Design/适配器模式(Adapter)-适配器模式adapter.md)
     * [单例模式](md/Design/单例模式（Singleton）-singleton.md)
     * [接口分离原则](md/Design/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
+
+  * [生活](md/Life/生活篇.md)
+    * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
+    * [低碳](md/Life/低碳饮食-diet.md)
+    * [减肥篇](md/Life/lost-weight.md)
 
 
