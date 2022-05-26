@@ -97,6 +97,13 @@
     * [TCC实例](md/Distributed/TCC实例-tcc.md)
     * [Zookeeper实现分布式锁](md/Distributed/Zookeeper实现分布式锁-zookeeper.md)
     * [分布式系统接口，如何避免表单的重复提交](md/Distributed/分布式系统接口，如何避免表单的重复提交-distributed-idempotent.md)
+
+  * [系统设计案例](md/SystemDesign/系统设计相关.md)
+    * [如何统计网站UV？](md/SystemDesign/「系统设计面试题」如何统计网站UV？-system-design-uv.md)
+    * [如何解决网站大文件上传问题？](md/SystemDesign/「系统设计面试题」如何解决网站大文件上传问题？-system-design-file-download.md)
+    * [如何设计一个短链系统？](md/SystemDesign/「系统设计面试题」如何设计一个短链系统？-system-design-short-link.md)
+    * [如何设计一个秒杀系统？](md/SystemDesign/「系统设计面试题」如何设计一个秒杀系统？-system-design-flash-sale.md)
+    * [如何设计一个站内消息系统？](md/SystemDesign/「系统设计面试题」如何设计一个站内消息系统？-system-design-station-message.md)
     
   * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
     * [排序算法](md/Algorithm/排序算法-排序算法.md)
