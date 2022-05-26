@@ -86,6 +86,13 @@
     * [如何保证消息队列的高可用](md/MQ/如何保证消息队列的高可用-如何保证消息队列的高可用.md)
     * [如何处理消息丢失的问题](md/MQ/如何处理消息丢失的问题(如何保证消息的可靠性传输)-如何处理消息丢失的问题.md)
     * [如何解决消息队列的延时以及过期失效问题](md/MQ/如何解决消息队列的延时以及过期失效问题？消息队列满了以后该怎么处理？有几百万消息持续积压几小时，说说怎么解决？-mq-invalid.md)
+
+  * [分布式](md/Distributed/分布式事务解决方案part%201-distribute-work-solve.md)
+    * [分布式事务解决方案](md/Distributed/分布式事务解决方案part%202-distribute-transaction-solution.md)
+    * [基于rocketmq的分布式事务](md/Distributed/基于rocketmq的分布式事务-rocketmq.md)
+    * [TCC实例](md/Distributed/TCC实例-tcc.md)
+    * [Zookeeper实现分布式锁](md/Distributed/Zookeeper实现分布式锁-zookeeper.md)
+    * [分布式系统接口，如何避免表单的重复提交](md/Distributed/分布式系统接口，如何避免表单的重复提交-distributed-idempotent.md)
     
   * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
     * [排序算法](md/Algorithm/排序算法-排序算法.md)
