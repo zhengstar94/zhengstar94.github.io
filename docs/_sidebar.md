@@ -79,6 +79,13 @@
     * [SpringBoot自动装配原理](md/Spring/spring%20boot自动装配原理-springboot自动装配原理.md)
     * [Spring与Redis通信设计结构图](md/Spring/Spring与Redis通信设计结构图-spring-redis-call.md)
     * [搭建一个SpringCloud项目](md/Spring/搭建一个Spring%20Cloud项目-spring-cloud-project-build.md)
+
+  * [MQ](md/MQ/消息MQ-mq.md)
+    * [消息的顺序性](md/MQ/消息的顺序性-消息的顺序性.md)
+    * [如何保证消息的幂等性](md/MQ/如何保证消息的幂等性-如何保证消息的幂等性.md)
+    * [如何保证消息队列的高可用](md/MQ/如何保证消息队列的高可用-如何保证消息队列的高可用.md)
+    * [如何处理消息丢失的问题](md/MQ/如何处理消息丢失的问题(如何保证消息的可靠性传输)-如何处理消息丢失的问题.md)
+    * [如何解决消息队列的延时以及过期失效问题](md/MQ/如何解决消息队列的延时以及过期失效问题？消息队列满了以后该怎么处理？有几百万消息持续积压几小时，说说怎么解决？-mq-invalid.md)
     
   * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
     * [排序算法](md/Algorithm/排序算法-排序算法.md)
