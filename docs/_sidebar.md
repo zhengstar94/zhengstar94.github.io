@@ -155,8 +155,9 @@
     * [单例模式](md/Design/单例模式（Singleton）-singleton.md)
     * [接口分离原则](md/Design/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
 
+  
+* 生活
   * [生活](md/Life/生活篇.md)
     * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
     * [低碳](md/Life/低碳饮食-diet.md)
     * [减肥篇](md/Life/lost-weight.md)
-    
