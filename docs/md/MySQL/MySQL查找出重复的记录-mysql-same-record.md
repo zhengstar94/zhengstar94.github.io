@@ -1,0 +1,21 @@
+
+## 问题
+1. 查找表中多余的重复记录，重复记录是根据单个字段来判断的。例如：有张表中有uid和uname两个字段，现在需要查找出uname重复的所有数据列。数据表如下：
+|id|o_id|uname|
+|-------|-------|-------|
+|1|11|张三|
+|2|22|张三|
+|3|33|李四|
+|4|44|王五|
+|5|55|王八|
+|6|66|王五|
+
+```mysql
+    SELECT * FROM `t_order` WHERE uname IN (
+        SELECT uname FROM `t_order` GROUP BY uname HAVING COUNT(uname) > 1 
+    );
+```
+
+### Having 的使用
+
+> HAVING分组过滤工具，可以在GROUP BY的基础上可以对每个分组进行过滤（保留哪些分组，排除哪些分组），其作用在WHERE和GROUP BY之后。
