@@ -28,7 +28,7 @@
 1. 数据库(利用主键唯一规则、MySQL行锁)
 2. 基于Redis的NX(存在不新增)、EX(过期时间)参数
 3. Zookeeper临时有序节点
-[三种分布式锁对比](https://zhengstars.website/archives/distributed-lock-compare)
+[三种分布式锁对比](分布式锁对比-distributed-lock-compare.md)
 
 由于锁常常是在高并发的情况下才会使用到的分布式控制工具，所以使用数据库实现会对数据库造成一定的压力，所以不推荐数据库的实现；Zookeeper集群还需要我们去维护，实现起来比较复杂，如果压力不大的情况下，一般不使用Zookeeper实现分布式锁。所以缓存实现分布式锁还是比较常见的，因为**缓存比较轻量、缓存的响应快、吞吐高、还有自动失效的机制保证锁一定能释放**。
 

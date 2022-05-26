@@ -7,17 +7,17 @@
 
 ### 包含模式
 
-- [简单工厂模式](https://zhengstars.website/archives/simple-factory-pattern)（Simple Factory）
+- [简单工厂模式](简单工厂模式(%20Simple%20Factory%20Pattern%20)-simple-factory-pattern.md)（Simple Factory）
 	重要程度：4 （5为满分）
-- [工厂方法模式](https://zhengstars.website/archives/factory-method-pattern)（Factory Method）
+- [工厂方法模式](工厂方法模式(Factory%20Method%20Pattern)-factory-method-pattern.md)（Factory Method）
 	重要程度：5
-- [抽象工厂模式](https://zhengstars.website/archives/abstract-factory)（Abstract Factory）
+- [抽象工厂模式](抽象工厂模式(Abstract%20Factory)-abstract-factory.md)（Abstract Factory）
 	重要程度：5
-- [建造者模式](https://zhengstars.website/archives/builder)（Builder）
+- [建造者模式](建造者模式（Builder）-builder.md)（Builder）
 	重要程度：2
 - 原型模式（Prototype）
 	重要程度：3
-- [单例模式](https://zhengstars.website/archives/singleton)（Singleton）
+- [单例模式](单例模式（Singleton）-singleton.md)（Singleton）
 	重要程度：4	
 
 
