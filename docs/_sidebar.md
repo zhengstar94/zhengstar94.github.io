@@ -1,8 +1,20 @@
 <!-- docs/_sidebar.md -->
 
 * [首页](README)
-* [指南](guide)
 
+* 面试
+  * [面试总结](md/Summary/总结.md)
+      * [面试总结](md/Summary/基础.md)
+      * [面试总结](md/Summary/集合.md)
+      * [面试总结](md/Summary/线程.md)
+      * [面试总结](md/Summary/JVM.md)
+      * [面试总结](md/Summary/MySQL.md)
+      * [面试总结](md/Summary/Redis.md)
+      * [面试总结](md/Summary/计算机基础.md)
+      * [面试总结](md/Summary/Spring.md)
+      * [面试总结](md/Summary/MQ.md)
+      * [面试总结](md/Summary/分布式事务.md)
+      * [面试总结](md/Summary/设计模式.md)
 
 * 后端
   * [基础](md/Base/基础-基础.md)
@@ -147,17 +159,4 @@
     * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
     * [低碳](md/Life/低碳饮食-diet.md)
     * [减肥篇](md/Life/lost-weight.md)
-
-* 面试
-  * [面试总结](md/Summary/总结.md)
-    * [面试总结](md/Summary/基础.md)
-    * [面试总结](md/Summary/集合.md)
-    * [面试总结](md/Summary/线程.md)
-    * [面试总结](md/Summary/JVM.md)
-    * [面试总结](md/Summary/MySQL.md)
-    * [面试总结](md/Summary/Redis.md)
-    * [面试总结](md/Summary/计算机基础.md)
-    * [面试总结](md/Summary/Spring.md)
-    * [面试总结](md/Summary/MQ.md)
-    * [面试总结](md/Summary/分布式事务.md)
-    * [面试总结](md/Summary/设计模式.md)
+    
