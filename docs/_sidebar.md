@@ -4,17 +4,17 @@
 
 * 面试
   * [面试总结](md/Summary/总结.md)
-      * [面试总结](md/Summary/基础.md)
-      * [面试总结](md/Summary/集合.md)
-      * [面试总结](md/Summary/线程.md)
-      * [面试总结](md/Summary/JVM.md)
-      * [面试总结](md/Summary/MySQL.md)
-      * [面试总结](md/Summary/Redis.md)
-      * [面试总结](md/Summary/计算机基础.md)
-      * [面试总结](md/Summary/Spring.md)
-      * [面试总结](md/Summary/MQ.md)
-      * [面试总结](md/Summary/分布式事务.md)
-      * [面试总结](md/Summary/设计模式.md)
+      * [基础](md/Summary/基础.md)
+      * [集合](md/Summary/集合.md)
+      * [线程](md/Summary/线程.md)
+      * [JVM](md/Summary/JVM.md)
+      * [MySQL](md/Summary/MySQL.md)
+      * [Redis](md/Summary/Redis.md)
+      * [计算机基础](md/Summary/计算机基础.md)
+      * [Spring](md/Summary/Spring.md)
+      * [MQ](md/Summary/MQ.md)
+      * [分布式事务](md/Summary/分布式事务.md)
+      * [设计模式](md/Summary/设计模式.md)
 
 * 后端
   * [基础](md/Base/基础-基础.md)
