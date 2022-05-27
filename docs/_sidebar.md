@@ -134,6 +134,7 @@
     * [日志的使用？](md/SystemDesign/日志的使用-use-log.md)
     * [短信验证服务(阿里云)](md/SystemDesign/短信验证服务(阿里云)-phone-message.md)
     * [订单主动过期释放，如何实现？](md/SystemDesign/订单主动过期释放，如何实现？-order-to-expire.md)
+    * [手写LRU](md/SystemDesign/手写LRU-hand-lru.md)
     * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
     * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
     
