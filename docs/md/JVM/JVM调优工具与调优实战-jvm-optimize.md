@@ -13,7 +13,7 @@
 
 **需要在对应文件目录执行以下语句，目的是为了生成输出文件`log.txt`**
 
-```linux
+```bash
 jmap -histo 19976 > ./log.txt
 ```
 
@@ -27,7 +27,7 @@ jmap -histo 19976 > ./log.txt
 
 3. 通过jmap命令 `-heap` 查看堆信息
 
-```linux
+```bash
 jmap -heap 19976
 ```
 
@@ -38,7 +38,7 @@ jmap -heap 19976
 **需要在对应文件目录执行以下语句，目的是为了生成dump文件
 `eureka.hprof`，可以利用可视化工具进行打开**
 
-```linux
+```bash
 jmap -dump:format=b,file=eureka.hprof 19976
 ```
 

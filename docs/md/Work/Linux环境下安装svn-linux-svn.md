@@ -3,7 +3,7 @@
 
 1. 安装(使用yum进行安装)
 
-```linux
+```bash
 yum install subversion
 ```
 
@@ -62,7 +62,7 @@ yum install subversion
 		
 3. 启动与停止
 
-```linux
+```bash
 svnserve -d -r /home/svn（启动）
 
 killall svnserve（停止）
@@ -70,7 +70,7 @@ killall svnserve（停止）
 
 上述启动命令中，`-d`表示守护进程，`-r`表示在后台执行。停止还可以采用杀死进程的方式：
 
-```linux
+```bash
 root      4908     1  0 21:32 ?        00:00:00 svnserve -d -r /home/svn
 root      4949  4822  0 22:05 pts/0    00:00:00 grep svnserve
 

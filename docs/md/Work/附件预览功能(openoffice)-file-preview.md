@@ -29,10 +29,10 @@
 **进入OpenOffice 4\program目录 执行第三段命令**
 
 
-```linux
-cd  C:\Program Files (x86)\OpenOffice 4\program  
+```bash
+cd C:\ProgramFiles(x86)\OpenOffice4\program
 
-soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard  
+soffice-headless-accept="socket,host=127.0.0.1,port=8100;urp;"-nofirststartwizard
 ```
 
 **服务打开成功之后在任务管理器可以看见soffice.bin的进程。**
@@ -49,14 +49,14 @@ soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststar
 
 2. 解压openoffice包
 
-```linux
-tar -zxvf Apache_OpenOffice_4.1.4_Linux_x86-64_install-rpm_zh-CN.tar.gz  /opt/softwares/  
+```bash
+tar-zxvf Apache_OpenOffice_4.1.4_Linux_x86-64_install-rpm_zh-CN.tar.gz/opt/softwares/
 ```
 
 3. 解压之后会在/opt/softwares中生成zh-CN文件夹，进入zh-CN中RPMS文件夹
 
-```linux
-cd /opt/softwares/zh-CN/RPMS  
+```bash
+cd /opt/softwares/zh-CN/RPMS
 ```
 
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-6a3c7a90523948b7a897e14e95b3e6e5.png)
@@ -64,7 +64,7 @@ cd /opt/softwares/zh-CN/RPMS  
 
 4. 运行yum localinstall *.rpm
 
-```linux
+```bash
 yum localinstall *.rpm  
 ```
 
@@ -72,7 +72,7 @@ yum localinstall *.rpm  
 
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-b6aa5a2522154e4e83fffb8211c418b1.png)
 
-```linux
+```bash
 yum localinstall openoffice4.1.4-redhat-menus-4.1.4-9788.noarch.rpm 
 ```
 
@@ -83,14 +83,14 @@ yum localinstall openoffice4.1.4-redhat-menus-4.1.4-9788.noarch.rpm 
 
 <font color='red'>启动服务和windows不同的是,需要在命令末尾加 & </font>
 
-```linux
+```bash
 cd /opt/openoffice4/program  
 soffice -headless -accept=""socket,host=127.0.0.1,port=8100;urp;"" -nofirststartwizard & 
 ```
 
 查看是否启动成功
 
-```linux
+```bash
 ps -ef|grep openoffice 
 ```
 
@@ -98,7 +98,7 @@ ps -ef|grep openoffice 
 
 查看端口：
 
-```linux
+```bash
 netstat -lnp |grep 8100
 ```
 
@@ -106,7 +106,7 @@ netstat -lnp |grep 8100
 
 8. 完整命令
 
-```linux
+```bash
 //进入目录  
 cd /opt/openoffice4/program  
   

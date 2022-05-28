@@ -100,7 +100,7 @@ key C落在slot空间的10923至16383区间上,并最终存储在Node3上<br>
 
 ## 1. 利用docker创建容器，创建6个redis实例
 
-```linux
+```bash
 docker create --name redis-node-1 --net host --privileged=true -v /data/redis/share/redis-node-1:/data redis:5.0.7 --cluster-enabled yes --appendonly yes --port 6381
 docker create --name redis-node-2 --net host --privileged=true -v /data/redis/share/redis-node-2:/data redis:5.0.7 --cluster-enabled yes --appendonly yes --port 6382
 docker create --name redis-node-3 --net host --privileged=true -v /data/redis/share/redis-node-3:/data redis:5.0.7 --cluster-enabled yes --appendonly yes --port 6383
@@ -123,7 +123,7 @@ redis:5.0.7		//redis镜像名称和版本号<br>
 
 ## 2. 启动容器
 
-```linux
+```bash
 docker start redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5 redis-node-6
 ```
 
@@ -131,19 +131,19 @@ docker start redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5 re
 
 ## 3. 查看容器(6台容器)
 
-```linux
+```bash
 docker ps
 ```
 
 ## 4. 进入节点redis-node-1容器中
 
-```linux
+```bash
 docker exec -it redis-node-1 /bin/bash
 ```
 
 **参数create表示创建一个新的集群, --replisas 1表示为每个master创建一个slave。**
 
-```linux
+```bash
 redis-cli --cluster create 192.168.1.138:6381 192.168.1.138:6382 192.168.1.138:6383 192.168.1.138:6384 192.168.1.138:6385 192.168.1.138:6386 --cluster-replicas 1
 ```
 
@@ -157,13 +157,13 @@ redis-cli --cluster create 192.168.1.138:6381 192.168.1.138:6382 192.168.1.138:6
 
 - 先进入容器
 
-```linux
+```bash
 redis-cli -h 192.168.1.138 -p 6381 -c
 ```
 
 - 查看info
 
-```linux
+```bash
 cluster info
 ```
 
@@ -172,7 +172,7 @@ cluster info
 
 ## 6. 使用cluster nodes查看节点的状态
 
-```linux
+```bash
 cluster nodes
 ```
 
@@ -184,7 +184,7 @@ cluster nodes
 
 ## 1. 客户端验证
 
-```linux
+```bash
 set user:100 agan
 set user:200 alext
 ```
@@ -194,7 +194,7 @@ set user:200 alext
 
 ## 2. 查看集群信息
 
-```linux
+```bash
 exit
 
 redis-cli --cluster check 192.168.1.138:6381 
@@ -205,7 +205,7 @@ redis-cli --cluster check 192.168.1.138:6381
 
 ## 3.  主从切换
 
-```linux
+```bash
 cluster nodes
 ```
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-abcf2f191c92418a926e8255302415ad.png)
@@ -214,7 +214,7 @@ cluster nodes
 
 - 查看镜像
 
-```linux
+```bash
 docker ps
 ```
 
@@ -222,13 +222,13 @@ docker ps
 
 - 停掉
 
-```linux
+```bash
 docker stop redis-node-1
 ```
 
 - 进入容器，进入集群
 
-```linux
+```bash
 docker exec -it redis-node-2 /bin/bash
 
 redis-cli -h 192.168.1.138 -p 6382 -c
@@ -236,7 +236,7 @@ redis-cli -h 192.168.1.138 -p 6382 -c
 
 - 查看目前的集群效果，查看节点信息
 
-```linux
+```bash
 cluster nodes
 ```
 
@@ -248,14 +248,14 @@ cluster nodes
 由于之前把6381变成fail，6386变成master<br>
 我们先进行还原，6381重新变成master，6386变成slave
 
-```linux
+```bash
 redis-cli -h 192.168.1.138 -p 6382 -c 
 cluster nodes
 ```
 
 - 先把6381启动,然后停止6386
 
-```linux
+```bash
 docker start redis-node-1
 
 docker stop redis-node-6
@@ -265,7 +265,7 @@ docker stop redis-node-6
 
 - 再启动6386，成为slave
 
-```linux
+```bash
 docker start redis-node-6
 ```
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-0fa697e738ab45debe66c293b4f6b3e6.png)
@@ -278,7 +278,7 @@ docker start redis-node-6
 
 ## 1. 查看集群信息
 
-```linux
+```bash
 exit
 
 redis-cli --cluster check 192.168.1.138:6381
@@ -291,7 +291,7 @@ redis-cli --cluster check 192.168.1.138:6381
 
 利用docker，创建2个redis集群
 
-```linux
+```bash
 docker create --name redis-node-7 --net host --privileged=true -v /data/redis/share/redis-node-7:/data redis:5.0.7 --cluster-enabled yes --appendonly yes --port 6387
 
 docker create --name redis-node-8 --net host --privileged=true -v /data/redis/share/redis-node-8:/data redis:5.0.7 --cluster-enabled yes --appendonly yes --port 6388
@@ -299,7 +299,7 @@ docker create --name redis-node-8 --net host --privileged=true -v /data/redis/sh
 
 ## 3. 启动容器
 
-```linux
+```bash
 docker start redis-node-7 redis-node-8
 ```
 
@@ -307,7 +307,7 @@ docker start redis-node-7 redis-node-8
 
 ## 4. 先进入节点redis-node-7容器中
 
-```linux
+```bash
 docker exec -it redis-node-7 /bin/bash
 ```
 
@@ -315,7 +315,7 @@ docker exec -it redis-node-7 /bin/bash
 
 192.168.1.138:6387代表新增的，192.168.1.138:6381代表原集群的任意一个节点
 
-```linux
+```bash
 redis-cli --cluster add-node 192.168.1.138:6387 192.168.1.138:6381
 ```
 
@@ -324,7 +324,7 @@ redis-cli --cluster add-node 192.168.1.138:6387 192.168.1.138:6381
 
 **再一次检查集群**
 
-```linux
+```bash
 redis-cli --cluster check 192.168.1.138:6381 
 ```
 
@@ -341,7 +341,7 @@ redis-cli --cluster check 192.168.1.138:6381
 ip: port指集群中任意一个节点就行,如下:
 
 
-```linux
+```bash
 redis-cli --cluster reshard 192.168.1.138:6381 
 ```
 
@@ -349,7 +349,7 @@ redis-cli --cluster reshard 192.168.1.138:6381
 
 ## 2. 重新查看集群
 
-```linux
+```bash
 redis-cli --cluster check 192.168.1.138:6381 
 ```
 
@@ -363,13 +363,13 @@ add-node:后面的分别跟着新加入的slave和slave对应的master <br>
 cluster-slave:表示加入的是slave节点<br>
 --cluster-master-id:表示slave对应的master的node ID
 
-```linux
+```bash
 redis-cli --cluster add-node 192.168.1.138:6388 192.168.1.138:6387 --cluster-slave --cluster-master-id  55ec78fb6b6e501e717ad88643b64
 ```
 
 ## 4. 查看集群情况
 
-```linux
+```bash
 redis-cli --cluster check 192.168.1.138:6387
 ```
 
@@ -380,7 +380,7 @@ redis-cli --cluster check 192.168.1.138:6387
 删除集群中的2个节点，node7与node8
 
 ## 1. 查看集群节点信息
-```linux
+```bash
 redis-cli --cluster check 192.168.1.138:6381
 ```
 
@@ -388,14 +388,14 @@ redis-cli --cluster check 192.168.1.138:6381
 
 del-node后面跟着slave节点的ip:port 和node ID
 
-```linux
+```bash
 redis-cli --cluster del-node 192.168.1.138:6388   84acba0a54a5ac8ee0541eb973ef2ecdbbfa0e16
 ```
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-906f8cc159dd4dd98d2bec1075f80ec5.png)
 
 ## 3. 查看集群情况
 
-```linux
+```bash
 redis-cli --cluster check 192.168.1.138:6381
 ```
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-643b4582d0654f01a4ca8e779d4275e4.png)
@@ -403,7 +403,7 @@ redis-cli --cluster check 192.168.1.138:6381
 
 ## 4. 查看容器，发现node8没了
 
-```linux
+```bash
 docker ps
 ```
 
@@ -412,7 +412,7 @@ docker ps
 
 ## 5. 重新分配master的slot
 
-```linux
+```bash
 redis-cli --cluster reshard 192.168.1.138:6381 
 ```
 
@@ -420,7 +420,7 @@ redis-cli --cluster reshard 192.168.1.138:6381
 
 - 查看集群节点情况
 
-```linux
+```bash
 redis-cli --cluster check 192.168.1.138:6381
 ```
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-80be9d370bc64cc3a4634d4d038e334e.png)
@@ -429,14 +429,14 @@ redis-cli --cluster check 192.168.1.138:6381
 
 del-node后面跟着slave节点的ip:port 和node ID
 
-```linux
+```bash
 redis-cli --cluster del-node 192.168.1.138:6387     0a925be15fcb5f749b9014e86ebf84d26797306b
 ```
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-1f554a4c8a57466480bed58db2ad41a3.png)
 
 ## 7.继续查看集群情况
 
-```linux
+```bash
 exit
 
 docker exec -it redis-node-2 /bin/bash
@@ -496,7 +496,7 @@ public void refreshData(){
 4. 测试一
 所有的数据会被分成3份，存到3个master里面，进入6381与6382查看里面的数据是否不一样
 
-```linux
+```bash
 docker exec -it redis-node-1 /bin/bash
 
 redis-cli -h 192.168.1.138 -p 6381 -c
@@ -517,7 +517,7 @@ keys *
 
 查看192.168.1.138:6386和1192.168.1.138:6381的数据是否一样
 
-```linux
+```bash
 redis-cli -h 192.168.1.138 -p 6381 -c
 keys *
 

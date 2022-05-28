@@ -17,7 +17,7 @@ Redis要实现分布式锁，以下条件应该得到满足
 实现
 可以直接通过 set key value px milliseconds nx 命令实现加锁， 通过Lua脚本实现解锁。
 
-```linux
+```bash
 //获取锁（unique_value可以是UUID等）
 SET resource_name unique_value NX PX  30000
 

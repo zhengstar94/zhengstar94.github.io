@@ -173,7 +173,7 @@ return redis.call('pttl', KEYS[1]);
 
 解决方案：redis的配置文件redis.conf中，存在两个参数
 
-```linux
+```bash
 min-replicas-to-write 3
 min-replicas-max-lag 10
 ```

@@ -23,8 +23,8 @@
 2. 安装该jar包到maven的本地仓库中，主要用到maven的命令：
 
 
-```linux
-mvn install:install-file   -Dfile=java-bloomfilter-1.0.jar  -DgroupId=com.sina  -DartifactId=java-bloomfilter -Dversion=1.0  -Dpackaging=jar
+```bash
+mvn install:install-file -Dfile=java-bloomfilter-1.0.jar -DgroupId=com.sina -DartifactId=java-bloomfilter -Dversion=1.0 -Dpackaging=jar
 ```
 
 
