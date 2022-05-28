@@ -54,7 +54,16 @@
         scope: '.markdown-section',
         headings: 'h1, h2, h3, h4',
         title: 'Table of Contents',
-      }
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.doneEach(function (html) {
+            Prism.highlightAll()
+            console.log('mounted,', Prism, Prism.languages.flow)
+          })
+
+        }
+      ]
     }
   </script>
 
