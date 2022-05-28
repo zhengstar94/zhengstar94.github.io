@@ -57,7 +57,7 @@ long s = Hashing.murmur3_32().hashUnencodedChars(url).padToLong();// 3394174629
 
 如果我们使用 MySQL，PostgreSQL 这类关系型数据库存储的话，表结构大概是下面这样：
 
-```mysql
+```sql
 CREATE TABLE `url_map` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `long_url` varchar(160) DEFAULT NULL COMMENT '长链',

@@ -3,7 +3,7 @@
 
 在这里我们先建立两张有外键关联的两张表：
 
-```mysql
+```sql
     CREATE DATABASE db0206;
     USE db0206;
     CREATE TABLE `db0206`.`tbl_dept`(  
@@ -45,7 +45,7 @@
 执行的SQL语句以及执行的查询结果：
 
 - 执行的SQL语句
-```mysql
+```sql
 select * from tbl_dept a inner join tbl_emp b on a.id=b.deptId;
 ```
 - 查询结果 
@@ -57,7 +57,7 @@ select * from tbl_dept a inner join tbl_emp b on a.id=b.deptId;
 执行的sql语句以及执行的查询结果：
 
 - 执行的sql语句
-```mysql
+```sql
 select * from tbl_dept a left join tbl_emp b on a.id=b.deptId; 
 ```
 
@@ -71,7 +71,7 @@ select * from tbl_dept a left join tbl_emp b on a.id=b.deptId;
 执行的sql语句以及执行的查询结果：
 
 - 执行的sql语句
-```mysql
+```sql
 select * from tbl_dept a right join tbl_emp b on a.id=b.deptId 
 ```
 

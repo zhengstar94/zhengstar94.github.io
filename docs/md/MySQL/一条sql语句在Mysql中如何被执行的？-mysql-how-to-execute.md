@@ -23,7 +23,7 @@
 ### 查询语句
 一条 sql 语句是如何执行的呢？其实我们的 sql 可以分为两种，一种是查询，一种是更新（增加，更新，删除）。我们先分析下查询语句，语句如下：
 
-```mysql
+```sql
 select * from tb_student  A where A.age='18' and A.name=' 张三 ';
 ```
 
@@ -44,7 +44,7 @@ select * from tb_student  A where A.age='18' and A.name=' 张三 ';
 ### 更新语句
 接下来我们看看一条更新语句如何执行的呢？sql 语句如下：
 
-```mysql
+```sql
 update tb_student A set A.age='19' where A.name=' 张三 ';
 ```
 

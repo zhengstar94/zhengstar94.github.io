@@ -15,7 +15,7 @@
 ### 1. 数据库
 在数据库中创建一个表，表中包含方法名等字段，并在方法名字段伤创建唯一索引，想要执行某个方法，就使用**这个方法名向表中插入数据，成功插入则获取锁，执行完成后删除对应的行数据释放锁**。
 
-```mysql
+```sql
 DROP TABLE IF EXISTS `method_lock`;
 CREATE TABLE `method_lock` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -30,7 +30,7 @@ CREATE TABLE `method_lock` (
 
 **执行某个方法后，插入一条记录**
 
-```mysql
+```sql
 INSERT INTO method_lock (method_name, desc) VALUES ('methodName', '测试的methodName');
 
 ```
@@ -39,7 +39,7 @@ INSERT INTO method_lock (method_name, desc) VALUES ('methodName', '测试的meth
 
 **成功插入则获得锁，执行完成后删除对应的行数据释放锁**
 
-```mysql
+```sql
 delete from method_lock where method_name ='methodName';
 ```
 

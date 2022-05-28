@@ -10,7 +10,7 @@
 |5|55|王八|
 |6|66|王五|
 
-```mysql
+```sql
     SELECT * FROM `t_order` WHERE uname IN (
         SELECT uname FROM `t_order` GROUP BY uname HAVING COUNT(uname) > 1 
     );

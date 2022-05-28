@@ -1,7 +1,7 @@
 
 ### Mysql数据库中一个表里有一千多万条数据，怎么快速的查出第900万条后的100条数据？
 
-```mysql
+```sql
 select * from table limit 9000000,100;
 ```
 
@@ -15,19 +15,19 @@ select * from table limit 9000000,100;
 - 对大数据量limit分页性能优化(第一次优化)
 思路：使用索引
 表test使用id作为自增主键，默认为主键索引，现在使用覆盖索引来查询
-```mysql
+```sql
 SELECT id FROM test LIMIT 9000000,100;
 ```
 执行结果4s左右
 
 现在优化的方案有两种，通过id作为查询条件使用**子查询实现**和使用**join**实现
 1. id>=的子查询形式实现
-```mysql
+```sql
 select * from test where id >= (select id from test limit 9000000,1)limit 0,100 
 ```
 执行结果 4.26s
 2. 使用join形式
-```mysql
+```sql
 SELECT * FROM test a JOIN (SELECT id FROM test LIMIT 9000000,100) b ON a.id = b.id
 ```
 执行结果4.25

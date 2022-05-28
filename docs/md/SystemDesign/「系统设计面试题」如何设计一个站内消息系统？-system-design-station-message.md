@@ -104,7 +104,7 @@ t_user_system_notice（用户系统通知表）结构如下：
 稍稍观察下聚合的消息就可以发现：某一类的聚合消息之间是按照 source type 和 source id 来分组的，
 因此我们可以得出以下伪 SQL：
 
-```mysql
+```sql
 SELECT * FROM t_event_remind WHERE recipient_id = 用户ID
 AND action = 点赞 AND state = FALSE GROUP BY source_id , source_type;
 ```
