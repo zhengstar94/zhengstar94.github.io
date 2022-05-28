@@ -1,7 +1,7 @@
 
 如果使用docker的话，不用这么麻烦
 
-```shell
+```bash
 docker pull mysql
 ```
 
@@ -11,13 +11,13 @@ docker pull mysql
 
 1. 先查询系统下的mysql版本
 
-```shell
+```bash
 yum list installed | grep mysql
 ```
 
 2. 如果存在系统自带的mysql及依赖，则将其卸载
 
-```shell
+```bash
 yum remove 包名
 ```
 
@@ -40,13 +40,13 @@ yum remove 包名
 下载rpm包
 --no-check-certificate代表不检查证书
 
-```shell
+```bash
 wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm --no-check-certificate
 ```
 
 安装MySQL源
 
-```shell
+```bash
 yum localinstall mysql80-community-release-el7-3.noarch.rpm
 ```
 
@@ -54,7 +54,7 @@ yum localinstall mysql80-community-release-el7-3.noarch.rpm
 
 5. 验证是否安装成功
 
-```shell
+```bash
 yum repolist all | grep mysql
 ```
 
@@ -63,7 +63,7 @@ yum repolist all | grep mysql
 
 6. 默认是80，需要吧默认安装改成57版本
 
-```shell
+```bash
 vim /etc/yum.repos.d/mysql-community.repo
 ```
 
@@ -77,13 +77,13 @@ vim /etc/yum.repos.d/mysql-community.repo
 
 7. 安装MySQL
 
-```shell
+```bash
 yum install mysql-community-server
 ```
 
 8. 启动MySQL
 
-```shell
+```bash
 启动mysql：systemctl start mysqld.service
 或         systemctl start mysqld
 查看mysql状态：systemctl status mysqld.service
@@ -93,39 +93,39 @@ yum install mysql-community-server
 
 9. 设置开机启动
 
-```shell
+```bash
 systemctl enable mysqld
 ```
 
 10. 启动mysql
 
-```shell
+```bash
 mysql -u root -p
 ```
 
 在要求输入密码时，因为mysql 5.7的初始密码不是空，直接按回车键不能成功登录，因此需先找到初始密码，才能登录。
 
-```shell
+```bash
 grep 'temporary password' /var/log/mysqld.log
 ```
 
 再次登录输入初始密码
 这里，我想设置新密码为 123456，但出现了报错，这里的报错是mysql的密码策略问题，输入命令：
 
-```shell
+```bash
 show variables like 'validate_password%'
 ```
 
 查看 mysql初始的密码策略，发现密码的最小长度为8，密码的验证强度等级为MEDIUM，可以修改一下密码策略：
 
-```shell
+```bash
 设置密码的验证强度等级：set global validate_password_policy=LOW
 设置密码的最小长度：set global validate_password_length=6
 ```
 
 11. 修改密码
 
-```shell
+```bash
 alter user roothome.php?mod=space&uid=485241 identified by '新密码'
 ```
 
@@ -143,7 +143,7 @@ use mysql;
 
 13. 修改root用户的登录权限
 
-```shell
+```bash
 update user set host = '%' where user = 'root';
 ```
 
@@ -156,7 +156,7 @@ update user set host = '%' where user = 'root';
 
 14. 刷新权限 使当前操作立即生效，就大功告成了
 
-```shell
+```bash
 flush privileges
 ```
 再查询一遍，修改成功了

@@ -1,7 +1,7 @@
 
 ### 第一步：
 
-```shell
+```bash
 netstat -ano | findstr 端口号
 ```
 
@@ -10,13 +10,13 @@ netstat -ano | findstr 端口号
 
 ### 第二步：如果不想看是哪个进程占用的，就不用第二步(用来查看是什么程序占用这个端口)
 
-```shell
+```bash
 tasklist | findstr 进程号
 ```
 
 ### 第三步：
 
-```shell
+```bash
 taskkill -PID 进程号 -F 
 ```
 

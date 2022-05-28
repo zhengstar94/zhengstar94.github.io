@@ -4,7 +4,7 @@
 1. 在安装完rocketmq之后要先启动 `mqnamesrv` 再启动 `mqbroker`
 2. 在启动`mqbroker`的时候要记得处理ip的问题，默认启动会使用docker的内网地址，需要配置成虚拟机ip
 
-```shell
+```bash
 #启动mqnamesrv
 nohup sh mqnamesrv &
 #创建一个mqbroker的配置文件
