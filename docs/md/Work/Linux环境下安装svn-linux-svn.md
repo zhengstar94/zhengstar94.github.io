@@ -97,7 +97,7 @@ kill -9 4908
 6. 扩展：yum安装路径
 以svn为例：
 
-```linux
+```bash
 # rpm -qa | grep subversion
 subversion-1.6.11-15.el6_7.x86_64
 # rpm -ql subversion-1.6.11-15.el6_7.x86_64
@@ -115,7 +115,7 @@ subversion-1.6.11-15.el6_7.x86_64
 
 rpm几个默认安装路径：
 
-```linux
+```bash
 /etc    一些设置文件放置的目录
 /usr/bin    一些可执行文件
 /usr/lib64  一些程序使用的动态函数库
