@@ -1,16 +1,16 @@
 
-## Binary Search
+# Binary Search
 
 > 一种针对有序区间内的O(logN)搜索方式，最常见用于已经排好序的Array
 
-### Binary Search两大基本原则
+## Binary Search两大基本原则
 
 1. 每次都要缩减搜索区域
    Shrink the search space every iteration (or recursion)
 2. 每次缩减不能排除潜在答案
    Cannot exclude potential answers during each shrinking
 
-### Binary Search三大模板
+## Binary Search三大模板
 
 - **找一个准确值**
   - 循环条件：left <= right
