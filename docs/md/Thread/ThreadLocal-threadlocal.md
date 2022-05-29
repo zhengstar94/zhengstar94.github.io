@@ -1,3 +1,4 @@
+# ThreadLocal
 
 ## 简介
 ThreadLocal主要解决让每个线程绑定自己的值，可以将ThreadLocal比喻成放数据的盒子，盒子中可以存储每个线程的私有数据；
