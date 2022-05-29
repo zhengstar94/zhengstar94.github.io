@@ -1,4 +1,4 @@
-
+# Spring的IOC启动过程
 
 ## 介绍
 Spring是一个IOC容器，容器就是放数据的，java里面的容器就是集合类，IOC容器实际就是一个map(key,value)，里面存放的是各种对象(在xml里配置的bean节点||repository、service、controller、component)，在项目启动的时候会读取配置文件里面的bean节点，根据全限定类名使用反射new对象放到map里面；扫描到上述注解的类也是通过反射new对象放到map里面。

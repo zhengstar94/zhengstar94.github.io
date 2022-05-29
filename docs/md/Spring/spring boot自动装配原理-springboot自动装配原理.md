@@ -1,5 +1,5 @@
 
-spring boot的自动装配
+# spring boot的自动装配原理
 
 springbootapplication的注解下三个注解，
 
