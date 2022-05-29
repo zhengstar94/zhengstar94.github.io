@@ -1,5 +1,5 @@
 
-## 原则
+# 原则
 
 - [原则一：开闭原则](开闭原则-open-close-principle.md)（Open Close Principle）
 - [原则二：单一职责原则](单一职责原则-single-responsibility-principle.md)（Single Responsibility Principle）
