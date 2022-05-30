@@ -137,6 +137,7 @@
     * [手写LRU](md/SystemDesign/手写LRU-hand-lru.md)
     * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
     * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
+    * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
     
   * [数据结构预算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
     * [排序算法](md/Algorithm/排序算法-排序算法.md)
