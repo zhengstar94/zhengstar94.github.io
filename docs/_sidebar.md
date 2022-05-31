@@ -163,7 +163,7 @@
     * [接口分离原则](md/Design/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
 
 * 学习方式
-  * [如何做编程知识投资及减少知识失效的影响](md/English/interview.md)------
+  * [如何做编程知识投资及减少知识失效的影响](md/Study/如何做编程知识投资及减少知识失效的影响.md)
 
 * 英语
   * [Interview](md/English/interview.md)
