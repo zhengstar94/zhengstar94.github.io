@@ -164,6 +164,7 @@
 
 * 学习方式
   * [如何做编程知识投资及减少知识失效的影响](md/Study/如何做编程知识投资及减少知识失效的影响.md)
+  * [10x程序员工作法](md/Study/10x程序员工作法.md)
 
 * 英语
   * [Interview](md/English/interview.md)
