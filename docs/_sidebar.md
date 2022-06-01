@@ -167,6 +167,7 @@
   * [10x程序员工作法](md/Study/10x程序员工作法.md)
   * [通过整合学习资料被动收入](md/Study/通过整合学习资料全流程自动化，一个月被动收入.md)
   * [从零开始做了一个养活自己的公众号](md/Study/从零开始做了一个养活自己的公众号.md)
+  * [深入剖析Java新特性](md/Study/深入剖析Java新特性.md)
 
 * 英语
   * [Interview](md/English/interview.md)
