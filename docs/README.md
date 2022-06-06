@@ -11,4 +11,5 @@
 > 人生有三次成长：一是发现自己不再是世界的中心的时候，二是发现再怎么努力也无能为力的时候，三是接受自己的平凡并去享受平凡的时候。—— 周国平
 
 
-> 
+> live as if you were to die tomorrow <br>
+> learn as if you were to live forever
