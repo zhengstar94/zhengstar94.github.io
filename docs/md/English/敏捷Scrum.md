@@ -61,3 +61,11 @@
 - 每次的Sprint结束后都要进行这种回顾.
 
   > Repeat this work flow for each Sprint
+
+
+
+## Summary
+
+- 将项目拆分多个子模块，快速的开发出核心功能，再集成到一起完成整个项目的功能，通过后期的迭代升级完善项目。
+
+> Split the project into several sub modules, quickly develop core functions, and then integrate them to complete the functions of the whole project, and improve the project through later iteration and upgrading.
