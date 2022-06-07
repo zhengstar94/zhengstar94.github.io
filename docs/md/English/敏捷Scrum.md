@@ -69,3 +69,14 @@
 - 将项目拆分多个子模块，快速的开发出核心功能，再集成到一起完成整个项目的功能，通过后期的迭代升级完善项目。
 
 > Split the project into several sub modules, quickly develop core functions, and then integrate them to complete the functions of the whole project, and improve the project through later iteration and upgrading.
+
+
+> 这就要和传统的瀑布流式开发做比较，瀑布流式开发，严格遵循了 需求分析，设计，编码，测试，运行维护这几个步骤。必须完整的经历每个阶段，死板，不灵活，后期需求发生变化，难以调整。<br>
+> 而敏捷开发：敏捷开发解决了传统瀑布流的缺点，具有应对快速变化的需求的能力。敏捷开发是一种思想。<br>
+> 敏捷开发自己总结有一下的特点：<br>
+> 1. 迭代式开发
+> 2. 增量交付
+> 3. 开发团队和用户反馈推动产品开发
+> 4. 持续集成 <br>
+> 
+> 将项目拆分多个子模块，快速的开发出核心功能，再集成到一起完成整个项目的功能，通过后期的迭代升级完善项目。
