@@ -176,6 +176,7 @@
   * [英语听说](md/English/英语听说.md)
   * [英语学习](md/English/英语学习.md)
   * [全英文面试如何面对](md/English/求职遭遇全英文面试，我靠这些方法度过难关.md)
+  * [敏捷Scrum](md/English/敏捷Scrum.md)
     
 * 生活
   * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
