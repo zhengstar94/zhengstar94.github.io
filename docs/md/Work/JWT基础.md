@@ -36,7 +36,7 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 
 Header 和 Payload 都是 JSON 格式的数据，Signature 由 Payload、Header 和 Secret(密钥)通过特定的计算公式和加密算法得到。
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/6/25/4.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/25/4.png)
 
 
 ### Header
@@ -119,7 +119,7 @@ HMACSHA256(
 
 在基于 Token 进行身份验证的的应用程序中，服务器通过 Payload、Header 和 `Secret`(密钥)创建`Token`（令牌）并将 `Token` 发送给客户端。客户端接收到 `Token` 之后，会将其保存在 Cookie 或者 localStorage 里面，以后客户端发出的所有请求都会携带这个令牌。
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/6/25/5.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/25/5.png)
 
 
 

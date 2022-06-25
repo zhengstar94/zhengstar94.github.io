@@ -31,11 +31,11 @@
 
 第一张是网站测速结果：
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/6/25/1.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/25/1.png)
 
 第二张是 ping 检测结果：
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/6/25/2.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/25/2.png)
 
 第二张是网站访问速度检测结果：
 
@@ -59,7 +59,7 @@ ping 检测走 icmp 协议，网站检测走 http 协议。如果你还不知道
 
 结果被我发现了好多个访问超时的 CSS 文件，原因就是这个了。这些  CSS 文件 迟迟请求不到，导致网站一直没有显示。
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/6/25/3.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/25/3.png)
 
 而且，**这些 CSS 文件请求地址都是 jsdelivr cdn，这个 jsdelivr cdn 在国内已经用不了**。
 
