@@ -164,6 +164,9 @@
     * [单例模式](md/Design/单例模式（Singleton）-singleton.md)
     * [接口分离原则](md/Design/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
 
+* Linux
+  * [Linux1](md/Linux/LinuxDay1.md)
+
 * 学习方式
   * [如何做编程知识投资及减少知识失效的影响](md/Study/如何做编程知识投资及减少知识失效的影响.md)
   * [10x程序员工作法](md/Study/10x程序员工作法.md)
