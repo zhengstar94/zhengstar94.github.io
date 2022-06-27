@@ -166,6 +166,7 @@
 
 * Linux
   * [Linux1](md/Linux/LinuxDay1.md)
+  * [Linux2](md/Linux/LinuxDay2.md)
 
 * 学习方式
   * [如何做编程知识投资及减少知识失效的影响](md/Study/如何做编程知识投资及减少知识失效的影响.md)
