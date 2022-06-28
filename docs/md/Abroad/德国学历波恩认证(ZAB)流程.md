@@ -17,11 +17,11 @@ anabin 数据库中的学历/学位有三种类型
 学历查询请打开 [anabin 学历查询](https://link.zhihu.com/?target=http%3A//anabin.kmk.org/no_cache/filter/institutionen.html)，这里以「北京语言大学」为例
 
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/1.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/1.png)
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/2.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/2.png)
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/3.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/3.png)
 
 
 从 anabin 数据库里可以查询到，「北京语言大学」类型为 H+，学历被 ZAB 认可
@@ -35,9 +35,9 @@ anabin 数据库中的学历/学位有三种类型
 学位查询请打开 [anabin 学位查询](https://link.zhihu.com/?target=https%3A//anabin.kmk.org/no_cache/filter/hochschulabschluesse.html)，这里以「北京语言大学」「文学硕士」为例
 
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/4.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/4.png)
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/5.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/5.png)
 
 
 
@@ -84,7 +84,7 @@ ZAB 官网提供了一份完整的认证所需要的[清单](https://link.zhihu.
 高中毕业证复印件（无需翻译），如高中毕业证丢失，可以在当地政务网站办理「高中学历证明书」代替，一般 1 个工作日。
 
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/6.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/6.png)
 
 
 ### Secondary school certificate of educational achievement results
@@ -95,9 +95,9 @@ ZAB 官网提供了一份完整的认证所需要的[清单](https://link.zhihu.
 
 高考成绩单复印件（无需翻译），如毕业时成绩单已丢失，可以在所在省份教育考试院申请，一般需要 5个工作日。
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/7.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/7.png)
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/8.png)
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/06/28/8.png)
 
 
 ### Identity document (passport or residence permit
