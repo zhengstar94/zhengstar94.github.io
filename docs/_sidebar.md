@@ -179,6 +179,7 @@
   * [湾区大厂程序员薪水构成,level和对应期望](md/Study/湾区大厂程序员薪水构成,level和对应期望.md)
   * [程序员如何把控自己的职业](md/Study/程序员如何把控自己的职业.md)
   * [加班与效率](md/Study/加班与效率.md)
+  * [技术人员的发展之路](md/Study/技术人员的发展之路.md)
 
 * 英语
   * [Interview](md/English/interview.md)
