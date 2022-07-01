@@ -195,6 +195,7 @@
   * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
   * [低碳](md/Life/低碳饮食-diet.md)
   * [减肥篇](md/Life/lost-weight.md)
+  * [延寿指南](md/Life/延寿指南.md)
   * [通用国内旅行攻略模板](md/Life/通用国内旅行攻略模板.md)
 
 * 出国
