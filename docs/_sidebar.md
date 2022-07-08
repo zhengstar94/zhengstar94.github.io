@@ -202,12 +202,15 @@
   * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
   * [德国学历波恩认证(ZAB)流程](md/Abroad/德国学历波恩认证(ZAB)流程.md)
 
+* 出国
+  * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
+
 * interview
   * [项目经验](md/Interview/projectExperience.md)
 
-* 英语学习计划
-  * [第一天](md/another/learn01.md)
+<!-- * 英语学习计划
+  * [第一天](md/another/learn01.md) -->
 
-* 30天英语学习计划
+<!-- * 30天英语学习计划
   * [Plan](md/tiffani/30daysPlan.md)
-  * [Day1](md/tiffani/day1.md)
+  * [Day1](md/tiffani/day1.md) -->
