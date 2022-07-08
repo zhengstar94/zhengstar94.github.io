@@ -70,7 +70,7 @@ LP的重要性不用多说，不过我自己最后的感想是在分类故事的
    - Who was your most difficult customer?
 
      **答题思路：**<br>
-     S: 给出个 被客户刁难/要求特别高/时间特别赶的情况<br>
+     >S: 给出个 被客户刁难/要求特别高/时间特别赶的情况<br>
      T: 你所需要完成的任务<br>
      A: 你采取了什么措施<br>
      R: 最后得到了满意的结果<br>
@@ -78,7 +78,7 @@ LP的重要性不用多说，不过我自己最后的感想是在分类故事的
    - Give me an example of a time when you did not meet a client’s expectations. What happened, and how did you attempt to rectify the situation?
    
      **答题思路：**<br>
-     S: 这题比较负面。给出个 为达到用户期望的例子，可以是因为之前沟通间有误会而导致的，不要说因为自己能力不行。<br>
+     >S: 这题比较负面。给出个 为达到用户期望的例子，可以是因为之前沟通间有误会而导致的，不要说因为自己能力不行。<br>
      T: 需要做什么从而达到客户的期望<br>
      A: 你采取了什么措施<br>
      R: 最后达到或超出了客户的期望<br>
@@ -86,7 +86,7 @@ LP的重要性不用多说，不过我自己最后的感想是在分类故事的
    - When you’re working with a large number of customers, it’s tricky to deliver excellent service to them all. How do you go about prioritizing your customers’ needs?
 
      **答题思路：**<br>
-     S: 举个例子 当你同时面对很多客户的时候<br>
+     >S: 举个例子 当你同时面对很多客户的时候<br>
      T: 你需要尽可能的让客户们满意，达到他们的需求<br>
      A: 你是如何按优先级排序用户的需求<br>
      R: 最后让每个/大多数客户满意<br>
@@ -94,7 +94,7 @@ LP的重要性不用多说，不过我自己最后的感想是在分类故事的
    - Tell the story of the last time you had to apologize to someone
 
      **答题思路：**<br>
-     S:这题比较负面，举个例子由于某些小疏忽造成了非重大影响<br>
+     >S:这题比较负面，举个例子由于某些小疏忽造成了非重大影响<br>
      T: 需要采取措施赢回对方的原谅/信任<br>
      A: 你所采取的措施<br>
      R: 最后得到了对方的原谅/信任<br>
