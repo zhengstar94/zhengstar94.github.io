@@ -1,5 +1,6 @@
 # BQ准备
 
+
 ## BQ准备思路
 
 - 仔细读JD，总结出来职位要求的soft skills (communication, time management, teamwork, attention to detail, analytical thinking, prioritizing, problem solving, etc).
