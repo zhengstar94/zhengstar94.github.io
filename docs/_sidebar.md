@@ -204,7 +204,7 @@
 
 * 面经
   * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
-  * [BQ](md/Ready/面试经验分享Part1.md)
+  * [BQ](md/Ready/BQ.md)
 
 * interview
   * [项目经验](md/Interview/projectExperience.md)
