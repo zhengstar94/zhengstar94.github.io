@@ -165,65 +165,66 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
      A: 你是如何获取新技术/知识，并应用到工作当中<br>
      R: 成功运用新学的技术/知识到工作当中<br>
 
-6. Hire and Develop The Best
+6. **Hire and Develop The Best**<br>
    Leaders raise the performance bar with every hire and promotion. They recognize exceptional talent and will move them throughout the organization. Leaders develop leaders and take seriously their role in coaching others. We work on behalf of our people to invent mechanisms for development like Career Choice.
 
-- Tell me about a time when you mentored someone.
+   - Tell me about a time when you mentored someone.
 
-  答题思路：
-  S: 举个带新人的例子
-  T: 被安排带新人完成任务
-  A: 你给新人提供了怎样的帮助，如何带领他完成任务.
-  R: 最终完成任务，新人获得收获，达到或超出预期
+     **答题思路：**<br>
+     >S: 举个带新人的例子<br>
+     T: 被安排带新人完成任务<br>
+     A: 你给新人提供了怎样的帮助，如何带领他完成任务<br>
+     R: 最终完成任务，新人获得收获，达到或超出预期<br>
 
-7. Insist on the Highest Standards.
+7. **Insist on the Highest Standards**<br>
    Leaders have relentlessly high standards – many people may think these standards are unreasonably high. Leaders are continually raising the bar and driving their teams to deliver high-quality products, services, and processes. Leaders ensure that defects do not get sent down the line and that problems are fixed so they stay fixed.
 
-- Tell me about a time when you couldn’t meet your own expectations on a project
+   - Tell me about a time when you couldn’t meet your own expectations on a project
 
-  答题思路：
-  S: 这题比较负面。可以举个未达到自己期望的例子。可以是因为自己要求高，或者刚入职不熟悉组内项目
-  T: 被安排完成某项任务
-  A: 做了什么
-  R: 没达到自己的期望
-  Try again：做了什么/会做什么，从而达到需求. Χ
+     **答题思路：**<br>
+     >S: 这题比较负面。可以举个未达到自己期望的例子。可以是因为自己要求高，或者刚入职不熟悉组内项目<br>
+     T: 被安排完成某项任务
+     A: 做了什么<br>
+     R: 没达到自己的期望<br>
+     Try again：做了什么/会做什么，从而达到需求<br>
 
-- Tell me about a time when a team member didn’t meet your expectations on a project
+   - Tell me about a time when a team member didn’t meet your expectations on a project
 
-  答题思路：
-  S: 举个同事做的项目没有达到你的期望
-  T: 你被安排code review
-  A: 你是如何给组员提供反馈
-  R: 最后组员接纳了你的反馈与建议，达到了你的期望
+     **答题思路：**<br>
+     >S: 举个同事做的项目没有达到你的期望<br>
+     T: 你被安排code review<br>
+     A: 你是如何给组员提供反馈<br>
+     R: 最后组员接纳了你的反馈与建议，达到了你的期望<br>
 
-8. Think Big
+8. **Think Big**<br>
    Thinking small is a self-fulfilling prophecy. Leaders create and communicate a bold direction that inspires results. They think differently and look around corners for ways to serve customers.
 
-- Tell me about your proudest professional achievement
+   - Tell me about your proudest professional achievement
 
-  答题思路：
-  S: 某个项目任务
-  T: 由你负责. 1point 3acres
-  A: 你做了什么事情
-  R: 有什么成就 （scalability，performance 等）
+     **答题思路：**<br>
+     >S: 某个项目任务<br>
+     T: 由你负责<br>
+     A: 你做了什么事情<br>
+     R: 有什么成就 （scalability，performance 等）<br>
 
-- Tell me about a time when you went way beyond the scope of the project and delivered.
-  答题思路：
-  S: 某个项目/任务
-  T: 由你负责
-  A:你是如何设计加实现
-  R: 超额完成任务
+   - Tell me about a time when you went way beyond the scope of the project and delivered.
+     
+     **答题思路：**<br>
+     >S: 某个项目/任务<br>
+     T: 由你负责<br>
+     A:你是如何设计加实现<br>
+     R: 超额完成任务<br>
 
-9. Bias for Action
+9. **Bias for Action**<br>
    Speed matters in business. Many decisions and actions are reversible and do not need extensive study. We value calculated risk-taking.
 
-- Describe a time when you saw some problems and took the initiative to correct it rather than waiting for someone else to do it.
+   - Describe a time when you saw some problems and took the initiative to correct it rather than waiting for someone else to do it.
 
-  答题思路：
-  S: 看到某个项目的问题
-  T: 没人给你分配任务
-  A: 额外花时间去调查问题、与同事讨论
-  R: 修复了问题.
+     **答题思路：**<br>
+     >S: 看到某个项目的问题<br>
+     T: 没人给你分配任务<br>
+     A: 额外花时间去调查问题、与同事讨论<br>
+     R: 修复了问题<br>
 
 - Tell me about a time when you took a calculated risk.
 
