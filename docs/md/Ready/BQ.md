@@ -1,6 +1,12 @@
 # BQ准备
 
+## BQ准备思路
 
+- 仔细读JD，总结出来职位要求的soft skills (communication, time management, teamwork, attention to detail, analytical thinking, prioritizing, problem solving, etc).
+- 每个skill下面列出2个sample question (不需要太多因为基本换汤不换药)
+- 去Google / YouTube 搜sample answer (我比较喜欢后者因为有视频可以模仿说话的语调)
+- 把自己工作 / 在学校碰到的scenario揉进sample answer（STAR模型，[How To Use the STAR Interview Response Technique](https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique) -response-technique）
+- 所有的问题和答案总结成一个doc，列出key points或者详细的回答-Practice talking through your answers out loud (一定要练熟，面试的时候不要让面试官听起来你在背答案）
 
 ## 要准备几个故事
 
@@ -35,6 +41,19 @@ LP的重要性不用多说，不过我自己最后的感想是在分类故事的
 ## TODO************************************************************************************************************************
 
 
+## Resource
+
+- 125 Common Interview Questions and Answers (With Tips)
+- 有LinkedIn Premium的可以Google linkedin interview questions，里面有很多sample QA (建议在找工期间可以开Premium,有一些内容还是有用的)
+- YouTube Chanel
+- Linda Raynier: 讲话很温和，语音语调我都喜欢。会提供很多BQ问题的examples，最重要的是会对整个面试宏观层面提出一些建议。我喜欢这个博主一是因为她的sample answer很好，二是她的一些视频会帮我 在面试前搞好心态。下面这些视频供参考。[How to be Confident in Interviews](https://www.youtube.com/watch?v=jQfVn2zakKQ)
+- [How to Make Interviewers See You as the Right “Fit” for the Job - 5 Tips](https://www.youtube.com/watch?v=taHSZEhTzPc&feature=youtu.be)
+- [Where Do You See Yourself in 5 Years?](https://www.youtube.com/watch?v=tt4TF1wqz9U&feature=youtu.be) - Ideal Sample Answer (这个和我之前找的sample answer都不太一样，但是我觉得说的很有道理，这一波跳槽都用的这个)
+- Work It Daily: 看的第二多的博主，找工作期间我每天都会去看看，找找感觉，下面这个视频对我最有用.
+- [8 Smart Questions To Ask Hiring Managers In A Job Interview](https://www.youtube.com/watch?v=Y95eI-ek_E8) (提出了4C原则：connect，culture，challenges，close，每个下面是2个sample questions)
+- Self Made Millennial：这个风格博主讲话很夸张，讲的内容基本和前两个博主一样，但是视频做的比较有意思，很生动。我看她的视频主要是想被她的那种energy感染一下，用到面试里。但是听多了脑袋会有点疼
+
+
 
 ## STAR法则
 
@@ -42,8 +61,6 @@ LP的重要性不用多说，不过我自己最后的感想是在分类故事的
 - **T: Task**
 - **A: Action**
 - **R: Result**
-
-
 
 ### BQ - List
 
@@ -349,7 +366,50 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
 
 
 
+## Sample BQ questions for reference:
 
+1. Problem Solving
+    - Describe a time when you solved a problem and how you came up with solution
+    - Give me an  example of a  time when you used good  judgment / logic to solve a problem
+2. Decision Making
+    - Tell me about a difficult decision you've made in the last year
+    - Give an example of a time in which you had to be relatively quick in coming to a decision
+3. Initiative
+    - Tell me about a time when you went above and beyond the call of duty in order to get a job done
+    - Give me an example of when you showed imitative and took the lead
+4. Flexibility
+    - With examples, convince me that you can adapt to a wide variety of people, situations and environments
+    - Describe a time when the scope or parameters of what you were working on changed mid-way through
+5. Communication
+    - Tell me about a time when you had to use your presentation skills to influence someone's opinion
+    - Describe a situation in which you were able to use persuasion to successfully convince someone to see things your way
+6. Conflict Management
+    - Tell me about a time when you had conflict with someone in authority and how you handled it
+    - Give an example of when you had to work with someone who was difficult to get along with
+7. Achievement/Drive
+    -  Give me an example of time when you set a goal and were able to meet or achieve it
+    - Tell me about an accomplishment that you were proud of?
+8. Leadership
+    - Tell me about a situation when you lead a group of people to achieve a goal
+    - Tell me about a time when you delegated a project effectively
+9. **Teamwork**
+    - Tell me about an occasion when you worked with a group to complete a project
+    - Describe how you were able to successfully contribute to a multi-interdisciplinary team
+10. **Stress Management**
+    - Describe a time when you were faced with a stressful situation that demonstrated your coping skills
+    - Tell me about a situation in which you had to deal with a very upset client
+11. **Technical Expertise**
+    - Tell me about a time you were effective in putting your technical expertise to use to solve a problem.
+    - Describe a time where you were required to use a certain technology that you did not know well
+12. **Attention to Detail**
+    - Tell me about a project you have worked on in which it was necessary to pay attention to the details
+    - Give me an example of a time you discovered an error that had been overlooked by a colleague, what did you do?
+13. **Business Acumen**
+    - Give me an example of a time when your knowledge of organizational policies, practices, or trends enabled you to be successful
+    - Give me a specific example of a time when you had to conform to policy with which you did not agree
+14. **Time Management**
+    - Tell me about a time when you had many things to do and you were required to prioritize your tasks
+    - Describe how you prioritize the tasks assigned to you
 
 
 
