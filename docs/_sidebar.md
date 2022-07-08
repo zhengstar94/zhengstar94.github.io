@@ -202,8 +202,8 @@
   * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
   * [德国学历波恩认证(ZAB)流程](md/Abroad/德国学历波恩认证(ZAB)流程.md)
 
-* 出国
-  * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
+* 面经
+  * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
 
 * interview
   * [项目经验](md/Interview/projectExperience.md)
