@@ -368,28 +368,28 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
 
 ## Sample BQ questions for reference:
 
-1. Problem Solving
+1. **Problem Solving**
     - Describe a time when you solved a problem and how you came up with solution
     - Give me an  example of a  time when you used good  judgment / logic to solve a problem
-2. Decision Making
+2. **Decision Making**
     - Tell me about a difficult decision you've made in the last year
     - Give an example of a time in which you had to be relatively quick in coming to a decision
-3. Initiative
+3. **Initiative**
     - Tell me about a time when you went above and beyond the call of duty in order to get a job done
     - Give me an example of when you showed imitative and took the lead
-4. Flexibility
+4. **Flexibility**
     - With examples, convince me that you can adapt to a wide variety of people, situations and environments
     - Describe a time when the scope or parameters of what you were working on changed mid-way through
-5. Communication
+5. **Communication**
     - Tell me about a time when you had to use your presentation skills to influence someone's opinion
     - Describe a situation in which you were able to use persuasion to successfully convince someone to see things your way
-6. Conflict Management
+6. **Conflict Management**
     - Tell me about a time when you had conflict with someone in authority and how you handled it
     - Give an example of when you had to work with someone who was difficult to get along with
-7. Achievement/Drive
+7. **Achievement/Drive**
     -  Give me an example of time when you set a goal and were able to meet or achieve it
     - Tell me about an accomplishment that you were proud of?
-8. Leadership
+8. **Leadership**
     - Tell me about a situation when you lead a group of people to achieve a goal
     - Tell me about a time when you delegated a project effectively
 9. **Teamwork**
