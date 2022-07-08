@@ -87,7 +87,7 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you had to leave a task unfinished
    
      **答题思路：**<br>
-     S:这题比较负面。可以举个由于某些不可抗的理由而造成任务无法完成的例子，比如自己/家人突然生病等。<br>
+     >S:这题比较负面。可以举个由于某些不可抗的理由而造成任务无法完成的例子，比如自己/家人突然生病等。<br>
      T: 你需要怎么做才能让组或者公司损失最小<br>
      A: 你所采取的措施<br>
      R: 最后任务成功交接或者完成<br>
@@ -95,7 +95,7 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you had to work on a project with unclear responsibilities
 
      **答题思路：**<br>
-     S: 举个相关的例子，当你的项目或者任务需求不明确，或者任务分工不明确<br>
+     >S: 举个相关的例子，当你的项目或者任务需求不明确，或者任务分工不明确<br>
      T: 你需要做写什么从而让项目成功完成<br>
      A: 你所采取的措施<br>
      R: 最终项目成功完成
@@ -106,7 +106,7 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you gave a simple solution to a complex problem
 
      **答题思路：**<br>
-     S: 举个遇到了复杂问题的情况<br>
+     >S: 举个遇到了复杂问题的情况<br>
      T: 你被安排完成这个问题/任务<br>
      A: 你所采取的措施<br>
      R: 最后得到了个简单的方法而完成任务<br>
@@ -114,7 +114,7 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you invented something.
 
      **答题思路：**<br>
-     S: 举个例子需要你发挥创造力 从而 节约时间/成本 达到目的<br>
+     >S: 举个例子需要你发挥创造力 从而 节约时间/成本 达到目的<br>
      T: 你被安排完成这个任务<br>
      A: 你所采取的措施<br>
      R: 成功创新，达到节约时间/成本，达到目的<br>
@@ -125,7 +125,7 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you were wrong.
 
      **答题思路：**<br>
-     S: 比较负面。举个例子说自己由于某些不是很严重的失误，没达到预期<br>
+     >S: 比较负面。举个例子说自己由于某些不是很严重的失误，没达到预期<br>
      T: 你所被安排的任务<br>
      A: 你采取什么措施弥补<br>
      R: 最终改正错误，完成任务<br>
@@ -133,7 +133,7 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you had to work with incomplete data or information.
 
      **答题思路：**<br>
-     S: 举个例子你得到的数据或信息不完整或不正确<br>
+     >S: 举个例子你得到的数据或信息不完整或不正确<br>
      T: 你是如何获取完整数据信息从而完成该任务<br>
      A: 你所采取的措施（找相关组获取，或者自己获取）<br>
      R: 拿到了完整的数据，并成功完成项目<br>
@@ -144,26 +144,26 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
    - Tell me about a time when you influenced a change by only asking questions.
 
      **答题思路：**<br>
-     S: 举个例子你是如何通过只问问题从而影响了某个项目的决策/结果<br>
+     >S: 举个例子你是如何通过只问问题从而影响了某个项目的决策/结果<br>
      T: 被邀请参加项目讨论<br>
      A: 你是如何观察细微，或者结合自己的经验，提出了一些比较关键的问题<br>
      R: 最后影响了整个项目的走向/决策<br>
 
-- Tell me about a time when you solved a problem through just superior knowledge or observation.
+   - Tell me about a time when you solved a problem through just superior knowledge or observation.
 
-  答题思路：
-  S: 举个例子你被安排了某项曾经做过类似的项目
-  T: 你需要完成该项目
-  A: 你是如何运用之前的相关经验或者新的观察
-  R: 从而完成任务
+     **答题思路：**<br>
+     >S: 举个例子你被安排了某项曾经做过类似的项目<br>
+     T: 你需要完成该项目<br>
+     A: 你是如何运用之前的相关经验或者新的观察<br>
+     R: 从而完成任务<br>
 
-- How do you stay inspired, acquire new knowledge, or innovate in your work?
+   - How do you stay inspired, acquire new knowledge, or innovate in your work?
 
-  答题思路：
-  S: 出现了新的技术/知识/需求
-  T: 你需要获取新技术/知识. 1point 3acres
-  A: 你是如何获取新技术/知识，并应用到工作当中
-  R: 成功运用新学的技术/知识到工作当中
+     **答题思路：**<br>
+     >S: 出现了新的技术/知识/需求<br>
+     T: 你需要获取新技术/知识<br>
+     A: 你是如何获取新技术/知识，并应用到工作当中<br>
+     R: 成功运用新学的技术/知识到工作当中<br>
 
 6. Hire and Develop The Best
    Leaders raise the performance bar with every hire and promotion. They recognize exceptional talent and will move them throughout the organization. Leaders develop leaders and take seriously their role in coaching others. We work on behalf of our people to invent mechanisms for development like Career Choice.
