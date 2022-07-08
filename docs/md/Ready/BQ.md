@@ -226,51 +226,51 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
      A: 额外花时间去调查问题、与同事讨论<br>
      R: 修复了问题<br>
 
-- Tell me about a time when you took a calculated risk.
+   - Tell me about a time when you took a calculated risk.
 
-  答题思路：
-  S: 某项没有确定方向的任务.
-  T: 交给你负责
-  A: 你是如何分析考虑不同情况，如何取舍，付出行动
-  R: 最终完成任务
+     **答题思路：**<br>
+     >S: 某项没有确定方向的任务<br>
+     T: 交给你负责<br>
+     A: 你是如何分析考虑不同情况，如何取舍，付出行动<br>
+     R: 最终完成任务<br>
 
-- Tell me about a time you needed to get information from someone who wasn’t very responsive. What did you do?
+   - Tell me about a time you needed to get information from someone who wasn’t very responsive. What did you do?
 
-  答题思路：
-  S: 某个任务所需的信息不全，提供者反馈很慢
-  T: 你是如何完成任务的
-  A: 你采取了哪些积极措施.
-  R: 最终完成了任务.
+     **答题思路：**<br>
+     >S: 某个任务所需的信息不全，提供者反馈很慢<br>
+     T: 你是如何完成任务的<br>
+     A: 你采取了哪些积极措施<br>
+     R: 最终完成了任务<br>
 
-10. Frugality
+10. **Frugality**<br>
     Accomplish more with less. Constraints breed resourcefulness, self-sufficiency, and invention. There are no extra points for growing headcount, budget size or fixed expense.
 
-- Tell me about a time when you had to work with limited time or resources.
+    - Tell me about a time when you had to work with limited time or resources.
 
-  答题思路：
-  S: 由于财政或者时间原因
-  T: 你必须在缺少资源的情况下完成任务
-  A: 你采取了哪些措施，比如（用开源、加班）
-  R: 按时完成任务
+      **答题思路：**<br>
+      >S: 由于财政或者时间原因<br>
+      T: 你必须在缺少资源的情况下完成任务<br>
+      A: 你采取了哪些措施，比如（用开源、加班）<br>
+      R: 按时完成任务<br>
 
-11. Earn Trust
+11. **Earn Trust**<br>
     Leaders listen attentively, speak candidly, and treat others respectfully. They are vocally self-critical, even when doing so is awkward or embarrassing. Leaders do not believe their or their team’s body odor smells of perfume. They benchmark themselves and their teams against the best.
 
-- What would you do if you found out that your closest friend at work was stealing?
+    - What would you do if you found out that your closest friend at work was stealing?
 
-  答题思路：
-  S: 不经常发生的事，可以说没遇到过
-  T: 但是如果遇到了
-  A: 坚持原则，对事不对人，跟Manager与HR联系，告诉实情
-  R: 也跟朋友说这样做不对，劝他去道歉承认错误
+      **答题思路：**<br>
+      >S: 不经常发生的事，可以说没遇到过<br>
+      T: 但是如果遇到了<br>
+      A: 坚持原则，对事不对人，跟Manager与HR联系，告诉实情<br>
+      R: 也跟朋友说这样做不对，劝他去道歉承认错误<br>
 
-- Tell me about a time when you had to tell someone a harsh truth.
+    - Tell me about a time when you had to tell someone a harsh truth.
   
-  答题思路：
-  S: 为新同事做code review
-  T: 发现对方代码有很多问题，需要大改
-  A: 先肯定对方的努力，再提出所有发现的问题，给予改进建议.
-  R: 最终新同事做的越来越好
+      **答题思路：**<br>
+      >S: 为新同事做code review<br>
+      T: 发现对方代码有很多问题，需要大改<br>
+      A: 先肯定对方的努力，再提出所有发现的问题，给予改进建议<br>
+      R: 最终新同事做的越来越好<br>
 
 - Tell me a time when you earned the trust of a group
 
