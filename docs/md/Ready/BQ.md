@@ -272,78 +272,78 @@ Leaders are owners. They think long term and don’t sacrifice long-term value f
       A: 先肯定对方的努力，再提出所有发现的问题，给予改进建议<br>
       R: 最终新同事做的越来越好<br>
 
-- Tell me a time when you earned the trust of a group
+    - Tell me a time when you earned the trust of a group
 
-  答题思路：
-  S: 往积极的方向回答，公司的新客户
-  T: 任务交给你负责. 1point3acres
-  A: 你是如何充分准备，超额完成任务，质量有保证
-  R: 客户很满意，很信任你的能力与交付的产品
+      **答题思路：**<br>
+      >S: 往积极的方向回答，公司的新客户<br>
+      T: 任务交给你负责. 1point3acres<br>
+      A: 你是如何充分准备，超额完成任务，质量有保证<br>
+      R: 客户很满意，很信任你的能力与交付的产品<br>
 
-12. Dive Deep
+12. **Dive Deep**<br>
     Leaders operate at all levels, stay connected to the details, audit frequently, and are skeptical when metrics and anecdote differ. No task is beneath them.
 
-- Give me two examples of when you did more than what was required in any job experience.
+    - Give me two examples of when you did more than what was required in any job experience.
   
-  答题思路：
-  S: 公司分配任务
-  T: 任务很基础很简单
-  A: 深思熟虑，高效率开发
-  R: 在时间允许的情况下，超额完成任务，比如更高的Unit Test coverage与 CI/CD，scalibility
+      **答题思路：**<br>
+      >: 公司分配任务<br>
+      T: 任务很基础很简单<br>
+      A: 深思熟虑，高效率开发<br>
+      R: 在时间允许的情况下，超额完成任务，比如更高的Unit Test coverage与 CI/CD，scalibility<br>
 
-- Tell me about something that you learned recently in your role
+    - Tell me about something that you learned recently in your role
 
-  答题思路：-baidu 1point3acres
-  S: 在某项任务中.--
-  T: 做了什么feature，用了什么技能
-  A: 在按时按成的情况下，还额外花时间总结分析.--
-  R: 深入地学会了什么技能，举一反三
+      **答题思路：**<br>
+      >S: 在某项任务中<br>
+      T: 做了什么feature，用了什么技能<br>
+      A: 在按时按成的情况下，还额外花时间总结分析<br>
+      R: 深入地学会了什么技能，举一反三<br>
 
-13. Have Backbone; Disagree and Commit
+13. **Have Backbone; Disagree and Commit**<br>
     Leaders are obligated to respectfully challenge decisions when they disagree, even when doing so is uncomfortable or exhausting. Leaders have conviction and are tenacious. They do not compromise for the sake of social cohesion. Once a decision is determined, they commit wholly.
 
-- Tell me about a time when you had to step up and disagree with a team members approach
+    - Tell me about a time when you had to step up and disagree with a team members approach
 
-  答题思路：
-  S: 在做某项任务的时候，你的想法与组员的不同
-  T: 你会如何处理
-  A: 摆事实，讲道理，证明自己的想法是正确的，提出更好的解决方案
-  R: 最终说服经理用自己的方案来实现，客户满意
+      **答题思路：**<br>
+      >S: 在做某项任务的时候，你的想法与组员的不同<br>
+      T: 你会如何处理<br>
+      A: 摆事实，讲道理，证明自己的想法是正确的，提出更好的解决方案<br>
+      R: 最终说服经理用自己的方案来实现，客户满意<br>
 
-- If your direct manager was instructing you to do something you disagreed with, how would you handle it?
+    - If your direct manager was instructing you to do something you disagreed with, how would you handle it?
 
-  答题思路：
-  S: 在做某项任务的时候，你的想法与经理的不同
-  T: 你会如何处理
-  A: 摆事实，讲道理，证明自己的想法是正确的
-  R: 最终说服同事用自己的方案来实现
+      **答题思路：**<br>
+      >S: 在做某项任务的时候，你的想法与经理的不同<br>
+      T: 你会如何处理<br>
+      A: 摆事实，讲道理，证明自己的想法是正确的<br>
+      R: 最终说服同事用自己的方案来实现<br>
 
-14. Deliver Results
+14. **Deliver Results**<br>
     Leaders focus on the key inputs for their business and deliver them with the right quality and in a timely fashion. Despite setbacks, they rise to the occasion and never settle.
 
-- By providing an example, tell me when you have had to handle a variety of assignments. Describe the results.
+    - By providing an example, tell me when you have had to handle a variety of assignments. Describe the results.
 
-  答题思路：
-  S: 同时有多项任务分配给你
-  T: 你需要完成多项任务
-  A: 你是如何按照优先级安排时间与处理各项任务
-  R: 最终完成所有任务
+      **答题思路：**<br>
+      >S: 同时有多项任务分配给你<br>
+      T: 你需要完成多项任务<br>
+      A: 你是如何按照优先级安排时间与处理各项任务<br>
+      R: 最终完成所有任务<br>
 
-- What is the most difficult situation you have faced in your life? How did you handle it?
+    - What is the most difficult situation you have faced in your life? How did you handle it?
 
-  答题思路：
-  S: 比较消极，可以举一些非自己原因造成的困境的例子
-  T: 比如人员调动，同事离职，造成你独挑大梁
-  A: 你是如何积极与将离职的员工做knowledge transfer，额外花时间把接手项目吃透
-  R: 最终完成交接，并成功持续deliver project
+      **答题思路：**<br>
+      >S: 比较消极，可以举一些非自己原因造成的困境的例子<br>
+      T: 比如人员调动，同事离职，造成你独挑大梁<br>
+      A: 你是如何积极与将离职的员工做knowledge transfer，额外花时间把接手项目吃透<br>
+      R: 最终完成交接，并成功持续deliver project<br>
 
-- Give me an example of a time when you were 75% of the way through a project, and you had to pivot strategy–how were you able to make that into a success story?
+    - Give me an example of a time when you were 75% of the way through a project, and you had to pivot strategy–how were you able to make that into a success story?
 
-  答题思路：
-  S: 不叫消极，尽量不要举因为个人原因的例子
-  T: 可以是因为上层决策变动，需求变动，从而导致你需要对已写代码大改动
-  A: 你是如何积极的设计，约组员开会，一起讨论，明确好目标后，高效率实现
-  R: 最终按时完成任务，领客户满意
+      **答题思路：**<br>
+      >S: 不叫消极，尽量不要举因为个人原因的例子<br>
+      T: 可以是因为上层决策变动，需求变动，从而导致你需要对已写代码大改动<br>
+      A: 你是如何积极的设计，约组员开会，一起讨论，明确好目标后，高效率实现<br>
+      R: 最终按时完成任务，领客户满意<br>
 
 
 
