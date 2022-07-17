@@ -210,7 +210,7 @@
   * [项目经验](md/Interview/projectExperience.md)
 
 * python
-  * [Python笔记](md/Interview/projectExperience.md)
+  * [Python笔记](md/Python/Python笔记.md)
 
 <!-- * 英语学习计划
   * [第一天](md/another/learn01.md) -->
