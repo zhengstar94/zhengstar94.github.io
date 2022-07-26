@@ -213,6 +213,11 @@
 * python
   * [Python笔记](md/Python/Python笔记.md)
 
+
+* IELTS
+  * [60天攻克雅思](md/IELTS/60天攻克雅思.md)
+  * [IELTS备考](md/IELTS/IELTS备考.md)
+
 <!-- * 英语学习计划
   * [第一天](md/another/learn01.md) -->
 
