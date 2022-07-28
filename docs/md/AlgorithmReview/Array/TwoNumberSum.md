@@ -42,7 +42,9 @@ class Program {
 
 
 
-## Method 2  [ O(n)time | O(n)space ]
+## Method 2  
+
+【 O(n)time | O(n)space 】
 
 ```java
 import java.util.*;
@@ -62,7 +64,8 @@ class Program {
 }
 ```
 
-## Method 3  [ O(nlog(n))time | O(1)space ]
+## Method 3 
+【 O(nlog(n))time | O(1)space 】
 
 ```java
 import java.util.*;
