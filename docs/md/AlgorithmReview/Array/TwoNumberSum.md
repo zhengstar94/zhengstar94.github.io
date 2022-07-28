@@ -15,7 +15,16 @@ If no two numbers sum up to the target sum,the function should return an empty a
 **Sample Output**
 > [-1,11] /the numbers could be in reverse order
 
-## Method 1  [ O($n^2$)time | O(1)space ]
+## Method 1  [ O(n^{2})time | O(1)space ]
+
+n^{2}
+
+n^2
+
+$$n^2$$
+
+$n^2$
+
 ```java
 import java.util.*;
 
