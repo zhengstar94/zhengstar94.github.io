@@ -1,6 +1,6 @@
 # AlgorithmExpert
 
-$$
+```tex
 \left[
 \begin{matrix}
 1      & 2      & \cdots & 4      \\
@@ -9,4 +9,4 @@ $$
 8      & 9      & \cdots & 0      \\
 \end{matrix}
 \right]
-$$
+```
