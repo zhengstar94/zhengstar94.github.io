@@ -17,6 +17,8 @@ If no two numbers sum up to the target sum,the function should return an empty a
 
 ## Method 1  
 
+ces
+
 O\(```tex n^2 ```\)time | O(1)space
 
 
