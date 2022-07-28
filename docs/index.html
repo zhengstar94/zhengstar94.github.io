@@ -73,10 +73,67 @@
           words: "",
           minute: ""
         },
-        isExpected: true
+        isExpected: true,
+        plugins: [
+          function (hook) {
+            // 支持$和$$
+            hook.doneEach(function () {
+              if (typeof MathJax !== "undefined") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+              }
+            });
+            // 支持$``$
+            hook.beforeEach(function (content) {
+              return content.replace(/\$`.*`\$/g, function (a) {
+                return a.replace("`", "").replace("`", "");
+              });
+            });
+            // 支持```math```块
+            hook.beforeEach(function (content) {
+              return content.replace("\r\n","\n");
+            });
+            hook.beforeEach(function (content) {
+              return content.replace("\r","\n");
+            });
+            hook.beforeEach(function (content) {
+              c = content.replace(
+                      /```math\n[^`]*\n```/g,
+                      function (a) {
+                        return a
+                                .replace("```math", "\$\$\$\$")
+                                .replace("```", "\$\$\$\$");
+                      }
+              );
+              return c
+            });
+          },
+        ],
       }
     }
   </script>
+
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processClass: 'math',
+        processEscapes: true
+      },
+      TeX: {
+      equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+      extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+      Macros: {bm: "\\boldsymbol"}
+      },
+      'HTML-CSS': { linebreaks: { automatic: true } },
+      'preview-HTML': { linebreaks: { automatic: true } },
+      SVG: { linebreaks: { automatic: true } }
+      });
+</script>
+
+  <!--MathJax数学公式支持-->
+  <script src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   <script src="./assets/js/md5.js"></script>
   <script src="./assets/js/docsify.min.js"></script>
