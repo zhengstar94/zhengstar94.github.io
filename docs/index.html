@@ -25,6 +25,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-prism@latest/dist/docsify-prism.min.js"></script>
 
 
+  <link href="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/topCss.css">
   <link rel="stylesheet" href="./assets/css/mid.css">
@@ -33,15 +34,16 @@
 
   <script src=./assets/js/docsify-katex.js"></script>
 
-  <!-- CDN files for docsify-katex -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-  <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+  <script src="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.js"></script>
 
 </head>
 <body>
   <div id="app">🏃‍🏃‍🏃‍💨加载中...</div>
   <script>
+    var num = 0;
+    mermaid.initialize({ startOnLoad: false });
+
     window.$docsify = {
       loadSidebar: true,
       subMaxLevel: 2,
@@ -73,67 +75,24 @@
           words: "",
           minute: ""
         },
-        isExpected: true,
-        plugins: [
-          function (hook) {
-            // 支持$和$$
-            hook.doneEach(function () {
-              if (typeof MathJax !== "undefined") {
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-              }
-            });
-            // 支持$``$
-            hook.beforeEach(function (content) {
-              return content.replace(/\$`.*`\$/g, function (a) {
-                return a.replace("`", "").replace("`", "");
-              });
-            });
-            // 支持```math```块
-            hook.beforeEach(function (content) {
-              return content.replace("\r\n","\n");
-            });
-            hook.beforeEach(function (content) {
-              return content.replace("\r","\n");
-            });
-            hook.beforeEach(function (content) {
-              c = content.replace(
-                      /```math\n[^`]*\n```/g,
-                      function (a) {
-                        return a
-                                .replace("```math", "\$\$\$\$")
-                                .replace("```", "\$\$\$\$");
-                      }
+        isExpected: true
+      },
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "tex") {
+              return (
+                      '<span class="tex">'+ katex.renderToString(code, {
+                        throwOnError: false
+                      })+'</span>'
               );
-              return c
-            });
-          },
-        ],
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
       }
     }
   </script>
-
-  <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processClass: 'math',
-        processEscapes: true
-      },
-      TeX: {
-      equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
-      extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
-      Macros: {bm: "\\boldsymbol"}
-      },
-      'HTML-CSS': { linebreaks: { automatic: true } },
-      'preview-HTML': { linebreaks: { automatic: true } },
-      SVG: { linebreaks: { automatic: true } }
-      });
-</script>
-
-  <!--MathJax数学公式支持-->
-  <script src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 
   <script src="./assets/js/md5.js"></script>
   <script src="./assets/js/docsify.min.js"></script>
