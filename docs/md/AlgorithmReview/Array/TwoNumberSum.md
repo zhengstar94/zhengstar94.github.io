@@ -25,6 +25,8 @@ $$n^2$$
 
 $n^2$
 
+\left(n^{\smash{2}}\right)
+
 ```java
 import java.util.*;
 
