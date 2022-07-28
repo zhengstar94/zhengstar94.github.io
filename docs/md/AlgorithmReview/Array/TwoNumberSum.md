@@ -10,7 +10,7 @@ If no two numbers sum up to the target sum,the function should return an empty a
 
 **Sample Input**
 > array=[3,5,-4,8,11,1,-1,6] <br>
-> targetSum 10
+> targetSum=10
 
 **Sample Output**
 > [-1,11] /the numbers could be in reverse order
