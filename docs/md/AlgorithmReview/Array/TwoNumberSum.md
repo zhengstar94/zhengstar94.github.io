@@ -18,7 +18,7 @@ If no two numbers sum up to the target sum,the function should return an empty a
 ## Method 1  
 
 ```tex 
-O(n^2)time | O(1)space
+【 O(n^2)time | O(1)space 】
 ```
 
 
