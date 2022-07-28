@@ -220,7 +220,7 @@
 
 * AlgorithmReview
   * [Array](md/AlgorithmReview/Array/AlgorithmExpert.md)
-    * [TwoNumberSum](md/AlgorithmReview/Array/TwoNumberSum.md)
+    * [TwoNumberSum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
 
   
   
