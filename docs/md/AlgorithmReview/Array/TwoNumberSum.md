@@ -44,7 +44,9 @@ class Program {
 
 ## Method 2  
 
+```tex 
 【 O(n)time | O(n)space 】
+```
 
 ```java
 import java.util.*;
@@ -65,7 +67,10 @@ class Program {
 ```
 
 ## Method 3 
+
+```tex 
 【 O(nlog(n))time | O(1)space 】
+```
 
 ```java
 import java.util.*;
