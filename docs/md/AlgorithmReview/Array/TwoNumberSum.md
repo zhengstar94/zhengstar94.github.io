@@ -17,15 +17,15 @@ If no two numbers sum up to the target sum,the function should return an empty a
 
 ## Method 1  [ O(n^{2})time | O(1)space ]
 
-n^{2}
+`n^{2}`
 
-n^2
+`n^2`
 
-$$n^2$$
+`$$n^2$$`
 
-$n^2$
+`$n^2$`
 
-\left(n^{\smash{2}}\right)
+`\left(n^{\smash{2}}\right)`
 
 ```java
 import java.util.*;
