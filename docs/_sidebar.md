@@ -221,6 +221,7 @@
 * AlgorithmReview
   * [Array](md/AlgorithmReview/Array/AlgorithmExpert.md)
     * [TwoNumberSum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
+    * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
 
   
   
