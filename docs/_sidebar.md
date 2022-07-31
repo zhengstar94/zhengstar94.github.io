@@ -125,7 +125,7 @@
 * 工作记录
   * [Linux环境下安装svn](md/Work/Linux环境下安装svn-linux-svn.md)
   * [js上精度丢失解决方案](md/Work/js上精度丢失解决方案-js-degree-lost.md)
-  * [windos10关闭端口占用进程](md/Work/windos10关闭端口占用进程-windos10关闭端口占用进程.md)
+  * [windows10关闭端口占用进程](md/Work/windows10关闭端口占用进程-windows10关闭端口占用进程.md)
   * [如何高效的使用Git](md/Work/如何高效的使用%20Git-git.md)
   * [本地jar引入到maven方](md/Work/本地jar引入到maven方式-local-jar-to-maven.md)
   * [表驱动法](md/Work/表驱动法-table-mover.md)
