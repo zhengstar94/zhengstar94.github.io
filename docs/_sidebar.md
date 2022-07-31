@@ -121,14 +121,14 @@
     * [Zookeeper实现分布式锁](md/BackEnd/Distributed/Zookeeper实现分布式锁-zookeeper.md)
     * [分布式系统接口，如何避免表单的重复提交](md/BackEnd/Distributed/分布式系统接口，如何避免表单的重复提交-distributed-idempotent.md)
 
-
+  
 
 * 工作记录
   * [Linux环境下安装svn](md/Work/Linux环境下安装svn-linux-svn.md)
   * [js上精度丢失解决方案](md/Work/js上精度丢失解决方案-js-degree-lost.md)
   * [windows10关闭端口占用进程](md/Work/windows10关闭端口占用进程-windows10关闭端口占用进程.md)
   * [如何高效的使用Git](md/Work/如何高效的使用%20Git-git.md)
-  * [本地jar引入到maven方](md/Work/本地jar引入到maven方式-local-jar-to-maven.md)
+  * [本地jar引入到maven](md/Work/本地jar引入到maven方式-local-jar-to-maven.md)
   * [表驱动法](md/Work/表驱动法-table-mover.md)
   * [防止xss攻击](md/Work/防止xss攻击-xss.md)
   * [附件预览功能(openoffice)](md/Work/附件预览功能(openoffice)-file-preview.md)
@@ -153,7 +153,6 @@
   * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
   * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
   * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
-  
 
 
 * 设计模式
