@@ -223,6 +223,7 @@
     * [TwoNumberSum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
     * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
     * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
+    * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
 
   
   
