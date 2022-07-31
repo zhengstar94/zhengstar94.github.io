@@ -107,6 +107,12 @@
   * [ElasticSearch](md/BackEnd/ES/ElasticSearch-elasticsearch-base-knowledge.md)
     * [ElasticSearch相关概念](md/BackEnd/ES/ElasticSearch相关概念-elasticsearch-conception.md)
     * [ElasticSearch部署](md/BackEnd/ES/ElasticSearch部署-elasticsearch-build.md)
+    
+
+  * Linux
+    * [Linux1](md/BackEnd/Linux/LinuxDay1.md)
+    * [Linux2](md/BackEnd/Linux/LinuxDay2.md)
+    * [Linux3](md/BackEnd/Linux/LinuxDay3.md)
 
   * [分布式](md/BackEnd/Distributed/分布式事务解决方案part%201-distribute-work-solve.md)
     * [分布式事务解决方案](md/BackEnd/Distributed/分布式事务解决方案part%202-distribute-transaction-solution.md)
@@ -115,10 +121,6 @@
     * [Zookeeper实现分布式锁](md/BackEnd/Distributed/Zookeeper实现分布式锁-zookeeper.md)
     * [分布式系统接口，如何避免表单的重复提交](md/BackEnd/Distributed/分布式系统接口，如何避免表单的重复提交-distributed-idempotent.md)
 
-  * Linux
-    * [Linux1](md/BackEnd/Linux/LinuxDay1.md)
-    * [Linux2](md/BackEnd/Linux/LinuxDay2.md)
-    * [Linux3](md/BackEnd/Linux/LinuxDay3.md)
 
 
 * 工作记录
