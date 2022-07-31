@@ -226,6 +226,9 @@
     * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
     * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
 
+* EnglishTechnology
+  * [The Code Review Pyramid](md/EnglishTechnology/TheCodeReviewPyramid.md)
+
   
   
   
