@@ -29,7 +29,7 @@
 ## Method 1
 
 ```tex 
-【 O(n)time | O(k)space\quad-\quadk\quadis\quadTeam's\quadlength 】
+【 O(n)time | O(k)space\ -\ k\ is\ Team's\ length 】
 ```
 
 
