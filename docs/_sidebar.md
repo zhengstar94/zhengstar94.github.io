@@ -122,6 +122,29 @@
 
   
 
+
+* 设计模式
+  * [面向对象设计原则](md/DesignPattern/面向对象设计原则-object-oriented-design-principles.md)
+  * [面向对象设计过程](md/DesignPattern/面向对象的设计过程-face-to-object-design.md)
+  * [UML类图](md/DesignPattern/UML类图-uml-lei-tu.md)
+  * [结构型模式](md/DesignPattern/结构型模式-结构型模式.md)
+  * [创建型模式](md/DesignPattern/创建型模式-creational-pattern.md)
+  * [工厂方法模式](md/DesignPattern/工厂方法模式(Factory%20Method%20Pattern)-factory-method-pattern.md)
+  * [简单工厂](md/DesignPattern/简单工厂模式(%20Simple%20Factory%20Pattern%20)-simple-factory-pattern.md)
+  * [抽象工厂模式](md/DesignPattern/抽象工厂模式(Abstract%20Factory)-abstract-factory.md)
+  * [建造者模式](md/DesignPattern/建造者模式（Builder）-builder.md)
+  * [适配器模式](md/DesignPattern/适配器模式(Adapter)-适配器模式adapter.md)
+  * [单例模式](md/DesignPattern/单例模式（Singleton）-singleton.md)
+  * [接口分离原则](md/DesignPattern/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
+
+* 数据结构与算法
+  * [数据结构与算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
+  * [排序算法](md/Algorithm/排序算法-排序算法.md)
+  * [二分查找part1](md/Algorithm/Binary%20Search%20二分查找-binary-search.md)
+  * [二分查找part2](md/Algorithm/binary_search-binarysearch.md)
+  * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
+  * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
+
 * 工作记录
   * [Linux环境下安装svn](md/Work/Linux环境下安装svn-linux-svn.md)
   * [js上精度丢失解决方案](md/Work/js上精度丢失解决方案-js-degree-lost.md)
@@ -152,29 +175,6 @@
   * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
   * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
   * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
-
-
-* 设计模式
-  * [面向对象设计原则](md/DesignPattern/面向对象设计原则-object-oriented-design-principles.md)
-  * [面向对象设计过程](md/DesignPattern/面向对象的设计过程-face-to-object-design.md)
-  * [UML类图](md/DesignPattern/UML类图-uml-lei-tu.md)
-  * [结构型模式](md/DesignPattern/结构型模式-结构型模式.md)
-  * [创建型模式](md/DesignPattern/创建型模式-creational-pattern.md)
-  * [工厂方法模式](md/DesignPattern/工厂方法模式(Factory%20Method%20Pattern)-factory-method-pattern.md)
-  * [简单工厂](md/DesignPattern/简单工厂模式(%20Simple%20Factory%20Pattern%20)-simple-factory-pattern.md)
-  * [抽象工厂模式](md/DesignPattern/抽象工厂模式(Abstract%20Factory)-abstract-factory.md)
-  * [建造者模式](md/DesignPattern/建造者模式（Builder）-builder.md)
-  * [适配器模式](md/DesignPattern/适配器模式(Adapter)-适配器模式adapter.md)
-  * [单例模式](md/DesignPattern/单例模式（Singleton）-singleton.md)
-  * [接口分离原则](md/DesignPattern/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
-
-* 数据结构与算法
-  * [数据结构与算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
-  * [排序算法](md/Algorithm/排序算法-排序算法.md)
-  * [二分查找part1](md/Algorithm/Binary%20Search%20二分查找-binary-search.md)
-  * [二分查找part2](md/Algorithm/binary_search-binarysearch.md)
-  * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
-  * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
 
 
 * 学习方式
