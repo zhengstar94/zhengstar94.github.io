@@ -1,5 +1,5 @@
 
-# Sychronized
+# Synchronized
 
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/08/image-3cef962285294cb79a766a5f01157fc8.png)
 
