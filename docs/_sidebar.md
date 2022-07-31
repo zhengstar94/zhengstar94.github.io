@@ -155,18 +155,6 @@
   * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
   * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
 
-* 工作记录
-  * [Linux环境下安装svn](md/Work/Linux环境下安装svn-linux-svn.md)
-  * [js上精度丢失解决方案](md/Work/js上精度丢失解决方案-js-degree-lost.md)
-  * [windows10关闭端口占用进程](md/Work/windows10关闭端口占用进程-windows10关闭端口占用进程.md)
-  * [如何高效的使用Git](md/Work/如何高效的使用%20Git-git.md)
-  * [本地jar引入到maven](md/Work/本地jar引入到maven方式-local-jar-to-maven.md)
-  * [表驱动法](md/Work/表驱动法-table-mover.md)
-  * [防止xss攻击](md/Work/防止xss攻击-xss.md)
-  * [附件预览功能(openoffice)](md/Work/附件预览功能(openoffice)-file-preview.md)
-  * [输入URL并回车后，如果页面迟迟没有出现，怎么去排查问题？](md/Work/输入URL并回车后，如果页面迟迟没有出现，怎么去排查问题？.md)
-  * [JWT基础](md/Work/JWT基础.md)
-  
 * 系统设计案例
   * [如何统计网站UV？](md/SystemDesign/「系统设计面试题」如何统计网站UV？-system-design-uv.md)
   * [如何解决网站大文件上传问题？](md/SystemDesign/「系统设计面试题」如何解决网站大文件上传问题？-system-design-file-download.md)
@@ -184,6 +172,19 @@
   * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
   * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
   * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
+
+* 工作记录
+  * [Linux环境下安装svn](md/Work/Linux环境下安装svn-linux-svn.md)
+  * [js上精度丢失解决方案](md/Work/js上精度丢失解决方案-js-degree-lost.md)
+  * [windows10关闭端口占用进程](md/Work/windows10关闭端口占用进程-windows10关闭端口占用进程.md)
+  * [如何高效的使用Git](md/Work/如何高效的使用%20Git-git.md)
+  * [本地jar引入到maven](md/Work/本地jar引入到maven方式-local-jar-to-maven.md)
+  * [表驱动法](md/Work/表驱动法-table-mover.md)
+  * [防止xss攻击](md/Work/防止xss攻击-xss.md)
+  * [附件预览功能(openoffice)](md/Work/附件预览功能(openoffice)-file-preview.md)
+  * [输入URL并回车后，如果页面迟迟没有出现，怎么去排查问题？](md/Work/输入URL并回车后，如果页面迟迟没有出现，怎么去排查问题？.md)
+  * [JWT基础](md/Work/JWT基础.md)
+  
   
 * 学习方式
   * [如何做编程知识投资及减少知识失效的影响](md/Study/如何做编程知识投资及减少知识失效的影响.md)
