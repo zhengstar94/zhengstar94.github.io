@@ -154,6 +154,7 @@
   * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
 
 
+
 * 设计模式
   * [面向对象设计原则](md/DesignPattern/面向对象设计原则-object-oriented-design-principles.md)
   * [面向对象设计过程](md/DesignPattern/面向对象的设计过程-face-to-object-design.md)
@@ -168,7 +169,6 @@
   * [单例模式](md/DesignPattern/单例模式（Singleton）-singleton.md)
   * [接口分离原则](md/DesignPattern/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
 
-
 * 数据结构与算法
   * [数据结构与算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
   * [排序算法](md/Algorithm/排序算法-排序算法.md)
@@ -176,7 +176,7 @@
   * [二分查找part2](md/Algorithm/binary_search-binarysearch.md)
   * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
   * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
-  
+
 
 * 学习方式
   * [如何做编程知识投资及减少知识失效的影响](md/Study/如何做编程知识投资及减少知识失效的影响.md)
