@@ -11,19 +11,20 @@
 
 **Sample Input**
 
-> competitions = [
-> ["HTML","C#"],
-> [“C#””Python”],
-> [“Python""HTML”],
+> competitions = [<br>
+> ["HTML","C#"],<br>
+> [“C#””Python”],<br>
+> [“Python""HTML”],<br>
 > ]<br>
 > results [0,0,1]
 
 **Sample Output**
 
-> //C# beats HTML, Python Beats C#, and Python Beats HTML.
-> //HTML - 0 points
-> //C# - 3 points
-> //Python - 6 points
+> "Python" <br>
+> //C# beats HTML, Python Beats C#, and Python Beats HTML.<br>
+> //HTML - 0 points<br>
+> //C# - 3 points<br>
+> //Python - 6 points<br>
 
 
 ## Method 1
