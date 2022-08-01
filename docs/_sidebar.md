@@ -242,7 +242,7 @@
   
 * python
   * [Python笔记](md/Python/Python笔记.md)
-  
+
 * AlgorithmReview
   * Array
     * [TwoNumberSum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
@@ -250,6 +250,7 @@
     * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
     * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
     * [Non-Constructible Change-Easy](md/AlgorithmReview/Array/Non-ConstructibleChange.md)
+
 
   
 
