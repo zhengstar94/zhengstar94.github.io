@@ -156,22 +156,28 @@
   * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
 
 * 系统设计案例
-  * [如何统计网站UV？](md/SystemDesign/「系统设计面试题」如何统计网站UV？-system-design-uv.md)
-  * [如何解决网站大文件上传问题？](md/SystemDesign/「系统设计面试题」如何解决网站大文件上传问题？-system-design-file-download.md)
-  * [如何设计一个短链系统？](md/SystemDesign/「系统设计面试题」如何设计一个短链系统？-system-design-short-link.md)
-  * [如何设计一个秒杀系统？](md/SystemDesign/「系统设计面试题」如何设计一个秒杀系统？-system-design-flash-sale.md)
-  * [如何设计一个站内消息系统？](md/SystemDesign/「系统设计面试题」如何设计一个站内消息系统？-system-design-station-message.md)
-  * [XXL_JOB(分布式定时任务框架)与系统的接入](md/SystemDesign/XXL_JOB(分布式定时任务框架)与系统的接入-xxljob分布式定时任务框架与系统的接入.md)
-  * [图片验证码功能](md/SystemDesign/图片验证码功能-img-verify.md)
-  * [如何设计一个高并发场景？](md/SystemDesign/如何设计一个高并发场景-high-concrruent-design.md)
-  * [如何高效对接第三方支付？](md/SystemDesign/如何高效对接第三方支付-intergrate-payment.md)
-  * [日志的使用？](md/SystemDesign/日志的使用-use-log.md)
-  * [短信验证服务(阿里云)](md/SystemDesign/短信验证服务(阿里云)-phone-message.md)
-  * [订单主动过期释放，如何实现？](md/SystemDesign/订单主动过期释放，如何实现？-order-to-expire.md)
-  * [手写LRU](md/SystemDesign/手写LRU-hand-lru.md)
-  * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
-  * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
-  * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
+  * 面试专用
+    * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
+
+
+  * 其他
+    * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
+    * [如何统计网站UV？](md/SystemDesign/「系统设计面试题」如何统计网站UV？-system-design-uv.md)
+    * [如何解决网站大文件上传问题？](md/SystemDesign/「系统设计面试题」如何解决网站大文件上传问题？-system-design-file-download.md)
+    * [如何设计一个短链系统？](md/SystemDesign/「系统设计面试题」如何设计一个短链系统？-system-design-short-link.md)
+    * [如何设计一个秒杀系统？](md/SystemDesign/「系统设计面试题」如何设计一个秒杀系统？-system-design-flash-sale.md)
+    * [如何设计一个站内消息系统？](md/SystemDesign/「系统设计面试题」如何设计一个站内消息系统？-system-design-station-message.md)
+    * [XXL_JOB(分布式定时任务框架)与系统的接入](md/SystemDesign/XXL_JOB(分布式定时任务框架)与系统的接入-xxljob分布式定时任务框架与系统的接入.md)
+    * [图片验证码功能](md/SystemDesign/图片验证码功能-img-verify.md)
+    * [如何设计一个高并发场景？](md/SystemDesign/如何设计一个高并发场景-high-concrruent-design.md)
+    * [如何高效对接第三方支付？](md/SystemDesign/如何高效对接第三方支付-intergrate-payment.md)
+    * [日志的使用？](md/SystemDesign/日志的使用-use-log.md)
+    * [短信验证服务(阿里云)](md/SystemDesign/短信验证服务(阿里云)-phone-message.md)
+    * [订单主动过期释放，如何实现？](md/SystemDesign/订单主动过期释放，如何实现？-order-to-expire.md)
+    * [手写LRU](md/SystemDesign/手写LRU-hand-lru.md)
+    * [如何设计好一个接口](md/SystemDesign/如何设计好一个接口.md)
+    * [架构设计之微服务拆分](md/SystemDesign/架构设计之微服务拆分.md)
+    * [写一个并行调用模板](md/SystemDesign/写一个并行调用模板.md)
 
 * 工作记录
   * [Linux环境下安装svn](md/Work/Linux环境下安装svn-linux-svn.md)
