@@ -239,6 +239,7 @@
     * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
     * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
     * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
+    * [Non-Constructible Change-Easy](md/AlgorithmReview/Array/Non-ConstructibleChange.md)
 
 * EnglishTechnology
   * [The Code Review Pyramid](md/EnglishTechnology/TheCodeReviewPyramid.md)
