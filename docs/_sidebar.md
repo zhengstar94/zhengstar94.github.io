@@ -159,7 +159,6 @@
   * 面试专用
     * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
 
-
   * 其他
     * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
     * [如何统计网站UV？](md/SystemDesign/「系统设计面试题」如何统计网站UV？-system-design-uv.md)
@@ -206,11 +205,24 @@
   * [干货:五门CS基础课推荐](md/Study/干货:五门CS基础课推荐.md)
 
 * 英语
-  * [Interview](md/English/interview.md)
-  * [英语听说](md/English/英语听说.md)
-  * [英语学习](md/English/英语学习.md)
-  * [全英文面试如何面对](md/English/求职遭遇全英文面试，我靠这些方法度过难关.md)
-  * [敏捷Scrum](md/English/敏捷Scrum.md)
+  * 英语面试相关
+    * [Interview](md/English/interview.md)
+    * [英语听说](md/English/英语听说.md)
+    * [英语学习](md/English/英语学习.md)
+    * [全英文面试如何面对](md/English/求职遭遇全英文面试，我靠这些方法度过难关.md)
+
+  * IELTS
+    * [60天攻克雅思](md/English/IELTS/60天攻克雅思.md)
+    * [IELTS备考](md/English/IELTS/IELTS备考.md)
+    
+  * EnglishTechnology
+    * [敏捷Scrum](md/English/敏捷Scrum.md)
+    * [The Code Review Pyramid](md/EnglishTechnology/TheCodeReviewPyramid.md)
+
+  * Person Interview
+    * [项目经验](md/Interview/projectExperience.md)
+  
+
     
 * 生活
   * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
@@ -223,21 +235,19 @@
   * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
   * [德国学历波恩认证(ZAB)流程](md/Abroad/德国学历波恩认证(ZAB)流程.md)
 
-* 面经
+* 面经积累(BQ问题)
   * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
   * [BQ准备与练习Part1](md/Ready/BQPart1.md)
   * [BQ准备与练习Part2](md/Ready/BQPart2.md)
 
-* interview
-  * [项目经验](md/Interview/projectExperience.md)
-
+  
 * python
   * [Python笔记](md/Python/Python笔记.md)
 
 
-* IELTS
+<!--* IELTS
   * [60天攻克雅思](md/English/IELTS/60天攻克雅思.md)
-  * [IELTS备考](md/English/IELTS/IELTS备考.md)
+  * [IELTS备考](md/English/IELTS/IELTS备考.md)-->
 
 * AlgorithmReview
   * [Array](md/AlgorithmReview/Array/AlgorithmExpert.md)
@@ -247,8 +257,7 @@
     * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
     * [Non-Constructible Change-Easy](md/AlgorithmReview/Array/Non-ConstructibleChange.md)
 
-* EnglishTechnology
-  * [The Code Review Pyramid](md/EnglishTechnology/TheCodeReviewPyramid.md)
+
 
   
   
