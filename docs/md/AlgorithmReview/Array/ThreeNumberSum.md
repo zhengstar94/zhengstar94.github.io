@@ -51,7 +51,8 @@ class Program {
 ## Method2
 
 ```tex
-【 O(n^2)time | O(n) space 】
+【 O(n^2)time | O(n) space 】\\
+ \\
 ```
 
 ```tex
