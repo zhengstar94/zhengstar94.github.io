@@ -46,14 +46,14 @@ class Program {
 
 
 
->
-
 ## Method2
 
 ```tex
 【 O(n^2)time | O(n) space 】\\
  \\
 ```
+
+<br>
 
 ```tex
 1.\ Array\ sort\ O(nlogn)\\
