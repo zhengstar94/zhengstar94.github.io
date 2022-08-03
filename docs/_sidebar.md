@@ -239,18 +239,20 @@
   * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
   * [BQ准备与练习Part1](md/Ready/BQPart1.md)
   * [BQ准备与练习Part2](md/Ready/BQPart2.md)
+  * [BQ模版-持续更新](md/Ready/BQ模版.md)
   
 * python
   * [Python笔记](md/Python/Python笔记.md)
 
 * AlgorithmReview
   * Array
-    * [Two Number Sum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
-    * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
-    * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
-    * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
-    * [Non-Constructible Change-Easy](md/AlgorithmReview/Array/Non-ConstructibleChange.md)
-    * [Three Number Sum-Easy](md/AlgorithmReview/Array/ThreeNumberSum.md)
+      * [Two Number Sum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
+      * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
+      * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
+      * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
+      * [Non-Constructible Change-Easy](md/AlgorithmReview/Array/Non-ConstructibleChange.md)
+      * [Three Number Sum-Easy](md/AlgorithmReview/Array/ThreeNumberSum.md)
+      * [Smallest Difference-Easy](md/AlgorithmReview/Array/SmallestDifference.md)
 
 
 
