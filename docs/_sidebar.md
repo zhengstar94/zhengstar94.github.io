@@ -251,9 +251,10 @@
       * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
       * [Tournament Winner-Easy](md/AlgorithmReview/Array/TournamentWinner.md)
       * [Non-Constructible Change-Easy](md/AlgorithmReview/Array/Non-ConstructibleChange.md)
-      * [Three Number Sum-Easy](md/AlgorithmReview/Array/ThreeNumberSum.md)
-      * [Smallest Difference-Easy](md/AlgorithmReview/Array/SmallestDifference.md)
-      * [Move Element To End-Easy](md/AlgorithmReview/Array/MoveElementToEnd.md)
+      * [Three Number Sum-Medium](md/AlgorithmReview/Array/ThreeNumberSum.md)
+      * [Smallest Difference-Medium](md/AlgorithmReview/Array/SmallestDifference.md)
+      * [Move Element To End-Medium](md/AlgorithmReview/Array/MoveElementToEnd.md)
+      * [Monotonic Array-Medium](md/AlgorithmReview/Array/MonotonicArray.md)
 
 
 
