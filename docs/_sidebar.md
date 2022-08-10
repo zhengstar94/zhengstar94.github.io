@@ -258,6 +258,7 @@
       * [Spiral Traverse-Medium](md/AlgorithmReview/Array/SpiralTraverse.md)
       * [Longest Peak-Medium](md/AlgorithmReview/Array/LongestPeak.md)
       * [Array Of Products-Medium](md/AlgorithmReview/Array/ArrayOfProducts.md)
+      * [First Duplicate Value-Medium](md/AlgorithmReview/Array/FirstDuplicateValue.md)
 
 
 
