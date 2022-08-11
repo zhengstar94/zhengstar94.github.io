@@ -37,6 +37,7 @@ class Program {
             return intervals;
         }
 
+        //Array sorting
         Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
 
         List<int[]> result = new ArrayList<>();
