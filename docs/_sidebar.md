@@ -259,6 +259,7 @@
       * [Longest Peak-Medium](md/AlgorithmReview/Array/LongestPeak.md)
       * [Array Of Products-Medium](md/AlgorithmReview/Array/ArrayOfProducts.md)
       * [First Duplicate Value-Medium](md/AlgorithmReview/Array/FirstDuplicateValue.md)
+      * [Merge Overlapping Intervals-Medium](md/AlgorithmReview/Array/MergeOverlappingIntervals.md)
 
 
 
