@@ -15,15 +15,13 @@
 
 ## Method 1
 
-```
+
+```tex
 【 O(n^3)time | O(n) space 】\\
  \\
 ```
 
-## 
-
 <br>
-
 
 
 ```tex
