@@ -38,7 +38,7 @@ class Program {
     while(i < array.length - 1){
         int j=i;
         //array[i] == array[i+1] || array[i] + 1 == array[i+1]
-        //array[i] == array[i+1] is equal or array[i] + 1 == array[i+1] equal, it means continuous.
+        //array[i] == array[i+1] is equal or array[i] + 1 == array[i+1] is equal, it means continuous.
         while(i < array.length - 1 && (array[i] == array[i+1] || array[i] + 1 == array[i+1])){ 
             i++;
         }
