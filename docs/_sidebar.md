@@ -262,7 +262,7 @@
       * [Merge Overlapping Intervals-Medium](md/AlgorithmReview/Array/MergeOverlappingIntervals.md)
       * [Four Number Sum-Hard](md/AlgorithmReview/Array/FourNumberSum.md)
       * [Subarray Sort-Hard](md/AlgorithmReview/Array/SubarraySort.md)
-      * [LargestRange-Hard](md/AlgorithmReview/Array/LargestRange.md)
+      * [Largest Range-Hard](md/AlgorithmReview/Array/LargestRange.md)
 
 
 
