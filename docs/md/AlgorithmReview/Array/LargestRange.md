@@ -58,3 +58,7 @@ class Program {
 
 
 ## Method 2 【To be continued】
+
+```tex
+【 O(n)time | O(n) space 】
+```
