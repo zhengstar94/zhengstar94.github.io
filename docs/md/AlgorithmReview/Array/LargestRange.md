@@ -62,3 +62,62 @@ class Program {
 ```tex
 【 O(n)time | O(n) space 】
 ```
+
+
+```java
+import java.util.*;
+
+class Program {
+    public static int[] largestRange(int[] array) {
+        // Write your code here.
+
+        //Declare a Map collection to store all elements
+        Map<Integer, Boolean> map = new HashMap<>(array.length);
+        int[] longestRange = new int[]{array[0], array[0]};
+        int longestLength = 1;
+
+        //Elements are all true by default
+        for (int item : array) {
+            map.put(item, true);
+        }
+        for (int i = 0; i < array.length; i ++) {
+            int current = array[i];
+
+            //if map.get(current) = false, then current has been sorted
+            if (!map.get(current)) {
+                continue;
+            }
+            int currentLength = 1;
+
+            //Move left from the current 
+            int left = current - 1;
+            while (map.containsKey(left)) {
+                map.put(left, false);
+                currentLength ++;
+                left --;
+            }
+
+            //Move right from the current 
+            int right = current + 1;
+            while (map.containsKey(right)) {
+                map.put(right, false);
+                currentLength ++;
+                right ++;
+            }
+
+
+            if (currentLength > longestLength) {
+                longestLength = currentLength;
+
+                //The last while cycle， left and right value have been modified
+                longestRange[0] = left + 1;
+                longestRange[1] = right - 1;
+            }
+        }
+        return longestRange;
+    }
+}
+
+
+```
+
