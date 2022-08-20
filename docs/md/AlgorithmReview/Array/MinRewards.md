@@ -64,3 +64,4 @@ class Program {
 
 ```
 
+## Method 2 [TODO]
