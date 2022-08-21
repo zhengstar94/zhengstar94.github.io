@@ -64,4 +64,54 @@ class Program {
 
 ```
 
-## Method 2 [TODO]
+## Method 2 
+
+```tex
+【O(n)time∣O(n)space】
+```
+
+
+
+```java
+import java.util.*;
+
+class Program {
+  public static int minRewards(int[] scores) {
+    // Write your code here.
+    int[] res =  new int[scores.length];
+    //Initialize the array all elements to 1
+    for(int i = 0; i < res.length ; i++){
+      res[i] = 1;
+    }
+
+    // left to right
+    //if scores[i] > scores[i-1], then res[i] = res[i-1] + 1;
+    for(int i = 1; i < scores.length;i++ ){
+      if(scores[i] > scores[i-1]){
+        res[i] = res[i-1] + 1;
+      }
+    }
+
+    // right to left
+    //if scores[i] > scores[i+1], and res[i] > res[i+1]+1, then output res[i],because i element already bigger than right number
+    //if scores[i] > scores[i+1], and res[i] < res[i+1]+1, then output res[i+1]+1
+    for(int i = scores.length - 2; i >=0 ;i-- ){
+      if(scores[i] > scores[i+1]){
+        res[i] = Math.max(res[i], res[i+1]+1);
+      }
+    }
+
+
+    int sum = 0;
+    for(int i = 0; i < res.length ; i++){
+      sum += res[i];
+    }
+
+
+    return sum;
+  }
+}
+
+
+
+```
