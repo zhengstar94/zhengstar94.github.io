@@ -264,6 +264,7 @@
       * [Subarray Sort-Hard](md/AlgorithmReview/Array/SubarraySort.md)
       * [Largest Range-Hard](md/AlgorithmReview/Array/LargestRange.md)
       * [Min Rewards-Hard](md/AlgorithmReview/Array/MinRewards.md)
+      * [Zigzag Traverse-Hard](md/AlgorithmReview/Array/ZigzagTraverse.md)
 
 
 
