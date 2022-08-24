@@ -18,3 +18,89 @@
 
 
 
+Method 1
+
+
+
+```tex
+【O(n)time∣O(n)space】
+```
+
+
+
+```java
+import java.util.*;
+
+class Program {
+
+    public static List<Integer> zigzagTraverse(List<List<Integer>> array) {
+        // Write your code here.
+        List<Integer> result = new ArrayList<Integer>();
+        int height = array.size() - 1;
+        int width = array.get(0).size() - 1;
+        int row = 0;
+        int col = 0;
+        //whether or not goingDown,default true
+        boolean goingDown = true;
+
+        while(!isOutofBound(row,col,height,width)){
+            result.add(array.get(row).get(col));
+            // if goingDown
+            if(goingDown){
+                //if target is the boundary value（left and bottom）
+                if(col == 0 || row == height){
+
+                    //the next step need goingUp
+                    goingDown = false;
+
+
+                    if(row == height){
+                        //bottom boundary，for example 13->14,
+                        col +=1;
+                    }else{
+                        // left boundary，for example 1->2 , 6->7
+                        row +=1;
+                    }
+                }else{
+                    //goingDown, Diagonal line 4->5, 5->6, 11->12, 12->13
+                    row +=1;
+                    col -=1;
+                }
+            }else{
+                // if goingDown
+
+                //if target is the boundary value（right and top）
+                if(row == 0 || col == width){
+
+                    //the next step need goingDown
+                    goingDown = true;
+
+                    // right boundary
+                    if(col == width){
+                        //10->11, 15->16
+                        row +=1;
+                    }else{
+                        //top boundary，for example 3->4
+                        col +=1;
+                    }
+                }else{
+                    //goingUp, Diagonal line 2->3, 7->8, 8->9, 9->10, 14->15
+                    row -=1;
+                    col +=1;
+
+                }
+            }
+        }
+
+        return result;
+    }
+
+    //whether or not to exceed the boundary
+    public static boolean isOutofBound(int row,int col,int height,int width){
+        return row < 0 ||  row > height || col < 0 ||  col > width;
+    }
+
+}
+
+```
+
