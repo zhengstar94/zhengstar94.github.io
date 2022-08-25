@@ -245,7 +245,7 @@
   * [Python笔记](md/Python/Python笔记.md)
 
 * AlgorithmReview
-  * Array
+  * Array(19)
       * [Two Number Sum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
       * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
       * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
