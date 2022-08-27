@@ -16,7 +16,7 @@
 
 > 13
 
-Method 1(Recursive)
+## Method 1(Recursive)
 
 ```tex
 Average:\ 【O(log(n))time∣O(log(n))space】\\
@@ -66,7 +66,7 @@ class Program {
 
 
 
-Method 2
+## Method 2
 
 ```tex
 Average:\ 【O(log(n))time∣O(1)space】\\
