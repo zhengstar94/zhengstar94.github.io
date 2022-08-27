@@ -16,6 +16,53 @@
 
 > 13
 
+Method 1
+
+```tex
+Average:\ 【O(log(n))time∣O(log(n))space】\\
+Worst:\ 【O(n)time∣O(n)space】\\
+```
+
+
+```java
+import java.util.*;
+
+class Program {
+  public static int findClosestValueInBst(BST tree, int target) {
+      return findClosestValueInBstHelper(tree,target,tree.value);
+  }
+
+  private static int findClosestValueInBstHelper(BST tree, int target, int closest) {
+      if(null == tree){
+          return closest;
+      }
+
+      if(Math.abs(target - closest) > Math.abs(target - tree.value) ){
+          closest = tree.value;
+      }
+
+      if(target < tree.value){
+          return findClosestValueInBstHelper(tree.left,target,closest);
+      }else if(target > tree.value){
+          return findClosestValueInBstHelper(tree.right,target,closest);
+      }else{
+          return closest;
+      }
+
+  }
+
+  static class BST {
+    public int value;
+    public BST left;
+    public BST right;
+
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+}
+```
+
 
 
 
