@@ -66,6 +66,55 @@ class Program {
 
 
 
+Method 2
+
+```tex
+Average:\ 【O(log(n))time∣O(1)space】\\
+Worst:\ 【O(n)time∣O(1)space】\\
+```
+
+
+
+```java
+import java.util.*;
+
+class Program {
+  public static int findClosestValueInBst(BST tree, int target) {
+      return findClosestValueInBstHelper(tree,target,tree.value);
+  }
+
+  private static int findClosestValueInBstHelper(BST tree, int target, int closest) {
+      while(null != tree){
+            if(Math.abs(target - closest) > Math.abs(target - tree.value) ){
+                closest = tree.value;
+            }
+
+            if(target < tree.value){
+                tree = tree.left;
+            }else if(target > tree.value){
+                tree = tree.right;
+            }else{
+                break;
+            }
+            
+        }
+    return closest;
+
+  }
+
+  static class BST {
+    public int value;
+    public BST left;
+    public BST right;
+
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+}
+
+```
+
 
 
 
