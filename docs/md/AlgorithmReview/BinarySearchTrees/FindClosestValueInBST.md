@@ -16,7 +16,7 @@
 
 > 13
 
-Method 1
+Method 1(Recursive)
 
 ```tex
 Average:\ 【O(log(n))time∣O(log(n))space】\\
@@ -37,6 +37,7 @@ class Program {
           return closest;
       }
 
+      // Find the value closest to the target
       if(Math.abs(target - closest) > Math.abs(target - tree.value) ){
           closest = tree.value;
       }
