@@ -1,4 +1,4 @@
-# Find Closest Value In BST
+# Find Closest Value In BST [Easy]
 
 - Write a function that takes in a Binary Search Tree (BST)and a target integer value and returns the closest value to that target value contained in the BST.
 
