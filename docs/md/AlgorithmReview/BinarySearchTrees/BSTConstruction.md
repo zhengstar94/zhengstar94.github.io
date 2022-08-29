@@ -14,7 +14,10 @@
 
 **Sample Usage**
 
-> PNG
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/08/29/1.png)
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/08/29/2.png)
+
 
 
 
