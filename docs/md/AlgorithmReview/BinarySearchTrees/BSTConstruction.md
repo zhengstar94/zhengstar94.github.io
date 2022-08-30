@@ -1,4 +1,4 @@
-# BST Construction
+# BST Construction [Medium]
 
 - Write a `BST` class for a Binary Search Tree.The class should support:
 
