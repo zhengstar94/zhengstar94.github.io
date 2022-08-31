@@ -268,6 +268,7 @@
 
   * BinarySearchTrees(BST)
     * [Find Closest Value In BST-Easy](md/AlgorithmReview/BinarySearchTrees/FindClosestValueInBST.md)
+    * [BST Construction-Medium](md/AlgorithmReview/BinarySearchTrees/BSTConstruction.md)
 
 
 
