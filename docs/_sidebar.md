@@ -224,7 +224,7 @@
   
   * 单词学习
     * [词根词缀](md/English/words/词根词缀.md)
-    * [王陆](md/English/words/词根词缀.md)
+    * [王陆](md/English/words/王陆单词追踪.md)
   
 
     
