@@ -228,6 +228,9 @@
     * [王陆](md/English/words/王陆单词追踪.md)
     * [何琼听力词汇](md/English/words/何琼.md)
   
+  * 背诵
+    * [PhoneAddiction - Intermediate](md/English/Article/PhoneAddiction.md)
+  
 
     
 * 生活
