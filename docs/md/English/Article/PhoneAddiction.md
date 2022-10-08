@@ -3,6 +3,11 @@
 
 ##  Views #1482 | Intermediate 5
 
+[Phone Addiction](https://www.elllo.org/english/1451/1478-Shantel-Burgers.htm)
+
+
+[PhoneAddiction.mp3](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/audio/PhoneAddiction.mp3 ':include :type=audio controls')
+
 
 **Todd**: Okay, so, Jen, we're gonna talk about media and technology, phones and music, things like that. So the first one is, how addicted are you to your phone? How long can you go without using our phone?
 
