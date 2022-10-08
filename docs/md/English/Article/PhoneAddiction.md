@@ -3,7 +3,8 @@
 
 ##  Views #1482 | Intermediate 5
 
-[Phone Addiction](https://www.elllo.org/english/1451/1478-Shantel-Burgers.htm)
+[Phone Addiction](https://www.elllo.org/english/1451/1482-Jen-SocialMedia.htm)
+
 
 
 [PhoneAddiction.mp3](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/audio/PhoneAddiction.mp3 ':include :type=audio controls')
