@@ -230,6 +230,7 @@
   
   * 背诵
     * [PhoneAddiction - Intermediate #1482](md/English/Article/PhoneAddiction.md)
+    * [BurgersAndBaseball - Intermediate #1478](md/English/Article/BurgersAndBaseball.md)
   
 
     
