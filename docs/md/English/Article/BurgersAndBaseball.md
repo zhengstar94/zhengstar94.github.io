@@ -4,6 +4,8 @@
 
 [Burgers and Baseball](https://www.elllo.org/english/1451/1478-Shantel-Burgers.htm)
 
+[PhoneAddiction.mp3](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/audio/BurgersandBaseball.mp3 ':include :type=audio controls')
+
 
 **Todd**: So I'm here with Shantel, and we both are from the United States. And we both are teachers in Japan. So I thought we would talk a little bit about some of the stereotypes that people might have in other countries, for example Japan, or other countries about Americans. So first, we're going to talk about hamburgers.
 
