@@ -190,6 +190,7 @@
   * [附件预览功能(openoffice)](md/Work/附件预览功能(openoffice)-file-preview.md)
   * [输入URL并回车后，如果页面迟迟没有出现，怎么去排查问题？](md/Work/输入URL并回车后，如果页面迟迟没有出现，怎么去排查问题？.md)
   * [JWT基础](md/Work/JWT基础.md)
+  * [什么时候使用不同的LogLevel级别](md/Work/什么时候使用不同的LogLevel级别.md)
   
   
 * 学习方式
