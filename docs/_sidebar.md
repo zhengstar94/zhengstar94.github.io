@@ -233,7 +233,7 @@
     * [PhoneAddiction - Intermediate #1482](md/English/Article/Audio/PhoneAddiction.md)
     * [BurgersAndBaseball - Intermediate #1478](md/English/Article/Audio/BurgersAndBaseball.md)
     
-  * 背诵(文章)
+  * 背诵(文章精读)
     * [Apes,not Angels - 经济学人](md/English/Article/Words/Apes,notAngels.md)
   
 
