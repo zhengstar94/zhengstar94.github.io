@@ -274,7 +274,6 @@ Today's consumerist economy sustains profitability by creating needs.<br>
 - buy some/more time	争取时间
 
 - a bunch of	一群,一串,一束
-
     - (a bunch of flowers/grapes/bananas/keys/problems/people)
 
 - decouple	v.分离
