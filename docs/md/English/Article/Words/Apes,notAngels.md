@@ -1,7 +1,6 @@
 # Apes,not angels
 
 > If we want to change our **consumerist** society,we need greener status signals that **appeal to** our animal instincts, says Solitaire Townsend<br>
->
 > 如果我们想要改变消费主义社会，我们需要更(绿色)环保的地位信号来吸引我们的动物本能
 
 - *consumerist 	adj.&n. 消费主义*
