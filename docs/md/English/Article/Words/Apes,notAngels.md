@@ -20,7 +20,6 @@ Today's consumerist economy sustains profitability by creating needs.<br>
 
 
 > **1**<br>
->
 > TAYLOR SWIFT often **tops** the charts, but her most recent number one has drawn more **censure** than **acclaim**. Because, at 8293 tonnes of carbon emitted so far this year, she has been judged the world's most polluting celebrity in terms of private jet use-easily beating Kylie Jenner, who infamously took a 17-minute flight in hers.<br>
 >
 > TAYLOR SWIFT经常在**榜首**，但是她最近第一招致的是**批评**而不是**称赞**。因为，今年到目前为止排放了8293吨碳，她被批评是世界上最污染环境的明星在私人飞机的使用上-轻松地打败了Kylie Jenner,因乘坐自己私人飞机17分钟而臭名昭著。
