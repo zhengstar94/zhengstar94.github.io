@@ -19,6 +19,7 @@ Today's consumerist economy sustains profitability by creating needs.<br>
 
 
 
+
 > **1**<br>
 > TAYLOR SWIFT often **tops** the charts, but her most recent number one has drawn more **censure** than **acclaim**. Because, at 8293 tonnes of carbon emitted so far this year, she has been judged the world's most polluting celebrity in terms of private jet use-easily beating Kylie Jenner, who infamously took a 17-minute flight in hers.<br>
 >
@@ -32,7 +33,7 @@ Today's consumerist economy sustains profitability by creating needs.<br>
 
 - *acclaim	v.&n.赞扬,称赞(public approval and praise)*
 
-- *in terms of  在..方面(in relation to sth)*
+- *in terms of  在...方面(in relation to sth)*
 
     - (We try to do what is best for our customers in terms of the quality of our products.) <br>
 
