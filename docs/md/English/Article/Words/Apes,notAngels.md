@@ -14,7 +14,6 @@ Today's consumerist economy sustains profitability by creating needs.<br>
     - (The police are appealing to the public for any information about the missing girl.) <br>警方**呼吁**公众提供那个消失女孩的信息<br>
 
     - (It's a programme designed to appeal mainly to 16 to 25-year-olds.)<br>
-
       这个项目对16-25岁的人群是有**吸引力**的<br>
 
 
