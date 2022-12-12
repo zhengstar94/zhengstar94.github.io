@@ -66,10 +66,12 @@ class Program {
 
     while(left < right){
       //  left < right [ because prevent right < left, if you don't add this,your algorithm will break.]
+      //  judge the right whether equal toMove,if equal,the right pointer move to right--  
       while(left < right && array.get(right) == toMove){
         right --;
       }
 
+      //swap left and right
       if(array.get(left) == toMove){
         int temp = array.get(right);
         array.set(right,array.get(left));
