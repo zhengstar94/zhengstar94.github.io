@@ -19,7 +19,7 @@
 
 
 ```tex
-【O(n)time\ N\ is\ the\ length\ of\ the array\ ∣O(1)space】
+【O(n)time\ N\ is\ the\ length\ of\ the\ array\ ∣O(1)space】
 ```
 
 
