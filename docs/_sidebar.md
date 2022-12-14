@@ -271,7 +271,7 @@
       * [Move Element To End-Medium-review2](md/AlgorithmReview/Array/MoveElementToEnd.md)
       * [Monotonic Array-Medium-review2](md/AlgorithmReview/Array/MonotonicArray.md)
       * [Spiral Traverse-Medium-review2](md/AlgorithmReview/Array/SpiralTraverse.md)
-      * [Longest Peak-Medium](md/AlgorithmReview/Array/LongestPeak.md)
+      * [Longest Peak-Medium-review2](md/AlgorithmReview/Array/LongestPeak.md)
       * [Array Of Products-Medium-review2](md/AlgorithmReview/Array/ArrayOfProducts.md)
       * [First Duplicate Value-Medium-review2](md/AlgorithmReview/Array/FirstDuplicateValue.md)
       * [Merge Overlapping Intervals-Medium](md/AlgorithmReview/Array/MergeOverlappingIntervals.md)
