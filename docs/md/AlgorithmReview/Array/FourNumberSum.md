@@ -48,16 +48,36 @@ class Program {
 
     for(int i = 0; i < array.length - 3; i++ ){
         //skip duplicate i
-        //if(i > 0 && array[i] == array[i-1]){
-          //continue;
-        //}
+        if(i > 0 && array[i] == array[i-1]){
+          continue;
+        }
+
+        // If the first four numbers are greater than the target value, exit 
+        if ((long) array[i] + array[i + 1] + array[i + 2] + array[i + 3] > targetSum) {
+            break;
+        }
+
+        // If the sum of the first number and the last three numbers is less than the target value, exit the current cycle and proceed to the next round
+        if ((long) array[i] + array[length - 3] + array[length - 2] + array[length - 1] < targetSum) {
+            continue;
+        }
 
         for(int j = i + 1; j < array.length - 2; j++){
 
           //skip duplicate j
-          //if(j > i+1 && array[j] == array[j-1]){
-            //continue;
-          //}
+          if(j > i+1 && array[j] == array[j-1]){
+            continue;
+          }
+
+          // If the first four numbers are greater than the target value, exit 
+            if ((long) array[i] + array[j] + array[j + 1] + array[j + 2] > targetSum) {
+                break;
+            }
+
+            // If the sum of the first number and the last three numbers is less than the target value, exit the current cycle and proceed to the next round
+            if ((long) array[i] + array[j] + array[length - 2] + array[length - 1] < targetSum) {
+                continue;
+            }
 
           int newTarget = targetSum - (array[i] + array[j]);
           
@@ -67,8 +87,18 @@ class Program {
             
             if(array[k] + array[l] == newTarget){
               result.add(new Integer[]{array[i] , array[j] , array[k] , array[l]});
-              k++;
-              l--;
+
+                //skip duplicate k
+                while (k < l && array[k] == array[k + 1]) {
+                    k++;
+                }
+                k++;
+
+                //skip duplicate l
+                while (k < l && array[l] == array[l - 1]) {
+                    l--;
+                }
+                l--;
               //while(k < l && array[k] == array[k-1]) k++;
               //while(k < l && array[l] == array[l+1]) l--;
               
