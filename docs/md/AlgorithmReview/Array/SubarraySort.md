@@ -62,9 +62,12 @@ class Program {
   }
 
   public static boolean isOutOfOrder(int i, int num, int[] array) {
+      //if the index is the first number, and if num > array[i + 1], then num is disordered number
       if (i == 0) {
           return num > array[i + 1];
       }
+
+      //if the index is the last number,if num < array[i - 1], then num is disordered number
       if (i == array.length - 1) {
           return num < array[i - 1];
       }

@@ -276,7 +276,7 @@
       * [First Duplicate Value-Medium-review2](md/AlgorithmReview/Array/FirstDuplicateValue.md)
       * [Merge Overlapping Intervals-Medium-review2](md/AlgorithmReview/Array/MergeOverlappingIntervals.md)
       * [Four Number Sum-Hard-review2](md/AlgorithmReview/Array/FourNumberSum.md)
-      * [Subarray Sort-Hard](md/AlgorithmReview/Array/SubarraySort.md)
+      * [Subarray Sort-Hard-review2](md/AlgorithmReview/Array/SubarraySort.md)
       * [Largest Range-Hard](md/AlgorithmReview/Array/LargestRange.md)
       * [Min Rewards-Hard](md/AlgorithmReview/Array/MinRewards.md)
       * [Zigzag Traverse-Hard](md/AlgorithmReview/Array/ZigzagTraverse.md)
