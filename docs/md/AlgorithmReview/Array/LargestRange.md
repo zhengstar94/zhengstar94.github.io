@@ -83,7 +83,7 @@ class Program {
         for (int i = 0; i < array.length; i ++) {
             int current = array[i];
 
-            //if map.get(current) = false, then current has been sorted
+            //if map.get(current) = false, then current has been sorted, then move to next number
             if (!map.get(current)) {
                 continue;
             }
