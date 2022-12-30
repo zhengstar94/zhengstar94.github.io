@@ -40,7 +40,7 @@ class Program {
         int width = array.get(0).size() - 1;
         int row = 0;
         int col = 0;
-        //whether or not goingDown,default true
+        //whether goingDown,default true
         boolean goingDown = true;
 
         while(!isOutofBound(row,col,height,width)){
@@ -95,7 +95,7 @@ class Program {
         return result;
     }
 
-    //whether or not to exceed the boundary
+    //whether to exceed the boundary
     public static boolean isOutofBound(int row,int col,int height,int width){
         return row < 0 ||  row > height || col < 0 ||  col > width;
     }

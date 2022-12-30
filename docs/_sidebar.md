@@ -279,7 +279,7 @@
       * [Subarray Sort-Hard-review2](md/AlgorithmReview/Array/SubarraySort.md)
       * [Largest Range-Hard-review2](md/AlgorithmReview/Array/LargestRange.md)
       * [Min Rewards-Hard-review2](md/AlgorithmReview/Array/MinRewards.md)
-      * [Zigzag Traverse-Hard](md/AlgorithmReview/Array/ZigzagTraverse.md)
+      * [Zigzag Traverse-Hard-review2](md/AlgorithmReview/Array/ZigzagTraverse.md)
 
   * BinarySearchTrees-BST(2)
     * [Find Closest Value In BST-Easy](md/AlgorithmReview/BinarySearchTrees/FindClosestValueInBST.md)
