@@ -67,7 +67,7 @@ class Program {
                     col -=1;
                 }
             }else{
-                // if goingDown 
+                // if goingDown
 
                 //if target is the boundary value（right and top）
                 if(row == 0 || col == width){
