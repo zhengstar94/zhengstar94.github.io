@@ -34,7 +34,7 @@ import java.util.*;
 class Program {
 
     public static List<Integer> zigzagTraverse(List<List<Integer>> array) {
-        // Write your code here.
+        // Write your code here. 
         List<Integer> result = new ArrayList<Integer>();
         int height = array.size() - 1;
         int width = array.get(0).size() - 1;
