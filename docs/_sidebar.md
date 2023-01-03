@@ -1,8 +1,8 @@
 <!-- docs/_sidebar.md -->
 
-* [首页](README)
+* [Home page](README)
 
-* 面试
+* Interview
   * [面试总结](md/BackEnd/Summary/总结.md)
       * [基础](md/BackEnd/Summary/基础.md)
       * [集合](md/BackEnd/Summary/集合.md)
@@ -17,7 +17,7 @@
       * [设计模式](md/BackEnd/Summary/设计模式.md)
       * [终面](md/BackEnd/Summary/终面.md)
 
-* 知识点梳理
+* Knowledge point
   * [知识点梳理](md/BackEnd/Summary/知识点整理.md)
 
 * 后端
