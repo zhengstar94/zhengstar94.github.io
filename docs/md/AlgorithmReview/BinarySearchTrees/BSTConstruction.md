@@ -37,181 +37,130 @@ package NewArray;
  */
 public class BstConstruction {
 
-    static class BST {
-        public int value;
-        public BST left;
-        public BST right;
+  static class BST {
+    public int value;
+    public BST left;
+    public BST right;
 
-        public BST(int value) {
-            this.value = value;
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+  
+  public static BST inserValue(BST tree,int target){
+    int currentNode = tree.value;
+
+    while(true){
+      //if target smaller than currentNode, search to the left
+      if(target < currentNode){
+        //if tree.left is null, then insert
+        if(null == tree.left ){
+          tree.left = new BST(target);
+          break;
+        }else{
+          tree = tree.left;
         }
-    }
-
-    
-    public static BST inserValue(BST tree,int target){
-        int currentNode = tree.value;
-
-        while(true){
-            //if target smaller than currentNode, search to the left
-            if(target < currentNode){
-                //if tree.left is null, then insert
-                if(null == tree.left ){
-                    tree.left = new BST(target);
-                    break;
-                }else{
-                    tree = tree.left;
-                }
-            }else{
-                //if target bigger than currentNode, search to the right
-                //if tree.right is null, then insert
-                if(null == tree.right ){
-                    tree.right = new BST(target);
-                    break;
-                }else{
-                    tree = tree.right;
-                }
-            }
+      }else{
+        //if target bigger than currentNode, search to the right
+        //if tree.right is null, then insert
+        if(null == tree.right ){
+          tree.right = new BST(target);
+          break;
+        }else{
+          tree = tree.right;
         }
-
-        return tree;
+      }
     }
 
+    return tree;
+  }
 
-    public static boolean containsValu(BST tree,int target){
-        int currentNode = tree.value;
 
-        // if tree is not null
-        while(null != tree){
-          if(target < currentNode){
-              tree = tree.left;
-          }else if(target > currentNode){
-              tree = tree.right;
-          }else{
-              return true;
-          }
-        }
-        return false;
+  public static boolean containsValu(BST tree,int target){
+    int currentNode = tree.value;
+
+    // if tree is not null
+    while(null != tree){
+      if(target < currentNode){
+        tree = tree.left;
+      }else if(target > currentNode){
+        tree = tree.right;
+      }else{
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+  public static BST remove(BST node, int value){
+    // If no node is found, return
+    if (node == null) {
+      return null;
     }
 
-
-
-    public static BST deleteValue(BST tree,int target){
-        BST parentNode = null;
-
-        // tree is not null
-        while(null != tree){
-            // if target < tree.value
-            if(target < tree.value){
-                // save parent node value
-                parentNode = tree;
-                // Traverse the left subtree
-                tree = tree.left;
-            }
-            // if target > tree.value
-            else if(target > tree.value){
-                // save parent node value
-                parentNode = tree;
-                // Traverse the right subtree
-                tree = tree.right;
-            }
-            // if target == tree.value
-            else{
-                // if tree.left and tree.right are not null ,then a node has two child nodes
-                if(null != tree.left && null != tree.right){
-                    //Find the minimum value in the right subtree
-                    tree.value = getMinValue(tree.right);
-
-                    //Assign its value to the current node and delete the node where the minimum value is located
-                    deleteValue(tree.right,tree.value);
-                }
-                // if parentNode is null
-                // why is the special case, because the root node doesn't have a parent node
-                // We should reassign one of the child nodes of the parent node
-                else if(null == parentNode){
-                    // if tree.left is not null, Reassign the left subtree
-                    if(null != tree.left){
-                        tree.value  = tree.left.value;
-                        tree.right =  tree.left.right;
-                        tree.left =  tree.left.left;
-                    }
-                    // if tree.right is not null, Reassign the right subtree
-                    else if(null != tree.right){
-                        tree.value  = tree.right.value;
-                        tree.right =  tree.right.right;
-                        tree.left =  tree.right.left;
-                    }else{
-                        //because null == parentNode
-                        //The node does not have the left and right subtrees, which is equivalent to deleting the BST directly
-                        tree = null;
-                    }
-                }
-
-                // **parentNode.left == tree or parentNode.left == tree, the two cases are the case of the root node**
-                // Only the left subtree or the right subtree
-
-                // if parentNode.left == tree, then assigning the left child of the parent nodes.
-                else if(parentNode.left == tree){
-                    if(null != tree.left){
-                        parentNode.left = tree.left;
-                    }else{
-                        parentNode.left = tree.right;
-                    }
-                }
-                // if parentNode.left == tree, then assigning the right child of the parent nodes.
-                else if(parentNode.right == tree){
-                    if(null != tree.left){
-                        parentNode.right = tree.left;
-                    }else{
-                        parentNode.right = tree.right;
-                    }
-                }
-
-                // remember break at the end of all these if statements
-                break;
-            }
-        }
-
-        return tree;
+    // If the value you want to delete is smaller than the value of the current node, delete it in the left subtree
+    if (value < node.value) {
+      node.left = remove(node.left, value);
     }
-
-
-    /**
-     * Get the minimum node value of BST
-     * @param tree
-     * @return
-     */
-    public static int getMinValue(BST tree){
-        while(null != tree.left){
-            tree = tree.left;
-        }
-        return tree.value;
+    // If the value you want to delete is larger than the value of the current node, delete it in the right subtree
+    else if (value > node.value) {
+      node.right = remove(node.right, value);
+    }else {
+      // If the node does not have child nodes, delete it
+      if (node.left == null && node.right == null) {
+        node = null;
+      }
+      // If the node has only the left child, delete it and replace it with the left child
+      else if (node.right == null) {
+        node = node.left;
+      }
+      // If the node has only the right child node, delete it and replace it with the right child node
+      else if (node.left == null) {
+        node = node.right;
+      }
+      // If the node has two child nodes, find the minimum value in the right subtree,
+      // assign its value to the current node, and delete the node where the minimum value is located
+      else {
+        BST min = findMin(node.right);
+        node.value = min.value;
+        node.right = remove(node.right, min.value);
+      }
     }
+    return node;
+  }
 
-    public static void main(String[] args) {
-        BST tree = new BST(10);
-        
-
-        BST tree1 = new BST(2);
-        tree1.left = new BST(1);
-
-        BST tree2 = new BST(5);
-        tree2.left = tree1;
-        tree2.right = new BST(6);
-
-        BST tree3 = new BST(13);
-        tree3.right = new BST(14);
-
-        BST tree4 = new BST(15);
-        tree4.right = new BST(22);
-        tree4.left = tree3;
-
-        tree.left = tree2;
-        tree.right = tree4;
-
-        BST root = deleteValue(tree,10);
-        System.out.println(root);
-
+  public static BST findMin(BST tree){
+    while(null != tree.left){
+      tree = tree.left;
     }
+    return tree;
+  }
+
+  public static void main(String[] args) {
+    BST tree = new BST(10);
+
+    BST tree1 = new BST(2);
+    tree1.left = new BST(1);
+
+    BST tree2 = new BST(5);
+    tree2.left = tree1;
+    tree2.right = new BST(6);
+
+    BST tree3 = new BST(13);
+    tree3.right = new BST(14);
+
+    BST tree4 = new BST(15);
+    tree4.right = new BST(22);
+    tree4.left = tree3;
+
+    tree.left = tree2;
+    tree.right = tree4;
+
+    BST root = remove(tree,10);
+    System.out.println(root);
+
+  }
 
 }
 
