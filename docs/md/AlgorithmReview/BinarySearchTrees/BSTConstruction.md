@@ -46,33 +46,29 @@ public class BstConstruction {
       this.value = value;
     }
   }
-  
-  public static BST inserValue(BST tree,int target){
-    int currentNode = tree.value;
+
+  public static BST inserValue(BST root, int target){
+    // Define global variables
+    BST tree = root;
 
     while(true){
-      //if target smaller than currentNode, search to the left
-      if(target < currentNode){
-        //if tree.left is null, then insert
-        if(null == tree.left ){
+      if(target < tree.value){
+        if(null == tree.left){
           tree.left = new BST(target);
           break;
         }else{
-          tree = tree.left;
+          tree =  tree.left;
         }
       }else{
-        //if target bigger than currentNode, search to the right
-        //if tree.right is null, then insert
-        if(null == tree.right ){
+        if(null == tree.right){
           tree.right = new BST(target);
           break;
         }else{
-          tree = tree.right;
+          tree =  tree.right;
         }
       }
     }
-
-    return tree;
+    return root;
   }
 
 
