@@ -2,7 +2,7 @@
 
 - Write three functions (in-order, pre-order, and post-order traversal) that takes in a Binary Search Tree (BST) and an empty array, traverse the BST add the node's value to the input array and return the array.
 
-**Sample Usage **
+**Sample Usage**
 
 ```\
 tree =              10
@@ -14,7 +14,7 @@ tree =              10
 		 1
 ```
 
-**Sample Result **
+**Sample Result**
 
 ```java
 in_order = [1, 2, 5, 6, 10, 15, 22]
