@@ -282,3 +282,255 @@ class TreeNodeTraversal2 {
 }
 ```
 
+
+## Method 3(Morris)
+
+```tex
+【 O(n)time | O(1) space 】
+```
+
+```java
+package NewArray;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+/**
+ * @author zhengstars
+ * @date 2023/01/09
+ */
+public class BSTTraversal4 {
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+
+    /**
+     * Mid-order traversal
+     * You can only come to your own node once and print directly.
+     * The node that can come to you twice will only print the second time.
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if(null == root){
+            return list;
+        }
+
+        TreeNode cur = root;
+
+        TreeNode morrisRight = null;
+
+        // Cur is empty to stop traversing
+        while(null != cur){
+            //morrisRight is cur's left child.
+            morrisRight = cur.left;
+
+            // There is a left subtree
+            if(null != morrisRight){
+
+                //After while finished running,
+                // morrisRight came to the position of the rightmost child in the left subtree of cur
+                while(null != morrisRight.right && morrisRight.right != cur){
+                    morrisRight = morrisRight.right;
+                }
+
+                // Come to the location of cur for the first time
+                if(null == morrisRight.right){
+                    morrisRight.right = cur;
+                    cur = cur.left;
+                    continue;// The first time you come in cur, just start the continue,while loop again.
+                }else{//When came to cur,morrisRight for the second time, the right pointer was broken.
+                    //Enter cur for the second time and execute it directly.
+                    morrisRight.right = null;
+                }
+            }
+            // You can only come to your own node once and print directly.
+            // The node that can come to you twice will only print the second time.
+            list.add(cur.val);
+
+            cur = cur.right;
+        }
+        return list;
+    }
+
+    /**
+     * The node print that appears for the first time, that is
+     * a.There is no direct printing of the left node, and the description of the left node is printed twice.
+     * b.Come to cur printing for the first time
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if(null == root){
+            return list;
+        }
+
+        TreeNode cur = root;
+
+        TreeNode morrisRight = null;
+
+        // Cur is empty to stop traversing
+        while(null != cur){
+            //morrisRight is cur's left child.
+            morrisRight = cur.left;
+
+            // There is a left subtree
+            if(null != morrisRight){
+
+                //After while finished running,
+                // morrisRight came to the position of the rightmost child in the left subtree of cur
+                while(null != morrisRight.right && morrisRight.right != cur){
+                    morrisRight = morrisRight.right;
+                }
+
+                // Come to the location of cur for the first time
+                if(null == morrisRight.right){
+                    //  Come to the cur node for the first time
+                    list.add(cur.val);
+
+                    morrisRight.right = cur;
+                    cur = cur.left;
+                    continue;// The first time you come in cur, just start the continue,while loop again.
+                }else{//When came to cur,morrisRight for the second time, the right pointer was broken.
+                    //Enter cur for the second time and execute it directly.
+                    morrisRight.right = null;
+                }
+            }else{
+                // Only can come to yourself once.
+                list.add(cur.val);
+            }
+
+            cur = cur.right;
+        }
+        return list;
+    }
+
+
+    public static List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if(null == root){
+            return list;
+        }
+
+        TreeNode cur = root;
+
+        TreeNode morrisRight = null;
+
+        // Cur is empty to stop traversing
+        while(null != cur){
+            //morrisRight is cur's left child.
+            morrisRight = cur.left;
+
+            // There is a left subtree
+            if(null != morrisRight){
+
+                //After while finished running,
+                // morrisRight came to the position of the rightmost child in the left subtree of cur
+                while(null != morrisRight.right && morrisRight.right != cur){
+                    morrisRight = morrisRight.right;
+                }
+
+                // Come to the location of cur for the first time
+                if(null == morrisRight.right){
+                    morrisRight.right = cur;
+                    cur = cur.left;
+                    continue;// The first time you come in cur, just start the continue,while loop again.
+                }else{//When came to cur,morrisRight for the second time, the right pointer was broken.
+                    //Enter cur for the second time and execute it directly.
+                    morrisRight.right = null;
+
+                    // Print the right boundary of the left subtree of cur points in reverse order
+                    reversePrintEdge(cur.left,list);
+                }
+            }
+            //If the left child is empty, Then directly access the right subtree of the node
+            cur = cur.right;
+        }
+        // Finally, print the right boundary of the whole tree in reverse order.
+        reversePrintEdge(root,list);
+
+        return list;
+    }
+
+    /**
+     * Take head as the head of the tree, reverse print its boundary
+     * @param head
+     * @param list
+     */
+    private static void reversePrintEdge(TreeNode head, List<Integer> list) {
+        // Get the tail pointer, which is the rightmost point.
+        TreeNode tail = reverse(head);
+        // Will print from the tail pointer
+        TreeNode cur = tail;
+        while(cur != null) {
+            list.add(cur.val);
+            cur = cur.right;
+        }
+        // Reverse it at this time. Restore the original tree
+        reverse(tail);
+    }
+
+    /**
+     * Similar to the reverse change of the pointer of a single linked list,
+     * the reverse of a single linked list
+     * @param from
+     * @return
+     */
+    private static TreeNode reverse(TreeNode from) {
+        TreeNode pre = null;
+        TreeNode next = null;
+        while(from != null) {
+            // From is not equal to null here, because after conversion to next, the last one is null
+            next = from.right;
+            from.right = pre;
+            pre = from;
+            from = next;
+        }
+
+        return pre;
+    }
+
+    public static void main(String[] args) {
+        TreeNode tree = new TreeNode(1);
+
+        TreeNode tree1 = new TreeNode(2);
+        TreeNode tree2 = new TreeNode(3);
+
+        TreeNode tree4 = new TreeNode(4);
+        tree4.left = new TreeNode(8);
+        tree4.right = new TreeNode(9);
+
+        tree1.left = tree4;
+        tree1.right = new TreeNode(5);
+
+        TreeNode tree5 = new TreeNode(7);
+        tree5.left = new TreeNode(10);
+        tree5.right = new TreeNode(11);
+
+        tree2.left = new TreeNode(6);
+        tree2.right = tree5;
+
+        tree.left = tree1;
+        tree.right = tree2;
+
+        List<Integer> list =  postorderTraversal(tree);
+
+        System.out.println(list);
+    }
+}
+
+```
