@@ -113,7 +113,6 @@ public class ValidateBST2 {
 
   private static TreeNode prev;
   public static boolean isValidBST(TreeNode root) {
-    prev = null;
     return inOrder(root);
   }
 
