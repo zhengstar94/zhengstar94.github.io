@@ -1,4 +1,4 @@
-# BST Traversal
+# BST Traversal [Medium]
 
 - Write three functions (in-order, pre-order, and post-order traversal) that takes in a Binary Search Tree (BST) and an empty array, traverse the BST add the node's value to the input array and return the array.
 
@@ -360,7 +360,7 @@ public class BSTTraversal4 {
             // You can only come to your own node once and print directly.
             // The node that can come to you twice will only print the second time.
             list.add(cur.val);
-
+            //If the left child is empty, Then directly access the right subtree of the node
             cur = cur.right;
         }
         return list;
@@ -413,7 +413,7 @@ public class BSTTraversal4 {
                 // Only can come to yourself once.
                 list.add(cur.val);
             }
-
+            //If the left child is empty, Then directly access the right subtree of the node
             cur = cur.right;
         }
         return list;

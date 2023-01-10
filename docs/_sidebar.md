@@ -289,6 +289,7 @@
     * [BST Construction-Medium](md/AlgorithmReview/BinarySearchTrees/BSTConstruction.md)
     * [Validate BST-Medium](md/AlgorithmReview/BinarySearchTrees/ValidateBST.md)
     * [BST Traversal-Medium](md/AlgorithmReview/BinarySearchTrees/BSTTraversal.md)
+    * [Min Height BST-Medium](md/AlgorithmReview/BinarySearchTrees/MinHeightBST.md)
 
 
 
