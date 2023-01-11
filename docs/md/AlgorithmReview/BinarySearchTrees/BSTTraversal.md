@@ -341,8 +341,9 @@ public class BSTTraversal4 {
             // There is a left subtree
             if(null != morrisRight){
 
-                //After while finished running,
+                // After while finished running,
                 // morrisRight came to the position of the rightmost child in the left subtree of cur
+                // Find the rightmost node of the left subtree
                 while(null != morrisRight.right && morrisRight.right != cur){
                     morrisRight = morrisRight.right;
                 }
@@ -391,8 +392,9 @@ public class BSTTraversal4 {
             // There is a left subtree
             if(null != morrisRight){
 
-                //After while finished running,
+                // After while finished running,
                 // morrisRight came to the position of the rightmost child in the left subtree of cur
+                // Find the rightmost node of the left subtree
                 while(null != morrisRight.right && morrisRight.right != cur){
                     morrisRight = morrisRight.right;
                 }
@@ -438,8 +440,9 @@ public class BSTTraversal4 {
             // There is a left subtree
             if(null != morrisRight){
 
-                //After while finished running,
+                // After while finished running,
                 // morrisRight came to the position of the rightmost child in the left subtree of cur
+                // Find the rightmost node of the left subtree
                 while(null != morrisRight.right && morrisRight.right != cur){
                     morrisRight = morrisRight.right;
                 }
