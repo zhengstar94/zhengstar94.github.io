@@ -281,7 +281,7 @@
       * [Min Rewards-Hard-review2](md/AlgorithmReview/Array/MinRewards.md)
       * [Zigzag Traverse-Hard-review2](md/AlgorithmReview/Array/ZigzagTraverse.md)
 
-  * BinarySearchTrees-BST(6)
+  * BinarySearchTrees-BST(7)
     * [Find Closest Value In BST-Easy](md/AlgorithmReview/BinarySearchTrees/FindClosestValueInBST.md)
     * [BST Construction-Medium](md/AlgorithmReview/BinarySearchTrees/BSTConstruction.md)
     * [Validate BST-Medium](md/AlgorithmReview/BinarySearchTrees/ValidateBST.md)
