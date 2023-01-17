@@ -1,4 +1,4 @@
-# Same BSTs
+# Same BSTs [Hard]
 
 - An array of integers is said to represent the Binary Search Tree (BST) obtained by inserting each integer in the array, from left to right, into the BST.
 
