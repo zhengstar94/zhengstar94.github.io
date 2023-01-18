@@ -289,6 +289,7 @@
     * [Min Height BST-Medium](md/AlgorithmReview/BinarySearchTrees/MinHeightBST.md)
     * [Find Kth Largest Value In BST-Medium](md/AlgorithmReview/BinarySearchTrees/FindKthLargestValueInBST.md)
     * [Reconstruct BST-Medium](md/AlgorithmReview/BinarySearchTrees/ReconstructBST.md)
+    * [Same BSTs-Hard](md/AlgorithmReview/BinarySearchTrees/SameBSTs.md)
 
 
 
