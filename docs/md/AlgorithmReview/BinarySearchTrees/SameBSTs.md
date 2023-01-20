@@ -229,7 +229,6 @@ public class SameBSTs {
         Integer[] array2= new Integer[]{10, 8, 5, 15, 2, 12, 11, 94, 81};
 
         System.out.println(sameBST(Arrays.asList(array1),Arrays.asList(array2)));
-        //System.out.println(isSameBST(Arrays.asList(array1),Arrays.asList(array2)));
     }
 
 }
