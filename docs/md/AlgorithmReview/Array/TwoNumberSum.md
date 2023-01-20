@@ -17,24 +17,24 @@ If no two numbers sum up to the target sum,the function should return an empty a
 
 
 **Hints**
-
+<br>
 <details> <summary><b>Hint 1</b></summary>
-    Try using two for loops to sum all possible pairs of numbers in the input array.What are the time and space implications of this approach?
+    <i ><strong>Try using two for loops to sum all possible pairs of numbers in the input array.What are the time and space implications of this approach?</i></strong>
 </details>
 
-
+<br>
 
 <details> <summary><b>Hint 2</b></summary>
-    Realize that for every number X in the input array,you are essentially trying to find a corresponding number Y such that X Y targetSum.With two variables in this equation known to you,it shouldn't be hard to solve for Y.
+    <i ><strong>Realize that for every number X in the input array,you are essentially trying to find a corresponding number Y such that X Y targetSum.With two variables in this equation known to you,it shouldn't be hard to solve for Y.</i></strong>
 </details>
 
-
+<br>
 
 <details> <summary><b>Hint 3</b></summary>
-    Try storing every number in a hash table,solving the equation mentioned in Hint #2 for every number,and checking if the Y that you find is stored in the hash table.What are the time and space implications of this approach?
+    <i ><strong>Try storing every number in a hash table,solving the equation mentioned in Hint #2 for every number,and checking if the Y that you find is stored in the hash table.What are the time and space implications of this approach?</i></strong>
 </details>
 
-
+<br>
 
 
 
