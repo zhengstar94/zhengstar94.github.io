@@ -9,6 +9,32 @@
 
 
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Don't overcomplicate this problem.How would you solve it by hand?Consider that approach,and try to translate it into code.</strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Use a hash table to store the total points collected by each team,with the team names as keys in the hash table.Once you know how many points each team has,how can you determine which one is the winner? </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> Loop through all of the competitions,and update the hash table at every iteration.For each competition,consider the name of the winning team;if the name already exists in the hash table, update that entry by adding 3 points to it.If the team name doesn't exist in the hash table,add a new entry in the hash table with the key as the team name and the value as 3 (since the team won its first competition).While looping through all of the competitions,keep track of the team with the highest score,and at the end of the algorithm,return the team with the highest score. </strong></i>
+</details>
+
+<br>
+
+
+
+
 **Sample Input**
 
 > competitions = [<br>

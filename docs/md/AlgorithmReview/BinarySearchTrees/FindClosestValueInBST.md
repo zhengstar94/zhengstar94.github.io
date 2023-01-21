@@ -16,6 +16,31 @@
 
 > 13
 
+
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Try traversing the BST node by node,all the while keeping track of the node with the value closest to the target value.Calculating the absolute value of the difference between a node's value and the target value should allow you to check if that node is closer than the current closest one. </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Make use of the BST property to determine what side of any given node has values close to the target value and is therefore worth exploring.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> What are the advantages and disadvantages of solving this problem iteratively as opposed to recursively?  </strong></i>
+</details>
+
+<br>
+
+
 ## Method 1 (Recursive)
 
 ```tex

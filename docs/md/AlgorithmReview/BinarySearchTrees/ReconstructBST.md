@@ -26,7 +26,35 @@ preOrderTraversalValues = [10, 4, 2, 1, 5, 17, 19, 18]
 1          18 
 ```
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Think about the properties of a BST.Looking at the pre-order-traversal nodes (values),how can you determine the right child of a particular node? </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> The right child of any BST node is simply the first node in the pre-order traversal whose value is larger than or equal to the particular node's value.From this,we know that the nodes in the pre-order traversal that come before the right child of a node must be in the left subtree of that node. </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> Once you determine the right child of any given node,you're able to generate the entire left and right subtrees of that node.You can do so by recursively creating the left and right child nodes of each subsequent node using the fact stated in Hint #2.A node that has no left and right children is naturally a leaf node.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 4</b></summary>
+    <br>
+    <i><strong> To solve this problem with an optimal time complexity,you need to realize that it's unnecessary to locate the right child of every node.You can simply keep track of the pre- order-traversal position of the current node that needs to be created and try to insert that node as the left or right child of the relevant previously visited node.Since this tree is a BST, every node must satisfy the BST property;by somehow keeping track of lower and upper bounds for node values,you should be able to determine if a node can be inserted as the left or right child of another node.With this approach,you can solve this problem in linear time. See this question's video explanation for a more detailed explanation of this approach.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1(Brute Force)
 

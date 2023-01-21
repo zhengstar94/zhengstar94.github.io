@@ -21,6 +21,28 @@
 > // 20 is equal to 5 x 1 x 4
 
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Think about the most naive approach to solving this problem.How can we do exactly what the problem wants us to do without focusing at all on time and space complexity? </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Understand how output[i]is being calculated.How can we calculate the product of every element other than the one at the current index?Can we do this with just one loop through the input array,or do we have to do multiple loops?  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> For each index in the input array,try calculating the product of every element to the left and the product of every element to the right.You can do this with two loops through the array: one from left to right and one from right to left.How can these products help us? </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

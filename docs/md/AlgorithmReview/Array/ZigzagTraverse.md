@@ -16,7 +16,28 @@
 
 > [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Don't overthink this question by trying to come up with a clever way of getting the zigzag order.Think about the simplest checks that need to be made to decide when and how to change direction throughout the zigzag traversal. </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Starting at the top left corner,iterate through the two-dimensional array by keeping track of the direction that you're moving in (up or down).If you're moving up,you know that you need to move in an up-right pattern and that you need to handle the case where you hit the top or the right borders of the array.If you're moving down,you know that you need to move in a down-left pattern and that you need to handle the case where you hit the left or the bottom borders of the array.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> When going up,if you hit the right border,you'll have to go down one element;if you hit the top border,you'll have to go right one element.Similarly,when going down,if you hit the left border,you'll have to go down one element;if you hit the bottom border,you'll have to go right one element.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

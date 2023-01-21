@@ -14,7 +14,28 @@
 
 > 25 // you would give out the following rewards: [4,3,2,1,2,3,4,5,1]
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> You could try iterating through the input list of scores and incrementing the number of rewards you give to each student if they have a greater score than the previous student's score.However,if you reach a student with a smaller score than the previous student's score, you'll have to backtrack through the array to fix previous reward assignments.During this backtrack,is it correct to simply increment the reward of a student whose score is greater than the next student's score? </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Notice that there are local mins and local maxes in the input list of scores:scores that are smaller than both scores next to them and scores that are greater than both scores next to them.Find the local mins,and try expanding away from them until you reach local maxes, assigning (and incrementing)rewards as you go.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> Do you actually need to find the local mins mentioned in Hint #2?Can you simply do two sweeps of the input list of scores,one from left to right,and one from right to left?  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

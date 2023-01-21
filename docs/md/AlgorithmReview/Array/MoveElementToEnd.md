@@ -12,7 +12,28 @@
 
 > [1,3,4,2,2,2,2,2] // the numbers 1,3,and 4 could be ordered differently
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> You can solve this problem in linear time. </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> In view of Hint #1,you can solve this problem without sorting the input array.Try setting two pointers at the start and end of the array,respectively,and progressively moving them inwards.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> Following Hint #2,set two pointers at the start and end of the array,respectively.Move the right pointer inwards so long as it points to the integer to move,and move the left pointer inwards so long as it doesn't point to the integer to move.When both pointers aren't moving, swap their values in place.Repeat this process until the pointers pass each other.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

@@ -11,7 +11,28 @@
 
 > [3,9]
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Realize that even a single out-of-order number in the input array can call for a large subarray to have to be sorted.This is because,depending on how out-of-place the number is,it might need to be moved very far away from its original position in order to be in its sorted position. </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Find the smallest and largest numbers that are out of order in the input array.You should be able to do this in a single pass through the array.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> Once you've found the smallest and largest out-of-order numbers mentioned in Hint #2,find their final sorted positions in the array.This should give you the extremities of the smallest subarray that needs to be sorted.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

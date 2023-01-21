@@ -15,21 +15,21 @@
 <br>
 <details> <summary><b>Hint 1</b></summary>
     <br>
-    <i><strong> Try using two for loops to sum all possible pairs of numbers in the input array.What are the time and space implications of this approach? </strong></i>
+    <i><strong> You can solve this question by iterating through the main input array once </strong></i>
 </details>
 
 <br>
 
 <details> <summary><b>Hint 2</b></summary>
     <br>
-    <i><strong> Realize that for every number X in the input array,you are essentially trying to find a corresponding number Y such that X Y targetSum.With two variables in this equation known to you,it shouldn't be hard to solve for Y.  </strong></i>
+    <i><strong> Iterate through the main array,and look for the first integer in the potential subsequence.If you find that integer,keep on iterating through the main array,but now look for the second integer in the potential subsequence.Continue this process until you either find every integer in the potential subsequence or you reach the end of the main array.</strong></i>
 </details>
 
 <br>
 
 <details> <summary><b>Hint 3</b></summary>
     <br>
-    <i><strong> Try storing every number in a hash table,solving the equation mentioned in Hint #2 for every number,and checking if the Y that you find is stored in the hash table.What are the time and space implications of this approach?  </strong></i>
+    <i><strong> To actually implement what Hint #2 describes,you'll have to declare a variable holding your position in the potential subsequence.At first,this position will be the Oth index in the sequence;as you find the sequence's integers in the main array,you'll increment the position variable until you reach the end of the sequence. </strong></i>
 </details>
 
 <br>

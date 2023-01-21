@@ -16,7 +16,28 @@
 
 > [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> You can think of the spiral that you have to traverse as a set of rectangle perimeters that progressively get smaller (i.e.,that progressively move inwards in the two-dimensional array). </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Going off of Hint #1,declare four variables:a starting row,a starting column,an ending row, and an ending column.These four variables represent the bounds of the first rectangle perimeter in the spiral that you have to traverse.Traverse that perimeter using those bounds, and then move the bounds inwards.End your algorithm once the starting row passes the ending row or the starting column passes the ending column.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> You can solve this problem both iteratively and recursively following very similar logic.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

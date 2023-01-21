@@ -19,6 +19,28 @@
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2022/08/29/2.png)
 
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> As you try to insert,find,or a remove a value into,in,or from a BST,you will have to traverse the tree's nodes.The BST property allows you to eliminate half of the remaining tree at each node that you traverse:if the target value is strictly smaller than a node's value,then it must be (or can only be)located to the left of the node,otherwise it must be (or can only be)to the right of that node. </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Traverse the BST all the while applying the logic described in Hint #1.For insertion,add the target value to the BST once you reach a leaf (None null)node.For searching,if you reach a leaf node without having found the target value that means the value isn't in the BST.For removal,consider the various cases that you might encounter:the node you need to remove might have two children nodes,one,or none;it might also be the root node;make sure to account for all of these cases.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> What are the advantages and disadvantages of implementing these methods iteratively as opposed to recursively?  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

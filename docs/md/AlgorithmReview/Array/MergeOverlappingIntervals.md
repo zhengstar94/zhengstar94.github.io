@@ -17,7 +17,28 @@
 >
 > // The intervals could be ordered differently.
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> The problem asks you to merge overlapping intervals.How can you determine if two intervals are overlapping?</strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Sort the intervals with respect to their starting values.This will allow you to merge all overlapping intervals in a single traversal through the sorted intervals.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> After sorting the intervals with respect to their starting values,traverse them,and at each iteration,compare the start of the next interval to the end of the current interval to look for an overlap.If you find an overlap,mutate the current interval so as to merge the next interval into it.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1
 

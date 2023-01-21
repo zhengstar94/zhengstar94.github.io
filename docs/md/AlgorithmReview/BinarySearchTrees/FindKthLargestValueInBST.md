@@ -6,7 +6,7 @@
 
 **Sample Input **
 
-```java
+```
          12
        /     \
       7      17
@@ -19,7 +19,36 @@
 // If k 5,then 7 is the 5th largest element.
 ```
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Make sure to consider the fact that the given tree is a Binary Search Tree-not just a regular Binary Tree.How does this fact help you solve the problem in a more optimal time complexity? </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> The brute-force approach to this problem is to simply perform an in-order traversal of this BST and to store all of its node'values in the order in which they're visited.Since an in-order traversal of a BST visits the nodes in ascending order,the k th value from the end of the traversal order will be the k th largest value.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> You can actually solve this problem in 0(h k) time,where h is the height of the tree.
+Rather than looking at the nodes in ascending order,you should look at them in descending order.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 4</b></summary>
+    <br>
+    <i><strong> To solve this problem in 0(h k) time as mentioned in Hint #3,you need to perform a reverse in-order traversal.Since you'll be looking at nodes in descending order,you can simply return the k th visited node in the reverse in-order traversal.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1(insert)
 

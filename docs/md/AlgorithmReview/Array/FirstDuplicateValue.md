@@ -28,6 +28,36 @@
 > // 2 also appears more than once, but the second 2 appears after the second 3.
 
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> The brute-force solution can be done in O(n^2)time.Think about how you can determine if a value appears twice in an array. </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> You can use a data structure that has constant-time lookups to keep track of integers that you've seen already.This leads the way to a linear-time solution.  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> You should always pay close attention to the details of a question's prompt.In this question, the integers in the array are between 1 and n,inclusive,where n is the length of the input array.The prompt also explicitly allows us to mutate the array.How can these details help us find a better solution,either time-complexity-wise or space-complexity-wise? </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 4</b></summary>
+    <br>
+    <i><strong> Since the integers are between 1 and the length of the input array,you can map them to indices in the array itself by subtracting 1 from them.Once you've mapped an integer to an index in the array,you can mutate the value in the array at that index and make it negative (by multiplying it by -1).Since the integers normally aren't negative,the first time that you encounter a negative value at the index that an integer maps to,you'll know that you'll have already seen that integer.  </strong></i>
+</details>
+
+<br>
+
 
 ## Method 1
 

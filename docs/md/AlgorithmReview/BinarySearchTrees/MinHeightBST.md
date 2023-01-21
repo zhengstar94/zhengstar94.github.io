@@ -36,7 +36,29 @@ array = [1, 2, 5, 7, 10, 13, 14, 15, 22]
 1            14
 ```
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> In order for the BST to have the smallest height possible,it needs to be balanced;in other words,it needs to have roughly the same number of nodes in its left subtree as in its right subtree. </strong></i>
+</details>
 
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> How can you use the sorted nature of the input array to construct a balanced BST?  </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 3</b></summary>
+    <br>
+    <i><strong> Grab the middle element of the array,and make that element be the root node of the BST.
+Then,grab the middle element between the beginning of the array and the first middle element,and make that element be the root of the BST's left subtree;similarly,make the middle element between the end of the array and the first middle element be the root of the BST's right subtree.Continue this approach until you run out of elements in the array.  </strong></i>
+</details>
+
+<br>
 
 ## Method 1(insert)
 

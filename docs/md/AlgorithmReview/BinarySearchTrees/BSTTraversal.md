@@ -16,12 +16,27 @@ tree =              10
 
 **Sample Output**
 
-```java
+```
 in_order = [1, 2, 5, 6, 10, 15, 22]
 pre_order = [10, 5, 2, 1, 6, 15, 22]
 post_order = [1, 2, 6s, 5, 22, 15, 10]
 ```
 
+**Hints**
+<br>
+<details> <summary><b>Hint 1</b></summary>
+    <br>
+    <i><strong> Realize that in-order traversal simply means traversing left nodes before traversing current nodes before traversing right nodes.Try implementing this algorithm recursively by calling the inOrderTraverse method on a left node,then appending the current node's value to the input array,and then calling the inOrderTraverse method on a right node. </strong></i>
+</details>
+
+<br>
+
+<details> <summary><b>Hint 2</b></summary>
+    <br>
+    <i><strong> Apply the same logic described in Hint #1 for the two other traversal methods,but change the order in which you do things.  </strong></i>
+</details>
+
+<br>
 
 
 ## Method 1(Recursive)
