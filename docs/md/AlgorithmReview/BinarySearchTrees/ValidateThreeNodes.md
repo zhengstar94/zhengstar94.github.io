@@ -14,7 +14,7 @@
 
 **Sample Input **
 
-````
+
 ```
 tree =    5
        /     \
@@ -30,7 +30,7 @@ nodeOne 5 //The actual node with value 5.
 nodeTwo 2 //The actual node with value 2. 
 nodeThree 3 //The actual node with value 3.
 ```
-````
+
 
 **Sample Output **
 
