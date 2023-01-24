@@ -251,8 +251,8 @@ public class kthLargestBST {
         }
         //First traverse the right subtree
         reverseInOrderTraverse(tree.right,k,treeInfo);
-        //Determine whether the number of nodes currently traversed is less than k
 
+        // Indicates that the current node has not found the node with the largest k, so continue traversing
         if(treeInfo.numberNode < k ){
             //Number of nodes plus 1，
             treeInfo.numberNode += 1;
