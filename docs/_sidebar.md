@@ -160,7 +160,7 @@
     * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
     * [架构设计分析](md/SystemDesign/架构设计.md)
     * [系统设计小白7周学习](md/SystemDesign/系统设计小白7周学习.md)
-    * [系统设计小白7周学习](md/SystemDesign/系统设计小白7周学习.md)
+    * [从头开始刷题](md/SystemDesign/SolvingProblemsFromScratch.md)
 
   * 其他
     * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
