@@ -65,7 +65,7 @@ class Solution {
 }
 ```
 
-## Method 1
+## Method 2
 
 ```tex 
 【 O(n) time | O(n) space 】
