@@ -296,7 +296,7 @@
     * [Validate Three Nodes-Hard](md/AlgorithmReview/BinarySearchTrees/ValidateThreeNodes.md)
 
   * Binary Trees()
-    * 
+    
 
 
 
