@@ -296,7 +296,7 @@
     * [Validate Three Nodes-Hard](md/AlgorithmReview/BinarySearchTrees/ValidateThreeNodes.md)
 
   * Binary Trees()
-    * 
+    * [Branch Sums-Easy](md/AlgorithmReview/BinaryTrees/BranchSums.md)
     
 
 

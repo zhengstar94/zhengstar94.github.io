@@ -1,4 +1,4 @@
-# Branch Sums
+# Branch Sums [Easy]
 
 - Write a function that takes in a Binary Tree and returns a list of its branch sums ordered from leftmost branch sum to rightmost branch sum.
 
