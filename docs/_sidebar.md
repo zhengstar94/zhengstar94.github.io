@@ -295,7 +295,7 @@
     * [Same BSTs-Hard](md/AlgorithmReview/BinarySearchTrees/SameBSTs.md)
     * [Validate Three Nodes-Hard](md/AlgorithmReview/BinarySearchTrees/ValidateThreeNodes.md)
 
-  * Binary Trees()
+  * Binary Trees(1)
     * [Branch Sums-Easy](md/AlgorithmReview/BinaryTrees/BranchSums.md)
     
 
