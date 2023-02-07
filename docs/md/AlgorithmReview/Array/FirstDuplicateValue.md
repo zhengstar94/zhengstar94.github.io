@@ -104,15 +104,18 @@ import java.util.*;
 class Program {
 
   public int firstDuplicateValue(int[] array) {
-
+    // loop through the array of integers
     for(int i = 0; i < array.length; i++){
+      // calculate the new index based on the absolute value of the current integer in the array  
       int newIndex = Math.abs(array[i]) - 1;
+      // if the value at the new index is negative, return the absolute value of the current integer
       if(array[newIndex] < 0){
         return Math.abs(array[i]);
       }
-
+      // otherwise, negate the value at the new index to mark it as visited
       array[newIndex] = array[newIndex] * -1;
     }
+    // if no duplicates are found, return -1
     return -1;
   }
 }
