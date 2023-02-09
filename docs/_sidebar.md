@@ -297,6 +297,7 @@
 
   * Binary Trees(1)
     * [Branch Sums-Easy](md/AlgorithmReview/BinaryTrees/BranchSums.md)
+    * [Node Depths-Easy](md/AlgorithmReview/BinaryTrees/NodeDepths.md)
     
 
 
