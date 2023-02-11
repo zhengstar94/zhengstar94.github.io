@@ -79,7 +79,7 @@ class Program {
         int index = 0;
 
         while(arrIndex < array.size() && index < sequence.size()){
-            if(array.get(arrIndex) == sequence.get(index)){
+            if(array.get(arrIndex).equals(sequence.get(index))){
                 index++;
             }
             arrIndex++;
