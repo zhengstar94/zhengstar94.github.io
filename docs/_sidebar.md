@@ -299,6 +299,7 @@
     * [Branch Sums-Easy](md/AlgorithmReview/BinaryTrees/BranchSums.md)
     * [Node Depths-Easy](md/AlgorithmReview/BinaryTrees/NodeDepths.md)
     * [Invert Binary Tree-Medium](md/AlgorithmReview/BinaryTrees/InvertBinaryTree.md)
+    * [Binary Tree Diameter-Medium](md/AlgorithmReview/BinaryTrees/BinaryTreeDiameter.md)
     
 
 
