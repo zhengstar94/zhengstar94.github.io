@@ -251,12 +251,13 @@
   * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
   * [德国学历波恩认证(ZAB)流程](md/Abroad/德国学历波恩认证(ZAB)流程.md)
 
-* 面经积累(BQ问题)
+* 面经积累
   * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
   * [BQ准备与练习Part1](md/Ready/BQPart1.md)
   * [BQ准备与练习Part2](md/Ready/BQPart2.md)
   * [BQ模版-持续更新](md/Ready/BQ模版.md)
-  * [微服务模版答题-持续更新](md/Study/微服务模版.md)
+  * [微服务模版答题-持续更新](md/Ready/微服务模版.md)
+  * 
   
 * python
   * [Python笔记](md/Python/Python笔记.md)
