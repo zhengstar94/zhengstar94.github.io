@@ -69,3 +69,113 @@ true =        1
 
 <br>
 
+
+
+## Method 1
+
+```tex
+【O(n)time∣O(h)space】
+```
+
+```java
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left = null;
+    public BinaryTree right = null;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+  }
+
+  // Maintain global maximum diameter
+  private int maxDiamter ;
+  public  int binaryTreeDiameter(BinaryTree tree) {
+    // Depth-first traversal of binary tree
+    helper(tree);
+    return maxDiamter;
+  }
+
+  // Recursive function that returns the depth of the subtree
+  public int helper(BinaryTree tree){
+    // If the subtree is empty, return a depth of 0  
+    if(null == tree){
+      return 0;
+    }
+
+    // Recursively call the helper function to the left and right subtrees to get the depth of the left and right subtrees
+    int leftSub = helper(tree.left);
+    int rightSub = helper(tree.right);
+
+    // Update global maximum diameter
+    maxDiamter = Math.max(maxDiamter,leftSub+rightSub);
+    
+    // Returns the depth of the current subtree (the maximum depth of the left and right subtree plus 1)
+    return 1+Math.max(leftSub,rightSub);
+  }
+}
+
+```
+
+
+
+## Method 2
+
+```tex
+【O(n)time∣O(h)space】
+```
+
+```java
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left = null;
+    public BinaryTree right = null;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+  }
+
+  // The main function that returns the diameter of the binary tree
+  public static int binaryTreeDiameter(BinaryTree tree) {
+    return binaryTreeDiameterHelper(tree).diameter;
+ }
+
+  // Auxiliary function to calculate the height and diameter of the binary tree
+  public static HeightAndDiameter binaryTreeDiameterHelper(BinaryTree tree) {
+      // if the binary tree is empty, the height and diameter are both 0
+      if (tree == null) {
+          return new HeightAndDiameter(0, 0);
+      }
+      
+      // recursively calculate the height and diameter of the left and right subtrees, respectively.
+      HeightAndDiameter leftResult = binaryTreeDiameterHelper(tree.left);
+      HeightAndDiameter rightResult = binaryTreeDiameterHelper(tree.right);
+
+      // calculate the height and diameter of the current node
+      int currentHeight = Math.max(leftResult.height, rightResult.height) + 1;
+      int currentDiameter = Math.max(leftResult.height + rightResult.height, Math.max(leftResult.diameter, rightResult.diameter));
+      return new HeightAndDiameter(currentHeight, currentDiameter);
+  }
+
+  // the class used to store the height and diameter of the binary tree
+  public static class HeightAndDiameter {
+      int height;// the height of the current subtree
+      int diameter;// diameter of the current subtree
+
+      public HeightAndDiameter(int height, int diameter) {
+          this.height = height;
+          this.diameter = diameter;
+      }
+  }
+}
+
+```
