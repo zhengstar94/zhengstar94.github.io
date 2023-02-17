@@ -13,3 +13,10 @@
 
 > live as if you were to die tomorrow <br>
 > learn as if you were to live forever
+
+
+
+> 养成习惯减少内耗：
+> 1. 不做没有输出的输入（阅读就得记笔记，正好分享给推上朋友）
+> 2. 不做没有行动的思考（每次思考或者讨论完务必有action items）
+> 3. 不做没有目的的工作（把精力和时间花到高优先级大影响的事情上）
