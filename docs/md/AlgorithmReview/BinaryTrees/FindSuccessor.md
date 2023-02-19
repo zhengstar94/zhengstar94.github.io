@@ -1,4 +1,4 @@
-# Find Successor [Medium]
+# Find Successor
 
 - Write a function that takes in a Binary Tree (where nodes have an additional pointer to their parent node)as well as a node contained in that tree and returns the given node's successor.
 
@@ -82,10 +82,48 @@ node = 5
 ## Method 1
 
 ```tex
-
+【O(n)time∣O(h)space】
 ```
 
 ```java
+package BT;
+
+/**
+ * @author zhengstars
+ * @date 2023/02/19
+ */
+public class FindSuccessor2 {
+
+    static class BinaryTree {
+        public int value;
+        public BinaryTree left = null;
+        public BinaryTree right = null;
+        public BinaryTree parent = null;
+
+        public BinaryTree(int value) {
+            this.value = value;
+        }
+    }
+
+    public BinaryTree findSuccessor(BinaryTree tree, BinaryTree node) {
+        // If node has a right subtree, successor is the leftmost node in the subtree
+        if (node.right != null) {
+            BinaryTree currNode = node.right;
+            while (currNode.left != null) {
+                currNode = currNode.left;
+            }
+            return currNode;
+        }
+        // If node has no right subtree, successor is the lowest ancestor whose left child is also an ancestor of the node
+        else {
+            BinaryTree currNode = node;
+            while (currNode.parent != null && currNode == currNode.parent.right) {
+                currNode = currNode.parent;
+            }
+            return currNode.parent;
+        }
+    }
+}
 
 ```
 
@@ -94,10 +132,62 @@ node = 5
 ## Method 2
 
 ```tex
-
+【O(h)time∣O(1)space】
 ```
 
 ```java
+package BT;
+
+/**
+ * @author zhengstars
+ * @date 2023/02/19
+ */
+public class FindSuccessor2 {
+
+    static class BinaryTree {
+        public int value;
+        public BinaryTree left = null;
+        public BinaryTree right = null;
+        public BinaryTree parent = null;
+
+        public BinaryTree(int value) {
+            this.value = value;
+        }
+    }
+
+   
+    public static BinaryTree findSuccessor1(BinaryTree tree, BinaryTree node) {
+        // if the input node has a right child, its successor must be its leftmost child in the right subtree
+        if (node.right != null) {
+            return getLeftmostChild(node.right);
+        }
+        // if the input node has no right child, its successor must be its rightmost parent in the tree
+        return getRightmostParent(node);
+    }
+
+    // helper function to get the leftmost child of a given node
+    public static BinaryTree getLeftmostChild(BinaryTree node) {
+        BinaryTree currentNode = node;
+        // keep going left until there are no more left children
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+        // the current node has no more left children, so it must be the leftmost child
+        return currentNode;
+    }
+
+    // helper function to get the rightmost parent of a given node
+    public static BinaryTree getRightmostParent(BinaryTree node) {
+        BinaryTree currentNode = node;
+        // keep going up the tree until the current node is a right child or the root node
+        while (currentNode.parent != null && currentNode.parent.right == currentNode) {
+            currentNode = currentNode.parent;
+        }
+        // if the current node is a left child, then its parent is the rightmost parent
+        return currentNode.parent;
+    }
+
+}
 
 ```
 
