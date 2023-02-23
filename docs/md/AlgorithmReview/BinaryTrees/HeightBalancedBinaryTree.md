@@ -1,4 +1,4 @@
-# Height Balanced Binary Tree
+# Height Balanced Binary Tree [Medium]
 
 - You're given the root node of a Binary Tree. Write a function that returns `true` if this Binary
   Tree is height balanced and `false` if it isn't.
