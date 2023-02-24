@@ -68,10 +68,54 @@ true
 ## Method 1
 
 ```tex
-
+【O(nlog(n))time∣O(h)space】
 ```
 
 ```java
+package BT;
+
+/**
+ * @author zhengstars
+ * @date 2023/02/24
+ */
+public class HeightBalancedBinaryTree {
+
+    static class BinaryTree {
+        public int value;
+        public BinaryTree left = null;
+        public BinaryTree right = null;
+        public BinaryTree parent = null;
+
+        public BinaryTree(int value) {
+            this.value = value;
+        }
+    }
+
+
+    public boolean heightBalancedBinaryTree(BinaryTree root) {
+        // if the root is null, return true
+        if(null == root){
+            return true;
+        }
+
+        // calculate the heights of left and right subtrees
+        int leftHight = getHeight(root.left);
+        int rightHight = getHeight(root.right);
+
+        // check if the height difference between the left and right subtrees is at most 1
+        // and recursively check if the left and right subtrees are also height balanced
+        return (Math.abs(leftHight - rightHight) <= 1) && heightBalancedBinaryTree(root.left) &&  heightBalancedBinaryTree(root.right);
+    }
+
+    private int getHeight(BinaryTree root) {
+        // if the root is null, return 0
+        if(null == root){
+            return 0;
+        }
+        // calculate the height of the left and right subtrees and return the maximum of the two plus 1
+        return Math.max(getHeight(root.left),getHeight(root.right))+1;
+    }
+}
 
 ```
 
@@ -80,11 +124,60 @@ true
 ## Method 2
 
 ```tex
-
+【O(n)time∣O(h)space】
 ```
 
 ```java
+package BT;
 
+/**
+ * @author zhengstars
+ * @date 2023/02/24
+ */
+public class HeightBalancedBinaryTree {
+
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left = null;
+    public BinaryTree right = null;
+    public BinaryTree parent = null;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+  }
+
+  private boolean balanced = true;
+
+  public boolean heightBalancedBinaryTree2(BinaryTree root) {
+    // reset the balanced flag to true for each recursive call
+    balanced = true;
+    // calculate the height of the tree rooted at the given BinaryTree and check if it is balanced
+    height(root);
+    // return the value of the balanced flag after checking the entire tree
+    return balanced;
+  }
+
+  private int height(BinaryTree root) {
+    // if the current BinaryTree is null or the tree is not height-balanced, return -1
+    if (null == root || !balanced) {
+      return -1;
+    }
+
+    // calculate the height of the left and right subtrees of the current BinaryTree recursively
+    int left = height(root.left);
+    int right = height(root.right);
+
+    // check if the difference between the heights of the left and right subtrees is greater than 1
+    if (Math.abs(left - right) > 1) {
+      balanced = false;
+      return -1;
+    }
+
+    // return the height of the current BinaryTree, which is the maximum height of its left and right subtrees plus 1
+    return Math.max(left, right) + 1;
+  }
+}
 ```
 
 
