@@ -303,6 +303,7 @@
     * [Binary Tree Diameter-Medium](md/AlgorithmReview/BinaryTrees/BinaryTreeDiameter.md)
     * [Find Successor-Medium](md/AlgorithmReview/BinaryTrees/FindSuccessor.md)
     * [Height Balanced Binary Tree-Medium](md/AlgorithmReview/BinaryTrees/HeightBalancedBinaryTree.md)
+    * [Merge Binary Trees-Medium](md/AlgorithmReview/BinaryTrees/MergeBinaryTrees.md)
     
 
 
