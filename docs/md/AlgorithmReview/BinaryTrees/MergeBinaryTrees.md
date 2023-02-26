@@ -1,6 +1,6 @@
 # Merge Binary Trees [Medium]
 
-- Given two binary trees,merge them and return the resulting tree.If two nodes overlap during the merger then sum the values, otherwise use the existing node.
+- Given two binary trees, merge them and return the resulting tree. If two nodes overlap during the merger then sum the values, otherwise use the existing node.
 
 - Note that your solution can either mutate the existing trees or return a new tree.
 
