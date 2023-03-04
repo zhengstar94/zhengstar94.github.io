@@ -1,4 +1,4 @@
-# Depth-first Search
+# Depth-first Search [Easy]
 
 - You're given a `Node` class that has a `name` and an array of optional `children` nodes. When put together, nodes form an acyclic tree-like structure.
 
@@ -48,4 +48,58 @@ tree1 =               A
 
 <br>
 
-## 
+## Method 1
+
+```tex
+【 O(v+e)time | O(e) space 】\\
+ \\
+```
+
+<br>
+
+
+```tex
+1.\ V\ is\ the\ number\ of\ nodes\ in\ the\ tree\\
+2.\ E\ is\ the\ number\ of\ edges\ in\ the\ tree
+```
+
+
+
+```java
+package Graphs;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author zhengstars
+ * @date 2023/03/04
+ */
+public class DepthfirstSearch {
+
+    static class Node {
+        String name;
+        List<Node> children = new ArrayList<Node>();
+
+        public Node(String name) {
+            this.name = name;
+        }
+
+        // Depth-first search method, traversing all nodes and storing node names in the input array
+        public List<String> depthFirstSearch(List<String> array) {
+            array.add(this.name); // Adds the current node name to the input array
+            for (Node child : this.children) { // Traverses all the children of the current node
+                child.depthFirstSearch(array); // Recursively traverse child nodes
+            }
+            return array; // The input array after traversing all the nodes
+        }
+
+        public Node addChild(String name) {
+            Node child = new Node(name);
+            children.add(child);
+            return this;
+        }
+    }
+}
+
+```
