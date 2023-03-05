@@ -310,6 +310,7 @@
   
   * Graphs(1)
     * [Depth-first Search-Easy](md/AlgorithmReview/Graphs/Depth-firstSearch.md)
+    * [Single Cycle Check-Medium](md/AlgorithmReview/Graphs/SingleCycleCheck.md)
 
 
 
