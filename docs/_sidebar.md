@@ -308,7 +308,7 @@
     * [Max Path Sum In Binary Tree-Hard](md/AlgorithmReview/BinaryTrees/MaxPathSumInBinaryTree.md)
     * [Find Nodes Distance K-Hard](md/AlgorithmReview/BinaryTrees/FindNodesDistanceK.md)
   
-  * Graphs(1)
+  * Graphs(2)
     * [Depth-first Search-Easy](md/AlgorithmReview/Graphs/Depth-firstSearch.md)
     * [Single Cycle Check-Medium](md/AlgorithmReview/Graphs/SingleCycleCheck.md)
 
