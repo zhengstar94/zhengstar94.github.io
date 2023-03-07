@@ -1,4 +1,4 @@
-# Breadth-first Search
+# Breadth-first Search [Medium]
 
 - You're given a `Node` class that has a `name` and an array of optional `children` nodes. When put together, nodes form an acyclic tree-like structure.
 
@@ -47,4 +47,62 @@ graph =               A
 
 <br>
 
-## 
+## Method 1
+
+```tex
+【O(n)time∣O(n)space】
+```
+
+```java
+package Graphs;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+/**
+ * @author zhengstars
+ * @date 2023/03/06
+ */
+public class BreadthFirstSearch {
+
+    static class Node {
+        String name;
+        List<Node> children = new ArrayList<Node>();
+
+        public Node(String name) {
+            this.name = name;
+        }
+
+        public List<String> breadthFirstSearch(List<String> array) {
+            Queue<Node> queue = new LinkedList<>();
+            // start by adding the root node to the queue
+            queue.offer(this);
+
+            // loop while the queue is not empty
+            while (!queue.isEmpty()) {
+                // dequeue a node from the front of the queue
+                Node node = queue.poll();
+                // add its name to the output array
+                array.add(node.name);
+
+                // enqueue all its children to the back of the queue
+                for (Node child : node.children) {
+                    queue.offer(child);
+                }
+            }
+
+            return array; // return the output array
+        }
+
+        public Node addChild(String name) {
+            Node child = new Node(name);
+            children.add(child);
+            return this;
+        }
+    }
+}
+
+```
+

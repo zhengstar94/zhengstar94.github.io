@@ -311,6 +311,7 @@
   * Graphs(2)
     * [Depth-first Search-Easy](md/AlgorithmReview/Graphs/Depth-firstSearch.md)
     * [Single Cycle Check-Medium](md/AlgorithmReview/Graphs/SingleCycleCheck.md)
+    * [Breadth-first Search-Medium](md/AlgorithmReview/Graphs/Breadth-firstSearch.md)
 
 
 
