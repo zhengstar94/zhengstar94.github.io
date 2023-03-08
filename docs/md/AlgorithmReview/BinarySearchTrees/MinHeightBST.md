@@ -142,7 +142,7 @@ public class MinHeightBST {
 ## Method 2()
 
 ```tex
-【O(n)time∣O(n)space】
+【O(nlog(n))time∣O(1)space】
 ```
 
 ```java
@@ -173,7 +173,7 @@ public class MinHeightBST {
 
     public static BST minHeightBst(int[] array){
         BST bst = null;
-        return constructMinHeightBst2(array,bst,0,array.length - 1);
+        return constructMinHeightBst(array,bst,0,array.length - 1);
     }
 
     private static BST constructMinHeightBst(int[] array, BST bst, int left, int right) {
@@ -212,7 +212,7 @@ public class MinHeightBST {
 ## Method 3
 
 ```tex
-【O(n)time∣O(n)space】
+【O(n)time∣O(1)space】
 ```
 
 ```java
@@ -241,7 +241,7 @@ public class MinHeightBST {
     }
 
     public static BST minHeightBst(int[] array){
-        return constructMinHeightBst3(array,0,array.length - 1);
+        return constructMinHeightBst(array,0,array.length - 1);
     }
 
     private static BST constructMinHeightBst(int[] array,  int left, int right) {
