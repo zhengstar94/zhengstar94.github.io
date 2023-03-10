@@ -1,4 +1,4 @@
-# Youngest Common Ancestor
+# Youngest Common Ancestor [Medium]
 
 - You're given three inputs,all of which are instances of an `AncestralTree` class that have an `ancestor` property pointing to their youngest ancestor. The first input is the top ancestor in an ancestral tree (i.e., the only instance that has no ancestor--its `ancestor` property points to `None`/`null` ), and the other two inputs are descendants in the ancestral tree.
 
