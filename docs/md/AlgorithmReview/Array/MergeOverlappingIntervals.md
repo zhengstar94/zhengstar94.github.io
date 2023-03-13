@@ -77,4 +77,54 @@ class Program {
 }
 ```
 
+## Method 2
 
+```tex
+【 O(nlog(n)) time | O(n) space 】
+```
+
+
+
+```java
+package Array;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * @author zhengstars
+ * @date 2023/02/05
+ */
+public class MergeOverlappingIntervals {
+
+    public int[][] mergeOverlappingIntervals(int[][] intervals) {
+        if(intervals.length <= 1){
+            return intervals;
+        }
+
+        Arrays.sort(intervals,(a,b) -> a[0] - b[0]);
+
+
+        List<int[]> result = new ArrayList<>();
+        int[] currentInterval = intervals[0];
+        result.add(currentInterval);
+
+        for (int[] interval: intervals) {
+            int currentEnd = currentInterval[1];
+            int nextBegin = interval[0];
+            int nextEnd = interval[1];
+
+            if(nextBegin <= currentEnd){
+                currentInterval[1] = Math.max(currentEnd, nextEnd);
+            }else{
+                currentInterval = interval;
+                result.add(currentInterval);
+            }
+        }
+
+
+        return result.toArray(new int[result.size()][2]);
+    }
+}
+```
