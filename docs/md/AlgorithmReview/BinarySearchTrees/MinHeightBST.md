@@ -212,7 +212,7 @@ public class MinHeightBST {
 ## Method 3
 
 ```tex
-【O(n)time∣O(1)space】
+【O(n)time∣O(n)space】
 ```
 
 ```java
