@@ -40,10 +40,9 @@ If no two numbers sum up to the target sum,the function should return an empty a
 <br>
 
 
-## Solution
-<!-- tabs:start -->
 
-#### **Method 1**
+
+## Method 1  
 
 ```tex 
 【 O(n^2)time | O(1)space 】
@@ -70,7 +69,7 @@ class Program {
 
 
 
-#### **Method 2**
+## Method 2  
 
 ```tex 
 【 O(n)time | O(n)space 】
@@ -94,7 +93,7 @@ class Program {
 }
 ```
 
-#### **Method 3**
+## Method 3 
 
 ```tex 
 【 O(nlog(n))time | O(1)space 】
@@ -123,5 +122,6 @@ class Program {
 ```
 
 
-<!-- tabs:end -->
+
+
 
