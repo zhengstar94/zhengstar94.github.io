@@ -79,7 +79,7 @@ class Program {
         }
 
         // If the sum of the first number and the last three numbers is less than the target value, exit the current cycle and proceed to the next round
-        if ((long) array[i] + array[length - 3] + array[length - 2] + array[length - 1] < targetSum) {
+        if ((long) array[i] + array[i - 3] + array[i - 2] + array[i - 1] < targetSum) {
             continue;
         }
 
@@ -96,7 +96,7 @@ class Program {
             }
 
             // If the sum of the first number and the last three numbers is less than the target value, exit the current cycle and proceed to the next round
-            if ((long) array[i] + array[j] + array[length - 2] + array[length - 1] < targetSum) {
+            if ((long) array[i] + array[j] + array[j - 2] + array[j - 1] < targetSum) {
                 continue;
             }
 
