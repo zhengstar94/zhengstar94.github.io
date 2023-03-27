@@ -308,7 +308,7 @@
     * [Max Path Sum In Binary Tree-Hard](md/AlgorithmReview/BinaryTrees/MaxPathSumInBinaryTree.md)
     * [Find Nodes Distance K-Hard](md/AlgorithmReview/BinaryTrees/FindNodesDistanceK.md)
   
-  * Graphs(9)
+  * Graphs(10)
     * [Depth-first Search-Easy](md/AlgorithmReview/Graphs/Depth-firstSearch.md)
     * [Single Cycle Check-Medium](md/AlgorithmReview/Graphs/SingleCycleCheck.md)
     * [Breadth-first Search-Medium](md/AlgorithmReview/Graphs/Breadth-firstSearch.md)
@@ -319,6 +319,9 @@
     * [Minimum Passes Of Matrix-Medium](md/AlgorithmReview/Graphs/MinimumPassesOfMatrix.md)
     * [Two-Colorable-Medium](md/AlgorithmReview/Graphs/Two-Colorable.md)
     * [Boggle Board-Hard](md/AlgorithmReview/Graphs/BoggleBoard.md)
+
+  * Sorting(11)
+    * [Bubble Sort-Easy](md/AlgorithmReview/Sorting/BubbleSort.md)
 
 
 
