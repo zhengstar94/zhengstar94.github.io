@@ -102,7 +102,7 @@ public class ValidateBST {
 ## Method 2
 
 ```tex
-【 O(n)time | O(n) space 】
+【 O(n)time | O(h) space 】
 ```
 
 
