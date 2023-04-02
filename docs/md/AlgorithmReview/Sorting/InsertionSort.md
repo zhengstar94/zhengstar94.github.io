@@ -1,4 +1,4 @@
-# Insertion Sort
+# Insertion Sort [Easy]
 
 - Write a function that takes in an array of integers and returns a sorted version of that array. Use the Insertion Sort algorithm to sort the array.
 - If you're unfamiliar with Insertion Sort, we recommend watching the Conceptual Overview section of this question's video explanation before starting to code.
@@ -32,15 +32,48 @@ array=[8,5,2,9,5,6,3]
 ## Method 1
 
 ```tex
-【O(V+E)time∣O(V)space】
-
-```
-
-```tex
-
+【O(n^2)time∣O(1)space】
 ```
 
 ```java
+package Sorting;
+
+import java.util.Arrays;
+
+/**
+ * @author zhengstars
+ * @date 2023/04/02
+ */
+public class InsertionSort {
+    public static int[] insertionSort(int[] array) {
+        // Traverse the entire array
+        for (int i = 1; i < array.length; i++) {
+            // Stores the location of the current element in j
+            int j = i;
+            // If the current element is smaller than the previous element, swap their positions
+            while (j > 0 && array[j] < array[j - 1]) {
+                // Call the swap function to exchange elements
+                swap(j, j - 1, array);
+                // Move forward the position of j
+                j--;
+            }
+        }
+        // Returns the sorted array
+        return array;
+    }
+
+    // Swap the position of two elements in an array
+    public static void swap(int i, int j, int[] array) {
+        int temp = array[j];
+        array[j] = array[i];
+        array[i] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{3,5,1,4,2};
+        System.out.println(Arrays.toString(insertionSort(array)));
+    }
+}
 
 ```
 

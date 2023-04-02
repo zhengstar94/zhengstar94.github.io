@@ -322,6 +322,8 @@
 
   * Sorting(1)
     * [Bubble Sort-Easy](md/AlgorithmReview/Sorting/BubbleSort.md)
+    * [Insertion Sort-Easy](md/AlgorithmReview/Sorting/InsertionSort.md)
+    * [Selection Sort-Easy](md/AlgorithmReview/Sorting/SelectionSort.md)
 
 
 
