@@ -325,6 +325,7 @@
     * [Insertion Sort-Easy](md/AlgorithmReview/Sorting/InsertionSort.md)
     * [Selection Sort-Easy](md/AlgorithmReview/Sorting/SelectionSort.md)
     * [Three Number Sort-Medium](md/AlgorithmReview/Sorting/ThreeNumberSort.md)
+    * [Quick Sort-Hard](md/AlgorithmReview/Sorting/QuickSort.md)
 
 
 

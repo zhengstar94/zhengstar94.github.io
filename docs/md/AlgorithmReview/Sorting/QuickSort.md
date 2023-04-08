@@ -1,4 +1,4 @@
-# Quick Sort
+# Quick Sort [Hard]
 
 - Write a function that takes in an array of integers and returns a sorted version of that array. Use the Quick Sort algorithm to sort the array.
 - If you're unfamiliar with Quick Sort, we recommend watching the Conceptual Overview section of this question's video explanation before starting to code.
@@ -47,15 +47,74 @@ array=[8,5,2,9,5,6,3]
 ## Method 1
 
 ```tex
-【O(V+E)time∣O(V)space】
-
-```
-
-```tex
-
+【O(nlogn)time∣O(logn)space】
 ```
 
 ```java
+package Sorting;
+
+import java.util.Arrays;
+
+/**
+ * @author zhengstars
+ * @date 2023/04/08
+ */
+public class QuickSort {
+    public static int[] quickSort(int[] array) {
+        quickSortHelper(array, 0, array.length - 1);
+        return array;
+    }
+
+    private static void quickSortHelper(int[] array, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        // Get the index of the pivot element
+        int pivotIndex = left + (right - left) / 2;
+        // Get the value of the pivot element
+        int pivot = array[pivotIndex];
+        // Initialize the left pointer
+        int i = left;
+        // Initialize the right pointer
+        int j = right;
+        // Loop until the left and right pointers meet
+        while (i <= j) {
+            // Find the first element from the left that is greater than or equal to the pivot
+            while (array[i] < pivot) {
+                i++;
+            }
+            // Find the first element from the right that is less than or equal to the pivot
+            while (array[j] > pivot) {
+                j--;
+            }
+            // If the left pointer is still less than or equal to the right pointer
+            if (i <= j) {
+                // Swap the two elements
+                swap(array, i, j);
+                // Move the left pointer to the right
+                i++;
+                // Move the right pointer to the left
+                j--;
+            }
+        }
+        // Recursively sort the left half
+        quickSortHelper(array, left, j);
+        // Recursively sort the right half
+        quickSortHelper(array, i, right);
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{1,5,3,2,4};
+        System.out.println(Arrays.toString(quickSort(array)));
+    }
+
+}
 
 ```
 
