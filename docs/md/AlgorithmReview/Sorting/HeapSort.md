@@ -1,4 +1,4 @@
-# Heap Sort
+# Heap Sort [Hard]
 
 - Write a function that takes in an array of integers and returns a sorted version of that array. Use the Heap Sort algorithm to sort the array.
 - If you're unfamiliar with Heap Sort, we recommend watching the Conceptual Overview section of this question's video explanation before starting to code.
@@ -50,15 +50,82 @@ array=[8,5,2,9,5,6,3]
 ## Method 1
 
 ```tex
-【O(V+E)time∣O(V)space】
-
-```
-
-```tex
-
+【O(nlog(n))time∣O(1)space】
 ```
 
 ```java
+package Sorting;
+
+import java.util.Arrays;
+
+/**
+ * @author zhengstars
+ * @date 2023/04/10
+ */
+public class HeapSort {
+    public static int[] heapSort(int[] array) {
+        // Build the max heap first.
+        buildMaxHeap(array);
+        // Traverse the array from the end.
+        for (int i = array.length - 1; i > 0; i--) {
+            // Move the largest element to the end of the array.
+            swap(0, i, array);
+            // Adjust the heap for the unsorted elements to find the next largest element.
+            siftDown(0, i - 1, array);
+        }
+        return array;
+    }
+
+    public static void buildMaxHeap(int[] array) {
+        // Calculate the index of the first non-leaf node.
+        int firstParentIdx = (array.length - 2) / 2;
+        // Adjust the heap for each non-leaf node from last to first.
+        for (int currentIdx = firstParentIdx; currentIdx >= 0; currentIdx--) {
+            // Adjust the heap for the current node.
+            siftDown(currentIdx, array.length - 1, array);
+        }
+    }
+
+    public static void siftDown(int currentIdx, int endIdx, int[] heap) {
+        // Calculate the index of the left child node.
+        int childOneIdx = currentIdx * 2 + 1;
+        // When the left child node is within the array range.
+        while (childOneIdx <= endIdx) {
+            // Calculate the index of the right child node.
+            int childTwoIdx = currentIdx * 2 + 2 <= endIdx ? currentIdx * 2 + 2 : -1;
+            int idxToSwap;
+            // If the right child node exists and is larger than the left child node.
+            if (childTwoIdx != -1 && heap[childTwoIdx] > heap[childOneIdx]) {
+                // Swap the right child node and the current node.
+                idxToSwap = childTwoIdx;
+            } else {
+                // Swap the left child node and the current node.
+                idxToSwap = childOneIdx;
+            }
+            // If the node to swap is larger than the current node.
+            if (heap[idxToSwap] > heap[currentIdx]) {
+                // Swap the two nodes and continue adjusting the heap for the new subtree.
+                swap(currentIdx, idxToSwap, heap);
+                currentIdx = idxToSwap;
+                childOneIdx = currentIdx * 2 + 1;
+            } else {
+                // If the node to swap is smaller than the current node, no need to swap, return directly.
+                return;
+            }
+        }
+    }
+    
+    public static void swap(int i, int j, int[] array) {
+        int temp = array[j];
+        array[j] = array[i];
+        array[i] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[]{8,5,2,9,5,6,3};
+        System.out.println(Arrays.toString(heapSort(array)));
+    }
+}
 
 ```
 
