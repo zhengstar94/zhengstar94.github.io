@@ -320,7 +320,7 @@
     * [Two-Colorable-Medium](md/AlgorithmReview/Graphs/Two-Colorable.md)
     * [Boggle Board-Hard](md/AlgorithmReview/Graphs/BoggleBoard.md)
 
-  * Sorting(5)
+  * Sorting(6)
     * [Bubble Sort-Easy](md/AlgorithmReview/Sorting/BubbleSort.md)
     * [Insertion Sort-Easy](md/AlgorithmReview/Sorting/InsertionSort.md)
     * [Selection Sort-Easy](md/AlgorithmReview/Sorting/SelectionSort.md)
