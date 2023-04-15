@@ -107,6 +107,7 @@ public class HeapSort {
                 // Swap the two nodes and continue adjusting the heap for the new subtree.
                 swap(currentIdx, idxToSwap, heap);
                 currentIdx = idxToSwap;
+                // The exchanged child node may also have its own child node, so we need to continue to adjust the heap
                 childOneIdx = currentIdx * 2 + 1;
             } else {
                 // If the node to swap is smaller than the current node, no need to swap, return directly.
