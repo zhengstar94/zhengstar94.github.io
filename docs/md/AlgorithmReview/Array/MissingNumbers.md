@@ -1,4 +1,4 @@
-# Missing Numbers
+# Missing Numbers [Medium]
 
 - You're given an unordered list of unique integers `nums` in the range `[1,n]`, where `n` represents the length of `nums+2`. This means that two numbers in this range are missing from the list.
 - Write a function that takes in this list and returns a new list with the two missing numbers, sorted numerically.
@@ -66,10 +66,55 @@ nums=[1,4,3]
 ## Method 1
 
 ```tex
-【O(d * (n+k))time∣O(n+k)space】
+【O(n)time∣O(1)space】
 ```
 
 ```java
+package Array;
 
+/**
+ * @author zhengstars
+ * @date 2023/04/17
+ */
+public class MissingNumbers {
+    public static int[] findMissingNumbers(int[] nums) {
+        // The length of the complete array
+        int n = nums.length + 2;
+        // The sum of numbers in the complete array
+        long sum = (long)n * (n + 1) / 2;
+        // The sum of numbers in the given array
+        long arrSum = 0;
+        for (int num : nums) {
+            arrSum += num;
+        }
+
+        // The sum of the two missing numbers
+        long pivot = (sum - arrSum) / 2;
+        // The sum of numbers in the left half of the complete array
+        long leftSum = 0;
+        // The sum of numbers in the left half of the given array
+        long arrLeftSum = 0;
+
+        // Traverse the numbers in the range [1, pivot]
+        for (int i = 1; i <= pivot; i++) {
+            leftSum += i;
+        }
+
+        // Calculate the sum of the given numbers in the range [1, pivot]
+        for (int num : nums) {
+            if (num <= pivot) {
+                arrLeftSum += num;
+            }
+        }
+
+        // Calculate the left missing number
+        long missingLeft = leftSum - arrLeftSum;
+        // Calculate the right missing number
+        long missingRight = sum - missingLeft - arrSum;
+        // Combine the missing numbers
+        int[] result = {(int)missingLeft, (int)missingRight};
+        return result;
+    }
+}
 ```
 
