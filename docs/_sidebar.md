@@ -279,6 +279,7 @@
       * [First Duplicate Value-Medium](md/AlgorithmReview/Array/FirstDuplicateValue.md)
       * [Merge Overlapping Intervals-Medium](md/AlgorithmReview/Array/MergeOverlappingIntervals.md)
       * [Zero Sum Subarray-Medium](md/AlgorithmReview/Array/ZeroSumSubarray.md)
+      * [Missing Numbers-Medium](md/AlgorithmReview/Array/MissingNumbers.md)
       * [Four Number Sum-Hard](md/AlgorithmReview/Array/FourNumberSum.md)
       * [Subarray Sort-Hard](md/AlgorithmReview/Array/SubarraySort.md)
       * [Largest Range-Hard](md/AlgorithmReview/Array/LargestRange.md)
