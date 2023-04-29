@@ -70,6 +70,9 @@ public class BstConstruction {
   }
 
   public static BST inserValue(BST root, int target){
+    if (root == null) {
+      return new BST(target);
+    }
     // Define global variables
     BST tree = root;
 
