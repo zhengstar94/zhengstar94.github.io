@@ -308,6 +308,7 @@
     * [Height Balanced Binary Tree-Medium](md/AlgorithmReview/BinaryTrees/HeightBalancedBinaryTree.md)
     * [Merge Binary Trees-Medium](md/AlgorithmReview/BinaryTrees/MergeBinaryTrees.md)
     * [Symmetrical Tree-Medium](md/AlgorithmReview/BinaryTrees/SymmetricalTree.md)
+    * [Split Binary Tree-Medium](md/AlgorithmReview/BinaryTrees/SplitBinaryTree.md)
     * [Max Path Sum In Binary Tree-Hard](md/AlgorithmReview/BinaryTrees/MaxPathSumInBinaryTree.md)
     * [Find Nodes Distance K-Hard](md/AlgorithmReview/BinaryTrees/FindNodesDistanceK.md)
   
