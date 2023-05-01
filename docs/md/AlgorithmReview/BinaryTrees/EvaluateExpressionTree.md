@@ -1,4 +1,4 @@
-# Evaluate Expression Tree
+# Evaluate Expression Tree [Easy]
 
 - You're given a binary expression tree. Write a function to evaluate this tree mathematically and return a single resulting integer.
 - All leaf nodes in the tree represent operands, which will always be positive integers. All of the other nodes represent operators. There are 4 operators supported, each of which is represented by a negative integer:
@@ -15,7 +15,7 @@ tree =      -1
 					/     \
 			 -2	       -3
 			/   \     /   \
-		-4	   2.  8.    3
+		-4	   2   8     3
 	 /   \
 	2     3	
 ```
@@ -51,10 +51,62 @@ tree =      -1
 ## Method 1
 
 ```tex
-【O(n)time∣O(1)space】
+【O(n)time∣O(h)space】
 ```
 
 ```java
+package BT;
 
+/**
+ * @author zhengstars
+ * @date 2023/05/01
+ */
+public class EvaluateExpressionTree {
+    static class BinaryTree {
+        public int value;
+        public BinaryTree left = null;
+        public BinaryTree right = null;
+
+        public BinaryTree(int value) {
+            this.value = value;
+        }
+    }
+
+
+    public static int evaluateExpressionTree(BinaryTree tree) {
+        // if the tree is null, return 0
+        if (tree == null) {
+            return 0;
+        }
+
+        // if the tree is a leaf node, return its value
+        if (tree.left == null && tree.right == null) {
+            return tree.value;
+        }
+
+        // evaluate the left and right subtrees
+        int leftValue = evaluateExpressionTree(tree.left);
+        int rightValue = evaluateExpressionTree(tree.right);
+
+        // evaluate the current node based on its operator
+        switch (tree.value) {
+            // addition operator
+            case -1:
+                return leftValue + rightValue;
+            // subtraction operator
+            case -2:
+                return leftValue - rightValue;
+            // division operator
+            case -3:
+                return leftValue / rightValue;
+            // multiplication operator
+            case -4:
+                return leftValue * rightValue;
+            // invalid operator    
+            default:
+                return 0;
+        }
+    }
+}
 ```
 
