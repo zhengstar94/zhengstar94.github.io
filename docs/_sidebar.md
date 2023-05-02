@@ -298,7 +298,7 @@
     * [Same BSTs-Hard](md/AlgorithmReview/BinarySearchTrees/SameBSTs.md)
     * [Validate Three Nodes-Hard](md/AlgorithmReview/BinarySearchTrees/ValidateThreeNodes.md)
 
-  * Binary Trees(11)
+  * Binary Trees(12)
     * [Branch Sums-Easy](md/AlgorithmReview/BinaryTrees/BranchSums.md)
     * [Node Depths-Easy](md/AlgorithmReview/BinaryTrees/NodeDepths.md)
     * [Evaluate Expression Tree-Easy](md/AlgorithmReview/BinaryTrees/EvaluateExpressionTree.md)
