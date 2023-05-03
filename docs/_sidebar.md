@@ -332,6 +332,9 @@
     * [Quick Sort-Hard](md/AlgorithmReview/Sorting/QuickSort.md)
     * [Heap Sort-Hard](md/AlgorithmReview/Sorting/HeapSort.md)
     * [Radix Sort-Hard](md/AlgorithmReview/Sorting/RadixSort.md)
+    
+  * Greedy(7)
+    * [Minimum Waiting Time-Easy](md/AlgorithmReview/Greedy/MinimumWaitingTime.md)
 
 
 
