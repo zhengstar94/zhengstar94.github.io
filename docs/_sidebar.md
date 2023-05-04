@@ -333,7 +333,7 @@
     * [Heap Sort-Hard](md/AlgorithmReview/Sorting/HeapSort.md)
     * [Radix Sort-Hard](md/AlgorithmReview/Sorting/RadixSort.md)
     
-  * Greedy(7)
+  * Greedy(1)
     * [Minimum Waiting Time-Easy](md/AlgorithmReview/Greedy/MinimumWaitingTime.md)
 
 
