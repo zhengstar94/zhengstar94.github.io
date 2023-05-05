@@ -1,9 +1,9 @@
 # Class Photos [Easy]
 
 - It's photo day at the local school, and you're the photographer assigned to take class photos. The class that you'll be photographing has an even number of students, and all these students are wearing red or blue shirts. In fact, exactly half of the class is wearing red shirts, and the other half is wearing blue shirts. You're responsible for arranging the students in two rows before taking the photo. Each row should contain the same number of the students and should adhere to the following guidelines:
-    - All students wearing red shirts must be in the same row.
-    - All students wearing blue shirts must be in the same row.
-    - Each student in the back row must be strictly taller than the student directly in front of them in the front row.
+  - All students wearing red shirts must be in the same row.
+  - All students wearing blue shirts must be in the same row.
+  - Each student in the back row must be strictly taller than the student directly in front of them in the front row.
 - You're given two input arrays:one containing the heights of all the students with red shirts and another one containing the heights of all the students with blue shirts. These arrays will always have the same length, and each height will be a positive integer. Write a function that returns whether or not a class photo that follows the stated guidelines can be taken.
 - Note:you can assume that each class has at least 2 students.
 
@@ -58,10 +58,88 @@ true // Place all students with blue shirts in the back row.
 ## Method 1
 
 ```tex
-【O(n)time∣O(h)space】
+【O(nlog(n))time∣O(n)space】
 ```
 
 ```java
+package Greedy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+/**
+ * @author zhengstars
+ * @date 2023/05/05
+ */
+public class CountSquares {
+    public boolean classPhotos(ArrayList<Integer> redShirtHeights, ArrayList<Integer> blueShirtHeights) {
+        // Sort the arrays of heights of students with red shirts and blue shirts.
+        Collections.sort(redShirtHeights);
+        Collections.sort(blueShirtHeights);
+
+        // Calculate the difference between the minimum height of a student with a red shirt
+        // and the minimum height of a student with a blue shirt.
+        int diff = redShirtHeights.get(0) - blueShirtHeights.get(0);
+
+        // Traverse the arrays of heights of students with red shirts and blue shirts
+        // and check the signs of the differences between the corresponding elements of the two arrays.
+        for(int i = 0; i < redShirtHeights.size(); i++) {
+            if((redShirtHeights.get(i) - blueShirtHeights.get(i)) * diff <= 0){
+                // If there is a pair of corresponding elements whose differences have different signs, return false.
+                return false;
+            }
+        }
+        // If all corresponding elements have differences with the same sign, return true.
+        return true;
+    }
+}
+```
+
+## Method 2
+
+```tex
+【O(nlog(n))time∣O(n)space】
+```
+
+```java
+package Greedy;
+
+import java.util.ArrayList;
+
+/**
+ * @author zhengstars
+ * @date 2023/05/05
+ */
+public class classPhotos {
+    public static boolean classPhotos(ArrayList<Integer> redShirtHeights, ArrayList<Integer> blueShirtHeights) {
+        // Convert input arrays to primitive arrays and sort them
+        int[] redShirtHeightsArr = redShirtHeights.stream().mapToInt(i -> i).sorted().toArray();
+        int[] blueShirtHeightsArr = blueShirtHeights.stream().mapToInt(i -> i).sorted().toArray();
+
+        // Check the color of the first student's shirt, if it's red, students wearing red shirts should be in the back row,
+        // otherwise they should be in the front row
+        boolean redInBackRow = redShirtHeightsArr[0] > blueShirtHeightsArr[0];
+
+        // Check each pair of students according to the rules,
+        // if a pair does not meet the rules, then a group photo cannot be taken
+        for (int i = 0; i < redShirtHeightsArr.length; i++) {
+            int redShirtHeight = redShirtHeightsArr[i];
+            int blueShirtHeight = blueShirtHeightsArr[i];
+
+            if (redInBackRow) {
+                if (redShirtHeight <= blueShirtHeight) {
+                    return false;
+                }
+            } else {
+                if (blueShirtHeight <= redShirtHeight) {
+                    return false;
+                }
+            }
+        }
+
+        // If all students meet the rules, then a group photo can be taken
+        return true;
+    }
+}
 ```
 
