@@ -335,6 +335,7 @@
     
   * Greedy(1)
     * [Minimum Waiting Time-Easy](md/AlgorithmReview/Greedy/MinimumWaitingTime.md)
+    * [Class Photos-Easy](md/AlgorithmReview/Greedy/ClassPhotos.md)
 
 
 
