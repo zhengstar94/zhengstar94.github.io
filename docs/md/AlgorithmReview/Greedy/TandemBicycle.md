@@ -61,10 +61,47 @@ fastest = true
 ## Method 1
 
 ```tex
-【O(n)time∣O(h)space】
+【O(nlog(n))time∣O(1)space】
 ```
 
 ```java
+package Greedy;
 
+import java.util.Arrays;
+
+/**
+ * @author zhengstars
+ * @date 2023/05/06
+ */
+public class TandemBicycle2 {
+    public int tandemBicycle(int[] redShirtSpeeds, int[] blueShirtSpeeds, boolean fastest) {
+        // Sort the two arrays
+        Arrays.sort(redShirtSpeeds);
+        Arrays.sort(blueShirtSpeeds);
+
+        // Initialize the total speed
+        int total = 0;
+
+        // Determine the direction of pointer movement
+        int direction =  fastest ? -1 : 1;
+
+        // Set the starting position of the red-shirt pointer based on the input parameter
+        int redPointer = fastest ? redShirtSpeeds.length - 1 : 0;
+
+        // The starting position of the blue-shirt pointer is 0
+        int bluePointer = 0;
+
+        // Traverse the speed list of blue-shirt riders
+        while (bluePointer < blueShirtSpeeds.length) {
+            // Choose the faster of the two riders and add their speed to the total speed
+            total += Math.max(redShirtSpeeds[redPointer], blueShirtSpeeds[bluePointer++]);
+            // Move the pointer one step in the specified direction
+            redPointer += direction;
+        }
+
+        // Return the total speed
+        return total;
+    }
+}
 ```
 
