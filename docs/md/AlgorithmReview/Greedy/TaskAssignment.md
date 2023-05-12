@@ -65,10 +65,108 @@ tasks = [1, 3, 5, 3, 1, 4]
 ## Method 1
 
 ```tex
-【O(n)time∣O(h)space】
+【O(nlog(n))time∣O(n)space】
 ```
 
 ```java
+package Greedy;
+
+import java.util.*;
+
+/**
+ * @author zhengstars
+ * @date 2023/05/11
+ */
+public class TaskAssignment {
+    /**
+     * Task Assignment
+     *
+     * @param k     the number of teams
+     * @param tasks the task list
+     * @return the list of team indices corresponding to the tasks
+     */
+    public static ArrayList<ArrayList<Integer>> taskAssignment(int k, ArrayList<Integer> tasks) {
+        // initialize the result list
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        // count the positions of each task
+        HashMap<Integer, ArrayList<Integer>> indices = getIndices(tasks);
+
+        // sort the tasks
+        Collections.sort(tasks);
+
+        int start = 0;
+        int end = 2 * k - 1;
+
+        // pair up the tasks
+        while (start < end) {
+            // get the smallest and largest tasks in the current task list
+            int firstTask = tasks.get(start);
+            int secondTask = tasks.get(end);
+
+            // get the index lists of the smallest and largest tasks
+            ArrayList<Integer> firstTaskIndices = indices.get(firstTask);
+            ArrayList<Integer> secondTaskIndices = indices.get(secondTask);
+
+            // get the last index of the smallest and largest tasks
+            int firstTaskIndex = firstTaskIndices.get(firstTaskIndices.size() - 1);
+            int secondTaskIndex = secondTaskIndices.get(secondTaskIndices.size() - 1);
+
+            // remove the matched indices
+            firstTaskIndices.remove(firstTaskIndices.size() - 1);
+            secondTaskIndices.remove(secondTaskIndices.size() - 1);
+
+            // add the matched index pairs
+            ArrayList<Integer> pair = new ArrayList<>();
+            pair.add(firstTaskIndex);
+            pair.add(secondTaskIndex);
+
+            result.add(pair);
+            start++;
+            end--;
+        }
+
+        // return the matched result list
+        return result;
+    }
+
+    /**
+     * Count the positions of each task
+     *
+     * @param tasks the task list
+     * @return the hash table of task positions
+     */
+    public static HashMap<Integer, ArrayList<Integer>> getIndices(ArrayList<Integer> tasks) {
+        // initialize the hash table
+        HashMap<Integer, ArrayList<Integer>> indices = new HashMap<>();
+
+        // traverse the task list
+        for (int i = 0; i < tasks.size(); i++) {
+            int task = tasks.get(i);
+            // if the task already exists in the hash table, add the current position to its index list
+            if (indices.containsKey(task)) {
+                ArrayList<Integer> arrOfIndices = indices.get(task);
+                arrOfIndices.add(i);
+            }
+            // if the task does not exist in the hash table, create a new index list and add the current position to it
+            else {
+                ArrayList<Integer> arrOfIndices = new ArrayList<>();
+                arrOfIndices.add(i);
+                indices.put(task, arrOfIndices);
+            }
+        }
+
+        // return the hash table of task positions
+        return indices;
+    }
+
+    public static void main(String[] args) {
+        Integer[] intArr = new Integer[]{1, 3, 5, 3, 1, 4};
+        ArrayList<Integer> task = new ArrayList<>(Arrays.asList(intArr));
+
+        System.out.println(taskAssignment(3,task));
+    }
+}
+
 
 ```
 
