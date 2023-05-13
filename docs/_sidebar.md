@@ -333,11 +333,11 @@
     * [Heap Sort-Hard](md/AlgorithmReview/Sorting/HeapSort.md)
     * [Radix Sort-Hard](md/AlgorithmReview/Sorting/RadixSort.md)
     
-  * Greedy(3)
+  * Greedy(4)
     * [Minimum Waiting Time-Easy](md/AlgorithmReview/Greedy/MinimumWaitingTime.md)
     * [Class Photos-Easy](md/AlgorithmReview/Greedy/ClassPhotos.md)
     * [Tandem Bicycle-Easy](md/AlgorithmReview/Greedy/TandemBicycle.md)
-    * [Tandem Bicycle-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
+    * [Task Assignment-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
 
 
 
