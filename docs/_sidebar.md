@@ -338,6 +338,7 @@
     * [Class Photos-Easy](md/AlgorithmReview/Greedy/ClassPhotos.md)
     * [Tandem Bicycle-Easy](md/AlgorithmReview/Greedy/TandemBicycle.md)
     * [Task Assignment-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
+    * [Valid Starting City-Easy](md/AlgorithmReview/Greedy/ValidStartingCity.md)
 
 
 
