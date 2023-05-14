@@ -263,7 +263,7 @@
   * [Python笔记](md/Python/Python笔记.md)
 
 * AlgorithmReview
-  * Array(22)
+  * Array(23)
       * [Two Number Sum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
       * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
       * [Sorted Squared Array-Easy](md/AlgorithmReview/Array/SortedSquaredArray.md)
@@ -286,6 +286,7 @@
       * [Largest Range-Hard](md/AlgorithmReview/Array/LargestRange.md)
       * [Min Rewards-Hard](md/AlgorithmReview/Array/MinRewards.md)
       * [Zigzag Traverse-Hard](md/AlgorithmReview/Array/ZigzagTraverse.md)
+      * [Count Squares-Hard](md/AlgorithmReview/Array/CountSquares.md)
 
   * Binary Search Trees-BST(9)
     * [Find Closest Value In BST-Easy](md/AlgorithmReview/BinarySearchTrees/FindClosestValueInBST.md)
