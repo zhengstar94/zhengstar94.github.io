@@ -341,8 +341,9 @@
     * [Task Assignment-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
     * [Valid Starting City-Easy](md/AlgorithmReview/Greedy/ValidStartingCity.md)
 
-  * String(1)
+  * String(2)
     * [Palindrome Check-Easy](md/AlgorithmReview/String/PalindromeCheck.md)
+    * [Caesar Cipher Encryptor-Easy](md/AlgorithmReview/String/CaesarCipherEncryptor.md)
 
 
 
