@@ -341,6 +341,9 @@
     * [Task Assignment-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
     * [Valid Starting City-Easy](md/AlgorithmReview/Greedy/ValidStartingCity.md)
 
+  * String(1)
+    * [Palindrome Check-Easy](md/AlgorithmReview/String/PalindromeCheck.md)
+
 
 
   
