@@ -346,6 +346,7 @@
     * [Caesar Cipher Encryptor-Easy](md/AlgorithmReview/String/CaesarCipherEncryptor.md)
     * [Common Characters-Easy](md/AlgorithmReview/String/CommonCharacters.md)
     * [Run-Length Encoding-Easy](md/AlgorithmReview/String/Run-LengthEncoding.md)
+    * [Generate Document-Easy](md/AlgorithmReview/String/GenerateDocument.md)
 
 
 
