@@ -341,14 +341,14 @@
     * [Task Assignment-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
     * [Valid Starting City-Easy](md/AlgorithmReview/Greedy/ValidStartingCity.md)
 
-  * String(5)
+  * String(7)
     * [Palindrome Check-Easy](md/AlgorithmReview/String/PalindromeCheck.md)
     * [Caesar Cipher Encryptor-Easy](md/AlgorithmReview/String/CaesarCipherEncryptor.md)
     * [Common Characters-Easy](md/AlgorithmReview/String/CommonCharacters.md)
     * [Run-Length Encoding-Easy](md/AlgorithmReview/String/Run-LengthEncoding.md)
     * [Generate Document-Easy](md/AlgorithmReview/String/GenerateDocument.md)
     * [First Non-Repeating Character-Easy](md/AlgorithmReview/String/FirstNon-RepeatingCharacter.md)
-    * 
+    * [Semordnilap-Easy](md/AlgorithmReview/String/Semordnilap.md)
 
 
 
