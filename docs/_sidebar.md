@@ -349,7 +349,7 @@
     * [Generate Document-Easy](md/AlgorithmReview/String/GenerateDocument.md)
     * [First Non-Repeating Character-Easy](md/AlgorithmReview/String/FirstNon-RepeatingCharacter.md)
     * [Semordnilap-Easy](md/AlgorithmReview/String/Semordnilap.md)
-    * [Semordnilap-Easy](md/AlgorithmReview/String/Semordnilap.md)
+    * [Longest Palindromic Substring-Medium](md/AlgorithmReview/String/LongestPalindromicSubstring.md)
 
 
 
