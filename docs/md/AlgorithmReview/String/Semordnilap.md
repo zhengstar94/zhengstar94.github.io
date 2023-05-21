@@ -44,7 +44,7 @@ import java.util.Map;
  * @author zhengstars
  * @date 2023/05/18
  */
-public class cd {
+public class Semordnilap {
     public static List<List<String>> findSemordnilapPairs(String[] words) {
         List<List<String>> result = new ArrayList<>();
         // Map to store word and its reverse form
