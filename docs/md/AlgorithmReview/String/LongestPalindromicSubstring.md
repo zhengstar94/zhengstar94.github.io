@@ -61,48 +61,50 @@ package String;
  * @date 2023/05/21
  */
 public class LongestPalindromicSubstring {
-    public static String longestPalindromicSubstring(String s) {
-        if (s == null || s.length() < 2) {
-            return s;
+    public static String longestPalindromicSubstring(String str) {
+        // Store the indices of the current longest palindromic substring
+        int[] currentLongest = new int[] {0, 1};
+
+        // Iterate through each character in the string
+        for (int i = 1; i < str.length(); i++) {
+            // Find the longest palindrome with odd length
+            int[] odd = findLongestPalindrome(str, i - 1, i);
+
+            // Find the longest palindrome with even length
+            int[] even = findLongestPalindrome(str, i - 1, i + 1);
+
+            // Determine the longest palindrome between odd and even length palindromes
+            int[] longest = even[1] - even[0] > odd[1] - odd[0] ? even : odd;
+
+            // Update the current longest palindrome if a longer one is found
+            currentLongest = longest[1] - longest[0] > currentLongest[1] - currentLongest[0] ? longest : currentLongest;
         }
 
-        // Start index of the longest palindromic substring
-        int start = 0;
-        // End index of the longest palindromic substring
-        int end = 0;
+        // Return the longest palindromic substring
+        return str.substring(currentLongest[0], currentLongest[1]);
+    }
 
-        for (int i = 0; i < s.length(); i++) {
-            // Length of palindromic substring with odd length
-            int len1 = expandAroundCenter(s, i, i);
-            // Length of palindromic substring with even length
-            int len2 = expandAroundCenter(s, i, i + 1);
-            int len = Math.max(len1, len2);
-
-            // Update the start and end indices if a longer palindromic substring is found
-            if (len > end - start) {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
+    // Helper function to find the longest palindromic substring given the left and right indices
+    public static int[] findLongestPalindrome(String str, int leftIdx, int rightIdx) {
+        // Expand outwards from the indices until the palindrome condition is no longer satisfied
+        while (leftIdx >= 0 && rightIdx < str.length()) {
+            if (str.charAt(leftIdx) != str.charAt(rightIdx)) {
+                break;
             }
+            leftIdx--;
+            rightIdx++;
         }
 
-        // Extract the longest palindromic substring
-        return s.substring(start, end + 1);
+        // Return the indices of the longest palindromic substring
+        return new int[] {leftIdx + 1, rightIdx};
     }
 
-    private static int expandAroundCenter(String s, int left, int right) {
-        // Expand around the center and count the length of the palindromic substring
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
-        }
-        // Return the length of the palindromic substring
-        return right - left - 1;
-    }
 
 
     public static void main(String[] args) {
         System.out.println(longestPalindromicSubstring("abaxyzzyxf"));
     }
 }
+
 ```
 
