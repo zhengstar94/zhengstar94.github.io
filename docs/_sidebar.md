@@ -353,6 +353,7 @@
     * [Group Anagrams-Medium](md/AlgorithmReview/String/GroupAnagrams.md)
     * [Valid IP Addresses-Medium](md/AlgorithmReview/String/ValidIPAddresses.md)
     * [Reverse Words In String-Medium](md/AlgorithmReview/String/ReverseWordsInString.md)
+    * [Minimum Characters For Words-Medium](md/AlgorithmReview/String/MinimumCharactersForWords.md)
 
 
 
