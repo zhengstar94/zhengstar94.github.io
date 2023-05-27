@@ -341,7 +341,7 @@
     * [Task Assignment-Easy](md/AlgorithmReview/Greedy/TaskAssignment.md)
     * [Valid Starting City-Easy](md/AlgorithmReview/Greedy/ValidStartingCity.md)
 
-  * String(10)
+  * String(12)
     * [Palindrome Check-Easy](md/AlgorithmReview/String/PalindromeCheck.md)
     * [Caesar Cipher Encryptor-Easy](md/AlgorithmReview/String/CaesarCipherEncryptor.md)
     * [Common Characters-Easy](md/AlgorithmReview/String/CommonCharacters.md)
@@ -354,6 +354,7 @@
     * [Valid IP Addresses-Medium](md/AlgorithmReview/String/ValidIPAddresses.md)
     * [Reverse Words In String-Medium](md/AlgorithmReview/String/ReverseWordsInString.md)
     * [Minimum Characters For Words-Medium](md/AlgorithmReview/String/MinimumCharactersForWords.md)
+    * [One Edit Distance-Medium](md/AlgorithmReview/String/OneEditDistance.md)
 
 
 
