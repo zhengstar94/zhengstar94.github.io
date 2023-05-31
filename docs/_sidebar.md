@@ -262,7 +262,7 @@
 * python
   * [Python笔记](md/Python/Python笔记.md)
 
-* AlgorithmReview
+* AlgorithmReview(79)
   * Array(23)
       * [Two Number Sum-Easy](md/AlgorithmReview/Array/TwoNumberSum.md)
       * [Validate Subsequence-Easy](md/AlgorithmReview/Array/ValidateSubsequence.md)
