@@ -359,6 +359,10 @@
     * [Underscorify Substring-Hard](md/AlgorithmReview/String/UnderscorifySubstring.md)
     * [Pattern Matcher-Hard](md/AlgorithmReview/String/PatternMatcher.md)
 
+  * Stack()
+    * [Min Max Stack Construction-Medium](md/AlgorithmReview/Stack/MinMaxStackConstruction.md)
+    * [Balanced Brackets-Medium](md/AlgorithmReview/Stack/BalancedBrackets.md)
+
 
 
   
