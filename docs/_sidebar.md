@@ -359,9 +359,11 @@
     * [Underscorify Substring-Hard](md/AlgorithmReview/String/UnderscorifySubstring.md)
     * [Pattern Matcher-Hard](md/AlgorithmReview/String/PatternMatcher.md)
 
-  * Stack()
+  * Stack(2)
     * [Min Max Stack Construction-Medium](md/AlgorithmReview/Stack/MinMaxStackConstruction.md)
     * [Balanced Brackets-Medium](md/AlgorithmReview/Stack/BalancedBrackets.md)
+    * [Sunset Views-Medium](md/AlgorithmReview/Stack/SunsetViews.md)
+    * [Sort Stack-Medium](md/AlgorithmReview/Stack/SortStack.md)
 
 
 
