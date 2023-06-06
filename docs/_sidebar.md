@@ -367,6 +367,8 @@
     * [Next Greater Element-Medium](md/AlgorithmReview/Stack/NextGreaterElement.md)
     * [Reverse Polish Notation-Medium](md/AlgorithmReview/Stack/ReversePolishNotation.md)
 
+  * Stack(6)
+    * [BinarySearch-Easy](md/AlgorithmReview/Searching/BinarySearch.md)
 
 
   
