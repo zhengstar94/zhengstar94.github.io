@@ -369,6 +369,7 @@
 
   * Searching(1)
     * [BinarySearch-Easy](md/AlgorithmReview/Searching/BinarySearch.md)
+    * [Find Three Largest Numbers-Easy](md/AlgorithmReview/Searching/FindThreeLargestNumbers.md)
 
 
   
