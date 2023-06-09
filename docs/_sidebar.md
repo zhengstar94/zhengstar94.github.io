@@ -371,6 +371,7 @@
     * [BinarySearch-Easy](md/AlgorithmReview/Searching/BinarySearch.md)
     * [Find Three Largest Numbers-Easy](md/AlgorithmReview/Searching/FindThreeLargestNumbers.md)
     * [Search In Sorted Matrix-Medium](md/AlgorithmReview/Searching/SearchInSortedMatrix.md)
+    * [Shifted Binary Search-Hard](md/AlgorithmReview/Searching/ShiftedBinarySearch.md)
 
 
   
