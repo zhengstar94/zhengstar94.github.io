@@ -367,7 +367,7 @@
     * [Next Greater Element-Medium](md/AlgorithmReview/Stack/NextGreaterElement.md)
     * [Reverse Polish Notation-Medium](md/AlgorithmReview/Stack/ReversePolishNotation.md)
 
-  * Searching(2)
+  * Searching(3)
     * [BinarySearch-Easy](md/AlgorithmReview/Searching/BinarySearch.md)
     * [Find Three Largest Numbers-Easy](md/AlgorithmReview/Searching/FindThreeLargestNumbers.md)
     * [Search In Sorted Matrix-Medium](md/AlgorithmReview/Searching/SearchInSortedMatrix.md)
