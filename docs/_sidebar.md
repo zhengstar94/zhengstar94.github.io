@@ -374,6 +374,7 @@
     * [Shifted Binary Search-Hard](md/AlgorithmReview/Searching/ShiftedBinarySearch.md)
     * [Search For Range-Hard](md/AlgorithmReview/Searching/SearchForRange.md)
     * [Quick Select-Hard](md/AlgorithmReview/Searching/QuickSelect.md)
+    * [Index Equals Value-Hard](md/AlgorithmReview/Searching/IndexEqualsValue.md)
 
 
   
