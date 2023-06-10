@@ -373,6 +373,7 @@
     * [Search In Sorted Matrix-Medium](md/AlgorithmReview/Searching/SearchInSortedMatrix.md)
     * [Shifted Binary Search-Hard](md/AlgorithmReview/Searching/ShiftedBinarySearch.md)
     * [Search For Range-Hard](md/AlgorithmReview/Searching/SearchForRange.md)
+    * [Quick Select-Hard](md/AlgorithmReview/Searching/QuickSelect.md)
 
 
   
