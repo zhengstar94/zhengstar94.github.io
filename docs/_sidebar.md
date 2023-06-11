@@ -378,6 +378,7 @@
 
   * LinkedLists(1)
     * [Remove Duplicates From Linked List-Easy](md/AlgorithmReview/LinkedLists/RemoveDuplicatesFromLinkedList.md)
+    * [Middle of the Linked List-Easy](md/AlgorithmReview/LinkedLists/MiddleOfTheLinkedList.md)
   
 
 
