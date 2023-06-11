@@ -376,7 +376,8 @@
     * [Quick Select-Hard](md/AlgorithmReview/Searching/QuickSelect.md)
     * [Index Equals Value-Hard](md/AlgorithmReview/Searching/IndexEqualsValue.md)
 
-
+  * LinkedLists(1)
+    * [Remove Duplicates From Linked List-Easy](md/AlgorithmReview/LinkedLists/RemoveDuplicatesFromLinkedList.md)
   
 
 
