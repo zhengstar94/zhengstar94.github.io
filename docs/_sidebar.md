@@ -385,6 +385,7 @@
     * [Find Loop-Medium](md/AlgorithmReview/LinkedLists/FindLoop.md)
     * [Reverse Linked List-Hard](md/AlgorithmReview/LinkedLists/ReverseLinkedList.md)
     * [Merge Linked Lists-Hard](md/AlgorithmReview/LinkedLists/MergeLinkedLists.md)
+    * [Shift Linked List-Hard](md/AlgorithmReview/LinkedLists/ShiftLinkedList.md)
     
   
 
