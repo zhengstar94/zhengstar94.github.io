@@ -387,6 +387,7 @@
     * [Merge Linked Lists-Hard](md/AlgorithmReview/LinkedLists/MergeLinkedLists.md)
     * [Shift Linked List-Hard](md/AlgorithmReview/LinkedLists/ShiftLinkedList.md)
     * [LRU Cache-Very Hard](md/AlgorithmReview/LinkedLists/LRUCache.md)
+    * [Rearrange Linked List-Very Hard](md/AlgorithmReview/LinkedLists/RearrangeLinkedList.md)
     
   
 
