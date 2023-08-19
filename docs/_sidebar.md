@@ -148,12 +148,13 @@
   * [接口分离原则](md/DesignPattern/接口分离原则（Interface%20Segregation%20Principle）-interface-segregation-principle.md)
 
 * 数据结构与算法
-  * [数据结构与算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
+  <!-- * [数据结构与算法](md/Algorithm/数据结构与算法-数据结构与算法.md)
   * [排序算法](md/Algorithm/排序算法-排序算法.md)
   * [二分查找part1](md/Algorithm/Binary%20Search%20二分查找-binary-search.md)
   * [二分查找part2](md/Algorithm/binary_search-binarysearch.md)
   * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
-  * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md)
+  * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md) -->
+  * [链表反转](md/Algorithm/ReverseLinkedList.md)
 
 * 系统设计案例
   * 面试专用
