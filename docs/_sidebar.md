@@ -155,6 +155,7 @@
   * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
   * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md) -->
   * [链表反转](md/Algorithm/ReverseLinkedList.md)
+  * [LRU 链表](md/Algorithm/LRULinkedList.md)
 
 * 系统设计案例
   * 面试专用
@@ -258,7 +259,6 @@
   * [BQ准备与练习Part2](md/Ready/BQPart2.md)
   * [BQ模版-持续更新](md/Ready/BQ模版.md)
   * [微服务模版答题-持续更新](md/Ready/微服务模版.md)
-  * 
   
 * python
   * [Python笔记](md/Python/Python笔记.md)
