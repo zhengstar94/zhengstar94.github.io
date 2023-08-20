@@ -110,7 +110,7 @@ public class Morris {
 }
 ```
 
-**Example**
+#### **Example**
 
 ![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/08/20/3.png) <br>
 
@@ -353,3 +353,9 @@ public class Morris {
     
 }
 ```
+
+#### **Example**
+
+![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/08/20/4.png) <br>
+
+Post-order: ⑧⑨④⑤②⑥⑩⑪⑦③①
