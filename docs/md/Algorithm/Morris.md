@@ -57,10 +57,6 @@ Post-order (the result of the third occurrence): ②③① <br>
 ### General Code
 
 ```java
-package Algorithm1763;
-
-import NewArray.BSTTraversal4;
-
 /**
  * @author zhengstars
  * @date 2023/08/20
@@ -122,3 +118,238 @@ Morris traversal: **①②④②⑤①③⑥③⑦**
 
 - Pre-order (the result of the first occurrence): ①②④⑤③⑥⑦ <br>
 - Middle order (the result of the second occurrence): ④②⑤①⑥③⑦ <br>
+
+
+
+### Pre-order traversal
+>第一次出现的打印<br> 
+>   1. There is no left node printing, there is a left node description to print 2 times
+>   2. Come to cur to print for the first time
+
+```java
+/**
+ * @author zhengstars
+ * @date 2023/08/20
+ */
+public class Morris {
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+        Node() {}
+        Node(int val) { this.val = val; }
+        Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    
+    public static void morrisPre(Node head){
+        if(head == null){
+            return;
+        }
+
+        Node cur = head;
+        Node morrisRight = null;
+
+        while (cur != null){
+            // morrisRight is cur's left child
+            morrisRight = cur.left;
+            if(morrisRight != null){
+                while (morrisRight.right != null && morrisRight.right != cur){
+                    morrisRight = morrisRight.right;
+                }
+
+                //After while execution, morrisRight comes to the position of the rightmost child in the left subtree of cur.
+
+                if(morrisRight.right == null){ // Come to cur for the first time
+                    // --- first time
+                    System.out.println(cur.value);
+                    
+                    morrisRight.right = cur;
+                    cur = cur.left;
+                    continue;
+                }else{
+                    // Come to cur for the second time, morrisRight.right == cur
+                    morrisRight.right = null;
+                }
+            }else{
+               // --- Arrive at yourself for the first time
+               System.out.println(cur.value); 
+            }
+            cur = cur.right;
+        }
+    }
+}
+```
+
+### In-order traversal
+
+>   1. The direct output of the node that can only reach itself once
+>   2. Nodes that can reach themselves twice only print the second time.
+
+```java
+/**
+ * @author zhengstars
+ * @date 2023/08/20
+ */
+public class Morris {
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+        Node() {}
+        Node(int val) { this.val = val; }
+        Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    
+    public static void morrisIn(Node head){
+        if(head == null){
+            return;
+        }
+
+        Node cur = head;
+        Node morrisRight = null;
+
+        while (cur != null){
+            // morrisRight is cur's left child
+            morrisRight = cur.left;
+            if(morrisRight != null){
+                while (morrisRight.right != null && morrisRight.right != cur){
+                    morrisRight = morrisRight.right;
+                }
+
+                //After while execution, morrisRight comes to the position of the rightmost child in the left subtree of cur.
+
+                if(morrisRight.right == null){ // Come to cur for the first time
+                    morrisRight.right = cur;
+                    cur = cur.left;
+                    continue; //--- The first time you enter continue directly, while starts execution again.
+                }else{
+                    // Come to cur for the second time, morrisRight.right == cur
+                    morrisRight.right = null;
+                    //--- The second time come in and print directly.
+                }
+            }
+            
+           System.out.println(cur.value);
+
+           cur = cur.right;
+        }
+    }
+}
+```
+
+
+### Post-order traversal
+> Post-order traversal is the third visit before printing.
+>   1. Morris traversal there is no third visit.
+>   2. The Post-order can only care about the node that goes back to itself twice.
+>      1. Skip the node that you can reach once.
+>      2. For the node that you can reach twice
+>         1. When the second traversal arrives, `the right boundary of the current left subtree is printed in reverse order`.
+>         2. After traversing, `you finally need to print the right boundary of the whole tree in reverse order`.
+
+```java
+/**
+ * @author zhengstars
+ * @date 2023/08/20
+ */
+public class Morris {
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+        Node() {}
+        Node(int val) { this.val = val; }
+        Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    
+    public static void morrisIn(Node head){
+        if(head == null){
+            return;
+        }
+
+        Node cur = head;
+        Node morrisRight = null;
+
+        while (cur != null){
+            // morrisRight is cur's left child
+            morrisRight = cur.left;
+            if(morrisRight != null){
+                while (morrisRight.right != null && morrisRight.right != cur){
+                    morrisRight = morrisRight.right;
+                }
+
+                //After while execution, morrisRight comes to the position of the rightmost child in the left subtree of cur.
+
+                if(morrisRight.right == null){ // Come to cur for the first time
+                    morrisRight.right = cur;
+                    cur = cur.left;
+                    continue; 
+                }else{
+                    // Come to cur for the second time, morrisRight.right == cur
+                    morrisRight.right = null;
+                   
+                    // --- Print the right boundary of the left subtree of cur in reverse order
+                    reversePrintEdge(cur.left);
+                }
+            }
+
+           cur = cur.right;
+        }
+
+       // --- Finally, print the right boundary of the whole tree in reverse order.
+       reversePrintEdge(cur.left);
+    }
+
+   /**
+    * The tree headed by head prints its right boundary in reverse order
+    * @param head
+    */
+   public static void reversePrintEdge(Node head){
+        // Get the tail pointer, the rightmost node
+        Node tail = reverse(head);
+        Node cur = tail;
+        while(cur != null){
+           System.out.println(cur.value);
+           cur = cur.right;
+        }
+        
+        // Reverse again at this time
+        reverse(tail);
+    }
+
+   /**
+    * Reverse change of pointer direction similar to single linked list
+    * @param from
+    * @return
+    */
+    public static node reverse(Node from){
+        Node pre = null;
+        Node next = null;
+        
+        while(from != null){ // At this time, from is not equal to null because the last one becomes null after being converted to next.
+            next = from.right;
+            from.right = pre;
+            
+            pre = from;
+            from = next;
+        }
+        return pre;
+    }
+    
+}
+```
