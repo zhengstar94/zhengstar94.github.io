@@ -1,4 +1,4 @@
-# Prefix sum
+# Prefix Sum
 
 ## Conception
 

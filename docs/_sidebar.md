@@ -157,6 +157,7 @@
   * [链表反转](md/Algorithm/ReverseLinkedList.md)
   * [LRU 链表](md/Algorithm/LRULinkedList.md)
   * [Morris 莫里斯](md/Algorithm/LRULinkedList.md)
+  * [Prefix Sum](md/Algorithm/PrefixSum.md)
 
 * 系统设计案例
   * 面试专用
