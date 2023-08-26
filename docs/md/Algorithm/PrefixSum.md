@@ -46,6 +46,6 @@ So we can get the second formula.
 ```java
 // i < j
 if sums[i] == sums[j];
-then nums[i+1,j] sum is 0
+then nums[i,j - 1] sum is 0
 ```
 
