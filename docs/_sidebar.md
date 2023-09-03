@@ -156,8 +156,9 @@
   * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md) -->
   * [链表反转](md/Algorithm/ReverseLinkedList.md)
   * [LRU 链表](md/Algorithm/LRULinkedList.md)
-  * [Morris 莫里斯](md/Algorithm/LRULinkedList.md)
+  * [Morris 莫里斯](md/Algorithm/Morris.md)
   * [Prefix Sum](md/Algorithm/PrefixSum.md)
+  * [Sort](md/Algorithm/SORT.md)
 
 * 系统设计案例
   * 面试专用
