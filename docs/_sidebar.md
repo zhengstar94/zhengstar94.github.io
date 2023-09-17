@@ -161,8 +161,6 @@
   * [Sort](md/Algorithm/SORT.md)
 
 * 系统设计案例
-  * 音频
-    * [音频](md/SystemDesign/cs.md)
 
   * 面试专用
     * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)

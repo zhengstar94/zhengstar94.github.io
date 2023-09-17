@@ -7,9 +7,6 @@
 
 
 
-[PhoneAddiction.mp3](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/audio/PhoneAddiction.mp3 ':include :type=audio controls')
-
-
 **Todd**: Okay, so, Jen, we're gonna talk about media and technology, phones and music, things like that. So the first one is, how addicted are you to your phone? How long can you go without using our phone?
 
 **Jen**: That's a difficult question because I'm very, I would say, I'm very addicted to my phone because I keep on checking it every five minutes. I feel like without my phone my head doesn't, my brain stops working, you know?
