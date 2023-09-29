@@ -385,8 +385,9 @@
     * [LRU Cache-Very Hard](md/AlgorithmReview/LinkedLists/LRUCache.md)
     * [Rearrange Linked List-Very Hard](md/AlgorithmReview/LinkedLists/RearrangeLinkedList.md)
     * [Zip Linked List-Very Hard](md/AlgorithmReview/LinkedLists/ZipLinkedList.md)
-    
-  
+
+  * Tries(2)
+    * [Suffix Trie Construction-Medium](md/AlgorithmReview/Tries/SuffixTrieConstruction.md)
 
 
 
