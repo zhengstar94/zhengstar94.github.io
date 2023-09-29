@@ -388,6 +388,7 @@
 
   * Tries(2)
     * [Suffix Trie Construction-Medium](md/AlgorithmReview/Tries/SuffixTrieConstruction.md)
+    * [Multi String Search-Hard](md/AlgorithmReview/Tries/MultiStringSearch.md)
 
 
 
