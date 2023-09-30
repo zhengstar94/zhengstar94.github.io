@@ -154,9 +154,9 @@
   * [二分查找part2](md/Algorithm/binary_search-binarysearch.md)
   * [一致性算法](md/Algorithm/一致性Hash算法-一致性hash算法.md)
   * [限流算法](md/Algorithm/限流算法-limiter-algorithm.md) -->
-  * [链表反转](md/Algorithm/ReverseLinkedList.md)
-  * [LRU 链表](md/Algorithm/LRULinkedList.md)
-  * [Morris 莫里斯](md/Algorithm/Morris.md)
+  * [Reverse LinkedList](md/Algorithm/ReverseLinkedList.md)
+  * [LRU LinkedList](md/Algorithm/LRULinkedList.md)
+  * [Morris](md/Algorithm/Morris.md)
   * [Prefix Sum](md/Algorithm/PrefixSum.md)
   * [Sort](md/Algorithm/SORT.md)
 
