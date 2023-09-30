@@ -27,13 +27,24 @@ Insertion sort has a time complexity of O(n^2), but if the sequence is already s
 > Take the array [3, 5, 1, 4, 2] as an example.
 
 ### Selection Sort
+
+![SelectionSort.gif](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/09/30/SelectionSort.gif)
+
 1. In the first round of sorting, find the smallest element 1 and put it in the first position. The array of elements at this time is [1, 5, 3, 4, 2].
 2. In the second round of sorting, find the smallest element 2 in the unsorted array and put it at the end of the sorted array. The array of elements at this time is [1, 2, 3, 4, 5].
+
 ### Bubble Sort
+
+![BubbleSort.gif](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/09/30/BubbleSort.gif)
+
 1. First pass: Compare adjacent elements 3 and 5, find that 3 is smaller than 5, so no swap is made. The array now is [3, 5, 1, 4, 2]. Then compare 5 and 1, find that 5 is larger than 1, swap their positions, and the array now is [3, 1, 5, 4, 2]. Next, compare 5 and 4, find that 5 is larger than 4, swap their positions, and the array now is [3, 1, 4, 5, 2]. Finally, compare 5 and 2, find that 5 is larger than 2, swap their positions, and the array now is [3, 1, 4, 2, 5].
 2. Second pass: Compare adjacent elements 3 and 1, find that 3 is larger than 1, swap their positions, and the array now is [1, 3, 4, 2, 5]. Then compare 4 and 2, find that 4 is larger than 2, swap their positions, and the array now is [1, 3, 2, 4, 5].
 3. Third pass: Compare adjacent elements 1 and 3, find that 1 is smaller than 3, so no swap is made. The array now is [1, 3, 2, 4, 5]. Then compare 3 and 2, find that 3 is larger than 2, swap their positions, and the array now is [1, 2, 3, 4, 5].
+
 ### Insertion Sort
+
+![InsertionSort.gif](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/09/30/InsertionSort.gif)
+
 1. First round of sorting: The sorted part only contains one element, which is 3. The unsorted part includes [5, 1, 4, 2]. [3] | 5 1 4 2;
 2. Second round of sorting: Take the first element 5 from the unsorted part and compare it with the elements in the sorted part. We find that 5 is greater than 3, so we insert it after 3 in the sorted part. Now the sorted part is [3, 5] and the unsorted part is [1, 4, 2]. [3 5] | 1 4 2;
 3. Third round of sorting: Take the first element 1 from the unsorted part and insert it into the sorted part. First, compare it with the last element 5 in the sorted part. We find that 1 is smaller than 5, so we insert it before 5. Then compare it with the first element 3 in the sorted part. We find that 1 is smaller than 3, so we insert it before 3. Now the sorted part is [1, 3, 5] and the unsorted part is [4, 2]. [1 3 5] | 4 2;
