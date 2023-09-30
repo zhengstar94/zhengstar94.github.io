@@ -372,7 +372,7 @@
     * [Quick Select-Hard](md/AlgorithmReview/Searching/QuickSelect.md)
     * [Index Equals Value-Hard](md/AlgorithmReview/Searching/IndexEqualsValue.md)
 
-  * LinkedLists(12)
+  * LinkedLists(13)
     * [Remove Duplicates From Linked List-Easy](md/AlgorithmReview/LinkedLists/RemoveDuplicatesFromLinkedList.md)
     * [Middle of the Linked List-Easy](md/AlgorithmReview/LinkedLists/MiddleOfTheLinkedList.md)
     * [Remove Kth Node From End-Medium](md/AlgorithmReview/LinkedLists/RemoveKthNodeFromEnd.md)
