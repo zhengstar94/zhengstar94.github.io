@@ -213,32 +213,6 @@
   * [加班与效率](md/Study/加班与效率.md)
   * [技术人员的发展之路](md/Study/技术人员的发展之路.md)
   * [干货:五门CS基础课推荐](md/Study/干货-五门CS基础课推荐.md)
-
-* 英语
-  * 英语面试相关
-    * [英语听说](md/English/英语听说.md)
-    * [英语学习](md/English/英语学习.md)
-    * [全英文面试如何面对](md/English/求职遭遇全英文面试，我靠这些方法度过难关.md)
-
-  * IELTS
-    * [60天攻克雅思](md/English/IELTS/60天攻克雅思.md)
-    * [IELTS备考](md/English/IELTS/IELTS备考.md)
-    
-  * EnglishTechnology
-    * [敏捷Scrum](md/English/敏捷Scrum.md)
-    * [The Code Review Pyramid](md/EnglishTechnology/TheCodeReviewPyramid.md)
-
-  * 背诵(音频)
-    * [PhoneAddiction - Intermediate #1482](md/English/Article/Audio/PhoneAddiction.md)
-    * [BurgersAndBaseball - Intermediate #1478](md/English/Article/Audio/BurgersAndBaseball.md)
-    
-  * 背诵(文章精读)
-    * [Apes,not Angels - 经济学人](md/English/Article/Words/Apes,notAngels.md)
-
-  * 英语学习(英语学习路径)
-    * [从0开始学外语：Refold 路线图](md/English/RefoldRoadmap.md)
-    * [2023年如何从零开始学习一门外语](md/English/2023年如何从零开始学习一门外语.md)
-
   
 * 生活
   * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
@@ -399,8 +373,31 @@
 
 
 
-  
-  
+
+<!--* 英语
+* 英语面试相关
+  * [英语听说](md/English/英语听说.md)
+  * [英语学习](md/English/英语学习.md)
+  * [全英文面试如何面对](md/English/求职遭遇全英文面试，我靠这些方法度过难关.md)
+
+* IELTS
+  * [60天攻克雅思](md/English/IELTS/60天攻克雅思.md)
+  * [IELTS备考](md/English/IELTS/IELTS备考.md)
+
+* EnglishTechnology
+  * [敏捷Scrum](md/English/敏捷Scrum.md)
+  * [The Code Review Pyramid](md/EnglishTechnology/TheCodeReviewPyramid.md)
+
+* 背诵(音频)
+  * [PhoneAddiction - Intermediate #1482](md/English/Article/Audio/PhoneAddiction.md)
+  * [BurgersAndBaseball - Intermediate #1478](md/English/Article/Audio/BurgersAndBaseball.md)
+
+* 背诵(文章精读)
+  * [Apes,not Angels - 经济学人](md/English/Article/Words/Apes,notAngels.md)
+
+* 英语学习(英语学习路径)
+  * [从0开始学外语：Refold 路线图](md/English/RefoldRoadmap.md)
+  * [2023年如何从零开始学习一门外语](md/English/2023年如何从零开始学习一门外语.md) -->
   
 
 <!-- * 英语学习计划
