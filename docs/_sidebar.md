@@ -17,9 +17,6 @@
       * [设计模式](md/BackEnd/Summary/设计模式.md)
       * [终面](md/BackEnd/Summary/终面.md)
 
-* Knowledge point
-  * [知识点梳理](md/BackEnd/Summary/知识点整理.md)
-
 * 后端
   * 基础
       * [基础](md/BackEnd/Base/注解与反射-annotation.md)
@@ -214,20 +211,8 @@
   * [技术人员的发展之路](md/Study/技术人员的发展之路.md)
   * [干货:五门CS基础课推荐](md/Study/干货-五门CS基础课推荐.md)
   
-* 生活
-  * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
-  * [通用国内旅行攻略模板](md/Life/通用国内旅行攻略模板.md) 
 
-* 出国
-  * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
-  * [德国学历波恩认证(ZAB)流程](md/Abroad/德国学历波恩认证(ZAB)流程.md)
 
-* 面经积累
-  * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
-  * [BQ准备与练习Part1](md/Ready/BQPart1.md)
-  * [BQ准备与练习Part2](md/Ready/BQPart2.md)
-  * [BQ模版-持续更新](md/Ready/BQ模版.md)
-  * [微服务模版答题-持续更新](md/Ready/微服务模版.md)
   
 * python
   * [Python笔记](md/Python/Python笔记.md)
@@ -369,7 +354,24 @@
 
 
 
+<!--* 生活
+  * [FIRE](md/Life/FIRE-2021-08-19-12-36-20.md)
+  * [通用国内旅行攻略模板](md/Life/通用国内旅行攻略模板.md)
 
+* 出国
+  * [德国欧盟蓝卡(工作签证)办理流程](md/Abroad/德国欧盟蓝卡(工作签证)办理流程.md)
+  * [德国学历波恩认证(ZAB)流程](md/Abroad/德国学历波恩认证(ZAB)流程.md)
+
+* 面经积累
+  * [面试经验分享Part1](md/Ready/面试经验分享Part1.md)
+  * [BQ准备与练习Part1](md/Ready/BQPart1.md)
+  * [BQ准备与练习Part2](md/Ready/BQPart2.md)
+  * [BQ模版-持续更新](md/Ready/BQ模版.md)
+  * [微服务模版答题-持续更新](md/Ready/微服务模版.md)-->
+
+
+<!--* Knowledge point
+  * [知识点梳理](md/BackEnd/Summary/知识点整理.md)-->
 
 
 
