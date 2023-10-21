@@ -184,7 +184,7 @@ We need Rest APIs for the following features:
 - Redirecting a short URL
 - Deleting a shrot URL
 
-![pic4.jepg](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/10/08/4.jepg)
+![pic4.jpeg](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2023/10/08/4.jpeg)
 
 ### 5.1 Shortening a URL
 **We can create new short URLs with the following definition:**
