@@ -161,7 +161,6 @@
   * Classical System Design
     * [Designing Tiny URL](md/SystemDesign/SystemDesignInterview/DesigningTinyURL.md)
 
-
   * 面试专用
     * [System Design面试建议](md/SystemDesign/SystemDesign面试建议.md)
     * [架构设计分析](md/SystemDesign/架构设计.md)
