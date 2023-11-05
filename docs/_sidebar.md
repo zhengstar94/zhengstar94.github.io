@@ -352,6 +352,8 @@
     * [Suffix Trie Construction-Medium](md/AlgorithmReview/Tries/SuffixTrieConstruction.md)
     * [Multi String Search-Hard](md/AlgorithmReview/Tries/MultiStringSearch.md)
 
+  * Famous Algorithm(1)
+    * [Kadane's Algorithm-Medium](md/AlgorithmReview/Famous/Kadane.md)
 
 
 
