@@ -185,7 +185,7 @@ public String patchData(String cursor){
 
 > **PS:** Add **?rewriteBatchedStatements=true** to the end of your JDBC url.
 >
-> **Eg : *jdbc:mysql://server:3306/db_name?rewriteBatchedStatements=true***
+> **Eg : jdbc:mysql://server:3306/db_name?rewriteBatchedStatements=true**
 >
 > `RewriteBatchedStatements` is a configuration parameter for MySQL database connections that enables rewriting of a similar set of SQL statements, merging them into a larger SQL statement, and then executing it at once. This can reduce the overhead of communication, parsing, optimization and transaction management, and improve the efficiency of operations such as bulk data insertion.
 
