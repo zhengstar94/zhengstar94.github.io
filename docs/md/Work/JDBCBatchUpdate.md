@@ -243,5 +243,3 @@ Considering the findings, the optimal solution depends on the specific requireme
 - For small to moderate datasets, `saveAll` with JPA or `EntityManager` may suffice.
 - For large-scale data migrations, especially when dealing with millions of records, the JDBC Batch Update approach with `PreparedStatement` is highly recommended.
 - Enabling `RewriteBatchedStatements` further enhances the efficiency of JDBC batch updates, especially in scenarios where performance is critical.
-
-By understanding the strengths and weaknesses of each approach, readers can make informed decisions based on their project requirements and performance considerations.
