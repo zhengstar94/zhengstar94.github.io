@@ -2,12 +2,12 @@
 
 - There are N interns and M companies. Each intern has a ranked list of their preferred companies, and each company has a ranked list of their preferred interns.
 - Write an algorithm to produce a stable matching between interns and companies. A stable matching satisfies the following conditions:
-    1. Every intern is matched to one company.
-    2. No intern-company pair that is matched would both prefer to be matched to someone else.
+  1. Every intern is matched to one company.
+  2. No intern-company pair that is matched would both prefer to be matched to someone else.
 
 - The input is two 2D arrays:
-    - `interns[i] = [c1, c2, c3]` represents intern i's ranked list of companies in order of preference.
-    - `companies[j] = [i1, i2, i3]` represents company j's ranked list of interns in order of preference.
+  - `interns[i] = [c1, c2, c3]` represents intern i's ranked list of companies in order of preference.
+  - `companies[j] = [i1, i2, i3]` represents company j's ranked list of interns in order of preference.
 
 The output is a 2D array containing stable intern-company pairs, with each pair in the form [internIndex, companyIndex].
 
@@ -166,3 +166,92 @@ public class StableInternships {
 }
 
 ```
+
+
+
+## Method 2
+
+```tex
+【O(n^2)time∣O(n)space】
+```
+
+```java
+package Famous;
+
+import java.util.*;
+
+public class StableInternships {
+    public static int[][] findStableMatches(int[][] interns, int[][] companies) {
+        int n = interns.length; // 获取实习生的数量
+        int[] internMatch = new int[n]; // 存储实习生的匹配结果
+        int[] companyMatch = new int[n]; // 存储公司的匹配结果
+        boolean[] internFree = new boolean[n]; // 标记实习生是否已被匹配
+        Queue<Integer> freeInterns = new LinkedList<>(); // 存储尚未匹配的实习生
+
+        // 初始化匹配状态
+        Arrays.fill(internMatch, -1);
+        Arrays.fill(companyMatch, -1);
+        Arrays.fill(internFree, true);
+        for (int i = 0; i < n; i++) {
+            freeInterns.add(i); // 最初所有实习生都是自由的
+        }
+
+        // 当还有自由的实习生时，继续进行匹配
+        while (!freeInterns.isEmpty()) {
+            int intern = freeInterns.poll(); // 取出一个自由的实习生
+            for (int i = 0; i < n && internFree[intern]; i++) {
+                int company = interns[intern][i]; // 实习生偏好列表中的公司
+                if (companyMatch[company] == -1) {
+                    // 如果公司还未匹配，进行匹配
+                    companyMatch[company] = intern;
+                    internMatch[intern] = company;
+                    internFree[intern] = false;
+                } else {
+                    // 如果公司已有匹配，检查是否更愿意匹配当前实习生
+                    int currentIntern = companyMatch[company];
+                    if (prefers(companies[company], intern, currentIntern)) {
+                        // 如果公司更偏好当前实习生，进行重新匹配
+                        companyMatch[company] = intern;
+                        internMatch[intern] = company;
+                        internFree[intern] = false;
+                        internFree[currentIntern] = true; // 之前的实习生变为自由状态
+                        freeInterns.add(currentIntern); // 将之前的实习生加回队列
+                    }
+                }
+            }
+        }
+
+        // 构建最终的匹配结果数组
+        int[][] pairs = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            pairs[i][0] = i; // 实习生索引
+            pairs[i][1] = internMatch[i]; // 匹配到的公司索引
+        }
+        return pairs;
+    }
+
+    // 检查公司是否更偏好新的实习生
+    private static boolean prefers(int[] companyPreferences, int intern, int currentIntern) {
+        for (int preference : companyPreferences) {
+            if (preference == intern) {
+                return true; // 更偏好新的实习生
+            }
+            if (preference == currentIntern) {
+                return false; // 更偏好当前的实习生
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[][] interns = {{0, 1, 2}, {1, 0, 2}, {2, 1, 0}};
+        int[][] companies = {{2, 0, 1}, {0, 2, 1}, {1, 2, 0}};
+        int[][] matches = findStableMatches(interns, companies);
+        for (int[] match : matches) {
+            System.out.println("实习生 " + match[0] + " 匹配到公司 " + match[1]);
+        }
+    }
+}
+
+```
+
