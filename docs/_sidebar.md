@@ -353,9 +353,10 @@
     * [Suffix Trie Construction-Medium](md/AlgorithmReview/Tries/SuffixTrieConstruction.md)
     * [Multi String Search-Hard](md/AlgorithmReview/Tries/MultiStringSearch.md)
 
-  * Famous Algorithm(2)
+  * Famous Algorithm(3)
     * [Kadane's Algorithm-Medium](md/AlgorithmReview/Famous/Kadane.md)
     * [Stable Internships-Medium](md/AlgorithmReview/Famous/StableInternships.md)
+    * [Union Find-Medium](md/AlgorithmReview/Famous/UnionFind.md)
 
 
 
