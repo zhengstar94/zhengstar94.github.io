@@ -357,6 +357,7 @@
     * [Kadane's Algorithm-Medium](md/AlgorithmReview/Famous/Kadane.md)
     * [Stable Internships-Medium](md/AlgorithmReview/Famous/StableInternships.md)
     * [Union Find-Medium](md/AlgorithmReview/Famous/UnionFind.md)
+    * [Dijkstra's Algorithm-Hard](md/AlgorithmReview/Famous/DijkstraAlgorithm.md)
 
 
 
