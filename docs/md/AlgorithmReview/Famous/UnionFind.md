@@ -155,89 +155,133 @@ public class UnionFind {
 
 
 
-## Method 2
+## Method 2 (Recommend)
 
 ```tex
-【O(n^2)time∣O(n)space】
+【O(1)time∣O(n)space】
 ```
 
 ```java
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+package Famous;
 
-public class StableInternships {
-    public static int[][] findStableMatches(int[][] interns, int[][] companies) {
-        int n = interns.length; // 获取实习生的数量
-        int[] internMatch = new int[n]; // 存储实习生的匹配结果
-        int[] companyMatch = new int[n]; // 存储公司的匹配结果
-        boolean[] internFree = new boolean[n]; // 标记实习生是否已被匹配
-        Queue<Integer> freeInterns = new LinkedList<>(); // 存储尚未匹配的实习生
+import java.util.HashMap;
+import java.util.Map;
 
-        // 初始化匹配状态
-        Arrays.fill(internMatch, -1);
-        Arrays.fill(companyMatch, -1);
-        Arrays.fill(internFree, true);
-        for (int i = 0; i < n; i++) {
-            freeInterns.add(i); // 最初所有实习生都是自由的
-        }
+/**
+ * UnionFind3 class represents a Union-Find data structure with path compression
+ * and union by rank optimization.
+ *
+ * @author zhengstars
+ * @date 2023/11/19
+ */
+public class UnionFind3 {
+  /**
+   * Array to store the parent (root) of each element in the disjoint sets.
+   */
+  int[] root;
 
-        // 当还有自由的实习生时，继续进行匹配
-        while (!freeInterns.isEmpty()) {
-            int intern = freeInterns.poll(); // 取出一个自由的实习生
-            for (int i = 0; i < n && internFree[intern]; i++) {
-                int company = interns[intern][i]; // 实习生偏好列表中的公司
-                if (companyMatch[company] == -1) {
-                    // 如果公司还未匹配，进行匹配
-                    companyMatch[company] = intern;
-                    internMatch[intern] = company;
-                    internFree[intern] = false;
-                } else {
-                    // 如果公司已有匹配，检查是否更愿意匹配当前实习生
-                    int currentIntern = companyMatch[company];
-                    if (prefers(companies[company], intern, currentIntern)) {
-                        // 如果公司更偏好当前实习生，进行重新匹配
-                        companyMatch[company] = intern;
-                        internMatch[intern] = company;
-                        internFree[intern] = false;
-                        internFree[currentIntern] = true; // 之前的实习生变为自由状态
-                        freeInterns.add(currentIntern); // 将之前的实习生加回队列
-                    }
-                }
-            }
-        }
+  /**
+   * Array to store the rank of each disjoint set.
+   */
+  int[] rank;
 
-        // 构建最终的匹配结果数组
-        int[][] pairs = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            pairs[i][0] = i; // 实习生索引
-            pairs[i][1] = internMatch[i]; // 匹配到的公司索引
-        }
-        return pairs;
+  /**
+   * Constructs a UnionFind3 instance with a given number of elements.
+   *
+   * @param n The number of elements for the disjoint sets.
+   */
+  public UnionFind3(int n) {
+    // Initialize the root and rank arrays.
+    root = new int[n];
+    rank = new int[n];
+
+    for (int i = 0; i < n; i++) {
+      // Initially, each element is its own root, and rank is 0.
+      root[i] = i;
+      rank[i] = 0;
+    }
+  }
+
+  /**
+   * Finds the root (representative) of the disjoint set to which x belongs,
+   * with path compression to optimize future find operations.
+   *
+   * @param x The element to find.
+   * @return The root of the disjoint set to which x belongs.
+   */
+  public int find(int x) {
+    // If x is not the root, update its parent to the root recursively.
+    if (x == root[x]) {
+      return root[x];
     }
 
-    // 检查公司是否更偏好新的实习生
-    private static boolean prefers(int[] companyPreferences, int intern, int currentIntern) {
-        for (int preference : companyPreferences) {
-            if (preference == intern) {
-                return true; // 更偏好新的实习生
-            }
-            if (preference == currentIntern) {
-                return false; // 更偏好当前的实习生
-            }
-        }
-        return false;
-    }
+    // Path compression: Set the parent of x to the root of its set.
+    return root[x] = find(root[x]);
+  }
 
-    public static void main(String[] args) {
-        int[][] interns = {{0, 1, 2}, {1, 0, 2}, {2, 1, 0}};
-        int[][] companies = {{2, 0, 1}, {0, 2, 1}, {1, 2, 0}};
-        int[][] matches = findStableMatches(interns, companies);
-        for (int[] match : matches) {
-            System.out.println("实习生 " + match[0] + " 匹配到公司 " + match[1]);
-        }
+  /**
+   * Unites the disjoint sets to which x and y belong using union by rank.
+   *
+   * @param x The representative element of the first set.
+   * @param y The representative element of the second set.
+   */
+  public void union(int x, int y) {
+    // Find the roots of the sets to which x and y belong.
+    int rootX = find(x);
+    int rootY = find(y);
+
+    // If the roots are different, perform union based on rank.
+    if (rootX != rootY) {
+      if (rank[rootX] > rank[rootY]) {
+        // Attach the set with lower rank to the one with higher rank.
+        root[rootY] = rootX;
+      } else if (rank[rootX] < rank[rootY]) {
+        // Attach the set with lower rank to the one with higher rank.
+        root[rootX] = rootY;
+      } else {
+        // If ranks are equal, attach one set to the other and increment the rank.
+        root[rootY] = rootX;
+        rank[rootX] += 1;
+      }
     }
+  }
+
+  /**
+   * Main method to demonstrate the usage of UnionFind3.
+   *
+   * @param args Command line arguments (not used).
+   */
+  public static void main(String[] args) {
+    // Create an instance of UnionFind3 with 5 elements.
+    UnionFind3 uf = new UnionFind3(5);
+
+    // Demonstrate find operation before any unions.
+    System.out.println("Find(1): " + uf.find(1));
+    System.out.println("Find(3): " + uf.find(3));
+
+    // Perform unions to merge sets.
+    uf.union(0, 1);
+    uf.union(0, 2);
+    uf.union(3, 4);
+
+    // Demonstrate find operation after unions.
+    System.out.println("Find(0): " + uf.find(0));
+    System.out.println("Find(1): " + uf.find(1));
+    System.out.println("Find(2): " + uf.find(2));
+    System.out.println("Find(3): " + uf.find(3));
+    System.out.println("Find(4): " + uf.find(4));
+
+    // Further union to demonstrate the effect of union by rank.
+    uf.union(2, 4);
+
+    // Demonstrate find operation after additional union.
+    System.out.println("=================");
+    System.out.println("Find(0): " + uf.find(0));
+    System.out.println("Find(1): " + uf.find(1));
+    System.out.println("Find(2): " + uf.find(2));
+    System.out.println("Find(3): " + uf.find(3));
+    System.out.println("Find(4): " + uf.find(4));
+  }
 }
-
 ```
 
