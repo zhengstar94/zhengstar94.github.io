@@ -359,6 +359,7 @@
     * [Union Find-Medium](md/AlgorithmReview/Famous/UnionFind.md)
     * [Dijkstra's Algorithm-Hard](md/AlgorithmReview/Famous/DijkstraAlgorithm.md)
     * [Topological Sort-Hard](md/AlgorithmReview/Famous/TopologicalSort.md)
+    * [Kruskal's Algorithm-Hard](md/AlgorithmReview/Famous/KruskalAlgorithm.md)
 
 
 
