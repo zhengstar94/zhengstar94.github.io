@@ -39,6 +39,7 @@ Total weight of MST: 19
 ```tex
 【O(ElogE)time∣O(V + E)space】
 ```
+<br>
 
 ```tex
 1.\ Where\ E\ is\ the\ number\ of\ edges\ and\ V\ is\ the\ number\ of\ points\\
