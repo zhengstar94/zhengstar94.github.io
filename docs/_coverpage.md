@@ -1,13 +1,13 @@
 
 
-# XingXing Blog
+# Xingxing's Blog
 
-> The ability of rational judgment of complex affairs 
-> is a basic quality that our citizens urgently need to improve.
+> Hi. Xingxing here. Welcome to my small corner on the Internet.
+<BR>
+> Here are some things that might (or not) be interesting to you:
 
 
-[GitHub](https://github.com/zhengstar94) | 
-[Get Started](README) | 
-[LinkedIn](https://www.linkedin.com/in/zheng-xingxing-1a8770223/)
+[GitHub](https://github.com/zhengstar94)
+[Get Started](README)
 
 
