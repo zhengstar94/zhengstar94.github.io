@@ -159,6 +159,7 @@
 
 * 系统设计案例
   * Classical System Design
+    * [What happens when you type URL in your browser](md/SystemDesign/SystemDesignInterview/TypeURLInYourBrowser.md)
     * [Designing Tiny URL](md/SystemDesign/SystemDesignInterview/DesigningTinyURL.md)
 
   * 面试专用
