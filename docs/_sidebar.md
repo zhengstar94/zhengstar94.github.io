@@ -361,6 +361,7 @@
     * [Dijkstra's Algorithm-Hard](md/AlgorithmReview/Famous/DijkstraAlgorithm.md)
     * [Topological Sort-Hard](md/AlgorithmReview/Famous/TopologicalSort.md)
     * [Kruskal's Algorithm-Hard](md/AlgorithmReview/Famous/KruskalAlgorithm.md)
+    * [Prim’s Algorithm-Hard](md/AlgorithmReview/Famous/PrimAlgorithm.md)
 
 
 
