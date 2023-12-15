@@ -156,6 +156,7 @@
   * [Morris](md/Algorithm/Morris.md)
   * [Prefix Sum](md/Algorithm/PrefixSum.md)
   * [Sort](md/Algorithm/SORT.md)
+  * [Union-Find](md/Algorithm/Union-Find.md)
 
 * 系统设计案例
   * Classical System Design
