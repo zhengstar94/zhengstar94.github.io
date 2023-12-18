@@ -364,6 +364,9 @@
     * [Kruskal's Algorithm-Hard](md/AlgorithmReview/Famous/KruskalAlgorithm.md)
     * [Prim’s Algorithm-Hard](md/AlgorithmReview/Famous/PrimAlgorithm.md)
 
+  * Dynamic Algorithm(6)
+    * [Maximum sum of Non-adjacent nodes-Medium](md/AlgorithmReview/Dynamic/MaximumSumOfNon-adjacentNodes.md)
+
 
 
 
