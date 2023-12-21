@@ -366,6 +366,7 @@
 
   * Dynamic Algorithm(6)
     * [Maximum sum of Non-adjacent nodes-Medium](md/AlgorithmReview/Dynamic/MaximumSumOfNon-adjacentNodes.md)
+    * [Number Of Ways To Make Change-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToMakeChange.md)
 
 
 
