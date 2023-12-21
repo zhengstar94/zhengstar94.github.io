@@ -6,7 +6,6 @@
 
 - If it's impossible to make change for the target amount, return -1.
 
-  ## 
 
 **Sample Input**
 
