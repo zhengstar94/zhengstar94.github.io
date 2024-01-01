@@ -158,6 +158,7 @@
   * [Prefix Sum](md/Algorithm/PrefixSum.md)
   * [Sort](md/Algorithm/SORT.md)
   * [Union-Find](md/Algorithm/Union-Find.md)
+  * [Mastering Coin Change with Dynamic Programming](md/Algorithm/MasteringCoinChangeWithDynamicProgramming.md)
 
 * 系统设计案例
   * Classical System Design
