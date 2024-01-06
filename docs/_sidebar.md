@@ -367,10 +367,11 @@
     * [Kruskal's Algorithm-Hard](md/AlgorithmReview/Famous/KruskalAlgorithm.md)
     * [Prim’s Algorithm-Hard](md/AlgorithmReview/Famous/PrimAlgorithm.md)
 
-  * Dynamic Algorithm(3)
+  * Dynamic Algorithm(4)
     * [Maximum sum of Non-adjacent nodes-Medium](md/AlgorithmReview/Dynamic/MaximumSumOfNon-adjacentNodes.md)
     * [Number Of Ways To Make Change-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToMakeChange.md)
     * [Min Number Of Coins For Change-Medium](md/AlgorithmReview/Dynamic/MinNumberOfCoinsForChange.md)
+    * [Levenshtein Distance-Medium](md/AlgorithmReview/Dynamic/LevenshteinDistance.md)
 
 
 
