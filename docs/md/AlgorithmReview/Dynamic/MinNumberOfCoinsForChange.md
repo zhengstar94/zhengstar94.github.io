@@ -89,7 +89,7 @@ public class MinNumberOfCoinsForChange {
             }
         }
         // If numCoins[n] is not equal to Integer.MAX_VALUE, return numCoins[n], otherwise return -1.
-        return numCoins[n] != Integer.MAX_VALUE ? numCoins[n] : -1;
+        return numCoins[n] != Integer.MAX_VALUE - 1? numCoins[n] : -1;
     }
 
     /**
