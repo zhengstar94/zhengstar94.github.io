@@ -372,6 +372,7 @@
     * [Number Of Ways To Make Change-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToMakeChange.md)
     * [Min Number Of Coins For Change-Medium](md/AlgorithmReview/Dynamic/MinNumberOfCoinsForChange.md)
     * [Levenshtein Distance-Medium](md/AlgorithmReview/Dynamic/LevenshteinDistance.md)
+    * [Number Of Ways To Traverse Graph-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToTraverseGraph.md)
 
 
 
