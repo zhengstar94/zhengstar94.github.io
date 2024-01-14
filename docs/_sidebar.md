@@ -377,7 +377,7 @@
 * LeetCode
   * Binary Search(2)
     * [35-SearchInsert](md/Leetcode/BinarySearch/35-SearchInsert.md)
-    
+    * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
 
 
 <!--* 生活
