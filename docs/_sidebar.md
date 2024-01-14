@@ -374,7 +374,10 @@
     * [Levenshtein Distance-Medium](md/AlgorithmReview/Dynamic/LevenshteinDistance.md)
     * [Number Of Ways To Traverse Graph-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToTraverseGraph.md)
 
-
+* LeetCode
+  * Binary Search(2)
+    * [35-SearchInsert](md/Leetcode/BinarySearch/35-SearchInsert.md)
+    
 
 
 <!--* 生活
