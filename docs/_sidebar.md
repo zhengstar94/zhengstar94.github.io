@@ -376,6 +376,7 @@
 
 * LeetCode
   * Binary Search(2)
+    * [34-Search Insert Position](md/Leetcode/BinarySearch/34-SearchInsertPosition.md)
     * [35-SearchInsert](md/Leetcode/BinarySearch/35-SearchInsert.md)
     * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
 
