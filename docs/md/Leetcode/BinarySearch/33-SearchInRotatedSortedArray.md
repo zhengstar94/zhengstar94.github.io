@@ -29,7 +29,7 @@ Output: -1
 ## Method 1
 
 ```tex
-【O(log(n))time∣O(m)space】
+【O(log(n))time∣O(1)space】
 ```
 
 ```java
