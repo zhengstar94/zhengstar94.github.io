@@ -26,16 +26,6 @@ Input: nums = [1], target = 0
 Output: -1
 ```
 
-
-
-**Note:**
-
-1. All key/value strings are lowercase.
-2. All key/value strings have length in the range `[1, 100]`
-3. The `timestamps` for all `TimeMap.set` operations are strictly increasing.
-4. `1 <= timestamp <= 10^7`
-5. `TimeMap.set` and `TimeMap.get` functions will be called a total of `120000` times (combined) per test case.
-
 ## Method 1
 
 ```tex
