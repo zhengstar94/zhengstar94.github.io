@@ -382,6 +382,7 @@
     * [981-Time BasedKey-Value Store](md/Leetcode/BinarySearch/981-TimeBasedKey-ValueStore.md)
     * [33-Search in Rotated Sorted Array](md/Leetcode/BinarySearch/33-SearchInRotatedSortedArray.md)
     * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
+    * [74-Search A 2D Matrix](md/Leetcode/BinarySearch/74-SearchA2DMatrix.md)
 
 
 <!--* 生活
