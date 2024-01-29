@@ -384,6 +384,7 @@
     * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
     * [74-Search A 2D Matrix](md/Leetcode/BinarySearch/74-SearchA2DMatrix.md)
     * [875-Koko Eating Bananas](md/Leetcode/BinarySearch/875-KokoEatingBananas.md)
+    * [1011-Capacity To Ship Packages Within D Days](md/Leetcode/BinarySearch/1011-CapacityToShipPackagesWithinDDays.md)
 
 
 <!--* 生活
