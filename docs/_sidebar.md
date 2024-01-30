@@ -376,15 +376,15 @@
 
 * LeetCode
   * Binary Search(5)
-    * [35-Search Insert](md/Leetcode/BinarySearch/35-SearchInsert.md)
-    * [704-Binary Search](md/Leetcode/BinarySearch/704-BinarySearch.md)
-    * [34-Search Insert Position](md/Leetcode/BinarySearch/34-SearchInsertPosition.md)
-    * [981-Time BasedKey-Value Store](md/Leetcode/BinarySearch/981-TimeBasedKey-ValueStore.md)
-    * [33-Search in Rotated Sorted Array](md/Leetcode/BinarySearch/33-SearchInRotatedSortedArray.md)
-    * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
-    * [74-Search A 2D Matrix](md/Leetcode/BinarySearch/74-SearchA2DMatrix.md)
-    * [875-Koko Eating Bananas](md/Leetcode/BinarySearch/875-KokoEatingBananas.md)
-    * [1011-Capacity To Ship Packages Within D Days](md/Leetcode/BinarySearch/1011-CapacityToShipPackagesWithinDDays.md)
+    * [35-Search Insert ★★](md/Leetcode/BinarySearch/35-SearchInsert.md)
+    * [704-Binary Search ★★](md/Leetcode/BinarySearch/704-BinarySearch.md)
+    * [34-Search Insert Position ★★](md/Leetcode/BinarySearch/34-SearchInsertPosition.md)
+    * [981-Time BasedKey-Value Store ★★](md/Leetcode/BinarySearch/981-TimeBasedKey-ValueStore.md)
+    * [33-Search in Rotated Sorted Array ★★★](md/Leetcode/BinarySearch/33-SearchInRotatedSortedArray.md)
+    * [69-SqrtX ★★★](md/Leetcode/BinarySearch/69-SqrtX.md)
+    * [74-Search A 2D Matrix ★★★](md/Leetcode/BinarySearch/74-SearchA2DMatrix.md)
+    * [875-Koko Eating Bananas ★★★](md/Leetcode/BinarySearch/875-KokoEatingBananas.md)
+    * [1011-Capacity To Ship Packages Within D Days ★★★](md/Leetcode/BinarySearch/1011-CapacityToShipPackagesWithinDDays.md)
 
 
 <!--* 生活
