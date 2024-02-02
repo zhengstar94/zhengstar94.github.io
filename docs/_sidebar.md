@@ -386,6 +386,7 @@
     * [875-Koko Eating Bananas ★★★](md/Leetcode/BinarySearch/875-KokoEatingBananas.md)
     * [1011-Capacity To Ship Packages Within D Days ★★★](md/Leetcode/BinarySearch/1011-CapacityToShipPackagesWithinDDays.md)
     * [4-Median of Two Sorted Arrays ★★★★](md/Leetcode/BinarySearch/4-MedianOfTwoSortedArrays.md)
+    * [378-Kth Smallest Element in a Sorted Matrix ★★★★](md/Leetcode/BinarySearch/378-KthSmallestElementInASortedMatrix.md)
 
 
 <!--* 生活
