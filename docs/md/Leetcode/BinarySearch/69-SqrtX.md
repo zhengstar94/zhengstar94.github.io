@@ -1,4 +1,4 @@
-# LeetCode 69. Sqrt(x)
+# LeetCode 69. Sqrt(x) ★★★
 
 - Implement `int sqrt(int x)`.
 - Compute and return the square root of *x*.

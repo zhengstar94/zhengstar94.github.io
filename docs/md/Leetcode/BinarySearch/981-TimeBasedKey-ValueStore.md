@@ -1,4 +1,4 @@
-# LeetCode 981. Time Based Key-Value Store
+# LeetCode 981. Time Based Key-Value Store ★★
 
 - Create a timebased key-value store class `TimeMap`, that supports two operations.
 
