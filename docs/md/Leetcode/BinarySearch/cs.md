@@ -1,4 +1,4 @@
-# LeetCode 786. K-th Smallest Prime Fraction
+# LeetCode 786. K-th Smallest Prime Fraction ★★★★
 
 - A sorted list `A` contains 1, plus some number of primes. Then, for every p < q in the list, we consider the fraction p/q.
 - What is the `K`-th smallest fraction considered? Return your answer as an array of ints, where `answer[0] = p` and `answer[1] = q`.
