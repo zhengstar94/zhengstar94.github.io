@@ -388,7 +388,8 @@
     * [4-Median of Two Sorted Arrays](md/Leetcode/BinarySearch/4-MedianOfTwoSortedArrays.md)
     * [378-Kth Smallest Element in a Sorted Matrix](md/Leetcode/BinarySearch/378-KthSmallestElementInASortedMatrix.md)
     * [668-Kth Smallest Number in Multiplication Table](md/Leetcode/BinarySearch/668-KthSmallestNumberInMultiplicationTable.md)
-    * [719-ind K-th Smallest Pair Distance](md/Leetcode/BinarySearch/719-FindKthSmallestPairDistance.md)
+    * [719-Find K-th Smallest Pair Distance](md/Leetcode/BinarySearch/719-FindKthSmallestPairDistance.md)
+    * [786-K-th Smallest Prime Fraction](md/Leetcode/BinarySearch/786-KthSmallestPrimeFraction.md)
 
 
 <!--* 生活
