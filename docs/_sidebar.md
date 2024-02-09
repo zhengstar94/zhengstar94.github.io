@@ -375,7 +375,7 @@
     * [Number Of Ways To Traverse Graph-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToTraverseGraph.md)
 
 * LeetCode
-  * Binary Search(13)
+  * Binary Search(14)
     * [35-Search Insert](md/Leetcode/BinarySearch/35-SearchInsert.md)
     * [704-Binary Search](md/Leetcode/BinarySearch/704-BinarySearch.md)
     * [34-Search Insert Position](md/Leetcode/BinarySearch/34-SearchInsertPosition.md)
