@@ -384,6 +384,7 @@
     * [81-Search in Rotated Sorted Array II](md/Leetcode/BinarySearch/81-SearchInRotatedSortedArrayII.md)
     * [153-Find Minimum In Rotated Sorted Array](md/Leetcode/BinarySearch/153-FindMinimumInRotatedSortedArray.md)
     * [154-Find Minimum In Rotated Sorted Array II](md/Leetcode/BinarySearch/154-FindMinimumInRotatedSortedArrayII.md)
+    * [162-Find Peak Element](md/Leetcode/BinarySearch/162-FindPeakElement.md)
     * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
     * [74-Search A 2D Matrix](md/Leetcode/BinarySearch/74-SearchA2DMatrix.md)
     * [875-Koko Eating Bananas](md/Leetcode/BinarySearch/875-KokoEatingBananas.md)
