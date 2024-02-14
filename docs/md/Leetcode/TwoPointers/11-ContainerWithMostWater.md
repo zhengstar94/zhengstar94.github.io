@@ -34,7 +34,7 @@ package Leetcode.TwoPointer;
  * @date 2024/02/14
  */
 public class ContainerWithMostWater {
-    public int maxArea(int[] height) {
+    public static int maxArea(int[] height) {
         // The left pointer starts at the beginning of the array
         int left = 0;
         // The right pointer starts at the end of the array
