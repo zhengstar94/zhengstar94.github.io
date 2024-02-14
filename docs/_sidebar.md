@@ -375,7 +375,7 @@
     * [Number Of Ways To Traverse Graph-Medium](md/AlgorithmReview/Dynamic/NumberOfWaysToTraverseGraph.md)
 
 * LeetCode
-  * Binary Search(14)
+  * Binary Search(19)
     * [35-Search Insert](md/Leetcode/BinarySearch/35-SearchInsert.md)
     * [704-Binary Search](md/Leetcode/BinarySearch/704-BinarySearch.md)
     * [34-Search Insert Position](md/Leetcode/BinarySearch/34-SearchInsertPosition.md)
@@ -395,6 +395,9 @@
     * [668-Kth Smallest Number in Multiplication Table](md/Leetcode/BinarySearch/668-KthSmallestNumberInMultiplicationTable.md)
     * [719-Find K-th Smallest Pair Distance](md/Leetcode/BinarySearch/719-FindKthSmallestPairDistance.md)
     * [786-K-th Smallest Prime Fraction](md/Leetcode/BinarySearch/786-KthSmallestPrimeFraction.md)
+    
+  * Two Pointers(1)
+    * [35-Search Insert](md/Leetcode/BinarySearch/35-SearchInsert.md)
 
 
 <!--* 生活
