@@ -396,7 +396,7 @@
     * [719-Find K-th Smallest Pair Distance](md/Leetcode/BinarySearch/719-FindKthSmallestPairDistance.md)
     * [786-K-th Smallest Prime Fraction](md/Leetcode/BinarySearch/786-KthSmallestPrimeFraction.md)
     
-  * Two Pointers(1)
+  * Two Pointers(3)
     * [11-Container With Most Water](md/Leetcode/TwoPointers/11-ContainerWithMostWater.md)
     * [167-Two Sum II - Input Array Is Sorted](md/Leetcode/TwoPointers/167-TwoSumII.md)
     * [977-Squares of a Sorted Array](md/Leetcode/TwoPointers/977-SquaresOfASortedArray.md)
