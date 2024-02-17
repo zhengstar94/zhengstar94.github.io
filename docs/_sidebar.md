@@ -388,6 +388,7 @@
     * [852-Peak Index In A Mountain Array](md/Leetcode/BinarySearch/852-PeakIndexInAMountainArray.md)
     * [69-SqrtX](md/Leetcode/BinarySearch/69-SqrtX.md)
     * [74-Search A 2D Matrix](md/Leetcode/BinarySearch/74-SearchA2DMatrix.md)
+    * [240-Search A 2D Matrix II](md/Leetcode/BinarySearch/240-SearchA2DMatrixII.md)
     * [875-Koko Eating Bananas](md/Leetcode/BinarySearch/875-KokoEatingBananas.md)
     * [1011-Capacity To Ship Packages Within D Days](md/Leetcode/BinarySearch/1011-CapacityToShipPackagesWithinDDays.md)
     * [4-Median of Two Sorted Arrays](md/Leetcode/BinarySearch/4-MedianOfTwoSortedArrays.md)
@@ -395,6 +396,7 @@
     * [668-Kth Smallest Number in Multiplication Table](md/Leetcode/BinarySearch/668-KthSmallestNumberInMultiplicationTable.md)
     * [719-Find K-th Smallest Pair Distance](md/Leetcode/BinarySearch/719-FindKthSmallestPairDistance.md)
     * [786-K-th Smallest Prime Fraction](md/Leetcode/BinarySearch/786-KthSmallestPrimeFraction.md)
+    * [287-Find The Duplicate Number](md/Leetcode/BinarySearch/287-FindTheDuplicateNumber.md)
     
   * Two Pointers(3)
     * [11-Container With Most Water](md/Leetcode/TwoPointers/11-ContainerWithMostWater.md)
