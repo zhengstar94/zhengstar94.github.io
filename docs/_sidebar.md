@@ -404,7 +404,8 @@
     * [977-Squares of a Sorted Array](md/Leetcode/TwoPointers/977-SquaresOfASortedArray.md)
 
   * HashTable(1)
-    * [560. Subarray Sum Equals K](md/Leetcode/HashTable/560-SubarraySumEqualsK.md)
+    * [560-Subarray Sum Equals K](md/Leetcode/HashTable/560-SubarraySumEqualsK.md)
+    * [49-Group Anagrams](md/Leetcode/HashTable/49-GroupAnagrams.md)
 
 
 
