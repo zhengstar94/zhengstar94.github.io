@@ -90,7 +90,7 @@ public class GroupAnagrams {
 ## Method 2
 
 ```tex
-【O(nmtime∣O(nm)space】
+【O(nm)time∣O(nm)space】
 ```
 
 ```java
