@@ -400,6 +400,7 @@
 
   * Array(1)
     * [217-Contains Duplicate](md/Leetcode/Array/217-ContainsDuplicate.md)
+    * [2357-Make Array Zero by Subtracting Equal Amounts](md/Leetcode/Array/2357-MakeArrayZeroBySubtractingEqualAmounts.md)
  
   * Two Pointers(3)
     * [11-Container With Most Water](md/Leetcode/TwoPointers/11-ContainerWithMostWater.md)
