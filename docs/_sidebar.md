@@ -412,6 +412,7 @@
     * [49-Group Anagrams](md/Leetcode/HashTable/49-GroupAnagrams.md)
     * [41-First Missing Positive](md/Leetcode/HashTable/41-FirstMissingPositive.md)
     * [260-Single Number III](md/Leetcode/HashTable/260-SingleNumberIII.md)
+    * [169-Majority Element](md/Leetcode/HashTable/169-MajorityElement.md)
 
 
 
