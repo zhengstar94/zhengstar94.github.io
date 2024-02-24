@@ -5,6 +5,7 @@
     - Subtract `x` from every **positive** element in `nums`.
 - Return *the **minimum** number of operations to make every element in* `nums` *equal to* `0`.
 
+**Example 1**
 ```
 Input: nums = [1,5,0,3,5]
 Output: 3
