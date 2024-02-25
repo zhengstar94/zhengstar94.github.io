@@ -407,7 +407,7 @@
     * [167-Two Sum II - Input Array Is Sorted](md/Leetcode/TwoPointers/167-TwoSumII.md)
     * [977-Squares of a Sorted Array](md/Leetcode/TwoPointers/977-SquaresOfASortedArray.md)
 
-  * HashTable(2)
+  * HashTable(5)
     * [560-Subarray Sum Equals K](md/Leetcode/HashTable/560-SubarraySumEqualsK.md)
     * [49-Group Anagrams](md/Leetcode/HashTable/49-GroupAnagrams.md)
     * [41-First Missing Positive](md/Leetcode/HashTable/41-FirstMissingPositive.md)
