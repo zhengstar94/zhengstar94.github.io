@@ -404,6 +404,7 @@
     * [659-Encode and Decode Strings](md/Leetcode/Array/659-EncodeAndDecodeStrings.md)
     * [128-Longest Consecutive Sequence](md/Leetcode/Array/128-LongestConsecutiveSequence.md)
     * [238-Product of Array Except Self](md/Leetcode/Array/238-ProductOfArrayExceptSelf.md)
+    * [347-Top K Frequent Elements](md/Leetcode/Array/347-TopKFrequentElements.md)
  
   * Two Pointers(5)
     * [125-Valid Palindrome](md/Leetcode/TwoPointers/125-ValidPalindrome.md)
