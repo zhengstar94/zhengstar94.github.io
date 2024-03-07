@@ -405,6 +405,7 @@
     * [128-Longest Consecutive Sequence](md/Leetcode/Array/128-LongestConsecutiveSequence.md)
     * [238-Product of Array Except Self](md/Leetcode/Array/238-ProductOfArrayExceptSelf.md)
     * [347-Top K Frequent Elements](md/Leetcode/Array/347-TopKFrequentElements.md)
+    * [242-Valid Anagram](md/Leetcode/Array/242-ValidAnagram.md)
  
   * Two Pointers(5)
     * [125-Valid Palindrome](md/Leetcode/TwoPointers/125-ValidPalindrome.md)
@@ -419,7 +420,6 @@
     * [41-First Missing Positive](md/Leetcode/HashTable/41-FirstMissingPositive.md)
     * [260-Single Number III](md/Leetcode/HashTable/260-SingleNumberIII.md)
     * [169-Majority Element](md/Leetcode/HashTable/169-MajorityElement.md)
-    * [49-Group Anagrams](md/Leetcode/HashTable/49-GroupAnagrams.md)
 
 
 
