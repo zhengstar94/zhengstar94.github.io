@@ -406,6 +406,7 @@
     * [238-Product of Array Except Self](md/Leetcode/Array/238-ProductOfArrayExceptSelf.md)
     * [347-Top K Frequent Elements](md/Leetcode/Array/347-TopKFrequentElements.md)
     * [242-Valid Anagram](md/Leetcode/Array/242-ValidAnagram.md)
+    * [36-Valid Sudoku](md/Leetcode/Array/36-ValidSudoku.md)
  
   * Two Pointers(5)
     * [125-Valid Palindrome](md/Leetcode/TwoPointers/125-ValidPalindrome.md)
