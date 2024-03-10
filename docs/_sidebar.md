@@ -398,7 +398,7 @@
     * [786-K-th Smallest Prime Fraction](md/Leetcode/BinarySearch/786-KthSmallestPrimeFraction.md)
     * [287-Find The Duplicate Number](md/Leetcode/BinarySearch/287-FindTheDuplicateNumber.md)
 
-  * Array(5)
+  * Array(8)
     * [217-Contains Duplicate](md/Leetcode/Array/217-ContainsDuplicate.md)
     * [2357-Make Array Zero by Subtracting Equal Amounts](md/Leetcode/Array/2357-MakeArrayZeroBySubtractingEqualAmounts.md)
     * [659-Encode and Decode Strings](md/Leetcode/Array/659-EncodeAndDecodeStrings.md)
