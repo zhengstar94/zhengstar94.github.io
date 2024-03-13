@@ -424,6 +424,7 @@
 
   * LinkedList(5)
     * [206-Reverse Linked List](md/Leetcode/LinkedList/206-ReverseLinkedList.md)
+    * [21-Merging Linked Lists](md/Leetcode/LinkedList/21-MergingLinkedLists.md)
     * [143-Reorder List](md/Leetcode/LinkedList/143-ReorderList.md)
 
 
