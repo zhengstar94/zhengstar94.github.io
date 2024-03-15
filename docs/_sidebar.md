@@ -422,7 +422,7 @@
     * [260-Single Number III](md/Leetcode/HashTable/260-SingleNumberIII.md)
     * [169-Majority Element](md/Leetcode/HashTable/169-MajorityElement.md)
 
-  * LinkedList(5)
+  * LinkedList(3)
     * [206-Reverse Linked List](md/Leetcode/LinkedList/206-ReverseLinkedList.md)
     * [21-Merging Linked Lists](md/Leetcode/LinkedList/21-MergingLinkedLists.md)
     * [143-Reorder List](md/Leetcode/LinkedList/143-ReorderList.md)
