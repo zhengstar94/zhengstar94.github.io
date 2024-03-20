@@ -429,6 +429,8 @@
     * [143-Reorder List](md/Leetcode/LinkedList/143-ReorderList.md)
     * [19-Remove Nth Node From End of List](md/Leetcode/LinkedList/19-RemoveNthNodeFromEndOfList.md)
 
+  * Stack(5)
+    * [20-Valid Parentheses](md/Leetcode/Stack/20-ValidParentheses.md)
 
 
 <!--* 生活
