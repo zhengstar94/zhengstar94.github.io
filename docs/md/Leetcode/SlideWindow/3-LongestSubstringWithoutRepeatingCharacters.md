@@ -30,48 +30,62 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 ## Method 1
 
 ```tex
-【O(n)time∣O(1)space】
+【O(n)time∣O(n)space】
 ```
 
 ```java
-package Leetcode;
+package Leetcode.SlideWindow;
+
+import java.util.HashMap;
 
 /**
  * @author zhengstars
- * @date 2024/03/21
+ * @date 2024/03/26
  */
-public class BestTimeToBuyAndSellStock {
-    public static int maxProfit(int[] prices) {
-        // minprice is used to store the minimal price of the stock
-        int minprice = Integer.MAX_VALUE;
-        // maxprofit is used to store the maximum profit
-        int maxprofit = 0;
+public class LongestSubstringWithoutRepeatingCharacters {
+    public static int lengthOfLongestSubstring(String s) {
+        // We start by initializing a HashMap to keep track of the characters we have encountered
+        HashMap<Character, Integer> map = new HashMap<>();
 
-        // This loop is used to traverse on every price
-        for (int i = 0; i < prices.length; i++) {
-            // If the current price is less than minprice, update minprice
-            if (prices[i] < minprice) {
-                minprice = prices[i];
+        // 'start' and 'end' pointers represent the current window
+        // 'length' holds the maximum length of substring without repeating characters we have found till now.
+        int start = 0, end = 0, length = 0;
+
+        // We expand the window by incrementing 'end' and move 'start' as needed
+        while (end < s.length()){
+            // The current character at the 'end' of the window
+            char c = s.charAt(end);
+
+            // If character 'c' has already been encountered, move 'start' pointer to the next position from its previous occurrence
+            if(map.containsKey(c)){
+                start = Math.max(start, map.get(c) + 1);
             }
-            // If the current profit (price - minprice) is greater than maxprofit, update maxprofit
-            else if (prices[i] - minprice > maxprofit) {
-                maxprofit = prices[i] - minprice;
-            }
+
+            // Update the position of character 'c'
+            map.put(c, end);
+
+            // Update the length of the longest substring without repeating characters
+            length = Math.max(length, end-start+1);
+
+            // Expand the window
+            end++;
         }
-        // Return the maximum profit
-        return maxprofit;
+        // Finally, return the length of longest substring without repeating characters
+        return length;
     }
 
     public static void main(String[] args) {
-        // Example 1: Given the stock prices of {7,1,5,3,6,4}
-        int[] prices1 = {7,1,5,3,6,4};
-        // Run the maxProfit function and print out the result.
-        System.out.println(maxProfit(prices1));  // Output: 5
+        // Test the function with example string "abcabcbb"
+        String s1 = "abcabcbb";
+        System.out.println(lengthOfLongestSubstring(s1));  // Output: 3
 
-        // Example 2: Given the stock prices of {7,6,4,3,1}
-        int[] prices2 = {7,6,4,3,1};
-        // Run the maxProfit function and print out the result.
-        System.out.println(maxProfit(prices2));  // Output: 0
+        // Test the function with example string "bbbbb"
+        String s2 = "bbbbb";
+        System.out.println(lengthOfLongestSubstring(s2));  // Output: 1
+
+        // Test the function with example string "pwwkew"
+        String s3 = "pwwkew";
+        System.out.println(lengthOfLongestSubstring(s3));  // Output: 3
     }
 }
 
