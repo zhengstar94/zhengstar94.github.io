@@ -27,9 +27,10 @@ Hi. Xingxing here. Welcome to my small corner on the Internet. Here are some thi
 <br>
 <br>
 <br>
-<b>不论在哪，不要被眼前的假象迷惑。</b> <br>
-<b>拿到你想要的，然后离开。</b> <br>
-<b>you should know where to go</b> <br>
+<b>不论在哪，不要被眼前的假象迷惑</b> <br>
+<b>拿到你想要的，然后离开</b> <br>
+<b>You should know where to go</b> <br>
+<b>星光灿烂，我们终能上山</b> <br>
 <br>
 <br>
 </div>
