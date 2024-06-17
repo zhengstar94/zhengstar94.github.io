@@ -24,7 +24,7 @@ I've migrated my old [Blog](https://zhengliangliang.wordpress.com/) now here, so
 
 <div style="text-align: center;">
 <br>
-<b>一切有為法</b> <br>
+<b>CC</b> <br>
 <b>如夢幻泡影</b> <br>
 <b>如露亦如電</b> <br>
 <b>應作如是觀</b> <br>
