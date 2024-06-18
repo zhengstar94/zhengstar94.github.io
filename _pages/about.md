@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: ✉️ zhengstars@gmail.com  🧑‍💻 Senior Software Engineer
+subtitle: ✉️ zhengstars@gmail.com  
 
 profile:
   align: right
