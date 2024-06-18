@@ -17,14 +17,15 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Hi. Xingxing here. Welcome to my small corner on the Internet. Here are some things that might (or not) be interesting to you:
+Hi. Xingxing here. Welcome to my small corner on the Internet. 
 
-[LinkedIn](https://www.linkedin.com/in/zhengxingxing/)  My personal work experience<br>
-[Github](https://github.com/zhengstar94/)   My personal code repository
+As a `senior cloud backend engineer`, I aim to **enhance system efficiency** and **solve complex problems**. I'm also focused on **refining technical practices** and **product quality**.
+
+I envision this blog as a platform for sparking innovation and creativity through shared knowledge and discussions.
+
 
 
 <div style="text-align: center;">
-<br>
 <br>
 <br>
 <b>不论在哪，不要被眼前的假象迷惑</b> <br>
