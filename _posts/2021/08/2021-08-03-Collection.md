@@ -4,6 +4,7 @@ giscus_comments: true
 layout: post
 title: "Collection"
 date: "2021-08-03"
+tags: pic
 categories: 
   - "Interview Pic"
 ---
