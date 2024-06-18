@@ -1,6 +1,5 @@
 ---
 toc:
-  sidebar: true
 giscus_comments: true
 layout: post
 title: "Distributed"
