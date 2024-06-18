@@ -4,6 +4,7 @@ giscus_comments: true
 layout: post
 title: "Design Pattern"
 date: "2021-08-12"
+tags: pic
 categories: 
   - "Interview Pic"
 ---

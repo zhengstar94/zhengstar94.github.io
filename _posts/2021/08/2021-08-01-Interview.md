@@ -4,6 +4,7 @@ giscus_comments: true
 layout: post
 title: "Interview"
 date: "2021-08-01"
+tags: pic
 categories: 
   - "Interview Pic"
 ---
