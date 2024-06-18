@@ -1,6 +1,6 @@
 ---
 toc:
-  sidebar: true
+  beginning: true
 giscus_comments: true
 layout: post
 title: "Java8Stream流递归树遍历"
@@ -8,11 +8,6 @@ date: "2021-01-03"
 categories: 
   - "Backend Base"
 ---
-
-1. [实体类：Menu.java](#Object)
-2. [组装递归组树形结构](#Assembled)
-3. [格式化打印结果](#Formatted)
-
 
 > 可能平常会遇到一些需求，比如构建菜单，构建树形结构，数据库一般就使用父id来表示，为了降低数据库的查询压力，我们可以使用Java8中的Stream流一次性把数据查出来，然后通过流式处理，我们一起来看看，代码实现为了实现简单，就模拟查看数据库所有数据到List里面。
 
@@ -113,7 +108,4 @@ public class Menu {
 
 ## 格式化打印结果 <a name="Formatted"></a>
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/_posts/2021/01/images/image-23f63a8186d744628ebcb22c4a302b90.png)
-
-
-
+{% include figure.liquid loading="eager" path="assets/img/2021/01/image-23f63a8186d744628ebcb22c4a302b90.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
