@@ -69,17 +69,16 @@ java7中的ConcurrentHashMap使用的分段锁，也就是每一个segment上同
 
 java8的ConcurrentHashMap使用的synchronized锁加cas机制，结构变为Node数组+链表/红黑树，Node是一个类似于一个HashEntry的结构，它的冲突达到一定大小会转为红黑树，冲突小于一定数量又回退回链表
 
->##### 为什么线程安全呢？
+> ##### 为什么线程安全呢？
 >
 >就是因为在1.7版本它的每个方法都会加锁，put采用自旋锁不会使线程阻塞（操作状态切换会消耗性能），从而性能比hashtable好很多。而且它的每个HashEntry[i]都是被volatile修饰，可以保证线程操作的可见性，即每次不会脏读，即使其他线程修改了值，都会强制刷新到本地内存。
->{: .block-tip }
+{: .block-tip }
 
->##### 那为什么并发度高呢？
+
+> ##### 那为什么并发度高呢？
 >
 >因为是对单个segment[i]进行加锁，意思就是segment如果有16个，那么可以同时有16个线程修改而且还是线程安全的。相对于Hashtable的锁，是锁定整个Hashtable对象，那么多个线程访问就需要被阻塞。
->{: .block-tip }
+{: .block-tip }
 
 
-​         
-
-​      
+ 
