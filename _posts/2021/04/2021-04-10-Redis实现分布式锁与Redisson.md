@@ -115,8 +115,7 @@ try {
 ```
 
 **加锁流程图**
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/08/image-eaae02e9943941caa0be8361fa907b61.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
-
+{% include figure.liquid loading="eager" path="assets/img/2021/04/image-eaae02e9943941caa0be8361fa907b61.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
 {% include figure.liquid loading="eager" path="assets/img/2021/04/2.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 > 看门狗原理<br>
