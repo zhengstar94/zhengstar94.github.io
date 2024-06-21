@@ -118,7 +118,7 @@ publle class SpringbootelHellowor1dApplication {
 3. 找出所有的应用程序监听器,设置到listeners属性中
 4. **推断并设置main方法的定义类,找到运行的主类**
 
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/10/image-0705fba99bdf463b85ede07f64c0b78e.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
+{% include figure.liquid loading="eager" path="assets/img/2021/09/image-0705fba99bdf463b85ede07f64c0b78e.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
 
 > 重点<br>
