@@ -226,8 +226,9 @@ System.out.println(webSite.getUrl());//https://javaguide.cn/
 
 ```
 
+
 ## Spring Boot加载配置文件的优先级
-![image.png](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/docs/assets/img/2021/08/image-f2080ef5f6734df88dbde89e958dfcd2.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
+{% include figure.liquid loading="eager" path="assets/img/2022/09/image-f2080ef5f6734df88dbde89e958dfcd2.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
 ## Spring Boot 如何监控系统实际运行状况
 
