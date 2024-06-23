@@ -221,25 +221,16 @@ public String patchData(String cursor){
 
 `RewriteBatchedStatements` is a configuration parameter for MySQL database connections that enables rewriting a set of similar SQL statements, merging them into a larger SQL statement, and then executing it at once. This configuration parameter is recommended for use in JDBC batch updates, and its significance is reflected in several aspects:
 
-1.**Reduced Communication Overhead:**
-
-  - Every execution of an SQL statement in a database connection involves communication. Using `RewriteBatchedStatements` helps merge multiple SQL statements, reducing frequent communication overhead and improving data transfer efficiency.
-
-2.**Reduced Parsing and Optimization Counts:**
-
-  - Databases need to parse and optimize SQL statements before execution. Batch updates reduce the count of parsing and optimization since a group of similar SQL statements is merged into one, requiring the database to perform parsing and optimization only once.
-
-3.**Efficiency in Transaction Management:**
-
-  - Batch updates often occur within a single transaction. Enabling `RewriteBatchedStatements` reduces the frequency of transaction starts and commits, enhancing the efficiency of transaction management, especially in scenarios involving large-scale data insertion or updates.
-
-4.**Performance Optimization:**
-
-  - Batch updates efficiently leverage the database's bulk processing capabilities. For inserting or updating a significant amount of data, batch updates generally offer better performance compared to the execution of individual SQL statements.
-
-5.**Adaptation to Application Scenarios:**
-
-  - In some cases, not enabling `RewriteBatchedStatements` may result in the JDBC driver executing batch updates using multiple separate SQL statements, compromising performance. Enabling this configuration parameter ensures that the JDBC driver optimizes batch updates into a more efficient single SQL statement.
+1. **Reduced Communication Overhead:**
+- Every execution of an SQL statement in a database connection involves communication. Using `RewriteBatchedStatements` helps merge multiple SQL statements, reducing frequent communication overhead and improving data transfer efficiency.
+2. **Reduced Parsing and Optimization Counts:**
+- Databases need to parse and optimize SQL statements before execution. Batch updates reduce the count of parsing and optimization since a group of similar SQL statements is merged into one, requiring the database to perform parsing and optimization only once.
+3. **Efficiency in Transaction Management:**
+- Batch updates often occur within a single transaction. Enabling `RewriteBatchedStatements` reduces the frequency of transaction starts and commits, enhancing the efficiency of transaction management, especially in scenarios involving large-scale data insertion or updates.
+4. **Performance Optimization:**
+- Batch updates efficiently leverage the database's bulk processing capabilities. For inserting or updating a significant amount of data, batch updates generally offer better performance compared to the execution of individual SQL statements.
+5. **Adaptation to Application Scenarios:**
+- In some cases, not enabling `RewriteBatchedStatements` may result in the JDBC driver executing batch updates using multiple separate SQL statements, compromising performance. Enabling this configuration parameter ensures that the JDBC driver optimizes batch updates into a more efficient single SQL statement.
 
 In practical applications, enabling `RewriteBatchedStatements` can be an effective performance optimization strategy, particularly in scenarios involving large-scale data operations.
 
