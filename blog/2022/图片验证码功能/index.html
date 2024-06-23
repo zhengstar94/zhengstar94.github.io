@@ -1,108 +1,238 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 图片验证码功能 | Xingxing Zheng </title> <meta name="author" content="Xingxing Zheng"> <meta name="description" content="Welcome to Xingxing's blog, where I share my thoughts and experiences on various topics. "> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://zhengstar94.github.io//blog/2022/%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>initTheme();</script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Xingxing</span> Zheng </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">archive </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/archive_by_year">by year</a> <a class="dropdown-item " href="/archive_by_tag">by category</a> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">图片验证码功能</h1> <p class="post-meta"> Created in August 07, 2022 </p> <p class="post-tags"> <a href="/blog/2022"> <i class="fa-solid fa-calendar fa-sm"></i> 2022 </a>   ·   <a href="/blog/category/system-design-other"> <i class="fa-solid fa-tag fa-sm"></i> System Design Other</a> </p> </header> <article class="post-content"> <div id="table-of-contents"> <ul id="toc" class="section-nav"> <li class="toc-entry toc-h1"><a href="#%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82">验证码功能需求</a></li> <li class="toc-entry toc-h1"><a href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">需求分析</a></li> <li class="toc-entry toc-h1"><a href="#%E4%BB%A3%E7%A0%81%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">代码具体实现</a></li> </ul> </div> <hr> <div id="markdown-content"> <h1 id="验证码功能需求">验证码功能需求</h1> <ol> <li>页面显示验证码图片，用户可以输入框输入验证码</li> <li>输入完毕后，点击验证</li> <li>验证成功，提示验证通过，失败提示验证不通过</li> <li>用户点击验证码图片刷新验证码</li> </ol> <h1 id="需求分析">需求分析</h1> <ol> <li>验证码用户页面 <ul> <li>输入框</li> <li>验证码图片</li> <li>验证按钮</li> </ul> </li> <li>随机生成验证码图片 <ul> <li>生成验证码字符内容</li> <li>绘制字符到图片</li> <li>绘制干扰线</li> <li>返回验证码字符内容和图片</li> </ul> </li> <li>验证程序 <ul> <li>验证用户输入和验证字符内容是否一致</li> <li>返回验证信息</li> </ul> </li> </ol> <h1 id="代码具体实现">代码具体实现</h1> <ol> <li>验证码demo ```java package com.chan21252.verifycode.servlet;</li> </ol> <p>//省略import</p> <p>@WebServlet( name = “VerifyCodeDemoServlet”, urlPatterns = “/verifyCodeDemo” ) public class VerifyCodeDemoServlet extends HttpServlet { protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>}
-
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int width = 100;
-    int height = 50;
-
-    //画布
-    BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-
-    //填充背景色
-    Graphics g = image.getGraphics();   //画笔对象
-    g.setColor(Color.PINK);     //设置背景色
-    g.fillRect(0, 0, width, height);    //填充
-
-    //绘制边框
-    g.setColor(Color.BLUE);
-    g.drawRect(0, 0, width-1, height-1);
-
-    //绘制验证码
-    String str = "ABCDEFGHIJKMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";      //验证码字符样本
-
-    Random random = new Random();
-
-    for(int i=0; i&lt;4; i++){
-        //随机生成字符，绘制验证码
-        int index = random.nextInt(str.length());
-        char ch = str.charAt(index);
-        g.drawString(ch+"", width / 5 * i + 20, height / 2);
-    }
-
-    //绘制干扰线
-    g.setColor(Color.GREEN);
-    for (int i=0; i&lt;6; i++){
-        int x1 = random.nextInt(width);
-        int y1 = random.nextInt(height);
-        int x2 = random.nextInt(width);
-        int y2 = random.nextInt(height);
-        g.drawLine(x1, y1, x2, y2);
-    }
-
-    //输出图片
-    ImageIO.write(image, "jpg", response.getOutputStream());
-} } ``` 2. 图片验证码生成工具类 ```java package com.chan21252.verifycode.servlet;
-</code></pre></div></div> <p>import javax.imageio.ImageIO; import java.awt.*; import java.awt.image.BufferedImage; import java.io.IOException; import java.io.OutputStream; import java.util.Random;</p> <p>/**</p> <ul> <li> <p>图形验证码工具类 */ public class VerifyCodeUtils { private static int width; private static int height; private static Random random; private static String[] fontNames; private static String codes; private static Color bgColor;</p> <p>static { width = 100; height = 50; random = new Random(); fontNames = new String[]{“宋体”, “华文楷体”, “黑体”, “微软雅黑”, “楷体_GB2312”}; codes = “0123456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ”; bgColor = new Color(255, 255, 255); }</p> <p>private String text;</p> <p>//随机生成颜色 private Color randomColor() { int r = random.nextInt(150); int g = random.nextInt(150); int b = random.nextInt(150);</p> <div class="language-plaintext highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> return new Color(r, g, b);  }
-</code></pre></div> </div> <p>//随机生成字体 private Font radomFont() { int index = random.nextInt(fontNames.length); String fontName = fontNames[index]; int style = random.nextInt(4); int size = random.nextInt(5) + 24;</p> <div class="language-plaintext highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> return new Font(fontName, style, size);  }
-</code></pre></div> </div> <p>//画干扰线 private void drawLine(BufferedImage image) { int num = 3; //3条干扰线 Graphics2D g2 = (Graphics2D) image.getGraphics(); for (int i = 0; i &lt; num; i++) { int x1 = random.nextInt(width); int y1 = random.nextInt(height); int x2 = random.nextInt(width); int y2 = random.nextInt(height);</p> <div class="language-plaintext highlighter-rouge"> <div class="highlight"><pre class="highlight"><code>     g2.setStroke(new BasicStroke(1.5F));
-     g2.setColor(Color.BLUE);
-     g2.drawLine(x1, y1, x2, y2);
- }  }
-</code></pre></div> </div> <p>//随机生成一个字符 private char randomChar() { int index = random.nextInt(codes.length());</p> <div class="language-plaintext highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> return codes.charAt(index);  }
-</code></pre></div> </div> <p>//创建绘制图片 private BufferedImage createImage() { BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); Graphics2D g2 = (Graphics2D) image.getGraphics(); g2.setColor(bgColor); g2.fillRect(0, 0, width, height);</p> <div class="language-plaintext highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> return image;  }
-</code></pre></div> </div> <p>//生成验证码，并绘制 public BufferedImage generateCaptcha() { BufferedImage image = createImage(); //创建图片缓冲区 Graphics2D g2 = (Graphics2D) image.getGraphics(); //得到绘制环境 StringBuilder sb = new StringBuilder(); //装载验证码字符</p> <div class="language-plaintext highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> for (int i = 0; i &lt; 4; i++) {
-     String s = randomChar() + "";
-     sb.append(s);
-     float x = i * 1.0F * width / 4;
-     g2.setColor(randomColor());
-     g2.setFont(radomFont());
-     g2.drawString(s, x, height - 5);
- }
-
- this.text = sb.toString();
-
- drawLine(image);
-
- return image;  }
-</code></pre></div> </div> <p>//返回验证码文本 public String getText() { return text; }</p> <p>//保存图片 public void output(BufferedImage image, OutputStream out) throws IOException { ImageIO.write(image, “JPEG”, out); } } <code class="language-plaintext highlighter-rouge"> 3. 生成验证码，返回图片和字符串 </code>java package com.chan21252.verifycode.servlet;</p> </li> </ul> <p>//省略import</p> <p>@WebServlet( name = “VerifyCodeGenServlet”, urlPatterns = “/verifyCode” ) public class VerifyCodeGenServlet extends HttpServlet { protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>}
-
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    VerifyCodeUtils verifyCodeUtils = new VerifyCodeUtils();
-    BufferedImage codeImage = verifyCodeUtils.generateCaptcha();
-    String codeStr = verifyCodeUtils.getText();
-
-    System.out.println("生成新的验证码：" + codeStr);
-
-    HttpSession session = request.getSession();
-    session.setAttribute("code", codeStr);
-    verifyCodeUtils.output(codeImage, response.getOutputStream());
-} } ``` 4. 验证码校验，重定向到输入页面 ```java package com.chan21252.verifycode.servlet;
-</code></pre></div></div> <p>//省略import</p> <p>@WebServlet( name = “SubmitServlet”, urlPatterns = “/submit.do” ) public class SubmitServlet extends HttpServlet { protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    System.out.println("开始验证...");
-
-    request.setCharacterEncoding("utf-8");
-
-    String userInputStr = request.getParameter("verifyText");
-    String codeStr = (String) request.getSession().getAttribute("code");
-
-    System.out.println("用户输入：" + userInputStr);
-    System.out.println("正确的验证码：" + codeStr);
-
-    String msg;
-    if (userInputStr.equalsIgnoreCase(codeStr)) {
-        msg = "验证通过";
-    } else {
-        msg = "验证失败";
-    }
-
-    System.out.println(msg);
-
-    request.getSession().setAttribute("msg", msg);
-    response.sendRedirect("/verify.jsp");
-}
-
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doPost(request, response);
-} } ```
-</code></pre></div></div> <div class="language-jsp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;%@ page </span><span class="na">contentType=</span><span class="s">"text/html;charset=UTF-8"</span><span class="na"> language=</span><span class="s">"java"</span> <span class="nt">%&gt;</span>
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 图片验证码功能 | Xingxing Zheng </title> <meta name="author" content="Xingxing Zheng"> <meta name="description" content="Welcome to Xingxing's blog, where I share my thoughts and experiences on various topics. "> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://zhengstar94.github.io//blog/2022/%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>initTheme();</script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Xingxing</span> Zheng </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">archive </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/archive_by_year">by year</a> <a class="dropdown-item " href="/archive_by_tag">by category</a> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">图片验证码功能</h1> <p class="post-meta"> Created in August 07, 2022 </p> <p class="post-tags"> <a href="/blog/2022"> <i class="fa-solid fa-calendar fa-sm"></i> 2022 </a>   ·   <a href="/blog/category/system-design-other"> <i class="fa-solid fa-tag fa-sm"></i> System Design Other</a> </p> </header> <article class="post-content"> <div id="table-of-contents"> <ul id="toc" class="section-nav"> <li class="toc-entry toc-h1"><a href="#%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82">验证码功能需求</a></li> <li class="toc-entry toc-h1"><a href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">需求分析</a></li> <li class="toc-entry toc-h1"><a href="#%E4%BB%A3%E7%A0%81%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">代码具体实现</a></li> </ul> </div> <hr> <div id="markdown-content"> <h1 id="验证码功能需求">验证码功能需求</h1> <ol> <li>页面显示验证码图片，用户可以输入框输入验证码</li> <li>输入完毕后，点击验证</li> <li>验证成功，提示验证通过，失败提示验证不通过</li> <li>用户点击验证码图片刷新验证码</li> </ol> <h1 id="需求分析">需求分析</h1> <ol> <li>验证码用户页面 <ul> <li>输入框</li> <li>验证码图片</li> <li>验证按钮</li> </ul> </li> <li>随机生成验证码图片 <ul> <li>生成验证码字符内容</li> <li>绘制字符到图片</li> <li>绘制干扰线</li> <li>返回验证码字符内容和图片</li> </ul> </li> <li>验证程序 <ul> <li>验证用户输入和验证字符内容是否一致</li> <li>返回验证信息</li> </ul> </li> </ol> <h1 id="代码具体实现">代码具体实现</h1> <ol> <li> <p>验证码demo</p> <div class="language-java highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> <span class="kn">package</span> <span class="nn">com.chan21252.verifycode.servlet</span><span class="o">;</span>
+    
+ <span class="c1">//省略import</span>
+    
+ <span class="nd">@WebServlet</span><span class="o">(</span>
+         <span class="n">name</span> <span class="o">=</span> <span class="s">"VerifyCodeDemoServlet"</span><span class="o">,</span>
+         <span class="n">urlPatterns</span> <span class="o">=</span> <span class="s">"/verifyCodeDemo"</span>
+ <span class="o">)</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">VerifyCodeDemoServlet</span> <span class="kd">extends</span> <span class="nc">HttpServlet</span> <span class="o">{</span>
+     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+    
+     <span class="o">}</span>
+    
+     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+    
+         <span class="c1">//画布</span>
+         <span class="nc">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedImage</span><span class="o">(</span><span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">,</span> <span class="nc">BufferedImage</span><span class="o">.</span><span class="na">TYPE_INT_RGB</span><span class="o">);</span>
+    
+         <span class="c1">//填充背景色</span>
+         <span class="nc">Graphics</span> <span class="n">g</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>   <span class="c1">//画笔对象</span>
+         <span class="n">g</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">PINK</span><span class="o">);</span>     <span class="c1">//设置背景色</span>
+         <span class="n">g</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">);</span>    <span class="c1">//填充</span>
+    
+         <span class="c1">//绘制边框</span>
+         <span class="n">g</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+         <span class="n">g</span><span class="o">.</span><span class="na">drawRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">width</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">height</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+    
+         <span class="c1">//绘制验证码</span>
+         <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ABCDEFGHIJKMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"</span><span class="o">;</span>      <span class="c1">//验证码字符样本</span>
+    
+         <span class="nc">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+    
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+             <span class="c1">//随机生成字符，绘制验证码</span>
+             <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+             <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+             <span class="n">g</span><span class="o">.</span><span class="na">drawString</span><span class="o">(</span><span class="n">ch</span><span class="o">+</span><span class="s">""</span><span class="o">,</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">20</span><span class="o">,</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="o">);</span>
+         <span class="o">}</span>
+    
+         <span class="c1">//绘制干扰线</span>
+         <span class="n">g</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">GREEN</span><span class="o">);</span>
+         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+             <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+             <span class="kt">int</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
+             <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+             <span class="kt">int</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
+             <span class="n">g</span><span class="o">.</span><span class="na">drawLine</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">,</span> <span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">);</span>
+         <span class="o">}</span>
+    
+         <span class="c1">//输出图片</span>
+         <span class="nc">ImageIO</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="s">"jpg"</span><span class="o">,</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>图片验证码生成工具类</p> <div class="language-java highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> <span class="kn">package</span> <span class="nn">com.chan21252.verifycode.servlet</span><span class="o">;</span>
+    
+ <span class="kn">import</span> <span class="nn">javax.imageio.ImageIO</span><span class="o">;</span>
+ <span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+ <span class="kn">import</span> <span class="nn">java.awt.image.BufferedImage</span><span class="o">;</span>
+ <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+ <span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="o">;</span>
+ <span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+    
+ <span class="cm">/**
+  * 图形验证码工具类
+  */</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">VerifyCodeUtils</span> <span class="o">{</span>
+     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">width</span><span class="o">;</span>
+     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+     <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Random</span> <span class="n">random</span><span class="o">;</span>
+     <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">fontNames</span><span class="o">;</span>
+     <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span> <span class="n">codes</span><span class="o">;</span>
+     <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Color</span> <span class="n">bgColor</span><span class="o">;</span>
+    
+     <span class="kd">static</span> <span class="o">{</span>
+         <span class="n">width</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+         <span class="n">height</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+         <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+         <span class="n">fontNames</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span><span class="s">"宋体"</span><span class="o">,</span> <span class="s">"华文楷体"</span><span class="o">,</span> <span class="s">"黑体"</span><span class="o">,</span> <span class="s">"微软雅黑"</span><span class="o">,</span> <span class="s">"楷体_GB2312"</span><span class="o">};</span>
+         <span class="n">codes</span> <span class="o">=</span> <span class="s">"0123456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ"</span><span class="o">;</span>
+         <span class="n">bgColor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Color</span><span class="o">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">);</span>
+     <span class="o">}</span>
+    
+     <span class="kd">private</span> <span class="nc">String</span> <span class="n">text</span><span class="o">;</span>
+    
+     <span class="c1">//随机生成颜色</span>
+     <span class="kd">private</span> <span class="nc">Color</span> <span class="nf">randomColor</span><span class="o">()</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">150</span><span class="o">);</span>
+         <span class="kt">int</span> <span class="n">g</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">150</span><span class="o">);</span>
+         <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">150</span><span class="o">);</span>
+    
+         <span class="k">return</span> <span class="k">new</span> <span class="nf">Color</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">g</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//随机生成字体</span>
+     <span class="kd">private</span> <span class="nc">Font</span> <span class="nf">radomFont</span><span class="o">()</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">fontNames</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+         <span class="nc">String</span> <span class="n">fontName</span> <span class="o">=</span> <span class="n">fontNames</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+         <span class="kt">int</span> <span class="n">style</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+         <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">+</span> <span class="mi">24</span><span class="o">;</span>
+    
+         <span class="k">return</span> <span class="k">new</span> <span class="nf">Font</span><span class="o">(</span><span class="n">fontName</span><span class="o">,</span> <span class="n">style</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//画干扰线</span>
+     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">drawLine</span><span class="o">(</span><span class="nc">BufferedImage</span> <span class="n">image</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>    <span class="c1">//3条干扰线</span>
+         <span class="nc">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Graphics2D</span><span class="o">)</span> <span class="n">image</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>
+         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+             <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+             <span class="kt">int</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
+             <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+             <span class="kt">int</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
+    
+             <span class="n">g2</span><span class="o">.</span><span class="na">setStroke</span><span class="o">(</span><span class="k">new</span> <span class="nc">BasicStroke</span><span class="o">(</span><span class="mf">1.5</span><span class="no">F</span><span class="o">));</span>
+             <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+             <span class="n">g2</span><span class="o">.</span><span class="na">drawLine</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">,</span> <span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">);</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//随机生成一个字符</span>
+     <span class="kd">private</span> <span class="kt">char</span> <span class="nf">randomChar</span><span class="o">()</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">codes</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+    
+         <span class="k">return</span> <span class="n">codes</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//创建绘制图片</span>
+     <span class="kd">private</span> <span class="nc">BufferedImage</span> <span class="nf">createImage</span><span class="o">()</span> <span class="o">{</span>
+         <span class="nc">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedImage</span><span class="o">(</span><span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">,</span> <span class="nc">BufferedImage</span><span class="o">.</span><span class="na">TYPE_INT_RGB</span><span class="o">);</span>
+         <span class="nc">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Graphics2D</span><span class="o">)</span> <span class="n">image</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>
+         <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">bgColor</span><span class="o">);</span>
+         <span class="n">g2</span><span class="o">.</span><span class="na">fillRect</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">);</span>
+    
+         <span class="k">return</span> <span class="n">image</span><span class="o">;</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//生成验证码，并绘制</span>
+     <span class="kd">public</span> <span class="nc">BufferedImage</span> <span class="nf">generateCaptcha</span><span class="o">()</span> <span class="o">{</span>
+         <span class="nc">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="n">createImage</span><span class="o">();</span>    <span class="c1">//创建图片缓冲区</span>
+         <span class="nc">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Graphics2D</span><span class="o">)</span> <span class="n">image</span><span class="o">.</span><span class="na">getGraphics</span><span class="o">();</span>    <span class="c1">//得到绘制环境</span>
+         <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>     <span class="c1">//装载验证码字符</span>
+    
+         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+             <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">randomChar</span><span class="o">()</span> <span class="o">+</span> <span class="s">""</span><span class="o">;</span>
+             <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+             <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">1.0</span><span class="no">F</span> <span class="o">*</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
+             <span class="n">g2</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">randomColor</span><span class="o">());</span>
+             <span class="n">g2</span><span class="o">.</span><span class="na">setFont</span><span class="o">(</span><span class="n">radomFont</span><span class="o">());</span>
+             <span class="n">g2</span><span class="o">.</span><span class="na">drawString</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">x</span><span class="o">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">5</span><span class="o">);</span>
+         <span class="o">}</span>
+    
+         <span class="k">this</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    
+         <span class="n">drawLine</span><span class="o">(</span><span class="n">image</span><span class="o">);</span>
+    
+         <span class="k">return</span> <span class="n">image</span><span class="o">;</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//返回验证码文本</span>
+     <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getText</span><span class="o">()</span> <span class="o">{</span>
+         <span class="k">return</span> <span class="n">text</span><span class="o">;</span>
+     <span class="o">}</span>
+    
+     <span class="c1">//保存图片</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">output</span><span class="o">(</span><span class="nc">BufferedImage</span> <span class="n">image</span><span class="o">,</span> <span class="nc">OutputStream</span> <span class="n">out</span><span class="o">)</span>
+             <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+         <span class="nc">ImageIO</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="s">"JPEG"</span><span class="o">,</span> <span class="n">out</span><span class="o">);</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>生成验证码，返回图片和字符串</p> <div class="language-java highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> <span class="kn">package</span> <span class="nn">com.chan21252.verifycode.servlet</span><span class="o">;</span>
+    
+ <span class="c1">//省略import</span>
+    
+ <span class="nd">@WebServlet</span><span class="o">(</span>
+         <span class="n">name</span> <span class="o">=</span> <span class="s">"VerifyCodeGenServlet"</span><span class="o">,</span>
+         <span class="n">urlPatterns</span> <span class="o">=</span> <span class="s">"/verifyCode"</span>
+ <span class="o">)</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">VerifyCodeGenServlet</span> <span class="kd">extends</span> <span class="nc">HttpServlet</span> <span class="o">{</span>
+     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+    
+     <span class="o">}</span>
+    
+     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+         <span class="nc">VerifyCodeUtils</span> <span class="n">verifyCodeUtils</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VerifyCodeUtils</span><span class="o">();</span>
+         <span class="nc">BufferedImage</span> <span class="n">codeImage</span> <span class="o">=</span> <span class="n">verifyCodeUtils</span><span class="o">.</span><span class="na">generateCaptcha</span><span class="o">();</span>
+         <span class="nc">String</span> <span class="n">codeStr</span> <span class="o">=</span> <span class="n">verifyCodeUtils</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+    
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"生成新的验证码："</span> <span class="o">+</span> <span class="n">codeStr</span><span class="o">);</span>
+    
+         <span class="nc">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
+         <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">"code"</span><span class="o">,</span> <span class="n">codeStr</span><span class="o">);</span>
+         <span class="n">verifyCodeUtils</span><span class="o">.</span><span class="na">output</span><span class="o">(</span><span class="n">codeImage</span><span class="o">,</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div> </div> </li> <li> <p>验证码校验，重定向到输入页面</p> <div class="language-java highlighter-rouge"> <div class="highlight"><pre class="highlight"><code> <span class="kn">package</span> <span class="nn">com.chan21252.verifycode.servlet</span><span class="o">;</span>
+    
+ <span class="c1">//省略import</span>
+    
+ <span class="nd">@WebServlet</span><span class="o">(</span>
+         <span class="n">name</span> <span class="o">=</span> <span class="s">"SubmitServlet"</span><span class="o">,</span>
+         <span class="n">urlPatterns</span> <span class="o">=</span> <span class="s">"/submit.do"</span>
+ <span class="o">)</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SubmitServlet</span> <span class="kd">extends</span> <span class="nc">HttpServlet</span> <span class="o">{</span>
+     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doPost</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+    
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"开始验证..."</span><span class="o">);</span>
+    
+         <span class="n">request</span><span class="o">.</span><span class="na">setCharacterEncoding</span><span class="o">(</span><span class="s">"utf-8"</span><span class="o">);</span>
+    
+         <span class="nc">String</span> <span class="n">userInputStr</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"verifyText"</span><span class="o">);</span>
+         <span class="nc">String</span> <span class="n">codeStr</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"code"</span><span class="o">);</span>
+    
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"用户输入："</span> <span class="o">+</span> <span class="n">userInputStr</span><span class="o">);</span>
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"正确的验证码："</span> <span class="o">+</span> <span class="n">codeStr</span><span class="o">);</span>
+    
+         <span class="nc">String</span> <span class="n">msg</span><span class="o">;</span>
+         <span class="k">if</span> <span class="o">(</span><span class="n">userInputStr</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">codeStr</span><span class="o">))</span> <span class="o">{</span>
+             <span class="n">msg</span> <span class="o">=</span> <span class="s">"验证通过"</span><span class="o">;</span>
+         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+             <span class="n">msg</span> <span class="o">=</span> <span class="s">"验证失败"</span><span class="o">;</span>
+         <span class="o">}</span>
+    
+         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    
+         <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">"msg"</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+         <span class="n">response</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="s">"/verify.jsp"</span><span class="o">);</span>
+     <span class="o">}</span>
+    
+     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+         <span class="n">doPost</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div> </div> </li> </ol> <div class="language-jsp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;%@ page </span><span class="na">contentType=</span><span class="s">"text/html;charset=UTF-8"</span><span class="na"> language=</span><span class="s">"java"</span> <span class="nt">%&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;title&gt;</span>人机验证<span class="nt">&lt;/title&gt;</span>
