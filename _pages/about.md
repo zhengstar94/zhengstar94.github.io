@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: ✉️ zhengstars@gmail.com  
+subtitle: ✉️ xingxingzheng1994@gmail.com  
 
 profile:
   align: right
