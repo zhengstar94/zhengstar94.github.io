@@ -3,7 +3,7 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "Smallest Difference"
+title: "SmallestDifference"
 date: "2023-01-07"
 categories:
   - "Algorithm Array"

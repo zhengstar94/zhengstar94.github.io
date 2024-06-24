@@ -167,11 +167,11 @@ public class StableInternships {
                         new int[][]{
                                 {0, 1, 2},
                                 {1, 0, 2},
-                                {1, 2, 0}},
+                                {1, 2, 0} },
                         new int[][]{
                                 {2, 1, 0},
                                 {1, 2, 0},
-                                {0, 2, 1}})
+                                {0, 2, 1} })
         ));
     }
 }
@@ -255,8 +255,8 @@ public class StableInternships {
     }
 
     public static void main(String[] args) {
-        int[][] interns = {{0, 1, 2}, {1, 0, 2}, {2, 1, 0}};
-        int[][] companies = {{2, 0, 1}, {0, 2, 1}, {1, 2, 0}};
+        int[][] interns = { {0, 1, 2}, {1, 0, 2}, {2, 1, 0}};
+        int[][] companies = { {2, 0, 1}, {0, 2, 1}, {1, 2, 0}};
         int[][] matches = findStableMatches(interns, companies);
         for (int[] match : matches) {
             System.out.println("实习生 " + match[0] + " 匹配到公司 " + match[1]);
