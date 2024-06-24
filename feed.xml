@@ -1,710 +1,607 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-06-24T13:48:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">76. Minimum Window Substring</title><link href="https://zhengstar94.github.io//blog/2024/MinimumWindowSubstring/" rel="alternate" type="text/html" title="76. Minimum Window Substring"/><published>2024-02-28T00:00:00+00:00</published><updated>2024-02-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumWindowSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumWindowSubstring/"><![CDATA[<h1 id="leetcode-76-minimum-window-substring">LeetCode 76. Minimum Window Substring</h1> <ul> <li>Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string “”.</li> <li>The testcases will be generated such that the answer is <strong>unique</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ADOBECODEBANC", t = "ABC"
-Output: "BANC"
-Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a", t = "a"
-Output: "a"
-Explanation: The entire string s is the minimum window.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a", t = "aa"
-Output: ""
-Explanation: Both 'a's from t must be included in the window.
-Since the largest window of s only has one 'a', return empty string.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-06-24T14:53:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">57.Insert Interval</title><link href="https://zhengstar94.github.io//blog/2024/InsertInterval/" rel="alternate" type="text/html" title="57.Insert Interval"/><published>2024-06-16T00:00:00+00:00</published><updated>2024-06-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/InsertInterval</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/InsertInterval/"><![CDATA[<h1 id="57-insert-interval">57. Insert Interval</h1> <ul> <li>You are given an array of non-overlapping intervals <code class="language-plaintext highlighter-rouge">intervals</code> where <code class="language-plaintext highlighter-rouge">intervals[i] = [starti, endi]</code> represent the start and the end of the <code class="language-plaintext highlighter-rouge">ith</code> interval and <code class="language-plaintext highlighter-rouge">intervals</code> is sorted in ascending order by <code class="language-plaintext highlighter-rouge">starti</code>. You are also given an interval <code class="language-plaintext highlighter-rouge">newInterval = [start, end]</code> that represents the start and end of another interval.</li> <li>Insert <code class="language-plaintext highlighter-rouge">newInterval</code> into <code class="language-plaintext highlighter-rouge">intervals</code> such that <code class="language-plaintext highlighter-rouge">intervals</code> is still sorted in ascending order by <code class="language-plaintext highlighter-rouge">starti</code> and <code class="language-plaintext highlighter-rouge">intervals</code> still does not have any overlapping intervals (merge overlapping intervals if necessary).</li> <li>Return <code class="language-plaintext highlighter-rouge">intervals</code> <em>after the insertion</em>.</li> <li><strong>Note</strong> that you don’t need to modify <code class="language-plaintext highlighter-rouge">intervals</code> in-place. You can make a new array and return it.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+Output: [[1,2],[3,10],[12,16]]
+Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Intervals</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
 <span class="cm">/**
- * @author zhengstars
- * @date 2024/03/30
+ * Author: zhengstars
+ * Date: 2024/06/16
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumWindowSubstring</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">minWindow</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Array for recording the count of characters, total number of ASCII characters is 128</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">128</span><span class="o">];</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InsertInterval</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">newInterval</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// List to store the final result after merging intervals</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
 
-        <span class="c1">// Record the length of target string t</span>
-        <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="c1">// Length of the input intervals array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
 
-        <span class="c1">// Calculate the number of characters in the target string t</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">t</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">cnt</span><span class="o">[</span><span class="n">c</span><span class="o">]++;</span>
+        <span class="c1">// Index for iterating through the intervals array</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Add all intervals that end before the new interval starts</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">newInterval</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>  <span class="c1">// These intervals do not overlap with the new interval</span>
+            <span class="n">i</span><span class="o">++;</span>
         <span class="o">}</span>
 
-        <span class="c1">// Variable to record the starting position of the smallest window</span>
-        <span class="kt">int</span> <span class="n">from</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Variable to record the length of the smallest window, initialized to the maximum value</span>
-        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-
-        <span class="c1">// Main loop, for sliding window</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If the new character added to the window exists in the target string, the counter count increases by 1</span>
-            <span class="k">if</span> <span class="o">(--</span><span class="n">cnt</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// When the number of characters in the window meets the target string, enter the loop, trying to narrow the window</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">total</span><span class="o">)</span> <span class="o">{</span>
-
-                <span class="c1">// If the current window length is less than the smallest window length, update the smallest window length and the starting position</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">min</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">min</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                    <span class="n">from</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-                <span class="o">}</span>
-
-                <span class="c1">// Try to eliminate the character on the left side of the window</span>
-                <span class="k">if</span> <span class="o">(++</span><span class="n">cnt</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">count</span><span class="o">--;</span>
-                <span class="o">}</span>
-
-                <span class="c1">// Right shift of the left boundary of the window</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
+        <span class="c1">// Merge all intervals that overlap with the new interval</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">newInterval</span><span class="o">[</span><span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+            <span class="c1">// Update the new interval to encompass the overlapping intervals</span>
+            <span class="n">newInterval</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">newInterval</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]);</span>
+            <span class="n">newInterval</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">newInterval</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+            <span class="n">i</span><span class="o">++;</span>
         <span class="o">}</span>
 
-        <span class="c1">// If no legal window is found, return "", otherwise, return the window string</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">min</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">)</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">from</span><span class="o">,</span> <span class="n">from</span> <span class="o">+</span> <span class="n">min</span><span class="o">);</span>
-    <span class="o">}</span>
+        <span class="c1">// Add the merged new interval to the result</span>
+        <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newInterval</span><span class="o">);</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"ADOBECODEBANC"</span><span class="o">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="s">"ABC"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">,</span> <span class="n">t3</span> <span class="o">=</span> <span class="s">"aa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minWindow</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">t1</span><span class="o">));</span>  <span class="c1">// BANC</span>
-        <span class="c1">//System.out.println(minWindow(s2, t2));  // a</span>
-        <span class="c1">//System.out.println(minWindow(s3, t3));  // ""</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[LeetCode 76. Minimum Window Substring]]></summary></entry><entry><title type="html">424. Longest Repeating Character Replacement</title><link href="https://zhengstar94.github.io//blog/2024/LongestRepeatingCharacterReplacement/" rel="alternate" type="text/html" title="424. Longest Repeating Character Replacement"/><published>2024-02-27T00:00:00+00:00</published><updated>2024-02-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestRepeatingCharacterReplacement</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestRepeatingCharacterReplacement/"><![CDATA[<h1 id="leetcode-424-longest-repeating-character-replacement">LeetCode 424. Longest Repeating Character Replacement</h1> <ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most <code class="language-plaintext highlighter-rouge">k</code> times.</li> <li>Return <em>the length of the longest substring containing the same letter you can get after performing the above operations</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ABAB", k = 2
-Output: 4
-Explanation: Replace the two 'A's with two 'B's or vice versa.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "AABABBA", k = 1
-Output: 4
-Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
-The substring "BBBB" has the longest repeating letters, which is 4.
-There may exists other ways to achieve this answer too.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/27
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestRepeatingCharacterReplacement</span> <span class="o">{</span>
-
-    <span class="c1">// Main function to calculate the longest repeating character with replacement</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">characterReplacement</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Convert the input string to character array</span>
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
-
-        <span class="c1">// Declare an array to store counts of each letter</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-        <span class="c1">// Get the length of the input string</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="c1">// Initialize the max length</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Initialize the left pointer of the sliding window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Start sliding window from the left to the right</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the index of current character in the map array</span>
-            <span class="kt">int</span> <span class="n">rider</span> <span class="o">=</span> <span class="n">cur</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'A'</span><span class="o">;</span>
-            <span class="c1">// Increase the count of current character</span>
-            <span class="n">map</span><span class="o">[</span><span class="n">rider</span><span class="o">]++;</span>
-            <span class="c1">// Update the max count</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">map</span><span class="o">[</span><span class="n">rider</span><span class="o">]);</span>
-
-            <span class="c1">// If the length of the current window minus max count is larger than k</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">ans</span> <span class="o">+</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Decrease the count of the character at left pointer</span>
-                <span class="n">map</span><span class="o">[</span><span class="n">cur</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'A'</span><span class="o">]--;</span>
-                <span class="c1">// Move the left pointer to the right by one unit</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
+        <span class="c1">// Add all remaining intervals that start after the new interval ends</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="n">i</span><span class="o">++;</span>
         <span class="o">}</span>
-        <span class="c1">// Return the max length of the substring</span>
-        <span class="k">return</span> <span class="n">cur</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">left</span><span class="o">;</span>
+
+        <span class="c1">// Convert the result list to a two-dimensional array</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">()][]);</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"ABAB"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="c1">// Print the result of the test case 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">characterReplacement</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">9</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">newInterval1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for intervals1: "</span><span class="o">);</span>
+        <span class="n">printResult</span><span class="o">(</span><span class="n">insert</span><span class="o">(</span><span class="n">intervals1</span><span class="o">,</span> <span class="n">newInterval1</span><span class="o">));</span> <span class="c1">// Expected output: [[1, 5], [6, 9]]</span>
 
         <span class="c1">// Test case 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"AABABBA"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="c1">// Print the result of the test case 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">characterReplacement</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[LeetCode 424. Longest Repeating Character Replacement]]></summary></entry><entry><title type="html">3. Longest Substring Without Repeating Characters</title><link href="https://zhengstar94.github.io//blog/2024/LongestSubstringWithoutRepeatingCharacters/" rel="alternate" type="text/html" title="3. Longest Substring Without Repeating Characters"/><published>2024-02-26T00:00:00+00:00</published><updated>2024-02-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestSubstringWithoutRepeatingCharacters</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestSubstringWithoutRepeatingCharacters/"><![CDATA[<h1 id="leetcode-3-longest-substring-without-repeating-characters">LeetCode 3. Longest Substring Without Repeating Characters</h1> <ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, find the length of the <strong>longest</strong> <strong>substring</strong> without repeating characters.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "pwwkew"
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(n)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/26
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestSubstringWithoutRepeatingCharacters</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">lengthOfLongestSubstring</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// We start by initializing a HashMap to keep track of the characters we have encountered</span>
-        <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// 'start' and 'end' pointers represent the current window</span>
-        <span class="c1">// 'length' holds the maximum length of substring without repeating characters we have found till now.</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// We expand the window by incrementing 'end' and move 'start' as needed</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">end</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
-            <span class="c1">// The current character at the 'end' of the window</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">end</span><span class="o">);</span>
-
-            <span class="c1">// If character 'c' has already been encountered, move 'start' pointer to the next position from its previous occurrence</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">c</span><span class="o">)){</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">c</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Update the position of character 'c'</span>
-            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
-
-            <span class="c1">// Update the length of the longest substring without repeating characters</span>
-            <span class="n">length</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">length</span><span class="o">,</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
-
-            <span class="c1">// Expand the window</span>
-            <span class="n">end</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="c1">// Finally, return the length of longest substring without repeating characters</span>
-        <span class="k">return</span> <span class="n">length</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">},</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="mi">16</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">newInterval2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for intervals2: "</span><span class="o">);</span>
+        <span class="n">printResult</span><span class="o">(</span><span class="n">insert</span><span class="o">(</span><span class="n">intervals2</span><span class="o">,</span> <span class="n">newInterval2</span><span class="o">));</span> <span class="c1">// Expected output: [[1, 2], [3, 10], [12, 16]]</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test the function with example string "abcabcbb"</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcabcbb"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lengthOfLongestSubstring</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>  <span class="c1">// Output: 3</span>
-
-        <span class="c1">// Test the function with example string "bbbbb"</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"bbbbb"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lengthOfLongestSubstring</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>  <span class="c1">// Output: 1</span>
-
-        <span class="c1">// Test the function with example string "pwwkew"</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"pwwkew"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lengthOfLongestSubstring</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>  <span class="c1">// Output: 3</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[LeetCode 3. Longest Substring Without Repeating Characters]]></summary></entry><entry><title type="html">121. Best Time to Buy and Sell Stock</title><link href="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStock/" rel="alternate" type="text/html" title="121. Best Time to Buy and Sell Stock"/><published>2024-02-25T00:00:00+00:00</published><updated>2024-02-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStock</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStock/"><![CDATA[<h1 id="leetcode-121-best-time-to-buy-and-sell-stock">LeetCode 121. Best Time to Buy and Sell Stock</h1> <ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">prices</code> where <code class="language-plaintext highlighter-rouge">prices[i]</code> is the price of a given stock on the <code class="language-plaintext highlighter-rouge">ith</code> day.</li> <li>You want to maximize your profit by choosing a <strong>single day</strong> to buy one stock and choosing a <strong>different day in the future</strong> to sell that stock.</li> <li>Return <em>the maximum profit you can achieve from this transaction</em>. If you cannot achieve any profit, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [7,1,5,3,6,4]
-Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [7,6,4,3,1]
-Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/21
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BestTimeToBuyAndSellStock</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// minprice is used to store the minimal price of the stock</span>
-        <span class="kt">int</span> <span class="n">minprice</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-        <span class="c1">// maxprofit is used to store the maximum profit</span>
-        <span class="kt">int</span> <span class="n">maxprofit</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// This loop is used to traverse on every price</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If the current price is less than minprice, update minprice</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">minprice</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">minprice</span> <span class="o">=</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-            <span class="c1">// If the current profit (price - minprice) is greater than maxprofit, update maxprofit</span>
-            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">minprice</span> <span class="o">&gt;</span> <span class="n">maxprofit</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">maxprofit</span> <span class="o">=</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">minprice</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Return the maximum profit</span>
-        <span class="k">return</span> <span class="n">maxprofit</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1: Given the stock prices of {7,1,5,3,6,4}</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">prices1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="c1">// Run the maxProfit function and print out the result.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxProfit</span><span class="o">(</span><span class="n">prices1</span><span class="o">));</span>  <span class="c1">// Output: 5</span>
-
-        <span class="c1">// Example 2: Given the stock prices of {7,6,4,3,1}</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">prices2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Run the maxProfit function and print out the result.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxProfit</span><span class="o">(</span><span class="n">prices2</span><span class="o">));</span>  <span class="c1">// Output: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[LeetCode 121. Best Time to Buy and Sell Stock]]></summary></entry><entry><title type="html">20. Valid Parentheses</title><link href="https://zhengstar94.github.io//blog/2024/ValidParentheses/" rel="alternate" type="text/html" title="20. Valid Parentheses"/><published>2024-02-24T00:00:00+00:00</published><updated>2024-02-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ValidParentheses</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ValidParentheses/"><![CDATA[<h1 id="leetcode-20-valid-parentheses">LeetCode 20. Valid Parentheses</h1> <ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> containing just the characters <code class="language-plaintext highlighter-rouge">'('</code>, <code class="language-plaintext highlighter-rouge">')'</code>, <code class="language-plaintext highlighter-rouge">'{'</code>, <code class="language-plaintext highlighter-rouge">'}'</code>, <code class="language-plaintext highlighter-rouge">'['</code> and <code class="language-plaintext highlighter-rouge">']'</code>, determine if the input string is valid.</li> <li>An input string is valid if: <ol> <li>Open brackets must be closed by the same type of brackets.</li> <li>Open brackets must be closed in the correct order.</li> <li>Every close bracket has a corresponding open bracket of the same type.</li> </ol> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "()"
-Output: true
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "()[]{}"
-Output: true
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "(]"
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(n)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValidParentheses</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Directly return false if the length of the string is odd</span>
-        <span class="c1">// as it clearly cannot be valid with mismatched pairs of parentheses</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()];</span>
-        <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Traverse each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Push the open parentheses onto the stack</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'('</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'['</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'{'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">stack</span><span class="o">[++</span><span class="n">top</span><span class="o">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Check if the open parentheses at the stack top</span>
-                <span class="c1">// matches with the closed parentheses </span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">top</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span>
-                        <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">')'</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">[</span><span class="n">top</span><span class="o">]</span> <span class="o">!=</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">||</span>
-                        <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">']'</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">[</span><span class="n">top</span><span class="o">]</span> <span class="o">!=</span> <span class="sc">'['</span><span class="o">)</span> <span class="o">||</span>
-                        <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'}'</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">[</span><span class="n">top</span><span class="o">]</span> <span class="o">!=</span> <span class="sc">'{'</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// Pop the matched open parentheses from the stack</span>
-                <span class="n">top</span><span class="o">--;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Return true if all open parentheses have been successfully matched</span>
-        <span class="c1">// (i.e. the stack is empty), return false otherwise</span>
-        <span class="k">return</span> <span class="n">top</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1</span>
-        <span class="nc">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"()"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="n">str1</span><span class="o">));</span>  <span class="c1">// Output: true</span>
-
-        <span class="c1">// Example 2</span>
-        <span class="nc">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"()[]{}"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="n">str2</span><span class="o">));</span>  <span class="c1">// Output: true</span>
-
-        <span class="c1">// Example 3</span>
-        <span class="nc">String</span> <span class="n">str3</span> <span class="o">=</span> <span class="s">"(]"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="n">str3</span><span class="o">));</span>  <span class="c1">// Output: false</span>
-
-        <span class="c1">// Example 4</span>
-        <span class="nc">String</span> <span class="n">str4</span> <span class="o">=</span> <span class="s">"([)]"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="n">str4</span><span class="o">));</span>  <span class="c1">// Output: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[LeetCode 20. Valid Parentheses]]></summary></entry><entry><title type="html">19.Remove Nth Node From End of List</title><link href="https://zhengstar94.github.io//blog/2024/RemoveNthNodeFromEndOfList/" rel="alternate" type="text/html" title="19.Remove Nth Node From End of List"/><published>2024-02-23T00:00:00+00:00</published><updated>2024-02-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveNthNodeFromEndOfList</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveNthNodeFromEndOfList/"><![CDATA[<h1 id="leetcode-19-remove-nth-node-from-end-of-list">LeetCode 19. Remove Nth Node From End of List</h1> <ul> <li>Given the <code class="language-plaintext highlighter-rouge">head</code> of a linked list, remove the <code class="language-plaintext highlighter-rouge">nth</code> node from the end of the list and return its head.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2,3,4,5], n = 2
-Output: [1,2,3,5]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1], n = 1
-Output: []
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2], n = 1
-Output: [1]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveNthNodeFromEndOfList</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span>  <span class="nc">ListNode</span> <span class="nf">removeNthFromEnd</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Creating a dummy node and let its next be the head node. </span>
-        <span class="c1">// This can make the process easier when the head node needs to be removed.</span>
-        <span class="nc">ListNode</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">head</span><span class="o">);</span>
-
-        <span class="c1">// Get the length of the linked list</span>
-        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
-
-        <span class="c1">// Initialise a cursor pointing at the dummy node</span>
-        <span class="nc">ListNode</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">;</span>
-
-        <span class="c1">// Move the cursor to the node before the node to be removed</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="o">-</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Remove the nth node from the end</span>
-        <span class="n">cur</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-        <span class="c1">// Return the head node of the modified list</span>
-        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getLength</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Traverse the list to accumulate the length</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">head</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
-            <span class="n">length</span><span class="o">++;</span>
-            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">length</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">// Example 1</span>
-        <span class="nc">ListNode</span> <span class="n">head1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeNthFromEnd</span><span class="o">(</span><span class="n">head1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// expect output: [1,2,3,5]</span>
-
-        <span class="c1">// Example 2</span>
-        <span class="nc">ListNode</span> <span class="n">head2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeNthFromEnd</span><span class="o">(</span><span class="n">head2</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span> <span class="c1">// expect output: []</span>
-
-        <span class="c1">// Example 3</span>
-        <span class="nc">ListNode</span> <span class="n">head3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">head3</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeNthFromEnd</span><span class="o">(</span><span class="n">head3</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span> <span class="c1">// expect output: [1]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[LeetCode 19. Remove Nth Node From End of List]]></summary></entry><entry><title type="html">143. Reorder List</title><link href="https://zhengstar94.github.io//blog/2024/ReorderList/" rel="alternate" type="text/html" title="143. Reorder List"/><published>2024-02-22T00:00:00+00:00</published><updated>2024-02-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReorderList</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReorderList/"><![CDATA[<h1 id="leetcode-143-reorder-list">LeetCode 143. Reorder List</h1> <ul> <li> <p>You are given the head of a singly linked-list. The list can be represented as:</p> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L0 → L1 → … → Ln - 1 → Ln
-</code></pre></div> </div> </blockquote> </li> <li> <p>Reorder the list to be on the following form:</p> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
-</code></pre></div> </div> </blockquote> </li> </ul> <p>You may not modify the values in the list’s nodes. Only nodes themselves may be changed.</p> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2,3,4]
-Output: [1,4,2,3]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2,3,4,5]
-Output: [1,5,2,4,3]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReorderList</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">reorderList</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// if the list only has one or no elements, just return it</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-      <span class="k">return</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// initialization of slow and fast pointers</span>
-    <span class="nc">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-    <span class="nc">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-
-    <span class="c1">// move fast pointer twice as fast as the slow pointer</span>
-    <span class="c1">// when fast reaches the end, slow is at the middle</span>
-    <span class="k">while</span> <span class="o">(</span><span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-      <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// The 'preMiddle' node is defined as the middle node of the original list.</span>
-    <span class="c1">// slow is at the middle node of the original list now.</span>
-    <span class="nc">ListNode</span> <span class="n">preMiddle</span> <span class="o">=</span> <span class="n">slow</span><span class="o">;</span>
-
-    <span class="c1">// Reverse the second half of the list using the method from the first piece of code.</span>
-
-    <span class="c1">// Initialize the previous node as null.</span>
-    <span class="nc">ListNode</span> <span class="n">prev</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="c1">// Set the current node as the first node of the second half of the list.</span>
-    <span class="nc">ListNode</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-    <span class="c1">// This loop is to reverse the second half of the list</span>
-    <span class="k">while</span> <span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-      <span class="c1">// temporarily store the next node of the current node.</span>
-      <span class="nc">ListNode</span> <span class="n">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-      <span class="c1">// point the next of the current node to the previous node, realizing the reverse.</span>
-      <span class="n">curr</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">;</span>
-      <span class="c1">// move the previous node to the current node, preparing for next reverse.</span>
-      <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
-      <span class="c1">// move the current node to the next node, preparing for next reverse.</span>
-      <span class="n">curr</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Insert the reversed second half list to the middle of the original list.</span>
-    <span class="n">preMiddle</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">;</span>
-
-    <span class="c1">// Reset the 'slow' node to the head of the original list, preparing for the merge.</span>
-    <span class="c1">// Reset the 'fast' node to the head of the reversed second half list, preparing for the merge.</span>
-    <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-    <span class="n">fast</span> <span class="o">=</span> <span class="n">preMiddle</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-    <span class="c1">// This loop is to merge the two halves of the list.</span>
-    <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">preMiddle</span><span class="o">)</span> <span class="o">{</span>
-
-      <span class="c1">// Before the merge, move the 'fast' node from the second half list.</span>
-      <span class="n">preMiddle</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-      <span class="c1">// Connect the 'fast' node to be merged, to the rest of the merged list.</span>
-      <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-      <span class="c1">// Insert the 'fast' node to the merged list after the 'slow' node.</span>
-      <span class="n">slow</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">fast</span><span class="o">;</span>
-
-      <span class="c1">// Move the 'slow' node to the next of the 'fast', preparing for the next merge.</span>
-      <span class="n">slow</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-      <span class="c1">// Point the 'fast' node to the next to be merged node from the second half list, preparing for the next merge.</span>
-      <span class="n">fast</span> <span class="o">=</span> <span class="n">preMiddle</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-    <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// create a list with 6 nodes</span>
-    <span class="nc">ListNode</span> <span class="n">head2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-    <span class="n">head2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-    <span class="n">head2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-    <span class="n">head2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-    <span class="n">head2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-    <span class="n">head2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
-    <span class="c1">// reorder the list</span>
-    <span class="n">reorderList</span><span class="o">(</span><span class="n">head2</span><span class="o">);</span>
-    <span class="c1">// print the list, expecting output: 1-&gt;6-&gt;2-&gt;5-&gt;3-&gt;4</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-
-
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[LeetCode 143. Reorder List]]></summary></entry><entry><title type="html">141.Linked List Cycle</title><link href="https://zhengstar94.github.io//blog/2024/LinkedListCycle/" rel="alternate" type="text/html" title="141.Linked List Cycle"/><published>2024-02-21T00:00:00+00:00</published><updated>2024-02-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LinkedListCycle</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LinkedListCycle/"><![CDATA[<h1 id="leetcode-141-linked-list-cycle">LeetCode 141. Linked List Cycle</h1> <ul> <li>Given <code class="language-plaintext highlighter-rouge">head</code>, the head of a linked list, determine if the linked list has a cycle in it.</li> <li>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the <code class="language-plaintext highlighter-rouge">next</code> pointer. Internally, <code class="language-plaintext highlighter-rouge">pos</code> is used to denote the index of the node that tail’s <code class="language-plaintext highlighter-rouge">next</code> pointer is connected to. <strong>Note that <code class="language-plaintext highlighter-rouge">pos</code> is not passed as a parameter</strong>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if there is a cycle in the linked list</em>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [3,2,0,-4], pos = 1
-Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2], pos = 0
-Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1], pos = -1
-Output: false
-Explanation: There is no cycle in the linked list.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedListCycle</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">hasCycle</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// If the head is null or the next node of head is null, it can't construct a cycle, return false</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Defining two pointers, 'slow' will move one step at a time, 'fast' will move two steps at a time</span>
-        <span class="nc">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-        <span class="nc">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-        <span class="c1">// Use a while loop to move 'slow' and 'fast' until they meet each other</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-
-            <span class="c1">// If we have reached the end of the list, it means there is no cycle, return false</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">fast</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Otherwise, move 'slow' one step and 'fast' two steps</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If 'slow' and 'fast' meet, it means there is a cycle in the list, return true</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Define the main procedure for testing</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Create the first list, which has a cycle</span>
-        <span class="nc">ListNode</span> <span class="n">head1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(-</span><span class="mi">4</span><span class="o">);</span>
-        <span class="c1">// Make the next node of the last node to be the second node (head1.next). Now, the list is a cycle</span>
-        <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head1</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="c1">// The method should return true because there is a cycle in the list</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hasCycle</span><span class="o">(</span><span class="n">head1</span><span class="o">));</span> <span class="c1">// expect output: true</span>
-
-        <span class="c1">// Create the second list, which has a cycle</span>
-        <span class="nc">ListNode</span> <span class="n">head2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">head2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="c1">// Make the next node of the last node to be the head node (head2). Now, the list is a cycle</span>
-        <span class="n">head2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head2</span><span class="o">;</span>
-        <span class="c1">// The method should return true because there is a cycle in the list</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hasCycle</span><span class="o">(</span><span class="n">head2</span><span class="o">));</span> <span class="c1">// expect output: true</span>
-
-        <span class="c1">// Create the third list, which doesn't have a cycle</span>
-        <span class="nc">ListNode</span> <span class="n">head3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="c1">// The method should return false because there is no cycle in the list</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hasCycle</span><span class="o">(</span><span class="n">head3</span><span class="o">));</span> <span class="c1">// expect output: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[LeetCode 141. Linked List Cycle]]></summary></entry><entry><title type="html">21.Merging Linked Lists</title><link href="https://zhengstar94.github.io//blog/2024/MergingLinkedLists/" rel="alternate" type="text/html" title="21.Merging Linked Lists"/><published>2024-02-20T00:00:00+00:00</published><updated>2024-02-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergingLinkedLists</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergingLinkedLists/"><![CDATA[<h1 id="leetcode-21-merging-linked-lists">LeetCode 21. Merging Linked Lists</h1> <ul> <li> <p>You are given the heads of two sorted linked lists <code class="language-plaintext highlighter-rouge">list1</code> and <code class="language-plaintext highlighter-rouge">list2</code>.</p> </li> <li> <p>Merge the two lists in a one <strong>sorted</strong> list. The list should be made by splicing together the nodes of the first two lists.</p> </li> <li> <p>Return <em>the head of the merged linked list</em>.</p> </li> </ul> <p>**Example 1: **</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: list1 = [1,2,4], list2 = [1,3,4]
-Output: [1,1,2,3,4,4]
-</code></pre></div></div> <p>**Example 2: **</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: list1 = [], list2 = []
-Output: []
-</code></pre></div></div> <p>**Example 3: **</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: list1 = [], list2 = [0]
-Output: [0]
-</code></pre></div></div> <p><br/></p> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">LinkedLists</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2023/06/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergingLinkedLists</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-        <span class="nc">ListNode</span> <span class="n">next</span><span class="o">;</span>
-
-        <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">mergeTwoLists</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">list1</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">list2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create the head node of the merged list</span>
-        <span class="nc">ListNode</span> <span class="n">mergedHead</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-        <span class="c1">// Current node pointer</span>
-        <span class="nc">ListNode</span> <span class="n">current</span> <span class="o">=</span> <span class="n">mergedHead</span><span class="o">;</span>
-
-        <span class="nc">ListNode</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">list1</span><span class="o">;</span>
-        <span class="nc">ListNode</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">list2</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">p1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;=</span> <span class="n">p2</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Add p1 node to mergedHead</span>
-                <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">p1</span><span class="o">;</span>
-                <span class="c1">// Move p1 pointer</span>
-                <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Add p2 node to mergedHead</span>
-                <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">p2</span><span class="o">;</span>
-                <span class="c1">// Move p2 pointer</span>
-                <span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// Move current node pointer</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Add the remaining part to the end of mergedHead</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">p1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">p1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">p2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">p2</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the head node of the merged list</span>
-        <span class="k">return</span> <span class="n">mergedHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// list1: 1 -&gt; 2 -&gt; 4</span>
-        <span class="nc">ListNode</span> <span class="n">node1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">ListNode</span> <span class="n">node2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="nc">ListNode</span> <span class="n">node4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">node1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node2</span><span class="o">;</span>
-        <span class="n">node2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node4</span><span class="o">;</span>
-
-        <span class="c1">// list2: 1 -&gt; 3 -&gt; 4</span>
-        <span class="nc">ListNode</span> <span class="n">node1_2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">ListNode</span> <span class="n">node3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="nc">ListNode</span> <span class="n">node4_2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">node1_2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node3</span><span class="o">;</span>
-        <span class="n">node3</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node4_2</span><span class="o">;</span>
-
-        <span class="nc">ListNode</span> <span class="n">mergedList</span> <span class="o">=</span> <span class="n">mergeTwoLists</span><span class="o">(</span><span class="n">node1</span><span class="o">,</span> <span class="n">node1_2</span><span class="o">);</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">mergedList</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">mergedList</span><span class="o">.</span><span class="na">val</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-            <span class="n">mergedList</span> <span class="o">=</span> <span class="n">mergedList</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[LeetCode 21. Merging Linked Lists]]></summary></entry><entry><title type="html">206.Reverse Linked List</title><link href="https://zhengstar94.github.io//blog/2024/ReverseLinkedList/" rel="alternate" type="text/html" title="206.Reverse Linked List"/><published>2024-02-19T00:00:00+00:00</published><updated>2024-02-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReverseLinkedList</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReverseLinkedList/"><![CDATA[<h1 id="leetcode-206-reverse-linked-list">LeetCode 206. Reverse Linked List</h1> <ul> <li>Given the <code class="language-plaintext highlighter-rouge">head</code> of a singly linked list, reverse the list, and return <em>the reversed list</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2,3,4,5]
-Output: [5,4,3,2,1]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,2]
-Output: [2,1]
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = []
-Output: []
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n)time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/03/07
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseLinkedList</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">reverseList</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// prev points to the node before curr</span>
-        <span class="nc">ListNode</span> <span class="n">prev</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="c1">// curr points to the current node we're at</span>
-        <span class="nc">ListNode</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-        <span class="c1">// While there is still unprocessed node</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Store the next node of curr before changing curr.next</span>
-            <span class="nc">ListNode</span> <span class="n">nextTemp</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="c1">// Reverse the direction of the link</span>
-            <span class="n">curr</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">;</span>
-            <span class="c1">// Move on to the next node</span>
-            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">nextTemp</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// At the end of the list, prev will be the new head</span>
-        <span class="k">return</span> <span class="n">prev</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1</span>
-        <span class="c1">// Create a list with nodes [1-&gt;2-&gt;3-&gt;4-&gt;5]</span>
-        <span class="nc">ListNode</span> <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="c1">// Reverse the list and store the new head</span>
-        <span class="nc">ListNode</span> <span class="n">reversedList</span> <span class="o">=</span> <span class="n">reverseList</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
-        <span class="c1">// Print the reversed list</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">reversedList</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">reversedList</span><span class="o">.</span><span class="na">val</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-            <span class="n">reversedList</span> <span class="o">=</span> <span class="n">reversedList</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="cm">/**
+     * Helper method to print a two-dimensional array of intervals.
+     *
+     * @param intervals The array of intervals to be printed.
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printResult</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">interval</span> <span class="o">:</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span> <span class="o">+</span> <span class="n">interval</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">interval</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"] "</span><span class="o">);</span>
         <span class="o">}</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[57. Insert Interval]]></summary></entry><entry><title type="html">252.Meeting Rooms</title><link href="https://zhengstar94.github.io//blog/2024/MeetingRooms/" rel="alternate" type="text/html" title="252.Meeting Rooms"/><published>2024-06-15T00:00:00+00:00</published><updated>2024-06-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MeetingRooms</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MeetingRooms/"><![CDATA[<h1 id="252-meeting-rooms">252. Meeting Rooms</h1> <ul> <li>Given an array of meeting time intervals consisting of start and end times<code class="language-plaintext highlighter-rouge">[[s1,e1],[s2,e2],...]</code>(si&lt; ei), determine if a person could attend all meetings.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+[[0,30],[5,10],[15,20]]
+Output:
+ false
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+ [[7,10],[2,4]]
+
+Output:
+ true
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Intervals</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 
 <span class="cm">/**
- * Definition for singly-linked list node.
+ * @author zhengstars
+ * @date 2024/06/15
  */</span>
-<span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-    <span class="nc">ListNode</span> <span class="n">next</span><span class="o">;</span>
-    <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MeetingRooms</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Method to check if a person can attend all given meetings without any overlap.
+     *
+     * @param intervals 2D array where each sub-array contains two integers denoting the start and end time of a meeting.
+     * @return boolean value - true if a person can attend all meetings, false otherwise.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canAttendMeetings</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the meeting intervals based on their start time.</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">intervals</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+
+        <span class="c1">// Iterate through the sorted intervals to check for any overlaps.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If the start time of the current meeting is less than the end time of the previous meeting,</span>
+            <span class="c1">// there is an overlap, and it's not possible to attend all meetings.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">intervals</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Found an overlapping meeting, return false</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If no overlaps found, return true meaning all meetings can be attended.</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Overlapping meetings</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">30</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">20</span><span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can attend all meetings for intervals1: "</span> <span class="o">+</span> <span class="n">canAttendMeetings</span><span class="o">(</span><span class="n">intervals1</span><span class="o">));</span> <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test case 2: No overlapping meetings</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can attend all meetings for intervals2: "</span> <span class="o">+</span> <span class="n">canAttendMeetings</span><span class="o">(</span><span class="n">intervals2</span><span class="o">));</span> <span class="c1">// Expected output: true</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[LeetCode 206. Reverse Linked List]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[252. Meeting Rooms]]></summary></entry><entry><title type="html">55.Jump Game</title><link href="https://zhengstar94.github.io//blog/2024/JumpGame/" rel="alternate" type="text/html" title="55.Jump Game"/><published>2024-06-02T00:00:00+00:00</published><updated>2024-06-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/JumpGame</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/JumpGame/"><![CDATA[<h1 id="55-jump-game">55. Jump Game</h1> <ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. You are initially positioned at the array’s <strong>first index</strong>, and each element in the array represents your maximum jump length at that position.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if you can reach the last index, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,1,1,4]
+Output: true
+Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1,0,4]
+Output: false
+Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JumpGame</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canJump</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the farthest position that can be reached</span>
+        <span class="kt">int</span> <span class="n">maxReach</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Traverse the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If the current position is beyond the maxReach, it is not possible to continue</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">maxReach</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// Update maxReach</span>
+            <span class="n">maxReach</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxReach</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="c1">// If maxReach is enough to reach the last position or beyond, return true</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">maxReach</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// After traversing, if still not able to reach the last position, return false</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can jump for nums1: "</span> <span class="o">+</span> <span class="n">canJump</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can jump for nums2: "</span> <span class="o">+</span> <span class="n">canJump</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><summary type="html"><![CDATA[55. Jump Game]]></summary></entry><entry><title type="html">53.Maximum Subarray</title><link href="https://zhengstar94.github.io//blog/2024/MaximumSubarray/" rel="alternate" type="text/html" title="53.Maximum Subarray"/><published>2024-06-01T00:00:00+00:00</published><updated>2024-06-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumSubarray/"><![CDATA[<h1 id="53-maximum-subarray">53. Maximum Subarray</h1> <ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, find the subarray with the largest sum, and return <em>its sum</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,4,-1,7,8]
+Output: 23
+Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumSubarray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxSubArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize current subarray sum and maximum subarray sum with the first element of the array.</span>
+        <span class="kt">int</span> <span class="n">currentSum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+
+        <span class="c1">// Traverse the array starting from the second element.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update currentSum to be either the current element or the largest sum of the current subarray sum plus the current element.</span>
+            <span class="n">currentSum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">currentSum</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="c1">// Update maxSum to be the maximum subarray sum.</span>
+            <span class="n">maxSum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxSum</span><span class="o">,</span> <span class="n">currentSum</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxSum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Max subarray sum for nums1: "</span> <span class="o">+</span> <span class="n">maxSubArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 6</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Max subarray sum for nums2: "</span> <span class="o">+</span> <span class="n">maxSubArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Max subarray sum for nums3: "</span> <span class="o">+</span> <span class="n">maxSubArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 23</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><summary type="html"><![CDATA[53. Maximum Subarray]]></summary></entry><entry><title type="html">371.Sum of Two Integers</title><link href="https://zhengstar94.github.io//blog/2024/SumOfTwoIntegers/" rel="alternate" type="text/html" title="371.Sum of Two Integers"/><published>2024-05-05T00:00:00+00:00</published><updated>2024-05-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SumOfTwoIntegers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SumOfTwoIntegers/"><![CDATA[<h1 id="371-sum-of-two-integers">371. Sum of Two Integers</h1> <ul> <li>Given two integers <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code>, return <em>the sum of the two integers without using the operators</em> <code class="language-plaintext highlighter-rouge">+</code> <em>and</em> <code class="language-plaintext highlighter-rouge">-</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = 1, b = 2
+Output: 3
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = 2, b = 3
+Output: 5
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/12
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SumOfTwoIntegers</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Iterate until there is no carry left</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the carry</span>
+            <span class="c1">// (common set bits of a and b)</span>
+            <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">;</span>
+
+            <span class="c1">// Compute the sum without considering the carry</span>
+            <span class="c1">// XOR operation gives the sum of bits where at least one of the bits is not set</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="o">;</span>
+
+            <span class="c1">// Shift the carry left by one</span>
+            <span class="c1">// The carry needs to be added to the sum in the next iteration</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When b is 0, there is no carry left and a contains the final sum</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: 1 + 2 = 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of 1 and 2: "</span> <span class="o">+</span> <span class="n">getSum</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Should output 3</span>
+
+        <span class="c1">// Test case 2: 2 + 3 = 5</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of 2 and 3: "</span> <span class="o">+</span> <span class="n">getSum</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Should output 5</span>
+
+        <span class="c1">// Test case 3: 11 + 13 = 24</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of 11 and 13: "</span> <span class="o">+</span> <span class="n">getSum</span><span class="o">(</span><span class="mi">11</span><span class="o">,</span> <span class="mi">13</span><span class="o">));</span> <span class="c1">// Should output 24</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[371. Sum of Two Integers]]></summary></entry><entry><title type="html">268.Missing Number</title><link href="https://zhengstar94.github.io//blog/2024/MissingNumber/" rel="alternate" type="text/html" title="268.Missing Number"/><published>2024-05-04T00:00:00+00:00</published><updated>2024-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MissingNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MissingNumber/"><![CDATA[<h1 id="268-missing-number">268. Missing Number</h1> <ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> containing <code class="language-plaintext highlighter-rouge">n</code> distinct numbers in the range <code class="language-plaintext highlighter-rouge">[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1]
+Output: 2
+Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
+Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/11
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MissingNumber</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMissingNumber</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Calculate the expected sum of numbers from 0 to n using the formula</span>
+        <span class="kt">int</span> <span class="n">totalSum</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="o">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+        <span class="c1">// Calculate the sum of elements in the given array</span>
+        <span class="kt">int</span> <span class="n">arraySum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">arraySum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// The missing number is the difference between the totalSum and the arraySum</span>
+        <span class="k">return</span> <span class="n">totalSum</span> <span class="o">-</span> <span class="n">arraySum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="c1">// Expected output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Missing number: "</span> <span class="o">+</span> <span class="n">findMissingNumber</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="c1">// Expected output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Missing number: "</span> <span class="o">+</span> <span class="n">findMissingNumber</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="c1">// Expected output: 8</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Missing number: "</span> <span class="o">+</span> <span class="n">findMissingNumber</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[268. Missing Number]]></summary></entry><entry><title type="html">190.Reverse Bits</title><link href="https://zhengstar94.github.io//blog/2024/ReverseBits/" rel="alternate" type="text/html" title="190.Reverse Bits"/><published>2024-05-03T00:00:00+00:00</published><updated>2024-05-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReverseBits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReverseBits/"><![CDATA[<h1 id="190-reverse-bits">190. Reverse Bits</h1> <ul> <li> <p>Reverse bits of a given 32 bits unsigned integer.</p> <p><strong>Note:</strong></p> <ul> <li>Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer’s internal binary representation is the same, whether it is signed or unsigned.</li> <li>In Java, the compiler represents the signed integers using <a href="https://en.wikipedia.org/wiki/Two's_complement">2’s complement notation</a>. Therefore, in <strong>Example 2</strong> above, the input represents the signed integer <code class="language-plaintext highlighter-rouge">-3</code> and the output represents the signed integer <code class="language-plaintext highlighter-rouge">-1073741825</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 00000010100101000001111010011100
+Output:    964176192 (00111001011110000010100101000000)
+Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 11111111111111111111111111111101
+Output:   3221225471 (10111111111111111111111111111111)
+Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is 10111111111111111111111111111111.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseBits</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Reverse the bits of a given 32 bits unsigned integer.
+     *
+     * @param n the input 32 bits unsigned integer
+     * @return the integer resulting from reversing the bits of {@code n}
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reverseBits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate over the 32 bits of the integer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Left shift the result to make space for the next bit</span>
+            <span class="c1">// This shifts all bits of result one place to the left</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="o">;</span>
+
+            <span class="c1">// Extract the lowest bit of n using bitwise AND with 1</span>
+            <span class="c1">// If n's current lowest bit is 1, it returns 1; otherwise, it returns 0</span>
+            <span class="kt">int</span> <span class="n">lowestBit</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">;</span>
+
+            <span class="c1">// Combine the shifted result with the lowest bit of n using bitwise OR</span>
+            <span class="c1">// This is equivalent to adding the lowest bit of n to result's lowest place</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">|</span> <span class="n">lowestBit</span><span class="o">;</span>
+
+            <span class="c1">// Right shift n to discard the bit we just processed</span>
+            <span class="c1">// This moves the next bit of n into the lowest place for the next iteration</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Reverse the bits of a given 32 bits unsigned integer using Java's built-in method.
+     *
+     * @param n the input 32 bits unsigned integer
+     * @return the integer resulting from reversing the bits of {@code n}
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reverseBits2</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Use the Integer.reverse method which is a built-in utility to reverse bits</span>
+        <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mb">0b00000010100101000001111010011100</span><span class="o">;</span>
+        <span class="c1">// expected output: 964176192 (0b00111001011110000010100101000000)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reverseBits</span><span class="o">(</span><span class="n">n1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mb">0b11111111111111111111111111111101</span><span class="o">;</span>
+        <span class="c1">// expected output: 3221225471 (0b10111111111111111111111111111111)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reverseBits</span><span class="o">(</span><span class="n">n2</span><span class="o">));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[190. Reverse Bits]]></summary></entry><entry><title type="html">338.Counting Bits</title><link href="https://zhengstar94.github.io//blog/2024/CountingBits/" rel="alternate" type="text/html" title="338.Counting Bits"/><published>2024-05-02T00:00:00+00:00</published><updated>2024-05-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CountingBits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CountingBits/"><![CDATA[<h1 id="338-counting-bits">338. Counting Bits</h1> <ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>an array</em> <code class="language-plaintext highlighter-rouge">ans</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">n + 1</code> <em>such that for each</em> <code class="language-plaintext highlighter-rouge">i</code> (<code class="language-plaintext highlighter-rouge">0 &lt;= i &lt;= n</code>)<em>,</em> <code class="language-plaintext highlighter-rouge">ans[i]</code> <em>is the <strong>number of</strong></em> <code class="language-plaintext highlighter-rouge">1</code><em><strong>’s</strong> in the binary representation of</em> <code class="language-plaintext highlighter-rouge">i</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
+Output: [0,1,1]
+Explanation:
+0 --&gt; 0
+1 --&gt; 1
+2 --&gt; 10
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5
+Output: [0,1,1,2,1,2]
+Explanation:
+0 --&gt; 0
+1 --&gt; 1
+2 --&gt; 10
+3 --&gt; 11
+4 --&gt; 100
+5 --&gt; 101
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingBits</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">countBits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the result array with length n + 1.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// Loop through the numbers from 1 to n.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// The number of 1's in the binary representation of i is equal to:</span>
+            <span class="c1">// the number of 1's in i / 2 (i.e., i &gt;&gt; 1) plus</span>
+            <span class="c1">// 1 if the least significant bit of i is 1 (i.e., i &amp; 1).</span>
+            <span class="c1">// This is based on the dynamic programming principle where the solution</span>
+            <span class="c1">// for a larger problem is built from the solutions of smaller subproblems.</span>
+            <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">ans</span><span class="o">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the result array.</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">countBits</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span> <span class="c1">// Expected: [0, 1, 1]</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">countBits</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span> <span class="c1">// Expected: [0, 1, 1, 2, 1, 2]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[338. Counting Bits]]></summary></entry><entry><title type="html">191.Number of 1 Bits</title><link href="https://zhengstar94.github.io//blog/2024/NumberOf1Bits/" rel="alternate" type="text/html" title="191.Number of 1 Bits"/><published>2024-05-01T00:00:00+00:00</published><updated>2024-05-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NumberOf1Bits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NumberOf1Bits/"><![CDATA[<h1 id="191-number-of-1-bits">191. Number of 1 Bits</h1> <ul> <li>Write a function that takes the binary representation of a positive integer and returns the number of set bits it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight">Hamming weight</a>).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 11
+
+Output: 3
+
+Explanation:
+
+The input binary string 1011 has a total of three set bits.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 128
+
+Output: 1
+
+Explanation:
+
+The input binary string 10000000 has a total of one set bit.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2147483645
+
+Output: 30
+
+Explanation:
+
+The input binary string 1111111111111111111111111111101 has a total of thirty set bits.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(k) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/07
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfBits</span> <span class="o">{</span>
+    <span class="c1">// Function to calculate the number of 1 bits (Hamming Weight) of a positive integer.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">hammingWeight</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Loop until n becomes 0</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Eliminate the rightmost set bit (1) in the binary representation of n</span>
+            <span class="n">n</span> <span class="o">&amp;=</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="c1">// Increment the count as we have found a set bit</span>
+            <span class="n">count</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the total count of set bits</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Method to test the function with given test cases</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hammingWeight</span><span class="o">(</span><span class="mi">11</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+        <span class="c1">// Test case 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hammingWeight</span><span class="o">(</span><span class="mi">128</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+        <span class="c1">// Test case 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hammingWeight</span><span class="o">(</span><span class="mi">2147483645</span><span class="o">));</span> <span class="c1">// Expected output: 30</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[191. Number of 1 Bits]]></summary></entry><entry><title type="html">73.Set Matrix Zeroes</title><link href="https://zhengstar94.github.io//blog/2024/SetMatrixZeroes/" rel="alternate" type="text/html" title="73.Set Matrix Zeroes"/><published>2024-04-06T00:00:00+00:00</published><updated>2024-04-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SetMatrixZeroes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SetMatrixZeroes/"><![CDATA[<h1 id="73-set-matrix-zeroes">73. Set Matrix Zeroes</h1> <ul> <li> <p>Given an <code class="language-plaintext highlighter-rouge">m x n</code> integer matrix <code class="language-plaintext highlighter-rouge">matrix</code>, if an element is <code class="language-plaintext highlighter-rouge">0</code>, set its entire row and column to <code class="language-plaintext highlighter-rouge">0</code>’s.</p> <p>You must do it <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in place</a>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+Output: [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n*m) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.MathGeometry</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/06/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SetMatrixZeroes</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Sets the matrix cells to zero if their row or column contains at least one zero.
+     *
+     * @param matrix The input matrix.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setZeroes</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">rowZero</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Flag to indicate if the first row needs to be zeroed</span>
+        <span class="kt">boolean</span> <span class="n">colZero</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Flag to indicate if the first column needs to be zeroed</span>
+
+        <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="c1">// Number of rows in the matrix</span>
+        <span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="c1">// Number of columns in the matrix</span>
+
+        <span class="c1">// Check if the first row contains zero</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">rowZero</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Check if the first column contains zero</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">colZero</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Use the first row and column to mark zero positions</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Mark the first element of the column</span>
+                    <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Mark the first element of the row</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Set matrix cells to zero based on first row markers</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Zero out the entire row</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Set matrix cells to zero based on first column markers</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Zero out the entire column</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Finally, set the first row to zero if needed</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">rowZero</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Finally, set the first column to zero if needed</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">colZero</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="n">setZeroes</span><span class="o">(</span><span class="n">matrix1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">matrix1</span><span class="o">));</span> <span class="c1">// Output: [[1, 0, 1], [0, 0, 0], [1, 0, 1]]</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="n">setZeroes</span><span class="o">(</span><span class="n">matrix2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">matrix2</span><span class="o">));</span> <span class="c1">// Output: [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><summary type="html"><![CDATA[73. Set Matrix Zeroes]]></summary></entry></feed>
