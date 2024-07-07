@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-06-28T07:57:44+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">435.Non-overlapping Intervals</title><link href="https://zhengstar94.github.io//blog/2024/Non-OverlappingIntervals/" rel="alternate" type="text/html" title="435.Non-overlapping Intervals"/><published>2024-06-28T00:00:00+00:00</published><updated>2024-06-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/Non-OverlappingIntervals</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/Non-OverlappingIntervals/"><![CDATA[<h1 id="435-non-overlapping-intervals">435. Non-overlapping Intervals</h1> <ul> <li>Given an array of intervals <code class="language-plaintext highlighter-rouge">intervals</code> where <code class="language-plaintext highlighter-rouge">intervals[i] = [starti, endi]</code>, return <em>the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-07T14:06:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">253.Meeting Rooms II</title><link href="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/" rel="alternate" type="text/html" title="253.Meeting Rooms II"/><published>2024-07-07T00:00:00+00:00</published><updated>2024-07-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MeetingRoomsII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/"><![CDATA[<h1 id="253-meeting-rooms-ii">253. Meeting Rooms II</h1> <ul> <li>Given an array of meeting time intervals consisting of start and end times<code class="language-plaintext highlighter-rouge">[[s1,e1],[s2,e2],...]</code>(si&lt; ei), find the minimum number of conference rooms required.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+[[0, 30],[5, 10],[15, 20]]
+Output:
+ 2
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+ [[7,10],[2,4]]
+
+Output:
+ 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Intervals</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Given an array of meeting time intervals consisting of start and end times, find the minimum number of conference rooms required.
+ *
+ * @author zhengstars
+ * @date 2024/07/07
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MeetingRoomsII</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Calculate the minimum number of conference rooms required for the given meeting time intervals.
+     *
+     * @param intervals an array of meeting time intervals
+     * @return the minimum number of conference rooms required
+     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">minMeetingRooms</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">intervals</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Sort the intervals by start time</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">intervals</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;();</span>
+        <span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">peek</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">minHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">MeetingRoomsII</span> <span class="n">meetingRoomsII</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MeetingRoomsII</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 1</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">30</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span><span class="mi">20</span><span class="o">}};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">meetingRoomsII</span><span class="o">.</span><span class="na">minMeetingRooms</span><span class="o">(</span><span class="n">intervals1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span><span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">}};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">meetingRoomsII</span><span class="o">.</span><span class="na">minMeetingRooms</span><span class="o">(</span><span class="n">intervals2</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[253. Meeting Rooms II]]></summary></entry><entry><title type="html">435.Non-overlapping Intervals</title><link href="https://zhengstar94.github.io//blog/2024/Non-OverlappingIntervals/" rel="alternate" type="text/html" title="435.Non-overlapping Intervals"/><published>2024-06-28T00:00:00+00:00</published><updated>2024-06-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/Non-OverlappingIntervals</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/Non-OverlappingIntervals/"><![CDATA[<h1 id="435-non-overlapping-intervals">435. Non-overlapping Intervals</h1> <ul> <li>Given an array of intervals <code class="language-plaintext highlighter-rouge">intervals</code> where <code class="language-plaintext highlighter-rouge">intervals[i] = [starti, endi]</code>, return <em>the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
 Output: 1
 Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,2],[1,2],[1,2]]
@@ -534,58 +593,4 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
     <span class="o">}</span>
 
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[190. Reverse Bits]]></summary></entry><entry><title type="html">338.Counting Bits</title><link href="https://zhengstar94.github.io//blog/2024/CountingBits/" rel="alternate" type="text/html" title="338.Counting Bits"/><published>2024-05-02T00:00:00+00:00</published><updated>2024-05-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CountingBits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CountingBits/"><![CDATA[<h1 id="338-counting-bits">338. Counting Bits</h1> <ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>an array</em> <code class="language-plaintext highlighter-rouge">ans</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">n + 1</code> <em>such that for each</em> <code class="language-plaintext highlighter-rouge">i</code> (<code class="language-plaintext highlighter-rouge">0 &lt;= i &lt;= n</code>)<em>,</em> <code class="language-plaintext highlighter-rouge">ans[i]</code> <em>is the <strong>number of</strong></em> <code class="language-plaintext highlighter-rouge">1</code><em><strong>’s</strong> in the binary representation of</em> <code class="language-plaintext highlighter-rouge">i</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
-Output: [0,1,1]
-Explanation:
-0 --&gt; 0
-1 --&gt; 1
-2 --&gt; 10
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5
-Output: [0,1,1,2,1,2]
-Explanation:
-0 --&gt; 0
-1 --&gt; 1
-2 --&gt; 10
-3 --&gt; 11
-4 --&gt; 100
-5 --&gt; 101
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/06/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingBits</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">countBits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the result array with length n + 1.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-
-        <span class="c1">// Loop through the numbers from 1 to n.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// The number of 1's in the binary representation of i is equal to:</span>
-            <span class="c1">// the number of 1's in i / 2 (i.e., i &gt;&gt; 1) plus</span>
-            <span class="c1">// 1 if the least significant bit of i is 1 (i.e., i &amp; 1).</span>
-            <span class="c1">// This is based on the dynamic programming principle where the solution</span>
-            <span class="c1">// for a larger problem is built from the solutions of smaller subproblems.</span>
-            <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">ans</span><span class="o">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the result array.</span>
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">countBits</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span> <span class="c1">// Expected: [0, 1, 1]</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">countBits</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span> <span class="c1">// Expected: [0, 1, 1, 2, 1, 2]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[338. Counting Bits]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[190. Reverse Bits]]></summary></entry></feed>
