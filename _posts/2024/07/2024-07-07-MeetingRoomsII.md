@@ -80,11 +80,11 @@ public class MeetingRoomsII {
         MeetingRoomsII meetingRoomsII = new MeetingRoomsII();
 
         // Test Case 1
-        int[][] intervals1 = {{0,30}, {5,10}, {15,20}};
+        int[][] intervals1 = { {0,30}, {5,10}, {15,20}};
         System.out.println("Test Case 1: " + meetingRoomsII.minMeetingRooms(intervals1)); // Output: 2
 
         // Test Case 2
-        int[][] intervals2 = {{7,10}, {2,4}};
+        int[][] intervals2 = { {7,10}, {2,4}};
         System.out.println("Test Case 2: " + meetingRoomsII.minMeetingRooms(intervals2)); // Output: 1
     }
 }
