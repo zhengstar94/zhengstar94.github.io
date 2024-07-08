@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-07T14:06:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">253.Meeting Rooms II</title><link href="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/" rel="alternate" type="text/html" title="253.Meeting Rooms II"/><published>2024-07-07T00:00:00+00:00</published><updated>2024-07-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MeetingRoomsII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/"><![CDATA[<h1 id="253-meeting-rooms-ii">253. Meeting Rooms II</h1> <ul> <li>Given an array of meeting time intervals consisting of start and end times<code class="language-plaintext highlighter-rouge">[[s1,e1],[s2,e2],...]</code>(si&lt; ei), find the minimum number of conference rooms required.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-08T07:40:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">39.Combination Sum</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSum/" rel="alternate" type="text/html" title="39.Combination Sum"/><published>2024-07-08T00:00:00+00:00</published><updated>2024-07-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSum/"><![CDATA[<h1 id="39-combination-sum">39. Combination Sum</h1> <ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">candidates</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>a list of all <strong>unique combinations</strong> of</em> <code class="language-plaintext highlighter-rouge">candidates</code> <em>where the chosen numbers sum to</em> <code class="language-plaintext highlighter-rouge">target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</li> <li>The <strong>same</strong> number may be chosen from <code class="language-plaintext highlighter-rouge">candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</li> <li>The test cases are generated such that the number of unique combinations that sum up to <code class="language-plaintext highlighter-rouge">target</code> is less than <code class="language-plaintext highlighter-rouge">150</code> combinations for the given input.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+Explanation:
+2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
+7 is a candidate, and 7 = 7.
+These are the only two combinations.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2,3,5], target = 8
+Output: [[2,2,2,2],[2,3,3],[3,5]]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2], target = 1
+Output: []
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>t) time | O(t) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * This class implements the combination sum problem using backtracking algorithm.
+ *
+ * For given distinct integers and a target sum, it finds all unique combinations
+ * where the chosen numbers sum to the target. The same number can be chosen
+ * from candidates an unlimited number of times.
+ *
+ * @author zhengstars
+ * @date 2024/07/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CombinationSum</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Finds all unique combinations that sum up to the target.
+     *
+     * @param candidates an array of distinct integers
+     * @param target the target sum
+     * @return a list of all unique combinations that sum up to the target
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">combinationSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">candidates</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">backtrack</span><span class="o">(</span><span class="n">candidates</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(),</span> <span class="n">result</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * The backtracking function to search for combinations.
+     *
+     * @param candidates an array of distinct integers
+     * @param target the remaining target sum
+     * @param start the starting index of the search
+     * @param current the current combination being constructed
+     * @param result the list to store valid combinations
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrack</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">candidates</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">current</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">current</span><span class="o">));</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">candidates</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">current</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">candidates</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+
+            <span class="c1">// Recursive call to search for combinations</span>
+            <span class="n">backtrack</span><span class="o">(</span><span class="n">candidates</span><span class="o">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">candidates</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">,</span> <span class="n">current</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+
+            <span class="c1">// Backtrack by removing the last element</span>
+            <span class="n">current</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to test the combinationSum function.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">candidates1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span> <span class="c1">// [ [2, 2, 3], [7]]</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">candidates2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span> <span class="c1">// [ [2, 2, 2, 2], [2, 3, 3], [3, 5]]</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">candidates3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span> <span class="c1">// []</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[39. Combination Sum]]></summary></entry><entry><title type="html">253.Meeting Rooms II</title><link href="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/" rel="alternate" type="text/html" title="253.Meeting Rooms II"/><published>2024-07-07T00:00:00+00:00</published><updated>2024-07-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MeetingRoomsII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/"><![CDATA[<h1 id="253-meeting-rooms-ii">253. Meeting Rooms II</h1> <ul> <li>Given an array of meeting time intervals consisting of start and end times<code class="language-plaintext highlighter-rouge">[[s1,e1],[s2,e2],...]</code>(si&lt; ei), find the minimum number of conference rooms required.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 [[0, 30],[5, 10],[15, 20]]
 Output:
  2
@@ -522,75 +610,4 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[268. Missing Number]]></summary></entry><entry><title type="html">190.Reverse Bits</title><link href="https://zhengstar94.github.io//blog/2024/ReverseBits/" rel="alternate" type="text/html" title="190.Reverse Bits"/><published>2024-05-03T00:00:00+00:00</published><updated>2024-05-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReverseBits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReverseBits/"><![CDATA[<h1 id="190-reverse-bits">190. Reverse Bits</h1> <ul> <li> <p>Reverse bits of a given 32 bits unsigned integer.</p> <p><strong>Note:</strong></p> <ul> <li>Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer’s internal binary representation is the same, whether it is signed or unsigned.</li> <li>In Java, the compiler represents the signed integers using <a href="https://en.wikipedia.org/wiki/Two's_complement">2’s complement notation</a>. Therefore, in <strong>Example 2</strong> above, the input represents the signed integer <code class="language-plaintext highlighter-rouge">-3</code> and the output represents the signed integer <code class="language-plaintext highlighter-rouge">-1073741825</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 00000010100101000001111010011100
-Output:    964176192 (00111001011110000010100101000000)
-Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 11111111111111111111111111111101
-Output:   3221225471 (10111111111111111111111111111111)
-Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is 10111111111111111111111111111111.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/06/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseBits</span> <span class="o">{</span>
-
-    <span class="cm">/**
-     * Reverse the bits of a given 32 bits unsigned integer.
-     *
-     * @param n the input 32 bits unsigned integer
-     * @return the integer resulting from reversing the bits of {@code n}
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reverseBits</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate over the 32 bits of the integer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Left shift the result to make space for the next bit</span>
-            <span class="c1">// This shifts all bits of result one place to the left</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// Extract the lowest bit of n using bitwise AND with 1</span>
-            <span class="c1">// If n's current lowest bit is 1, it returns 1; otherwise, it returns 0</span>
-            <span class="kt">int</span> <span class="n">lowestBit</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// Combine the shifted result with the lowest bit of n using bitwise OR</span>
-            <span class="c1">// This is equivalent to adding the lowest bit of n to result's lowest place</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">|</span> <span class="n">lowestBit</span><span class="o">;</span>
-
-            <span class="c1">// Right shift n to discard the bit we just processed</span>
-            <span class="c1">// This moves the next bit of n into the lowest place for the next iteration</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Reverse the bits of a given 32 bits unsigned integer using Java's built-in method.
-     *
-     * @param n the input 32 bits unsigned integer
-     * @return the integer resulting from reversing the bits of {@code n}
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reverseBits2</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Use the Integer.reverse method which is a built-in utility to reverse bits</span>
-        <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mb">0b00000010100101000001111010011100</span><span class="o">;</span>
-        <span class="c1">// expected output: 964176192 (0b00111001011110000010100101000000)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reverseBits</span><span class="o">(</span><span class="n">n1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mb">0b11111111111111111111111111111101</span><span class="o">;</span>
-        <span class="c1">// expected output: 3221225471 (0b10111111111111111111111111111111)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reverseBits</span><span class="o">(</span><span class="n">n2</span><span class="o">));</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[190. Reverse Bits]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[268. Missing Number]]></summary></entry></feed>
