@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-08T07:40:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">39.Combination Sum</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSum/" rel="alternate" type="text/html" title="39.Combination Sum"/><published>2024-07-08T00:00:00+00:00</published><updated>2024-07-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSum/"><![CDATA[<h1 id="39-combination-sum">39. Combination Sum</h1> <ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">candidates</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>a list of all <strong>unique combinations</strong> of</em> <code class="language-plaintext highlighter-rouge">candidates</code> <em>where the chosen numbers sum to</em> <code class="language-plaintext highlighter-rouge">target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</li> <li>The <strong>same</strong> number may be chosen from <code class="language-plaintext highlighter-rouge">candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</li> <li>The test cases are generated such that the number of unique combinations that sum up to <code class="language-plaintext highlighter-rouge">target</code> is less than <code class="language-plaintext highlighter-rouge">150</code> combinations for the given input.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2,3,6,7], target = 7
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-09T03:21:15+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">79.Word Search</title><link href="https://zhengstar94.github.io//blog/2024/WordSearch/" rel="alternate" type="text/html" title="79.Word Search"/><published>2024-07-09T00:00:00+00:00</published><updated>2024-07-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/WordSearch</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/WordSearch/"><![CDATA[<h1 id="79-word-search">79. Word Search</h1> <ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> grid of characters <code class="language-plaintext highlighter-rouge">board</code> and a string <code class="language-plaintext highlighter-rouge">word</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if</em> <code class="language-plaintext highlighter-rouge">word</code> <em>exists in the grid</em>.</li> <li>The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+Output: true
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
+Output: true
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+Output: false
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(4<span class="p">^</span>k * m * n) time | O(k) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
+
+<span class="cm">/**
+ * This class implements the Word Search problem using backtracking algorithm.
+ *
+ * Given an m x n grid of characters board and a string word, this algorithm returns true if word exists in the grid.
+ * The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring.
+ * The same letter cell may not be used more than once.
+ *
+ * @author zhengstars
+ * @date 2024/07/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordSearch</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Check if the given word exists in the board.
+     *
+     * @param board the character grid
+     * @param word the target word
+     * @return true if the word exists in the grid, false otherwise
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">exist</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">board</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each cell in the board</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">dfs</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="mi">0</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Depth-first search to find the word in the board.
+     *
+     * @param board the character grid
+     * @param word the target word
+     * @param i the row index of the current cell
+     * @param j the column index of the current cell
+     * @param k the index of the current character in the word
+     * @return true if the word is found, false otherwise
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">board</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">board</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">||</span> <span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">k</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Check if the end of the word is reached</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+        <span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="sc">' '</span><span class="o">;</span> <span class="c1">// Mark as visited</span>
+
+        <span class="c1">// Explore adjacent cells recursively</span>
+        <span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">||</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">||</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">||</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+
+        <span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span> <span class="c1">// Restore original value</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to test the Word Search algorithm.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="sc">'A'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'C'</span><span class="o">,</span><span class="sc">'E'</span><span class="o">},</span>
+                <span class="o">{</span><span class="sc">'S'</span><span class="o">,</span><span class="sc">'F'</span><span class="o">,</span><span class="sc">'C'</span><span class="o">,</span><span class="sc">'S'</span><span class="o">},</span>
+                <span class="o">{</span><span class="sc">'A'</span><span class="o">,</span><span class="sc">'D'</span><span class="o">,</span><span class="sc">'E'</span><span class="o">,</span><span class="sc">'E'</span><span class="o">}</span>
+        <span class="o">};</span>
+
+        <span class="nc">String</span> <span class="n">word1</span> <span class="o">=</span> <span class="s">"ABCCED"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word2</span> <span class="o">=</span> <span class="s">"SEE"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word3</span> <span class="o">=</span> <span class="s">"ABCB"</span><span class="o">;</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exist</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word1</span><span class="o">));</span> <span class="c1">// true</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exist</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span> <span class="c1">// true</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exist</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word3</span><span class="o">));</span> <span class="c1">// false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[79. Word Search]]></summary></entry><entry><title type="html">39.Combination Sum</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSum/" rel="alternate" type="text/html" title="39.Combination Sum"/><published>2024-07-08T00:00:00+00:00</published><updated>2024-07-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSum/"><![CDATA[<h1 id="39-combination-sum">39. Combination Sum</h1> <ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">candidates</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>a list of all <strong>unique combinations</strong> of</em> <code class="language-plaintext highlighter-rouge">candidates</code> <em>where the chosen numbers sum to</em> <code class="language-plaintext highlighter-rouge">target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</li> <li>The <strong>same</strong> number may be chosen from <code class="language-plaintext highlighter-rouge">candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</li> <li>The test cases are generated such that the number of unique combinations that sum up to <code class="language-plaintext highlighter-rouge">target</code> is less than <code class="language-plaintext highlighter-rouge">150</code> combinations for the given input.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2,3,6,7], target = 7
 Output: [[2,2,3],[7]]
 Explanation:
 2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
@@ -559,55 +654,4 @@ Output: 5
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[371. Sum of Two Integers]]></summary></entry><entry><title type="html">268.Missing Number</title><link href="https://zhengstar94.github.io//blog/2024/MissingNumber/" rel="alternate" type="text/html" title="268.Missing Number"/><published>2024-05-04T00:00:00+00:00</published><updated>2024-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MissingNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MissingNumber/"><![CDATA[<h1 id="268-missing-number">268. Missing Number</h1> <ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> containing <code class="language-plaintext highlighter-rouge">n</code> distinct numbers in the range <code class="language-plaintext highlighter-rouge">[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,0,1]
-Output: 2
-Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1]
-Output: 2
-Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9,6,4,2,3,5,7,0,1]
-Output: 8
-Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/06/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MissingNumber</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMissingNumber</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Calculate the expected sum of numbers from 0 to n using the formula</span>
-        <span class="kt">int</span> <span class="n">totalSum</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="o">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-        <span class="c1">// Calculate the sum of elements in the given array</span>
-        <span class="kt">int</span> <span class="n">arraySum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">arraySum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The missing number is the difference between the totalSum and the arraySum</span>
-        <span class="k">return</span> <span class="n">totalSum</span> <span class="o">-</span> <span class="n">arraySum</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Expected output: 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Missing number: "</span> <span class="o">+</span> <span class="n">findMissingNumber</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Expected output: 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Missing number: "</span> <span class="o">+</span> <span class="n">findMissingNumber</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Expected output: 8</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Missing number: "</span> <span class="o">+</span> <span class="n">findMissingNumber</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[268. Missing Number]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[371. Sum of Two Integers]]></summary></entry></feed>
