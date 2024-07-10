@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-09T03:21:15+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">79.Word Search</title><link href="https://zhengstar94.github.io//blog/2024/WordSearch/" rel="alternate" type="text/html" title="79.Word Search"/><published>2024-07-09T00:00:00+00:00</published><updated>2024-07-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/WordSearch</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/WordSearch/"><![CDATA[<h1 id="79-word-search">79. Word Search</h1> <ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> grid of characters <code class="language-plaintext highlighter-rouge">board</code> and a string <code class="language-plaintext highlighter-rouge">word</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if</em> <code class="language-plaintext highlighter-rouge">word</code> <em>exists in the grid</em>.</li> <li>The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-10T03:43:35+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">200.Number of Islands</title><link href="https://zhengstar94.github.io//blog/2024/NumberOfIslands/" rel="alternate" type="text/html" title="200.Number of Islands"/><published>2024-07-10T00:00:00+00:00</published><updated>2024-07-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NumberOfIslands</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NumberOfIslands/"><![CDATA[<h1 id="200-number-of-islands">200. Number of Islands</h1> <ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> 2D binary grid <code class="language-plaintext highlighter-rouge">grid</code> which represents a map of <code class="language-plaintext highlighter-rouge">'1'</code>s (land) and <code class="language-plaintext highlighter-rouge">'0'</code>s (water), return <em>the number of islands</em>.</li> <li>An <strong>island</strong> is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+Output: 3
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Calculates the number of islands in a 2D grid.
+ *
+ * @author zhengstars
+ * @date 2024/07/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfIslands</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Main function to calculate the number of islands.
+     * @param grid the 2D grid representing land and water
+     * @return the number of islands
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numIslands</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Exception handling</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">grid</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">numIslands</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Traverse the entire grid</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// If encounter '1', it means finding a new island</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'1'</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">numIslands</span><span class="o">++;</span>
+                    <span class="c1">// Use DFS to mark all land of the current island</span>
+                    <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">numIslands</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Depth-first search to mark visited land as '0'.
+     * @param grid the 2D grid representing land and water
+     * @param i the row index
+     * @param j the column index
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Exception handling: check boundary condition and whether the current grid is '1'</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">||</span> <span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Mark the current land as '0' to indicate visited</span>
+        <span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="sc">'0'</span><span class="o">;</span>
+
+        <span class="c1">// Recursively process the adjacent positions of the current land</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span> <span class="c1">// Up</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span> <span class="c1">// Down</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// Left</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// Right</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kt">char</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
+                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
+                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
+                <span class="o">{</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numIslands</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="kt">char</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
+                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
+                <span class="o">{</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
+                <span class="o">{</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numIslands</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Output: 3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[200. Number of Islands]]></summary></entry><entry><title type="html">79.Word Search</title><link href="https://zhengstar94.github.io//blog/2024/WordSearch/" rel="alternate" type="text/html" title="79.Word Search"/><published>2024-07-09T00:00:00+00:00</published><updated>2024-07-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/WordSearch</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/WordSearch/"><![CDATA[<h1 id="79-word-search">79. Word Search</h1> <ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> grid of characters <code class="language-plaintext highlighter-rouge">board</code> and a string <code class="language-plaintext highlighter-rouge">word</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if</em> <code class="language-plaintext highlighter-rouge">word</code> <em>exists in the grid</em>.</li> <li>The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
 Output: true
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
 Output: true
@@ -610,48 +705,4 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Max subarray sum for nums3: "</span> <span class="o">+</span> <span class="n">maxSubArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 23</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><summary type="html"><![CDATA[53. Maximum Subarray]]></summary></entry><entry><title type="html">371.Sum of Two Integers</title><link href="https://zhengstar94.github.io//blog/2024/SumOfTwoIntegers/" rel="alternate" type="text/html" title="371.Sum of Two Integers"/><published>2024-05-05T00:00:00+00:00</published><updated>2024-05-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SumOfTwoIntegers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SumOfTwoIntegers/"><![CDATA[<h1 id="371-sum-of-two-integers">371. Sum of Two Integers</h1> <ul> <li>Given two integers <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code>, return <em>the sum of the two integers without using the operators</em> <code class="language-plaintext highlighter-rouge">+</code> <em>and</em> <code class="language-plaintext highlighter-rouge">-</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = 1, b = 2
-Output: 3
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = 2, b = 3
-Output: 5
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BitManipulation</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/06/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SumOfTwoIntegers</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Iterate until there is no carry left</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the carry</span>
-            <span class="c1">// (common set bits of a and b)</span>
-            <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="o">;</span>
-
-            <span class="c1">// Compute the sum without considering the carry</span>
-            <span class="c1">// XOR operation gives the sum of bits where at least one of the bits is not set</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="o">;</span>
-
-            <span class="c1">// Shift the carry left by one</span>
-            <span class="c1">// The carry needs to be added to the sum in the next iteration</span>
-            <span class="n">b</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// When b is 0, there is no carry left and a contains the final sum</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: 1 + 2 = 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of 1 and 2: "</span> <span class="o">+</span> <span class="n">getSum</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Should output 3</span>
-
-        <span class="c1">// Test case 2: 2 + 3 = 5</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of 2 and 3: "</span> <span class="o">+</span> <span class="n">getSum</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Should output 5</span>
-
-        <span class="c1">// Test case 3: 11 + 13 = 24</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of 11 and 13: "</span> <span class="o">+</span> <span class="n">getSum</span><span class="o">(</span><span class="mi">11</span><span class="o">,</span> <span class="mi">13</span><span class="o">));</span> <span class="c1">// Should output 24</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BitManipulation"/><summary type="html"><![CDATA[371. Sum of Two Integers]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><summary type="html"><![CDATA[53. Maximum Subarray]]></summary></entry></feed>
