@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-11T11:19:42+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">133.Clone Graph</title><link href="https://zhengstar94.github.io//blog/2024/CloneGraph/" rel="alternate" type="text/html" title="133.Clone Graph"/><published>2024-07-11T00:00:00+00:00</published><updated>2024-07-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CloneGraph</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CloneGraph/"><![CDATA[<h1 id="133-clone-graph">133. Clone Graph</h1> <ul> <li>Given a reference of a node in a <strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph">connected</a></strong> undirected graph.</li> <li>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy"><strong>deep copy</strong></a> (clone) of the graph.</li> <li>Each node in the graph contains a value (<code class="language-plaintext highlighter-rouge">int</code>) and a list (<code class="language-plaintext highlighter-rouge">List[Node]</code>) of its neighbors.</li> </ul> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Node {
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-12T13:42:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">417.Pacific Atlantic Water Flow</title><link href="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/" rel="alternate" type="text/html" title="417.Pacific Atlantic Water Flow"/><published>2024-07-12T00:00:00+00:00</published><updated>2024-07-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/"><![CDATA[<h1 id="417-pacific-atlantic-water-flow">417. Pacific Atlantic Water Flow</h1> <ul> <li>There is an <code class="language-plaintext highlighter-rouge">m x n</code> rectangular island that borders both the <strong>Pacific Ocean</strong> and <strong>Atlantic Ocean</strong>. The <strong>Pacific Ocean</strong> touches the island’s left and top edges, and the <strong>Atlantic Ocean</strong> touches the island’s right and bottom edges.</li> <li>The island is partitioned into a grid of square cells. You are given an <code class="language-plaintext highlighter-rouge">m x n</code> integer matrix <code class="language-plaintext highlighter-rouge">heights</code> where <code class="language-plaintext highlighter-rouge">heights[r][c]</code> represents the <strong>height above sea level</strong> of the cell at coordinate <code class="language-plaintext highlighter-rouge">(r, c)</code>.</li> <li>The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell’s height is <strong>less than or equal to</strong> the current cell’s height. Water can flow from any cell adjacent to an ocean into the ocean.</li> <li>Return <em>a <strong>2D list</strong> of grid coordinates</em> <code class="language-plaintext highlighter-rouge">result</code> <em>where</em> <code class="language-plaintext highlighter-rouge">result[i] = [ri, ci]</code> <em>denotes that rain water can flow from cell</em> <code class="language-plaintext highlighter-rouge">(ri, ci)</code> <em>to <strong>both</strong> the Pacific and Atlantic oceans</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+Explanation: The following cells can flow to the Pacific and Atlantic oceans, as shown below:
+[0,4]: [0,4] -&gt; Pacific Ocean 
+       [0,4] -&gt; Atlantic Ocean
+[1,3]: [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
+       [1,3] -&gt; [1,4] -&gt; Atlantic Ocean
+[1,4]: [1,4] -&gt; [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
+       [1,4] -&gt; Atlantic Ocean
+[2,2]: [2,2] -&gt; [1,2] -&gt; [0,2] -&gt; Pacific Ocean 
+       [2,2] -&gt; [2,3] -&gt; [2,4] -&gt; Atlantic Ocean
+[3,0]: [3,0] -&gt; Pacific Ocean 
+       [3,0] -&gt; [4,0] -&gt; Atlantic Ocean
+[3,1]: [3,1] -&gt; [3,0] -&gt; Pacific Ocean 
+       [3,1] -&gt; [4,1] -&gt; Atlantic Ocean
+[4,0]: [4,0] -&gt; Pacific Ocean 
+       [4,0] -&gt; Atlantic Ocean
+Note that there are other possible paths for these cells to flow to the Pacific and Atlantic oceans.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [ [1]]
+Output: [ [0,0]]
+Explanation: The water can flow from the only cell to the Pacific and Atlantic oceans.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n*m) time | O(n*m) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/07/12
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PacificAtlanticWaterFlow</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Main function to perform the water flow problem for the Pacific and Atlantic oceans.
+     * @param heights the input matrix representing the heights of the land
+     * @return a 2D list of grid coordinates where water can flow to both oceans
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">pacificAtlantic</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">heights</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">heights</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">heights</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">canReachPacific</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">canReachAtlantic</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="c1">// Start DFS from the left and right boundaries to mark reachable cells for Pacific and Atlantic</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachPacific</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachAtlantic</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Start DFS from the top and bottom boundaries to mark reachable cells for Pacific and Atlantic</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachPacific</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachAtlantic</span><span class="o">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Check for cells that can reach both oceans and add them to the result list</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">canReachPacific</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">canReachAtlantic</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">cell</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+                    <span class="n">cell</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                    <span class="n">cell</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+                    <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cell</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Depth-first search to mark reachable cells from a given cell (x, y) in the matrix heights.
+     * @param heights the input matrix representing the heights of the land
+     * @param canReach boolean matrix to mark cells that can be reached from a given cell
+     * @param x the row index of the current cell
+     * @param y the column index of the current cell
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">heights</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">canReach</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">canReach</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">])</span> <span class="o">{</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">heights</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="n">canReach</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">}};</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">direction</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">newX</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">direction</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+            <span class="kt">int</span> <span class="n">newY</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">direction</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">newX</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">newX</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">newY</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">newY</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">heights</span><span class="o">[</span><span class="n">newX</span><span class="o">][</span><span class="n">newY</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">heights</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReach</span><span class="o">,</span> <span class="n">newX</span><span class="o">,</span> <span class="n">newY</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to test the solution.
+     * @param args the command line arguments
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">heights</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">}};</span>
+
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">pacificAtlantic</span><span class="o">(</span><span class="n">heights</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[417. Pacific Atlantic Water Flow]]></summary></entry><entry><title type="html">133.Clone Graph</title><link href="https://zhengstar94.github.io//blog/2024/CloneGraph/" rel="alternate" type="text/html" title="133.Clone Graph"/><published>2024-07-11T00:00:00+00:00</published><updated>2024-07-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CloneGraph</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CloneGraph/"><![CDATA[<h1 id="133-clone-graph">133. Clone Graph</h1> <ul> <li>Given a reference of a node in a <strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph">connected</a></strong> undirected graph.</li> <li>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy"><strong>deep copy</strong></a> (clone) of the graph.</li> <li>Each node in the graph contains a value (<code class="language-plaintext highlighter-rouge">int</code>) and a list (<code class="language-plaintext highlighter-rouge">List[Node]</code>) of its neighbors.</li> </ul> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Node {
     public int val;
     public List&lt;Node&gt; neighbors;
 }
@@ -24,69 +142,99 @@ Explanation: This an empty graph, it does not have any nodes.
 <span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
 
 <span class="cm">/**
+ * This class contains a solution for the LeetCode problem "133. Clone Graph".
+ * Given a reference of a node in a connected undirected graph, clone the graph and return the reference of the cloned node.
+ *
  * @author zhengstars
  * @date 2024/07/11
  */</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CloneGraph</span> <span class="o">{</span>
 
-    <span class="kd">public</span> <span class="nc">Node</span> <span class="nf">cloneGraph</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">,</span> <span class="nc">Node</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="k">return</span> <span class="nf">cloneGraphDFS</span><span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
+  <span class="cm">/**
+   * Clone the given graph starting from the given node.
+   * @param node the starting node to clone
+   * @return the reference of the cloned node
+   */</span>
+  <span class="kd">public</span> <span class="nc">Node</span> <span class="nf">cloneGraph</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Handle the case where the input node is null</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">private</span> <span class="nc">Node</span> <span class="nf">cloneGraphDFS</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">,</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">,</span> <span class="nc">Node</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">node</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="c1">// Create a mapping to store the original nodes and their corresponding cloned nodes</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">,</span> <span class="nc">Node</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="k">return</span> <span class="nf">cloneGraphDFS</span><span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
+  <span class="o">}</span>
 
-        <span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">newNode</span><span class="o">);</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">Node</span> <span class="n">neighbor</span> <span class="o">:</span> <span class="n">node</span><span class="o">.</span><span class="na">neighbors</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">newNode</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cloneGraphDFS</span><span class="o">(</span><span class="n">neighbor</span><span class="o">,</span> <span class="n">map</span><span class="o">));</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">newNode</span><span class="o">;</span>
+  <span class="cm">/**
+   * Depth-first search function to recursively clone the graph.
+   * @param node the current node to clone
+   * @param map a mapping of original nodes to cloned nodes
+   * @return the cloned node
+   */</span>
+  <span class="kd">private</span> <span class="nc">Node</span> <span class="nf">cloneGraphDFS</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">,</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">,</span> <span class="nc">Node</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// If the node is already cloned, return the cloned node</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">node</span><span class="o">))</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">CloneGraph</span> <span class="n">cg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CloneGraph</span><span class="o">();</span>
+    <span class="c1">// Create a new node with the same value as the original node</span>
+    <span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">newNode</span><span class="o">);</span>
 
-        <span class="c1">// 创建一个测试用例</span>
-        <span class="nc">Node</span> <span class="n">node1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">Node</span> <span class="n">node2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="nc">Node</span> <span class="n">node3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="nc">Node</span> <span class="n">node4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-
-        <span class="n">node1</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node2</span><span class="o">);</span>
-        <span class="n">node1</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node4</span><span class="o">);</span>
-        <span class="n">node2</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node1</span><span class="o">);</span>
-        <span class="n">node2</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node3</span><span class="o">);</span>
-        <span class="n">node3</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node2</span><span class="o">);</span>
-        <span class="n">node3</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node4</span><span class="o">);</span>
-        <span class="n">node4</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node1</span><span class="o">);</span>
-        <span class="n">node4</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node3</span><span class="o">);</span>
-
-        <span class="c1">// 克隆图</span>
-        <span class="nc">Node</span> <span class="n">clone</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="na">cloneGraph</span><span class="o">(</span><span class="n">node1</span><span class="o">);</span>
-
-        <span class="c1">// 简单打印克隆结果</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Original and Clone are the same structure: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">clone</span><span class="o">.</span><span class="na">val</span> <span class="o">==</span> <span class="n">node1</span><span class="o">.</span><span class="na">val</span><span class="o">));</span>
+    <span class="c1">// Recursively clone the neighbors of the node</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">Node</span> <span class="n">neighbor</span> <span class="o">:</span> <span class="n">node</span><span class="o">.</span><span class="na">neighbors</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">newNode</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cloneGraphDFS</span><span class="o">(</span><span class="n">neighbor</span><span class="o">,</span> <span class="n">map</span><span class="o">));</span>
     <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">newNode</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * Main method to test the clone graph functionality.
+   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">CloneGraph</span> <span class="n">cg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CloneGraph</span><span class="o">();</span>
+
+    <span class="c1">// Create a test case with nodes and neighbors</span>
+    <span class="nc">Node</span> <span class="n">node1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="nc">Node</span> <span class="n">node2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="nc">Node</span> <span class="n">node3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="nc">Node</span> <span class="n">node4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+
+    <span class="c1">// Establish neighbor relationships</span>
+    <span class="n">node1</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node2</span><span class="o">);</span>
+    <span class="n">node1</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node4</span><span class="o">);</span>
+    <span class="n">node2</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node1</span><span class="o">);</span>
+    <span class="n">node2</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node3</span><span class="o">);</span>
+    <span class="n">node3</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node2</span><span class="o">);</span>
+    <span class="n">node3</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node4</span><span class="o">);</span>
+    <span class="n">node4</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node1</span><span class="o">);</span>
+    <span class="n">node4</span><span class="o">.</span><span class="na">neighbors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node3</span><span class="o">);</span>
+
+    <span class="c1">// Clone the graph starting from node1</span>
+    <span class="nc">Node</span> <span class="n">clone</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="na">cloneGraph</span><span class="o">(</span><span class="n">node1</span><span class="o">);</span>
+
+    <span class="c1">// Print whether the original and clone have the same structure</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Original and Clone have the same structure: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">clone</span><span class="o">.</span><span class="na">val</span> <span class="o">==</span> <span class="n">node1</span><span class="o">.</span><span class="na">val</span><span class="o">));</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 
+<span class="cm">/**
+ * Node class representing a single node in the graph.
+ */</span>
 <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">neighbors</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">neighbors</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">neighbors</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;();</span>
-    <span class="o">}</span>
+  <span class="cm">/**
+   * Constructor to create a new Node with a given value and an empty list of neighbors.
+   * @param val the value of the node
+   */</span>
+  <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">neighbors</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 
 </code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[133. Clone Graph]]></summary></entry><entry><title type="html">200.Number of Islands</title><link href="https://zhengstar94.github.io//blog/2024/NumberOfIslands/" rel="alternate" type="text/html" title="200.Number of Islands"/><published>2024-07-10T00:00:00+00:00</published><updated>2024-07-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NumberOfIslands</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NumberOfIslands/"><![CDATA[<h1 id="200-number-of-islands">200. Number of Islands</h1> <ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> 2D binary grid <code class="language-plaintext highlighter-rouge">grid</code> which represents a map of <code class="language-plaintext highlighter-rouge">'1'</code>s (land) and <code class="language-plaintext highlighter-rouge">'0'</code>s (water), return <em>the number of islands</em>.</li> <li>An <strong>island</strong> is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [
@@ -702,51 +850,4 @@ Output:
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can attend all meetings for intervals2: "</span> <span class="o">+</span> <span class="n">canAttendMeetings</span><span class="o">(</span><span class="n">intervals2</span><span class="o">));</span> <span class="c1">// Expected output: true</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[252. Meeting Rooms]]></summary></entry><entry><title type="html">55.Jump Game</title><link href="https://zhengstar94.github.io//blog/2024/JumpGame/" rel="alternate" type="text/html" title="55.Jump Game"/><published>2024-06-02T00:00:00+00:00</published><updated>2024-06-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/JumpGame</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/JumpGame/"><![CDATA[<h1 id="55-jump-game">55. Jump Game</h1> <ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. You are initially positioned at the array’s <strong>first index</strong>, and each element in the array represents your maximum jump length at that position.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if you can reach the last index, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,1,1,4]
-Output: true
-Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1,0,4]
-Output: false
-Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/06/14
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JumpGame</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canJump</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the farthest position that can be reached</span>
-        <span class="kt">int</span> <span class="n">maxReach</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Traverse the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If the current position is beyond the maxReach, it is not possible to continue</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">maxReach</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// Update maxReach</span>
-            <span class="n">maxReach</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxReach</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="c1">// If maxReach is enough to reach the last position or beyond, return true</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">maxReach</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// After traversing, if still not able to reach the last position, return false</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can jump for nums1: "</span> <span class="o">+</span> <span class="n">canJump</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can jump for nums2: "</span> <span class="o">+</span> <span class="n">canJump</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><summary type="html"><![CDATA[55. Jump Game]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[252. Meeting Rooms]]></summary></entry></feed>
