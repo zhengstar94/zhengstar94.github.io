@@ -73,69 +73,99 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * This class contains a solution for the LeetCode problem "133. Clone Graph".
+ * Given a reference of a node in a connected undirected graph, clone the graph and return the reference of the cloned node.
+ *
  * @author zhengstars
  * @date 2024/07/11
  */
 public class CloneGraph {
 
-    public Node cloneGraph(Node node) {
-        if (node == null) {
-            return null;
-        }
-
-        Map<Node, Node> map = new HashMap<>();
-        return cloneGraphDFS(node, map);
+  /**
+   * Clone the given graph starting from the given node.
+   * @param node the starting node to clone
+   * @return the reference of the cloned node
+   */
+  public Node cloneGraph(Node node) {
+    // Handle the case where the input node is null
+    if (node == null) {
+      return null;
     }
 
-    private Node cloneGraphDFS(Node node, Map<Node, Node> map) {
-        if (map.containsKey(node)) {
-            return map.get(node);
-        }
+    // Create a mapping to store the original nodes and their corresponding cloned nodes
+    Map<Node, Node> map = new HashMap<>();
+    return cloneGraphDFS(node, map);
+  }
 
-        Node newNode = new Node(node.val);
-        map.put(node, newNode);
-
-        for (Node neighbor : node.neighbors) {
-            newNode.neighbors.add(cloneGraphDFS(neighbor, map));
-        }
-
-        return newNode;
+  /**
+   * Depth-first search function to recursively clone the graph.
+   * @param node the current node to clone
+   * @param map a mapping of original nodes to cloned nodes
+   * @return the cloned node
+   */
+  private Node cloneGraphDFS(Node node, Map<Node, Node> map) {
+    // If the node is already cloned, return the cloned node
+    if (map.containsKey(node)) {
+      return map.get(node);
     }
 
-    public static void main(String[] args) {
-        CloneGraph cg = new CloneGraph();
+    // Create a new node with the same value as the original node
+    Node newNode = new Node(node.val);
+    map.put(node, newNode);
 
-        // 创建一个测试用例
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-
-        node1.neighbors.add(node2);
-        node1.neighbors.add(node4);
-        node2.neighbors.add(node1);
-        node2.neighbors.add(node3);
-        node3.neighbors.add(node2);
-        node3.neighbors.add(node4);
-        node4.neighbors.add(node1);
-        node4.neighbors.add(node3);
-
-        // 克隆图
-        Node clone = cg.cloneGraph(node1);
-
-        // 简单打印克隆结果
-        System.out.println("Original and Clone are the same structure: " + (clone.val == node1.val));
+    // Recursively clone the neighbors of the node
+    for (Node neighbor : node.neighbors) {
+      newNode.neighbors.add(cloneGraphDFS(neighbor, map));
     }
+
+    return newNode;
+  }
+
+  /**
+   * Main method to test the clone graph functionality.
+   */
+  public static void main(String[] args) {
+    CloneGraph cg = new CloneGraph();
+
+    // Create a test case with nodes and neighbors
+    Node node1 = new Node(1);
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    Node node4 = new Node(4);
+
+    // Establish neighbor relationships
+    node1.neighbors.add(node2);
+    node1.neighbors.add(node4);
+    node2.neighbors.add(node1);
+    node2.neighbors.add(node3);
+    node3.neighbors.add(node2);
+    node3.neighbors.add(node4);
+    node4.neighbors.add(node1);
+    node4.neighbors.add(node3);
+
+    // Clone the graph starting from node1
+    Node clone = cg.cloneGraph(node1);
+
+    // Print whether the original and clone have the same structure
+    System.out.println("Original and Clone have the same structure: " + (clone.val == node1.val));
+  }
 }
 
+/**
+ * Node class representing a single node in the graph.
+ */
 class Node {
-    public int val;
-    public List<Node> neighbors;
+  public int val;
+  public List<Node> neighbors;
 
-    public Node(int val) {
-        this.val = val;
-        this.neighbors = new ArrayList<Node>();
-    }
+  /**
+   * Constructor to create a new Node with a given value and an empty list of neighbors.
+   * @param val the value of the node
+   */
+  public Node(int val) {
+    this.val = val;
+    this.neighbors = new ArrayList<>();
+  }
 }
 
 ```
