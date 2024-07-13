@@ -1,122 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-13T00:32:02+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">417.Pacific Atlantic Water Flow</title><link href="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/" rel="alternate" type="text/html" title="417.Pacific Atlantic Water Flow"/><published>2024-07-12T00:00:00+00:00</published><updated>2024-07-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/"><![CDATA[<h1 id="417-pacific-atlantic-water-flow">417. Pacific Atlantic Water Flow</h1> <ul> <li>There is an <code class="language-plaintext highlighter-rouge">m x n</code> rectangular island that borders both the <strong>Pacific Ocean</strong> and <strong>Atlantic Ocean</strong>. The <strong>Pacific Ocean</strong> touches the island’s left and top edges, and the <strong>Atlantic Ocean</strong> touches the island’s right and bottom edges.</li> <li>The island is partitioned into a grid of square cells. You are given an <code class="language-plaintext highlighter-rouge">m x n</code> integer matrix <code class="language-plaintext highlighter-rouge">heights</code> where <code class="language-plaintext highlighter-rouge">heights[r][c]</code> represents the <strong>height above sea level</strong> of the cell at coordinate <code class="language-plaintext highlighter-rouge">(r, c)</code>.</li> <li>The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell’s height is <strong>less than or equal to</strong> the current cell’s height. Water can flow from any cell adjacent to an ocean into the ocean.</li> <li>Return <em>a <strong>2D list</strong> of grid coordinates</em> <code class="language-plaintext highlighter-rouge">result</code> <em>where</em> <code class="language-plaintext highlighter-rouge">result[i] = [ri, ci]</code> <em>denotes that rain water can flow from cell</em> <code class="language-plaintext highlighter-rouge">(ri, ci)</code> <em>to <strong>both</strong> the Pacific and Atlantic oceans</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
-Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
-Explanation: The following cells can flow to the Pacific and Atlantic oceans, as shown below:
-[0,4]: [0,4] -&gt; Pacific Ocean 
-       [0,4] -&gt; Atlantic Ocean
-[1,3]: [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
-       [1,3] -&gt; [1,4] -&gt; Atlantic Ocean
-[1,4]: [1,4] -&gt; [1,3] -&gt; [0,3] -&gt; Pacific Ocean 
-       [1,4] -&gt; Atlantic Ocean
-[2,2]: [2,2] -&gt; [1,2] -&gt; [0,2] -&gt; Pacific Ocean 
-       [2,2] -&gt; [2,3] -&gt; [2,4] -&gt; Atlantic Ocean
-[3,0]: [3,0] -&gt; Pacific Ocean 
-       [3,0] -&gt; [4,0] -&gt; Atlantic Ocean
-[3,1]: [3,1] -&gt; [3,0] -&gt; Pacific Ocean 
-       [3,1] -&gt; [4,1] -&gt; Atlantic Ocean
-[4,0]: [4,0] -&gt; Pacific Ocean 
-       [4,0] -&gt; Atlantic Ocean
-Note that there are other possible paths for these cells to flow to the Pacific and Atlantic oceans.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [ [1]]
-Output: [ [0,0]]
-Explanation: The water can flow from the only cell to the Pacific and Atlantic oceans.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n*m) time | O(n*m) space】
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-13T00:40:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">207.Course Schedule</title><link href="https://zhengstar94.github.io//blog/2024/CourseSchedule/" rel="alternate" type="text/html" title="207.Course Schedule"/><published>2024-07-13T00:00:00+00:00</published><updated>2024-07-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CourseSchedule</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CourseSchedule/"><![CDATA[<h1 id="207-course-schedule">207. Course Schedule</h1> <ul> <li>There are a total of <code class="language-plaintext highlighter-rouge">numCourses</code> courses you have to take, labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">numCourses - 1</code>. You are given an array <code class="language-plaintext highlighter-rouge">prerequisites</code> where <code class="language-plaintext highlighter-rouge">prerequisites[i] = [ai, bi]</code> indicates that you <strong>must</strong> take course <code class="language-plaintext highlighter-rouge">bi</code> first if you want to take course <code class="language-plaintext highlighter-rouge">ai</code>. <ul> <li>For example, the pair <code class="language-plaintext highlighter-rouge">[0, 1]</code>, indicates that to take course <code class="language-plaintext highlighter-rouge">0</code> you have to first take course <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if you can finish all courses. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0. So it is possible.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
+Output: false
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(V + E) time | O(V + E) space】
 </code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
 <span class="cm">/**
+ *
  * @author zhengstars
- * @date 2024/07/12
+ * @date 2024/07/13
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PacificAtlanticWaterFlow</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CourseSchedule</span> <span class="o">{</span>
+    <span class="c1">// Node visit status: 0-Not Visited, 1-Currently Visiting, 2-Visited</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">visited</span><span class="o">;</span>
+    <span class="c1">// Adjacency list representing the graph relationships</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">adjacencyList</span><span class="o">;</span>
+    <span class="c1">// Whether a cycle exists</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">hasCycle</span><span class="o">;</span>
 
-    <span class="cm">/**
-     * Main function to perform the water flow problem for the Pacific and Atlantic oceans.
-     * @param heights the input matrix representing the heights of the land
-     * @return a 2D list of grid coordinates where water can flow to both oceans
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">pacificAtlantic</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canFinish</span><span class="o">(</span><span class="kt">int</span> <span class="n">numCourses</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">prerequisites</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">numCourses</span><span class="o">];</span>
+        <span class="n">adjacencyList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
 
-        <span class="k">if</span> <span class="o">(</span><span class="n">heights</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">heights</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+        <span class="c1">// Initialize the adjacency list</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numCourses</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">adjacencyList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;());</span>
         <span class="o">}</span>
 
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">heights</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">canReachPacific</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">canReachAtlantic</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Start DFS from the left and right boundaries to mark reachable cells for Pacific and Atlantic</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachPacific</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachAtlantic</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="c1">// Build the graph</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">pair</span> <span class="o">:</span> <span class="n">prerequisites</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">adjacencyList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">pair</span><span class="o">[</span><span class="mi">1</span><span class="o">]).</span><span class="na">add</span><span class="o">(</span><span class="n">pair</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
         <span class="o">}</span>
 
-        <span class="c1">// Start DFS from the top and bottom boundaries to mark reachable cells for Pacific and Atlantic</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachPacific</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
-            <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReachAtlantic</span><span class="o">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+        <span class="c1">// Check each node</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numCourses</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span>
         <span class="o">}</span>
 
-        <span class="c1">// Check for cells that can reach both oceans and add them to the result list</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">canReachPacific</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">canReachAtlantic</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">cell</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-                    <span class="n">cell</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-                    <span class="n">cell</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
-                    <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cell</span><span class="o">);</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">hasCycle</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">course</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Mark as currently visiting</span>
+        <span class="n">visited</span><span class="o">[</span><span class="n">course</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Recursively visit adjacent nodes</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">neighbor</span> <span class="o">:</span> <span class="n">adjacencyList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">course</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">neighbor</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">neighbor</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">hasCycle</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span><span class="o">;</span>
                 <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">neighbor</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Encountered a currently visiting node, indicating a cycle</span>
+                <span class="n">hasCycle</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="k">return</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
 
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+        <span class="c1">// Mark as visited</span>
+        <span class="n">visited</span><span class="o">[</span><span class="n">course</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="cm">/**
-     * Depth-first search to mark reachable cells from a given cell (x, y) in the matrix heights.
-     * @param heights the input matrix representing the heights of the land
-     * @param canReach boolean matrix to mark cells that can be reached from a given cell
-     * @param x the row index of the current cell
-     * @param y the column index of the current cell
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">heights</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">canReach</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">canReach</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">heights</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="n">canReach</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">}};</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">direction</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">newX</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">direction</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-            <span class="kt">int</span> <span class="n">newY</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">direction</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="n">newX</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">newX</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">newY</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">newY</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">heights</span><span class="o">[</span><span class="n">newX</span><span class="o">][</span><span class="n">newY</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">heights</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">dfs</span><span class="o">(</span><span class="n">heights</span><span class="o">,</span> <span class="n">canReach</span><span class="o">,</span> <span class="n">newX</span><span class="o">,</span> <span class="n">newY</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method to test the solution.
-     * @param args the command line arguments
-     */</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">heights</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">}};</span>
+        <span class="nc">CourseSchedule</span> <span class="n">cs</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CourseSchedule</span><span class="o">();</span>
 
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">pacificAtlantic</span><span class="o">(</span><span class="n">heights</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">numCourses1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">prerequisites1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">}};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cs</span><span class="o">.</span><span class="na">canFinish</span><span class="o">(</span><span class="n">numCourses1</span><span class="o">,</span> <span class="n">prerequisites1</span><span class="o">));</span> <span class="c1">// Output: true</span>
 
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">numCourses2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">prerequisites2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">}};</span>
+        <span class="c1">//System.out.println(cs.canFinish(numCourses2, prerequisites2)); // Output: false</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[417. Pacific Atlantic Water Flow]]></summary></entry><entry><title type="html">417.Pacific Atlantic Water Flow</title><link href="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/" rel="alternate" type="text/html" title="417.Pacific Atlantic Water Flow"/><published>2024-07-12T00:00:00+00:00</published><updated>2024-07-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/"><![CDATA[<h1 id="417-pacific-atlantic-water-flow">417. Pacific Atlantic Water Flow</h1> <ul> <li>There is an <code class="language-plaintext highlighter-rouge">m x n</code> rectangular island that borders both the <strong>Pacific Ocean</strong> and <strong>Atlantic Ocean</strong>. The <strong>Pacific Ocean</strong> touches the island’s left and top edges, and the <strong>Atlantic Ocean</strong> touches the island’s right and bottom edges.</li> <li>The island is partitioned into a grid of square cells. You are given an <code class="language-plaintext highlighter-rouge">m x n</code> integer matrix <code class="language-plaintext highlighter-rouge">heights</code> where <code class="language-plaintext highlighter-rouge">heights[r][c]</code> represents the <strong>height above sea level</strong> of the cell at coordinate <code class="language-plaintext highlighter-rouge">(r, c)</code>.</li> <li>The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell’s height is <strong>less than or equal to</strong> the current cell’s height. Water can flow from any cell adjacent to an ocean into the ocean.</li> <li>Return <em>a <strong>2D list</strong> of grid coordinates</em> <code class="language-plaintext highlighter-rouge">result</code> <em>where</em> <code class="language-plaintext highlighter-rouge">result[i] = [ri, ci]</code> <em>denotes that rain water can flow from cell</em> <code class="language-plaintext highlighter-rouge">(ri, ci)</code> <em>to <strong>both</strong> the Pacific and Atlantic oceans</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[207. Course Schedule]]></summary></entry><entry><title type="html">417.Pacific Atlantic Water Flow</title><link href="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/" rel="alternate" type="text/html" title="417.Pacific Atlantic Water Flow"/><published>2024-07-12T00:00:00+00:00</published><updated>2024-07-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PacificAtlanticWaterFlow/"><![CDATA[<h1 id="417-pacific-atlantic-water-flow">417. Pacific Atlantic Water Flow</h1> <ul> <li>There is an <code class="language-plaintext highlighter-rouge">m x n</code> rectangular island that borders both the <strong>Pacific Ocean</strong> and <strong>Atlantic Ocean</strong>. The <strong>Pacific Ocean</strong> touches the island’s left and top edges, and the <strong>Atlantic Ocean</strong> touches the island’s right and bottom edges.</li> <li>The island is partitioned into a grid of square cells. You are given an <code class="language-plaintext highlighter-rouge">m x n</code> integer matrix <code class="language-plaintext highlighter-rouge">heights</code> where <code class="language-plaintext highlighter-rouge">heights[r][c]</code> represents the <strong>height above sea level</strong> of the cell at coordinate <code class="language-plaintext highlighter-rouge">(r, c)</code>.</li> <li>The island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell’s height is <strong>less than or equal to</strong> the current cell’s height. Water can flow from any cell adjacent to an ocean into the ocean.</li> <li>Return <em>a <strong>2D list</strong> of grid coordinates</em> <code class="language-plaintext highlighter-rouge">result</code> <em>where</em> <code class="language-plaintext highlighter-rouge">result[i] = [ri, ci]</code> <em>denotes that rain water can flow from cell</em> <code class="language-plaintext highlighter-rouge">(ri, ci)</code> <em>to <strong>both</strong> the Pacific and Atlantic oceans</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
 Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
 Explanation: The following cells can flow to the Pacific and Atlantic oceans, as shown below:
 [0,4]: [0,4] -&gt; Pacific Ocean 
