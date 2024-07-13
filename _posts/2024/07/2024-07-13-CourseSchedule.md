@@ -109,11 +109,11 @@ public class CourseSchedule {
         CourseSchedule cs = new CourseSchedule();
 
         int numCourses1 = 2;
-        int[][] prerequisites1 = {{1, 0}};
+        int[][] prerequisites1 = { {1, 0}};
         System.out.println(cs.canFinish(numCourses1, prerequisites1)); // Output: true
 
         int numCourses2 = 2;
-        int[][] prerequisites2 = {{1, 0}, {0, 1}};
+        int[][] prerequisites2 = { {1, 0}, {0, 1}};
         //System.out.println(cs.canFinish(numCourses2, prerequisites2)); // Output: false
     }
 }
