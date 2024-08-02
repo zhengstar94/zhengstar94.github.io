@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-07-14T01:38:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">261.Graph Valid Tree</title><link href="https://zhengstar94.github.io//blog/2024/GraphValidTree/" rel="alternate" type="text/html" title="261.Graph Valid Tree"/><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/GraphValidTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/GraphValidTree/"><![CDATA[<h1 id="261-graph-valid-tree">261. Graph Valid Tree</h1> <ul> <li>Given <code class="language-plaintext highlighter-rouge">n</code> nodes labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n-1</code> and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, and edges = [[0,1], [0,2], [0,3], [1,4]]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-08-02T06:37:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">70.Climbing Stairs</title><link href="https://zhengstar94.github.io//blog/2024/ClimbingStairs/" rel="alternate" type="text/html" title="70.Climbing Stairs"/><published>2024-08-02T00:00:00+00:00</published><updated>2024-08-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ClimbingStairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ClimbingStairs/"><![CDATA[<h1 id="70-climbing-stairs">70. Climbing Stairs</h1> <ul> <li>You are climbing a staircase. It takes <code class="language-plaintext highlighter-rouge">n</code> steps to reach the top.</li> <li>Each time you can either climb <code class="language-plaintext highlighter-rouge">1</code> or <code class="language-plaintext highlighter-rouge">2</code> steps. In how many distinct ways can you climb to the top?</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Solution for LeetCode problem: 70. Climbing Stairs
+ * @author zhengstars
+ * @date 2024/08/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClimbingStairs</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Calculates the number of distinct ways to climb n stairs
+     * @param n the number of stairs
+     * @return the number of distinct ways to climb the stairs
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">climbStairs</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Base case: if n is 0 or 1, there's only one way to climb</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize variables for the first two steps</span>
+        <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">curr</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Iterate from 2 to n, calculating the number of ways for each step</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the next number in the sequence</span>
+            <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">curr</span><span class="o">;</span>
+            <span class="c1">// Update prev and curr for the next iteration</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the final result, which represents the number of ways to climb n stairs</span>
+        <span class="k">return</span> <span class="n">curr</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method for testing the climbStairs function
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: 2 stairs</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of ways to climb 2 stairs: "</span> <span class="o">+</span> <span class="n">climbStairs</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: 3 stairs</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of ways to climb 3 stairs: "</span> <span class="o">+</span> <span class="n">climbStairs</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[70. Climbing Stairs]]></summary></entry><entry><title type="html">261.Graph Valid Tree</title><link href="https://zhengstar94.github.io//blog/2024/GraphValidTree/" rel="alternate" type="text/html" title="261.Graph Valid Tree"/><published>2024-07-14T00:00:00+00:00</published><updated>2024-07-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/GraphValidTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/GraphValidTree/"><![CDATA[<h1 id="261-graph-valid-tree">261. Graph Valid Tree</h1> <ul> <li>Given <code class="language-plaintext highlighter-rouge">n</code> nodes labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n-1</code> and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, and edges = [[0,1], [0,2], [0,3], [1,4]]
 Output: true
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, and edges = [[0,1], [1,2], [2,3], [1,3], [1,4]]
 Output: false
@@ -807,91 +865,4 @@ Explanation: You don't need to remove any of the intervals since they're already
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">eraseOverlapIntervals</span><span class="o">(</span><span class="n">intervals3</span><span class="o">));</span> <span class="c1">// Output: 0</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[435. Non-overlapping Intervals]]></summary></entry><entry><title type="html">56.Merge Intervals</title><link href="https://zhengstar94.github.io//blog/2024/MergeIntervals/" rel="alternate" type="text/html" title="56.Merge Intervals"/><published>2024-06-25T00:00:00+00:00</published><updated>2024-06-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergeIntervals</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergeIntervals/"><![CDATA[<h1 id="56-merge-intervals">56. Merge Intervals</h1> <ul> <li>Given an array of <code class="language-plaintext highlighter-rouge">intervals</code> where <code class="language-plaintext highlighter-rouge">intervals[i] = [starti, endi]</code>, merge all overlapping intervals, and return <em>an array of the non-overlapping intervals that cover all the intervals in the input</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
-Output: [[1,6],[8,10],[15,18]]
-Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: intervals = [[1,4],[4,5]]
-Output: [[1,5]]
-Explanation: Intervals [1,4] and [4,5] are considered overlapping.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Intervals</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * This class provides functionality to merge overlapping intervals.
- * Given a collection of intervals, it merges all overlapping intervals and
- * returns the result as a list of non-overlapping intervals.
- *
- * Author: zhengstars
- * Date: 2024/06/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeIntervals</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Merges overlapping intervals in the given array.
-     *
-     * @param intervals The array of intervals to merge.
-     * @return A 2D array of merged intervals.
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">merge</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Check for the special case where the intervals array is empty</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">intervals</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Sort the intervals based on their start times</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">intervals</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]));</span>
-
-        <span class="c1">// List to store the merged intervals</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">merged</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Initialize the current interval to be merged</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">currentInterval</span> <span class="o">=</span> <span class="n">intervals</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-        <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">currentInterval</span><span class="o">);</span>
-
-        <span class="c1">// Iterate over the sorted intervals and merge where necessary</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">interval</span> <span class="o">:</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">currentEnd</span> <span class="o">=</span> <span class="n">currentInterval</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-
-            <span class="c1">// If the current interval overlaps with the next interval</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">currentEnd</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="o">[</span><span class="mi">0</span><span class="o">]){</span>
-                <span class="c1">// Update the end of the current interval to the maximum end time</span>
-                <span class="n">currentInterval</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">currentEnd</span><span class="o">,</span> <span class="n">interval</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// There is no overlap, so add the next interval as a new entry</span>
-                <span class="n">currentInterval</span> <span class="o">=</span> <span class="n">interval</span><span class="o">;</span>
-                <span class="n">merged</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">currentInterval</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert the list of merged intervals to a 2D array and return</span>
-        <span class="k">return</span> <span class="n">merged</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">merged</span><span class="o">.</span><span class="na">size</span><span class="o">()][]);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">18</span><span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for intervals1: "</span><span class="o">);</span>
-        <span class="n">printResult</span><span class="o">(</span><span class="n">merge</span><span class="o">(</span><span class="n">intervals1</span><span class="o">));</span> <span class="c1">// Expected output: [[1, 6], [8, 10], [15, 18]]</span>
-
-        <span class="c1">// Example 2</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for intervals2: "</span><span class="o">);</span>
-        <span class="n">printResult</span><span class="o">(</span><span class="n">merge</span><span class="o">(</span><span class="n">intervals2</span><span class="o">));</span> <span class="c1">// Expected output: [[1, 5]]</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Helper method to print a 2D array of intervals.
-     *
-     * @param intervals The array of intervals to print.
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printResult</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">interval</span> <span class="o">:</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span> <span class="o">+</span> <span class="n">interval</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">interval</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"] "</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[56. Merge Intervals]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[435. Non-overlapping Intervals]]></summary></entry></feed>
