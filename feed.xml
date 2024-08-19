@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-08-17T15:55:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">198.House Robber</title><link href="https://zhengstar94.github.io//blog/2024/HouseRobber/" rel="alternate" type="text/html" title="198.House Robber"/><published>2024-08-17T00:00:00+00:00</published><updated>2024-08-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/HouseRobber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/HouseRobber/"><![CDATA[<h1 id="198-house-robber">198. House Robber</h1> <ul> <li>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-08-19T11:07:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">198.House Robber II</title><link href="https://zhengstar94.github.io//blog/2024/HouseRobberII/" rel="alternate" type="text/html" title="198.House Robber II"/><published>2024-08-19T00:00:00+00:00</published><updated>2024-08-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/HouseRobberII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/HouseRobberII/"><![CDATA[<h1 id="213-house-robber-ii">213. House Robber II</h1> <ul> <li>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong> That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,2]
+Output: 3
+Explanation: You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1]
+Output: 4
+Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
+Total amount you can rob = 1 + 3 = 4.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
+Output: 3
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/08/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HouseRobberII</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Calculates the maximum amount of money that can be robbed from a circular street of houses
+     * without alerting the police.
+     * @param nums an integer array representing the amount of money in each house
+     * @return the maximum amount of money that can be robbed
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">rob</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If there is only one house, rob it and return its value</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Case 1: Rob houses from index 0 to n-2 (excluding the last house)</span>
+        <span class="c1">// This array includes houses from the first house to the second-to-last house.</span>
+        <span class="kt">int</span> <span class="n">rob1</span> <span class="o">=</span> <span class="n">robLinear</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOfRange</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
+
+        <span class="c1">// Case 2: Rob houses from index 1 to n-1 (excluding the first house)</span>
+        <span class="c1">// This array includes houses from the second house to the last house.</span>
+        <span class="kt">int</span> <span class="n">rob2</span> <span class="o">=</span> <span class="n">robLinear</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOfRange</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">));</span>
+
+        <span class="c1">// Return the maximum amount that can be robbed from either case</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">rob1</span><span class="o">,</span> <span class="n">rob2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Helper method to calculate the maximum amount of money that can be robbed
+     * from a linear street of houses.
+     * @param nums an integer array representing the amount of money in each house
+     * @return the maximum amount of money that can be robbed
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">robLinear</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">curr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Iterate through the array to compute the maximum amount of money that can be robbed</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the new maximum amount that can be robbed including the current house</span>
+            <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">prev</span> <span class="o">+</span> <span class="n">num</span><span class="o">,</span> <span class="n">curr</span><span class="o">);</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">curr</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Rob houses with amounts [2, 3, 2]</span>
+        <span class="c1">// Expected output: 3 (rob house 2)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Maximum amount for [2, 3, 2]: "</span> <span class="o">+</span> <span class="n">rob</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: Rob houses with amounts [1, 2, 3, 1]</span>
+        <span class="c1">// Expected output: 4 (rob house 1 and house 3)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Maximum amount for [1, 2, 3, 1]: "</span> <span class="o">+</span> <span class="n">rob</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: Rob houses with amounts [1, 2, 3]</span>
+        <span class="c1">// Expected output: 3 (rob house 3)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Maximum amount for [1, 2, 3]: "</span> <span class="o">+</span> <span class="n">rob</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[213. House Robber II]]></summary></entry><entry><title type="html">198.House Robber</title><link href="https://zhengstar94.github.io//blog/2024/HouseRobber/" rel="alternate" type="text/html" title="198.House Robber"/><published>2024-08-17T00:00:00+00:00</published><updated>2024-08-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/HouseRobber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/HouseRobber/"><![CDATA[<h1 id="198-house-robber">198. House Robber</h1> <ul> <li>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1]
 Output: 4
 Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
 Total amount you can rob = 1 + 3 = 4.
@@ -814,63 +893,4 @@ Output: []
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span> <span class="c1">// []</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[39. Combination Sum]]></summary></entry><entry><title type="html">253.Meeting Rooms II</title><link href="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/" rel="alternate" type="text/html" title="253.Meeting Rooms II"/><published>2024-07-07T00:00:00+00:00</published><updated>2024-07-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MeetingRoomsII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MeetingRoomsII/"><![CDATA[<h1 id="253-meeting-rooms-ii">253. Meeting Rooms II</h1> <ul> <li>Given an array of meeting time intervals consisting of start and end times<code class="language-plaintext highlighter-rouge">[[s1,e1],[s2,e2],...]</code>(si&lt; ei), find the minimum number of conference rooms required.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-[[0, 30],[5, 10],[15, 20]]
-Output:
- 2
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
- [[7,10],[2,4]]
-
-Output:
- 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Intervals</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-
-<span class="cm">/**
- * Given an array of meeting time intervals consisting of start and end times, find the minimum number of conference rooms required.
- *
- * @author zhengstars
- * @date 2024/07/07
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MeetingRoomsII</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Calculate the minimum number of conference rooms required for the given meeting time intervals.
-     *
-     * @param intervals an array of meeting time intervals
-     * @return the minimum number of conference rooms required
-     */</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">minMeetingRooms</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">intervals</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Sort the intervals by start time</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">intervals</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
-        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;();</span>
-        <span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">peek</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">minHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="o">}</span>
-            <span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">intervals</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">MeetingRoomsII</span> <span class="n">meetingRoomsII</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MeetingRoomsII</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 1</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">30</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span><span class="mi">20</span><span class="o">}};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">meetingRoomsII</span><span class="o">.</span><span class="na">minMeetingRooms</span><span class="o">(</span><span class="n">intervals1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">intervals2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span><span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">}};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">meetingRoomsII</span><span class="o">.</span><span class="na">minMeetingRooms</span><span class="o">(</span><span class="n">intervals2</span><span class="o">));</span> <span class="c1">// Output: 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Intervals"/><summary type="html"><![CDATA[253. Meeting Rooms II]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[39. Combination Sum]]></summary></entry></feed>
