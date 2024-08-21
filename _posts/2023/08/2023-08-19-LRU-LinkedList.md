@@ -110,6 +110,8 @@ private void removeNode(ListNode node) {
 {% include figure.liquid loading="eager" path="assets/img/2023/08/28.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
 ## Code
+
+### Method 1
 ```java
 package LinkedLists;
 
@@ -227,4 +229,49 @@ public class LRUCache {
 
     }
 }
+```
+
+### Method 2
+```java
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LRUCache<K, V> extends LinkedHashMap<K, V> {
+    private final int capacity;
+
+    public LRUCache(int capacity) {
+        super(capacity, 0.75f, true); // true: access-order, false: insertion-order
+        this.capacity = capacity;
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+        return size() > capacity;
+    }
+
+    public V get(K key) {
+        return super.getOrDefault(key, null);
+    }
+
+    public void put(K key, V value) {
+        super.put(key, value);
+    }
+
+    public static void main(String[] args) {
+        LRUCache<Integer, String> cache = new LRUCache<>(3);
+
+        cache.put(1, "A");
+        cache.put(2, "B");
+        cache.put(3, "C");
+
+        System.out.println(cache); // 输出: {1=A, 2=B, 3=C}
+
+        cache.get(1);  // 访问key为1的元素
+        cache.put(4, "D"); // 插入新元素
+
+        System.out.println(cache); // 输出: {2=B, 1=A, 4=D}
+    }
+}
+
 ```
