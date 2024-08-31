@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-08-21T03:37:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">198.House Robber II</title><link href="https://zhengstar94.github.io//blog/2024/HouseRobberII/" rel="alternate" type="text/html" title="198.House Robber II"/><published>2024-08-19T00:00:00+00:00</published><updated>2024-08-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/HouseRobberII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/HouseRobberII/"><![CDATA[<h1 id="213-house-robber-ii">213. House Robber II</h1> <ul> <li>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong> That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,2]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-08-31T04:07:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">5.Longest Palindromic Substring</title><link href="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/" rel="alternate" type="text/html" title="5.Longest Palindromic Substring"/><published>2024-08-31T00:00:00+00:00</published><updated>2024-08-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/"><![CDATA[<h1 id="5-longest-palindromic-substring">5. Longest Palindromic Substring</h1> <ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the longest</em> <em>palindromic</em> <em>substring</em> in <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbbd"
+Output: "bb"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n<span class="p">^</span>2) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/08/31
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestPalindromicSubstring</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">longestPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the length of the input string</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+
+        <span class="c1">// Create a 2D boolean array for dynamic programming</span>
+        <span class="c1">// dp[i][j] will be true if the substring from index i to j is a palindrome</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="c1">// Variables to keep track of the longest palindrome found</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Starting index of the longest palindrome</span>
+        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Length of the longest palindrome</span>
+
+        <span class="c1">// Initialize base case: all substrings of length 1 are palindromes</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Fill the dp array</span>
+        <span class="c1">// Outer loop: iterate over all possible lengths of substrings</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">len</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">len</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Inner loop: check all substrings of the current length</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// Calculate the ending index of the current substring</span>
+                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+                <span class="c1">// Check if the current substring is a palindrome</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">len</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]))</span> <span class="o">{</span>
+                    <span class="c1">// Mark the current substring as a palindrome</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+                    <span class="c1">// Update the longest palindrome if necessary</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                        <span class="n">maxLen</span> <span class="o">=</span> <span class="n">len</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the longest palindromic substring</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">start</span> <span class="o">+</span> <span class="n">maxLen</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">// Main method for testing</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test cases</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="s">"babad"</span><span class="o">,</span>
+                <span class="s">"cbbd"</span><span class="o">,</span>
+                <span class="s">"a"</span><span class="o">,</span>
+                <span class="s">"ac"</span><span class="o">,</span>
+                <span class="s">"racecar"</span><span class="o">,</span>
+                <span class="s">"aacabdkacaa"</span><span class="o">,</span>
+                <span class="s">""</span>
+        <span class="o">};</span>
+
+        <span class="c1">// Expected results</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">expectedResults</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="s">"bab"</span><span class="o">,</span>  <span class="c1">// or "aba"</span>
+                <span class="s">"bb"</span><span class="o">,</span>
+                <span class="s">"a"</span><span class="o">,</span>
+                <span class="s">"a"</span><span class="o">,</span>
+                <span class="s">"racecar"</span><span class="o">,</span>
+                <span class="s">"aca"</span><span class="o">,</span>
+                <span class="s">""</span>
+        <span class="o">};</span>
+
+        <span class="c1">// Run tests</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">testCases</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: \""</span> <span class="o">+</span> <span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: \""</span> <span class="o">+</span> <span class="n">result</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: \""</span> <span class="o">+</span> <span class="n">expectedResults</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">expectedResults</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[5. Longest Palindromic Substring]]></summary></entry><entry><title type="html">198.House Robber II</title><link href="https://zhengstar94.github.io//blog/2024/HouseRobberII/" rel="alternate" type="text/html" title="198.House Robber II"/><published>2024-08-19T00:00:00+00:00</published><updated>2024-08-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/HouseRobberII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/HouseRobberII/"><![CDATA[<h1 id="213-house-robber-ii">213. House Robber II</h1> <ul> <li>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong> That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <strong>without alerting the police</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,2]
 Output: 3
 Explanation: You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1]
@@ -805,92 +901,4 @@ Output: false
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exist</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">word3</span><span class="o">));</span> <span class="c1">// false</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[79. Word Search]]></summary></entry><entry><title type="html">39.Combination Sum</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSum/" rel="alternate" type="text/html" title="39.Combination Sum"/><published>2024-07-08T00:00:00+00:00</published><updated>2024-07-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSum/"><![CDATA[<h1 id="39-combination-sum">39. Combination Sum</h1> <ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">candidates</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>a list of all <strong>unique combinations</strong> of</em> <code class="language-plaintext highlighter-rouge">candidates</code> <em>where the chosen numbers sum to</em> <code class="language-plaintext highlighter-rouge">target</code><em>.</em> You may return the combinations in <strong>any order</strong>.</li> <li>The <strong>same</strong> number may be chosen from <code class="language-plaintext highlighter-rouge">candidates</code> an <strong>unlimited number of times</strong>. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</li> <li>The test cases are generated such that the number of unique combinations that sum up to <code class="language-plaintext highlighter-rouge">target</code> is less than <code class="language-plaintext highlighter-rouge">150</code> combinations for the given input.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2,3,6,7], target = 7
-Output: [[2,2,3],[7]]
-Explanation:
-2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
-7 is a candidate, and 7 = 7.
-These are the only two combinations.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2,3,5], target = 8
-Output: [[2,2,2,2],[2,3,3],[3,5]]
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [2], target = 1
-Output: []
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>t) time | O(t) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * This class implements the combination sum problem using backtracking algorithm.
- *
- * For given distinct integers and a target sum, it finds all unique combinations
- * where the chosen numbers sum to the target. The same number can be chosen
- * from candidates an unlimited number of times.
- *
- * @author zhengstars
- * @date 2024/07/08
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CombinationSum</span> <span class="o">{</span>
-
-    <span class="cm">/**
-     * Finds all unique combinations that sum up to the target.
-     *
-     * @param candidates an array of distinct integers
-     * @param target the target sum
-     * @return a list of all unique combinations that sum up to the target
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">combinationSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">candidates</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">backtrack</span><span class="o">(</span><span class="n">candidates</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(),</span> <span class="n">result</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * The backtracking function to search for combinations.
-     *
-     * @param candidates an array of distinct integers
-     * @param target the remaining target sum
-     * @param start the starting index of the search
-     * @param current the current combination being constructed
-     * @param result the list to store valid combinations
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrack</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">candidates</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">current</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">current</span><span class="o">));</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">candidates</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">candidates</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-
-            <span class="c1">// Recursive call to search for combinations</span>
-            <span class="n">backtrack</span><span class="o">(</span><span class="n">candidates</span><span class="o">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">candidates</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">,</span> <span class="n">current</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-
-            <span class="c1">// Backtrack by removing the last element</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method to test the combinationSum function.
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">candidates1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span> <span class="c1">// [ [2, 2, 3], [7]]</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">candidates2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span> <span class="c1">// [ [2, 2, 2, 2], [2, 3, 3], [3, 5]]</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">candidates3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">combinationSum</span><span class="o">(</span><span class="n">candidates3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span> <span class="c1">// []</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[39. Combination Sum]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><summary type="html"><![CDATA[79. Word Search]]></summary></entry></feed>
