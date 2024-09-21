@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-09-18T10:41:03+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">647.Palindromic Substrings</title><link href="https://zhengstar94.github.io//blog/2024/PalindromicSubstrings/" rel="alternate" type="text/html" title="647.Palindromic Substrings"/><published>2024-09-18T00:00:00+00:00</published><updated>2024-09-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PalindromicSubstrings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PalindromicSubstrings/"><![CDATA[<h1 id="647-palindromic-substrings">647. Palindromic Substrings</h1> <ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the number of <strong>palindromic substrings</strong> in it</em>.</li> <li>A string is a <strong>palindrome</strong> when it reads the same backward as forward.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters within the string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-09-21T15:17:10+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">91.Decode Ways</title><link href="https://zhengstar94.github.io//blog/2024/DecodeWays/" rel="alternate" type="text/html" title="91.Decode Ways"/><published>2024-09-21T00:00:00+00:00</published><updated>2024-09-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DecodeWays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DecodeWays/"><![CDATA[<h1 id="91-decode-ways">91. Decode Ways</h1> <ul> <li> <p>You have intercepted a secret message encoded as a string of numbers. The message is <strong>decoded</strong> via the following mapping:</p> <p><code class="language-plaintext highlighter-rouge">"1" -&gt; 'A' "2" -&gt; 'B' ... "25" -&gt; 'Y' "26" -&gt; 'Z'</code></p> </li> <li> <p>However, while decoding the message, you realize that there are many different ways you can decode the message because some codes are contained in other codes (<code class="language-plaintext highlighter-rouge">"2"</code> and <code class="language-plaintext highlighter-rouge">"5"</code> vs <code class="language-plaintext highlighter-rouge">"25"</code>).</p> <p>For example, <code class="language-plaintext highlighter-rouge">"11106"</code> can be decoded into:</p> <ul> <li><code class="language-plaintext highlighter-rouge">"AAJF"</code> with the grouping <code class="language-plaintext highlighter-rouge">(1, 1, 10, 6)</code></li> <li><code class="language-plaintext highlighter-rouge">"KJF"</code> with the grouping <code class="language-plaintext highlighter-rouge">(11, 10, 6)</code></li> <li>The grouping <code class="language-plaintext highlighter-rouge">(1, 11, 06)</code> is invalid because <code class="language-plaintext highlighter-rouge">"06"</code> is not a valid code (only <code class="language-plaintext highlighter-rouge">"6"</code> is valid).</li> </ul> <p>Note: there may be strings that are impossible to decode.</p> <p>Given a string s containing only digits, return the <strong>number of ways</strong> to <strong>decode</strong> it. If the entire string cannot be decoded in any valid way, return <code class="language-plaintext highlighter-rouge">0</code>.</p> <p>The test cases are generated so that the answer fits in a <strong>32-bit</strong> integer.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "12"
+
+Output: 2
+
+Explanation:
+
+"12" could be decoded as "AB" (1 2) or "L" (12).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "226"
+
+Output: 3
+
+Explanation:
+
+"226" could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "06"
+
+Output: 0
+
+Explanation:
+
+"06" cannot be mapped to "F" because of the leading zero ("6" is different from "06"). In this case, the string is not a valid encoding, so return 0.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/09/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DecodeWays</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Calculates the number of ways to decode a string of digits.
+     * @param s The input string containing digits.
+     * @return The number of possible decodings.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numDecodings</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="c1">// dp[i] represents the number of ways to decode the first i characters</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// Base case: empty string has one way to decode (do nothing)</span>
+        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each character in the string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if single digit decoding is possible</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">!=</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If the current digit is not '0', it can be decoded alone</span>
+                <span class="c1">// So we add the number of ways to decode the string up to the previous position</span>
+                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Check if two-digit decoding is possible</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span> <span class="o">!=</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">twoDigitNum</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">i</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="mi">26</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If the last two digits form a valid number (10-26),</span>
+                <span class="c1">// we add the number of ways to decode the string up to two positions back</span>
+                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total number of ways to decode the entire string</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Converts two consecutive digits in the string to an integer.
+     * @param s The input string.
+     * @param i The current position (we look at i-2 and i-1).
+     * @return The integer value of the two digits.
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">twoDigitNum</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Convert char to int by subtracting '0'</span>
+        <span class="c1">// Multiply the tens digit by 10 and add the ones digit</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to test the solution with various test cases.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test cases</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="s">"12"</span><span class="o">,</span>    <span class="c1">// Expected output: 2 (AB (1 2) or L (12))</span>
+                <span class="s">"226"</span><span class="o">,</span>   <span class="c1">// Expected output: 3 (BZ (2 26) or VF (22 6) or BBF (2 2 6))</span>
+                <span class="s">"0"</span><span class="o">,</span>     <span class="c1">// Expected output: 0 (cannot be decoded)</span>
+                <span class="s">"06"</span><span class="o">,</span>    <span class="c1">// Expected output: 0 (cannot be decoded)</span>
+                <span class="s">"10"</span><span class="o">,</span>    <span class="c1">// Expected output: 1 (J (10))</span>
+                <span class="s">"27"</span><span class="o">,</span>    <span class="c1">// Expected output: 1 (BG (2 7))</span>
+                <span class="s">"234"</span><span class="o">,</span>   <span class="c1">// Expected output: 3 (BCD (2 3 4) or WD (23 4) or BW (2 34))</span>
+                <span class="s">"1111"</span>   <span class="c1">// Expected output: 5 (AAAA, KAA, AKA, AAK, KK)</span>
+        <span class="o">};</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">testCase</span> <span class="o">:</span> <span class="n">testCases</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">numDecodings</span><span class="o">(</span><span class="n">testCase</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: \""</span> <span class="o">+</span> <span class="n">testCase</span> <span class="o">+</span> <span class="s">"\", Output: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[91. Decode Ways]]></summary></entry><entry><title type="html">647.Palindromic Substrings</title><link href="https://zhengstar94.github.io//blog/2024/PalindromicSubstrings/" rel="alternate" type="text/html" title="647.Palindromic Substrings"/><published>2024-09-18T00:00:00+00:00</published><updated>2024-09-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PalindromicSubstrings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PalindromicSubstrings/"><![CDATA[<h1 id="647-palindromic-substrings">647. Palindromic Substrings</h1> <ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the number of <strong>palindromic substrings</strong> in it</em>.</li> <li>A string is a <strong>palindrome</strong> when it reads the same backward as forward.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters within the string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc"
 Output: 3
 Explanation: Three palindromic strings: "a", "b", "c".
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aaa"
@@ -810,99 +909,4 @@ Explanation: This an empty graph, it does not have any nodes.
   <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[133. Clone Graph]]></summary></entry><entry><title type="html">200.Number of Islands</title><link href="https://zhengstar94.github.io//blog/2024/NumberOfIslands/" rel="alternate" type="text/html" title="200.Number of Islands"/><published>2024-07-10T00:00:00+00:00</published><updated>2024-07-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NumberOfIslands</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NumberOfIslands/"><![CDATA[<h1 id="200-number-of-islands">200. Number of Islands</h1> <ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> 2D binary grid <code class="language-plaintext highlighter-rouge">grid</code> which represents a map of <code class="language-plaintext highlighter-rouge">'1'</code>s (land) and <code class="language-plaintext highlighter-rouge">'0'</code>s (water), return <em>the number of islands</em>.</li> <li>An <strong>island</strong> is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [
-  ["1","1","1","1","0"],
-  ["1","1","0","1","0"],
-  ["1","1","0","0","0"],
-  ["0","0","0","0","0"]
-]
-Output: 1
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [
-  ["1","1","0","0","0"],
-  ["1","1","0","0","0"],
-  ["0","0","1","0","0"],
-  ["0","0","0","1","1"]
-]
-Output: 3
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
-
-<span class="cm">/**
- * Calculates the number of islands in a 2D grid.
- *
- * @author zhengstars
- * @date 2024/07/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfIslands</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Main function to calculate the number of islands.
-     * @param grid the 2D grid representing land and water
-     * @return the number of islands
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numIslands</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Exception handling</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">grid</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">numIslands</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Traverse the entire grid</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">cols</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// If encounter '1', it means finding a new island</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'1'</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">numIslands</span><span class="o">++;</span>
-                    <span class="c1">// Use DFS to mark all land of the current island</span>
-                    <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">numIslands</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Depth-first search to mark visited land as '0'.
-     * @param grid the 2D grid representing land and water
-     * @param i the row index
-     * @param j the column index
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Exception handling: check boundary condition and whether the current grid is '1'</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">||</span> <span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Mark the current land as '0' to indicate visited</span>
-        <span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="sc">'0'</span><span class="o">;</span>
-
-        <span class="c1">// Recursively process the adjacent positions of the current land</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span> <span class="c1">// Up</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span> <span class="c1">// Down</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// Left</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// Right</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="kt">char</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
-                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
-                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
-                <span class="o">{</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numIslands</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Output: 1</span>
-
-        <span class="kt">char</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
-                <span class="o">{</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
-                <span class="o">{</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">},</span>
-                <span class="o">{</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numIslands</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Output: 3</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[200. Number of Islands]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><summary type="html"><![CDATA[133. Clone Graph]]></summary></entry></feed>
