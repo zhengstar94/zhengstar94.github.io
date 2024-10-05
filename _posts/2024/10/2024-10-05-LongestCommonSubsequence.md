@@ -19,6 +19,7 @@ categories:
 
 **Example 1**
 
+
 ```
 Input: text1 = "abcde", text2 = "ace" 
 Output: 3  
