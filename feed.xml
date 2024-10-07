@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-06T03:45:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">42.Trapping Rain Water</title><link href="https://zhengstar94.github.io//blog/2024/TrappingRainWater/" rel="alternate" type="text/html" title="42.Trapping Rain Water"/><published>2024-10-06T00:00:00+00:00</published><updated>2024-10-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/TrappingRainWater</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/TrappingRainWater/"><![CDATA[<ul> <li>Given <code class="language-plaintext highlighter-rouge">n</code> non-negative integers representing an elevation map where the width of each bar is <code class="language-plaintext highlighter-rouge">1</code>, compute how much water it can trap after raining.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-07T06:49:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">150.Evaluate Reverse Polish Notation</title><link href="https://zhengstar94.github.io//blog/2024/EvaluateReversePolishNotation/" rel="alternate" type="text/html" title="150.Evaluate Reverse Polish Notation"/><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/EvaluateReversePolishNotation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/EvaluateReversePolishNotation/"><![CDATA[<ul> <li>You are given an array of strings <code class="language-plaintext highlighter-rouge">tokens</code> that represents an arithmetic expression in a <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>.</li> <li>Evaluate the expression. Return <em>an integer that represents the value of the expression</em>.</li> <li><strong>Note</strong> that: <ul> <li>The valid operators are <code class="language-plaintext highlighter-rouge">'+'</code>, <code class="language-plaintext highlighter-rouge">'-'</code>, <code class="language-plaintext highlighter-rouge">'*'</code>, and <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Each operand may be an integer or another expression.</li> <li>The division between two integers always <strong>truncates toward zero</strong>.</li> <li>There will not be any division by zero.</li> <li>The input represents a valid arithmetic expression in a reverse polish notation.</li> <li>The answer and all the intermediate calculations can be represented in a <strong>32-bit</strong> integer.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tokens = ["2","1","+","3","*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tokens = ["4","13","5","/","+"]
+Output: 6
+Explanation: (4 + (13 / 5)) = 6
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+Output: 22
+Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+= ((10 * (6 / (12 * -11))) + 17) + 5
+= ((10 * (6 / -132)) + 17) + 5
+= ((10 * 0) + 17) + 5
+= (0 + 17) + 5
+= 17 + 5
+= 22
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/07
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EvaluateReversePolishNotation</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">evalRPN</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">tokens</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize a stack to store operands</span>
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate through each token in the input array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">token</span> <span class="o">:</span> <span class="n">tokens</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"+"</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Addition: pop two numbers, add them, and push the result</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">+</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"*"</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Multiplication: pop two numbers, multiply them, and push the result</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">*</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"-"</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Subtraction: pop two numbers (order matters), subtract, and push the result</span>
+                <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"/"</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Division: pop two numbers (order matters), divide, and push the result</span>
+                <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If the token is a number, parse it to integer and push onto the stack</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">token</span><span class="o">));</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// The final result is the only item left on the stack</span>
+        <span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Basic addition and multiplication</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens1</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"2"</span><span class="o">,</span><span class="s">"1"</span><span class="o">,</span><span class="s">"+"</span><span class="o">,</span><span class="s">"3"</span><span class="o">,</span><span class="s">"*"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens1</span><span class="o">));</span> <span class="c1">// Expected output: 9</span>
+
+        <span class="c1">// Test case 2: Division and addition</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens2</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"4"</span><span class="o">,</span><span class="s">"13"</span><span class="o">,</span><span class="s">"5"</span><span class="o">,</span><span class="s">"/"</span><span class="o">,</span><span class="s">"+"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens2</span><span class="o">));</span> <span class="c1">// Expected output: 6</span>
+
+        <span class="c1">// Test case 3: Complex expression with multiple operations</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens3</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"10"</span><span class="o">,</span><span class="s">"6"</span><span class="o">,</span><span class="s">"9"</span><span class="o">,</span><span class="s">"3"</span><span class="o">,</span><span class="s">"+"</span><span class="o">,</span><span class="s">"-11"</span><span class="o">,</span><span class="s">"*"</span><span class="o">,</span><span class="s">"/"</span><span class="o">,</span><span class="s">"*"</span><span class="o">,</span><span class="s">"17"</span><span class="o">,</span><span class="s">"+"</span><span class="o">,</span><span class="s">"5"</span><span class="o">,</span><span class="s">"+"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens3</span><span class="o">));</span> <span class="c1">// Expected output: 22</span>
+
+        <span class="c1">// Test case 4: Expression with negative numbers</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens4</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"4"</span><span class="o">,</span><span class="s">"-2"</span><span class="o">,</span><span class="s">"/"</span><span class="o">,</span><span class="s">"2"</span><span class="o">,</span><span class="s">"-"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens4</span><span class="o">));</span> <span class="c1">// Expected output: -4</span>
+
+        <span class="c1">// Test case 5: Expression with a single number</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens5</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"18"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens5</span><span class="o">));</span> <span class="c1">// Expected output: 18</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation. Evaluate the expression. Return an integer that represents the value of the expression. Note that: The valid operators are '+', '-', '*', and '/'. Each operand may be an integer or another expression. The division between two integers always truncates toward zero. There will not be any division by zero. The input represents a valid arithmetic expression in a reverse polish notation. The answer and all the intermediate calculations can be represented in a 32-bit integer.]]></summary></entry><entry><title type="html">42.Trapping Rain Water</title><link href="https://zhengstar94.github.io//blog/2024/TrappingRainWater/" rel="alternate" type="text/html" title="42.Trapping Rain Water"/><published>2024-10-06T00:00:00+00:00</published><updated>2024-10-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/TrappingRainWater</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/TrappingRainWater/"><![CDATA[<ul> <li>Given <code class="language-plaintext highlighter-rouge">n</code> non-negative integers representing an elevation map where the width of each bar is <code class="language-plaintext highlighter-rouge">1</code>, compute how much water it can trap after raining.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
 Output: 6
 Explanation: The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: height = [4,2,0,3,2,5]
@@ -747,100 +826,4 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[647. Palindromic Substrings]]></summary></entry><entry><title type="html">5.Longest Palindromic Substring</title><link href="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/" rel="alternate" type="text/html" title="5.Longest Palindromic Substring"/><published>2024-08-31T00:00:00+00:00</published><updated>2024-08-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/"><![CDATA[<h1 id="5-longest-palindromic-substring">5. Longest Palindromic Substring</h1> <ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the longest</em> <em>palindromic</em> <em>substring</em> in <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "babad"
-Output: "bab"
-Explanation: "aba" is also a valid answer.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbbd"
-Output: "bb"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n<span class="p">^</span>2) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/08/31
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestPalindromicSubstring</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">longestPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of the input string</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-
-        <span class="c1">// Create a 2D boolean array for dynamic programming</span>
-        <span class="c1">// dp[i][j] will be true if the substring from index i to j is a palindrome</span>
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Variables to keep track of the longest palindrome found</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Starting index of the longest palindrome</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Length of the longest palindrome</span>
-
-        <span class="c1">// Initialize base case: all substrings of length 1 are palindromes</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Fill the dp array</span>
-        <span class="c1">// Outer loop: iterate over all possible lengths of substrings</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">len</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">len</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Inner loop: check all substrings of the current length</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Calculate the ending index of the current substring</span>
-                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Check if the current substring is a palindrome</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">len</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]))</span> <span class="o">{</span>
-                    <span class="c1">// Mark the current substring as a palindrome</span>
-                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-                    <span class="c1">// Update the longest palindrome if necessary</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-                        <span class="n">maxLen</span> <span class="o">=</span> <span class="n">len</span><span class="o">;</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the longest palindromic substring</span>
-        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">start</span> <span class="o">+</span> <span class="n">maxLen</span><span class="o">);</span>
-    <span class="o">}</span>
-
-
-    <span class="c1">// Main method for testing</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="s">"babad"</span><span class="o">,</span>
-                <span class="s">"cbbd"</span><span class="o">,</span>
-                <span class="s">"a"</span><span class="o">,</span>
-                <span class="s">"ac"</span><span class="o">,</span>
-                <span class="s">"racecar"</span><span class="o">,</span>
-                <span class="s">"aacabdkacaa"</span><span class="o">,</span>
-                <span class="s">""</span>
-        <span class="o">};</span>
-
-        <span class="c1">// Expected results</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">expectedResults</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="s">"bab"</span><span class="o">,</span>  <span class="c1">// or "aba"</span>
-                <span class="s">"bb"</span><span class="o">,</span>
-                <span class="s">"a"</span><span class="o">,</span>
-                <span class="s">"a"</span><span class="o">,</span>
-                <span class="s">"racecar"</span><span class="o">,</span>
-                <span class="s">"aca"</span><span class="o">,</span>
-                <span class="s">""</span>
-        <span class="o">};</span>
-
-        <span class="c1">// Run tests</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">testCases</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: \""</span> <span class="o">+</span> <span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: \""</span> <span class="o">+</span> <span class="n">result</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: \""</span> <span class="o">+</span> <span class="n">expectedResults</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">expectedResults</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[5. Longest Palindromic Substring]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[647. Palindromic Substrings]]></summary></entry></feed>
