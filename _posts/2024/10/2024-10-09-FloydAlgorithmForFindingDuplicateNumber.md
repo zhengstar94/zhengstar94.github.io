@@ -105,3 +105,180 @@ The correctness of this algorithm relies on the following properties:
 ## 8. Conclusion
 
 Floyd's Cycle-Finding Algorithm provides an elegant and efficient solution to the "Find the Duplicate Number" problem. While it may not be the most intuitive approach, it showcases how algorithmic thinking can lead to optimal solutions that satisfy strict constraints. Understanding this algorithm and its application can provide valuable insights into problem-solving techniques in computer science.
+
+## Example of Leetode
+
+1. LeetCode 142 - Linked List Cycle II
+
+Problem: Given a linked list, return the node where the cycle begins. If there is no cycle, return `null`.
+
+```java
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) return null;
+        
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // Phase 1: Detect the intersection point
+        while (fast != null && fast.next != null) {
+            slow = slow.next;            // Move slow pointer one step
+            fast = fast.next.next;       // Move fast pointer two steps
+            if (slow == fast) break;     // They meet at the cycle
+        }
+
+        // If fast reaches null, there is no cycle
+        if (fast == null || fast.next == null) return null;
+
+        // Phase 2: Find the entrance to the cycle
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow;  // This is the entrance to the cycle
+    }
+}
+
+```
+
+2. LeetCode 202 - Happy Number
+
+Problem: Write an algorithm to determine if a number `n` is a "happy number." A happy number is one where you repeatedly replace the number by the sum of the squares of its digits until it either equals `1` (which means it's happy) or loops endlessly in a cycle.
+
+```java
+public class Solution {
+    public boolean isHappy(int n) {
+        int slow = n;
+        int fast = getNext(n);
+
+        // Phase 1: Detect cycle
+        while (fast != 1 && slow != fast) {
+            slow = getNext(slow);             // Slow pointer moves one step
+            fast = getNext(getNext(fast));    // Fast pointer moves two steps
+        }
+
+        // If fast reaches 1, it's a happy number
+        return fast == 1;
+    }
+
+    private int getNext(int n) {
+        int totalSum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            n = n / 10;
+            totalSum += d * d;
+        }
+        return totalSum;
+    }
+}
+
+```
+3. LeetCode 41 - First Missing Positive
+
+Problem: Given an unsorted integer array, find the smallest missing positive integer. Although this problem doesn't directly use Floyd's algorithm, you can solve it by rearranging the array to simulate the cyclic behavior.
+
+```java
+public class Solution {
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
+
+        // Place each number at its correct index (e.g., 1 goes to index 0, 2 goes to index 1)
+        for (int i = 0; i < n; i++) {
+            while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+                // Swap nums[i] with nums[nums[i] - 1]
+                swap(nums, i, nums[i] - 1);
+            }
+        }
+
+        // Find the first missing positive number
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
+        }
+
+        return n + 1;  // If all numbers are in the correct place, return n+1
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+
+```
+
+4. Cycle Detection in Function Iteration
+
+In function iteration, we want to detect if a function eventually enters a cycle. You can apply Floyd’s algorithm here as well. Below is an example:
+
+```java
+public class Solution {
+    public int detectCycleInFunction(int x) {
+        int slow = f(x);
+        int fast = f(f(x));
+
+        // Phase 1: Detect cycle
+        while (slow != fast) {
+            slow = f(slow);           // Slow pointer moves one step
+            fast = f(f(fast));        // Fast pointer moves two steps
+        }
+
+        // Phase 2: Find the entrance of the cycle
+        slow = x;
+        while (slow != fast) {
+            slow = f(slow);
+            fast = f(fast);
+        }
+
+        return slow;  // Return the entrance of the cycle
+    }
+
+    private int f(int x) {
+        // Example of a function f
+        return (x * x + 1) % 10;  // For instance, square the number and add 1
+    }
+}
+
+```
+
+5. Cycle Detection in Finite State Machines
+
+You can also use Floyd’s algorithm to detect cycles in state transitions of a finite state machine (FSM).
+
+```java
+public class Solution {
+    public int detectCycleInFSM(int state, int[][] transitions) {
+        int slow = transitions[state][0];
+        int fast = transitions[transitions[state][0]][0];
+
+        // Phase 1: Detect cycle
+        while (slow != fast) {
+            slow = transitions[slow][0];               // Slow pointer moves one step
+            fast = transitions[transitions[fast][0]][0];  // Fast pointer moves two steps
+        }
+
+        // Phase 2: Find the entrance of the cycle
+        slow = state;
+        while (slow != fast) {
+            slow = transitions[slow][0];
+            fast = transitions[fast][0];
+        }
+
+        return slow;  // Return the state where the cycle starts
+    }
+}
+
+```
