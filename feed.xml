@@ -1,4 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-12T12:07:09+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">567.Permutation in String</title><link href="https://zhengstar94.github.io//blog/2024/PermutationInString/" rel="alternate" type="text/html" title="567.Permutation in String"/><published>2024-10-12T00:00:00+00:00</published><updated>2024-10-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PermutationInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PermutationInString/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code>, return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">s2</code> contains a permutation of <code class="language-plaintext highlighter-rouge">s1</code>, or <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>In other words, return <code class="language-plaintext highlighter-rouge">true</code> if one of <code class="language-plaintext highlighter-rouge">s1</code>’s permutations is the substring of <code class="language-plaintext highlighter-rouge">s2</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "ab", s2 = "eidbaooo"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-13T06:39:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">138.Copy List with Random Pointer</title><link href="https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer/" rel="alternate" type="text/html" title="138.Copy List with Random Pointer"/><published>2024-10-13T00:00:00+00:00</published><updated>2024-10-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer/"><![CDATA[<ul> <li>A linked list of length <code class="language-plaintext highlighter-rouge">n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code class="language-plaintext highlighter-rouge">null</code>.</li> <li>Construct a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy"><strong>deep copy</strong></a> of the list. The deep copy should consist of exactly <code class="language-plaintext highlighter-rouge">n</code> <strong>brand new</strong> nodes, where each new node has its value set to the value of its corresponding original node. Both the <code class="language-plaintext highlighter-rouge">next</code> and <code class="language-plaintext highlighter-rouge">random</code> pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. <strong>None of the pointers in the new list should point to nodes in the original list</strong>.</li> <li>For example, if there are two nodes <code class="language-plaintext highlighter-rouge">X</code> and <code class="language-plaintext highlighter-rouge">Y</code> in the original list, where <code class="language-plaintext highlighter-rouge">X.random --&gt; Y</code>, then for the corresponding two nodes <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> in the copied list, <code class="language-plaintext highlighter-rouge">x.random --&gt; y</code>.</li> <li>Return <em>the head of the copied linked list</em>.</li> <li>The linked list is represented in the input/output as a list of <code class="language-plaintext highlighter-rouge">n</code> nodes. Each node is represented as a pair of <code class="language-plaintext highlighter-rouge">[val, random_index]</code> where: <ul> <li><code class="language-plaintext highlighter-rouge">val</code>: an integer representing <code class="language-plaintext highlighter-rouge">Node.val</code></li> <li><code class="language-plaintext highlighter-rouge">random_index</code>: the index of the node (range from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n-1</code>) that the <code class="language-plaintext highlighter-rouge">random</code> pointer points to, or <code class="language-plaintext highlighter-rouge">null</code> if it does not point to any node.</li> </ul> </li> <li>Your code will <strong>only</strong> be given the <code class="language-plaintext highlighter-rouge">head</code> of the original linked list.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [ [7,null],[13,0],[11,4],[10,2],[1,0] ]
+Output: [ [7,null],[13,0],[11,4],[10,2],[1,0] ]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [ [1,1],[2,1] ]
+Output: [ [1,1],[2,1] ]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [ [3,null],[3,0],[3,null] ]
+Output: [ [3,null],[3,0],[3,null] ]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CopyListWithRandomPointer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Node</span> <span class="nf">copyRandomList</span><span class="o">(</span><span class="nc">Node</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span> 
+        <span class="o">}</span>
+
+        <span class="c1">// Step 1: Create copy nodes and insert them after original nodes</span>
+        <span class="nc">Node</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Create a new node with the same value as the current node</span>
+            <span class="nc">Node</span> <span class="n">copy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+            <span class="c1">// Insert the new node right after the current node</span>
+            <span class="n">copy</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="n">curr</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">copy</span><span class="o">;</span>
+            <span class="c1">// Move to the next original node</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 2: Set random pointers for the copy nodes</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the original node has a random pointer, set the copy's random pointer</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">random</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// curr.next is the copy of curr</span>
+                <span class="c1">// curr.random.next is the copy of curr.random</span>
+                <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">random</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// Move to the next original node</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 3: Separate the original and copied lists</span>
+        <span class="nc">Node</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Dummy node to start the copied list</span>
+        <span class="nc">Node</span> <span class="n">copyCurr</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">;</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Connect the copy nodes</span>
+            <span class="n">copyCurr</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="c1">// Restore the original list connection</span>
+            <span class="n">curr</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="c1">// Move both pointers</span>
+            <span class="n">copyCurr</span> <span class="o">=</span> <span class="n">copyCurr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the head of the copied list</span>
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Test cases</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1: [ [ 7,null],[13,0],[11,4],[10,2],[1,0] ]</span>
+        <span class="nc">Node</span> <span class="n">head1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node13</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">13</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node11</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">11</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node10</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">head1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node13</span><span class="o">;</span>
+        <span class="n">node13</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node11</span><span class="o">;</span>
+        <span class="n">node11</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node10</span><span class="o">;</span>
+        <span class="n">node10</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node1</span><span class="o">;</span>
+        <span class="n">head1</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">node13</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">head1</span><span class="o">;</span>
+        <span class="n">node11</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">node1</span><span class="o">;</span>
+        <span class="n">node10</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">node11</span><span class="o">;</span>
+        <span class="n">node1</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">head1</span><span class="o">;</span>
+
+        <span class="nc">Node</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">copyRandomList</span><span class="o">(</span><span class="n">head1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 passed: "</span> <span class="o">+</span> <span class="n">validateCopy</span><span class="o">(</span><span class="n">head1</span><span class="o">,</span> <span class="n">result1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: [ [ 1,1],[2,1] ]</span>
+        <span class="nc">Node</span> <span class="n">head2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">head2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node2</span><span class="o">;</span>
+        <span class="n">head2</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">node2</span><span class="o">;</span>
+        <span class="n">node2</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">node2</span><span class="o">;</span>
+
+        <span class="nc">Node</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">copyRandomList</span><span class="o">(</span><span class="n">head2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 passed: "</span> <span class="o">+</span> <span class="n">validateCopy</span><span class="o">(</span><span class="n">head2</span><span class="o">,</span> <span class="n">result2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: [ [ 3,null],[3,0],[3,null] ]</span>
+        <span class="nc">Node</span> <span class="n">head3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node3_2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node3_3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">head3</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node3_2</span><span class="o">;</span>
+        <span class="n">node3_2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node3_3</span><span class="o">;</span>
+        <span class="n">head3</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">node3_2</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">head3</span><span class="o">;</span>
+        <span class="n">node3_3</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+        <span class="nc">Node</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">copyRandomList</span><span class="o">(</span><span class="n">head3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 passed: "</span> <span class="o">+</span> <span class="n">validateCopy</span><span class="o">(</span><span class="n">head3</span><span class="o">,</span> <span class="n">result3</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validateCopy</span><span class="o">(</span><span class="nc">Node</span> <span class="n">original</span><span class="o">,</span> <span class="nc">Node</span> <span class="n">copy</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">original</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">copy</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">original</span><span class="o">.</span><span class="na">val</span> <span class="o">!=</span> <span class="n">copy</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">((</span><span class="n">original</span><span class="o">.</span><span class="na">random</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">copy</span><span class="o">.</span><span class="na">random</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">||</span>
+                    <span class="o">(</span><span class="n">original</span><span class="o">.</span><span class="na">random</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">copy</span><span class="o">.</span><span class="na">random</span> <span class="o">==</span> <span class="kc">null</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">original</span><span class="o">.</span><span class="na">random</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">original</span><span class="o">.</span><span class="na">random</span><span class="o">.</span><span class="na">val</span> <span class="o">!=</span> <span class="n">copy</span><span class="o">.</span><span class="na">random</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">original</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="n">copy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">original</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">copy</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+    <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+    <span class="nc">Node</span> <span class="n">random</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list. The deep copy should consist of exactly n brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list. For example, if there are two nodes X and Y in the original list, where X.random --&gt; Y, then for the corresponding two nodes x and y in the copied list, x.random --&gt; y. Return the head of the copied linked list. The linked list is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where: val: an integer representing Node.val random_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node. Your code will only be given the head of the original linked list.]]></summary></entry><entry><title type="html">567.Permutation in String</title><link href="https://zhengstar94.github.io//blog/2024/PermutationInString/" rel="alternate" type="text/html" title="567.Permutation in String"/><published>2024-10-12T00:00:00+00:00</published><updated>2024-10-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PermutationInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PermutationInString/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code>, return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">s2</code> contains a permutation of <code class="language-plaintext highlighter-rouge">s1</code>, or <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>In other words, return <code class="language-plaintext highlighter-rouge">true</code> if one of <code class="language-plaintext highlighter-rouge">s1</code>’s permutations is the substring of <code class="language-plaintext highlighter-rouge">s2</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "ab", s2 = "eidbaooo"
 Output: true
 Explanation: s2 contains one permutation of s1 ("ba").
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "ab", s2 = "eidboaoo"
@@ -800,68 +938,4 @@ Output: 6
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"10x10 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span> <span class="c1">// Expected output: 48620</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.]]></summary></entry><entry><title type="html">300.Longest Increasing Subsequence</title><link href="https://zhengstar94.github.io//blog/2024/LongestIncreasingSubsequence/" rel="alternate" type="text/html" title="300.Longest Increasing Subsequence"/><published>2024-09-29T00:00:00+00:00</published><updated>2024-09-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestIncreasingSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestIncreasingSubsequence/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and a dictionary of strings <code class="language-plaintext highlighter-rouge">wordDict</code>, return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">s</code> can be segmented into a space-separated sequence of one or more dictionary words.</li> <li><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</li> </ul> <p><strong>Example 1</strong></p> <ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the length of the longest <strong>strictly increasing</strong></em> <strong><em>subsequence</em></strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,9,2,5,3,7,101,18]
-Output: 4
-Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,3,2,3]
-Output: 4
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [7,7,7,7,7,7,7]
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/09/29
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestIncreasingSubsequence</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">lengthOfLIS</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Edge case: if the input array is null or empty, return 0</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// dp array to store the smallest tail of all increasing subsequences</span>
-        <span class="c1">// of lengths i+1 in dp[i]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="c1">// len keeps track of the current length of the longest increasing subsequence</span>
-        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Use binary search to find the position where num should be placed in dp</span>
-            <span class="c1">// This is more efficient than linear search, reducing time complexity to O(log n)</span>
-            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">dp</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">len</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
-
-            <span class="c1">// If the element is not found, binarySearch returns (-(insertion point) - 1)</span>
-            <span class="c1">// We need to convert this to the actual insertion point</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">){</span>
-                <span class="n">i</span> <span class="o">=</span> <span class="o">-(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Place the current number in its correct position in dp</span>
-            <span class="c1">// This either replaces a larger element or extends the sequence</span>
-            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
-
-            <span class="c1">// If i equals len, it means we've found a new largest element</span>
-            <span class="c1">// This extends our longest increasing subsequence, so we increment len</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">len</span><span class="o">){</span>
-                <span class="n">len</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="c1">// Note: If i &lt; len, we're just replacing an existing element</span>
-            <span class="c1">// This doesn't increase the length, but might help form a longer sequence later</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The final value of len is the length of the longest increasing subsequence</span>
-        <span class="k">return</span> <span class="n">len</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">101</span><span class="o">,</span><span class="mi">18</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Length of Longest Increasing Subsequence: "</span> <span class="o">+</span> <span class="n">lengthOfLIS</span><span class="o">(</span><span class="n">nums</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words. Note that the same word in the dictionary may be reused multiple times in the segmentation.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.]]></summary></entry></feed>
