@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-13T06:39:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">138.Copy List with Random Pointer</title><link href="https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer/" rel="alternate" type="text/html" title="138.Copy List with Random Pointer"/><published>2024-10-13T00:00:00+00:00</published><updated>2024-10-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer/"><![CDATA[<ul> <li>A linked list of length <code class="language-plaintext highlighter-rouge">n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code class="language-plaintext highlighter-rouge">null</code>.</li> <li>Construct a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy"><strong>deep copy</strong></a> of the list. The deep copy should consist of exactly <code class="language-plaintext highlighter-rouge">n</code> <strong>brand new</strong> nodes, where each new node has its value set to the value of its corresponding original node. Both the <code class="language-plaintext highlighter-rouge">next</code> and <code class="language-plaintext highlighter-rouge">random</code> pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. <strong>None of the pointers in the new list should point to nodes in the original list</strong>.</li> <li>For example, if there are two nodes <code class="language-plaintext highlighter-rouge">X</code> and <code class="language-plaintext highlighter-rouge">Y</code> in the original list, where <code class="language-plaintext highlighter-rouge">X.random --&gt; Y</code>, then for the corresponding two nodes <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> in the copied list, <code class="language-plaintext highlighter-rouge">x.random --&gt; y</code>.</li> <li>Return <em>the head of the copied linked list</em>.</li> <li>The linked list is represented in the input/output as a list of <code class="language-plaintext highlighter-rouge">n</code> nodes. Each node is represented as a pair of <code class="language-plaintext highlighter-rouge">[val, random_index]</code> where: <ul> <li><code class="language-plaintext highlighter-rouge">val</code>: an integer representing <code class="language-plaintext highlighter-rouge">Node.val</code></li> <li><code class="language-plaintext highlighter-rouge">random_index</code>: the index of the node (range from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n-1</code>) that the <code class="language-plaintext highlighter-rouge">random</code> pointer points to, or <code class="language-plaintext highlighter-rouge">null</code> if it does not point to any node.</li> </ul> </li> <li>Your code will <strong>only</strong> be given the <code class="language-plaintext highlighter-rouge">head</code> of the original linked list.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [ [7,null],[13,0],[11,4],[10,2],[1,0] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-14T02:00:40+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2. Add Two Numbers</title><link href="https://zhengstar94.github.io//blog/2024/AddTwoNumbers/" rel="alternate" type="text/html" title="2. Add Two Numbers"/><published>2024-10-14T00:00:00+00:00</published><updated>2024-10-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AddTwoNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AddTwoNumbers/"><![CDATA[<ul> <li>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong>, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</li> <li>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: l1 = [0], l2 = [0]
+Output: [0]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(max(n, m)) time | O(max(n, m)) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddTwoNumbers</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create a dummy head node to simplify the addition process</span>
+        <span class="nc">ListNode</span> <span class="n">dummyHead</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="nc">ListNode</span> <span class="n">current</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="o">;</span>
+
+        <span class="c1">// Initialize carry to 0</span>
+        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Continue loop while there are digits in either list or there's a carry</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Get the value of the current digit from l1, or 0 if l1 is null</span>
+            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">l1</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="c1">// Get the value of the current digit from l2, or 0 if l2 is null</span>
+            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">l2</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+
+            <span class="c1">// Calculate the sum of current digits and the carry from the previous addition</span>
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
+
+            <span class="c1">// Calculate the new carry for the next iteration</span>
+            <span class="c1">// If sum &gt;= 10, carry will be 1; otherwise, it will be 0</span>
+            <span class="n">carry</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
+
+            <span class="c1">// Create a new node with the ones digit of the sum (sum % 10)</span>
+            <span class="c1">// This effectively keeps only the ones digit and "carries" the tens digit</span>
+            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="n">sum</span> <span class="o">%</span> <span class="mi">10</span><span class="o">);</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+
+            <span class="c1">// Move to the next digits in the input lists, if available</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// After the main loop, check if there's still a carry left</span>
+        <span class="c1">// This handles cases where the sum results in an additional digit</span>
+        <span class="c1">// For example: 999 + 1 = 1000, so we need to add the final '1'</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="n">carry</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the result, skipping the dummy head</span>
+        <span class="k">return</span> <span class="n">dummyHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create the first linked list: 2 -&gt; 4 -&gt; 3 (representing 342)</span>
+        <span class="nc">ListNode</span> <span class="n">l1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">l1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">l1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+        <span class="c1">// Create the second linked list: 5 -&gt; 6 -&gt; 4 (representing 465)</span>
+        <span class="nc">ListNode</span> <span class="n">l2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">l2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+        <span class="n">l2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+
+        <span class="c1">// Add the two numbers</span>
+        <span class="nc">ListNode</span> <span class="n">result</span> <span class="o">=</span> <span class="n">addTwoNumbers</span><span class="o">(</span><span class="n">l1</span><span class="o">,</span> <span class="n">l2</span><span class="o">);</span>
+
+        <span class="c1">// Print the result</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Result: "</span><span class="o">);</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">result</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">val</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// Expected output: 7 0 8 (representing 807, which is 342 + 465)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.]]></summary></entry><entry><title type="html">138.Copy List with Random Pointer</title><link href="https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer/" rel="alternate" type="text/html" title="138.Copy List with Random Pointer"/><published>2024-10-13T00:00:00+00:00</published><updated>2024-10-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CopyListWithRandomPointer/"><![CDATA[<ul> <li>A linked list of length <code class="language-plaintext highlighter-rouge">n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code class="language-plaintext highlighter-rouge">null</code>.</li> <li>Construct a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy"><strong>deep copy</strong></a> of the list. The deep copy should consist of exactly <code class="language-plaintext highlighter-rouge">n</code> <strong>brand new</strong> nodes, where each new node has its value set to the value of its corresponding original node. Both the <code class="language-plaintext highlighter-rouge">next</code> and <code class="language-plaintext highlighter-rouge">random</code> pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. <strong>None of the pointers in the new list should point to nodes in the original list</strong>.</li> <li>For example, if there are two nodes <code class="language-plaintext highlighter-rouge">X</code> and <code class="language-plaintext highlighter-rouge">Y</code> in the original list, where <code class="language-plaintext highlighter-rouge">X.random --&gt; Y</code>, then for the corresponding two nodes <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> in the copied list, <code class="language-plaintext highlighter-rouge">x.random --&gt; y</code>.</li> <li>Return <em>the head of the copied linked list</em>.</li> <li>The linked list is represented in the input/output as a list of <code class="language-plaintext highlighter-rouge">n</code> nodes. Each node is represented as a pair of <code class="language-plaintext highlighter-rouge">[val, random_index]</code> where: <ul> <li><code class="language-plaintext highlighter-rouge">val</code>: an integer representing <code class="language-plaintext highlighter-rouge">Node.val</code></li> <li><code class="language-plaintext highlighter-rouge">random_index</code>: the index of the node (range from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n-1</code>) that the <code class="language-plaintext highlighter-rouge">random</code> pointer points to, or <code class="language-plaintext highlighter-rouge">null</code> if it does not point to any node.</li> </ul> </li> <li>Your code will <strong>only</strong> be given the <code class="language-plaintext highlighter-rouge">head</code> of the original linked list.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [ [7,null],[13,0],[11,4],[10,2],[1,0] ]
 Output: [ [7,null],[13,0],[11,4],[10,2],[1,0] ]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [ [1,1],[2,1] ]
 Output: [ [1,1],[2,1] ]
@@ -860,82 +942,4 @@ Explanation: There is no such common subsequence, so the result is 0.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 0"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.]]></summary></entry><entry><title type="html">62.Unique Paths</title><link href="https://zhengstar94.github.io//blog/2024/UniquePaths/" rel="alternate" type="text/html" title="62.Unique Paths"/><published>2024-10-01T00:00:00+00:00</published><updated>2024-10-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/UniquePaths</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/UniquePaths/"><![CDATA[<ul> <li> <p>There is a robot on an <code class="language-plaintext highlighter-rouge">m x n</code> grid. The robot is initially located at the <strong>top-left corner</strong> (i.e., <code class="language-plaintext highlighter-rouge">grid[0][0]</code>). The robot tries to move to the <strong>bottom-right corner</strong> (i.e., <code class="language-plaintext highlighter-rouge">grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p> <p>Given the two integers <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, return <em>the number of possible unique paths that the robot can take to reach the bottom-right corner</em>.</p> <p>The test cases are generated so that the answer will be less than or equal to <code class="language-plaintext highlighter-rouge">2 * 10^9</code>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 7
-Output: 28
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 2
-Output: 3
-Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
-1. Right -&gt; Down -&gt; Down
-2. Down -&gt; Down -&gt; Right
-3. Down -&gt; Right -&gt; Down
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3
-Output: 6
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * Solution for LeetCode 62: Unique Paths
- * @author zhengstars
- * @date 2024/10/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UniquePaths</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Calculates the number of unique paths from top-left to bottom-right corner of a m x n grid.
-     *
-     * @param m Number of rows in the grid
-     * @param n Number of columns in the grid
-     * @return The total number of unique paths
-     */</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">uniquePaths</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a 1D array to store the number of paths for each column</span>
-        <span class="c1">// The size is n because we only need to keep track of one row at a time</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Fill the array with 1s initially</span>
-        <span class="c1">// This represents the first row where there's only one way to reach each cell</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">dp</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-
-        <span class="c1">// Iterate through each row (starting from the second row)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// For each column (starting from the second column)</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Update the number of paths to the current cell</span>
-                <span class="c1">// It's the sum of paths from the cell above (current dp[j])</span>
-                <span class="c1">// and the cell to the left (dp[j-1])</span>
-                <span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The last element of dp array contains the total number of unique paths</span>
-        <span class="c1">// to reach the bottom-right corner</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method for testing the uniquePaths function
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">UniquePaths</span> <span class="n">solution</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UniquePaths</span><span class="o">();</span>
-
-        <span class="c1">// Test case 1: 3x7 grid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x7 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">));</span> <span class="c1">// Expected output: 28</span>
-
-        <span class="c1">// Test case 2: 3x2 grid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x2 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test case 3: 7x3 grid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"7x3 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected output: 28</span>
-
-        <span class="c1">// Test case 4: 3x3 grid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x3 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected output: 6</span>
-
-        <span class="c1">// Test case 5: 1x1 grid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1x1 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test case 6: 10x10 grid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"10x10 grid: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">uniquePaths</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span> <span class="c1">// Expected output: 48620</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.]]></summary></entry></feed>
