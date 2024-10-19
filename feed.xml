@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-18T18:20:25+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">386.Lexicographical Numbers</title><link href="https://zhengstar94.github.io//blog/2024/LexicographicalNumbers/" rel="alternate" type="text/html" title="386.Lexicographical Numbers"/><published>2024-10-18T00:00:00+00:00</published><updated>2024-10-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LexicographicalNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LexicographicalNumbers/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return all the numbers in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> sorted in lexicographical order.</li> <li>You must write an algorithm that runs in <code class="language-plaintext highlighter-rouge">O(n)</code> time and uses <code class="language-plaintext highlighter-rouge">O(1)</code> extra space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 13
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-19T07:49:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">215.Kth Largest Element in an Array</title><link href="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/" rel="alternate" type="text/html" title="215.Kth Largest Element in an Array"/><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>largest element in the array</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> largest element in the sorted order, not the <code class="language-plaintext highlighter-rouge">kth</code> distinct element.</li> <li>Can you solve it without sorting?</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(k)) time | O(k) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KthLargestElementInAnArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findKthLargest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize a min-heap (PriorityQueue by default is a min-heap)</span>
+        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate through all the elements in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Add the current number to the min-heap</span>
+            <span class="n">minHeap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+
+            <span class="c1">// If the heap size exceeds k, remove the smallest element from the heap</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">minHeap</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">minHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// The top element of the heap is the kth largest element</span>
+        <span class="k">return</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Output: 5</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Output: 4</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">15</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Output: 10</span>
+
+        <span class="c1">// Test case 4</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="c1">// Test case 5 (single element)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">99</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span> <span class="c1">// Output: 99</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?]]></summary></entry><entry><title type="html">236. Lowest Common Ancestor of a Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/LowestCommonAncestorOfABinaryTree/" rel="alternate" type="text/html" title="236. Lowest Common Ancestor of a Binary Tree"/><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LowestCommonAncestorOfABinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LowestCommonAncestorOfABinaryTree/"><![CDATA[<ul> <li>Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.</li> <li>According to the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a>: “The lowest common ancestor is defined between two nodes <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">q</code> as the lowest node in <code class="language-plaintext highlighter-rouge">T</code> that has both <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">q</code> as descendants (where we allow <strong>a node to be a descendant of itself</strong>).”</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [ 3,5,1,6,2,0,8,null,null,7,4 ], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [ 3,5,1,6,2,0,8,null,null,7,4 ], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,2], p = 1, q = 2
+Output: 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(h) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Trees</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LowestCommonAncestorOfABinaryTree</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">TreeNode</span> <span class="nf">lowestCommonAncestor</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">p</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Base case: If root is null or root matches either p or q, return root</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">p</span> <span class="o">==</span> <span class="n">root</span> <span class="o">||</span> <span class="n">q</span> <span class="o">==</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Recursively search for LCA in the left subtree</span>
+        <span class="nc">TreeNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">);</span>
+
+        <span class="c1">// Recursively search for LCA in the right subtree</span>
+        <span class="nc">TreeNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">);</span>
+
+        <span class="c1">// If both left and right are not null, it means p and q are found in</span>
+        <span class="c1">// different subtrees of the current root. Thus, the current root is the LCA.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">root</span><span class="o">;</span> <span class="c1">// Current root is the LCA</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If one of the subtrees returned a non-null value, it means both p and q</span>
+        <span class="c1">// are located in that subtree. If both are null, return null.</span>
+        <span class="c1">// This will effectively return the found node (either left or right) or null.</span>
+        <span class="k">return</span> <span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">left</span> <span class="o">:</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Build the binary tree</span>
+        <span class="nc">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node6</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node0</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node8</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node7</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="nc">TreeNode</span> <span class="n">node4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+
+        <span class="c1">// Construct the tree by linking nodes</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node5</span><span class="o">;</span>
+        <span class="n">root</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node1</span><span class="o">;</span>
+        <span class="n">node5</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node6</span><span class="o">;</span>
+        <span class="n">node5</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node2</span><span class="o">;</span>
+        <span class="n">node1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node0</span><span class="o">;</span>
+        <span class="n">node1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node8</span><span class="o">;</span>
+        <span class="n">node2</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node7</span><span class="o">;</span>
+        <span class="n">node2</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node4</span><span class="o">;</span>
+
+        <span class="c1">// Test case 1: LCA of 5 and 0</span>
+        <span class="nc">TreeNode</span> <span class="n">lca1</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node5</span><span class="o">,</span> <span class="n">node0</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 5 and 0: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca1</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test case 2: LCA of 5 and 4</span>
+        <span class="nc">TreeNode</span> <span class="n">lca2</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node5</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 5 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca2</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca2</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
+
+        <span class="c1">// Test case 3: LCA of 6 and 4</span>
+        <span class="nc">TreeNode</span> <span class="n">lca3</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node6</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 6 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca3</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca3</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
+
+        <span class="c1">// Test case 4: LCA of 7 and 4</span>
+        <span class="nc">TreeNode</span> <span class="n">lca4</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node7</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 7 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca4</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca4</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test case 5: LCA of 2 and 4</span>
+        <span class="nc">TreeNode</span> <span class="n">lca5</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node2</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 2 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca5</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca5</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”]]></summary></entry><entry><title type="html">386.Lexicographical Numbers</title><link href="https://zhengstar94.github.io//blog/2024/LexicographicalNumbers/" rel="alternate" type="text/html" title="386.Lexicographical Numbers"/><published>2024-10-18T00:00:00+00:00</published><updated>2024-10-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LexicographicalNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LexicographicalNumbers/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return all the numbers in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> sorted in lexicographical order.</li> <li>You must write an algorithm that runs in <code class="language-plaintext highlighter-rouge">O(n)</code> time and uses <code class="language-plaintext highlighter-rouge">O(1)</code> extra space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 13
 Output: [ 1,10,11,12,13,2,3,4,5,6,7,8,9 ]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
 Output: [ 1,2 ]
@@ -782,159 +927,4 @@ Output: [1,1,0]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="Data Structure"/><summary type="html"><![CDATA[1. Introduction]]></summary></entry><entry><title type="html">22.Generate Parenthesesn</title><link href="https://zhengstar94.github.io//blog/2024/GenerateParentheses/" rel="alternate" type="text/html" title="22.Generate Parenthesesn"/><published>2024-10-08T00:00:00+00:00</published><updated>2024-10-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/GenerateParentheses</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/GenerateParentheses/"><![CDATA[<ul> <li>Given <code class="language-plaintext highlighter-rouge">n</code> pairs of parentheses, write a function to <em>generate all combinations of well-formed parentheses</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 3
-Output: ["((()))","(()())","(())()","()(())","()()()"]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
-Output: ["()"]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(4<span class="p">^</span>n / √n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/08
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenerateParentheses</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">generateParenthesis</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">backtrac</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(),</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Recursive backtracking method to generate parentheses combinations
-     * @param result The list to store all valid combinations
-     * @param current The current combination being built
-     * @param open The count of open parentheses in the current combination
-     * @param close The count of close parentheses in the current combination
-     * @param max The maximum number of pairs allowed (n)
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrac</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">,</span> <span class="nc">StringBuilder</span> <span class="n">current</span><span class="o">,</span> <span class="kt">int</span> <span class="n">open</span><span class="o">,</span> <span class="kt">int</span> <span class="n">close</span><span class="o">,</span> <span class="kt">int</span> <span class="n">max</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Base case: If the current combination has the correct length, add it to the result</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="n">max</span> <span class="o">*</span> <span class="mi">2</span><span class="o">){</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Add an open parenthesis if we haven't used all n open parentheses yet</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">open</span> <span class="o">&lt;</span> <span class="n">max</span><span class="o">){</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"("</span><span class="o">);</span>
-            <span class="n">backtrac</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">current</span><span class="o">,</span> <span class="n">open</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">close</span><span class="o">,</span> <span class="n">max</span><span class="o">);</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">setLength</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>  <span class="c1">// Backtrack: remove the last added parenthesis</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Add a close parenthesis if it's valid (close count &lt; open count)</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">close</span> <span class="o">&lt;</span> <span class="n">open</span><span class="o">){</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">")"</span><span class="o">);</span>
-            <span class="n">backtrac</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">current</span><span class="o">,</span> <span class="n">open</span><span class="o">,</span> <span class="n">close</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">max</span><span class="o">);</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">setLength</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>  <span class="c1">// Backtrack: remove the last added parenthesis</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method to run tests
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test different values of n</span>
-        <span class="n">test</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-        <span class="n">test</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">test</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">test</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">test</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Test method to generate and print results for a given n
-     * @param n The number of pairs of parentheses to generate
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">generateParenthesis</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"n = "</span> <span class="o">+</span> <span class="n">n</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of combinations: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.]]></summary></entry><entry><title type="html">150.Evaluate Reverse Polish Notation</title><link href="https://zhengstar94.github.io//blog/2024/EvaluateReversePolishNotation/" rel="alternate" type="text/html" title="150.Evaluate Reverse Polish Notation"/><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/EvaluateReversePolishNotation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/EvaluateReversePolishNotation/"><![CDATA[<ul> <li>You are given an array of strings <code class="language-plaintext highlighter-rouge">tokens</code> that represents an arithmetic expression in a <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>.</li> <li>Evaluate the expression. Return <em>an integer that represents the value of the expression</em>.</li> <li><strong>Note</strong> that: <ul> <li>The valid operators are <code class="language-plaintext highlighter-rouge">'+'</code>, <code class="language-plaintext highlighter-rouge">'-'</code>, <code class="language-plaintext highlighter-rouge">'*'</code>, and <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Each operand may be an integer or another expression.</li> <li>The division between two integers always <strong>truncates toward zero</strong>.</li> <li>There will not be any division by zero.</li> <li>The input represents a valid arithmetic expression in a reverse polish notation.</li> <li>The answer and all the intermediate calculations can be represented in a <strong>32-bit</strong> integer.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tokens = ["2","1","+","3","*"]
-Output: 9
-Explanation: ((2 + 1) * 3) = 9
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tokens = ["4","13","5","/","+"]
-Output: 6
-Explanation: (4 + (13 / 5)) = 6
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
-Output: 22
-Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
-= ((10 * (6 / (12 * -11))) + 17) + 5
-= ((10 * (6 / -132)) + 17) + 5
-= ((10 * 0) + 17) + 5
-= (0 + 17) + 5
-= 17 + 5
-= 22
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/07
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EvaluateReversePolishNotation</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">evalRPN</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">tokens</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a stack to store operands</span>
-        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through each token in the input array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">token</span> <span class="o">:</span> <span class="n">tokens</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"+"</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Addition: pop two numbers, add them, and push the result</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">+</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"*"</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Multiplication: pop two numbers, multiply them, and push the result</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">*</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"-"</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Subtraction: pop two numbers (order matters), subtract, and push the result</span>
-                <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"/"</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Division: pop two numbers (order matters), divide, and push the result</span>
-                <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If the token is a number, parse it to integer and push onto the stack</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">token</span><span class="o">));</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The final result is the only item left on the stack</span>
-        <span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Basic addition and multiplication</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens1</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"2"</span><span class="o">,</span><span class="s">"1"</span><span class="o">,</span><span class="s">"+"</span><span class="o">,</span><span class="s">"3"</span><span class="o">,</span><span class="s">"*"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens1</span><span class="o">));</span> <span class="c1">// Expected output: 9</span>
-
-        <span class="c1">// Test case 2: Division and addition</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens2</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"4"</span><span class="o">,</span><span class="s">"13"</span><span class="o">,</span><span class="s">"5"</span><span class="o">,</span><span class="s">"/"</span><span class="o">,</span><span class="s">"+"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens2</span><span class="o">));</span> <span class="c1">// Expected output: 6</span>
-
-        <span class="c1">// Test case 3: Complex expression with multiple operations</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens3</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"10"</span><span class="o">,</span><span class="s">"6"</span><span class="o">,</span><span class="s">"9"</span><span class="o">,</span><span class="s">"3"</span><span class="o">,</span><span class="s">"+"</span><span class="o">,</span><span class="s">"-11"</span><span class="o">,</span><span class="s">"*"</span><span class="o">,</span><span class="s">"/"</span><span class="o">,</span><span class="s">"*"</span><span class="o">,</span><span class="s">"17"</span><span class="o">,</span><span class="s">"+"</span><span class="o">,</span><span class="s">"5"</span><span class="o">,</span><span class="s">"+"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens3</span><span class="o">));</span> <span class="c1">// Expected output: 22</span>
-
-        <span class="c1">// Test case 4: Expression with negative numbers</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens4</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"4"</span><span class="o">,</span><span class="s">"-2"</span><span class="o">,</span><span class="s">"/"</span><span class="o">,</span><span class="s">"2"</span><span class="o">,</span><span class="s">"-"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens4</span><span class="o">));</span> <span class="c1">// Expected output: -4</span>
-
-        <span class="c1">// Test case 5: Expression with a single number</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">tokens5</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"18"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5 result: "</span> <span class="o">+</span> <span class="n">evalRPN</span><span class="o">(</span><span class="n">tokens5</span><span class="o">));</span> <span class="c1">// Expected output: 18</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation. Evaluate the expression. Return an integer that represents the value of the expression. Note that: The valid operators are '+', '-', '*', and '/'. Each operand may be an integer or another expression. The division between two integers always truncates toward zero. There will not be any division by zero. The input represents a valid arithmetic expression in a reverse polish notation. The answer and all the intermediate calculations can be represented in a 32-bit integer.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="Data Structure"/><summary type="html"><![CDATA[1. Introduction]]></summary></entry></feed>
