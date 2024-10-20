@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-19T13:56:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. feedId:70460389860985856+userId:70458218655943680 </subtitle><entry><title type="html">215.Kth Largest Element in an Array</title><link href="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/" rel="alternate" type="text/html" title="215.Kth Largest Element in an Array"/><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>largest element in the array</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> largest element in the sorted order, not the <code class="language-plaintext highlighter-rouge">kth</code> distinct element.</li> <li>Can you solve it without sorting?</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1,5,6,4], k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-20T05:49:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">377.Combination Sum IV</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSumIV/" rel="alternate" type="text/html" title="377.Combination Sum IV"/><published>2024-10-20T00:00:00+00:00</published><updated>2024-10-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSumIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSumIV/"><![CDATA[<ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">nums</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of possible combinations that add up to</em> <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [ 1,2,3 ], target = 4
+Output: 7
+Explanation:
+The possible combination ways are:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+Note that different sequences are counted as different combinations.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9], target = 3
+Output: 0
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * target) time | O(target) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CombinationSumIV</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">combinationSum4</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create a DP array where dp[i] will store the number of combinations to reach the sum i.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// Base case: There is one way to make the sum 0, which is to choose nothing.</span>
+        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each possible sum from 1 to the target.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// For each number in the provided nums array.</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If the current sum i is greater than or equal to num,</span>
+                <span class="c1">// it means we can use this num to help form the sum i.</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Add the number of combinations to form the sum (i - num)</span>
+                    <span class="c1">// to the current sum i. This is because each combination</span>
+                    <span class="c1">// that makes up (i - num) can be extended to form the sum i</span>
+                    <span class="c1">// by adding the current num.</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">num</span><span class="o">];</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total combinations to reach the target sum.</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">target</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: nums = [ 1, 2, 3 ], target = 4</span>
+        <span class="c1">// Expected output: 7</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span> <span class="c1">// Output: 7</span>
+
+        <span class="c1">// Test case 2: nums = [ 2, 1 ], target = 5</span>
+        <span class="c1">// Expected output: 8</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span> <span class="c1">// Output: 8</span>
+
+        <span class="c1">// Test case 3: nums = [ 1 ], target = 0</span>
+        <span class="c1">// Expected output: 1 (there is one way to sum to zero: choose nothing)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="c1">// Test case 4: nums = [ 3, 5, 8 ], target = 10</span>
+        <span class="c1">// Expected output: 1 (the only way is to choose 2 threes and one one, or two fives)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target4</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">target4</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="c1">// Test case 5: nums = [ 1, 4, 5 ], target = 6</span>
+        <span class="c1">// Expected output: 6</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target5</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">target5</span><span class="o">));</span> <span class="c1">// Output: 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target. The test cases are generated so that the answer can fit in a 32-bit integer.]]></summary></entry><entry><title type="html">215.Kth Largest Element in an Array</title><link href="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/" rel="alternate" type="text/html" title="215.Kth Largest Element in an Array"/><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>largest element in the array</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> largest element in the sorted order, not the <code class="language-plaintext highlighter-rouge">kth</code> distinct element.</li> <li>Can you solve it without sorting?</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1,5,6,4], k = 2
 Output: 5
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
 Output: 4
@@ -752,179 +834,4 @@ Output: [1,1,0]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.]]></summary></entry><entry><title type="html">Floyd’s Algorithm for Finding Duplicate Number</title><link href="https://zhengstar94.github.io//blog/2024/FloydAlgorithmForFindingDuplicateNumber/" rel="alternate" type="text/html" title="Floyd’s Algorithm for Finding Duplicate Number"/><published>2024-10-09T00:00:00+00:00</published><updated>2024-10-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FloydAlgorithmForFindingDuplicateNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FloydAlgorithmForFindingDuplicateNumber/"><![CDATA[<h2 id="1-introduction">1. Introduction</h2> <p>Floyd’s Cycle-Finding Algorithm, also known as the “Tortoise and Hare” algorithm, is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds. This algorithm is particularly useful for detecting cycles in sequences and has an interesting application in solving the “Find the Duplicate Number” problem.</p> <h2 id="2-problem-statement">2. Problem Statement</h2> <p>Given an array <code class="language-plaintext highlighter-rouge">nums</code> containing <code class="language-plaintext highlighter-rouge">n + 1</code> integers where each integer is in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> inclusive, prove that at least one duplicate number must exist. Assume that there is only one duplicate number, but it may be repeated more than once.</p> <p>The task is to find the duplicate number without modifying the array <code class="language-plaintext highlighter-rouge">nums</code> and using only constant extra space.</p> <h2 id="3-algorithm-description">3. Algorithm Description</h2> <p>Floyd’s algorithm can be adapted to solve this problem by treating the array as a linked list where <code class="language-plaintext highlighter-rouge">nums[i]</code> is treated as a pointer to index <code class="language-plaintext highlighter-rouge">nums[i]</code>.</p> <p>The algorithm consists of two phases:</p> <h3 id="phase-1-detecting-the-intersection-point-of-two-runners">Phase 1: Detecting the intersection point of two runners</h3> <ol> <li>Initialize two pointers, <code class="language-plaintext highlighter-rouge">tortoise</code> and <code class="language-plaintext highlighter-rouge">hare</code>, to the first element of the array.</li> <li>Move <code class="language-plaintext highlighter-rouge">tortoise</code> one step at a time: <code class="language-plaintext highlighter-rouge">tortoise = nums[tortoise]</code></li> <li>Move <code class="language-plaintext highlighter-rouge">hare</code> two steps at a time: <code class="language-plaintext highlighter-rouge">hare = nums[nums[hare]]</code></li> <li>Repeat steps 2 and 3 until <code class="language-plaintext highlighter-rouge">tortoise</code> and <code class="language-plaintext highlighter-rouge">hare</code> meet at the same element.</li> </ol> <h3 id="phase-2-finding-the-entrance-to-the-cycle-the-duplicate-number">Phase 2: Finding the entrance to the cycle (the duplicate number)</h3> <ol> <li>Reset the <code class="language-plaintext highlighter-rouge">tortoise</code> to the first element of the array.</li> <li>Move both <code class="language-plaintext highlighter-rouge">tortoise</code> and <code class="language-plaintext highlighter-rouge">hare</code> one step at a time.</li> <li>The point at which they meet is the entrance to the cycle, which is the duplicate number.</li> </ol> <h2 id="4-implementation">4. Implementation</h2> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findDuplicate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// Phase 1: Detecting the cycle</span>
-    <span class="kt">int</span> <span class="n">tortoise</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// Initialize the slow pointer (tortoise)</span>
-    <span class="kt">int</span> <span class="n">hare</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>      <span class="c1">// Initialize the fast pointer (hare)</span>
-
-    <span class="k">do</span> <span class="o">{</span>
-      <span class="c1">// Move the tortoise one step forward</span>
-      <span class="n">tortoise</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">tortoise</span><span class="o">];</span>
-
-      <span class="c1">// Move the hare two steps forward</span>
-      <span class="n">hare</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">nums</span><span class="o">[</span><span class="n">hare</span><span class="o">]];</span>
-
-      <span class="c1">// Continue until the tortoise and hare meet</span>
-      <span class="c1">// This meeting point is guaranteed to be inside the cycle</span>
-    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">tortoise</span> <span class="o">!=</span> <span class="n">hare</span><span class="o">);</span>
-
-    <span class="c1">// Phase 2: Finding the entrance to the cycle (the duplicate number)</span>
-    <span class="n">tortoise</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// Reset the tortoise to the start of the array</span>
-
-    <span class="c1">// Move both pointers at the same speed until they meet again</span>
-    <span class="k">while</span> <span class="o">(</span><span class="n">tortoise</span> <span class="o">!=</span> <span class="n">hare</span><span class="o">)</span> <span class="o">{</span>
-      <span class="c1">// Move both pointers one step at a time</span>
-      <span class="n">tortoise</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">tortoise</span><span class="o">];</span>
-      <span class="n">hare</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">hare</span><span class="o">];</span>
-
-      <span class="c1">// The point where they meet is the entrance to the cycle,</span>
-      <span class="c1">// which is the duplicate number</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Both pointers now point to the duplicate number</span>
-    <span class="k">return</span> <span class="n">hare</span><span class="o">;</span>  <span class="c1">// We could return tortoise as well, they're the same at this point</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div> <h2 id="5-proof-of-correctness">5. Proof of Correctness</h2> <p>The correctness of this algorithm relies on the following properties:</p> <ol> <li>If there is a cycle, the <code class="language-plaintext highlighter-rouge">tortoise</code> and <code class="language-plaintext highlighter-rouge">hare</code> will eventually meet.</li> <li>The meeting point is not necessarily the duplicate number, but it is guaranteed to be part of the cycle.</li> <li>The distance from the start of the array to the entrance of the cycle (duplicate number) is equal to the distance from the meeting point to the entrance of the cycle.</li> </ol> <h2 id="6-complexity-analysis">6. Complexity Analysis</h2> <ul> <li>Time Complexity: O(n), where n is the length of the array. The worst case occurs when the duplicate element is at the end of the array.</li> <li>Space Complexity: O(1), as only two pointers are used regardless of the input size.</li> </ul> <h2 id="7-advantages-and-disadvantages">7. Advantages and Disadvantages</h2> <h3 id="advantages">Advantages:</h3> <ul> <li>Meets the problem constraints of O(1) space complexity.</li> <li>Does not modify the original array.</li> <li>Has optimal time complexity of O(n).</li> </ul> <h3 id="disadvantages">Disadvantages:</h3> <ul> <li>Not intuitive and can be difficult to understand at first glance.</li> <li>Doesn’t provide information about all duplicates if multiple exist.</li> </ul> <h2 id="8-conclusion">8. Conclusion</h2> <p>Floyd’s Cycle-Finding Algorithm provides an elegant and efficient solution to the “Find the Duplicate Number” problem. While it may not be the most intuitive approach, it showcases how algorithmic thinking can lead to optimal solutions that satisfy strict constraints. Understanding this algorithm and its application can provide valuable insights into problem-solving techniques in computer science.</p> <h2 id="example-of-leetode">Example of Leetode</h2> <ol> <li>LeetCode 142 - Linked List Cycle II</li> </ol> <p>Problem: Given a linked list, return the node where the cycle begins. If there is no cycle, return <code class="language-plaintext highlighter-rouge">null</code>.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-    <span class="nc">ListNode</span> <span class="n">next</span><span class="o">;</span>
-    <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-        <span class="n">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="nc">ListNode</span> <span class="nf">detectCycle</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-        
-        <span class="nc">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-        <span class="nc">ListNode</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-
-        <span class="c1">// Phase 1: Detect the intersection point</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>            <span class="c1">// Move slow pointer one step</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>       <span class="c1">// Move fast pointer two steps</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">slow</span> <span class="o">==</span> <span class="n">fast</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>     <span class="c1">// They meet at the cycle</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If fast reaches null, there is no cycle</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">fast</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-
-        <span class="c1">// Phase 2: Find the entrance to the cycle</span>
-        <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">slow</span><span class="o">;</span>  <span class="c1">// This is the entrance to the cycle</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div> <ol> <li>LeetCode 202 - Happy Number</li> </ol> <p>Problem: Write an algorithm to determine if a number <code class="language-plaintext highlighter-rouge">n</code> is a “happy number.” A happy number is one where you repeatedly replace the number by the sum of the squares of its digits until it either equals <code class="language-plaintext highlighter-rouge">1</code> (which means it’s happy) or loops endlessly in a cycle.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHappy</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">getNext</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
-
-        <span class="c1">// Phase 1: Detect cycle</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">getNext</span><span class="o">(</span><span class="n">slow</span><span class="o">);</span>             <span class="c1">// Slow pointer moves one step</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">getNext</span><span class="o">(</span><span class="n">getNext</span><span class="o">(</span><span class="n">fast</span><span class="o">));</span>    <span class="c1">// Fast pointer moves two steps</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If fast reaches 1, it's a happy number</span>
-        <span class="k">return</span> <span class="n">fast</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">getNext</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">totalSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>
-            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
-            <span class="n">totalSum</span> <span class="o">+=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">d</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">totalSum</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div> <ol> <li>LeetCode 41 - First Missing Positive</li> </ol> <p>Problem: Given an unsorted integer array, find the smallest missing positive integer. Although this problem doesn’t directly use Floyd’s algorithm, you can solve it by rearranging the array to simulate the cyclic behavior.</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">firstMissingPositive</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Place each number at its correct index (e.g., 1 goes to index 0, 2 goes to index 1)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Swap nums[i] with nums[nums[i] - 1]</span>
-                <span class="n">swap</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Find the first missing positive number</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// If all numbers are in the correct place, return n+1</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-        <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
-        <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div> <ol> <li>Cycle Detection in Function Iteration</li> </ol> <p>In function iteration, we want to detect if a function eventually enters a cycle. You can apply Floyd’s algorithm here as well. Below is an example:</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">detectCycleInFunction</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">f</span><span class="o">(</span><span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">));</span>
-
-        <span class="c1">// Phase 1: Detect cycle</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">f</span><span class="o">(</span><span class="n">slow</span><span class="o">);</span>           <span class="c1">// Slow pointer moves one step</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">f</span><span class="o">(</span><span class="n">f</span><span class="o">(</span><span class="n">fast</span><span class="o">));</span>        <span class="c1">// Fast pointer moves two steps</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Phase 2: Find the entrance of the cycle</span>
-        <span class="n">slow</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">f</span><span class="o">(</span><span class="n">slow</span><span class="o">);</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">f</span><span class="o">(</span><span class="n">fast</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">slow</span><span class="o">;</span>  <span class="c1">// Return the entrance of the cycle</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">f</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example of a function f</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>  <span class="c1">// For instance, square the number and add 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div> <ol> <li>Cycle Detection in Finite State Machines</li> </ol> <p>You can also use Floyd’s algorithm to detect cycles in state transitions of a finite state machine (FSM).</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">detectCycleInFSM</span><span class="o">(</span><span class="kt">int</span> <span class="n">state</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">transitions</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">[</span><span class="n">state</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-        <span class="kt">int</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">[</span><span class="n">transitions</span><span class="o">[</span><span class="n">state</span><span class="o">][</span><span class="mi">0</span><span class="o">]][</span><span class="mi">0</span><span class="o">];</span>
-
-        <span class="c1">// Phase 1: Detect cycle</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">[</span><span class="n">slow</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>               <span class="c1">// Slow pointer moves one step</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">[</span><span class="n">transitions</span><span class="o">[</span><span class="n">fast</span><span class="o">][</span><span class="mi">0</span><span class="o">]][</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// Fast pointer moves two steps</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Phase 2: Find the entrance of the cycle</span>
-        <span class="n">slow</span> <span class="o">=</span> <span class="n">state</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">slow</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">[</span><span class="n">slow</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-            <span class="n">fast</span> <span class="o">=</span> <span class="n">transitions</span><span class="o">[</span><span class="n">fast</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">slow</span><span class="o">;</span>  <span class="c1">// Return the state where the cycle starts</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="Data Structure"/><summary type="html"><![CDATA[1. Introduction]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.]]></summary></entry></feed>
