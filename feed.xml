@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-20T05:49:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">377.Combination Sum IV</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSumIV/" rel="alternate" type="text/html" title="377.Combination Sum IV"/><published>2024-10-20T00:00:00+00:00</published><updated>2024-10-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSumIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSumIV/"><![CDATA[<ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">nums</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of possible combinations that add up to</em> <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [ 1,2,3 ], target = 4
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-21T14:17:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">122. Best Time to Buy and Sell Stock II</title><link href="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII/" rel="alternate" type="text/html" title="122. Best Time to Buy and Sell Stock II"/><published>2024-10-21T00:00:00+00:00</published><updated>2024-10-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">prices</code> where <code class="language-plaintext highlighter-rouge">prices[i]</code> is the price of a given stock on the <code class="language-plaintext highlighter-rouge">ith</code> day.</li> <li>On each day, you may decide to buy and/or sell the stock. You can only hold <strong>at most one</strong> share of the stock at any time. However, you can buy it then immediately sell it on the <strong>same day</strong>.</li> <li>Find and return <em>the <strong>maximum</strong> profit you can achieve</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [ 7,1,5,3,6,4 ]
+Output: 7
+Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+Total profit is 4 + 3 = 7.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [ 1,2,3,4,5 ]
+Output: 4
+Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
+Total profit is 4.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [ 7,6,4,3,1 ]
+Output: 0
+Explanation: There is no way to make a positive profit, so we never buy the stock to achieve the maximum profit of 0.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/03/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BestTimeToBuyAndSellStockII</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Edge case: If array is null or has less than 2 elements, no profit can be made</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">prices</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Variable to keep track of total profit from all transactions</span>
+        <span class="kt">int</span> <span class="n">totalProfit</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through the array starting from index 1 to compare with previous day</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If today's price is higher than yesterday's price</span>
+            <span class="c1">// We can make a profit by buying yesterday and selling today</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="o">]){</span>
+                <span class="c1">// Add the price difference to our total profit</span>
+                <span class="c1">// This is equivalent to buying at yesterday's price and selling at today's price</span>
+                <span class="n">totalProfit</span> <span class="o">+=</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span><span class="mi">1</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">totalProfit</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to test the solution with example cases
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">prices1</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">7</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxProfit</span><span class="o">(</span><span class="n">prices1</span><span class="o">));</span>  <span class="c1">// Output: 7</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">prices2</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">7</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxProfit</span><span class="o">(</span><span class="n">prices2</span><span class="o">));</span>  <span class="c1">// Output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[You are given an integer array prices where prices[i] is the price of a given stock on the ith day. On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day. Find and return the maximum profit you can achieve.]]></summary></entry><entry><title type="html">377.Combination Sum IV</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSumIV/" rel="alternate" type="text/html" title="377.Combination Sum IV"/><published>2024-10-20T00:00:00+00:00</published><updated>2024-10-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSumIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSumIV/"><![CDATA[<ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">nums</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of possible combinations that add up to</em> <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [ 1,2,3 ], target = 4
 Output: 7
 Explanation:
 The possible combination ways are:
@@ -777,61 +833,4 @@ Then, the fleet at 4 (speed 2) and the car at position 5 (speed 1) become one fl
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[There are n cars at given miles away from the starting mile 0, traveling to reach the mile target.]]></summary></entry><entry><title type="html">739.Daily Temperatures</title><link href="https://zhengstar94.github.io//blog/2024/DailyTemperatures/" rel="alternate" type="text/html" title="739.Daily Temperatures"/><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DailyTemperatures</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DailyTemperatures/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">temperatures</code> represents the daily temperatures, return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>such that</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the number of days you have to wait after the</em> <code class="language-plaintext highlighter-rouge">ith</code> <em>day to get a warmer temperature</em>. If there is no future day for which this is possible, keep <code class="language-plaintext highlighter-rouge">answer[i] == 0</code> instead.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: temperatures = [ 73,74,75,71,69,72,76,73]
-Output: [ 1,1,4,2,1,1,0,0]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: temperatures = [ 30,40,50,60]
-Output: [ 1,1,1,0]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: temperatures = [30,60,90]
-Output: [1,1,0]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DailyTemperatures</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">dailyTemperatures</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">temperatures</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">temperatures</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Initialize the result array with zeros</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="c1">// Use a stack to keep track of indices of temperatures</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through each temperature</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// While the stack is not empty and the current temperature is warmer</span>
-            <span class="c1">// than the temperature at the top of the stack</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">temperatures</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">temperatures</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()])</span> <span class="o">{</span>
-                <span class="c1">// Pop the index of the cooler day</span>
-                <span class="kt">int</span> <span class="n">prevIndex</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-                <span class="c1">// Calculate the number of days to wait for a warmer temperature</span>
-                <span class="c1">// i - prevIndex represents the number of days between the current day</span>
-                <span class="c1">// and the day at prevIndex</span>
-                <span class="c1">// This is the key operation: it calculates how many days you need to wait</span>
-                <span class="c1">// from the day at prevIndex to get to a warmer day (the current day i)</span>
-                <span class="n">answer</span><span class="o">[</span><span class="n">prevIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">prevIndex</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// Push the current day's index onto the stack</span>
-            <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Test case</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">temperatures</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">73</span><span class="o">,</span> <span class="mi">74</span><span class="o">,</span> <span class="mi">75</span><span class="o">,</span> <span class="mi">71</span><span class="o">,</span> <span class="mi">69</span><span class="o">,</span> <span class="mi">72</span><span class="o">,</span> <span class="mi">76</span><span class="o">,</span> <span class="mi">73</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dailyTemperatures</span><span class="o">(</span><span class="n">temperatures</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input temperatures: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">temperatures</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Days to wait for warmer temperature: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result</span><span class="o">));</span>
-        <span class="c1">// Expected output: [ 1, 1, 4, 2, 1, 1, 0, 0]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[There are n cars at given miles away from the starting mile 0, traveling to reach the mile target.]]></summary></entry></feed>
