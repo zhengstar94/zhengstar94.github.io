@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-21T14:17:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">122. Best Time to Buy and Sell Stock II</title><link href="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII/" rel="alternate" type="text/html" title="122. Best Time to Buy and Sell Stock II"/><published>2024-10-21T00:00:00+00:00</published><updated>2024-10-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">prices</code> where <code class="language-plaintext highlighter-rouge">prices[i]</code> is the price of a given stock on the <code class="language-plaintext highlighter-rouge">ith</code> day.</li> <li>On each day, you may decide to buy and/or sell the stock. You can only hold <strong>at most one</strong> share of the stock at any time. However, you can buy it then immediately sell it on the <strong>same day</strong>.</li> <li>Find and return <em>the <strong>maximum</strong> profit you can achieve</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [ 7,1,5,3,6,4 ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-22T07:45:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">453.Minimum Moves to Equal Array Elements</title><link href="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/" rel="alternate" type="text/html" title="453.Minimum Moves to Equal Array Elements"/><published>2024-10-22T00:00:00+00:00</published><updated>2024-10-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</li> <li>In one move, you can increment <code class="language-plaintext highlighter-rouge">n - 1</code> elements of the array by <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
+Output: 3
+Explanation: Only three moves are needed (remember each move increments two elements):
+[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
+Output: 0
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/22
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumMovesToEqualArrayElements</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minMoves</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases: null array or array with length &lt;= 1</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 1: Find the minimum value in the array</span>
+        <span class="c1">// This is our target value that all other elements will eventually equal to</span>
+        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">min</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 2: Calculate the total moves needed</span>
+        <span class="c1">// For each element, we need (current value - minimum value) moves to reach the minimum</span>
+        <span class="kt">int</span> <span class="n">moves</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">moves</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">min</span><span class="o">;</span>  <span class="c1">// Add the difference between current element and minimum</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">moves</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case </span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 0</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 8</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal. In one move, you can increment n - 1 elements of the array by 1.]]></summary></entry><entry><title type="html">122. Best Time to Buy and Sell Stock II</title><link href="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII/" rel="alternate" type="text/html" title="122. Best Time to Buy and Sell Stock II"/><published>2024-10-21T00:00:00+00:00</published><updated>2024-10-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BestTimeToBuyAndSellStockII/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">prices</code> where <code class="language-plaintext highlighter-rouge">prices[i]</code> is the price of a given stock on the <code class="language-plaintext highlighter-rouge">ith</code> day.</li> <li>On each day, you may decide to buy and/or sell the stock. You can only hold <strong>at most one</strong> share of the stock at any time. However, you can buy it then immediately sell it on the <strong>same day</strong>.</li> <li>Find and return <em>the <strong>maximum</strong> profit you can achieve</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [ 7,1,5,3,6,4 ]
 Output: 7
 Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
 Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
@@ -743,94 +790,4 @@ Output: false
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise. In other words, return true if one of s1’s permutations is the substring of s2.]]></summary></entry><entry><title type="html">853.Car Fleet</title><link href="https://zhengstar94.github.io//blog/2024/CarFleet/" rel="alternate" type="text/html" title="853.Car Fleet"/><published>2024-10-11T00:00:00+00:00</published><updated>2024-10-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CarFleet</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CarFleet/"><![CDATA[<ul> <li> <p>There are <code class="language-plaintext highlighter-rouge">n</code> cars at given miles away from the starting mile 0, traveling to reach the mile <code class="language-plaintext highlighter-rouge">target</code>.</p> </li> <li> <p>You are given two integer array <code class="language-plaintext highlighter-rouge">position</code> and <code class="language-plaintext highlighter-rouge">speed</code>, both of length <code class="language-plaintext highlighter-rouge">n</code>, where <code class="language-plaintext highlighter-rouge">position[i]</code> is the starting mile of the <code class="language-plaintext highlighter-rouge">ith</code> car and <code class="language-plaintext highlighter-rouge">speed[i]</code> is the speed of the <code class="language-plaintext highlighter-rouge">ith</code> car in miles per hour.</p> </li> <li> <p>A car cannot pass another car, but it can catch up and then travel next to it at the speed of the slower car.</p> </li> <li> <p>A <strong>car fleet</strong> is a car or cars driving next to each other. The speed of the car fleet is the <strong>minimum</strong> speed of any car in the fleet.</p> <p>If a car catches up to a car fleet at the mile <code class="language-plaintext highlighter-rouge">target</code>, it will still be considered as part of the car fleet.</p> <p>Return the number of car fleets that will arrive at the destination.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
-
-Output: 3
-
-Explanation:
-
-The cars starting at 10 (speed 2) and 8 (speed 4) become a fleet, meeting each other at 12. The fleet forms at target.
-The car starting at 0 (speed 1) does not catch up to any other car, so it is a fleet by itself.
-The cars starting at 5 (speed 1) and 3 (speed 3) become a fleet, meeting each other at 6. The fleet moves at speed 1 until it reaches target.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 10, position = [3], speed = [3]
-
-Output: 1
-
-Explanation:
-
-There is only one car, hence there is only one fleet.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 100, position = [0,2,4], speed = [4,2,1]
-
-Output: 1
-
-Explanation:
-
-The cars starting at 0 (speed 4) and 2 (speed 2) become a fleet, meeting each other at 4. The car starting at 4 (speed 1) travels to 5.
-Then, the fleet at 4 (speed 2) and the car at position 5 (speed 1) become one fleet, meeting each other at 6. The fleet moves at speed 1 until it reaches target.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n log n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CarFleet</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">carFleet</span><span class="o">(</span><span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">position</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">speed</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a map to store the time each car takes to reach the target</span>
-        <span class="c1">// Key: initial position, Value: time to reach target</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Double</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Calculate and store the time for each car to reach the target</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">position</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Time = (target distance - initial position) / speed</span>
-            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">position</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="o">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">position</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">/</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span><span class="n">speed</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Sort the positions in ascending order</span>
-        <span class="c1">// This allows us to process cars from front to back</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
-
-        <span class="c1">// Use a stack to keep track of car fleets</span>
-        <span class="c1">// Each element in the stack represents the arrival time of a fleet</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Double</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through positions from back to front (rightmost to leftmost)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-            <span class="c1">// If the current car reaches the target earlier or at the same time as the car in front,</span>
-            <span class="c1">// it will join that fleet, so we skip it (don't add to stack)</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">&lt;=</span> <span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()){</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// If the current car reaches later, it forms a new fleet, so we add it to the stack</span>
-            <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The number of elements in the stack represents the number of fleets</span>
-        <span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Test cases</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">position1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">speed1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">carFleet</span><span class="o">(</span><span class="n">target1</span><span class="o">,</span> <span class="n">position1</span><span class="o">,</span> <span class="n">speed1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">position2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">speed2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">carFleet</span><span class="o">(</span><span class="n">target2</span><span class="o">,</span> <span class="n">position2</span><span class="o">,</span> <span class="n">speed2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">position3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">speed3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">carFleet</span><span class="o">(</span><span class="n">target3</span><span class="o">,</span> <span class="n">position3</span><span class="o">,</span> <span class="n">speed3</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[There are n cars at given miles away from the starting mile 0, traveling to reach the mile target.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise. In other words, return true if one of s1’s permutations is the substring of s2.]]></summary></entry></feed>
