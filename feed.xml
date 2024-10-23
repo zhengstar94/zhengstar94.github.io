@@ -1,4 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-22T07:45:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">453.Minimum Moves to Equal Array Elements</title><link href="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/" rel="alternate" type="text/html" title="453.Minimum Moves to Equal Array Elements"/><published>2024-10-22T00:00:00+00:00</published><updated>2024-10-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</li> <li>In one move, you can increment <code class="language-plaintext highlighter-rouge">n - 1</code> elements of the array by <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-23T14:05:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">973.K Closest Points to Origin</title><link href="https://zhengstar94.github.io//blog/2024/KClosestPointsToOrigin/" rel="alternate" type="text/html" title="973.K Closest Points to Origin"/><published>2024-10-23T00:00:00+00:00</published><updated>2024-10-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KClosestPointsToOrigin</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KClosestPointsToOrigin/"><![CDATA[<ul> <li>Given an array of <code class="language-plaintext highlighter-rouge">points</code> where <code class="language-plaintext highlighter-rouge">points[i] = [xi, yi]</code> represents a point on the <strong>X-Y</strong> plane and an integer <code class="language-plaintext highlighter-rouge">k</code>, return the <code class="language-plaintext highlighter-rouge">k</code> closest points to the origin <code class="language-plaintext highlighter-rouge">(0, 0)</code>.</li> <li>The distance between two points on the <strong>X-Y</strong> plane is the Euclidean distance (i.e., <code class="language-plaintext highlighter-rouge">√(x1 - x2)^2 + (y1 - y2)^2</code>).</li> <li>You may return the answer in <strong>any order</strong>. The answer is <strong>guaranteed</strong> to be <strong>unique</strong> (except for the order that it is in).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [1,3],[-2,2] ], k = 1
+Output: [ [-2,2] ]
+Explanation:
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) &lt; sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest k = 1 points from the origin, so the answer is just [ [-2,2] ].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [3,3],[5,-1],[-2,4] ], k = 2
+Output: [ [3,3],[-2,4] ]
+Explanation: The answer [ [-2,4],[3,3] ] would also be accepted.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/23
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KClosestPointsToOrigin</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">kClosest</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">k</span> <span class="o">==</span>  <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">points</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">quickSelect</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">quickSelect</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Base case: if left &gt;= right, partition contains 1 or 0 elements</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">left</span> <span class="o">&gt;=</span> <span class="n">right</span><span class="o">){</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Choose random pivot to avoid worst case scenario</span>
+        <span class="kt">int</span> <span class="n">pivotIndex</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+        <span class="c1">// Partition array around pivot and get final position of pivot</span>
+        <span class="n">pivotIndex</span> <span class="o">=</span> <span class="n">partition</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">pivotIndex</span><span class="o">);</span>
+
+        <span class="c1">// If pivot is at k-1, we've found our k elements</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">pivotIndex</span> <span class="o">==</span> <span class="n">k</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// If pivot index is less than k-1, search right partition</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">pivotIndex</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">quickSelect</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">pivotIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// If pivot index is greater than k-1, search left partition</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">quickSelect</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">pivotIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Implementation steps:
+     * 1. SWAP 1: Move pivot to end (temporary storage)
+     *    - swap(points, pivotIndex, right)
+     * 2. Partition array:
+     *    - SWAP 2: For each point with distance &lt; pivot distance
+     *      swap(points, current, storeIndex)
+     * 3. SWAP 3: Move pivot to final position
+     *    - swap(points, storeIndex, right)
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">partition</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pivotIndex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Calculate distance of pivot point from origin</span>
+        <span class="kt">int</span> <span class="n">pivotDist</span> <span class="o">=</span> <span class="n">distance</span><span class="o">(</span><span class="n">points</span><span class="o">[</span><span class="n">pivotIndex</span><span class="o">]);</span>
+
+        <span class="c1">// Move pivot to end of array</span>
+        <span class="n">swap</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">pivotIndex</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">storeIndex</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+
+        <span class="c1">// Partition array around pivot distance</span>
+        <span class="c1">// Move all points with distance less than pivot distance to left side</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">distance</span><span class="o">(</span><span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">&lt;</span> <span class="n">pivotDist</span><span class="o">){</span>
+                <span class="n">swap</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">storeIndex</span><span class="o">);</span>
+                <span class="n">storeIndex</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Move pivot to its final position</span>
+        <span class="n">swap</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">storeIndex</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">storeIndex</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">distance</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">point</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">point</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">*</span> <span class="n">point</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">point</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">*</span> <span class="n">point</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">points</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+        <span class="n">points</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal case with multiple points</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">},{-</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">2</span><span class="o">,-</span><span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points1</span><span class="o">,</span> <span class="n">k1</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 2: When k equals array length</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">5</span><span class="o">,-</span><span class="mi">1</span><span class="o">},{-</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points2</span><span class="o">,</span> <span class="n">k2</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 3: Single point case</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points3</span><span class="o">,</span> <span class="n">k3</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 4: Case with origin point</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points4</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">},{-</span><span class="mi">1</span><span class="o">,-</span><span class="mi">1</span><span class="o">},{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points4</span><span class="o">,</span> <span class="n">k4</span><span class="o">)));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2). You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).]]></summary></entry><entry><title type="html">453.Minimum Moves to Equal Array Elements</title><link href="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/" rel="alternate" type="text/html" title="453.Minimum Moves to Equal Array Elements"/><published>2024-10-22T00:00:00+00:00</published><updated>2024-10-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</li> <li>In one move, you can increment <code class="language-plaintext highlighter-rouge">n - 1</code> elements of the array by <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
 Output: 3
 Explanation: Only three moves are needed (remember each move increments two elements):
 [1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]
@@ -708,86 +827,4 @@ Output: [ [3,null],[3,0],[3,null] ]
         <span class="k">this</span><span class="o">.</span><span class="na">random</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list. The deep copy should consist of exactly n brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list. For example, if there are two nodes X and Y in the original list, where X.random --&gt; Y, then for the corresponding two nodes x and y in the copied list, x.random --&gt; y. Return the head of the copied linked list. The linked list is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where: val: an integer representing Node.val random_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node. Your code will only be given the head of the original linked list.]]></summary></entry><entry><title type="html">567.Permutation in String</title><link href="https://zhengstar94.github.io//blog/2024/PermutationInString/" rel="alternate" type="text/html" title="567.Permutation in String"/><published>2024-10-12T00:00:00+00:00</published><updated>2024-10-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PermutationInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PermutationInString/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code>, return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">s2</code> contains a permutation of <code class="language-plaintext highlighter-rouge">s1</code>, or <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>In other words, return <code class="language-plaintext highlighter-rouge">true</code> if one of <code class="language-plaintext highlighter-rouge">s1</code>’s permutations is the substring of <code class="language-plaintext highlighter-rouge">s2</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "ab", s2 = "eidbaooo"
-Output: true
-Explanation: s2 contains one permutation of s1 ("ba").
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "ab", s2 = "eidboaoo"
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PermutationInString</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkInclusion</span><span class="o">(</span><span class="nc">String</span> <span class="n">s1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// If s1 is longer than s2, it's impossible for s1's permutation to be in s2</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Arrays to store character frequencies</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-
-        <span class="c1">// Count the frequency of characters in s1</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s1</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">count1</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Sliding window approach</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add the current character to count2</span>
-            <span class="n">count2</span><span class="o">[</span><span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-
-            <span class="c1">// IMPORTANT: Remove the leftmost character of the previous window</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-                <span class="c1">// i - s1.length() gives the index of the character to be removed</span>
-                <span class="c1">// This ensures that we maintain a window of size s1.length()</span>
-                <span class="n">count2</span><span class="o">[</span><span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check if the current window is a permutation of s1</span>
-            <span class="k">if</span> <span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">count1</span><span class="o">,</span> <span class="n">count2</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If no permutation is found</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Test cases</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"ab"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"eidbaooo"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">checkInclusion</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="s">"ab"</span><span class="o">;</span>
-        <span class="n">s2</span> <span class="o">=</span> <span class="s">"eidboaoo"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">checkInclusion</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected: false</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="s">"adc"</span><span class="o">;</span>
-        <span class="n">s2</span> <span class="o">=</span> <span class="s">"dcda"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">checkInclusion</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test case 4</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="s">"hello"</span><span class="o">;</span>
-        <span class="n">s2</span> <span class="o">=</span> <span class="s">"ooolleoooleh"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">checkInclusion</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected: false</span>
-
-        <span class="c1">// Test case 5</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">checkInclusion</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected: true</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise. In other words, return true if one of s1’s permutations is the substring of s2.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list. The deep copy should consist of exactly n brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list. For example, if there are two nodes X and Y in the original list, where X.random --&gt; Y, then for the corresponding two nodes x and y in the copied list, x.random --&gt; y. Return the head of the copied linked list. The linked list is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where: val: an integer representing Node.val random_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node. Your code will only be given the head of the original linked list.]]></summary></entry></feed>
