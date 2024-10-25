@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-24T11:49:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">339.Nested List Weight Sum</title><link href="https://zhengstar94.github.io//blog/2024/NestedListWeightSum/" rel="alternate" type="text/html" title="339.Nested List Weight Sum"/><published>2024-10-24T00:00:00+00:00</published><updated>2024-10-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NestedListWeightSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NestedListWeightSum/"><![CDATA[<ul> <li>Given a nested list of integers, return the sum of all integers in the list weighted by their depth.</li> <li>Each element is either an integer, or a list – whose elements may also be integers or other lists.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: [ [ 1,1 ], 2, [ 1,1 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-25T07:24:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">408.Valid Word Abbreviation</title><link href="https://zhengstar94.github.io//blog/2024/ValidWordAbbreviation/" rel="alternate" type="text/html" title="408.Valid Word Abbreviation"/><published>2024-10-25T00:00:00+00:00</published><updated>2024-10-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ValidWordAbbreviation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ValidWordAbbreviation/"><![CDATA[<ul> <li> <p>Given a non-empty string s and an abbreviation abbr, return whether the string matches with the given abbreviation.</p> </li> <li> <p>A string such as “word” contains only the following valid abbreviations:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+</code></pre></div> </div> <p>Notice that only the above abbreviations are valid abbreviations of the string “word”. Any other string is not a valid abbreviation of “word”.</p> <p>Note: Assume s contains only lowercase letters and abbr contains only lowercase letters and digits.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given s = "internationalization", abbr = "i12iz4n":
+Return true.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given s = "apple", abbr = "a2e":
+Return false.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/25
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValidWordAbbreviation</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validWordAbbreviation</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">,</span> <span class="nc">String</span> <span class="n">abbr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases: if either string is null</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">word</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">abbr</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize two pointers:</span>
+        <span class="c1">// i: points to the current position in original word</span>
+        <span class="c1">// j: points to the current position in abbreviation</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Continue while both pointers are within their respective strings</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">abbr</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
+            <span class="c1">// If current character in abbreviation is a digit</span>
+            <span class="k">if</span><span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">abbr</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))){</span>
+                <span class="c1">// Leading zeros are not allowed in valid abbreviation</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">abbr</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">){</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Variable to store the complete number when encountering multiple consecutive digits</span>
+                <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="c1">// Process continuous digits (e.g., "12" in "i12iz4n")</span>
+                <span class="c1">// For example: if we encounter "12":</span>
+                <span class="c1">// First iteration: num = 0 * 10 + 1 = 1</span>
+                <span class="c1">// Second iteration: num = 1 * 10 + 2 = 12</span>
+                <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">abbr</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">abbr</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))){</span>
+                    <span class="c1">// Convert char to int and accumulate the number</span>
+                    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="o">(</span><span class="n">abbr</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
+                    <span class="c1">// Move to next digit</span>
+                    <span class="n">j</span><span class="o">++;</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Skip 'num' characters in the original word</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If current characters don't match or we've exceeded word length</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">||</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">abbr</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="c1">// Move both pointers for character comparison</span>
+                <span class="n">i</span><span class="o">++;</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Valid only if both strings are completely traversed</span>
+        <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">==</span> <span class="n">abbr</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Expected to return true</span>
+        <span class="c1">// "internationalization" -&gt; "i12iz4n"</span>
+        <span class="c1">// where 12 represents 12 characters and 4 represents 4 characters</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"internationalization"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">abbr1</span> <span class="o">=</span> <span class="s">"i12iz4n"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">validWordAbbreviation</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">abbr1</span><span class="o">));</span> <span class="c1">// Should print true</span>
+
+        <span class="c1">// Test case 2: Expected to return false</span>
+        <span class="c1">// "apple" cannot be abbreviated as "a2e"</span>
+        <span class="c1">// because the middle part "ppl" is 3 characters, not 2</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"apple"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">abbr2</span> <span class="o">=</span> <span class="s">"a2e"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">validWordAbbreviation</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">abbr2</span><span class="o">));</span> <span class="c1">// Should print false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given a non-empty string s and an abbreviation abbr, return whether the string matches with the given abbreviation.]]></summary></entry><entry><title type="html">339.Nested List Weight Sum</title><link href="https://zhengstar94.github.io//blog/2024/NestedListWeightSum/" rel="alternate" type="text/html" title="339.Nested List Weight Sum"/><published>2024-10-24T00:00:00+00:00</published><updated>2024-10-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NestedListWeightSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NestedListWeightSum/"><![CDATA[<ul> <li>Given a nested list of integers, return the sum of all integers in the list weighted by their depth.</li> <li>Each element is either an integer, or a list – whose elements may also be integers or other lists.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: [ [ 1,1 ], 2, [ 1,1 ] ]
 Output: 10 
 Explanation: Four 1's at depth 2, one 2 at depth 1.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: [ 1, [ 4, [6 ] ] ]
@@ -749,86 +830,4 @@ Explanation: [4,9] is also accepted.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.]]></summary></entry><entry><title type="html">2. Add Two Numbers</title><link href="https://zhengstar94.github.io//blog/2024/AddTwoNumbers/" rel="alternate" type="text/html" title="2. Add Two Numbers"/><published>2024-10-14T00:00:00+00:00</published><updated>2024-10-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AddTwoNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AddTwoNumbers/"><![CDATA[<ul> <li>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong>, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</li> <li>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: l1 = [2,4,3], l2 = [5,6,4]
-Output: [7,0,8]
-Explanation: 342 + 465 = 807.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: l1 = [0], l2 = [0]
-Output: [0]
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-Output: [8,9,9,9,0,0,0,1]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(max(n, m)) time | O(max(n, m)) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.LinkList</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/14
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddTwoNumbers</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a dummy head node to simplify the addition process</span>
-        <span class="nc">ListNode</span> <span class="n">dummyHead</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-        <span class="nc">ListNode</span> <span class="n">current</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="o">;</span>
-
-        <span class="c1">// Initialize carry to 0</span>
-        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Continue loop while there are digits in either list or there's a carry</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Get the value of the current digit from l1, or 0 if l1 is null</span>
-            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">l1</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="c1">// Get the value of the current digit from l2, or 0 if l2 is null</span>
-            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">?</span> <span class="n">l2</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
-
-            <span class="c1">// Calculate the sum of current digits and the carry from the previous addition</span>
-            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
-
-            <span class="c1">// Calculate the new carry for the next iteration</span>
-            <span class="c1">// If sum &gt;= 10, carry will be 1; otherwise, it will be 0</span>
-            <span class="n">carry</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
-
-            <span class="c1">// Create a new node with the ones digit of the sum (sum % 10)</span>
-            <span class="c1">// This effectively keeps only the ones digit and "carries" the tens digit</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="n">sum</span> <span class="o">%</span> <span class="mi">10</span><span class="o">);</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-
-            <span class="c1">// Move to the next digits in the input lists, if available</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// After the main loop, check if there's still a carry left</span>
-        <span class="c1">// This handles cases where the sum results in an additional digit</span>
-        <span class="c1">// For example: 999 + 1 = 1000, so we need to add the final '1'</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="n">carry</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the result, skipping the dummy head</span>
-        <span class="k">return</span> <span class="n">dummyHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create the first linked list: 2 -&gt; 4 -&gt; 3 (representing 342)</span>
-        <span class="nc">ListNode</span> <span class="n">l1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">l1</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">l1</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-
-        <span class="c1">// Create the second linked list: 5 -&gt; 6 -&gt; 4 (representing 465)</span>
-        <span class="nc">ListNode</span> <span class="n">l2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">l2</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
-        <span class="n">l2</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-
-        <span class="c1">// Add the two numbers</span>
-        <span class="nc">ListNode</span> <span class="n">result</span> <span class="o">=</span> <span class="n">addTwoNumbers</span><span class="o">(</span><span class="n">l1</span><span class="o">,</span> <span class="n">l2</span><span class="o">);</span>
-
-        <span class="c1">// Print the result</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Result: "</span><span class="o">);</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">result</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">val</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// Expected output: 7 0 8 (representing 807, which is 342 + 465)</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LinkedList"/><summary type="html"><![CDATA[You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.]]></summary></entry></feed>
