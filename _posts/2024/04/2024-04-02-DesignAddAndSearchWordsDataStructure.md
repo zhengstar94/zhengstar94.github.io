@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "211.Design Add and Search Words Data Structure"
-date: "2024-04-03"
+date: "2024-04-02"
 categories:
   - "LeetCode Tries"
 ---
