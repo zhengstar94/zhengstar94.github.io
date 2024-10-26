@@ -3,37 +3,42 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "212.Word Search II"
-date: "2024-04-03"
+title: "211.Design Add and Search Words Data Structure"
+date: "2024-04-02"
 categories:
   - "LeetCode Tries"
 ---
 
-# 212. Word Search II
-
-- Given an `m x n` `board` of characters and a list of strings `words`, return *all words on the board*.
-- Each word must be constructed from letters of sequentially adjacent cells, where **adjacent cells** are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
-
+- Design a data structure that supports adding new words and finding if a string matches any previously added string.
+- Implement the `WordDictionary` class:
+  - `WordDictionary()` Initializes the object.
+  - `void addWord(word)` Adds `word` to the data structure, it can be matched later.
+  - `bool search(word)` Returns `true` if there is any string in the data structure that matches `word` or `false` otherwise. `word` may contain dots `'.'` where dots can be matched with any letter.
 **Example 1**
 
 ```
-Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
-Output: ["eat","oath"]
+Input
+["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
+[ [],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."] ]
+Output
+[ null,null,null,null,false,true,true,true]
+
+Explanation
+WordDictionary wordDictionary = new WordDictionary();
+wordDictionary.addWord("bad");
+wordDictionary.addWord("dad");
+wordDictionary.addWord("mad");
+wordDictionary.search("pad"); // return False
+wordDictionary.search("bad"); // return True
+wordDictionary.search(".ad"); // return True
+wordDictionary.search("b.."); // return True
 ```
 
-**Example 2**
-
-```
-Input: board = [["a","b"],["c","d"]], words = ["abcb"]
-Output: []
-```
 
 ## Method 1
 
 ```tex
-【O(n * L + m * n * 4^L) time | O(n * L) space】\\
-n\ is\ the\ number\ of\ words,\ L\ is\ the\ maximum\ length\ of\ a\ word,\ m\ is\ the\ number\ of\ rows\ in\ the\ board,\ n\ is\ the\ number\ of\ columns\ in\ the\ board\\
-
+【O(26^M) time | O(26 * N * M) space】
 ```
 
 ```java
