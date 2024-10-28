@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-26T09:17:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">283.Move Zeroes</title><link href="https://zhengstar94.github.io//blog/2024/MoveZeroes/" rel="alternate" type="text/html" title="283.Move Zeroes"/><published>2024-10-26T00:00:00+00:00</published><updated>2024-10-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MoveZeroes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MoveZeroes/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, move all <code class="language-plaintext highlighter-rouge">0</code>’s to the end of it while maintaining the relative order of the non-zero elements.</li> <li><strong>Note</strong> that you must do this in-place without making a copy of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,3,12]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-28T07:15:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">72.Edit Distance</title><link href="https://zhengstar94.github.io//blog/2024/EditDistance/" rel="alternate" type="text/html" title="72.Edit Distance"/><published>2024-10-28T00:00:00+00:00</published><updated>2024-10-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/EditDistance</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/EditDistance/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>, return <em>the minimum number of operations required to convert <code class="language-plaintext highlighter-rouge">word1</code> to <code class="language-plaintext highlighter-rouge">word2</code></em>.</li> <li>You have the following three operations permitted on a word: <ul> <li>Insert a character</li> <li>Delete a character</li> <li>Replace a character</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "horse", word2 = "ros"
+Output: 3
+Explanation: 
+horse -&gt; rorse (replace 'h' with 'r')
+rorse -&gt; rose (remove 'r')
+rose -&gt; ros (remove 'e')
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "intention", word2 = "execution"
+Output: 5
+Explanation: 
+intention -&gt; inention (remove 't')
+inention -&gt; enention (replace 'i' with 'e')
+enention -&gt; exention (replace 'n' with 'x')
+exention -&gt; exection (replace 'n' with 'c')
+exection -&gt; execution (insert 'u')
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EditDistance</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minDistance</span><span class="o">(</span><span class="nc">String</span> <span class="n">word1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// Initialize dp array for base cases</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="c1">// Minimum steps when word2 is empty (deletions only)</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span> <span class="c1">// Minimum steps when word1 is empty (insertions only)</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Fill the dp array using dynamic programming</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// If characters are equal, carry forward the value from dp[i-1][j-1]</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="c1">// Compute minimum operations by comparing:</span>
+                    <span class="c1">// 1. Replacement (dp[i-1][j-1] + 1)</span>
+                    <span class="c1">// 2. Insertion (dp[i][j-1] + 1)</span>
+                    <span class="c1">// 3. Deletion (dp[i-1][j] + 1)</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">],</span>
+                            <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">],</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]))</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span> <span class="c1">// Final edit distance</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">word1</span> <span class="o">=</span> <span class="s">"horse"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word2</span> <span class="o">=</span> <span class="s">"ros"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">"intention"</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">"execution"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 5</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test case 4</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test case 5</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have the following three operations permitted on a word: Insert a character Delete a character Replace a character]]></summary></entry><entry><title type="html">283.Move Zeroes</title><link href="https://zhengstar94.github.io//blog/2024/MoveZeroes/" rel="alternate" type="text/html" title="283.Move Zeroes"/><published>2024-10-26T00:00:00+00:00</published><updated>2024-10-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MoveZeroes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MoveZeroes/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, move all <code class="language-plaintext highlighter-rouge">0</code>’s to the end of it while maintaining the relative order of the non-zero elements.</li> <li><strong>Note</strong> that you must do this in-place without making a copy of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,3,12]
 Output: [1,3,12,0,0]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,3,12]
 Output: [1,3,12,0,0]
@@ -704,88 +787,4 @@ Output: 4
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?]]></summary></entry><entry><title type="html">236. Lowest Common Ancestor of a Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/LowestCommonAncestorOfABinaryTree/" rel="alternate" type="text/html" title="236. Lowest Common Ancestor of a Binary Tree"/><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LowestCommonAncestorOfABinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LowestCommonAncestorOfABinaryTree/"><![CDATA[<ul> <li>Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.</li> <li>According to the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a>: “The lowest common ancestor is defined between two nodes <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">q</code> as the lowest node in <code class="language-plaintext highlighter-rouge">T</code> that has both <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">q</code> as descendants (where we allow <strong>a node to be a descendant of itself</strong>).”</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [ 3,5,1,6,2,0,8,null,null,7,4 ], p = 5, q = 1
-Output: 3
-Explanation: The LCA of nodes 5 and 1 is 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [ 3,5,1,6,2,0,8,null,null,7,4 ], p = 5, q = 4
-Output: 5
-Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,2], p = 1, q = 2
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(h) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Trees</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LowestCommonAncestorOfABinaryTree</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">TreeNode</span> <span class="nf">lowestCommonAncestor</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">p</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Base case: If root is null or root matches either p or q, return root</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">p</span> <span class="o">==</span> <span class="n">root</span> <span class="o">||</span> <span class="n">q</span> <span class="o">==</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Recursively search for LCA in the left subtree</span>
-        <span class="nc">TreeNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">);</span>
-
-        <span class="c1">// Recursively search for LCA in the right subtree</span>
-        <span class="nc">TreeNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">);</span>
-
-        <span class="c1">// If both left and right are not null, it means p and q are found in</span>
-        <span class="c1">// different subtrees of the current root. Thus, the current root is the LCA.</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">root</span><span class="o">;</span> <span class="c1">// Current root is the LCA</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If one of the subtrees returned a non-null value, it means both p and q</span>
-        <span class="c1">// are located in that subtree. If both are null, return null.</span>
-        <span class="c1">// This will effectively return the found node (either left or right) or null.</span>
-        <span class="k">return</span> <span class="n">left</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">left</span> <span class="o">:</span> <span class="n">right</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Build the binary tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node6</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node0</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node8</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node7</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-        <span class="nc">TreeNode</span> <span class="n">node4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-
-        <span class="c1">// Construct the tree by linking nodes</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node5</span><span class="o">;</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node1</span><span class="o">;</span>
-        <span class="n">node5</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node6</span><span class="o">;</span>
-        <span class="n">node5</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node2</span><span class="o">;</span>
-        <span class="n">node1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node0</span><span class="o">;</span>
-        <span class="n">node1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node8</span><span class="o">;</span>
-        <span class="n">node2</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node7</span><span class="o">;</span>
-        <span class="n">node2</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node4</span><span class="o">;</span>
-
-        <span class="c1">// Test case 1: LCA of 5 and 0</span>
-        <span class="nc">TreeNode</span> <span class="n">lca1</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node5</span><span class="o">,</span> <span class="n">node0</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 5 and 0: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca1</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test case 2: LCA of 5 and 4</span>
-        <span class="nc">TreeNode</span> <span class="n">lca2</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node5</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 5 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca2</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca2</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
-
-        <span class="c1">// Test case 3: LCA of 6 and 4</span>
-        <span class="nc">TreeNode</span> <span class="n">lca3</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node6</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 6 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca3</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca3</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
-
-        <span class="c1">// Test case 4: LCA of 7 and 4</span>
-        <span class="nc">TreeNode</span> <span class="n">lca4</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node7</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 7 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca4</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca4</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test case 5: LCA of 2 and 4</span>
-        <span class="nc">TreeNode</span> <span class="n">lca5</span> <span class="o">=</span> <span class="n">lowestCommonAncestor</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">node2</span><span class="o">,</span> <span class="n">node4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LCA of 2 and 4: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">lca5</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">lca5</span><span class="o">.</span><span class="na">val</span> <span class="o">:</span> <span class="s">"null"</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?]]></summary></entry></feed>
