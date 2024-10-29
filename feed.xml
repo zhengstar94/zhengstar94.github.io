@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-28T07:15:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">72.Edit Distance</title><link href="https://zhengstar94.github.io//blog/2024/EditDistance/" rel="alternate" type="text/html" title="72.Edit Distance"/><published>2024-10-28T00:00:00+00:00</published><updated>2024-10-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/EditDistance</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/EditDistance/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>, return <em>the minimum number of operations required to convert <code class="language-plaintext highlighter-rouge">word1</code> to <code class="language-plaintext highlighter-rouge">word2</code></em>.</li> <li>You have the following three operations permitted on a word: <ul> <li>Insert a character</li> <li>Delete a character</li> <li>Replace a character</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "horse", word2 = "ros"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-29T13:32:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">735.Asteroid Collision</title><link href="https://zhengstar94.github.io//blog/2024/AsteroidCollision/" rel="alternate" type="text/html" title="735.Asteroid Collision"/><published>2024-10-29T00:00:00+00:00</published><updated>2024-10-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AsteroidCollision</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AsteroidCollision/"><![CDATA[<ul> <li>We are given an array <code class="language-plaintext highlighter-rouge">asteroids</code> of integers representing asteroids in a row.</li> <li>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</li> <li>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: asteroids = [5,10,-5]
+Output: [5,10]
+Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: asteroids = [8,-8]
+Output: []
+Explanation: The 8 and -8 collide exploding each other.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: asteroids = [10,2,-5]
+Output: [10]
+Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/29
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AsteroidCollision</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">asteroidCollision</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">asteroids</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Use a deque to store asteroids, more efficient than a stack</span>
+        <span class="nc">ArrayDeque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">asteroid</span> <span class="o">:</span> <span class="n">asteroids</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">asteroid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Case 1: Queue is empty, add the asteroid directly</span>
+                <span class="c1">// Case 2: Current asteroid is moving right, no collision with previous asteroids</span>
+                <span class="n">q</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">asteroid</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Current asteroid is moving left (asteroid &lt; 0), so handle collisions</span>
+
+                <span class="c1">// Loop to handle collisions: if the asteroid at the end of the queue</span>
+                <span class="c1">// is moving right and has less mass than the current asteroid</span>
+                <span class="c1">// (q.peekLast() + asteroid &lt; 0 means the right-moving asteroid is smaller in mass</span>
+                <span class="c1">// because asteroid is negative, and their sum &lt; 0 implies |asteroid| is larger)</span>
+                <span class="k">while</span> <span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">q</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">q</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">+</span> <span class="n">asteroid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">q</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span> <span class="c1">// Remove the asteroid at the end of the queue (it explodes)</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Three situations after handling collisions:</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">q</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Case 1: Queue is empty, add the asteroid directly</span>
+                    <span class="c1">// Case 2: Asteroid at the end of the queue is moving left, no collision, add directly</span>
+                    <span class="n">q</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">asteroid</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">q</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">+</span> <span class="n">asteroid</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Case 3: Equal mass, both explode, remove the last asteroid from the queue and do not add the current one</span>
+                    <span class="n">q</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="c1">// Implicit Case 4: Current asteroid has smaller mass and is destroyed, no action needed</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert the deque to an array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">q</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test cases</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span> <span class="o">},</span>          <span class="c1">// No collision, output [ 5, 10 ]</span>
+                <span class="o">{</span> <span class="mi">8</span><span class="o">,</span> <span class="o">-</span><span class="mi">8</span> <span class="o">},</span>              <span class="c1">// Equal mass, both explode, output []</span>
+                <span class="o">{</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span> <span class="o">},</span>          <span class="c1">// -5 collides with 2, 2 explodes, final output [ 10]</span>
+                <span class="o">{</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span> <span class="o">},</span>       <span class="c1">// All asteroids move left or right, no collision, output [ -2, -1, 1, 2 ]</span>
+                <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">},</span>       <span class="c1">// Each pair 1 and -1 collide, all explode, output []</span>
+                <span class="o">{</span> <span class="mi">10</span><span class="o">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="o">-</span><span class="mi">15</span><span class="o">,</span> <span class="mi">20</span> <span class="o">}</span> <span class="c1">// 10 and -10 collide, 5 and -15 collide, output [ 20 ]</span>
+        <span class="o">};</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">testCases</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="n">asteroidCollision</span><span class="o">(</span><span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[We are given an array asteroids of integers representing asteroids in a row. For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed. Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.]]></summary></entry><entry><title type="html">72.Edit Distance</title><link href="https://zhengstar94.github.io//blog/2024/EditDistance/" rel="alternate" type="text/html" title="72.Edit Distance"/><published>2024-10-28T00:00:00+00:00</published><updated>2024-10-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/EditDistance</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/EditDistance/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>, return <em>the minimum number of operations required to convert <code class="language-plaintext highlighter-rouge">word1</code> to <code class="language-plaintext highlighter-rouge">word2</code></em>.</li> <li>You have the following three operations permitted on a word: <ul> <li>Insert a character</li> <li>Delete a character</li> <li>Replace a character</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "horse", word2 = "ros"
 Output: 3
 Explanation: 
 horse -&gt; rorse (replace 'h' with 'r')
@@ -726,65 +806,4 @@ Output: 0
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target. The test cases are generated so that the answer can fit in a 32-bit integer.]]></summary></entry><entry><title type="html">215.Kth Largest Element in an Array</title><link href="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/" rel="alternate" type="text/html" title="215.Kth Largest Element in an Array"/><published>2024-10-19T00:00:00+00:00</published><updated>2024-10-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KthLargestElementInAnArray/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>largest element in the array</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> largest element in the sorted order, not the <code class="language-plaintext highlighter-rouge">kth</code> distinct element.</li> <li>Can you solve it without sorting?</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1,5,6,4], k = 2
-Output: 5
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
-Output: 4
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(k)) time | O(k) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KthLargestElementInAnArray</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findKthLargest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a min-heap (PriorityQueue by default is a min-heap)</span>
-        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through all the elements in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Add the current number to the min-heap</span>
-            <span class="n">minHeap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-
-            <span class="c1">// If the heap size exceeds k, remove the smallest element from the heap</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">minHeap</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">minHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The top element of the heap is the kth largest element</span>
-        <span class="k">return</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Output: 5</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Output: 4</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">15</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Output: 10</span>
-
-        <span class="c1">// Test case 4</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Output: 1</span>
-
-        <span class="c1">// Test case 5 (single element)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">99</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">findKthLargest</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span> <span class="c1">// Output: 99</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target. The test cases are generated so that the answer can fit in a 32-bit integer.]]></summary></entry></feed>
