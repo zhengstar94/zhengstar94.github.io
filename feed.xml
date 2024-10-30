@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-29T13:32:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">735.Asteroid Collision</title><link href="https://zhengstar94.github.io//blog/2024/AsteroidCollision/" rel="alternate" type="text/html" title="735.Asteroid Collision"/><published>2024-10-29T00:00:00+00:00</published><updated>2024-10-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AsteroidCollision</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AsteroidCollision/"><![CDATA[<ul> <li>We are given an array <code class="language-plaintext highlighter-rouge">asteroids</code> of integers representing asteroids in a row.</li> <li>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</li> <li>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: asteroids = [5,10,-5]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-30T08:52:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">31.Next Permutation</title><link href="https://zhengstar94.github.io//blog/2024/NextPermutation/" rel="alternate" type="text/html" title="31.Next Permutation"/><published>2024-10-30T00:00:00+00:00</published><updated>2024-10-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NextPermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NextPermutation/"><![CDATA[<ul> <li>A <strong>permutation</strong> of an array of integers is an arrangement of its members into a sequence or linear order. <ul> <li>For example, for <code class="language-plaintext highlighter-rouge">arr = [1,2,3]</code>, the following are all the permutations of <code class="language-plaintext highlighter-rouge">arr</code>: <code class="language-plaintext highlighter-rouge">[1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1]</code>.</li> </ul> </li> <li>The <strong>next permutation</strong> of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the <strong>next permutation</strong> of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order). <ul> <li>For example, the next permutation of <code class="language-plaintext highlighter-rouge">arr = [1,2,3]</code> is <code class="language-plaintext highlighter-rouge">[1,3,2]</code>.</li> <li>Similarly, the next permutation of <code class="language-plaintext highlighter-rouge">arr = [2,3,1]</code> is <code class="language-plaintext highlighter-rouge">[3,1,2]</code>.</li> <li>While the next permutation of <code class="language-plaintext highlighter-rouge">arr = [3,2,1]</code> is <code class="language-plaintext highlighter-rouge">[1,2,3]</code> because <code class="language-plaintext highlighter-rouge">[3,2,1]</code> does not have a lexicographical larger rearrangement.</li> </ul> </li> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>, <em>find the next permutation of</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>The replacement must be <strong><a href="http://en.wikipedia.org/wiki/In-place_algorithm">in place</a></strong> and use only constant extra memory.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
+Output: [1,3,2]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,1]
+Output: [1,2,3]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,5]
+Output: [1,5,1]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/10/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NextPermutation</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">nextPermutation</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 1. Boundary check - return if array is null or has length &lt;= 1</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">;</span>
+
+        <span class="c1">// 2. Find first decreasing element from right</span>
+        <span class="c1">// Example: in [1,5,8,4,7,6,5,3,1], find 4 because 4 &lt; 7</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+            <span class="n">i</span><span class="o">--;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 3. If we found a decreasing element (i.e., i &gt;= 0)</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="c1">// Find the smallest element from right that's greater than nums[i]</span>
+            <span class="c1">// This element will exist because nums[i] &lt; nums[i+1]</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">--;</span>
+            <span class="o">}</span>
+            <span class="c1">// Swap nums[i] with this element</span>
+            <span class="n">swap</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 4. Reverse all elements after position i to get the smallest permutation</span>
+        <span class="c1">// This works because elements after i are in descending order</span>
+        <span class="n">reverse</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+        <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">reverse</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">swap</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">start</span><span class="o">++,</span> <span class="n">end</span><span class="o">--);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="n">nextPermutation</span><span class="o">(</span><span class="n">test1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 1: [ 1,2,3 ] -&gt; "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">test1</span><span class="o">)</span> <span class="o">+</span> <span class="s">" (Expected: [ 1,3,2 ] )"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 2: Decreasing order - should return increasing order</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="n">nextPermutation</span><span class="o">(</span><span class="n">test2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 2: [ 3,2,1 ] -&gt; "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">test2</span><span class="o">)</span> <span class="o">+</span> <span class="s">" (Expected: [ 1,2,3 ] )"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 3: Array with duplicates</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="n">nextPermutation</span><span class="o">(</span><span class="n">test3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 3: [ 1,1,5 ] -&gt; "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">test3</span><span class="o">)</span> <span class="o">+</span> <span class="s">" (Expected: [ 1,5,1 ] )"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 4: Larger array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="n">nextPermutation</span><span class="o">(</span><span class="n">test4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 4: [ 1,3,5,4,2 ] -&gt; "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">test4</span><span class="o">)</span> <span class="o">+</span> <span class="s">" (Expected: [ 1,4,2,3,5 ] )"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">arrayToString</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="s">"null"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[A permutation of an array of integers is an arrangement of its members into a sequence or linear order. For example, for arr=[1,2,3], the following are all the permutations of arr: [1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1]. The next permutation of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the next permutation of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order). For example, the next permutation of arr=[1,2,3] is [1,3,2]. Similarly, the next permutation of arr=[2,3,1] is [3,1,2]. While the next permutation of arr=[3,2,1] is [1,2,3] because [3,2,1] does not have a lexicographical larger rearrangement. Given an array of integers nums, find the next permutation of nums. The replacement must be in place and use only constant extra memory.]]></summary></entry><entry><title type="html">735.Asteroid Collision</title><link href="https://zhengstar94.github.io//blog/2024/AsteroidCollision/" rel="alternate" type="text/html" title="735.Asteroid Collision"/><published>2024-10-29T00:00:00+00:00</published><updated>2024-10-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AsteroidCollision</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AsteroidCollision/"><![CDATA[<ul> <li>We are given an array <code class="language-plaintext highlighter-rouge">asteroids</code> of integers representing asteroids in a row.</li> <li>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</li> <li>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: asteroids = [5,10,-5]
 Output: [5,10]
 Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: asteroids = [8,-8]
@@ -724,86 +822,4 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[You are given an integer array prices where prices[i] is the price of a given stock on the ith day. On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day. Find and return the maximum profit you can achieve.]]></summary></entry><entry><title type="html">377.Combination Sum IV</title><link href="https://zhengstar94.github.io//blog/2024/CombinationSumIV/" rel="alternate" type="text/html" title="377.Combination Sum IV"/><published>2024-10-20T00:00:00+00:00</published><updated>2024-10-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CombinationSumIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CombinationSumIV/"><![CDATA[<ul> <li>Given an array of <strong>distinct</strong> integers <code class="language-plaintext highlighter-rouge">nums</code> and a target integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of possible combinations that add up to</em> <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [ 1,2,3 ], target = 4
-Output: 7
-Explanation:
-The possible combination ways are:
-(1, 1, 1, 1)
-(1, 1, 2)
-(1, 2, 1)
-(1, 3)
-(2, 1, 1)
-(2, 2)
-(3, 1)
-Note that different sequences are counted as different combinations.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9], target = 3
-Output: 0
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * target) time | O(target) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CombinationSumIV</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">combinationSum4</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a DP array where dp[i] will store the number of combinations to reach the sum i.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-
-        <span class="c1">// Base case: There is one way to make the sum 0, which is to choose nothing.</span>
-        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each possible sum from 1 to the target.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// For each number in the provided nums array.</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If the current sum i is greater than or equal to num,</span>
-                <span class="c1">// it means we can use this num to help form the sum i.</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// Add the number of combinations to form the sum (i - num)</span>
-                    <span class="c1">// to the current sum i. This is because each combination</span>
-                    <span class="c1">// that makes up (i - num) can be extended to form the sum i</span>
-                    <span class="c1">// by adding the current num.</span>
-                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">num</span><span class="o">];</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the total combinations to reach the target sum.</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">target</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: nums = [ 1, 2, 3 ], target = 4</span>
-        <span class="c1">// Expected output: 7</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span> <span class="c1">// Output: 7</span>
-
-        <span class="c1">// Test case 2: nums = [ 2, 1 ], target = 5</span>
-        <span class="c1">// Expected output: 8</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span> <span class="c1">// Output: 8</span>
-
-        <span class="c1">// Test case 3: nums = [ 1 ], target = 0</span>
-        <span class="c1">// Expected output: 1 (there is one way to sum to zero: choose nothing)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span> <span class="c1">// Output: 1</span>
-
-        <span class="c1">// Test case 4: nums = [ 3, 5, 8 ], target = 10</span>
-        <span class="c1">// Expected output: 1 (the only way is to choose 2 threes and one one, or two fives)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target4</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">target4</span><span class="o">));</span> <span class="c1">// Output: 1</span>
-
-        <span class="c1">// Test case 5: nums = [ 1, 4, 5 ], target = 6</span>
-        <span class="c1">// Expected output: 6</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target5</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">combinationSum4</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">target5</span><span class="o">));</span> <span class="c1">// Output: 6</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target. The test cases are generated so that the answer can fit in a 32-bit integer.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><summary type="html"><![CDATA[You are given an integer array prices where prices[i] is the price of a given stock on the ith day. On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day. Find and return the maximum profit you can achieve.]]></summary></entry></feed>
