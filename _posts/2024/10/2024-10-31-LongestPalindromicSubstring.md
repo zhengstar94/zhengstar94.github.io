@@ -4,12 +4,11 @@ toc:
 giscus_comments: true
 layout: post
 title: "5.Longest Palindromic Substring"
-date: "2024-08-31"
+date: "2024-10-31"
 categories:
   - "LeetCode Dynamic Programming"
 ---
 
-# 5. Longest Palindromic Substring
 
 - Given a string `s`, return *the longest* *palindromic* *substring* in `s`.
 
@@ -127,3 +126,96 @@ public class LongestPalindromicSubstring {
 
 ```
 
+## Method 2
+
+```tex
+【O(n^2) time | O(1) space】
+```
+
+```java
+
+package Leetcode.TwoPointer;
+
+/**
+ * @author zhengstars
+ * @date 2024/10/31
+ */
+public class LongestPalindromicSubstring {
+    public static String longestPalindrome(String s) {
+        // If the input string is null or has a length less than 1, return an empty string
+        if(s == null || s.length() < 1) {
+            return "";
+        }
+
+        // Initialize starting index of the longest palindrome and its maximum length
+        int start = 0;
+        int maxLen = 1;
+
+        // Loop through each character in the string to consider it as a center of potential palindrome
+        for (int i = 0; i < s.length(); i++) {
+            // Check for longest palindrome with odd length (center at i)
+            int len1 = expandAroundCenter(s, i, i);
+            // Check for longest palindrome with even length (center between i and i+1)
+            int len2 = expandAroundCenter(s, i, i + 1);
+
+            // Take the maximum length found from odd and even cases
+            int len = Math.max(len1, len2);
+
+            // If we found a longer palindrome, update maxLen and starting index
+            if (len > maxLen) {
+                maxLen = len;
+                // Calculate the starting index of the current longest palindrome
+                // "len - 1" represents the number of characters on either side of the center.
+                // Dividing it by 2 gives the left-side distance from i to start of the palindrome.
+                start = i - (len - 1) / 2;
+            }
+        }
+
+        // Return the substring starting from 'start' and with length 'maxLen'
+        return s.substring(start, start + maxLen);
+    }
+
+    private static int expandAroundCenter(String s, int left, int right) {
+        // Expand as long as the characters on the left and right match and stay within bounds
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        // Length is right - left - 1 because left and right have moved one extra position
+        return right - left - 1;
+    }
+
+    public static void main(String[] args) {
+// Test case 1: A normal case with palindrome in the middle
+        String s1 = "babad";
+        System.out.println("Output: " + longestPalindrome(s1));
+        // Expected output: "bab" or "aba"
+
+        // Test case 2: The entire string is a palindrome
+        String s2 = "racecar";
+        System.out.println("Output: " + longestPalindrome(s2));
+        // Expected output: "racecar"
+
+        // Test case 3: No palindrome longer than one character
+        String s3 = "abc";
+        System.out.println("Output: " + longestPalindrome(s3));
+        // Expected output: "a" or "b" or "c"
+
+        // Test case 4: Even-length palindrome
+        String s4 = "cbbd";
+        System.out.println("Output: " + longestPalindrome(s4));
+        // Expected output: "bb"
+
+        // Test case 5: Single character
+        String s5 = "a";
+        System.out.println("Output: " + longestPalindrome(s5));
+        // Expected output: "a"
+
+        // Test case 6: Empty string
+        String s6 = "";
+        System.out.println("Output: " + longestPalindrome(s6));
+        // Expected output: ""
+    }
+}
+
+```
