@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-31T13:19:16+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">5.Longest Palindromic Substring</title><link href="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/" rel="alternate" type="text/html" title="5.Longest Palindromic Substring"/><published>2024-10-31T00:00:00+00:00</published><updated>2024-10-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the longest</em> <em>palindromic</em> <em>substring</em> in <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "babad"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-01T06:00:11+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">953.Verifying an Alien Dictionary</title><link href="https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary/" rel="alternate" type="text/html" title="953.Verifying an Alien Dictionary"/><published>2024-11-01T00:00:00+00:00</published><updated>2024-11-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary/"><![CDATA[<ul> <li>In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different <code class="language-plaintext highlighter-rouge">order</code>. The <code class="language-plaintext highlighter-rouge">order</code> of the alphabet is some permutation of lowercase letters.</li> <li>Given a sequence of <code class="language-plaintext highlighter-rouge">words</code> written in the alien language, and the <code class="language-plaintext highlighter-rouge">order</code> of the alphabet, return <code class="language-plaintext highlighter-rouge">true</code> if and only if the given <code class="language-plaintext highlighter-rouge">words</code> are sorted lexicographically in this alien language.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = [ "hello","leetcode" ], order = "hlabcdefgijkmnopqrstuvwxyz"
+Output: true
+Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = [ "word","world","row" ], order = "worldabcefghijkmnpqstuvxyz"
+Output: false
+Explanation: As 'd' comes after 'l' in this language, then words[0] &gt; words[1], hence the sequence is unsorted.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = [ "apple","app" ], order = "abcdefghijklmnopqrstuvwxyz"
+Output: false
+Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" &gt; "app", because 'l' &gt; '∅', where '∅' is defined as the blank character which is less than any other character (More info).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/11/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VerifyingAnAlienDictionary</span> <span class="o">{</span>
+    <span class="c1">// Character mapping array to store the order of characters in alien dictionary</span>
+    <span class="c1">// Index represents the character (a-z), value represents its position in alien order</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">charMap</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isAlienSorted</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">words</span><span class="o">,</span> <span class="nc">String</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize character mapping array (size 26 for lowercase letters a-z)</span>
+        <span class="n">charMap</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+
+        <span class="c1">// Build character mapping: store each character's position in the alien order</span>
+        <span class="c1">// For example: if order = "hlabcd", then h-&gt;0, l-&gt;1, a-&gt;2, b-&gt;3, etc.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">order</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">charMap</span><span class="o">[</span><span class="n">order</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Compare adjacent words pairwise</span>
+        <span class="c1">// If any pair is in wrong order, return false</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">words</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">compare</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">words</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Current word is greater than next word (wrong order)</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// All pairs are in correct order</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">String</span> <span class="n">word1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get lengths of both words</span>
+        <span class="kt">int</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">len2</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+
+        <span class="c1">// Find the length of shorter word to avoid ArrayIndexOutOfBounds</span>
+        <span class="kt">int</span> <span class="n">minLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">len1</span><span class="o">,</span> <span class="n">len2</span><span class="o">);</span>
+
+        <span class="c1">// Compare characters at each position</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">minLen</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">char</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="kt">char</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">c1</span> <span class="o">!=</span> <span class="n">c2</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If characters differ, compare their positions in alien order</span>
+                <span class="c1">// charMap[c1-'a'] gives position of c1 in alien order</span>
+                <span class="k">return</span> <span class="n">charMap</span><span class="o">[</span><span class="n">c1</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">-</span> <span class="n">charMap</span><span class="o">[</span><span class="n">c2</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If all characters match up to minLen, longer word should come after</span>
+        <span class="c1">// Example: "app" should come before "apple"</span>
+        <span class="k">return</span> <span class="n">len1</span> <span class="o">-</span> <span class="n">len2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic sorting with modified alphabet</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words1</span> <span class="o">=</span> <span class="o">{</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"leetcode"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">order1</span> <span class="o">=</span> <span class="s">"hlabcdefgijkmnopqrstuvwxyz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual: "</span> <span class="o">+</span> <span class="n">isAlienSorted</span><span class="o">(</span><span class="n">words1</span><span class="o">,</span> <span class="n">order1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Words in wrong order</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words2</span> <span class="o">=</span> <span class="o">{</span><span class="s">"word"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">,</span> <span class="s">"row"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">order2</span> <span class="o">=</span> <span class="s">"worldabcefghijkmnpqstuvxyz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual: "</span> <span class="o">+</span> <span class="n">isAlienSorted</span><span class="o">(</span><span class="n">words2</span><span class="o">,</span> <span class="n">order2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Prefix case (longer word before shorter prefix)</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words3</span> <span class="o">=</span> <span class="o">{</span><span class="s">"apple"</span><span class="o">,</span> <span class="s">"app"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">order3</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual: "</span> <span class="o">+</span> <span class="n">isAlienSorted</span><span class="o">(</span><span class="n">words3</span><span class="o">,</span> <span class="n">order3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: Single character difference</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words4</span> <span class="o">=</span> <span class="o">{</span><span class="s">"aa"</span><span class="o">,</span> <span class="s">"ab"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">order4</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual: "</span> <span class="o">+</span> <span class="n">isAlienSorted</span><span class="o">(</span><span class="n">words4</span><span class="o">,</span> <span class="n">order4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 5: Identical words</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">words5</span> <span class="o">=</span> <span class="o">{</span><span class="s">"app"</span><span class="o">,</span> <span class="s">"app"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">order5</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual: "</span> <span class="o">+</span> <span class="n">isAlienSorted</span><span class="o">(</span><span class="n">words5</span><span class="o">,</span> <span class="n">order5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters. Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographically in this alien language.]]></summary></entry><entry><title type="html">5.Longest Palindromic Substring</title><link href="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/" rel="alternate" type="text/html" title="5.Longest Palindromic Substring"/><published>2024-10-31T00:00:00+00:00</published><updated>2024-10-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the longest</em> <em>palindromic</em> <em>substring</em> in <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "babad"
 Output: "bab"
 Explanation: "aba" is also a valid answer.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbbd"
@@ -901,51 +1009,4 @@ Explanation: The answer [ [-2,4],[3,3] ] would also be accepted.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2). You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).]]></summary></entry><entry><title type="html">453.Minimum Moves to Equal Array Elements</title><link href="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/" rel="alternate" type="text/html" title="453.Minimum Moves to Equal Array Elements"/><published>2024-10-22T00:00:00+00:00</published><updated>2024-10-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumMovesToEqualArrayElements/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</li> <li>In one move, you can increment <code class="language-plaintext highlighter-rouge">n - 1</code> elements of the array by <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
-Output: 3
-Explanation: Only three moves are needed (remember each move increments two elements):
-[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
-Output: 0
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/22
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumMovesToEqualArrayElements</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minMoves</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases: null array or array with length &lt;= 1</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 1: Find the minimum value in the array</span>
-        <span class="c1">// This is our target value that all other elements will eventually equal to</span>
-        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">min</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 2: Calculate the total moves needed</span>
-        <span class="c1">// For each element, we need (current value - minimum value) moves to reach the minimum</span>
-        <span class="kt">int</span> <span class="n">moves</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">moves</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">min</span><span class="o">;</span>  <span class="c1">// Add the difference between current element and minimum</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">moves</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case </span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 0</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 8</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:  "</span> <span class="o">+</span> <span class="n">minMoves</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">)</span> <span class="o">);</span>  <span class="c1">// Expected output: 6</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal. In one move, you can increment n - 1 elements of the array by 1.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2). You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).]]></summary></entry></feed>
