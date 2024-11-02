@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-01T06:00:11+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">953.Verifying an Alien Dictionary</title><link href="https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary/" rel="alternate" type="text/html" title="953.Verifying an Alien Dictionary"/><published>2024-11-01T00:00:00+00:00</published><updated>2024-11-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary/"><![CDATA[<ul> <li>In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different <code class="language-plaintext highlighter-rouge">order</code>. The <code class="language-plaintext highlighter-rouge">order</code> of the alphabet is some permutation of lowercase letters.</li> <li>Given a sequence of <code class="language-plaintext highlighter-rouge">words</code> written in the alien language, and the <code class="language-plaintext highlighter-rouge">order</code> of the alphabet, return <code class="language-plaintext highlighter-rouge">true</code> if and only if the given <code class="language-plaintext highlighter-rouge">words</code> are sorted lexicographically in this alien language.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = [ "hello","leetcode" ], order = "hlabcdefgijkmnopqrstuvwxyz"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-02T04:36:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1380. Lucky Numbers in a Matrix</title><link href="https://zhengstar94.github.io//blog/2024/LuckyNumbersInAMatrix/" rel="alternate" type="text/html" title="1380. Lucky Numbers in a Matrix"/><published>2024-11-02T00:00:00+00:00</published><updated>2024-11-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LuckyNumbersInAMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LuckyNumbersInAMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix of <strong>distinct</strong> numbers, return <em>all <strong>lucky numbers</strong> in the matrix in <strong>any</strong> order</em>.</li> <li>A <strong>lucky number</strong> is an element of the matrix such that it is the minimum element in its row and maximum in its column.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[3,7,8],[9,11,13],[15,16,17]]
+Output: [15]
+Explanation: 15 is the only lucky number since it is the minimum in its row and the maximum in its column.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
+Output: [12]
+Explanation: 12 is the only lucky number since it is the minimum in its row and the maximum in its column.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[7,8],[1,2]]
+Output: [7]
+Explanation: 7 is the only lucky number since it is the minimum in its row and the maximum in its column.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/11/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LuckyNumbersInAMatrix</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">luckyNumbers</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate through each row of the matrix</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Find the column index of minimum element in current row</span>
+            <span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="n">findMinCol</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">matrix</span><span class="o">);</span>
+
+            <span class="c1">// Check if this minimum element is also maximum in its column</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">confirmCol</span><span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">col</span><span class="o">],</span> <span class="n">col</span><span class="o">,</span> <span class="n">matrix</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">col</span><span class="o">]);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMinCol</span><span class="o">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">minRow</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Column index of minimum element</span>
+        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>  <span class="c1">// Current minimum value</span>
+
+        <span class="c1">// Iterate through each column in the specified row</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">col</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update minimum value and its column index if current element is smaller</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="o">){</span>
+                <span class="n">min</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
+                <span class="n">minRow</span> <span class="o">=</span> <span class="n">col</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">minRow</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">confirmCol</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Check each element in the specified column</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If any element is greater than our number, return false</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">num</span><span class="o">){</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// If no greater element found, return true</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Expected output [15]</span>
+        <span class="c1">// Matrix where 15 is minimum in its row and maximum in its column</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">13</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="mi">17</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">luckyNumbers</span><span class="o">(</span><span class="n">matrix1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: Expected output [12]</span>
+        <span class="c1">// Matrix where 12 is minimum in its row and maximum in its column</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">7</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="mi">17</span><span class="o">,</span> <span class="mi">12</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">luckyNumbers</span><span class="o">(</span><span class="n">matrix2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: Expected output [7]</span>
+        <span class="c1">// Small matrix where 7 is minimum in its row and maximum in its column</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix3</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">luckyNumbers</span><span class="o">(</span><span class="n">matrix3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an m x n matrix of distinct numbers, return all lucky numbers in the matrix in any order. A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.]]></summary></entry><entry><title type="html">953.Verifying an Alien Dictionary</title><link href="https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary/" rel="alternate" type="text/html" title="953.Verifying an Alien Dictionary"/><published>2024-11-01T00:00:00+00:00</published><updated>2024-11-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/VerifyingAnAlienDictionary/"><![CDATA[<ul> <li>In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different <code class="language-plaintext highlighter-rouge">order</code>. The <code class="language-plaintext highlighter-rouge">order</code> of the alphabet is some permutation of lowercase letters.</li> <li>Given a sequence of <code class="language-plaintext highlighter-rouge">words</code> written in the alien language, and the <code class="language-plaintext highlighter-rouge">order</code> of the alphabet, return <code class="language-plaintext highlighter-rouge">true</code> if and only if the given <code class="language-plaintext highlighter-rouge">words</code> are sorted lexicographically in this alien language.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = [ "hello","leetcode" ], order = "hlabcdefgijkmnopqrstuvwxyz"
 Output: true
 Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = [ "word","world","row" ], order = "worldabcefghijkmnpqstuvxyz"
@@ -890,123 +983,4 @@ Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 +
     <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">NestedInteger</span><span class="o">&gt;</span> <span class="nf">getList</span><span class="o">();</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists.]]></summary></entry><entry><title type="html">973.K Closest Points to Origin</title><link href="https://zhengstar94.github.io//blog/2024/KClosestPointsToOrigin/" rel="alternate" type="text/html" title="973.K Closest Points to Origin"/><published>2024-10-23T00:00:00+00:00</published><updated>2024-10-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KClosestPointsToOrigin</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KClosestPointsToOrigin/"><![CDATA[<ul> <li>Given an array of <code class="language-plaintext highlighter-rouge">points</code> where <code class="language-plaintext highlighter-rouge">points[i] = [xi, yi]</code> represents a point on the <strong>X-Y</strong> plane and an integer <code class="language-plaintext highlighter-rouge">k</code>, return the <code class="language-plaintext highlighter-rouge">k</code> closest points to the origin <code class="language-plaintext highlighter-rouge">(0, 0)</code>.</li> <li>The distance between two points on the <strong>X-Y</strong> plane is the Euclidean distance (i.e., <code class="language-plaintext highlighter-rouge">√(x1 - x2)^2 + (y1 - y2)^2</code>).</li> <li>You may return the answer in <strong>any order</strong>. The answer is <strong>guaranteed</strong> to be <strong>unique</strong> (except for the order that it is in).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [1,3],[-2,2] ], k = 1
-Output: [ [-2,2] ]
-Explanation:
-The distance between (1, 3) and the origin is sqrt(10).
-The distance between (-2, 2) and the origin is sqrt(8).
-Since sqrt(8) &lt; sqrt(10), (-2, 2) is closer to the origin.
-We only want the closest k = 1 points from the origin, so the answer is just [ [-2,2] ].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [3,3],[5,-1],[-2,4] ], k = 2
-Output: [ [3,3],[-2,4] ]
-Explanation: The answer [ [-2,4],[3,3] ] would also be accepted.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KClosestPointsToOrigin</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">kClosest</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">k</span> <span class="o">==</span>  <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">){</span>
-            <span class="k">return</span> <span class="n">points</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="n">quickSelect</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
-        <span class="k">return</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">quickSelect</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Base case: if left &gt;= right, partition contains 1 or 0 elements</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">left</span> <span class="o">&gt;=</span> <span class="n">right</span><span class="o">){</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Choose random pivot to avoid worst case scenario</span>
-        <span class="kt">int</span> <span class="n">pivotIndex</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
-        <span class="c1">// Partition array around pivot and get final position of pivot</span>
-        <span class="n">pivotIndex</span> <span class="o">=</span> <span class="n">partition</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">pivotIndex</span><span class="o">);</span>
-
-        <span class="c1">// If pivot is at k-1, we've found our k elements</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">pivotIndex</span> <span class="o">==</span> <span class="n">k</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// If pivot index is less than k-1, search right partition</span>
-        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">pivotIndex</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">quickSelect</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">pivotIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">right</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="c1">// If pivot index is greater than k-1, search left partition</span>
-        <span class="k">else</span> <span class="o">{</span>
-            <span class="n">quickSelect</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">pivotIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">k</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Implementation steps:
-     * 1. SWAP 1: Move pivot to end (temporary storage)
-     *    - swap(points, pivotIndex, right)
-     * 2. Partition array:
-     *    - SWAP 2: For each point with distance &lt; pivot distance
-     *      swap(points, current, storeIndex)
-     * 3. SWAP 3: Move pivot to final position
-     *    - swap(points, storeIndex, right)
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">partition</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pivotIndex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Calculate distance of pivot point from origin</span>
-        <span class="kt">int</span> <span class="n">pivotDist</span> <span class="o">=</span> <span class="n">distance</span><span class="o">(</span><span class="n">points</span><span class="o">[</span><span class="n">pivotIndex</span><span class="o">]);</span>
-
-        <span class="c1">// Move pivot to end of array</span>
-        <span class="n">swap</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">pivotIndex</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">storeIndex</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-
-        <span class="c1">// Partition array around pivot distance</span>
-        <span class="c1">// Move all points with distance less than pivot distance to left side</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">distance</span><span class="o">(</span><span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">&lt;</span> <span class="n">pivotDist</span><span class="o">){</span>
-                <span class="n">swap</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">storeIndex</span><span class="o">);</span>
-                <span class="n">storeIndex</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Move pivot to its final position</span>
-        <span class="n">swap</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="n">storeIndex</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">storeIndex</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">distance</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">point</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">point</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">*</span> <span class="n">point</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">point</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">*</span> <span class="n">point</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-        <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">points</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
-        <span class="n">points</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Normal case with multiple points</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">},{-</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">2</span><span class="o">,-</span><span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points1</span><span class="o">,</span> <span class="n">k1</span><span class="o">)));</span>
-
-        <span class="c1">// Test Case 2: When k equals array length</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">5</span><span class="o">,-</span><span class="mi">1</span><span class="o">},{-</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points2</span><span class="o">,</span> <span class="n">k2</span><span class="o">)));</span>
-
-        <span class="c1">// Test Case 3: Single point case</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points3</span><span class="o">,</span> <span class="n">k3</span><span class="o">)));</span>
-
-        <span class="c1">// Test Case 4: Case with origin point</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points4</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">},{-</span><span class="mi">1</span><span class="o">,-</span><span class="mi">1</span><span class="o">},{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">kClosest</span><span class="o">(</span><span class="n">points4</span><span class="o">,</span> <span class="n">k4</span><span class="o">)));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><summary type="html"><![CDATA[Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2). You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists.]]></summary></entry></feed>
