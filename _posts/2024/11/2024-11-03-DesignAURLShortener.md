@@ -5,6 +5,7 @@ giscus_comments: true
 layout: post
 title: "Design a URL Shortener"
 date: "2024-11-03"
+tags: System Design
 categories:
   - "System Design New"
 ---
@@ -421,14 +422,14 @@ To improve redirect speed, we can introduce a memory cache (like Redis or Memcac
     - **Miss**: Query database, get original URL, store in cache, and update usage order.
 3. **Automatic Updates**: When cache is full, LRU algorithm deletes least recently used short links, ensuring cache retains most frequently used entries.
 
-#### 3. Scaling
+### 3. Scaling
 
-##### 1. What measures can we take to ensure high availability if the database fails?
+#### 1. What measures can we take to ensure high availability if the database fails?
 
 1. **Database Replication**: By using databases supporting replication (like Postgres), we can create multiple identical copies of the database on different servers. If one server fails, we can redirect to another. This increases system design complexity as we now need to ensure our primary server can interact with any replica without issues. This can be challenging and increases operational overhead.
 2. **Database Backup**: We can also implement a backup system that takes periodic snapshots of the database and stores them in separate locations. This increases system design complexity as we now need to ensure the primary server can interact with backups without issues. This can be challenging and increases operational overhead.
 
-##### 2. How can we architect the primary server to handle high-frequency read demands?
+#### 2. How can we architect the primary server to handle high-frequency read demands?
 
 - We can scale the primary server by separating read and write operations, adopting a microservices architecture. Read services focus on handling redirect requests, while write services handle creating new short URLs. This allows independent scaling of each service based on their specific requirements to handle load.
 
