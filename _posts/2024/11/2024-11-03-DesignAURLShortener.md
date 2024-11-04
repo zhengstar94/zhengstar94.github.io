@@ -1,13 +1,14 @@
 ---
 toc:
-  beginning: true
 giscus_comments: true
 layout: post
 title: "Design a URL Shortener"
 date: "2024-11-03"
-tags: System Design
+tags: SystemDesign
+tabs: true
 categories:
   - "System Design New"
+featured: true
 ---
 
 
