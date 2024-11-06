@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-05T06:44:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">199.Binary Tree Right Side View</title><link href="https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView/" rel="alternate" type="text/html" title="199.Binary Tree Right Side View"/><published>2024-11-05T00:00:00+00:00</published><updated>2024-11-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree, imagine yourself standing on the <strong>right side</strong> of it, return <em>the values of the nodes you can see ordered from top to bottom</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,2,3,null,5,null,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-06T05:50:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">528.Random Pick with Weight</title><link href="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/" rel="alternate" type="text/html" title="528.Random Pick with Weight"/><published>2024-11-06T00:00:00+00:00</published><updated>2024-11-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RandomPickWithWeight</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of positive integers <code class="language-plaintext highlighter-rouge">w</code> where <code class="language-plaintext highlighter-rouge">w[i]</code> describes the <strong>weight</strong> of the <code class="language-plaintext highlighter-rouge">ith</code> index.</li> <li>You need to implement the function <code class="language-plaintext highlighter-rouge">pickIndex()</code>, which <strong>randomly</strong> picks an index in the range <code class="language-plaintext highlighter-rouge">[0, w.length - 1]</code> (<strong>inclusive</strong>) and returns it. The <strong>probability</strong> of picking an index <code class="language-plaintext highlighter-rouge">i</code> is <code class="language-plaintext highlighter-rouge">w[i] / sum(w)</code>. <ul> <li>For example, if <code class="language-plaintext highlighter-rouge">w = [1, 3]</code>, the probability of picking index <code class="language-plaintext highlighter-rouge">0</code> is <code class="language-plaintext highlighter-rouge">1 / (1 + 3) = 0.25</code> (i.e., <code class="language-plaintext highlighter-rouge">25%</code>), and the probability of picking index <code class="language-plaintext highlighter-rouge">1</code> is <code class="language-plaintext highlighter-rouge">3 / (1 + 3) = 0.75</code> (i.e., <code class="language-plaintext highlighter-rouge">75%</code>).</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["Solution","pickIndex"]
+[[[1]],[]]
+Output
+[null,0]
+
+Explanation
+Solution solution = new Solution([1]);
+solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
+[[[1,3]],[],[],[],[],[]]
+Output
+[null,1,1,1,1,0]
+
+Explanation
+Solution solution = new Solution([1, 3]);
+solution.pickIndex(); // return 1. It is returning the second element (index = 1) that has a probability of 3/4.
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 0. It is returning the first element (index = 0) that has a probability of 1/4.
+
+Since this is a randomization problem, multiple answers are allowed.
+All of the following outputs can be considered correct:
+[null,1,1,1,1,0]
+[null,1,1,1,1,1]
+[null,1,1,1,0,0]
+[null,1,1,1,0,1]
+[null,1,0,1,0,0]
+......
+and so on.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/11/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomPickWithWeight</span> <span class="o">{</span>
+    <span class="c1">// Stores the prefix sum array for cumulative weights</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">prefix</span><span class="o">;</span>
+    <span class="c1">// Stores the total sum of all weights</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">total</span><span class="o">;</span>
+    <span class="c1">// Random number generator</span>
+    <span class="kd">private</span> <span class="nc">Random</span> <span class="n">rand</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">RandomPickWithWeight</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">w</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">prefix</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">w</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+
+        <span class="c1">// Build prefix sum array</span>
+        <span class="c1">// prefix[i] represents the sum of weights from index 0 to i</span>
+        <span class="n">prefix</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// First element is just the first weight</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">w</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">prefix</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">w</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>  <span class="c1">// Add current weight to previous sum</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Store total sum of weights for generating random numbers</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">[</span><span class="n">w</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pickIndex</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Generate random number in range [1, total]</span>
+        <span class="c1">// Adding 1 ensures we never get 0, maintaining proper probability distribution</span>
+        <span class="kt">int</span> <span class="n">target</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">total</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Use binary search to find the index where target falls</span>
+        <span class="c1">// This is equivalent to finding the smallest prefix sum &gt;= target</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>  <span class="c1">// Calculate middle point safely</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">prefix</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If prefix sum at mid is less than target,</span>
+                <span class="c1">// target must be in right half</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If prefix sum at mid is &gt;= target,</span>
+                <span class="c1">// this could be our answer or the answer is in left half</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// The final value of left is our answer</span>
+        <span class="c1">// It represents the index whose weight range contains our target</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index. You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w). For example, if w=[1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).]]></summary></entry><entry><title type="html">199.Binary Tree Right Side View</title><link href="https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView/" rel="alternate" type="text/html" title="199.Binary Tree Right Side View"/><published>2024-11-05T00:00:00+00:00</published><updated>2024-11-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree, imagine yourself standing on the <strong>right side</strong> of it, return <em>the values of the nodes you can see ordered from top to bottom</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,2,3,null,5,null,4]
 Output: [1,3,4]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,null,3]
 Output: [1,3]
@@ -913,57 +1003,4 @@ exection -&gt; execution (insert 'u')
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 0</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have the following three operations permitted on a word: Insert a character Delete a character Replace a character]]></summary></entry><entry><title type="html">283.Move Zeroes</title><link href="https://zhengstar94.github.io//blog/2024/MoveZeroes/" rel="alternate" type="text/html" title="283.Move Zeroes"/><published>2024-10-26T00:00:00+00:00</published><updated>2024-10-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MoveZeroes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MoveZeroes/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, move all <code class="language-plaintext highlighter-rouge">0</code>’s to the end of it while maintaining the relative order of the non-zero elements.</li> <li><strong>Note</strong> that you must do this in-place without making a copy of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,3,12]
-Output: [1,3,12,0,0]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,3,12]
-Output: [1,3,12,0,0]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/26
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MoveZeroes</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">moveZeroes</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">nonZeroIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// First pass: Move all non-zero elements to the beginning of the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">nums</span><span class="o">[</span><span class="n">nonZeroIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Second pass: Fill the rest of the array with zeroes</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nonZeroIndex</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">12</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before moveZeroes:"</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="n">moveZeroes</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"After moveZeroes:"</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nBefore moveZeroes:"</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="n">moveZeroes</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"After moveZeroes:"</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given an integer array nums, move all 0’s to the end of it while maintaining the relative order of the non-zero elements. Note that you must do this in-place without making a copy of the array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have the following three operations permitted on a word: Insert a character Delete a character Replace a character]]></summary></entry></feed>
