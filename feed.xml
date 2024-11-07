@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-06T05:50:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">528.Random Pick with Weight</title><link href="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/" rel="alternate" type="text/html" title="528.Random Pick with Weight"/><published>2024-11-06T00:00:00+00:00</published><updated>2024-11-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RandomPickWithWeight</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of positive integers <code class="language-plaintext highlighter-rouge">w</code> where <code class="language-plaintext highlighter-rouge">w[i]</code> describes the <strong>weight</strong> of the <code class="language-plaintext highlighter-rouge">ith</code> index.</li> <li>You need to implement the function <code class="language-plaintext highlighter-rouge">pickIndex()</code>, which <strong>randomly</strong> picks an index in the range <code class="language-plaintext highlighter-rouge">[0, w.length - 1]</code> (<strong>inclusive</strong>) and returns it. The <strong>probability</strong> of picking an index <code class="language-plaintext highlighter-rouge">i</code> is <code class="language-plaintext highlighter-rouge">w[i] / sum(w)</code>. <ul> <li>For example, if <code class="language-plaintext highlighter-rouge">w = [1, 3]</code>, the probability of picking index <code class="language-plaintext highlighter-rouge">0</code> is <code class="language-plaintext highlighter-rouge">1 / (1 + 3) = 0.25</code> (i.e., <code class="language-plaintext highlighter-rouge">25%</code>), and the probability of picking index <code class="language-plaintext highlighter-rouge">1</code> is <code class="language-plaintext highlighter-rouge">3 / (1 + 3) = 0.75</code> (i.e., <code class="language-plaintext highlighter-rouge">75%</code>).</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-07T05:25:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1762.Buildings With an Ocean View LevelI</title><link href="https://zhengstar94.github.io//blog/2024/BuildingsWithAnOceanViewLevel/" rel="alternate" type="text/html" title="1762.Buildings With an Ocean View LevelI"/><published>2024-11-07T00:00:00+00:00</published><updated>2024-11-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BuildingsWithAnOceanViewLevel</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BuildingsWithAnOceanViewLevel/"><![CDATA[<ul> <li>There are <code class="language-plaintext highlighter-rouge">n</code> buildings in a line. You are given an integer array <code class="language-plaintext highlighter-rouge">heights</code> of size <code class="language-plaintext highlighter-rouge">n</code> that represents the heights of the buildings in the line.</li> <li>The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a <strong>smaller</strong> height.</li> <li>Return a list of indices <strong>(0-indexed)</strong> of buildings that have an ocean view, sorted in increasing order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [4,2,3,1]
+Output: [0,2,3]
+Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [4,3,2,1]
+Output: [0,1,2,3]
+Explanation: All the buildings have an ocean view.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [1,3,2,4]
+Output: [3]
+Explanation: Only building 3 has an ocean view.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(h) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengstars
+ * @date 2024/11/07
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BuildingsWithAnOceanViewLevel</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findBuildings</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Stack to store indices of buildings that can see the ocean</span>
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate from right to left (from ocean side)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="c1">// A building can see the ocean if either:</span>
+            <span class="c1">// 1. It's the rightmost building (stack is empty), or</span>
+            <span class="c1">// 2. It's taller than the tallest building to its right (building at stack.peek())</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">empty</span><span class="o">()</span> <span class="o">||</span> <span class="n">heights</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">heights</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()])</span> <span class="o">{</span>
+                <span class="c1">// If current building is taller, it can see over any building to its right</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>  <span class="c1">// Store the index of the building</span>
+            <span class="o">}</span>
+            <span class="c1">// If current building is shorter than or equal to the rightmost visible building,</span>
+            <span class="c1">// it can't see the ocean, so we skip it</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert stack to array (stack contains indices in reverse order)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Pop from stack to get indices in ascending order</span>
+        <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Multiple buildings can see the ocean</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 1 [4,2,3,1] Output: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">findBuildings</span><span class="o">(</span><span class="n">heights1</span><span class="o">));</span>
+        <span class="c1">// Expected output: [0,2,3]</span>
+
+        <span class="c1">// Test Case 2: All buildings can see the ocean (decreasing heights)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 2 [4,3,2,1] Output: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">findBuildings</span><span class="o">(</span><span class="n">heights2</span><span class="o">));</span>
+        <span class="c1">// Expected output: [0,1,2,3]</span>
+
+        <span class="c1">// Test Case 3: Only the tallest building can see the ocean</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 3 [1,3,2,4] Output: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">findBuildings</span><span class="o">(</span><span class="n">heights3</span><span class="o">));</span>
+        <span class="c1">// Expected output: [3]</span>
+
+        <span class="c1">// Test Case 4: All buildings are the same height</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 4 [2,2,2,2] Output: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">findBuildings</span><span class="o">(</span><span class="n">heights4</span><span class="o">));</span>
+        <span class="c1">// Expected output: [3]</span>
+
+        <span class="c1">// Test Case 5: Edge case - single building</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 5 [5] Output: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">findBuildings</span><span class="o">(</span><span class="n">heights5</span><span class="o">));</span>
+        <span class="c1">// Expected output: [0]</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[]"</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[There are n buildings in a line. You are given an integer array heights of size n that represents the heights of the buildings in the line. The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height. Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.]]></summary></entry><entry><title type="html">528.Random Pick with Weight</title><link href="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/" rel="alternate" type="text/html" title="528.Random Pick with Weight"/><published>2024-11-06T00:00:00+00:00</published><updated>2024-11-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RandomPickWithWeight</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of positive integers <code class="language-plaintext highlighter-rouge">w</code> where <code class="language-plaintext highlighter-rouge">w[i]</code> describes the <strong>weight</strong> of the <code class="language-plaintext highlighter-rouge">ith</code> index.</li> <li>You need to implement the function <code class="language-plaintext highlighter-rouge">pickIndex()</code>, which <strong>randomly</strong> picks an index in the range <code class="language-plaintext highlighter-rouge">[0, w.length - 1]</code> (<strong>inclusive</strong>) and returns it. The <strong>probability</strong> of picking an index <code class="language-plaintext highlighter-rouge">i</code> is <code class="language-plaintext highlighter-rouge">w[i] / sum(w)</code>. <ul> <li>For example, if <code class="language-plaintext highlighter-rouge">w = [1, 3]</code>, the probability of picking index <code class="language-plaintext highlighter-rouge">0</code> is <code class="language-plaintext highlighter-rouge">1 / (1 + 3) = 0.25</code> (i.e., <code class="language-plaintext highlighter-rouge">25%</code>), and the probability of picking index <code class="language-plaintext highlighter-rouge">1</code> is <code class="language-plaintext highlighter-rouge">3 / (1 + 3) = 0.75</code> (i.e., <code class="language-plaintext highlighter-rouge">75%</code>).</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
 ["Solution","pickIndex"]
 [[[1]],[]]
 Output
@@ -920,87 +1014,4 @@ Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulti
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[We are given an array asteroids of integers representing asteroids in a row. For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed. Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.]]></summary></entry><entry><title type="html">72.Edit Distance</title><link href="https://zhengstar94.github.io//blog/2024/EditDistance/" rel="alternate" type="text/html" title="72.Edit Distance"/><published>2024-10-28T00:00:00+00:00</published><updated>2024-10-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/EditDistance</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/EditDistance/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>, return <em>the minimum number of operations required to convert <code class="language-plaintext highlighter-rouge">word1</code> to <code class="language-plaintext highlighter-rouge">word2</code></em>.</li> <li>You have the following three operations permitted on a word: <ul> <li>Insert a character</li> <li>Delete a character</li> <li>Replace a character</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "horse", word2 = "ros"
-Output: 3
-Explanation: 
-horse -&gt; rorse (replace 'h' with 'r')
-rorse -&gt; rose (remove 'r')
-rose -&gt; ros (remove 'e')
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "intention", word2 = "execution"
-Output: 5
-Explanation: 
-intention -&gt; inention (remove 't')
-inention -&gt; enention (replace 'i' with 'e')
-enention -&gt; exention (replace 'n' with 'x')
-exention -&gt; exection (replace 'n' with 'c')
-exection -&gt; execution (insert 'u')
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EditDistance</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minDistance</span><span class="o">(</span><span class="nc">String</span> <span class="n">word1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-
-        <span class="c1">// Initialize dp array for base cases</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="c1">// Minimum steps when word2 is empty (deletions only)</span>
-        <span class="o">}</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span> <span class="c1">// Minimum steps when word1 is empty (insertions only)</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Fill the dp array using dynamic programming</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// If characters are equal, carry forward the value from dp[i-1][j-1]</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="c1">// Compute minimum operations by comparing:</span>
-                    <span class="c1">// 1. Replacement (dp[i-1][j-1] + 1)</span>
-                    <span class="c1">// 2. Insertion (dp[i][j-1] + 1)</span>
-                    <span class="c1">// 3. Deletion (dp[i-1][j] + 1)</span>
-                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">],</span>
-                            <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">],</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]))</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span> <span class="c1">// Final edit distance</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">word1</span> <span class="o">=</span> <span class="s">"horse"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">word2</span> <span class="o">=</span> <span class="s">"ros"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">"intention"</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">"execution"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 5</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
-
-        <span class="c1">// Test case 4</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
-
-        <span class="c1">// Test case 5</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDistance</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">));</span>  <span class="c1">// Expected: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have the following three operations permitted on a word: Insert a character Delete a character Replace a character]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[We are given an array asteroids of integers representing asteroids in a row. For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed. Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.]]></summary></entry></feed>
