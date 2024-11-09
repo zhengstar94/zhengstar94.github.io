@@ -1,5 +1,6 @@
 ---
 toc:
+  beginning: true 
 giscus_comments: true
 layout: post
 title: "Design a URL Shortener"
