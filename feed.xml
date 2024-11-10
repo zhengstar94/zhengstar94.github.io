@@ -1,4 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-09T03:03:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">290.Word Pattern</title><link href="https://zhengstar94.github.io//blog/2024/WordPattern/" rel="alternate" type="text/html" title="290.Word Pattern"/><published>2024-11-09T00:00:00+00:00</published><updated>2024-11-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/WordPattern</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/WordPattern/"><![CDATA[<ul> <li>Given a <code class="language-plaintext highlighter-rouge">pattern</code> and a string <code class="language-plaintext highlighter-rouge">s</code>, find if <code class="language-plaintext highlighter-rouge">s</code> follows the same pattern.</li> <li>Here <strong>follow</strong> means a full match, such that there is a bijection between a letter in <code class="language-plaintext highlighter-rouge">pattern</code> and a <strong>non-empty</strong> word in <code class="language-plaintext highlighter-rouge">s</code>. Specifically: <ul> <li>Each letter in <code class="language-plaintext highlighter-rouge">pattern</code> maps to <strong>exactly</strong> one unique word in <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Each unique word in <code class="language-plaintext highlighter-rouge">s</code> maps to <strong>exactly</strong> one letter in <code class="language-plaintext highlighter-rouge">pattern</code>.</li> <li>No two letters map to the same word, and no two words map to the same letter.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "abba", s = "dog cat cat dog"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-10T05:47:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">716.Max Stack</title><link href="https://zhengstar94.github.io//blog/2024/MaxStack/" rel="alternate" type="text/html" title="716.Max Stack"/><published>2024-11-10T00:00:00+00:00</published><updated>2024-11-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaxStack</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaxStack/"><![CDATA[<ul> <li>Design a max stack data structure that supports the stack operations and supports finding the stack’s maximum element.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">MaxStack</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">MaxStack()</code> Initializes the stack object.</li> <li><code class="language-plaintext highlighter-rouge">void push(int x)</code> Pushes element <code class="language-plaintext highlighter-rouge">x</code> onto the stack.</li> <li><code class="language-plaintext highlighter-rouge">int pop()</code> Removes the element on top of the stack and returns it.</li> <li><code class="language-plaintext highlighter-rouge">int top()</code> Gets the element on the top of the stack without removing it.</li> <li><code class="language-plaintext highlighter-rouge">int peekMax()</code> Retrieves the maximum element in the stack without removing it.</li> <li><code class="language-plaintext highlighter-rouge">int popMax()</code> Retrieves the maximum element in the stack and removes it. If there is more than one maximum element, only remove the top-most one.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["MaxStack", "push", "push", "push", "top", "popMax", "top", "peekMax", "pop", "top"]
+[[], [5], [1], [5], [], [], [], [], [], []]
+Output
+[null, null, null, null, 5, 5, 1, 5, 1, 5]
+
+Explanation
+MaxStack stk = new MaxStack();
+stk.push(5);   // [5] the top of the stack and the maximum number is 5.
+stk.push(1);   // [5, 1] the top of the stack is 1, but the maximum is 5.
+stk.push(5);   // [5, 1, 5] the top of the stack is 5, which is also the maximum, because it is the top most one.
+stk.top();     // return 5, [5, 1, 5] the stack did not change.
+stk.popMax();  // return 5, [5, 1] the stack is changed now, and the top is different from the max.
+stk.top();     // return 1, [5, 1] the stack did not change.
+stk.peekMax(); // return 5, [5, 1] the stack did not change.
+stk.pop();     // return 1, [5] the top of the stack and the max element is now 5.
+stk.top();     // return 5, [5] the stack did not change.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TreeMap</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaxStack</span> <span class="o">{</span>
+    <span class="c1">// Node class for doubly linked list</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+        <span class="nc">Node</span> <span class="n">prev</span><span class="o">;</span>
+        <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+        <span class="nc">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span><span class="o">;</span>  <span class="c1">// Head node of doubly linked list</span>
+    <span class="kd">private</span> <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;&gt;</span> <span class="n">map</span><span class="o">;</span>  <span class="c1">// Map from value to nodes</span>
+
+    <span class="kd">public</span> <span class="nf">MaxStack</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>  <span class="c1">// Sentinel node</span>
+        <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+        <span class="c1">// Insert new node at the head of linked list</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+        <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+        <span class="c1">// Update TreeMap</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">computeIfAbsent</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">k</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;()).</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>  <span class="c1">// Get top node</span>
+        <span class="c1">// Remove node from linked list</span>
+        <span class="n">removeNode</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+        <span class="c1">// Remove node from TreeMap</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">nodes</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nodes</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">top</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">peekMax</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">map</span><span class="o">.</span><span class="na">lastKey</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">popMax</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">maxVal</span> <span class="o">=</span> <span class="n">peekMax</span><span class="o">();</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">maxVal</span><span class="o">);</span>
+        <span class="nc">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">nodes</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>  <span class="c1">// Remove the last (topmost) max value node</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nodes</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">maxVal</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">removeNode</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>  <span class="c1">// Remove node from linked list</span>
+        <span class="k">return</span> <span class="n">maxVal</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">removeNode</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">prev</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">prev</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create and execute test cases</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Start testing MaxStack:"</span><span class="o">);</span>
+
+        <span class="c1">// Test case 1: Example from the problem</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 1 - Problem example:"</span><span class="o">);</span>
+        <span class="nc">MaxStack</span> <span class="n">stk1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MaxStack</span><span class="o">();</span>
+        <span class="n">stk1</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(5)"</span><span class="o">);</span>
+        <span class="n">stk1</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(1)"</span><span class="o">);</span>
+        <span class="n">stk1</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(5)"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk1</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 5</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"popMax() = "</span> <span class="o">+</span> <span class="n">stk1</span><span class="o">.</span><span class="na">popMax</span><span class="o">());</span>  <span class="c1">// Expected output: 5</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk1</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"peekMax() = "</span> <span class="o">+</span> <span class="n">stk1</span><span class="o">.</span><span class="na">peekMax</span><span class="o">());</span>  <span class="c1">// Expected output: 5</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"pop() = "</span> <span class="o">+</span> <span class="n">stk1</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>  <span class="c1">// Expected output: 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk1</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 5</span>
+
+        <span class="c1">// Test case 2: Testing duplicate elements</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2 - Duplicate elements:"</span><span class="o">);</span>
+        <span class="nc">MaxStack</span> <span class="n">stk2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MaxStack</span><span class="o">();</span>
+        <span class="n">stk2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(1)"</span><span class="o">);</span>
+        <span class="n">stk2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(1)"</span><span class="o">);</span>
+        <span class="n">stk2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(2)"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"popMax() = "</span> <span class="o">+</span> <span class="n">stk2</span><span class="o">.</span><span class="na">popMax</span><span class="o">());</span>  <span class="c1">// Expected output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk2</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"peekMax() = "</span> <span class="o">+</span> <span class="n">stk2</span><span class="o">.</span><span class="na">peekMax</span><span class="o">());</span>  <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test case 3: Testing continuous operations</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3 - Continuous operations:"</span><span class="o">);</span>
+        <span class="nc">MaxStack</span> <span class="n">stk3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MaxStack</span><span class="o">();</span>
+        <span class="n">stk3</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(3)"</span><span class="o">);</span>
+        <span class="n">stk3</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(2)"</span><span class="o">);</span>
+        <span class="n">stk3</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"push(4)"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"peekMax() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">peekMax</span><span class="o">());</span>  <span class="c1">// Expected output: 4</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"pop() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>  <span class="c1">// Expected output: 4</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"peekMax() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">peekMax</span><span class="o">());</span>  <span class="c1">// Expected output: 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"popMax() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">popMax</span><span class="o">());</span>  <span class="c1">// Expected output: 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 2</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Design a max stack data structure that supports the stack operations and supports finding the stack’s maximum element. Implement the MaxStack class: MaxStack() Initializes the stack object. void push(int x) Pushes element x onto the stack. int pop() Removes the element on top of the stack and returns it. int top() Gets the element on the top of the stack without removing it. int peekMax() Retrieves the maximum element in the stack without removing it. int popMax() Retrieves the maximum element in the stack and removes it. If there is more than one maximum element, only remove the top-most one.]]></summary></entry><entry><title type="html">290.Word Pattern</title><link href="https://zhengstar94.github.io//blog/2024/WordPattern/" rel="alternate" type="text/html" title="290.Word Pattern"/><published>2024-11-09T00:00:00+00:00</published><updated>2024-11-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/WordPattern</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/WordPattern/"><![CDATA[<ul> <li>Given a <code class="language-plaintext highlighter-rouge">pattern</code> and a string <code class="language-plaintext highlighter-rouge">s</code>, find if <code class="language-plaintext highlighter-rouge">s</code> follows the same pattern.</li> <li>Here <strong>follow</strong> means a full match, such that there is a bijection between a letter in <code class="language-plaintext highlighter-rouge">pattern</code> and a <strong>non-empty</strong> word in <code class="language-plaintext highlighter-rouge">s</code>. Specifically: <ul> <li>Each letter in <code class="language-plaintext highlighter-rouge">pattern</code> maps to <strong>exactly</strong> one unique word in <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Each unique word in <code class="language-plaintext highlighter-rouge">s</code> maps to <strong>exactly</strong> one letter in <code class="language-plaintext highlighter-rouge">pattern</code>.</li> <li>No two letters map to the same word, and no two words map to the same letter.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "abba", s = "dog cat cat dog"
 Output: true
 
 Explanation:
@@ -876,186 +1022,4 @@ Explanation: The first three characters "app" match, and the second string is sh
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters. Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographically in this alien language.]]></summary></entry><entry><title type="html">5.Longest Palindromic Substring</title><link href="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/" rel="alternate" type="text/html" title="5.Longest Palindromic Substring"/><published>2024-10-31T00:00:00+00:00</published><updated>2024-10-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestPalindromicSubstring/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the longest</em> <em>palindromic</em> <em>substring</em> in <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "babad"
-Output: "bab"
-Explanation: "aba" is also a valid answer.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbbd"
-Output: "bb"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n<span class="p">^</span>2) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/08/31
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestPalindromicSubstring</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">longestPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of the input string</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-
-        <span class="c1">// Create a 2D boolean array for dynamic programming</span>
-        <span class="c1">// dp[i][j] will be true if the substring from index i to j is a palindrome</span>
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Variables to keep track of the longest palindrome found</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Starting index of the longest palindrome</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Length of the longest palindrome</span>
-
-        <span class="c1">// Initialize base case: all substrings of length 1 are palindromes</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Fill the dp array</span>
-        <span class="c1">// Outer loop: iterate over all possible lengths of substrings</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">len</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">len</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Inner loop: check all substrings of the current length</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Calculate the ending index of the current substring</span>
-                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Check if the current substring is a palindrome</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">len</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]))</span> <span class="o">{</span>
-                    <span class="c1">// Mark the current substring as a palindrome</span>
-                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-                    <span class="c1">// Update the longest palindrome if necessary</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-                        <span class="n">maxLen</span> <span class="o">=</span> <span class="n">len</span><span class="o">;</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the longest palindromic substring</span>
-        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">start</span> <span class="o">+</span> <span class="n">maxLen</span><span class="o">);</span>
-    <span class="o">}</span>
-
-
-    <span class="c1">// Main method for testing</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="s">"babad"</span><span class="o">,</span>
-                <span class="s">"cbbd"</span><span class="o">,</span>
-                <span class="s">"a"</span><span class="o">,</span>
-                <span class="s">"ac"</span><span class="o">,</span>
-                <span class="s">"racecar"</span><span class="o">,</span>
-                <span class="s">"aacabdkacaa"</span><span class="o">,</span>
-                <span class="s">""</span>
-        <span class="o">};</span>
-
-        <span class="c1">// Expected results</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">expectedResults</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="s">"bab"</span><span class="o">,</span>  <span class="c1">// or "aba"</span>
-                <span class="s">"bb"</span><span class="o">,</span>
-                <span class="s">"a"</span><span class="o">,</span>
-                <span class="s">"a"</span><span class="o">,</span>
-                <span class="s">"racecar"</span><span class="o">,</span>
-                <span class="s">"aca"</span><span class="o">,</span>
-                <span class="s">""</span>
-        <span class="o">};</span>
-
-        <span class="c1">// Run tests</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">testCases</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: \""</span> <span class="o">+</span> <span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: \""</span> <span class="o">+</span> <span class="n">result</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: \""</span> <span class="o">+</span> <span class="n">expectedResults</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">expectedResults</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-
-</code></pre></div></div> <h2 id="method-2">Method 2</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/10/31
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestPalindromicSubstring</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">longestPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// If the input string is null or has a length less than 1, return an empty string</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Initialize starting index of the longest palindrome and its maximum length</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Loop through each character in the string to consider it as a center of potential palindrome</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check for longest palindrome with odd length (center at i)</span>
-            <span class="kt">int</span> <span class="n">len1</span> <span class="o">=</span> <span class="n">expandAroundCenter</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
-            <span class="c1">// Check for longest palindrome with even length (center between i and i+1)</span>
-            <span class="kt">int</span> <span class="n">len2</span> <span class="o">=</span> <span class="n">expandAroundCenter</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-
-            <span class="c1">// Take the maximum length found from odd and even cases</span>
-            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">len1</span><span class="o">,</span> <span class="n">len2</span><span class="o">);</span>
-
-            <span class="c1">// If we found a longer palindrome, update maxLen and starting index</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">len</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">maxLen</span> <span class="o">=</span> <span class="n">len</span><span class="o">;</span>
-                <span class="c1">// Calculate the starting index of the current longest palindrome</span>
-                <span class="c1">// "len - 1" represents the number of characters on either side of the center.</span>
-                <span class="c1">// Dividing it by 2 gives the left-side distance from i to start of the palindrome.</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="o">(</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the substring starting from 'start' and with length 'maxLen'</span>
-        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">start</span> <span class="o">+</span> <span class="n">maxLen</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">expandAroundCenter</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Expand as long as the characters on the left and right match and stay within bounds</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">left</span><span class="o">--;</span>
-            <span class="n">right</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="c1">// Length is right - left - 1 because left and right have moved one extra position</span>
-        <span class="k">return</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-<span class="c1">// Test case 1: A normal case with palindrome in the middle</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"babad"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
-        <span class="c1">// Expected output: "bab" or "aba"</span>
-
-        <span class="c1">// Test case 2: The entire string is a palindrome</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"racecar"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
-        <span class="c1">// Expected output: "racecar"</span>
-
-        <span class="c1">// Test case 3: No palindrome longer than one character</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>
-        <span class="c1">// Expected output: "a" or "b" or "c"</span>
-
-        <span class="c1">// Test case 4: Even-length palindrome</span>
-        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"cbbd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">s4</span><span class="o">));</span>
-        <span class="c1">// Expected output: "bb"</span>
-
-        <span class="c1">// Test case 5: Single character</span>
-        <span class="nc">String</span> <span class="n">s5</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">s5</span><span class="o">));</span>
-        <span class="c1">// Expected output: "a"</span>
-
-        <span class="c1">// Test case 6: Empty string</span>
-        <span class="nc">String</span> <span class="n">s6</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">longestPalindrome</span><span class="o">(</span><span class="n">s6</span><span class="o">));</span>
-        <span class="c1">// Expected output: ""</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><summary type="html"><![CDATA[Given a string s, return the longest palindromic substring in s.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters. Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographically in this alien language.]]></summary></entry></feed>
