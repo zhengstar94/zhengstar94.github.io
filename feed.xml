@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-13T11:35:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">16. 3Sum Closest</title><link href="https://zhengstar94.github.io//blog/2024/ThreeSumClosest/" rel="alternate" type="text/html" title="16. 3Sum Closest"/><published>2024-11-13T00:00:00+00:00</published><updated>2024-11-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ThreeSumClosest</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ThreeSumClosest/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>, find three integers in <code class="language-plaintext highlighter-rouge">nums</code> such that the sum is closest to <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>Return <em>the sum of the three integers</em>.</li> <li>You may assume that each input would have exactly one solution.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,2,1,-4], target = 1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-14T13:36:16+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">26. Remove Duplicates from Sorted Array</title><link href="https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray/" rel="alternate" type="text/html" title="26. Remove Duplicates from Sorted Array"/><published>2024-11-14T00:00:00+00:00</published><updated>2024-11-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in <strong>non-decreasing order</strong>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that each unique element appears only <strong>once</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>. Then return <em>the number of unique elements in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</p> </li> <li> <p>Consider the number of unique elements of <code class="language-plaintext highlighter-rouge">nums</code> to be <code class="language-plaintext highlighter-rouge">k</code>, to get accepted, you need to do the following things:</p> <ul> <li>Change the array <code class="language-plaintext highlighter-rouge">nums</code> such that the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> contain the unique elements in the order they were present in <code class="language-plaintext highlighter-rouge">nums</code> initially. The remaining elements of <code class="language-plaintext highlighter-rouge">nums</code> are not important as well as the size of <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li> <p><strong>Custom Judge:</strong></p> <p>The judge will test your solution with the following code:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
+int[] expectedNums = [...]; // The expected answer with correct length
+  
+int k = removeDuplicates(nums); // Calls your implementation
+  
+assert k == expectedNums.length;
+for (int i = 0; i &lt; k; i++) {
+    assert nums[i] == expectedNums[i];
+}
+</code></pre></div> </div> <p>If all assertions pass, then your solution will be <strong>accepted</strong>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveDuplicatesFromSortedArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">removeDuplicates</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If the array is null or has no elements, return 0 as there are no elements to process</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize a variable k to track the position of the next unique element; start from 1 as the first element is always unique</span>
+        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Loop through the array starting from the second element</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If the current element is not equal to the previous one, it is unique</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Place the unique element at the position k, then increment k</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the count of unique elements, which is stored in k</span>
+        <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test array with sorted elements including duplicates</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+
+        <span class="c1">// Call removeDuplicates to get the count of unique elements and modify the array in place</span>
+        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Unique count: "</span> <span class="o">+</span> <span class="n">k</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Modified array: "</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.]]></summary></entry><entry><title type="html">16. 3Sum Closest</title><link href="https://zhengstar94.github.io//blog/2024/ThreeSumClosest/" rel="alternate" type="text/html" title="16. 3Sum Closest"/><published>2024-11-13T00:00:00+00:00</published><updated>2024-11-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ThreeSumClosest</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ThreeSumClosest/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>, find three integers in <code class="language-plaintext highlighter-rouge">nums</code> such that the sum is closest to <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>Return <em>the sum of the three integers</em>.</li> <li>You may assume that each input would have exactly one solution.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,2,1,-4], target = 1
 Output: 2
 Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,0,0], target = 1
@@ -921,105 +984,4 @@ Output: []
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">rightSideView</span><span class="o">(</span><span class="n">root5</span><span class="o">));</span> <span class="c1">// [1,2,4,5]</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.]]></summary></entry><entry><title type="html">227.Basic Calculator II</title><link href="https://zhengstar94.github.io//blog/2024/BasicCalculatorII/" rel="alternate" type="text/html" title="227.Basic Calculator II"/><published>2024-11-04T00:00:00+00:00</published><updated>2024-11-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BasicCalculatorII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BasicCalculatorII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> which represents an expression, <em>evaluate this expression and return its value</em>.</li> <li>The integer division should truncate toward zero.</li> <li>You may assume that the given expression is always valid. All intermediate results will be in the range of <code class="language-plaintext highlighter-rouge">[-231, 231 - 1]</code>.</li> <li><strong>Note:</strong> You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as <code class="language-plaintext highlighter-rouge">eval()</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "3+2*2"
-Output: 7
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = " 3/2 "
-Output: 1
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = " 3+5 / 2 "
-Output: 5
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/11/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BasicCalculatorII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculate</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases: empty or null string</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Stack to store numbers. For subtraction, we store negative numbers</span>
-        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Initial sign is '+', used to track the previous operator</span>
-        <span class="kt">char</span> <span class="n">sign</span> <span class="o">=</span> <span class="sc">'+'</span><span class="o">;</span>
-        <span class="c1">// Accumulator for building multi-digit numbers</span>
-        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each character in the expression</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-
-            <span class="c1">// If current character is a digit, build the number</span>
-            <span class="c1">// For example: "14" -&gt; first digit '1': num = 0*10 + 1 = 1</span>
-            <span class="c1">//                  -&gt; second digit '4': num = 1*10 + 4 = 14</span>
-            <span class="k">if</span> <span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Process the number when we hit an operator or reach the end of string</span>
-            <span class="c1">// The condition "i == s.length() - 1" ensures we process the last number</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">!=</span> <span class="sc">' '</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Process the number based on the previous operator (sign)</span>
-                <span class="k">switch</span> <span class="o">(</span><span class="n">sign</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">case</span> <span class="sc">'+'</span><span class="o">:</span>
-                        <span class="c1">// For addition, simply push the number</span>
-                        <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-                        <span class="k">break</span><span class="o">;</span>
-                    <span class="k">case</span> <span class="sc">'-'</span><span class="o">:</span>
-                        <span class="c1">// For subtraction, push the negative number</span>
-                        <span class="c1">// This converts "a-b" to "a+(-b)"</span>
-                        <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="n">num</span><span class="o">);</span>
-                        <span class="k">break</span><span class="o">;</span>
-                    <span class="k">case</span> <span class="sc">'*'</span><span class="o">:</span>
-                        <span class="c1">// For multiplication, multiply with previous number</span>
-                        <span class="c1">// Pop the previous number, multiply, and push result</span>
-                        <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">*</span> <span class="n">num</span><span class="o">);</span>
-                        <span class="k">break</span><span class="o">;</span>
-                    <span class="k">case</span> <span class="sc">'/'</span><span class="o">:</span>
-                        <span class="c1">// For division, divide the previous number</span>
-                        <span class="c1">// Pop the previous number, divide, and push result</span>
-                        <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">/</span> <span class="n">num</span><span class="o">);</span>
-                        <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// Update sign for next iteration</span>
-                <span class="n">sign</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
-                <span class="c1">// Reset number accumulator</span>
-                <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Calculate final result by summing all numbers in stack</span>
-        <span class="c1">// For example: 14-3*2 -&gt; stack will contain [14, -6]</span>
-        <span class="c1">// Final result will be 14 + (-6) = 8</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases array</span>
-        <span class="c1">// Each expression demonstrates different operator combinations</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">expressions</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="s">"3+2*2"</span><span class="o">,</span>      <span class="c1">// Tests multiplication precedence: 3+(2*2) = 7</span>
-                <span class="s">"14-3*2"</span><span class="o">,</span>     <span class="c1">// Tests subtraction and multiplication: 14+(-3*2) = 8</span>
-                <span class="s">"100-20*3+2"</span><span class="o">,</span> <span class="c1">// Tests complex expression: 100+(-20*3)+2 = 42</span>
-                <span class="s">"3/2"</span><span class="o">,</span>        <span class="c1">// Tests division: = 1 (integer division truncates)</span>
-                <span class="s">"2*3*4"</span>       <span class="c1">// Tests multiple multiplications: = 24</span>
-        <span class="o">};</span>
-
-        <span class="c1">// Process each test case and print results</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">exp</span> <span class="o">:</span> <span class="n">expressions</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">calculate</span><span class="o">(</span><span class="n">exp</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"表达式: "</span> <span class="o">+</span> <span class="n">exp</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Given a string s which represents an expression, evaluate this expression and return its value. The integer division should truncate toward zero. You may assume that the given expression is always valid. All intermediate results will be in the range of [-231, 231 - 1]. Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.]]></summary></entry></feed>
