@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-14T13:36:16+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">26. Remove Duplicates from Sorted Array</title><link href="https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray/" rel="alternate" type="text/html" title="26. Remove Duplicates from Sorted Array"/><published>2024-11-14T00:00:00+00:00</published><updated>2024-11-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in <strong>non-decreasing order</strong>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that each unique element appears only <strong>once</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>. Then return <em>the number of unique elements in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</p> </li> <li> <p>Consider the number of unique elements of <code class="language-plaintext highlighter-rouge">nums</code> to be <code class="language-plaintext highlighter-rouge">k</code>, to get accepted, you need to do the following things:</p> <ul> <li>Change the array <code class="language-plaintext highlighter-rouge">nums</code> such that the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> contain the unique elements in the order they were present in <code class="language-plaintext highlighter-rouge">nums</code> initially. The remaining elements of <code class="language-plaintext highlighter-rouge">nums</code> are not important as well as the size of <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li> <p><strong>Custom Judge:</strong></p> <p>The judge will test your solution with the following code:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-16T14:51:06+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">443. String Compression</title><link href="https://zhengstar94.github.io//blog/2024/StringCompression/" rel="alternate" type="text/html" title="443. String Compression"/><published>2024-11-16T00:00:00+00:00</published><updated>2024-11-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/StringCompression</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/StringCompression/"><![CDATA[<ul> <li>Given an array of characters <code class="language-plaintext highlighter-rouge">chars</code>, compress it using the following algorithm:</li> <li>Begin with an empty string <code class="language-plaintext highlighter-rouge">s</code>. For each group of <strong>consecutive repeating characters</strong> in <code class="language-plaintext highlighter-rouge">chars</code>: <ul> <li>If the group’s length is <code class="language-plaintext highlighter-rouge">1</code>, append the character to <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Otherwise, append the character followed by the group’s length.</li> </ul> </li> <li>The compressed string <code class="language-plaintext highlighter-rouge">s</code> <strong>should not be returned separately</strong>, but instead, be stored <strong>in the input character array <code class="language-plaintext highlighter-rouge">chars</code></strong>. Note that group lengths that are <code class="language-plaintext highlighter-rouge">10</code> or longer will be split into multiple characters in <code class="language-plaintext highlighter-rouge">chars</code>.</li> <li>After you are done <strong>modifying the input array,</strong> return <em>the new length of the array</em>.</li> <li>You must write an algorithm that uses only constant extra space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: chars = [ "a","a","b","b","c","c","c" ]
+Output: Return 6, and the first 6 characters of the input array should be: [ "a","2","b","2","c","3" ]
+Explanation: The groups are "aa", "bb", and "ccc". This compresses to "a2b2c3".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: chars = [ "a" ]
+Output: Return 1, and the first character of the input array should be: [ "a" ]
+Explanation: The only group is "a", which remains uncompressed since it's a single character.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: chars = [ "a","b","b","b","b","b","b","b","b","b","b","b","b" ]
+Output: Return 4, and the first 4 characters of the input array should be: [ "a","b","1","2" ].
+Explanation: The groups are "a" and "bbbbbbbbbbbb". This compresses to "ab12".
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringCompression</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">compress</span><span class="o">(</span><span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// writeIndex: points to the position where we should write next character</span>
+        <span class="c1">// index: points to the current character being processed</span>
+        <span class="kt">int</span> <span class="n">writeIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Process each character in the array</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">chars</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Store the current character for consecutive count</span>
+            <span class="kt">char</span> <span class="n">currentChar</span> <span class="o">=</span> <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+            <span class="c1">// Count consecutive occurrences of the current character</span>
+            <span class="c1">// Key Logic: Keep moving index forward as long as we see the same character</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">chars</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">==</span> <span class="n">currentChar</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">index</span><span class="o">++;</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Write the character at writeIndex position and increment writeIndex</span>
+            <span class="n">chars</span><span class="o">[</span><span class="n">writeIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">currentChar</span><span class="o">;</span>
+
+            <span class="c1">// If count &gt; 1, we need to write the count after the character</span>
+            <span class="c1">// Important: Handle multi-digit numbers correctly</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Convert count to string to handle multi-digit numbers</span>
+                <span class="nc">String</span> <span class="n">countStr</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+                <span class="c1">// Write each digit of the count individually</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">countStr</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">chars</span><span class="o">[</span><span class="n">writeIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the length of the compressed array</span>
+        <span class="k">return</span> <span class="n">writeIndex</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Multiple characters with different frequencies</span>
+        <span class="c1">// Expected output: "a2b2c3"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[]{</span> <span class="sc">'a'</span><span class="o">,</span><span class="sc">'a'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'c'</span><span class="o">,</span><span class="sc">'c'</span><span class="o">,</span><span class="sc">'c'</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before compression: "</span> <span class="o">+</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">compress</span><span class="o">(</span><span class="n">test1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Compressed length: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"After compression: "</span> <span class="o">+</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">test1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">result1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Single character</span>
+        <span class="c1">// Expected output: "a"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[]{</span> <span class="sc">'a'</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before compression: "</span> <span class="o">+</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">compress</span><span class="o">(</span><span class="n">test2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Compressed length: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"After compression: "</span> <span class="o">+</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">test2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">result2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Character with double-digit frequency</span>
+        <span class="c1">// Expected output: "ab12"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[]{</span> <span class="sc">'a'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">,</span><span class="sc">'b'</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before compression: "</span> <span class="o">+</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">compress</span><span class="o">(</span><span class="n">test3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Compressed length: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"After compression: "</span> <span class="o">+</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">test3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">result3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given an array of characters chars, compress it using the following algorithm: Begin with an empty string s. For each group of consecutive repeating characters in chars: If the group’s length is 1, append the character to s. Otherwise, append the character followed by the group’s length. The compressed string s should not be returned separately, but instead, be stored in the input character array chars. Note that group lengths that are 10 or longer will be split into multiple characters in chars. After you are done modifying the input array, return the new length of the array. You must write an algorithm that uses only constant extra space.]]></summary></entry><entry><title type="html">26. Remove Duplicates from Sorted Array</title><link href="https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray/" rel="alternate" type="text/html" title="26. Remove Duplicates from Sorted Array"/><published>2024-11-14T00:00:00+00:00</published><updated>2024-11-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveDuplicatesFromSortedArray/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in <strong>non-decreasing order</strong>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that each unique element appears only <strong>once</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>. Then return <em>the number of unique elements in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</p> </li> <li> <p>Consider the number of unique elements of <code class="language-plaintext highlighter-rouge">nums</code> to be <code class="language-plaintext highlighter-rouge">k</code>, to get accepted, you need to do the following things:</p> <ul> <li>Change the array <code class="language-plaintext highlighter-rouge">nums</code> such that the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> contain the unique elements in the order they were present in <code class="language-plaintext highlighter-rouge">nums</code> initially. The remaining elements of <code class="language-plaintext highlighter-rouge">nums</code> are not important as well as the size of <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li> <p><strong>Custom Judge:</strong></p> <p>The judge will test your solution with the following code:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
 int[] expectedNums = [...]; // The expected answer with correct length
   
 int k = removeDuplicates(nums); // Calls your implementation
@@ -893,95 +980,4 @@ and so on.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index. You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w). For example, if w=[1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).]]></summary></entry><entry><title type="html">199.Binary Tree Right Side View</title><link href="https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView/" rel="alternate" type="text/html" title="199.Binary Tree Right Side View"/><published>2024-11-05T00:00:00+00:00</published><updated>2024-11-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BinaryTreeRightSideView/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree, imagine yourself standing on the <strong>right side</strong> of it, return <em>the values of the nodes you can see ordered from top to bottom</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,2,3,null,5,null,4]
-Output: [1,3,4]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,null,3]
-Output: [1,3]
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = []
-Output: []
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(h) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Trees</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/11/05
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTreeRightSideView</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">rightSideView</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Start DFS with depth 0 from root</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">node</span><span class="o">,</span><span class="kt">int</span> <span class="n">depth</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">ans</span><span class="o">){</span>
-        <span class="c1">// Base case: if node is null, return</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="cm">/**
-         * Key insight: if depth equals ans.size(), this is the first node
-         * we're seeing at this depth level. Since we process right before left,
-         * this will be the rightmost node at this level.
-         */</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">ans</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="n">depth</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">ans</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Process right subtree first to ensure we see rightmost nodes first</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">ans</span><span class="o">);</span>
-
-        <span class="cm">/**
-         * IMPORTANT: Why we need to process the left subtree
-         * 1. Handles cases where right subtree is shorter than left
-         * 2. Ensures we don't miss nodes that are visible from right when there's no right node
-         * 3. Example case:
-         *        1
-         *       /
-         *      2
-         *     /
-         *    3
-         * Here, nodes 2 and 3 should be visible from right even though they're in left subtree
-         */</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">ans</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Regular tree with right and left nodes</span>
-        <span class="nc">TreeNode</span> <span class="n">root1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">rightSideView</span><span class="o">(</span><span class="n">root1</span><span class="o">));</span> <span class="c1">// [1,3,4]</span>
-
-        <span class="c1">// Test Case 2: Tree with visible left node</span>
-        <span class="nc">TreeNode</span> <span class="n">root2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">rightSideView</span><span class="o">(</span><span class="n">root2</span><span class="o">));</span> <span class="c1">// [1,3,4]</span>
-
-        <span class="c1">// Test Case 3: Tree with only left subtree</span>
-        <span class="nc">TreeNode</span> <span class="n">root3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root3</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root3</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root3</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">rightSideView</span><span class="o">(</span><span class="n">root3</span><span class="o">));</span> <span class="c1">// [1,2,5]</span>
-
-        <span class="c1">// Test Case 4: Empty tree</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">rightSideView</span><span class="o">(</span><span class="kc">null</span><span class="o">));</span> <span class="c1">// []</span>
-
-        <span class="c1">// Test Case 5: Deep left-skewed tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root5</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root5</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root5</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">rightSideView</span><span class="o">(</span><span class="n">root5</span><span class="o">));</span> <span class="c1">// [1,2,4,5]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><summary type="html"><![CDATA[Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index. You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w). For example, if w=[1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).]]></summary></entry></feed>
