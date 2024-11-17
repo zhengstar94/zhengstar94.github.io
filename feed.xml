@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-16T14:51:06+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">443. String Compression</title><link href="https://zhengstar94.github.io//blog/2024/StringCompression/" rel="alternate" type="text/html" title="443. String Compression"/><published>2024-11-16T00:00:00+00:00</published><updated>2024-11-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/StringCompression</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/StringCompression/"><![CDATA[<ul> <li>Given an array of characters <code class="language-plaintext highlighter-rouge">chars</code>, compress it using the following algorithm:</li> <li>Begin with an empty string <code class="language-plaintext highlighter-rouge">s</code>. For each group of <strong>consecutive repeating characters</strong> in <code class="language-plaintext highlighter-rouge">chars</code>: <ul> <li>If the group’s length is <code class="language-plaintext highlighter-rouge">1</code>, append the character to <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Otherwise, append the character followed by the group’s length.</li> </ul> </li> <li>The compressed string <code class="language-plaintext highlighter-rouge">s</code> <strong>should not be returned separately</strong>, but instead, be stored <strong>in the input character array <code class="language-plaintext highlighter-rouge">chars</code></strong>. Note that group lengths that are <code class="language-plaintext highlighter-rouge">10</code> or longer will be split into multiple characters in <code class="language-plaintext highlighter-rouge">chars</code>.</li> <li>After you are done <strong>modifying the input array,</strong> return <em>the new length of the array</em>.</li> <li>You must write an algorithm that uses only constant extra space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: chars = [ "a","a","b","b","c","c","c" ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-17T03:07:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">986. Interval List Intersections</title><link href="https://zhengstar94.github.io//blog/2024/IntervalListIntersections/" rel="alternate" type="text/html" title="986. Interval List Intersections"/><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/IntervalListIntersections</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/IntervalListIntersections/"><![CDATA[<ul> <li>You are given two lists of closed intervals, <code class="language-plaintext highlighter-rouge">firstList</code> and <code class="language-plaintext highlighter-rouge">secondList</code>, where <code class="language-plaintext highlighter-rouge">firstList[i] = [starti, endi]</code> and <code class="language-plaintext highlighter-rouge">secondList[j] = [startj, endj]</code>. Each list of intervals is pairwise <strong>disjoint</strong> and in <strong>sorted order</strong>.</li> <li>Return <em>the intersection of these two interval lists</em>.</li> <li>A <strong>closed interval</strong> <code class="language-plaintext highlighter-rouge">[a, b]</code> (with <code class="language-plaintext highlighter-rouge">a &lt;= b</code>) denotes the set of real numbers <code class="language-plaintext highlighter-rouge">x</code> with <code class="language-plaintext highlighter-rouge">a &lt;= x &lt;= b</code>.</li> <li>The <strong>intersection</strong> of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of <code class="language-plaintext highlighter-rouge">[1, 3]</code> and <code class="language-plaintext highlighter-rouge">[2, 4]</code> is <code class="language-plaintext highlighter-rouge">[2, 3]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: firstList = [ [0,2],[5,10],[13,23],[24,25] ], secondList = [ [1,5],[8,12],[15,24],[25,26] ]
+Output: [ [1,2],[5,5],[8,10],[15,23],[24,24],[25,25] ]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: firstList = [ [1,3],[5,9] ], secondList = []
+Output: []
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/17
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntervalListIntersections</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">intervalIntersection</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">firstList</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">secondList</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ArrayList to store intersection intervals</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// Two pointers to traverse both lists</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for firstList</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for secondList</span>
+
+        <span class="c1">// Continue until we reach the end of either list</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">firstList</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">secondList</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Extract start and end points of current intervals</span>
+            <span class="kt">int</span> <span class="n">start1</span> <span class="o">=</span> <span class="n">firstList</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>   <span class="c1">// start of interval from first list</span>
+            <span class="kt">int</span> <span class="n">end1</span> <span class="o">=</span> <span class="n">firstList</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>     <span class="c1">// end of interval from first list</span>
+
+            <span class="kt">int</span> <span class="n">start2</span> <span class="o">=</span> <span class="n">secondList</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>   <span class="c1">// start of interval from second list</span>
+            <span class="kt">int</span> <span class="n">end2</span> <span class="o">=</span> <span class="n">secondList</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>     <span class="c1">// end of interval from second list</span>
+
+            <span class="c1">// Find the intersection points</span>
+            <span class="c1">// Intersection start is the maximum of both starts</span>
+            <span class="kt">int</span> <span class="n">intersectStart</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">start1</span><span class="o">,</span> <span class="n">start2</span><span class="o">);</span>
+            <span class="c1">// Intersection end is the minimum of both ends</span>
+            <span class="kt">int</span> <span class="n">intersectEnd</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">end1</span><span class="o">,</span> <span class="n">end2</span><span class="o">);</span>
+
+            <span class="c1">// If we have a valid intersection (start &lt;= end)</span>
+            <span class="c1">// add it to our result list</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">intersectStart</span> <span class="o">&lt;=</span> <span class="n">intersectEnd</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">intersectStart</span><span class="o">,</span> <span class="n">intersectEnd</span><span class="o">});</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Move the pointer of the interval that ends first</span>
+            <span class="c1">// This is crucial for not missing any potential intersections</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">end1</span> <span class="o">&lt;</span> <span class="n">end2</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">i</span><span class="o">++;</span>  <span class="c1">// first interval ends earlier, move to next interval in first list</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">++;</span>  <span class="c1">// second interval ends earlier or at same time, move to next interval in second list</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert ArrayList to array and return</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">()][]);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span> <span class="o">+</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Multiple intersections</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">firstList1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">13</span><span class="o">,</span><span class="mi">23</span><span class="o">},</span> <span class="o">{</span><span class="mi">24</span><span class="o">,</span><span class="mi">25</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">secondList1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span><span class="mi">12</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span><span class="mi">24</span><span class="o">},</span> <span class="o">{</span><span class="mi">25</span><span class="o">,</span><span class="mi">26</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"firstList = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">firstList1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"secondList = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">secondList1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Intersection Result = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">intervalIntersection</span><span class="o">(</span><span class="n">firstList1</span><span class="o">,</span> <span class="n">secondList1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Empty list scenario</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">firstList2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">9</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">secondList2</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"firstList = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">firstList2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"secondList = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">secondList2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Intersection Result = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">intervalIntersection</span><span class="o">(</span><span class="n">firstList2</span><span class="o">,</span> <span class="n">secondList2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Complete overlap scenario</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">firstList3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">7</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">secondList3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">7</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Complete Overlap):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"firstList = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">firstList3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"secondList = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">secondList3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Intersection Result = "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">intervalIntersection</span><span class="o">(</span><span class="n">firstList3</span><span class="o">,</span> <span class="n">secondList3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order. Return the intersection of these two interval lists. A closed interval [a, b] (with a &lt;= b) denotes the set of real numbers x with a &lt;= x &lt;= b. The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of [1, 3] and [2, 4] is [2, 3].]]></summary></entry><entry><title type="html">443. String Compression</title><link href="https://zhengstar94.github.io//blog/2024/StringCompression/" rel="alternate" type="text/html" title="443. String Compression"/><published>2024-11-16T00:00:00+00:00</published><updated>2024-11-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/StringCompression</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/StringCompression/"><![CDATA[<ul> <li>Given an array of characters <code class="language-plaintext highlighter-rouge">chars</code>, compress it using the following algorithm:</li> <li>Begin with an empty string <code class="language-plaintext highlighter-rouge">s</code>. For each group of <strong>consecutive repeating characters</strong> in <code class="language-plaintext highlighter-rouge">chars</code>: <ul> <li>If the group’s length is <code class="language-plaintext highlighter-rouge">1</code>, append the character to <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Otherwise, append the character followed by the group’s length.</li> </ul> </li> <li>The compressed string <code class="language-plaintext highlighter-rouge">s</code> <strong>should not be returned separately</strong>, but instead, be stored <strong>in the input character array <code class="language-plaintext highlighter-rouge">chars</code></strong>. Note that group lengths that are <code class="language-plaintext highlighter-rouge">10</code> or longer will be split into multiple characters in <code class="language-plaintext highlighter-rouge">chars</code>.</li> <li>After you are done <strong>modifying the input array,</strong> return <em>the new length of the array</em>.</li> <li>You must write an algorithm that uses only constant extra space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: chars = [ "a","a","b","b","c","c","c" ]
 Output: Return 6, and the first 6 characters of the input array should be: [ "a","2","b","2","c","3" ]
 Explanation: The groups are "aa", "bb", and "ccc". This compresses to "a2b2c3".
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: chars = [ "a" ]
@@ -890,94 +994,4 @@ Explanation: Only building 3 has an ocean view.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[There are n buildings in a line. You are given an integer array heights of size n that represents the heights of the buildings in the line. The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height. Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.]]></summary></entry><entry><title type="html">528.Random Pick with Weight</title><link href="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/" rel="alternate" type="text/html" title="528.Random Pick with Weight"/><published>2024-11-06T00:00:00+00:00</published><updated>2024-11-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RandomPickWithWeight</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RandomPickWithWeight/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of positive integers <code class="language-plaintext highlighter-rouge">w</code> where <code class="language-plaintext highlighter-rouge">w[i]</code> describes the <strong>weight</strong> of the <code class="language-plaintext highlighter-rouge">ith</code> index.</li> <li>You need to implement the function <code class="language-plaintext highlighter-rouge">pickIndex()</code>, which <strong>randomly</strong> picks an index in the range <code class="language-plaintext highlighter-rouge">[0, w.length - 1]</code> (<strong>inclusive</strong>) and returns it. The <strong>probability</strong> of picking an index <code class="language-plaintext highlighter-rouge">i</code> is <code class="language-plaintext highlighter-rouge">w[i] / sum(w)</code>. <ul> <li>For example, if <code class="language-plaintext highlighter-rouge">w = [1, 3]</code>, the probability of picking index <code class="language-plaintext highlighter-rouge">0</code> is <code class="language-plaintext highlighter-rouge">1 / (1 + 3) = 0.25</code> (i.e., <code class="language-plaintext highlighter-rouge">25%</code>), and the probability of picking index <code class="language-plaintext highlighter-rouge">1</code> is <code class="language-plaintext highlighter-rouge">3 / (1 + 3) = 0.75</code> (i.e., <code class="language-plaintext highlighter-rouge">75%</code>).</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
-["Solution","pickIndex"]
-[[[1]],[]]
-Output
-[null,0]
-
-Explanation
-Solution solution = new Solution([1]);
-solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
-["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
-[[[1,3]],[],[],[],[],[]]
-Output
-[null,1,1,1,1,0]
-
-Explanation
-Solution solution = new Solution([1, 3]);
-solution.pickIndex(); // return 1. It is returning the second element (index = 1) that has a probability of 3/4.
-solution.pickIndex(); // return 1
-solution.pickIndex(); // return 1
-solution.pickIndex(); // return 1
-solution.pickIndex(); // return 0. It is returning the first element (index = 0) that has a probability of 1/4.
-
-Since this is a randomization problem, multiple answers are allowed.
-All of the following outputs can be considered correct:
-[null,1,1,1,1,0]
-[null,1,1,1,1,1]
-[null,1,1,1,0,0]
-[null,1,1,1,0,1]
-[null,1,0,1,0,0]
-......
-and so on.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2024/11/06
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RandomPickWithWeight</span> <span class="o">{</span>
-    <span class="c1">// Stores the prefix sum array for cumulative weights</span>
-    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">prefix</span><span class="o">;</span>
-    <span class="c1">// Stores the total sum of all weights</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">total</span><span class="o">;</span>
-    <span class="c1">// Random number generator</span>
-    <span class="kd">private</span> <span class="nc">Random</span> <span class="n">rand</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">RandomPickWithWeight</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">w</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">prefix</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">w</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
-
-        <span class="c1">// Build prefix sum array</span>
-        <span class="c1">// prefix[i] represents the sum of weights from index 0 to i</span>
-        <span class="n">prefix</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// First element is just the first weight</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">w</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">prefix</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">w</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>  <span class="c1">// Add current weight to previous sum</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Store total sum of weights for generating random numbers</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">[</span><span class="n">w</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pickIndex</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// Generate random number in range [1, total]</span>
-        <span class="c1">// Adding 1 ensures we never get 0, maintaining proper probability distribution</span>
-        <span class="kt">int</span> <span class="n">target</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">total</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Use binary search to find the index where target falls</span>
-        <span class="c1">// This is equivalent to finding the smallest prefix sum &gt;= target</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>  <span class="c1">// Calculate middle point safely</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">prefix</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If prefix sum at mid is less than target,</span>
-                <span class="c1">// target must be in right half</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If prefix sum at mid is &gt;= target,</span>
-                <span class="c1">// this could be our answer or the answer is in left half</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// The final value of left is our answer</span>
-        <span class="c1">// It represents the index whose weight range contains our target</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index. You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w). For example, if w=[1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[There are n buildings in a line. You are given an integer array heights of size n that represents the heights of the buildings in the line. The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height. Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.]]></summary></entry></feed>
