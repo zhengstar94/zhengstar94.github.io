@@ -31,7 +31,7 @@ Output: []
 ## Method 1
 
 ```tex
-【O(n) time | O(1) space】
+【O(n + m) time | O(n + m) space】
 ```
 
 ```java
