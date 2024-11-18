@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-17T04:53:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">986. Interval List Intersections</title><link href="https://zhengstar94.github.io//blog/2024/IntervalListIntersections/" rel="alternate" type="text/html" title="986. Interval List Intersections"/><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/IntervalListIntersections</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/IntervalListIntersections/"><![CDATA[<ul> <li>You are given two lists of closed intervals, <code class="language-plaintext highlighter-rouge">firstList</code> and <code class="language-plaintext highlighter-rouge">secondList</code>, where <code class="language-plaintext highlighter-rouge">firstList[i] = [starti, endi]</code> and <code class="language-plaintext highlighter-rouge">secondList[j] = [startj, endj]</code>. Each list of intervals is pairwise <strong>disjoint</strong> and in <strong>sorted order</strong>.</li> <li>Return <em>the intersection of these two interval lists</em>.</li> <li>A <strong>closed interval</strong> <code class="language-plaintext highlighter-rouge">[a, b]</code> (with <code class="language-plaintext highlighter-rouge">a &lt;= b</code>) denotes the set of real numbers <code class="language-plaintext highlighter-rouge">x</code> with <code class="language-plaintext highlighter-rouge">a &lt;= x &lt;= b</code>.</li> <li>The <strong>intersection</strong> of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of <code class="language-plaintext highlighter-rouge">[1, 3]</code> and <code class="language-plaintext highlighter-rouge">[2, 4]</code> is <code class="language-plaintext highlighter-rouge">[2, 3]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: firstList = [ [0,2],[5,10],[13,23],[24,25] ], secondList = [ [1,5],[8,12],[15,24],[25,26] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-18T04:53:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1768. Merge Strings Alternately</title><link href="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/" rel="alternate" type="text/html" title="1768. Merge Strings Alternately"/><published>2024-11-18T00:00:00+00:00</published><updated>2024-11-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergeStringsAlternately</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>. Merge the strings by adding letters in alternating order, starting with <code class="language-plaintext highlighter-rouge">word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.</li> <li>Return <em>the merged string.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abc", word2 = "pqr"
+Output: "apbqcr"
+Explanation: The merged string will be merged as so:
+word1:  a   b   c
+word2:    p   q   r
+merged: a p b q c r
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "ab", word2 = "pqrs"
+Output: "apbqrs"
+Explanation: Notice that as word2 is longer, "rs" is appended to the end.
+word1:  a   b 
+word2:    p   q   r   s
+merged: a p b q   r   s
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abcd", word2 = "pq"
+Output: "apbqcd"
+Explanation: Notice that as word1 is longer, "cd" is appended to the end.
+word1:  a   b   c   d
+word2:    p   q 
+merged: a p b q c   d
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m + n) time | O(m + n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/18
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeStringsAlternately</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">mergeAlternately</span><span class="o">(</span><span class="nc">String</span> <span class="n">word1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// StringBuilder is used for efficient string concatenation</span>
+        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+        <span class="c1">// Two pointers to track current position in each string</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// pointer for word1</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// pointer for word2</span>
+
+        <span class="c1">// Process both strings until we reach the end of either string</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
+            <span class="c1">// Append current character from word1 and increment pointer</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">++));</span>
+            <span class="c1">// Append current character from word2 and increment pointer</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">++));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Append remaining characters from word1 (if any)</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">++));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Append remaining characters from word2 (if any)</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">++));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert StringBuilder to String and return</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Equal length strings</span>
+        <span class="nc">String</span> <span class="n">word1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word2</span> <span class="o">=</span> <span class="s">"pqr"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - Equal length strings:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: apbqcr"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Second string is longer</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">"ab"</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">"pqrs"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 - Second string is longer:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: apbqrs"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: First string is longer</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">"pq"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 - First string is longer:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: apbqcd"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: Empty string case</span>
+        <span class="n">word1</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="n">word2</span> <span class="o">=</span> <span class="s">"pqr"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 - First string is empty:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: pqr"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string. Return the merged string.]]></summary></entry><entry><title type="html">986. Interval List Intersections</title><link href="https://zhengstar94.github.io//blog/2024/IntervalListIntersections/" rel="alternate" type="text/html" title="986. Interval List Intersections"/><published>2024-11-17T00:00:00+00:00</published><updated>2024-11-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/IntervalListIntersections</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/IntervalListIntersections/"><![CDATA[<ul> <li>You are given two lists of closed intervals, <code class="language-plaintext highlighter-rouge">firstList</code> and <code class="language-plaintext highlighter-rouge">secondList</code>, where <code class="language-plaintext highlighter-rouge">firstList[i] = [starti, endi]</code> and <code class="language-plaintext highlighter-rouge">secondList[j] = [startj, endj]</code>. Each list of intervals is pairwise <strong>disjoint</strong> and in <strong>sorted order</strong>.</li> <li>Return <em>the intersection of these two interval lists</em>.</li> <li>A <strong>closed interval</strong> <code class="language-plaintext highlighter-rouge">[a, b]</code> (with <code class="language-plaintext highlighter-rouge">a &lt;= b</code>) denotes the set of real numbers <code class="language-plaintext highlighter-rouge">x</code> with <code class="language-plaintext highlighter-rouge">a &lt;= x &lt;= b</code>.</li> <li>The <strong>intersection</strong> of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of <code class="language-plaintext highlighter-rouge">[1, 3]</code> and <code class="language-plaintext highlighter-rouge">[2, 4]</code> is <code class="language-plaintext highlighter-rouge">[2, 3]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: firstList = [ [0,2],[5,10],[13,23],[24,25] ], secondList = [ [1,5],[8,12],[15,24],[25,26] ]
 Output: [ [1,2],[5,5],[8,10],[15,23],[24,24],[25,25] ]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: firstList = [ [1,3],[5,9] ], secondList = []
 Output: []
@@ -888,123 +985,4 @@ Output: false
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">wordPattern</span><span class="o">(</span><span class="n">pattern3</span><span class="o">,</span> <span class="n">s3</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a pattern and a string s, find if s follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s. Specifically: Each letter in pattern maps to exactly one unique word in s. Each unique word in s maps to exactly one letter in pattern. No two letters map to the same word, and no two words map to the same letter.]]></summary></entry><entry><title type="html">1249.Minimum Remove to Make Valid Parentheses</title><link href="https://zhengstar94.github.io//blog/2024/MinimumRemoveToMakeValidParentheses/" rel="alternate" type="text/html" title="1249.Minimum Remove to Make Valid Parentheses"/><published>2024-11-08T00:00:00+00:00</published><updated>2024-11-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumRemoveToMakeValidParentheses</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumRemoveToMakeValidParentheses/"><![CDATA[<ul> <li>Given a string s of <code class="language-plaintext highlighter-rouge">'('</code> , <code class="language-plaintext highlighter-rouge">')'</code> and lowercase English characters.</li> <li>Your task is to remove the minimum number of parentheses ( <code class="language-plaintext highlighter-rouge">'('</code> or <code class="language-plaintext highlighter-rouge">')'</code>, in any positions ) so that the resulting <em>parentheses string</em> is valid and return <strong>any</strong> valid string.</li> <li>Formally, a <em>parentheses string</em> is valid if and only if: <ul> <li>It is the empty string, contains only lowercase characters, or</li> <li>It can be written as <code class="language-plaintext highlighter-rouge">AB</code> (<code class="language-plaintext highlighter-rouge">A</code> concatenated with <code class="language-plaintext highlighter-rouge">B</code>), where <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">B</code> are valid strings, or</li> <li>It can be written as <code class="language-plaintext highlighter-rouge">(A)</code>, where <code class="language-plaintext highlighter-rouge">A</code> is a valid string.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "lee(t(c)o)de)"
-Output: "lee(t(c)o)de"
-Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a)b(c)d"
-Output: "ab(c)d"
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "))(("
-Output: ""
-Explanation: An empty string is also valid.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/08
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumRemoveToMakeValidParentheses</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">minRemoveToMakeValid</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// StringBuilder for first pass result</span>
-        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-
-        <span class="c1">// Counter for total left parentheses seen</span>
-        <span class="kt">int</span> <span class="n">openSeen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Counter for currently unmatched left parentheses</span>
-        <span class="kt">int</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// First pass: Remove invalid right parentheses</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Increment both counters when seeing a left parenthesis</span>
-                <span class="n">openSeen</span><span class="o">++;</span>    <span class="c1">// Track total left parentheses</span>
-                <span class="n">balance</span><span class="o">++;</span>     <span class="c1">// Track unmatched left parentheses</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">')'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Skip this right parenthesis if there's no matching left parenthesis</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">balance</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">continue</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// Found a matching pair, decrease unmatched count</span>
-                <span class="n">balance</span><span class="o">--;</span>
-            <span class="o">}</span>
-            <span class="c1">// Add current character to result</span>
-            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// StringBuilder for final result</span>
-        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-        <span class="c1">// Calculate how many left parentheses we need to keep</span>
-        <span class="c1">// openToKeep = total left parentheses - unmatched left parentheses</span>
-        <span class="kt">int</span> <span class="n">openToKeep</span> <span class="o">=</span> <span class="n">openSeen</span> <span class="o">-</span> <span class="n">balance</span><span class="o">;</span>
-
-        <span class="c1">// Second pass: Remove excess left parentheses</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// For each left parenthesis, decrease the count to keep</span>
-                <span class="n">openToKeep</span><span class="o">--;</span>
-                <span class="c1">// Skip this left parenthesis if we already have enough</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">openToKeep</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">continue</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="c1">// Add current character to final result</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Contains invalid right and left parentheses</span>
-        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"lee(t(c)o)de)"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Contains invalid right parenthesis</span>
-        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"a)b(c)d"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: All parentheses are invalid</span>
-        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"))(("</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: Only right parentheses</span>
-        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"a)))b"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 5: Complex nested parentheses</span>
-        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"(a(b(c)d)e)))"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 6: Empty string</span>
-        <span class="nc">String</span> <span class="n">test6</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 6:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test6</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test6</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 7: Only letters</span>
-        <span class="nc">String</span> <span class="n">test7</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 7:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">test7</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minRemoveToMakeValid</span><span class="o">(</span><span class="n">test7</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Given a string s of '(' , ')' and lowercase English characters. Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string. Formally, a parentheses string is valid if and only if: It is the empty string, contains only lowercase characters, or It can be written as AB (A concatenated with B), where A and B are valid strings, or It can be written as (A), where A is a valid string.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a pattern and a string s, find if s follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s. Specifically: Each letter in pattern maps to exactly one unique word in s. Each unique word in s maps to exactly one letter in pattern. No two letters map to the same word, and no two words map to the same letter.]]></summary></entry></feed>
