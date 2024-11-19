@@ -169,6 +169,7 @@ Twitter is a microblogging platform where users can share short messages called 
 
 **Request**
 
+```json
 POST /tweets  
 {  
 "user_token": "user_authentication_token",  
@@ -179,52 +180,58 @@ POST /tweets
 "mentions": ["@username"]  
 }  
 }
-
+```
 **Response**
-
+```json
 {  
 "tweet_id": "unique_tweet_identifier",  
 "created_at": "2024-01-01T12:00:00Z",  
 "user_id": "posting_user_id"  
 }
-
+```
 ---
 
 ### Delete Tweet
 
 **Request**
-
+```json
 DELETE /tweets/{tweet_id}  
 {  
 "user_token": "user_authentication_token"  
 }
+```
 
 **Response**
 
+```json
 {  
 "status": "deleted",  
 "tweet_id": "deleted_tweet_identifier"  
 }
-
+```
 ---
 
 ### Like/Unlike Tweet
 
 **Request**
 
+```json
 POST /tweets/{tweet_id}/like  
 {  
 "user_token": "user_authentication_token",  
 "action": "like" // or "unlike"  
 }
+```
 
 **Response**
 
+```json
 {  
 "tweet_id": "liked_tweet_identifier",  
 "like_count": 42,  
 "user_liked": true  
 }
+```
 
 ---
 
@@ -232,15 +239,18 @@ POST /tweets/{tweet_id}/like
 
 **Request**
 
+```json
 GET /timeline/home  
 {  
 "user_token": "user_authentication_token",  
 "page_size": 20,  
 "page_token": "optional_pagination_token"  
 }
+```
 
 **Response**
 
+```json
 {  
 "tweets": [  
    {  
@@ -252,22 +262,25 @@ GET /timeline/home
 ],  
 "next_page_token": "pagination_token_for_next_page"  
 }
-
+```
 ---
 
 ### Read User Timeline
 
 **Request**
 
+```json
 GET /timeline/user/{user_id}  
 {  
 "user_token": "user_authentication_token",  
 "page_size": 20,  
 "page_token": "optional_pagination_token"  
 }
+```
 
 **Response**
 
+```json
 {  
 "tweets": [  
 {  
@@ -279,6 +292,7 @@ GET /timeline/user/{user_id}
 ],  
 "next_page_token": "pagination_token_for_next_page"  
 }
+```
 
 ---
 
@@ -437,7 +451,7 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 
 
 
-##### **场景示例**
+##### **Exemplary Scenario**
 
 - **Non-Hot User Posts a Tweet**:
 
