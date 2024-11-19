@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-18T04:53:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1768. Merge Strings Alternately</title><link href="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/" rel="alternate" type="text/html" title="1768. Merge Strings Alternately"/><published>2024-11-18T00:00:00+00:00</published><updated>2024-11-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergeStringsAlternately</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>. Merge the strings by adding letters in alternating order, starting with <code class="language-plaintext highlighter-rouge">word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.</li> <li>Return <em>the merged string.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abc", word2 = "pqr"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-19T04:00:07+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">14. Longest Common Prefix</title><link href="https://zhengstar94.github.io//blog/2024/LongestCommonPrefix/" rel="alternate" type="text/html" title="14. Longest Common Prefix"/><published>2024-11-19T00:00:00+00:00</published><updated>2024-11-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestCommonPrefix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestCommonPrefix/"><![CDATA[<ul> <li>Write a function to find the longest common prefix string amongst an array of strings.</li> <li>If there is no common prefix, return an empty string <code class="language-plaintext highlighter-rouge">""</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: strs = [ "flower","flow","flight" ]
+Output: "fl"
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: strs = [ "dog","racecar","car" ]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(S) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestCommonPrefix</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">longestCommonPrefix</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">strs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases: return empty string if array is null or empty</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">strs</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If array contains only one string, return that string as the prefix</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize prefix with the first string</span>
+        <span class="nc">String</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+
+        <span class="c1">// Iterate through the remaining strings in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">prefix</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="cm">/**
+             * The indexOf(prefix) method returns the position where the prefix starts in the string
+             * If prefix is found at the beginning of the string, indexOf returns 0
+             * If prefix is not found at the beginning:
+             * - Either prefix is not in the string at all (returns -1)
+             * - Or prefix is found but not at the start (returns &gt; 0)
+             * In both cases, we need to shorten the prefix
+             */</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">strs</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">indexOf</span><span class="o">(</span><span class="n">prefix</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="cm">/**
+                 * Shorten the prefix by removing its last character:
+                 * - substring(0, prefix.length() - 1) creates a new string
+                 * - Starting from index 0 (inclusive)
+                 * - Ending at prefix.length() - 1 (exclusive)
+                 * Example:
+                 * If prefix = "flower", new prefix will be "flowe"
+                 * This process continues until either:
+                 * 1. The shortened prefix is found at the start of current string
+                 * 2. Or prefix becomes empty string
+                 */</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">prefix</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+
+                <span class="c1">// If prefix becomes empty, there is no common prefix</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">prefix</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the final common prefix found</span>
+        <span class="k">return</span> <span class="n">prefix</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: strings with common prefix "fl"</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"flower"</span><span class="o">,</span> <span class="s">"flow"</span><span class="o">,</span> <span class="s">"flight"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>  <span class="c1">// Expected output: "fl"</span>
+
+        <span class="c1">// Test case 2: strings with no common prefix</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"dog"</span><span class="o">,</span> <span class="s">"racecar"</span><span class="o">,</span> <span class="s">"car"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>  <span class="c1">// Expected output: ""</span>
+
+        <span class="c1">// Test case 3: empty array</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>  <span class="c1">// Expected output: ""</span>
+
+        <span class="c1">// Test case 4: array with single string</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">test4</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"single"</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>  <span class="c1">// Expected output: "single"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><summary type="html"><![CDATA[Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".]]></summary></entry><entry><title type="html">1768. Merge Strings Alternately</title><link href="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/" rel="alternate" type="text/html" title="1768. Merge Strings Alternately"/><published>2024-11-18T00:00:00+00:00</published><updated>2024-11-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergeStringsAlternately</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>. Merge the strings by adding letters in alternating order, starting with <code class="language-plaintext highlighter-rouge">word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.</li> <li>Return <em>the merged string.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abc", word2 = "pqr"
 Output: "apbqcr"
 Explanation: The merged string will be merged as so:
 word1:  a   b   c
@@ -882,107 +963,4 @@ stk.top();     // return 5, [5] the stack did not change.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"top() = "</span> <span class="o">+</span> <span class="n">stk3</span><span class="o">.</span><span class="na">top</span><span class="o">());</span>  <span class="c1">// Expected output: 2</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Design a max stack data structure that supports the stack operations and supports finding the stack’s maximum element. Implement the MaxStack class: MaxStack() Initializes the stack object. void push(int x) Pushes element x onto the stack. int pop() Removes the element on top of the stack and returns it. int top() Gets the element on the top of the stack without removing it. int peekMax() Retrieves the maximum element in the stack without removing it. int popMax() Retrieves the maximum element in the stack and removes it. If there is more than one maximum element, only remove the top-most one.]]></summary></entry><entry><title type="html">290.Word Pattern</title><link href="https://zhengstar94.github.io//blog/2024/WordPattern/" rel="alternate" type="text/html" title="290.Word Pattern"/><published>2024-11-09T00:00:00+00:00</published><updated>2024-11-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/WordPattern</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/WordPattern/"><![CDATA[<ul> <li>Given a <code class="language-plaintext highlighter-rouge">pattern</code> and a string <code class="language-plaintext highlighter-rouge">s</code>, find if <code class="language-plaintext highlighter-rouge">s</code> follows the same pattern.</li> <li>Here <strong>follow</strong> means a full match, such that there is a bijection between a letter in <code class="language-plaintext highlighter-rouge">pattern</code> and a <strong>non-empty</strong> word in <code class="language-plaintext highlighter-rouge">s</code>. Specifically: <ul> <li>Each letter in <code class="language-plaintext highlighter-rouge">pattern</code> maps to <strong>exactly</strong> one unique word in <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Each unique word in <code class="language-plaintext highlighter-rouge">s</code> maps to <strong>exactly</strong> one letter in <code class="language-plaintext highlighter-rouge">pattern</code>.</li> <li>No two letters map to the same word, and no two words map to the same letter.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "abba", s = "dog cat cat dog"
-Output: true
-
-Explanation:
-
-The bijection can be established as:
-'a' maps to "dog".
-'b' maps to "cat".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "abba", s = "dog cat cat fish"
-Output: false
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "aaaa", s = "dog cat cat dog"
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordPattern</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">wordPattern</span><span class="o">(</span><span class="nc">String</span> <span class="n">pattern</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Split the input string into an array of words</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
-
-        <span class="c1">// Check if the length of pattern matches the number of words</span>
-        <span class="c1">// If not, they can't possibly follow the same pattern</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">!=</span> <span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">){</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Create two HashMaps for bidirectional mapping</span>
-        <span class="c1">// charToWord: maps each character in pattern to its corresponding word</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">charToWord</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// wordToChar: maps each word to its corresponding character in pattern</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Character</span><span class="o">&gt;</span> <span class="n">wordToChar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through each character in pattern and its corresponding word</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="nc">String</span> <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-            <span class="c1">// Check character to word mapping</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">charToWord</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">c</span><span class="o">)){</span>
-                <span class="c1">// If this character has been mapped before,</span>
-                <span class="c1">// verify it maps to the same word</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">charToWord</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">c</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">word</span><span class="o">)){</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Violation: same char maps to different words</span>
-                <span class="o">}</span>
-            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-                <span class="c1">// If this is a new character, add the mapping</span>
-                <span class="n">charToWord</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">word</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check word to character mapping</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">wordToChar</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">word</span><span class="o">)){</span>
-                <span class="c1">// If this word has been mapped before,</span>
-                <span class="c1">// verify it maps to the same character</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">wordToChar</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">word</span><span class="o">)</span> <span class="o">!=</span> <span class="n">c</span><span class="o">){</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Violation: same word maps to different chars</span>
-                <span class="o">}</span>
-            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-                <span class="c1">// If this is a new word, add the mapping</span>
-                <span class="n">wordToChar</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">c</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// If we reach here, all mappings are valid</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Should return true</span>
-        <span class="c1">// Pattern "abba" matches with "dog cat cat dog"</span>
-        <span class="nc">String</span> <span class="n">pattern1</span> <span class="o">=</span> <span class="s">"abba"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"dog cat cat dog"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"pattern = "</span> <span class="o">+</span> <span class="n">pattern1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s = "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">wordPattern</span><span class="o">(</span><span class="n">pattern1</span><span class="o">,</span> <span class="n">s1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Should return false</span>
-        <span class="c1">// Pattern "abba" doesn't match with "dog cat cat fish"</span>
-        <span class="nc">String</span> <span class="n">pattern2</span> <span class="o">=</span> <span class="s">"abba"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"dog cat cat fish"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"pattern = "</span> <span class="o">+</span> <span class="n">pattern2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s = "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">wordPattern</span><span class="o">(</span><span class="n">pattern2</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Should return false</span>
-        <span class="c1">// Pattern "aaaa" doesn't match with "dog cat cat dog"</span>
-        <span class="nc">String</span> <span class="n">pattern3</span> <span class="o">=</span> <span class="s">"aaaa"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"dog cat cat dog"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"pattern = "</span> <span class="o">+</span> <span class="n">pattern3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s = "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">wordPattern</span><span class="o">(</span><span class="n">pattern3</span><span class="o">,</span> <span class="n">s3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a pattern and a string s, find if s follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s. Specifically: Each letter in pattern maps to exactly one unique word in s. Each unique word in s maps to exactly one letter in pattern. No two letters map to the same word, and no two words map to the same letter.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[Design a max stack data structure that supports the stack operations and supports finding the stack’s maximum element. Implement the MaxStack class: MaxStack() Initializes the stack object. void push(int x) Pushes element x onto the stack. int pop() Removes the element on top of the stack and returns it. int top() Gets the element on the top of the stack without removing it. int peekMax() Retrieves the maximum element in the stack without removing it. int popMax() Retrieves the maximum element in the stack and removes it. If there is more than one maximum element, only remove the top-most one.]]></summary></entry></feed>
