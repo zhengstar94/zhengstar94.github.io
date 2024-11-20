@@ -8,6 +8,7 @@ date: "2024-11-19"
 tags: SystemDesign
 categories:
   - "System Design New"
+pretty_table: true
 ---
 
 
@@ -474,7 +475,7 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 ### User Table
 
 |userId|Integer|
-|---|---|
+|:-----------|------------:|
 |name|Varchar(100)|
 |email|Varchar(100)|
 |creationTime|DateTime|
@@ -484,7 +485,7 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 ### Tweet Table
 
 |tweetId|Integer|
-|---|---|
+|:-----------|------------:|
 |userId|Integer|
 |Content|Varchar(140)|
 |creationTime|DateTime|
@@ -493,7 +494,7 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 ### Follower Table
 
 |UserID|Integer|
-|---|---|
+|:-----------|------------:|
 |FollowerId|Integer|
 
 - SQL database
@@ -614,7 +615,7 @@ To address the massive data storage and query demands, Twitter's architecture us
 ##### **Sharding Strategy Comparison**
 
 |**Sharding Method**|**Advantages**|**Disadvantages**|
-|---|---|---|
+|:-----------|:------------: |------------:|
 |**Sharding by Creation Time**|- Efficient querying for specific time periods|- Cold and hot data issues cause resource waste|
 |||- New shard write pressure creates hotspots|
 |**Sharding by Hashing User ID**|- Simple user timeline queries|- Home timeline requires querying across multiple shards|
@@ -748,7 +749,7 @@ To address the massive data storage and query demands, Twitter's architecture us
 ### 1. Timeline Design Comparison
 
 |Feature|Pull Model|Push Model|Hybrid Model|
-|---|---|---|---|
+|:-----------|:------------:|:------------:|------------:|
 |**Implementation Complexity**|Low|Medium|High|
 |**Read Performance**|Poor (O(n))|Excellent (O(1))|Good (O(1) + O(k))|
 |**Write Performance**|Excellent (O(1))|Poor (O(n))|Good (based on user category)|
@@ -761,7 +762,7 @@ To address the massive data storage and query demands, Twitter's architecture us
 ### 2. Storage Solution Comparison
 
 |Feature|MySQL|Cassandra|Redis|S3|
-|---|---|---|---|---|
+|:-----------|:------------:|:------------:|:------------:|------------:|
 |**Data Type**|Structured data|Semi-structured data|Cache data|Media files|
 |**Query Performance**|Medium|High|Very high|Medium|
 |**Write Performance**|Medium|High|Very high|Medium|
@@ -773,7 +774,7 @@ To address the massive data storage and query demands, Twitter's architecture us
 ### 3. Caching Strategy Comparison
 
 |Feature|Local Cache|Distributed Cache|Multi-level Cache|
-|---|---|---|---|
+|:-----------|:------------:|:------------:|------------:|
 |**Access Latency**|Very low|Low|Relatively low|
 |**Capacity**|Limited by single machine|Large|Large|
 |**Consistency**|Hard to maintain|Easy to maintain|Hard to maintain|
@@ -785,7 +786,7 @@ To address the massive data storage and query demands, Twitter's architecture us
 ### 4. Sharding Strategy Comparison
 
 |Feature|User ID Based|Time Based|Tweet ID Based|
-|---|---|---|---|
+|:-----------|:------------:|:------------:|------------:|
 |**Data Distribution**|Uneven|Uneven|Even|
 |**Query Efficiency**|High (single user)|High (time period)|Medium|
 |**Scalability**|Medium|Good|Excellent|
@@ -797,7 +798,7 @@ To address the massive data storage and query demands, Twitter's architecture us
 ### 5. System Availability Solution Comparison
 
 |Feature|Master-Slave Replication|Multi-Active Deployment|Multi-Region Active|
-|---|---|---|---|
+|:-----------|:------------:|:------------:|------------:|
 |**Availability**|99.9%|99.99%|99.999%|
 |**Consistency**|Strong|Eventually|Eventually|
 |**Latency**|Low|Medium|Higher|
@@ -1096,16 +1097,19 @@ public class ConsistencyManager {
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/7.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
 
 
-
 ### 2. Home Timeline Loading Process
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/8.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
 
+### 3. Timeline Loading and Update Flow
 
-### 3. Data fragmentation strategy diagram
+{% include figure.liquid loading="eager" path="assets/img/2024/twitter/11.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
+
+
+### 4. Data fragmentation strategy diagram
 
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/9.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
 
 
-### 4. Cache architecture diagram
+### 5. Cache architecture diagram
 
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/10.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
