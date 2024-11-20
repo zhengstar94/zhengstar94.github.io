@@ -8,6 +8,7 @@ date: "2024-11-19"
 tags: SystemDesign
 categories:
   - "System Design New"
+pretty_table: true
 ---
 
 
