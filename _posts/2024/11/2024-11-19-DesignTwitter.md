@@ -1100,12 +1100,16 @@ public class ConsistencyManager {
 ### 2. Home Timeline Loading Process
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/8.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
 
+### 3. Timeline Loading and Update Flow
 
-### 3. Data fragmentation strategy diagram
+{% include figure.liquid loading="eager" path="assets/img/2024/twitter/11.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
+
+
+### 4. Data fragmentation strategy diagram
 
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/9.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
 
 
-### 4. Cache architecture diagram
+### 5. Cache architecture diagram
 
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/10.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
