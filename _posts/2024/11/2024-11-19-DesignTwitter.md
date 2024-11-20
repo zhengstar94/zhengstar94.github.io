@@ -743,6 +743,352 @@ To address the massive data storage and query demands, Twitter's architecture us
 
   - Use monitoring tools to track cache hit rates, and dynamically adjust cache size or sharding strategies.
 
+## Twitter System Design Comparison
+
+### 1. Timeline Design Comparison
+
+|Feature|Pull Model|Push Model|Hybrid Model|
+|---|---|---|---|
+|**Implementation Complexity**|Low|Medium|High|
+|**Read Performance**|Poor (O(n))|Excellent (O(1))|Good (O(1) + O(k))|
+|**Write Performance**|Excellent (O(1))|Poor (O(n))|Good (based on user category)|
+|**Storage Requirements**|Low|High|Medium|
+|**Consistency**|Strong|Eventually|Eventually|
+|**Suitable Scenarios**|Users with many followers|Regular users|All scenarios|
+|**System Load**|High read load|High write load|Balanced load|
+|**Scalability**|Good|Fair|Good|
+
+### 2. Storage Solution Comparison
+
+|Feature|MySQL|Cassandra|Redis|S3|
+|---|---|---|---|---|
+|**Data Type**|Structured data|Semi-structured data|Cache data|Media files|
+|**Query Performance**|Medium|High|Very high|Medium|
+|**Write Performance**|Medium|High|Very high|Medium|
+|**Consistency**|Strong|Eventually|Strong|Eventually|
+|**Scalability**|Vertical|Horizontal|Cluster|Unlimited|
+|**Cost**|Medium|Higher|High|Low|
+|**Maintenance Cost**|Medium|High|Medium|Low|
+
+### 3. Caching Strategy Comparison
+
+|Feature|Local Cache|Distributed Cache|Multi-level Cache|
+|---|---|---|---|
+|**Access Latency**|Very low|Low|Relatively low|
+|**Capacity**|Limited by single machine|Large|Large|
+|**Consistency**|Hard to maintain|Easy to maintain|Hard to maintain|
+|**Availability**|Medium|High|Very high|
+|**Implementation Complexity**|Low|Medium|High|
+|**Cost**|Low|Medium|High|
+|**Suitable Scenarios**|Single-machine apps|Distributed apps|Large-scale apps|
+
+### 4. Sharding Strategy Comparison
+
+|Feature|User ID Based|Time Based|Tweet ID Based|
+|---|---|---|---|
+|**Data Distribution**|Uneven|Uneven|Even|
+|**Query Efficiency**|High (single user)|High (time period)|Medium|
+|**Scalability**|Medium|Good|Excellent|
+|**Hot Spot Issues**|Severe|Severe|Minor|
+|**Load Balancing**|Poor|Poor|Good|
+|**Implementation Complexity**|Low|Low|Medium|
+|**Migration Difficulty**|Medium|Easy|Easy|
+
+### 5. System Availability Solution Comparison
+
+|Feature|Master-Slave Replication|Multi-Active Deployment|Multi-Region Active|
+|---|---|---|---|
+|**Availability**|99.9%|99.99%|99.999%|
+|**Consistency**|Strong|Eventually|Eventually|
+|**Latency**|Low|Medium|Higher|
+|**Cost**|Low|Medium|High|
+|**Complexity**|Low|Medium|High|
+|**Disaster Recovery**|Fair|Good|Excellent|
+|**Maintenance Difficulty**|Simple|Medium|Complex|
+
+
+
+## Twitter Key Technical Implementation Details
+### 1. Tweet Publishing Process
+
+```java
+public class TweetService {
+    private final TweetStore tweetStore;
+    private final TimelineService timelineService;
+    private final CacheService cacheService;
+    private final MessageQueue queueService;
+
+    public TweetService() {
+        this.tweetStore = new TweetStore();
+        this.timelineService = new TimelineService();
+        this.cacheService = new CacheService();
+        this.queueService = new MessageQueue();
+    }
+
+    public CompletableFuture<String> publishTweet(String userId, String content, List<String> mediaUrls) {
+        // 1. Parameter validation
+        validateTweet(content, mediaUrls);
+        
+        // 2. Create tweet
+        Tweet tweet = Tweet.builder()
+                .userId(userId)
+                .content(content)
+                .mediaUrls(mediaUrls)
+                .createdAt(LocalDateTime.now())
+                .build();
+        
+        // 3. Store tweet
+        return tweetStore.save(tweet)
+                .thenCompose(tweetId -> {
+                    // 4. Update cache
+                    return cacheService.setTweet(tweetId, tweet)
+                            .thenCompose(v -> {
+                                // 5. Trigger push process
+                                return triggerFanOut(tweetId, userId)
+                                        .thenApply(v2 -> tweetId);
+                            });
+                });
+    }
+
+    private CompletableFuture<Void> triggerFanOut(String tweetId, String userId) {
+        return userService.getFollowerCount(userId)
+                .thenCompose(followerCount -> {
+                    if (followerCount > 10000) {  // Celebrity user
+                        // Use pull model, only update hot follower timelines
+                        return handleCelebrityTweet(tweetId, userId);
+                    } else {
+                        // Regular users use push model
+                        return handleNormalTweet(tweetId, userId);
+                    }
+                });
+    }
+
+    private CompletableFuture<Void> handleCelebrityTweet(String tweetId, String userId) {
+        // 1. Get active followers
+        return userService.getActiveFollowers(userId)
+                .thenCompose(activeFollowers -> {
+                    // 2. Update active follower timelines
+                    return CompletableFuture.allOf(
+                            Lists.partition(activeFollowers, 1000).stream()
+                                    .map(batch -> timelineService.batchUpdateTimelines(batch, tweetId))
+                                    .toArray(CompletableFuture[]::new)
+                    );
+                });
+    }
+}
+```
+
+### 2. Timeline Reading Implementation
+
+```java
+public class TimelineService {
+    private final CacheService cache;
+    private final TweetStore tweetStore;
+    private final TimelineStore timelineStore;
+
+    public TimelineService() {
+        this.cache = new CacheService();
+        this.tweetStore = new TweetStore();
+        this.timelineStore = new TimelineStore();
+    }
+
+    public CompletableFuture<List<Tweet>> getHomeTimeline(String userId, int page) {
+        // 1. Try to get from cache
+        return cache.getTimeline(userId, page)
+                .thenCompose(timeline -> {
+                    if (timeline != null) {
+                        return CompletableFuture.completedFuture(timeline);
+                    }
+
+                    // 2. Get following list
+                    return userService.getFollowing(userId)
+                            .thenCompose(following -> {
+                                // 3. Separate normal users and celebrities
+                                Pair<List<String>, List<String>> users = splitUsers(following);
+                                List<String> normalUsers = users.getLeft();
+                                List<String> celebs = users.getRight();
+
+                                // 4. Get both timelines in parallel
+                                CompletableFuture<List<Tweet>> normalTimeline = getNormalTimeline(normalUsers);
+                                CompletableFuture<List<Tweet>> celebTimeline = getCelebTimeline(celebs);
+
+                                return CompletableFuture.allOf(normalTimeline, celebTimeline)
+                                        .thenApply(v -> mergeTimelines(
+                                                normalTimeline.join(),
+                                                celebTimeline.join()
+                                        ));
+                            })
+                            .thenCompose(mergedTimeline -> 
+                                    // 5. Update cache and return
+                                    cache.setTimeline(userId, page, mergedTimeline)
+                                            .thenApply(v -> mergedTimeline)
+                            );
+                });
+    }
+
+    private CompletableFuture<List<Tweet>> getNormalTimeline(List<String> users) {
+        // Directly get from timeline storage
+        return timelineStore.getMultiUserTimeline(users);
+    }
+
+    private CompletableFuture<List<Tweet>> getCelebTimeline(List<String> celebs) {
+        // Real-time fetch of celebrity's latest tweets
+        List<CompletableFuture<List<Tweet>>> futures = celebs.stream()
+                .map(tweetStore::getUserRecentTweets)
+                .collect(Collectors.toList());
+
+        return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
+                .thenApply(v -> futures.stream()
+                        .map(CompletableFuture::join)
+                        .flatMap(List::stream)
+                        .collect(Collectors.toList()));
+    }
+}
+```
+
+### 3. Cache Update Mechanism
+
+```java
+public class CacheService {
+    private final RedisClient redis;
+    private final LoadingCache<String, Object> localCache;
+
+    public CacheService() {
+        this.redis = new RedisClient();
+        this.localCache = CacheBuilder.newBuilder()
+                .maximumSize(10000)
+                .build(new CacheLoader<String, Object>() {
+                    @Override
+                    public Object load(String key) {
+                        return null;
+                    }
+                });
+    }
+
+    public CompletableFuture<Void> updateTimelineCache(String userId, String tweetId) {
+        // 1. Update local cache
+        String timelineKey = "timeline:" + userId;
+        if (localCache.asMap().containsKey(timelineKey)) {
+            updateLocalCache(timelineKey, tweetId);
+        }
+
+        // 2. Update distributed cache
+        return updateRedisCache(timelineKey, tweetId)
+                // 3. Set expiration time
+                .thenCompose(v -> redis.expire(timelineKey, 3600)); // 1 hour expiration
+    }
+
+    public CompletableFuture<Void> invalidateCache(String pattern) {
+        // 1. Clear local cache
+        localCache.invalidateAll();
+
+        // 2. Clear distributed cache
+        return redis.keys(pattern)
+                .thenCompose(keys -> {
+                    if (!keys.isEmpty()) {
+                        return redis.delete(keys.toArray(new String[0]));
+                    }
+                    return CompletableFuture.completedFuture(null);
+                });
+    }
+}
+```
+
+### 4. Rate Limiting Implementation
+
+```java
+public class RateLimiter {
+    private final RedisClient redis;
+    private final int tweetLimit = 300;  // Maximum 300 tweets in 5 minutes
+    private final int window = 300;      // 5-minute window
+
+    public RateLimiter() {
+        this.redis = new RedisClient();
+    }
+
+    public CompletableFuture<Boolean> canTweet(String userId) {
+        String key = "rate:tweet:" + userId;
+
+        // 1. Get current count
+        return redis.get(key)
+                .thenCompose(current -> {
+                    if (current == null) {
+                        // 2. First tweet, set counter
+                        return redis.setex(key, window, "1")
+                                .thenApply(v -> true);
+                    }
+
+                    // 3. Check if over limit
+                    int count = Integer.parseInt(current);
+                    if (count >= tweetLimit) {
+                        return CompletableFuture.completedFuture(false);
+                    }
+
+                    // 4. Increment counter
+                    return redis.incr(key)
+                            .thenApply(v -> true);
+                });
+    }
+}
+```
+
+### 5. Data Consistency Guarantee
+
+```java
+public class ConsistencyManager {
+    private final VersionStore versionStore;
+    private final RepairQueue repairQueue;
+
+    public ConsistencyManager() {
+        this.versionStore = new VersionStore();
+        this.repairQueue = new RepairQueue();
+    }
+
+    public <T> CompletableFuture<Void> updateWithVersion(String key, T value) {
+        // 1. Get current version
+        return versionStore.getVersion(key)
+                .thenCompose(currentVersion -> {
+                    long newVersion = currentVersion + 1;
+
+                    // 2. Update data and version
+                    return executeInTransaction(transaction -> 
+                        transaction.updateData(key, value)
+                                .thenCompose(v -> transaction.updateVersion(key, newVersion))
+                    );
+                });
+    }
+
+    public CompletableFuture<Void> checkConsistency() {
+        // 1. Get all keys to check
+        return versionStore.getAllKeys()
+                .thenCompose(keys -> {
+                    List<CompletableFuture<Void>> checks = keys.stream()
+                            .map(key -> 
+                                // 2. Check version for each key
+                                CompletableFuture.allOf(
+                                    db.getVersion(key),
+                                    cache.getVersion(key)
+                                ).thenCompose(v -> {
+                                    long dbVersion = db.getVersion(key).join();
+                                    long cacheVersion = cache.getVersion(key).join();
+
+                                    // 3. If versions don't match, add to repair queue
+                                    if (dbVersion != cacheVersion) {
+                                        return repairQueue.add(key);
+                                    }
+                                    return CompletableFuture.completedFuture(null);
+                                })
+                            )
+                            .collect(Collectors.toList());
+
+                    return CompletableFuture.allOf(checks.toArray(new CompletableFuture[0]));
+                });
+    }
+}
+
+```
+
+
 
 ## Chart
 
