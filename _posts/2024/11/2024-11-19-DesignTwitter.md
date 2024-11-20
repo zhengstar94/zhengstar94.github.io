@@ -742,3 +742,24 @@ To address the massive data storage and query demands, Twitter's architecture us
 - **Dynamic Monitoring and Scaling**:
 
   - Use monitoring tools to track cache hit rates, and dynamically adjust cache size or sharding strategies.
+
+
+## Chart
+
+### 1. Tweet Flow Chart
+{% include figure.liquid loading="eager" path="assets/img/2024/twitter/7.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
+
+
+
+### 2. Home Timeline Loading Process
+{% include figure.liquid loading="eager" path="assets/img/2024/twitter/8.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
+
+
+### 3. Data fragmentation strategy diagram
+
+{% include figure.liquid loading="eager" path="assets/img/2024/twitter/9.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
+
+
+### 4. Cache architecture diagram
+
+{% include figure.liquid loading="eager" path="assets/img/2024/twitter/10.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
