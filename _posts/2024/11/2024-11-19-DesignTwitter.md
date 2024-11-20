@@ -21,92 +21,50 @@ Twitter is a microblogging platform where users can share short messages called 
 ### Functional Requirements
 
 1. Users can post, delete and interact with tweets
-
   - Create tweets with text (maximum 280 characters), images, and videos
-
   - Delete their own tweets
-
   - Retweet and quote other users' tweets
-
   - Reply to tweets to create conversations
-
 2. Users can view different types of timeline feeds
-
   - Home timeline shows tweets from followed users in chronological order
-
   - User profile timeline displays a specific user's tweets
-
   - Search timeline shows tweets matching specific queries
-
   - Trending topics timeline shows popular hashtags and discussions
-
 3. Users can perform social interactions
-
   - Follow/unfollow other users
-
   - Like/unlike tweets
-
   - Mention other users using @username
-
   - Create and participate in hashtag discussions
-
 4. Users can search and discover content
-
   - Search tweets by keywords, hashtags, or usernames
-
   - Filter search results by time, popularity, or media type
-
   - Discover trending topics and suggested users
-
 
 ### Non-Functional Requirements
 
 1. Consistency
-
   - Every read receives the most recent write or an error
-
   - Sacrifice eventual consistency for:
-
     - Timeline feed updates
-
     - Like counts and follower counts
-
     - Tweet delivery to followers
-
   - Strong consistency required for:
-
     - Tweet posting
-
     - User authentication
-
 2. Availability
-
   - Every request receives a (non-error) response
-
   - System remains operational 24/7 with 99.99% uptime
-
   - High scalability to handle:
-
     - Millions of concurrent users
-
     - 500K tweets per second
-
   - Low latency performance:
-
     - Timeline loading < 200ms
-
     - Tweet posting < 100ms
-
 3. Partition Tolerance (Fault Tolerance)
-
   - System continues to operate despite network partitions
-
   - Handles node failures without service disruption
-
   - Data replication across multiple data centers
-
   - Graceful degradation during partial system failures
-
 
 ## Estimates and Constraints
 
@@ -313,8 +271,6 @@ When a user visits another user's profile, the request is routed to the Timeline
 {% include figure.liquid loading="eager" path="assets/img/2024/twitter/2.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
 
 
-![image-20241119150012212](file:///Users/zhengxingxing/Library/Application%20Support/typora-user-images/image-20241119150012212.png?lastModify=1732026725)
-
 ### Scenario 3: Home Timeline
 
 When a user opens their homepage, the request reaches the Timeline Service. The Timeline Service typically stores each user's home timeline in the cache in advance, so it can quickly return the corresponding user's timeline data directly from the cache. However, the challenge is how to efficiently update the home timeline in the cache.
@@ -402,55 +358,32 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 ##### **Specific Implementation**
 
 1. **Non-Hot Users**
-
   - **Strategy**: Use **Fan-out on Write** (Push model).
-
   - Implementation:
-
     - When a non-hot user posts a new Tweet, the Tweet is pushed to the timeline cache of all their active followers.
-
     - For inactive followers, no push is performed to avoid unnecessary cache updates.
-
   - Advantages:
-
     - Non-hot users have fewer followers, so the performance pressure of pushing is lower.
-
     - Active followers can quickly read the latest content from non-hot users.
-
 2. **Hot Users**
-
   - **Strategy**: Use **Fan-in on Read** (Pull model).
-
   - Implementation:
-
     - When a hot user (e.g., a celebrity) posts a new Tweet, their followers' timeline caches are not updated.
-
     - When followers refresh their home timeline, the latest Tweets from the hot user are dynamically pulled from the hot user's cache and merged with Tweets from non-hot users before being returned.
-
   - Advantages:
-
     - Avoid triggering a large number of push operations for each Tweet from hot users, significantly reducing write pressure.
-
     - Maintain system stability under high-load scenarios.
-
-
+    
 ##### **Workflow**
 
 1. **Tweet Posting for Non-Hot Users**
-
   - Write to the database and cache, while pushing the Tweet to the timeline cache of active followers using **Fan-out on Write**.
-
 2. **Tweet Posting for Hot Users**
-
   - Write to the database and the hot user's cache timeline, but do not update their followers' cache timelines.
-
 3. **User Refreshes Home Timeline**
-
   - **Non-Hot User's Tweets**: Directly read from the followers' cache.
-
   - **Hot User's Tweets**: Dynamically pull the latest Tweets from the hot user's cache timeline and merge them with the Tweets from non-hot users before returning.
-
-
+  
 
 ##### **Exemplary Scenario**
 
@@ -474,8 +407,9 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 
 ### User Table
 
-|userId|Integer|
+|Field Name|Data Type|
 |:-----------|------------:|
+|userId|Integer|
 |name|Varchar(100)|
 |email|Varchar(100)|
 |creationTime|DateTime|
@@ -484,8 +418,9 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 
 ### Tweet Table
 
-|tweetId|Integer|
+|Field Name|Data Type|
 |:-----------|------------:|
+|tweetId|Integer|
 |userId|Integer|
 |Content|Varchar(140)|
 |creationTime|DateTime|
@@ -493,8 +428,9 @@ By combining the advantages of **Fan-out on Write** and **Fan-in on Read**, the 
 
 ### Follower Table
 
-|UserID|Integer|
+|Field Name|Data Type|
 |:-----------|------------:|
+|UserID|Integer|
 |FollowerId|Integer|
 
 - SQL database
