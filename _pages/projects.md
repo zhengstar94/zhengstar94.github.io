@@ -1,6 +1,6 @@
 ---
 layout: page
-title: System Design
+title: SystemDesign
 permalink: /projects/
 description: System Design Learning
 nav: true
