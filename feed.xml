@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-21T08:25:11+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">219. Contains Duplicate II</title><link href="https://zhengstar94.github.io//blog/2024/ContainsDuplicateII/" rel="alternate" type="text/html" title="219. Contains Duplicate II"/><published>2024-11-20T00:00:00+00:00</published><updated>2024-11-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContainsDuplicateII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContainsDuplicateII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if there are two <strong>distinct indices</strong></em> <code class="language-plaintext highlighter-rouge">i</code> <em>and</em> <code class="language-plaintext highlighter-rouge">j</code> <em>in the array such that</em> <code class="language-plaintext highlighter-rouge">nums[i] == nums[j]</code> <em>and</em> <code class="language-plaintext highlighter-rouge">abs(i - j) &lt;= k</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1], k = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-21T08:50:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">278. First Bad Version</title><link href="https://zhengstar94.github.io//blog/2024/FirstBadVersion/" rel="alternate" type="text/html" title="278. First Bad Version"/><published>2024-11-21T00:00:00+00:00</published><updated>2024-11-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FirstBadVersion</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FirstBadVersion/"><![CDATA[<ul> <li>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</li> <li>Suppose you have <code class="language-plaintext highlighter-rouge">n</code> versions <code class="language-plaintext highlighter-rouge">[1, 2, ..., n]</code> and you want to find out the first bad one, which causes all the following ones to be bad.</li> <li>You are given an API <code class="language-plaintext highlighter-rouge">bool isBadVersion(version)</code> which returns whether <code class="language-plaintext highlighter-rouge">version</code> is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, bad = 4
+Output: 4
+Explanation:
+call isBadVersion(3) -&gt; false
+call isBadVersion(5) -&gt; true
+call isBadVersion(4) -&gt; true
+Then 4 is the first bad version.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1, bad = 1
+Output: 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(logn) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FirstBadVersion</span> <span class="kd">extends</span> <span class="nc">VersionControl</span><span class="o">{</span>
+    <span class="c1">// Reference to the VersionControl instance</span>
+    <span class="nc">VersionControl</span> <span class="n">versionControl</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">firstBadVersion</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Use binary search to find the first bad version</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate mid point to avoid integer overflow</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// If mid is a bad version, search in the left half</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">versionControl</span><span class="o">.</span><span class="na">isBadVersion</span><span class="o">(</span><span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// If mid is a good version, search in the right half</span>
+            <span class="k">else</span> <span class="o">{</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the first bad version</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">VersionControl</span> <span class="o">{</span>
+    <span class="c1">// The first bad version number</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">firstBadVersion</span><span class="o">;</span>
+
+    <span class="c1">// Constructor with specified first bad version</span>
+    <span class="kd">public</span> <span class="nf">VersionControl</span><span class="o">(</span><span class="kt">int</span> <span class="n">firstBadVersion</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstBadVersion</span> <span class="o">=</span> <span class="n">firstBadVersion</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Default constructor with first bad version set to 4</span>
+    <span class="kd">public</span> <span class="nf">VersionControl</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstBadVersion</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// API method to check if a version is bad</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBadVersion</span><span class="o">(</span><span class="kt">int</span> <span class="n">version</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Return true if version is greater than or equal to first bad version</span>
+        <span class="k">return</span> <span class="n">version</span> <span class="o">&gt;=</span> <span class="n">firstBadVersion</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Test method to validate the solution</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Bad version is 4</span>
+        <span class="nc">VersionControl</span> <span class="n">vc1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VersionControl</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="nc">FirstBadVersion</span> <span class="nc">FirstBadVersion1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstBadVersion</span><span class="o">();</span>
+        <span class="nc">FirstBadVersion1</span><span class="o">.</span><span class="na">versionControl</span> <span class="o">=</span> <span class="n">vc1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 (Bad Version 4): "</span> <span class="o">+</span> <span class="nc">FirstBadVersion1</span><span class="o">.</span><span class="na">firstBadVersion</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test case 2: Bad version is 1</span>
+        <span class="nc">VersionControl</span> <span class="n">vc2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VersionControl</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="nc">FirstBadVersion</span> <span class="nc">FirstBadVersion2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstBadVersion</span><span class="o">();</span>
+        <span class="nc">FirstBadVersion2</span><span class="o">.</span><span class="na">versionControl</span> <span class="o">=</span> <span class="n">vc2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 (Bad Version 1): "</span> <span class="o">+</span> <span class="nc">FirstBadVersion2</span><span class="o">.</span><span class="na">firstBadVersion</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test case 3: Bad version is 2</span>
+        <span class="nc">VersionControl</span> <span class="n">vc3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VersionControl</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="nc">FirstBadVersion</span> <span class="nc">FirstBadVersion3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstBadVersion</span><span class="o">();</span>
+        <span class="nc">FirstBadVersion3</span><span class="o">.</span><span class="na">versionControl</span> <span class="o">=</span> <span class="n">vc3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Bad Version 2): "</span> <span class="o">+</span> <span class="nc">FirstBadVersion3</span><span class="o">.</span><span class="na">firstBadVersion</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><summary type="html"><![CDATA[You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad. Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad. You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.]]></summary></entry><entry><title type="html">219. Contains Duplicate II</title><link href="https://zhengstar94.github.io//blog/2024/ContainsDuplicateII/" rel="alternate" type="text/html" title="219. Contains Duplicate II"/><published>2024-11-20T00:00:00+00:00</published><updated>2024-11-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContainsDuplicateII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContainsDuplicateII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if there are two <strong>distinct indices</strong></em> <code class="language-plaintext highlighter-rouge">i</code> <em>and</em> <code class="language-plaintext highlighter-rouge">j</code> <em>in the array such that</em> <code class="language-plaintext highlighter-rouge">nums[i] == nums[j]</code> <em>and</em> <code class="language-plaintext highlighter-rouge">abs(i - j) &lt;= k</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1], k = 3
 Output: true
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1,1], k = 1
 Output: true
@@ -806,67 +891,4 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order. The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.]]></summary></entry><entry><title type="html">680.Valid Palindrome II</title><link href="https://zhengstar94.github.io//blog/2024/ValidPalindromeII/" rel="alternate" type="text/html" title="680.Valid Palindrome II"/><published>2024-11-11T00:00:00+00:00</published><updated>2024-11-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ValidPalindromeII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ValidPalindromeII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if the</em> <code class="language-plaintext highlighter-rouge">s</code> <em>can be palindrome after deleting <strong>at most one</strong> character from it</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aba"
-Output: true
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abca"
-Output: true
-Explanation: You could delete the character 'c'.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc"
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValidPalindromeII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize two pointers, left starts from beginning, right starts from end</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Keep checking characters from both ends moving towards center</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">){</span>
-            <span class="c1">// If characters at left and right pointers don't match</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)){</span>
-                <span class="c1">// Try two possibilities:</span>
-                <span class="c1">// 1. Remove character at left pointer (check substring from left+1 to right)</span>
-                <span class="c1">// 2. Remove character at right pointer (check substring from left to right-1)</span>
-                <span class="k">return</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">right</span><span class="o">)</span> <span class="o">||</span> <span class="n">isPalindrome</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="c1">// Move pointers towards center if characters match</span>
-            <span class="n">left</span><span class="o">++;</span>
-            <span class="n">right</span><span class="o">--;</span>
-        <span class="o">}</span>
-        <span class="c1">// If we get here, string is already a palindrome</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Compare characters from both ends moving towards center</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)){</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// Move pointers towards center if characters match</span>
-            <span class="n">left</span><span class="o">++;</span>
-            <span class="n">right</span><span class="o">--;</span>
-        <span class="o">}</span>
-        <span class="c1">// If we get here, substring is a palindrome</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Already a palindrome</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">validPalindrome</span><span class="o">(</span><span class="s">"aba"</span><span class="o">));</span>  <span class="c1">// Should print: true</span>
-
-        <span class="c1">// Test case 2: Can become palindrome by removing one character</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">validPalindrome</span><span class="o">(</span><span class="s">"abca"</span><span class="o">));</span> <span class="c1">// Should print: true</span>
-
-        <span class="c1">// Test case 3: Cannot become palindrome by removing one character</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">validPalindrome</span><span class="o">(</span><span class="s">"abd"</span><span class="o">));</span>  <span class="c1">// Should print: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given a string s, return true if the s can be palindrome after deleting at most one character from it.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order. The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.]]></summary></entry></feed>
