@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-21T08:50:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">278. First Bad Version</title><link href="https://zhengstar94.github.io//blog/2024/FirstBadVersion/" rel="alternate" type="text/html" title="278. First Bad Version"/><published>2024-11-21T00:00:00+00:00</published><updated>2024-11-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FirstBadVersion</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FirstBadVersion/"><![CDATA[<ul> <li>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</li> <li>Suppose you have <code class="language-plaintext highlighter-rouge">n</code> versions <code class="language-plaintext highlighter-rouge">[1, 2, ..., n]</code> and you want to find out the first bad one, which causes all the following ones to be bad.</li> <li>You are given an API <code class="language-plaintext highlighter-rouge">bool isBadVersion(version)</code> which returns whether <code class="language-plaintext highlighter-rouge">version</code> is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, bad = 4
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-22T09:29:02+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">blank</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">525. Contiguous Array</title><link href="https://zhengstar94.github.io//blog/2024/ContiguousArray/" rel="alternate" type="text/html" title="525. Contiguous Array"/><published>2024-11-22T00:00:00+00:00</published><updated>2024-11-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContiguousArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContiguousArray/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the maximum length of a contiguous subarray with an equal number of</em> <code class="language-plaintext highlighter-rouge">0</code> <em>and</em> <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1]
+Output: 2
+Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0]
+Output: 2
+Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/22
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContiguousArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMaxLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Map to store the first occurrence of each count</span>
+        <span class="c1">// Key: running sum (count), Value: index where this count first appeared</span>
+        <span class="c1">// Initialize with 0 at index -1 to handle cases where valid subarray starts from index 0</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+
+        <span class="c1">// maxLen: tracks the length of the longest valid subarray found so far</span>
+        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// count: running sum (treating 0 as -1 and 1 as 1)</span>
+        <span class="c1">// When count remains unchanged between two positions, the subarray between them has equal 0s and 1s</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update running sum: add 1 for 1s, subtract 1 for 0s</span>
+            <span class="c1">// This helps track the balance between 0s and 1s</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+            <span class="c1">// If we've seen this count before, we've found a valid subarray</span>
+            <span class="c1">// Example: if count becomes 0 again, it means we have equal 0s and 1s from the start</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">count</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Calculate length of current valid subarray (current position - previous position with same count)</span>
+                <span class="c1">// Update maxLen if current valid subarray is longer</span>
+                <span class="c1">// Example: if count = 1 appears at index 2 and 5, then indexes 3,4,5 form a valid subarray</span>
+                <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">count</span><span class="o">));</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If this is the first time we see this count, record its position</span>
+                <span class="c1">// We only store the first occurrence to find the longest possible subarray</span>
+                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">count</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Basic case with alternating values</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">findMaxLength</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test case 2: Minimal case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">findMaxLength</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test case 3: Grouped zeros and ones</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">findMaxLength</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.]]></summary></entry><entry><title type="html">278. First Bad Version</title><link href="https://zhengstar94.github.io//blog/2024/FirstBadVersion/" rel="alternate" type="text/html" title="278. First Bad Version"/><published>2024-11-21T00:00:00+00:00</published><updated>2024-11-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FirstBadVersion</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FirstBadVersion/"><![CDATA[<ul> <li>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</li> <li>Suppose you have <code class="language-plaintext highlighter-rouge">n</code> versions <code class="language-plaintext highlighter-rouge">[1, 2, ..., n]</code> and you want to find out the first bad one, which causes all the following ones to be bad.</li> <li>You are given an API <code class="language-plaintext highlighter-rouge">bool isBadVersion(version)</code> which returns whether <code class="language-plaintext highlighter-rouge">version</code> is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, bad = 4
 Output: 4
 Explanation:
 call isBadVersion(3) -&gt; false
@@ -774,121 +841,4 @@ Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Closest three sum: "</span> <span class="o">+</span> <span class="n">threeSumClosest</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">target</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.]]></summary></entry><entry><title type="html">88.Merge Sorted Array</title><link href="https://zhengstar94.github.io//blog/2024/MergeSortedArray/" rel="alternate" type="text/html" title="88.Merge Sorted Array"/><published>2024-11-12T00:00:00+00:00</published><updated>2024-11-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergeSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergeSortedArray/"><![CDATA[<ul> <li>You are given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>, representing the number of elements in <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> respectively.</li> <li><strong>Merge</strong> <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> into a single array sorted in <strong>non-decreasing order</strong>.</li> <li>The final sorted array should not be returned by the function, but instead be <em>stored inside the array</em> <code class="language-plaintext highlighter-rouge">nums1</code>. To accommodate this, <code class="language-plaintext highlighter-rouge">nums1</code> has a length of <code class="language-plaintext highlighter-rouge">m + n</code>, where the first <code class="language-plaintext highlighter-rouge">m</code> elements denote the elements that should be merged, and the last <code class="language-plaintext highlighter-rouge">n</code> elements are set to <code class="language-plaintext highlighter-rouge">0</code> and should be ignored. <code class="language-plaintext highlighter-rouge">nums2</code> has a length of <code class="language-plaintext highlighter-rouge">n</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-Output: [1,2,2,3,5,6]
-Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
-The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1], m = 1, nums2 = [], n = 0
-Output: [1]
-Explanation: The arrays we are merging are [1] and [].
-The result of the merge is [1].
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [0], m = 0, nums2 = [1], n = 1
-Output: [1]
-Explanation: The arrays we are merging are [] and [1].
-The result of the merge is [1].
-Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m+n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeSortedArray</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize pointers:</span>
-        <span class="c1">// p1 points to the last valid element in nums1</span>
-        <span class="kt">int</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="c1">// p2 points to the last element in nums2</span>
-        <span class="kt">int</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="c1">// p points to the last position in the merged array</span>
-        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Compare elements from both arrays and place them in correct position</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">p1</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">p1</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums2</span><span class="o">[</span><span class="n">p2</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// If element from nums1 is larger, place it at the end</span>
-                <span class="n">nums1</span><span class="o">[</span><span class="n">p</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums1</span><span class="o">[</span><span class="n">p1</span><span class="o">];</span>
-                <span class="n">p1</span><span class="o">--;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If element from nums2 is larger or equal, place it at the end</span>
-                <span class="n">nums1</span><span class="o">[</span><span class="n">p</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums2</span><span class="o">[</span><span class="n">p2</span><span class="o">];</span>
-                <span class="n">p2</span><span class="o">--;</span>
-            <span class="o">}</span>
-            <span class="c1">// Move the merger pointer one position back</span>
-            <span class="n">p</span><span class="o">--;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If there are remaining elements in nums2, copy them to the beginning of nums1</span>
-        <span class="c1">// Note: if p1 &gt;= 0, no action needed as elements are already in place</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">nums1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">p2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Regular case with equal length arrays</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>  <span class="c1">// Array with extra space at end</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>  <span class="c1">// Number of elements in nums1</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>  <span class="c1">// Number of elements in nums2</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Before merge nums1: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"nums2: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-
-        <span class="n">merge</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">nums2</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"After merge: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Edge case where second array is empty</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{};</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Before merge nums1: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"nums2: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums4</span><span class="o">);</span>
-
-        <span class="n">merge</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">nums4</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"After merge: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Edge case where first array is empty</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums6</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Before merge nums1: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"nums2: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums6</span><span class="o">);</span>
-
-        <span class="n">merge</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">nums6</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"After merge: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums5</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Helper method to print array contents in a formatted way
-     *
-     * @param arr The array to be printed
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order. The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.]]></summary></entry></feed>
