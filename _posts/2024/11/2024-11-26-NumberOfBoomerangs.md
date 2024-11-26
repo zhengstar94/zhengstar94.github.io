@@ -3,13 +3,11 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "1010. Pairs of Songs With Total Durations Divisible by 60"
+title: "447. Number of Boomerangs"
 date: "2024-11-26"
 categories:
   - "LeetCode HashTable"
 ---
-
-# 447. Number of Boomerangs
 
 - You are given `n` `points` in the plane that are all **distinct**, where `points[i] = [xi, yi]`. A **boomerang** is a tuple of points `(i, j, k)` such that the distance between `i` and `j` equals the distance between `i` and `k` **(the order of the tuple matters)**.
 - Return *the number of boomerangs*.
