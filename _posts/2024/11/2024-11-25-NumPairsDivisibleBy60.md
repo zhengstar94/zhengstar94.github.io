@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "1010. Pairs of Songs With Total Durations Divisible by 60"
-date: "2024-11-24"
+date: "2024-11-25"
 categories:
   - "LeetCode HashTable"
 ---
