@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-27T11:35:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">266. Palindrome Permutation</title><link href="https://zhengstar94.github.io//blog/2024/PalindromePermutation/" rel="alternate" type="text/html" title="266. Palindrome Permutation"/><published>2024-11-27T00:00:00+00:00</published><updated>2024-11-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PalindromePermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PalindromePermutation/"><![CDATA[<ul> <li>Given a string, determine if a permutation of the string could form a palindrome.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: "code"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-28T04:09:29+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1047. Remove All Adjacent Duplicates In String</title><link href="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/" rel="alternate" type="text/html" title="1047. Remove All Adjacent Duplicates In String"/><published>2024-11-28T00:00:00+00:00</published><updated>2024-11-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of lowercase English letters. A <strong>duplicate removal</strong> consists of choosing two <strong>adjacent</strong> and <strong>equal</strong> letters and removing them.</li> <li>We repeatedly make <strong>duplicate removals</strong> on <code class="language-plaintext highlighter-rouge">s</code> until we no longer can.</li> <li>Return <em>the final string after all such duplicate removals have been made</em>. It can be proven that the answer is <strong>unique</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abbaca"
+Output: "ca"
+Explanation: 
+For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "azxxzy"
+Output: "ay"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveAllAdjacentDuplicatesInString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">removeDuplicates</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Use StringBuilder as a stack to track characters</span>
+        <span class="nc">StringBuilder</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+        <span class="c1">// Iterate through each character in the string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="nl">c:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()){</span>
+            <span class="c1">// If stack is not empty and current char matches the top of the stack</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">c</span><span class="o">){</span>
+                <span class="c1">// Remove the top character (eliminate adjacent duplicates)</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Otherwise, add the current character to the stack</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the final processed string</span>
+        <span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Original example</span>
+        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"abbaca"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 1: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: Another original example</span>
+        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"azxxzy"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 2: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: All same characters</span>
+        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"aaaaaa"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 3: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+
+        <span class="c1">// Test case 4: No duplicate characters</span>
+        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 4: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
+
+        <span class="c1">// Test case 5: Complex repeated pattern</span>
+        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"aaabbccddee"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 5: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them. We repeatedly make duplicate removals on s until we no longer can. Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.]]></summary></entry><entry><title type="html">266. Palindrome Permutation</title><link href="https://zhengstar94.github.io//blog/2024/PalindromePermutation/" rel="alternate" type="text/html" title="266. Palindrome Permutation"/><published>2024-11-27T00:00:00+00:00</published><updated>2024-11-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PalindromePermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PalindromePermutation/"><![CDATA[<ul> <li>Given a string, determine if a permutation of the string could form a palindrome.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: "code"
 Output: false
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: "aab"
 Output: true
@@ -707,101 +764,4 @@ Explanation: There is no common prefix among the input strings.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><summary type="html"><![CDATA[Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".]]></summary></entry><entry><title type="html">1768. Merge Strings Alternately</title><link href="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/" rel="alternate" type="text/html" title="1768. Merge Strings Alternately"/><published>2024-11-18T00:00:00+00:00</published><updated>2024-11-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MergeStringsAlternately</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MergeStringsAlternately/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>. Merge the strings by adding letters in alternating order, starting with <code class="language-plaintext highlighter-rouge">word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.</li> <li>Return <em>the merged string.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abc", word2 = "pqr"
-Output: "apbqcr"
-Explanation: The merged string will be merged as so:
-word1:  a   b   c
-word2:    p   q   r
-merged: a p b q c r
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "ab", word2 = "pqrs"
-Output: "apbqrs"
-Explanation: Notice that as word2 is longer, "rs" is appended to the end.
-word1:  a   b 
-word2:    p   q   r   s
-merged: a p b q   r   s
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abcd", word2 = "pq"
-Output: "apbqcd"
-Explanation: Notice that as word1 is longer, "cd" is appended to the end.
-word1:  a   b   c   d
-word2:    p   q 
-merged: a p b q c   d
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m + n) time | O(m + n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/18
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeStringsAlternately</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">mergeAlternately</span><span class="o">(</span><span class="nc">String</span> <span class="n">word1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// StringBuilder is used for efficient string concatenation</span>
-        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-        <span class="c1">// Two pointers to track current position in each string</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// pointer for word1</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// pointer for word2</span>
-
-        <span class="c1">// Process both strings until we reach the end of either string</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
-            <span class="c1">// Append current character from word1 and increment pointer</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">++));</span>
-            <span class="c1">// Append current character from word2 and increment pointer</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">++));</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Append remaining characters from word1 (if any)</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">++));</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Append remaining characters from word2 (if any)</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">++));</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert StringBuilder to String and return</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Equal length strings</span>
-        <span class="nc">String</span> <span class="n">word1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">word2</span> <span class="o">=</span> <span class="s">"pqr"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - Equal length strings:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: apbqcr"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Second string is longer</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">"ab"</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">"pqrs"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 - Second string is longer:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: apbqrs"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: First string is longer</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">"pq"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 - First string is longer:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: apbqcd"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: Empty string case</span>
-        <span class="n">word1</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="n">word2</span> <span class="o">=</span> <span class="s">"pqr"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">mergeAlternately</span><span class="o">(</span><span class="n">word1</span><span class="o">,</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 - First string is empty:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: word1 = "</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">", word2 = "</span> <span class="o">+</span> <span class="n">word2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: pqr"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string. Return the merged string.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><summary type="html"><![CDATA[Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".]]></summary></entry></feed>
