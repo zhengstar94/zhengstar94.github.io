@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-28T04:09:29+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1047. Remove All Adjacent Duplicates In String</title><link href="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/" rel="alternate" type="text/html" title="1047. Remove All Adjacent Duplicates In String"/><published>2024-11-28T00:00:00+00:00</published><updated>2024-11-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of lowercase English letters. A <strong>duplicate removal</strong> consists of choosing two <strong>adjacent</strong> and <strong>equal</strong> letters and removing them.</li> <li>We repeatedly make <strong>duplicate removals</strong> on <code class="language-plaintext highlighter-rouge">s</code> until we no longer can.</li> <li>Return <em>the final string after all such duplicate removals have been made</em>. It can be proven that the answer is <strong>unique</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abbaca"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-29T14:05:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">71. Simplify Path</title><link href="https://zhengstar94.github.io//blog/2024/SimplifyPath/" rel="alternate" type="text/html" title="71. Simplify Path"/><published>2024-11-29T00:00:00+00:00</published><updated>2024-11-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SimplifyPath</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SimplifyPath/"><![CDATA[<ul> <li>You are given an <em>absolute</em> path for a Unix-style file system, which always begins with a slash <code class="language-plaintext highlighter-rouge">'/'</code>. Your task is to transform this absolute path into its <strong>simplified canonical path</strong>.</li> <li>The <em>rules</em> of a Unix-style file system are as follows: <ul> <li>A single period <code class="language-plaintext highlighter-rouge">'.'</code> represents the current directory.</li> <li>A double period <code class="language-plaintext highlighter-rouge">'..'</code> represents the previous/parent directory.</li> <li>Multiple consecutive slashes such as <code class="language-plaintext highlighter-rouge">'//'</code> and <code class="language-plaintext highlighter-rouge">'///'</code> are treated as a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file</strong> <strong>name</strong>. For example, <code class="language-plaintext highlighter-rouge">'...' </code>and <code class="language-plaintext highlighter-rouge">'....'</code> are valid directory or file names.</li> </ul> </li> <li>The simplified canonical path should follow these <em>rules</em>: <ul> <li>The path must start with a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Directories within the path must be separated by exactly one slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>The path must not end with a slash <code class="language-plaintext highlighter-rouge">'/'</code>, unless it is the root directory.</li> <li>The path must not have any single or double periods (<code class="language-plaintext highlighter-rouge">'.'</code> and <code class="language-plaintext highlighter-rouge">'..'</code>) used to denote current or parent directories.</li> </ul> </li> <li>Return the <strong>simplified canonical path</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home/"
+Output: "/home"
+Explanation:
+The trailing slash should be removed.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home//foo/"
+Output: "/home/foo"
+Explanation:
+Multiple consecutive slashes are replaced by a single one.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home/user/Documents/../Pictures"
+Output: "/home/user/Pictures"
+Explanation:
+A double period ".." refers to the directory up a level (the parent directory).
+</code></pre></div></div> <p><strong>Example 4</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/../"
+Output: "/"
+Explanation:
+Going one level up from the root directory is not possible.
+</code></pre></div></div> <p><strong>Example 5</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/.../a/../b/c/../d/./"
+Output: "/.../b/d"
+Explanation:
+"..." is a valid name for a directory in this problem.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/11/29
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimplifyPath</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">simplifyPath</span><span class="o">(</span><span class="nc">String</span> <span class="n">path</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize a double-ended queue (stack) to store valid directory components</span>
+        <span class="c1">// Using ArrayDeque provides more efficient stack operations compared to traditional Stack</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Split the path into components using "/" as the delimiter</span>
+        <span class="c1">// This handles multiple scenarios like consecutive slashes, leading/trailing slashes</span>
+        <span class="c1">// Example: "/a//b" → ["", "a", "", "b"]</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">components</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
+
+        <span class="c1">// Iterate through each path component to process and simplify</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">component</span> <span class="o">:</span> <span class="n">components</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Skip empty strings and current directory markers (".")</span>
+            <span class="c1">// This handles cases like "//" or "./"</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">component</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">component</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"."</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Handle parent directory navigation ("..")</span>
+            <span class="c1">// If the stack is not empty, remove the last directory (go up one level)</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">component</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">".."</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Prevents going above root directory</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">stack</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add valid directory names to the stack</span>
+            <span class="c1">// This includes special directory names like "..."</span>
+            <span class="n">stack</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">component</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Reconstruct the simplified canonical path</span>
+        <span class="c1">// Start with a root slash "/"</span>
+        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
+
+        <span class="c1">// Append each directory from the stack</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">dir</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Remove the trailing slash for non-root paths</span>
+        <span class="c1">// Ensures the path follows canonical format</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic path with trailing slash</span>
+        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"/home/"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 1: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Multiple consecutive slashes</span>
+        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"/home//foo/"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 2: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Path with parent directory navigation</span>
+        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"/home/user/Documents/../Pictures"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 3: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Trying to navigate above root directory</span>
+        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"/../"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 4: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 5: Complex path with multiple scenarios</span>
+        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"/.../a/../b/c/../d/./"</span><span class="o">;;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 5: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. Your task is to transform this absolute path into its simplified canonical path. The rules of a Unix-style file system are as follows: A single period '.' represents the current directory. A double period '..' represents the previous/parent directory. Multiple consecutive slashes such as '//' and '///' are treated as a single slash '/'. Any sequence of periods that does not match the rules above should be treated as a valid directory or file name. For example, '...' and '....' are valid directory or file names. The simplified canonical path should follow these rules: The path must start with a single slash '/'. Directories within the path must be separated by exactly one slash '/'. The path must not end with a slash '/', unless it is the root directory. The path must not have any single or double periods ('.' and '..') used to denote current or parent directories. Return the simplified canonical path.]]></summary></entry><entry><title type="html">1047. Remove All Adjacent Duplicates In String</title><link href="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/" rel="alternate" type="text/html" title="1047. Remove All Adjacent Duplicates In String"/><published>2024-11-28T00:00:00+00:00</published><updated>2024-11-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of lowercase English letters. A <strong>duplicate removal</strong> consists of choosing two <strong>adjacent</strong> and <strong>equal</strong> letters and removing them.</li> <li>We repeatedly make <strong>duplicate removals</strong> on <code class="language-plaintext highlighter-rouge">s</code> until we no longer can.</li> <li>Return <em>the final string after all such duplicate removals have been made</em>. It can be proven that the answer is <strong>unique</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abbaca"
 Output: "ca"
 Explanation: 
 For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
@@ -683,85 +788,4 @@ Output: false
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) &lt;= k.]]></summary></entry><entry><title type="html">14. Longest Common Prefix</title><link href="https://zhengstar94.github.io//blog/2024/LongestCommonPrefix/" rel="alternate" type="text/html" title="14. Longest Common Prefix"/><published>2024-11-19T00:00:00+00:00</published><updated>2024-11-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LongestCommonPrefix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LongestCommonPrefix/"><![CDATA[<ul> <li>Write a function to find the longest common prefix string amongst an array of strings.</li> <li>If there is no common prefix, return an empty string <code class="language-plaintext highlighter-rouge">""</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: strs = [ "flower","flow","flight" ]
-Output: "fl"
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: strs = [ "dog","racecar","car" ]
-Output: ""
-Explanation: There is no common prefix among the input strings.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(S) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestCommonPrefix</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">longestCommonPrefix</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">strs</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases: return empty string if array is null or empty</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">strs</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If array contains only one string, return that string as the prefix</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Initialize prefix with the first string</span>
-        <span class="nc">String</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-
-        <span class="c1">// Iterate through the remaining strings in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">prefix</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="cm">/**
-             * The indexOf(prefix) method returns the position where the prefix starts in the string
-             * If prefix is found at the beginning of the string, indexOf returns 0
-             * If prefix is not found at the beginning:
-             * - Either prefix is not in the string at all (returns -1)
-             * - Or prefix is found but not at the start (returns &gt; 0)
-             * In both cases, we need to shorten the prefix
-             */</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">strs</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">indexOf</span><span class="o">(</span><span class="n">prefix</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="cm">/**
-                 * Shorten the prefix by removing its last character:
-                 * - substring(0, prefix.length() - 1) creates a new string
-                 * - Starting from index 0 (inclusive)
-                 * - Ending at prefix.length() - 1 (exclusive)
-                 * Example:
-                 * If prefix = "flower", new prefix will be "flowe"
-                 * This process continues until either:
-                 * 1. The shortened prefix is found at the start of current string
-                 * 2. Or prefix becomes empty string
-                 */</span>
-                <span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">prefix</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-
-                <span class="c1">// If prefix becomes empty, there is no common prefix</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">prefix</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the final common prefix found</span>
-        <span class="k">return</span> <span class="n">prefix</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: strings with common prefix "fl"</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"flower"</span><span class="o">,</span> <span class="s">"flow"</span><span class="o">,</span> <span class="s">"flight"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>  <span class="c1">// Expected output: "fl"</span>
-
-        <span class="c1">// Test case 2: strings with no common prefix</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"dog"</span><span class="o">,</span> <span class="s">"racecar"</span><span class="o">,</span> <span class="s">"car"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>  <span class="c1">// Expected output: ""</span>
-
-        <span class="c1">// Test case 3: empty array</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>  <span class="c1">// Expected output: ""</span>
-
-        <span class="c1">// Test case 4: array with single string</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">test4</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"single"</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">longestCommonPrefix</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>  <span class="c1">// Expected output: "single"</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><summary type="html"><![CDATA[Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) &lt;= k.]]></summary></entry></feed>
