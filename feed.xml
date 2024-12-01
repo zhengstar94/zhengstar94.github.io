@@ -1,4 +1,178 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-30T02:08:12+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">71. Simplify Path</title><link href="https://zhengstar94.github.io//blog/2024/SimplifyPath/" rel="alternate" type="text/html" title="71. Simplify Path"/><published>2024-11-29T00:00:00+00:00</published><updated>2024-11-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SimplifyPath</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SimplifyPath/"><![CDATA[<ul> <li>You are given an <em>absolute</em> path for a Unix-style file system, which always begins with a slash <code class="language-plaintext highlighter-rouge">'/'</code>. Your task is to transform this absolute path into its <strong>simplified canonical path</strong>.</li> <li>The <em>rules</em> of a Unix-style file system are as follows: <ul> <li>A single period <code class="language-plaintext highlighter-rouge">'.'</code> represents the current directory.</li> <li>A double period <code class="language-plaintext highlighter-rouge">'..'</code> represents the previous/parent directory.</li> <li>Multiple consecutive slashes such as <code class="language-plaintext highlighter-rouge">'//'</code> and <code class="language-plaintext highlighter-rouge">'///'</code> are treated as a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file</strong> <strong>name</strong>. For example, <code class="language-plaintext highlighter-rouge">'...' </code>and <code class="language-plaintext highlighter-rouge">'....'</code> are valid directory or file names.</li> </ul> </li> <li>The simplified canonical path should follow these <em>rules</em>: <ul> <li>The path must start with a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Directories within the path must be separated by exactly one slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>The path must not end with a slash <code class="language-plaintext highlighter-rouge">'/'</code>, unless it is the root directory.</li> <li>The path must not have any single or double periods (<code class="language-plaintext highlighter-rouge">'.'</code> and <code class="language-plaintext highlighter-rouge">'..'</code>) used to denote current or parent directories.</li> </ul> </li> <li>Return the <strong>simplified canonical path</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home/"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-01T03:27:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">51. N-Queens</title><link href="https://zhengstar94.github.io//blog/2024/NQueens/" rel="alternate" type="text/html" title="51. N-Queens"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NQueens</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NQueens/"><![CDATA[<ul> <li>The <strong>n-queens</strong> puzzle is the problem of placing <code class="language-plaintext highlighter-rouge">n</code> queens on an <code class="language-plaintext highlighter-rouge">n x n</code> chessboard such that no two queens attack each other.</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>all distinct solutions to the <strong>n-queens puzzle</strong></em>. You may return the answer in <strong>any order</strong>.</li> <li>Each solution contains a distinct board configuration of the n-queens’ placement, where <code class="language-plaintext highlighter-rouge">'Q'</code> and <code class="language-plaintext highlighter-rouge">'.'</code> both indicate a queen and an empty space, respectively.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 4
+Output: [ [ ".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.." ] ]
+Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
+Output: [ [ "Q" ] ]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n!) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NQueens</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Main method to solve the N-Queens problem for a given board size.
+     *
+     * This method initializes the solving process and returns all valid queen arrangements.
+     *
+     * @param n The size of the chessboard (number of queens to place)
+     * @return A list of all possible queen arrangements, where each arrangement
+     *         is represented as a list of string representations of board rows
+     *
+     * Key Steps:
+     * 1. Create an empty result list to store solutions
+     * 2. Initialize a queens array to track queen positions
+     * 3. Start the backtracking process from the first row
+     * 4. Return all found solutions
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="nf">solveNQueens</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// List to store all valid solutions</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Array to track queen positions (index = row, value = column)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="c1">// Initialize all positions as unoccupied</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+
+        <span class="c1">// Start backtracking from the first row</span>
+        <span class="n">backtrack</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Recursive backtracking method to explore all possible queen placements.
+     *
+     * This is the core algorithm that systematically tries to place queens
+     * on the board while maintaining the N-Queens constraints.
+     *
+     * @param queens Array representing current queen positions
+     * @param row Current row being processed
+     * @param n Total board size
+     * @param result List to store all valid solutions
+     *
+     * Detailed Algorithm:
+     * 1. Base Case: If all rows are processed, add current solution to results
+     * 2. For each column in the current row:
+     *    - Check if placing a queen is valid
+     *    - If valid, place the queen
+     *    - Recursively process the next row
+     *    - Implicitly backtrack by trying next column positions
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrack</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If we've successfully placed queens in all rows, we've found a solution</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">row</span> <span class="o">==</span> <span class="n">n</span><span class="o">){</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">constructSolution</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="n">n</span><span class="o">));</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Try placing a queen in each column of the current row</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">col</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if placing a queen at this position is valid</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="n">col</span><span class="o">)){</span>
+                <span class="c1">// Place the queen</span>
+                <span class="n">queens</span><span class="o">[</span><span class="n">row</span><span class="o">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">;</span>
+
+                <span class="c1">// Recursively process the next row</span>
+                <span class="n">backtrack</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+
+    <span class="cm">/**
+     * Validates whether a queen can be placed at the given position.
+     *
+     * Checks two key constraints:
+     * 1. No queen in the same column
+     * 2. No queen on the same diagonal
+     *
+     * @param queens Current queen positions
+     * @param row Row of the new queen
+     * @param col Column of the new queen
+     * @return true if queen placement is valid, false otherwise
+     *
+     * Validation Logic:
+     * - Column Check: Ensure no queen in the same column
+     * - Diagonal Check: Use absolute value difference to detect diagonal conflicts
+     *   - Diagonal conflict occurs when |row1 - row2| == |col1 - col2|
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Check all previous rows</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check column conflict</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">queens</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">col</span><span class="o">){</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Check diagonal conflicts using absolute value difference</span>
+            <span class="c1">// If |row distance| == |column distance|, queens are on the same diagonal</span>
+            <span class="k">if</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">col</span> <span class="o">-</span> <span class="n">queens</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Converts the internal queens array representation to a visual board layout.
+     *
+     * Transforms the queens array into a list of strings where:
+     * - 'Q' represents a queen
+     * - '.' represents an empty square
+     *
+     * @param queens Array representing queen positions
+     * @param n Board size
+     * @return A list of strings representing the board configuration
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">constructSolution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">solution</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Create a row filled with '.' initially</span>
+            <span class="kt">char</span><span class="o">[]</span> <span class="n">row</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+            <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">row</span><span class="o">,</span> <span class="sc">'.'</span><span class="o">);</span>
+
+            <span class="c1">// Place queen at the correct column</span>
+            <span class="n">row</span><span class="o">[</span><span class="n">queens</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="sc">'Q'</span><span class="o">;</span>
+
+            <span class="c1">// Convert row to string and add to solution</span>
+            <span class="n">solution</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">row</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">solution</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test cases for different board sizes</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">:</span> <span class="n">testCases</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"N = "</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" Queens Problem Solutions:"</span><span class="o">);</span>
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">solutions</span> <span class="o">=</span> <span class="n">solveNQueens</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+
+            <span class="c1">// Print number of solutions</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of Solutions: "</span> <span class="o">+</span> <span class="n">solutions</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+
+            <span class="c1">// Print each solution's board layout</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">solutions</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Solution "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
+                <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">row</span> <span class="o">:</span> <span class="n">solutions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">row</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span> <span class="c1">// Separator between solutions</span>
+            <span class="o">}</span>
+
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-------------------"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><category term="Hard"/><summary type="html"><![CDATA[The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order. Each solution contains a distinct board configuration of the n-queens’ placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.]]></summary></entry><entry><title type="html">71. Simplify Path</title><link href="https://zhengstar94.github.io//blog/2024/SimplifyPath/" rel="alternate" type="text/html" title="71. Simplify Path"/><published>2024-11-29T00:00:00+00:00</published><updated>2024-11-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SimplifyPath</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SimplifyPath/"><![CDATA[<ul> <li>You are given an <em>absolute</em> path for a Unix-style file system, which always begins with a slash <code class="language-plaintext highlighter-rouge">'/'</code>. Your task is to transform this absolute path into its <strong>simplified canonical path</strong>.</li> <li>The <em>rules</em> of a Unix-style file system are as follows: <ul> <li>A single period <code class="language-plaintext highlighter-rouge">'.'</code> represents the current directory.</li> <li>A double period <code class="language-plaintext highlighter-rouge">'..'</code> represents the previous/parent directory.</li> <li>Multiple consecutive slashes such as <code class="language-plaintext highlighter-rouge">'//'</code> and <code class="language-plaintext highlighter-rouge">'///'</code> are treated as a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file</strong> <strong>name</strong>. For example, <code class="language-plaintext highlighter-rouge">'...' </code>and <code class="language-plaintext highlighter-rouge">'....'</code> are valid directory or file names.</li> </ul> </li> <li>The simplified canonical path should follow these <em>rules</em>: <ul> <li>The path must start with a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Directories within the path must be separated by exactly one slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>The path must not end with a slash <code class="language-plaintext highlighter-rouge">'/'</code>, unless it is the root directory.</li> <li>The path must not have any single or double periods (<code class="language-plaintext highlighter-rouge">'.'</code> and <code class="language-plaintext highlighter-rouge">'..'</code>) used to denote current or parent directories.</li> </ul> </li> <li>Return the <strong>simplified canonical path</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home/"
 Output: "/home"
 Explanation:
 The trailing slash should be removed.
@@ -750,89 +924,4 @@ Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal numb
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.]]></summary></entry><entry><title type="html">278. First Bad Version</title><link href="https://zhengstar94.github.io//blog/2024/FirstBadVersion/" rel="alternate" type="text/html" title="278. First Bad Version"/><published>2024-11-21T00:00:00+00:00</published><updated>2024-11-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FirstBadVersion</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FirstBadVersion/"><![CDATA[<ul> <li>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</li> <li>Suppose you have <code class="language-plaintext highlighter-rouge">n</code> versions <code class="language-plaintext highlighter-rouge">[1, 2, ..., n]</code> and you want to find out the first bad one, which causes all the following ones to be bad.</li> <li>You are given an API <code class="language-plaintext highlighter-rouge">bool isBadVersion(version)</code> which returns whether <code class="language-plaintext highlighter-rouge">version</code> is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, bad = 4
-Output: 4
-Explanation:
-call isBadVersion(3) -&gt; false
-call isBadVersion(5) -&gt; true
-call isBadVersion(4) -&gt; true
-Then 4 is the first bad version.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1, bad = 1
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(logn) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/21
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FirstBadVersion</span> <span class="kd">extends</span> <span class="nc">VersionControl</span><span class="o">{</span>
-    <span class="c1">// Reference to the VersionControl instance</span>
-    <span class="nc">VersionControl</span> <span class="n">versionControl</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">firstBadVersion</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Use binary search to find the first bad version</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate mid point to avoid integer overflow</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// If mid is a bad version, search in the left half</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">versionControl</span><span class="o">.</span><span class="na">isBadVersion</span><span class="o">(</span><span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// If mid is a good version, search in the right half</span>
-            <span class="k">else</span> <span class="o">{</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the first bad version</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">VersionControl</span> <span class="o">{</span>
-    <span class="c1">// The first bad version number</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">firstBadVersion</span><span class="o">;</span>
-
-    <span class="c1">// Constructor with specified first bad version</span>
-    <span class="kd">public</span> <span class="nf">VersionControl</span><span class="o">(</span><span class="kt">int</span> <span class="n">firstBadVersion</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">firstBadVersion</span> <span class="o">=</span> <span class="n">firstBadVersion</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Default constructor with first bad version set to 4</span>
-    <span class="kd">public</span> <span class="nf">VersionControl</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">firstBadVersion</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// API method to check if a version is bad</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBadVersion</span><span class="o">(</span><span class="kt">int</span> <span class="n">version</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Return true if version is greater than or equal to first bad version</span>
-        <span class="k">return</span> <span class="n">version</span> <span class="o">&gt;=</span> <span class="n">firstBadVersion</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Test method to validate the solution</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Bad version is 4</span>
-        <span class="nc">VersionControl</span> <span class="n">vc1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VersionControl</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="nc">FirstBadVersion</span> <span class="nc">FirstBadVersion1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstBadVersion</span><span class="o">();</span>
-        <span class="nc">FirstBadVersion1</span><span class="o">.</span><span class="na">versionControl</span> <span class="o">=</span> <span class="n">vc1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 (Bad Version 4): "</span> <span class="o">+</span> <span class="nc">FirstBadVersion1</span><span class="o">.</span><span class="na">firstBadVersion</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test case 2: Bad version is 1</span>
-        <span class="nc">VersionControl</span> <span class="n">vc2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VersionControl</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">FirstBadVersion</span> <span class="nc">FirstBadVersion2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstBadVersion</span><span class="o">();</span>
-        <span class="nc">FirstBadVersion2</span><span class="o">.</span><span class="na">versionControl</span> <span class="o">=</span> <span class="n">vc2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 (Bad Version 1): "</span> <span class="o">+</span> <span class="nc">FirstBadVersion2</span><span class="o">.</span><span class="na">firstBadVersion</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test case 3: Bad version is 2</span>
-        <span class="nc">VersionControl</span> <span class="n">vc3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VersionControl</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="nc">FirstBadVersion</span> <span class="nc">FirstBadVersion3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstBadVersion</span><span class="o">();</span>
-        <span class="nc">FirstBadVersion3</span><span class="o">.</span><span class="na">versionControl</span> <span class="o">=</span> <span class="n">vc3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Bad Version 2): "</span> <span class="o">+</span> <span class="nc">FirstBadVersion3</span><span class="o">.</span><span class="na">firstBadVersion</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><summary type="html"><![CDATA[You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad. Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad. You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.]]></summary></entry></feed>
