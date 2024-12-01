@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-01T03:27:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">51. N-Queens</title><link href="https://zhengstar94.github.io//blog/2024/NQueens/" rel="alternate" type="text/html" title="51. N-Queens"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NQueens</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NQueens/"><![CDATA[<ul> <li>The <strong>n-queens</strong> puzzle is the problem of placing <code class="language-plaintext highlighter-rouge">n</code> queens on an <code class="language-plaintext highlighter-rouge">n x n</code> chessboard such that no two queens attack each other.</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>all distinct solutions to the <strong>n-queens puzzle</strong></em>. You may return the answer in <strong>any order</strong>.</li> <li>Each solution contains a distinct board configuration of the n-queens’ placement, where <code class="language-plaintext highlighter-rouge">'Q'</code> and <code class="language-plaintext highlighter-rouge">'.'</code> both indicate a queen and an empty space, respectively.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 4
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-01T03:58:05+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">394. Decode String</title><link href="https://zhengstar94.github.io//blog/2024/DecodeString/" rel="alternate" type="text/html" title="394. Decode String"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DecodeString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DecodeString/"><![CDATA[<ul> <li>Given an encoded string, return its decoded string.</li> <li>The encoding rule is: <code class="language-plaintext highlighter-rouge">k[encoded_string]</code>, where the <code class="language-plaintext highlighter-rouge">encoded_string</code> inside the square brackets is being repeated exactly <code class="language-plaintext highlighter-rouge">k</code> times. Note that <code class="language-plaintext highlighter-rouge">k</code> is guaranteed to be a positive integer.</li> <li>You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <code class="language-plaintext highlighter-rouge">k</code>. For example, there will not be input like <code class="language-plaintext highlighter-rouge">3a</code> or <code class="language-plaintext highlighter-rouge">2[4]</code>.</li> <li>The test cases are generated so that the length of the output will never exceed <code class="language-plaintext highlighter-rouge">10^5</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "3[a]2[bc]"
+Output: "aaabcbc"
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "3[a2[c]]"
+Output: "accaccacc"
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "2[abc]3[cd]ef"
+Output: "abcabccdcdcdef"
+</code></pre></div></div> <p><strong>Example 4</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc3[cd]xyz"
+Output: "abccdcdcdxyz"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * k) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DecodeString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">decodeString</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Stack to track the repeat counts for each nested level</span>
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countStack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Stack to track previous strings at each nested level</span>
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stringStack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Current number being processed (supports multi-digit numbers)</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Current string being built at the current processing level</span>
+        <span class="nc">StringBuilder</span> <span class="n">currentString</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+        <span class="c1">// Process each character in the input string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="nl">c:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// 1. Number Processing: Build multi-digit numbers</span>
+            <span class="k">if</span><span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">)){</span>
+                <span class="c1">// Convert character to digit and accumulate</span>
+                <span class="c1">// Handles multi-digit numbers like 10, 23 etc.</span>
+                <span class="c1">// Example: '1' -&gt; num = 0*10 + 1 = 1</span>
+                <span class="c1">//          '23' -&gt; num = 1*10 + 3 = 13</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// 2. Left Bracket: Start of a new encoding block</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span><span class="sc">'['</span><span class="o">){</span>
+                <span class="c1">// Push current number of repeats to count stack</span>
+                <span class="c1">// This allows tracking nested repeat counts</span>
+                <span class="n">countStack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+
+                <span class="c1">// Push current string to string stack</span>
+                <span class="c1">// Preserves previous string context before entering new block</span>
+                <span class="n">stringStack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">currentString</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+                <span class="c1">// Reset for new block processing</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="n">currentString</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="c1">// 3. Right Bracket: End of an encoding block, time to decode</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">']'</span><span class="o">){</span>
+                <span class="c1">// Retrieve repeat count for current block</span>
+                <span class="kt">int</span> <span class="n">repeatTimes</span> <span class="o">=</span> <span class="n">countStack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+
+                <span class="c1">// Retrieve previous string context</span>
+                <span class="c1">// This handles nested and sequential encodings</span>
+                <span class="nc">StringBuilder</span> <span class="n">previousString</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">stringStack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+
+                <span class="c1">// Create a new string to store repeated content</span>
+                <span class="nc">StringBuilder</span> <span class="n">repeatedString</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+                <span class="c1">// Repeat current block string specified number of times</span>
+                <span class="c1">// Example: If currentString is "abc" and repeatTimes is 3</span>
+                <span class="c1">// repeatedString becomes "abcabcabc"</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">repeatTimes</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">repeatedString</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">currentString</span><span class="o">);</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Combine previous context with repeated string</span>
+                <span class="c1">// This resolves nested and sequential encodings</span>
+                <span class="n">currentString</span> <span class="o">=</span> <span class="n">previousString</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">repeatedString</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// 4. Letter Processing: Accumulate characters in current string</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">currentString</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the fully decoded string</span>
+        <span class="k">return</span> <span class="n">currentString</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Comprehensive test cases covering various scenarios</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="s">"3[a]2[bc]"</span><span class="o">,</span>           <span class="c1">// Simple repetition</span>
+                <span class="s">"3[a2[c]]"</span><span class="o">,</span>             <span class="c1">// Nested repetition</span>
+                <span class="s">"2[abc]3[cd]ef"</span><span class="o">,</span>        <span class="c1">// Multi-level repetition</span>
+                <span class="s">"abc3[cd]xyz"</span><span class="o">,</span>          <span class="c1">// Repetition with prefix/suffix</span>
+                <span class="s">"10[a]"</span><span class="o">,</span>                <span class="c1">// Multi-digit number</span>
+                <span class="s">""</span>                      <span class="c1">// Empty string</span>
+        <span class="o">};</span>
+
+        <span class="c1">// Execute and print results for each test case</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">testCase</span> <span class="o">:</span> <span class="n">testCases</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Original Encoded String: "</span> <span class="o">+</span> <span class="n">testCase</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">decoded</span> <span class="o">=</span> <span class="n">decodeString</span><span class="o">(</span><span class="n">testCase</span><span class="o">);</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Decoded Result: "</span> <span class="o">+</span> <span class="n">decoded</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Decoding Error: "</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-------------------"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an encoded string, return its decoded string. The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer. You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4]. The test cases are generated so that the length of the output will never exceed 10^5.]]></summary></entry><entry><title type="html">51. N-Queens</title><link href="https://zhengstar94.github.io//blog/2024/NQueens/" rel="alternate" type="text/html" title="51. N-Queens"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NQueens</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NQueens/"><![CDATA[<ul> <li>The <strong>n-queens</strong> puzzle is the problem of placing <code class="language-plaintext highlighter-rouge">n</code> queens on an <code class="language-plaintext highlighter-rouge">n x n</code> chessboard such that no two queens attack each other.</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>all distinct solutions to the <strong>n-queens puzzle</strong></em>. You may return the answer in <strong>any order</strong>.</li> <li>Each solution contains a distinct board configuration of the n-queens’ placement, where <code class="language-plaintext highlighter-rouge">'Q'</code> and <code class="language-plaintext highlighter-rouge">'.'</code> both indicate a queen and an empty space, respectively.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 4
 Output: [ [ ".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.." ] ]
 Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
@@ -857,71 +970,4 @@ Following the order of appearance in order, "b", "c", and "a" from s should be a
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">customSortString</span><span class="o">(</span><span class="n">order5</span><span class="o">,</span> <span class="n">s5</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously. Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string. Return any permutation of s that satisfies this property.]]></summary></entry><entry><title type="html">525. Contiguous Array</title><link href="https://zhengstar94.github.io//blog/2024/ContiguousArray/" rel="alternate" type="text/html" title="525. Contiguous Array"/><published>2024-11-22T00:00:00+00:00</published><updated>2024-11-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContiguousArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContiguousArray/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the maximum length of a contiguous subarray with an equal number of</em> <code class="language-plaintext highlighter-rouge">0</code> <em>and</em> <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1]
-Output: 2
-Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0]
-Output: 2
-Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/22
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContiguousArray</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMaxLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Map to store the first occurrence of each count</span>
-        <span class="c1">// Key: running sum (count), Value: index where this count first appeared</span>
-        <span class="c1">// Initialize with 0 at index -1 to handle cases where valid subarray starts from index 0</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-
-        <span class="c1">// maxLen: tracks the length of the longest valid subarray found so far</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// count: running sum (treating 0 as -1 and 1 as 1)</span>
-        <span class="c1">// When count remains unchanged between two positions, the subarray between them has equal 0s and 1s</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Update running sum: add 1 for 1s, subtract 1 for 0s</span>
-            <span class="c1">// This helps track the balance between 0s and 1s</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// If we've seen this count before, we've found a valid subarray</span>
-            <span class="c1">// Example: if count becomes 0 again, it means we have equal 0s and 1s from the start</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">count</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Calculate length of current valid subarray (current position - previous position with same count)</span>
-                <span class="c1">// Update maxLen if current valid subarray is longer</span>
-                <span class="c1">// Example: if count = 1 appears at index 2 and 5, then indexes 3,4,5 form a valid subarray</span>
-                <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">count</span><span class="o">));</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If this is the first time we see this count, record its position</span>
-                <span class="c1">// We only store the first occurrence to find the longest possible subarray</span>
-                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">count</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Basic case with alternating values</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">findMaxLength</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test case 2: Minimal case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">findMaxLength</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test case 3: Grouped zeros and ones</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">findMaxLength</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously. Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string. Return any permutation of s that satisfies this property.]]></summary></entry></feed>
