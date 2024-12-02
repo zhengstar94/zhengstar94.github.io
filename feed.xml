@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-01T03:58:05+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">394. Decode String</title><link href="https://zhengstar94.github.io//blog/2024/DecodeString/" rel="alternate" type="text/html" title="394. Decode String"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DecodeString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DecodeString/"><![CDATA[<ul> <li>Given an encoded string, return its decoded string.</li> <li>The encoding rule is: <code class="language-plaintext highlighter-rouge">k[encoded_string]</code>, where the <code class="language-plaintext highlighter-rouge">encoded_string</code> inside the square brackets is being repeated exactly <code class="language-plaintext highlighter-rouge">k</code> times. Note that <code class="language-plaintext highlighter-rouge">k</code> is guaranteed to be a positive integer.</li> <li>You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <code class="language-plaintext highlighter-rouge">k</code>. For example, there will not be input like <code class="language-plaintext highlighter-rouge">3a</code> or <code class="language-plaintext highlighter-rouge">2[4]</code>.</li> <li>The test cases are generated so that the length of the output will never exceed <code class="language-plaintext highlighter-rouge">10^5</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "3[a]2[bc]"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-02T04:39:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">52. N-Queens II</title><link href="https://zhengstar94.github.io//blog/2024/NQueens/" rel="alternate" type="text/html" title="52. N-Queens II"/><published>2024-12-02T00:00:00+00:00</published><updated>2024-12-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NQueens%7C%7C</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NQueens/"><![CDATA[<ul> <li>The <strong>n-queens</strong> puzzle is the problem of placing <code class="language-plaintext highlighter-rouge">n</code> queens on an <code class="language-plaintext highlighter-rouge">n x n</code> chessboard such that no two queens attack each other.</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>the number of distinct solutions to the <strong>n-queens puzzle</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 4
+Output: 2
+Explanation: There are two distinct solutions to the 4-queens puzzle as shown.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
+Output: 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n!) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NQueensII</span> <span class="o">{</span>
+    <span class="c1">// This method is the entry point. It calls the recursive solve method to find the number of solutions.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">totalNQueens</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">solve</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>  <span class="c1">// Initial call with row = 0 and all bitmasks set to 0.</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Recursive backtracking method to solve N-Queens problem</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">columns</span><span class="o">,</span> <span class="kt">int</span> <span class="n">diagonals</span><span class="o">,</span> <span class="kt">int</span> <span class="n">antiDiagonals</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// If we've placed queens in all rows, return 1 as we've found a valid solution.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">solutions</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Variable to count the number of valid solutions</span>
+
+        <span class="c1">// Try placing a queen in every column of the current row</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the bitmask for the current column (only i-th column in the row).</span>
+            <span class="kt">int</span> <span class="n">currColumn</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">;</span>
+
+            <span class="c1">// Calculate the bitmask for the current main diagonal.</span>
+            <span class="c1">// The main diagonal can be uniquely identified by (row - col), and we add (n-1) to ensure it stays positive.</span>
+            <span class="kt">int</span> <span class="n">currDiagonal</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="o">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="c1">// Calculate the bitmask for the current anti-diagonal (row + col).</span>
+            <span class="kt">int</span> <span class="n">currAntiDiagonal</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="o">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+
+            <span class="c1">// Check if placing the queen at (row, i) conflicts with any previously placed queens.</span>
+            <span class="c1">// We check each of the three potential conflicts (column, diagonal, anti-diagonal) using bitwise AND.</span>
+            <span class="c1">// If the result is not 0, it means that a queen already exists in that column, diagonal, or anti-diagonal.</span>
+            <span class="k">if</span> <span class="o">((</span><span class="n">columns</span> <span class="o">&amp;</span> <span class="n">currColumn</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">||</span>
+                    <span class="o">(</span><span class="n">diagonals</span> <span class="o">&amp;</span> <span class="n">currDiagonal</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">||</span>
+                    <span class="o">(</span><span class="n">antiDiagonals</span> <span class="o">&amp;</span> <span class="n">currAntiDiagonal</span><span class="o">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>  <span class="c1">// If there's a conflict, skip this column.</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If no conflicts, place the queen at (row, i) and move to the next row (row + 1).</span>
+            <span class="c1">// We update the bitmasks (columns, diagonals, and antiDiagonals) by setting the corresponding bits to 1.</span>
+            <span class="n">solutions</span> <span class="o">+=</span> <span class="n">solve</span><span class="o">(</span>
+                    <span class="n">n</span><span class="o">,</span>
+                    <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span>  <span class="c1">// Move to the next row</span>
+                    <span class="n">columns</span> <span class="o">|</span> <span class="n">currColumn</span><span class="o">,</span>  <span class="c1">// Mark the current column as occupied</span>
+                    <span class="n">diagonals</span> <span class="o">|</span> <span class="n">currDiagonal</span><span class="o">,</span>  <span class="c1">// Mark the current main diagonal as occupied</span>
+                    <span class="n">antiDiagonals</span> <span class="o">|</span> <span class="n">currAntiDiagonal</span>  <span class="c1">// Mark the current anti-diagonal as occupied</span>
+            <span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total number of solutions found for this configuration</span>
+        <span class="k">return</span> <span class="n">solutions</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Main method to test the N-Queens solution</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// You can modify n to test different board sizes</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Total solutions for N="</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" Queens: "</span> <span class="o">+</span> <span class="n">totalNQueens</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><category term="Hard"/><summary type="html"><![CDATA[The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer n, return the number of distinct solutions to the n-queens puzzle.]]></summary></entry><entry><title type="html">394. Decode String</title><link href="https://zhengstar94.github.io//blog/2024/DecodeString/" rel="alternate" type="text/html" title="394. Decode String"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DecodeString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DecodeString/"><![CDATA[<ul> <li>Given an encoded string, return its decoded string.</li> <li>The encoding rule is: <code class="language-plaintext highlighter-rouge">k[encoded_string]</code>, where the <code class="language-plaintext highlighter-rouge">encoded_string</code> inside the square brackets is being repeated exactly <code class="language-plaintext highlighter-rouge">k</code> times. Note that <code class="language-plaintext highlighter-rouge">k</code> is guaranteed to be a positive integer.</li> <li>You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <code class="language-plaintext highlighter-rouge">k</code>. For example, there will not be input like <code class="language-plaintext highlighter-rouge">3a</code> or <code class="language-plaintext highlighter-rouge">2[4]</code>.</li> <li>The test cases are generated so that the length of the output will never exceed <code class="language-plaintext highlighter-rouge">10^5</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "3[a]2[bc]"
 Output: "aaabcbc"
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "3[a2[c]]"
 Output: "accaccacc"
@@ -871,103 +943,4 @@ Output: false
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">checkSubarraySum</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise. A good subarray is a subarray where: its length is at least two, and the sum of the elements of the subarray is a multiple of k. Note that: A subarray is a contiguous part of the array. An integer x is a multiple of k if there exists an integer n such that x=n * k. 0 is always a multiple of k.]]></summary></entry><entry><title type="html">791. Custom Sort String</title><link href="https://zhengstar94.github.io//blog/2024/CustomSortString/" rel="alternate" type="text/html" title="791. Custom Sort String"/><published>2024-11-23T00:00:00+00:00</published><updated>2024-11-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CustomSortString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CustomSortString/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">order</code> and <code class="language-plaintext highlighter-rouge">s</code>. All the characters of <code class="language-plaintext highlighter-rouge">order</code> are <strong>unique</strong> and were sorted in some custom order previously.</li> <li>Permute the characters of <code class="language-plaintext highlighter-rouge">s</code> so that they match the order that <code class="language-plaintext highlighter-rouge">order</code> was sorted. More specifically, if a character <code class="language-plaintext highlighter-rouge">x</code> occurs before a character <code class="language-plaintext highlighter-rouge">y</code> in <code class="language-plaintext highlighter-rouge">order</code>, then <code class="language-plaintext highlighter-rouge">x</code> should occur before <code class="language-plaintext highlighter-rouge">y</code> in the permuted string.</li> <li>Return <em>any permutation of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that satisfies this property</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: order = "cba", s = "abcd"
-
-Output: "cbad"
-
-Explanation: "a", "b", "c" appear in order, so the order of "a", "b", "c" should be "c", "b", and "a".
-
-Since "d" does not appear in order, it can be at any position in the returned string. "dcba", "cdba", "cbda" are also valid outputs.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: order = "bcafg", s = "abcd"
-
-Output: "bcad"
-
-Explanation: The characters "b", "c", and "a" from order dictate  the order for the characters in s. The character "d" in s does not appear in order, so its position is flexible.
-
-Following the order of appearance in order, "b", "c", and "a" from s should be arranged as "b", "c", "a". "d" can be placed at any position since it's not in order. The output "bcad" correctly follows this rule. Other arrangements like "dbca" or "bcda" would also be valid, as long as "b", "c", "a" maintain their order.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomSortString</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">customSortString</span><span class="o">(</span><span class="nc">String</span> <span class="n">order</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a frequency array to store count of each character in s</span>
-        <span class="c1">// Index 0 represents 'a', 1 represents 'b', and so on</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-
-        <span class="c1">// Count frequency of each character in string s</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// StringBuilder to construct the result efficiently</span>
-        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-
-        <span class="c1">// First, append characters according to the order string</span>
-        <span class="c1">// For each character in order, append it to result as many times as it appears in s</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="nl">c:</span> <span class="n">order</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">){</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-                <span class="c1">// Decrement count after appending each character</span>
-                <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Finally, append any remaining characters that weren't in order</span>
-        <span class="c1">// This ensures all characters from s are included in the result</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'a'</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">'z'</span> <span class="o">;</span> <span class="n">c</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">){</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-                <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert StringBuilder to String and return</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic test</span>
-        <span class="nc">String</span> <span class="n">order1</span> <span class="o">=</span> <span class="s">"cba"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: order = "</span> <span class="o">+</span> <span class="n">order1</span> <span class="o">+</span> <span class="s">", s = "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">customSortString</span><span class="o">(</span><span class="n">order1</span><span class="o">,</span> <span class="n">s1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Order string longer than s</span>
-        <span class="nc">String</span> <span class="n">order2</span> <span class="o">=</span> <span class="s">"bcafg"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: order = "</span> <span class="o">+</span> <span class="n">order2</span> <span class="o">+</span> <span class="s">", s = "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">customSortString</span><span class="o">(</span><span class="n">order2</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: String s contains duplicate characters</span>
-        <span class="nc">String</span> <span class="n">order3</span> <span class="o">=</span> <span class="s">"cba"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"aabcd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (contains duplicate characters):"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: order = "</span> <span class="o">+</span> <span class="n">order3</span> <span class="o">+</span> <span class="s">", s = "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">customSortString</span><span class="o">(</span><span class="n">order3</span><span class="o">,</span> <span class="n">s3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: Order contains characters not in s</span>
-        <span class="nc">String</span> <span class="n">order4</span> <span class="o">=</span> <span class="s">"cbafg"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 (order contains characters not in s):"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: order = "</span> <span class="o">+</span> <span class="n">order4</span> <span class="o">+</span> <span class="s">", s = "</span> <span class="o">+</span> <span class="n">s4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">customSortString</span><span class="o">(</span><span class="n">order4</span><span class="o">,</span> <span class="n">s4</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 5: String s contains characters not in order</span>
-        <span class="nc">String</span> <span class="n">order5</span> <span class="o">=</span> <span class="s">"cb"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">s5</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 (s contains characters not in order):"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: order = "</span> <span class="o">+</span> <span class="n">order5</span> <span class="o">+</span> <span class="s">", s = "</span> <span class="o">+</span> <span class="n">s5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">customSortString</span><span class="o">(</span><span class="n">order5</span><span class="o">,</span> <span class="n">s5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously. Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string. Return any permutation of s that satisfies this property.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise. A good subarray is a subarray where: its length is at least two, and the sum of the elements of the subarray is a multiple of k. Note that: A subarray is a contiguous part of the array. An integer x is a multiple of k if there exists an integer n such that x=n * k. 0 is always a multiple of k.]]></summary></entry></feed>
