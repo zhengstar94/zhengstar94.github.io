@@ -1,4 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-03T02:59:15+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3274. Check if Two Chessboard Squares Have the Same Color</title><link href="https://zhengstar94.github.io//blog/2024/CheckSameColor/" rel="alternate" type="text/html" title="3274. Check if Two Chessboard Squares Have the Same Color"/><published>2024-12-03T00:00:00+00:00</published><updated>2024-12-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CheckSameColor</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CheckSameColor/"><![CDATA[<ul> <li>You are given two strings, <code class="language-plaintext highlighter-rouge">coordinate1</code> and <code class="language-plaintext highlighter-rouge">coordinate2</code>, representing the coordinates of a square on an <code class="language-plaintext highlighter-rouge">8 x 8</code> chessboard.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if these two squares have the same color and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>The coordinate will always represent a valid chessboard square. The coordinate will always have the letter first (indicating its column), and the number second (indicating its row).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: coordinate1 = "a1", coordinate2 = "c3"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-03T03:40:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">224. Basic Calculator</title><link href="https://zhengstar94.github.io//blog/2024/BasicCalculator/" rel="alternate" type="text/html" title="224. Basic Calculator"/><published>2024-12-03T00:00:00+00:00</published><updated>2024-12-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BasicCalculator</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BasicCalculator/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> representing a valid expression, implement a basic calculator to evaluate it, and return <em>the result of the evaluation</em>.</li> <li><strong>Note:</strong> You are <strong>not</strong> allowed to use any built-in function which evaluates strings as mathematical expressions, such as <code class="language-plaintext highlighter-rouge">eval()</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "1 + 1"
+Output: 2
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = " 2-1 + 2 "
+Output: 3
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "(1+(4+5+2)-3)+(6+8)"
+Output: 23
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/03
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BasicCalculator</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculate</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Stack to store intermediate results and signs for nested expressions</span>
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Current number being parsed from the input string</span>
+        <span class="kt">int</span> <span class="n">currentNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Running total of the calculation</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Sign of the current number (1 for positive, -1 for negative)</span>
+        <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each character in the input string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+
+            <span class="c1">// Digit Handling: Build multi-digit numbers</span>
+            <span class="c1">// If the character is a digit, update currentNum</span>
+            <span class="c1">// Explanation:</span>
+            <span class="c1">// - 10 * currentNum shifts existing digits left</span>
+            <span class="c1">// - (ch - '0') converts char digit to its integer value</span>
+            <span class="c1">// Example:</span>
+            <span class="c1">//   If currentNum is 12 and ch is '3'</span>
+            <span class="c1">//   12 * 10 = 120</span>
+            <span class="c1">//   '3' - '0' = 3</span>
+            <span class="c1">//   Result: 123</span>
+            <span class="k">if</span> <span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">ch</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">currentNum</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">currentNum</span> <span class="o">+</span> <span class="o">(</span><span class="n">ch</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Positive Sign '+' Handling</span>
+            <span class="c1">// When '+' is encountered:</span>
+            <span class="c1">// 1. Add current number to result with its sign</span>
+            <span class="c1">// 2. Reset currentNum for next number</span>
+            <span class="c1">// 3. Set sign to positive (1)</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">'+'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">currentNum</span><span class="o">;</span>
+                <span class="n">currentNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Negative Sign '-' Handling</span>
+            <span class="c1">// When '-' is encountered:</span>
+            <span class="c1">// 1. Add current number to result with its sign</span>
+            <span class="c1">// 2. Reset currentNum for next number</span>
+            <span class="c1">// 3. Set sign to negative (-1)</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">'-'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">currentNum</span><span class="o">;</span>
+                <span class="n">currentNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Opening Parenthesis '(' Handling</span>
+            <span class="c1">// When '(' is encountered:</span>
+            <span class="c1">// 1. Push current result to stack (to be restored later)</span>
+            <span class="c1">// 2. Push current sign to stack</span>
+            <span class="c1">// 3. Reset result and sign for nested expression</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">'('</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>    <span class="c1">// Store previous result</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">sign</span><span class="o">);</span>      <span class="c1">// Store previous sign</span>
+
+                <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Reset for nested calculation</span>
+                <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>      <span class="c1">// Reset sign to positive</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Closing Parenthesis ')' Handling</span>
+            <span class="c1">// When ')' is encountered:</span>
+            <span class="c1">// 1. Add current number to result with its sign</span>
+            <span class="c1">// 2. Reset currentNum</span>
+            <span class="c1">// 3. Multiply result by previous sign from stack</span>
+            <span class="c1">// 4. Add previous result from stack</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">')'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">currentNum</span><span class="o">;</span>
+                <span class="n">currentNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+                <span class="c1">// Restore previous sign and multiply current result</span>
+                <span class="n">result</span> <span class="o">*=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+
+                <span class="c1">// Add back the previous result from before the parenthesis</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Handle the last number if it exists</span>
+        <span class="c1">// This is necessary because the last number might not be followed by an operator</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">currentNum</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">currentNum</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Cases demonstrating various scenarios</span>
+        <span class="c1">// Test Case 1: Simple addition and subtraction</span>
+        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"1+2-3"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test1: "</span> <span class="o">+</span> <span class="n">test1</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">calculate</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Expression with simple parentheses</span>
+        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"1+(2-3)"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test2: "</span> <span class="o">+</span> <span class="n">test2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">calculate</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Expression with nested parentheses</span>
+        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"1+(2- (3 - 4) + 1)"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test3: "</span> <span class="o">+</span> <span class="n">test3</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">calculate</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Complex parentheses nesting</span>
+        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"2-(5-6)"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test4: "</span> <span class="o">+</span> <span class="n">test4</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">calculate</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 5: Negative number scenario</span>
+        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"-(3-1)"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test5: "</span> <span class="o">+</span> <span class="n">test5</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">calculate</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation. Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().]]></summary></entry><entry><title type="html">3274. Check if Two Chessboard Squares Have the Same Color</title><link href="https://zhengstar94.github.io//blog/2024/CheckSameColor/" rel="alternate" type="text/html" title="3274. Check if Two Chessboard Squares Have the Same Color"/><published>2024-12-03T00:00:00+00:00</published><updated>2024-12-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CheckSameColor</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CheckSameColor/"><![CDATA[<ul> <li>You are given two strings, <code class="language-plaintext highlighter-rouge">coordinate1</code> and <code class="language-plaintext highlighter-rouge">coordinate2</code>, representing the coordinates of a square on an <code class="language-plaintext highlighter-rouge">8 x 8</code> chessboard.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if these two squares have the same color and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>The coordinate will always represent a valid chessboard square. The coordinate will always have the letter first (indicating its column), and the number second (indicating its row).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: coordinate1 = "a1", coordinate2 = "c3"
 Output: true
 Explanation:
 Both squares are black.
@@ -832,96 +965,4 @@ Output: true
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Can form palindrome permutation: "</span> <span class="o">+</span> <span class="n">canPermutePalindrome</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a string, determine if a permutation of the string could form a palindrome.]]></summary></entry><entry><title type="html">447. Number of Boomerangs</title><link href="https://zhengstar94.github.io//blog/2024/NumberOfBoomerangs/" rel="alternate" type="text/html" title="447. Number of Boomerangs"/><published>2024-11-26T00:00:00+00:00</published><updated>2024-11-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NumberOfBoomerangs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NumberOfBoomerangs/"><![CDATA[<ul> <li>You are given <code class="language-plaintext highlighter-rouge">n</code> <code class="language-plaintext highlighter-rouge">points</code> in the plane that are all <strong>distinct</strong>, where <code class="language-plaintext highlighter-rouge">points[i] = [xi, yi]</code>. A <strong>boomerang</strong> is a tuple of points <code class="language-plaintext highlighter-rouge">(i, j, k)</code> such that the distance between <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> equals the distance between <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">k</code> <strong>(the order of the tuple matters)</strong>.</li> <li>Return <em>the number of boomerangs</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [0,0],[1,0],[2,0] ]
-Output: 2
-Explanation: The two boomerangs are [ [1,0],[0,0],[2,0] ] and [ [1,0],[2,0],[0,0] ].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [1,1],[2,2],[3,3] ]
-Output: 2
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: points = [ [ 1,1 ] ]
-Output: 0
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/26
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfBoomerangs</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numberOfBoomerangs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Variable to store the total boomerang count</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each point as the potential central point</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// HashMap to store distances and their point frequencies</span>
-            <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">distanceMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-            <span class="c1">// Calculate distances from current point to all other points</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Skip calculating distance to the same point</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// Calculate squared distance between points</span>
-                    <span class="kt">int</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">calculateDistance</span><span class="o">(</span><span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">points</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
-
-                    <span class="c1">// Update frequency of this distance in the map</span>
-                    <span class="c1">// If distance not exists, set count to 1; otherwise, increment</span>
-                    <span class="n">distanceMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">distance</span><span class="o">,</span> <span class="n">distanceMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">distance</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate boomerang combinations for each distance group</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">count</span> <span class="o">:</span> <span class="n">distanceMap</span><span class="o">.</span><span class="na">values</span><span class="o">())</span> <span class="o">{</span>
-                <span class="cm">/*
-                 * Boomerang Calculation Logic:
-                 * - 'count' represents points at the same distance from central point
-                 * - For each distance group, calculate possible boomerang arrangements
-                 *
-                 * Mathematical Combination Explanation:
-                 * 1. Total points at same distance: count
-                 * 2. Choose first point: count options
-                 * 3. Choose second point: (count - 1) options
-                 * 4. Calculation: count * (count - 1)
-                 *
-                 * Example:
-                 * If 4 points are at same distance:
-                 * - First point selection: 4 ways
-                 * - Second point selection: 3 ways
-                 * - Total boomerang arrangements: 4 * 3 = 12
-                 */</span>
-                <span class="n">result</span> <span class="o">+=</span> <span class="n">count</span> <span class="o">*</span> <span class="o">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculateDistance</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">point1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">point2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Calculate x and y coordinate differences</span>
-        <span class="kt">int</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">point1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">point2</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-        <span class="kt">int</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">point1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">point2</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-
-        <span class="c1">// Return squared distance (Pythagorean theorem without square root)</span>
-        <span class="k">return</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Points in a diagonal line</span>
-        <span class="c1">// Expected to have some boomerang arrangements</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numberOfBoomerangs</span><span class="o">(</span><span class="n">points1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Points in a horizontal line</span>
-        <span class="c1">// High likelihood of boomerang formations</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">0</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numberOfBoomerangs</span><span class="o">(</span><span class="n">points2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Single point</span>
-        <span class="c1">// No boomerangs possible</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">points3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numberOfBoomerangs</span><span class="o">(</span><span class="n">points3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[You are given n points in the plane that are all distinct, where points[i] = [xi, yi]. A boomerang is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters). Return the number of boomerangs.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given a string, determine if a permutation of the string could form a palindrome.]]></summary></entry></feed>
