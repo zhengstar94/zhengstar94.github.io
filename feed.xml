@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-04T03:22:25+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">766. Toeplitz Matrix</title><link href="https://zhengstar94.github.io//blog/2024/ToeplitzMatrix/" rel="alternate" type="text/html" title="766. Toeplitz Matrix"/><published>2024-12-04T00:00:00+00:00</published><updated>2024-12-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ToeplitzMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ToeplitzMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> <code class="language-plaintext highlighter-rouge">matrix</code>, return <em><code class="language-plaintext highlighter-rouge">true</code> if the matrix is Toeplitz. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</em></li> <li>A matrix is <strong>Toeplitz</strong> if every diagonal from top-left to bottom-right has the same elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-05T03:11:59+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3001. Minimum Moves to Capture The Queen</title><link href="https://zhengstar94.github.io//blog/2024/MinimumMovesToCaptureTheQueen/" rel="alternate" type="text/html" title="3001. Minimum Moves to Capture The Queen"/><published>2024-12-05T00:00:00+00:00</published><updated>2024-12-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumMovesToCaptureTheQueen</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumMovesToCaptureTheQueen/"><![CDATA[<ul> <li>There is a <strong>1-indexed</strong> <code class="language-plaintext highlighter-rouge">8 x 8</code> chessboard containing <code class="language-plaintext highlighter-rouge">3</code> pieces.</li> <li>You are given <code class="language-plaintext highlighter-rouge">6</code> integers <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">b</code>, <code class="language-plaintext highlighter-rouge">c</code>, <code class="language-plaintext highlighter-rouge">d</code>, <code class="language-plaintext highlighter-rouge">e</code>, and <code class="language-plaintext highlighter-rouge">f</code> where: <ul> <li><code class="language-plaintext highlighter-rouge">(a, b)</code> denotes the position of the white rook.</li> <li><code class="language-plaintext highlighter-rouge">(c, d)</code> denotes the position of the white bishop.</li> <li><code class="language-plaintext highlighter-rouge">(e, f)</code> denotes the position of the black queen.</li> </ul> </li> <li>Given that you can only move the white pieces, return <em>the <strong>minimum</strong> number of moves required to capture the black queen</em>.</li> <li><strong>Note</strong> that: <ul> <li>Rooks can move any number of squares either vertically or horizontally, but cannot jump over other pieces.</li> <li>Bishops can move any number of squares diagonally, but cannot jump over other pieces.</li> <li>A rook or a bishop can capture the queen if it is located in a square that they can move to.</li> <li>The queen does not move.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = 1, b = 1, c = 8, d = 8, e = 2, f = 3
+Output: 2
+Explanation: We can capture the black queen in two moves by moving the white rook to (1, 3) then to (2, 3).
+It is impossible to capture the black queen in less than two moves since it is not being attacked by any of the pieces at the beginning.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = 5, b = 3, c = 3, d = 4, e = 5, f = 2
+Output: 1
+Explanation: We can capture the black queen in a single move by doing one of the following: 
+- Move the white rook to (5, 2).
+- Move the white bishop to (5, 2).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/05
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumMovesToCaptureTheQueen</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minMovesToCaptureTheQueen</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">e</span><span class="o">,</span> <span class="kt">int</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span>
+            <span class="c1">// Rook is in the same column as the queen</span>
+                <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">e</span> <span class="o">&amp;&amp;</span>
+                        <span class="c1">// Two possible scenarios:</span>
+                        <span class="c1">// 1. Rook and bishop are not in the same column, or</span>
+                        <span class="c1">// 2. Bishop is positioned in a way that doesn't block the capture path</span>
+                        <span class="o">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">c</span> <span class="o">||</span> <span class="o">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">b</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">f</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+                <span class="o">)</span> <span class="o">||</span>
+                        <span class="c1">// Alternative scenario: rook is in the same row as the queen</span>
+                        <span class="o">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">f</span> <span class="o">&amp;&amp;</span>
+                                <span class="c1">// Two possible scenarios:</span>
+                                <span class="c1">// 1. Rook and bishop are not in the same row, or</span>
+                                <span class="c1">// 2. Bishop is positioned in a way that doesn't block the capture path</span>
+                                <span class="o">(</span><span class="n">b</span> <span class="o">!=</span> <span class="n">d</span> <span class="o">||</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">e</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+                        <span class="o">)</span>
+        <span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If any of the above conditions are true, the queen can be captured in one move</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Second condition: checking if the bishop can capture the queen in one move</span>
+        <span class="k">if</span><span class="o">(</span>
+            <span class="c1">// Bishop and queen are on the same diagonal</span>
+                <span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">e</span><span class="o">)</span> <span class="o">==</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">f</span><span class="o">))</span> <span class="o">&amp;&amp;</span>
+                        <span class="o">(</span>
+                                <span class="c1">// Two additional conditions to ensure the rook doesn't block the capture:</span>
+                                <span class="c1">// 1. Rook is not on the same diagonal line, or</span>
+                                <span class="c1">// 2. Rook is completely outside the diagonal line between bishop and queen</span>
+                                <span class="o">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">e</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">f</span><span class="o">)</span> <span class="o">!=</span> <span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">e</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">f</span><span class="o">))</span> <span class="o">||</span>
+                                        <span class="n">a</span> <span class="o">&lt;</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span> <span class="o">||</span>
+                                        <span class="n">a</span> <span class="o">&gt;</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span>
+                        <span class="o">)</span>
+        <span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the conditions are true, the queen can be captured in one move</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="mi">2</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Rook is in the same column as the queen</span>
+        <span class="c1">// Rook at (1,1), Bishop at (2,2), Queen at (1,3)</span>
+        <span class="c1">// Verifies if the rook can capture the queen in 1 move, avoiding the bishop</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 1: "</span> <span class="o">+</span> <span class="n">minMovesToCaptureTheQueen</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span> <span class="o">+</span> <span class="s">" moves"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 2: Rook is in the same row as the queen</span>
+        <span class="c1">// Rook at (1,1), Bishop at (2,2), Queen at (3,1)</span>
+        <span class="c1">// Checks if the rook can capture the queen in 1 move, with no bishop interference</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 2: "</span> <span class="o">+</span> <span class="n">minMovesToCaptureTheQueen</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">" moves"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 3: Rook and bishop are on the diagonal with the queen</span>
+        <span class="c1">// Rook at (2,2), Bishop at (1,1), Queen at (3,3)</span>
+        <span class="c1">// Demonstrates a scenario requiring 2 moves to capture the queen</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 3: "</span> <span class="o">+</span> <span class="n">minMovesToCaptureTheQueen</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span> <span class="o">+</span> <span class="s">" moves"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 4: Bishop is on the diagonal, rook can capture from outside</span>
+        <span class="c1">// Rook at (1,1), Bishop at (3,3), Queen at (5,5)</span>
+        <span class="c1">// Shows a scenario where the rook can capture in 1 move</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 4: "</span> <span class="o">+</span> <span class="n">minMovesToCaptureTheQueen</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span> <span class="o">+</span> <span class="s">" moves"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 5: Another scenario with diagonal positioning</span>
+        <span class="c1">// Rook at (4,2), Bishop at (6,4), Queen at (7,5)</span>
+        <span class="c1">// Demonstrates another case of 1-move capture</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 5: "</span> <span class="o">+</span> <span class="n">minMovesToCaptureTheQueen</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span> <span class="o">+</span> <span class="s">" moves"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[There is a 1-indexed 8 x 8 chessboard containing 3 pieces. You are given 6 integers a, b, c, d, e, and f where: (a, b) denotes the position of the white rook. (c, d) denotes the position of the white bishop. (e, f) denotes the position of the black queen. Given that you can only move the white pieces, return the minimum number of moves required to capture the black queen. Note that: Rooks can move any number of squares either vertically or horizontally, but cannot jump over other pieces. Bishops can move any number of squares diagonally, but cannot jump over other pieces. A rook or a bishop can capture the queen if it is located in a square that they can move to. The queen does not move.]]></summary></entry><entry><title type="html">766. Toeplitz Matrix</title><link href="https://zhengstar94.github.io//blog/2024/ToeplitzMatrix/" rel="alternate" type="text/html" title="766. Toeplitz Matrix"/><published>2024-12-04T00:00:00+00:00</published><updated>2024-12-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ToeplitzMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ToeplitzMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> <code class="language-plaintext highlighter-rouge">matrix</code>, return <em><code class="language-plaintext highlighter-rouge">true</code> if the matrix is Toeplitz. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</em></li> <li>A matrix is <strong>Toeplitz</strong> if every diagonal from top-left to bottom-right has the same elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
 Output: true
 Explanation:
 In the above grid, the diagonals are:
@@ -907,61 +993,4 @@ Output: "ps"
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given a string s and an integer k, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them, causing the left and the right side of the deleted substring to concatenate together. We repeatedly make k duplicate removals on s until we no longer can. Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.]]></summary></entry><entry><title type="html">1047. Remove All Adjacent Duplicates In String</title><link href="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/" rel="alternate" type="text/html" title="1047. Remove All Adjacent Duplicates In String"/><published>2024-11-28T00:00:00+00:00</published><updated>2024-11-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RemoveAllAdjacentDuplicatesInString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of lowercase English letters. A <strong>duplicate removal</strong> consists of choosing two <strong>adjacent</strong> and <strong>equal</strong> letters and removing them.</li> <li>We repeatedly make <strong>duplicate removals</strong> on <code class="language-plaintext highlighter-rouge">s</code> until we no longer can.</li> <li>Return <em>the final string after all such duplicate removals have been made</em>. It can be proven that the answer is <strong>unique</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abbaca"
-Output: "ca"
-Explanation: 
-For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "azxxzy"
-Output: "ay"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveAllAdjacentDuplicatesInString</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">removeDuplicates</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Use StringBuilder as a stack to track characters</span>
-        <span class="nc">StringBuilder</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-
-        <span class="c1">// Iterate through each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="nl">c:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()){</span>
-            <span class="c1">// If stack is not empty and current char matches the top of the stack</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">c</span><span class="o">){</span>
-                <span class="c1">// Remove the top character (eliminate adjacent duplicates)</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Otherwise, add the current character to the stack</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the final processed string</span>
-        <span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Original example</span>
-        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"abbaca"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 1: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Another original example</span>
-        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"azxxzy"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 2: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: All same characters</span>
-        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"aaaaaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 3: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
-
-        <span class="c1">// Test case 4: No duplicate characters</span>
-        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 4: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
-
-        <span class="c1">// Test case 5: Complex repeated pattern</span>
-        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"aaabbccddee"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 5: "</span> <span class="o">+</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them. We repeatedly make duplicate removals on s until we no longer can. Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given a string s and an integer k, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them, causing the left and the right side of the deleted substring to concatenate together. We repeatedly make k duplicate removals on s until we no longer can. Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.]]></summary></entry></feed>
