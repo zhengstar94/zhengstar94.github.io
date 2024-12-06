@@ -18,7 +18,7 @@ categories:
 **Example 1**
 
 ```
-Input: board = [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Input: board = [ [ ".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
 
 Output: 3
 
@@ -30,7 +30,7 @@ In this example, the rook is attacking all the pawns.
 **Example 2**
 
 ```
-Input: board = [[".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Input: board = [ [ ".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
 
 Output: 0
 
@@ -42,7 +42,7 @@ The bishops are blocking the rook from attacking any of the pawns.
 **Example 3**
 
 ```
-Input: board = [[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
+Input: board = [ [ ".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
 
 Output: 3
 
@@ -65,113 +65,123 @@ package Leetcode.Math;
  * @date 2024/12/06
  */
 public class AvailableCapturesForRook {
-    public static int numRookCaptures(char[][] board) {
-        // Initialize the row and column of the rook to -1
-        // These variables will store the exact location of the white rook on the board
-        int rRow = -1, rCol = -1;
+  public static int numRookCaptures(char[][] board) {
+    int captures = 0; // Counter for captured pawns
+    int rookRow = -1, rookCol = -1; // Initial rook position coordinates
 
-        // Nested loops to find the rook's position on the 8x8 board
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                // When the rook ('R') is found, store its row and column
-                if (board[i][j] == 'R') {
-                    rRow = i;
-                    rCol = j;
-                    break; // Exit inner loop once rook is found
-                }
-            }
-
-            // CRITICAL DETAILED EXPLANATION OF THIS LINE:
-            // After finding the rook in the inner loop, this condition breaks the outer loop
-            // Prevents unnecessary iterations once the rook is located
-            // - If rRow is not -1, it means the rook has been found and its position recorded
-            // - This is an optimization to exit both loops as soon as the rook is located
-            // - Without this, the loop would continue checking remaining board rows even after finding the rook
-            // - Reduces unnecessary computations by early termination
-            if (rRow != -1) {
-                break;
-            }
+    // Find the rook's position on the chessboard
+    // Nested loops iterate through each square to locate the rook
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        if (board[i][j] == 'R') {
+          // When rook is found, store its row and column coordinates
+          rookRow = i;
+          rookCol = j;
+          break;
         }
-
-        // Define movement directions: Up, Down, Left, Right
-        // Each direction represented as [row_change, column_change]
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-        // Counter to track the number of pawns the rook can capture
-        int captures = 0;
-
-        // Explore each of the four directions from the rook's position
-        for (int[] dir : directions) {
-            // Initialize search starting point in current direction
-            int row = rRow + dir[0];
-            int col = rCol + dir[1];
-
-            // Continue searching while within board boundaries
-            while (row >= 0 && row < 8 && col >= 0 && col < 8) {
-                // If a bishop is encountered, this direction is blocked
-                // Stop searching in this direction
-                if (board[row][col] == 'B') {
-                    break;
-                }
-
-                // If a pawn is found, increment capture count
-                // Stop searching in this direction after capturing
-                if (board[row][col] == 'p') {
-                    captures++;
-                    break;
-                }
-
-                // Move to next square in current direction
-                row += dir[0];
-                col += dir[1];
-            }
-        }
-
-        return captures;
+      }
+      // If the rook's row has been found (rookRow is no longer -1), 
+      // immediately exit the outer loop to optimize the search process. 
+      // This prevents unnecessary iterations through the remaining rows 
+      // after the rook's position has already been located, 
+      // improving the time efficiency of finding the rook on the chessboard.
+      if (rookRow != -1){
+        break;
+      }
     }
 
+    // Check capture possibilities in four directions from rook's position
 
-    public static void main(String[] args) {
-        // Test Case 1: Pawns available in multiple directions
-        char[][] board1 = {
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','p','.','.'},
-                {'.','.','.','.','.','R','.','.'},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','p','.','.','.','.'},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',}
-        };
-        System.out.println("Test Case 1 Result: " + numRookCaptures(board1));
-
-        // Test Case 2: Bishops blocking all pawns
-        char[][] board2 = {
-                {'.','.','.','.','.','.','.','.',},
-                {'.','p','p','p','p','p','.','p'},
-                {'.','p','B','R','B','p','.','p'},
-                {'.','p','p','p','p','p','.','p'},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',}
-        };
-        System.out.println("Test Case 2 Result: " + numRookCaptures(board2));
-
-        // Test Case 3: Pawns available in some directions
-        char[][] board3 = {
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','p','.','.'},
-                {'.','.','.','B','R','p','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',},
-                {'.','.','.','.','.','.','.','.',}
-        };
-        System.out.println("Test Case 3 Result: " + numRookCaptures(board3));
+    // Upward direction capture check
+    for (int i = rookRow - 1; i >= 0; i--) {
+      if (board[i][rookCol] == 'B') {
+        break; // Stop if a bishop blocks the path
+      }
+      if (board[i][rookCol] == 'p') {
+        captures++; // Capture the pawn
+        break; // Stop checking this direction after capturing
+      }
     }
+
+    // Downward direction capture check
+    for (int i = rookRow + 1; i < 8; i++) {
+      if (board[i][rookCol] == 'B') {
+        break; // Stop if a bishop blocks the path
+      }
+      if (board[i][rookCol] == 'p') {
+        captures++; // Capture the pawn
+        break; // Stop checking this direction after capturing
+      }
+    }
+
+    // Left direction capture check
+    for (int j = rookCol - 1; j >= 0; j--) {
+      if (board[rookRow][j] == 'B') {
+        break; // Stop if a bishop blocks the path
+      }
+      if (board[rookRow][j] == 'p') {
+        captures++; // Capture the pawn
+        break; // Stop checking this direction after capturing
+      }
+    }
+
+    // Right direction capture check
+    for (int j = rookCol + 1; j < 8; j++) {
+      if (board[rookRow][j] == 'B'){
+        break; // Stop if a bishop blocks the path
+      }
+      if (board[rookRow][j] == 'p') {
+        captures++; // Capture the pawn
+        break; // Stop checking this direction after capturing
+      }
+    }
+
+    return captures; // Return total number of captured pawns
+  }
+
+
+  public static void main(String[] args) {
+    // Test Case 1: Pawns available in multiple directions
+    char[][] board1 = {
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','p','.','.'},
+            {'.','.','.','.','.','R','.','.'},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','p','.','.','.','.'},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',}
+    };
+    System.out.println("Test Case 1 Result: " + numRookCaptures(board1));
+
+    // Test Case 2: Bishops blocking all pawns
+    char[][] board2 = {
+            {'.','.','.','.','.','.','.','.',},
+            {'.','p','p','p','p','p','.','p'},
+            {'.','p','B','R','B','p','.','p'},
+            {'.','p','p','p','p','p','.','p'},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',}
+    };
+    System.out.println("Test Case 2 Result: " + numRookCaptures(board2));
+
+    // Test Case 3: Pawns available in some directions
+    char[][] board3 = {
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','p','.','.'},
+            {'.','.','.','B','R','p','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',},
+            {'.','.','.','.','.','.','.','.',}
+    };
+    System.out.println("Test Case 3 Result: " + numRookCaptures(board3));
+  }
 }
+
 
 ```
 
