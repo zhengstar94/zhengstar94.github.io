@@ -1,4 +1,296 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-05T04:51:28+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2022. Convert 1D Array Into 2D Array</title><link href="https://zhengstar94.github.io//blog/2024/Convert1DArrayInto2DArray/" rel="alternate" type="text/html" title="2022. Convert 1D Array Into 2D Array"/><published>2024-12-05T00:00:00+00:00</published><updated>2024-12-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/Convert1DArrayInto2DArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/Convert1DArrayInto2DArray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> 1-dimensional (1D) integer array <code class="language-plaintext highlighter-rouge">original</code>, and two integers, <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>. You are tasked with creating a 2-dimensional (2D) array with ` m<code class="language-plaintext highlighter-rouge"> rows and </code>n<code class="language-plaintext highlighter-rouge"> columns using **all** the elements from </code>original`.</li> <li>The elements from indices <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code> (<strong>inclusive</strong>) of <code class="language-plaintext highlighter-rouge">original</code> should form the first row of the constructed 2D array, the elements from indices <code class="language-plaintext highlighter-rouge">n</code> to <code class="language-plaintext highlighter-rouge">2 * n - 1</code> (<strong>inclusive</strong>) should form the second row of the constructed 2D array, and so on.</li> <li>Return <em>an</em> <code class="language-plaintext highlighter-rouge">m x n</code> <em>2D array constructed according to the above procedure, or an empty 2D array if it is impossible</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: original = [1,2,3,4], m = 2, n = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-06T05:57:37+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">999. Available Captures for Rook</title><link href="https://zhengstar94.github.io//blog/2024/AvailableCapturesForRook/" rel="alternate" type="text/html" title="999. Available Captures for Rook"/><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AvailableCapturesForRook</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AvailableCapturesForRook/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">8 x 8</code> <strong>matrix</strong> representing a chessboard. There is <strong>exactly one</strong> white rook represented by <code class="language-plaintext highlighter-rouge">'R'</code>, some number of white bishops <code class="language-plaintext highlighter-rouge">'B'</code>, and some number of black pawns <code class="language-plaintext highlighter-rouge">'p'</code>. Empty squares are represented by <code class="language-plaintext highlighter-rouge">'.'</code>.</li> <li>A rook can move any number of squares horizontally or vertically (up, down, left, right) until it reaches another piece <em>or</em> the edge of the board. A rook is <strong>attacking</strong> a pawn if it can move to the pawn’s square in one move.</li> <li>Note: A rook cannot move through other pieces, such as bishops or pawns. This means a rook cannot attack a pawn if there is another piece blocking the path.</li> <li>Return the <strong>number of pawns</strong> the white rook is <strong>attacking</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [ [ ".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
+
+Output: 3
+
+Explanation:
+
+In this example, the rook is attacking all the pawns.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [ [ ".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
+
+Output: 0
+
+Explanation:
+
+The bishops are blocking the rook from attacking any of the pawns.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [ [ ".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
+
+Output: 3
+
+Explanation:
+
+The rook is attacking the pawns at positions b5, d6, and f5.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AvailableCapturesForRook</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numRookCaptures</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">captures</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Counter for captured pawns</span>
+    <span class="kt">int</span> <span class="n">rookRow</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">rookCol</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// Initial rook position coordinates</span>
+
+    <span class="c1">// Find the rook's position on the chessboard</span>
+    <span class="c1">// Nested loops iterate through each square to locate the rook</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'R'</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// When rook is found, store its row and column coordinates</span>
+          <span class="n">rookRow</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+          <span class="n">rookCol</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+          <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="c1">// If the rook's row has been found (rookRow is no longer -1), </span>
+      <span class="c1">// immediately exit the outer loop to optimize the search process. </span>
+      <span class="c1">// This prevents unnecessary iterations through the remaining rows </span>
+      <span class="c1">// after the rook's position has already been located, </span>
+      <span class="c1">// improving the time efficiency of finding the rook on the chessboard.</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">rookRow</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Check capture possibilities in four directions from rook's position</span>
+
+    <span class="c1">// Upward direction capture check</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">rookRow</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
+      <span class="o">}</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Downward direction capture check</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">rookRow</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
+      <span class="o">}</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Left direction capture check</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">rookCol</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span><span class="o">--)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
+      <span class="o">}</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Right direction capture check</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">rookCol</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">){</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
+      <span class="o">}</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
+        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">captures</span><span class="o">;</span> <span class="c1">// Return total number of captured pawns</span>
+  <span class="o">}</span>
+
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Test Case 1: Pawns available in multiple directions</span>
+    <span class="kt">char</span><span class="o">[][]</span> <span class="n">board1</span> <span class="o">=</span> <span class="o">{</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'R'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,}</span>
+    <span class="o">};</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numRookCaptures</span><span class="o">(</span><span class="n">board1</span><span class="o">));</span>
+
+    <span class="c1">// Test Case 2: Bishops blocking all pawns</span>
+    <span class="kt">char</span><span class="o">[][]</span> <span class="n">board2</span> <span class="o">=</span> <span class="o">{</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'R'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,}</span>
+    <span class="o">};</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numRookCaptures</span><span class="o">(</span><span class="n">board2</span><span class="o">));</span>
+
+    <span class="c1">// Test Case 3: Pawns available in some directions</span>
+    <span class="kt">char</span><span class="o">[][]</span> <span class="n">board3</span> <span class="o">=</span> <span class="o">{</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'R'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
+            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,}</span>
+    <span class="o">};</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numRookCaptures</span><span class="o">(</span><span class="n">board3</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an 8 x 8 matrix representing a chessboard. There is exactly one white rook represented by 'R', some number of white bishops 'B', and some number of black pawns 'p'. Empty squares are represented by '.'. A rook can move any number of squares horizontally or vertically (up, down, left, right) until it reaches another piece or the edge of the board. A rook is attacking a pawn if it can move to the pawn’s square in one move. Note: A rook cannot move through other pieces, such as bishops or pawns. This means a rook cannot attack a pawn if there is another piece blocking the path. Return the number of pawns the white rook is attacking.]]></summary></entry><entry><title type="html">498. Diagonal Traverse</title><link href="https://zhengstar94.github.io//blog/2024/DiagonalTraverse/" rel="alternate" type="text/html" title="498. Diagonal Traverse"/><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DiagonalTraverse</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DiagonalTraverse/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">mat</code>, return <em>an array of all the elements of the array in a diagonal order</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [1,2,3],[4,5,6],[7,8,9] ]
+Output: [1,2,4,7,5,3,6,8,9]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [ 1,2],[3,4 ] ]
+Output: [1,2,3,4]
+
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiagonalTraverse</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findDiagonalOrder</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Number of rows in the matrix</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Number of columns in the matrix</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Result array to store diagonal traversal</span>
+        <span class="c1">// Size is total number of elements in the matrix</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="o">];</span>
+
+        <span class="c1">// Index to track current position in the result array</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Total number of diagonals is (m + n - 1)</span>
+        <span class="c1">// We iterate through each diagonal</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Even-indexed diagonals: Bottom-left to Top-right direction</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Determine the starting point for the current diagonal</span>
+
+                <span class="c1">// Row starting point calculation:</span>
+                <span class="c1">// If current diagonal index is less than number of rows,</span>
+                <span class="c1">// start from that row index</span>
+                <span class="c1">// Otherwise, start from the last row</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">?</span> <span class="n">i</span> <span class="o">:</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+                <span class="c1">// Column starting point calculation:</span>
+                <span class="c1">// If current diagonal index is less than number of rows,</span>
+                <span class="c1">// start from first column (0)</span>
+                <span class="c1">// Otherwise, calculate the starting column based on diagonal index</span>
+                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">i</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+                <span class="c1">// Traverse the diagonal while within matrix bounds</span>
+                <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Add current matrix element to result</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">];</span>
+
+                    <span class="c1">// Move upwards in the matrix</span>
+                    <span class="n">x</span><span class="o">--;</span>
+
+                    <span class="c1">// Move to the right in the matrix</span>
+                    <span class="n">y</span><span class="o">++;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="c1">// Odd-indexed diagonals: Top-right to Bottom-left direction</span>
+            <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Determine the starting point for the current diagonal</span>
+
+                <span class="c1">// Row starting point calculation:</span>
+                <span class="c1">// If current diagonal index is less than number of columns,</span>
+                <span class="c1">// start from first row</span>
+                <span class="c1">// Otherwise, calculate the starting row based on diagonal index</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">i</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+                <span class="c1">// Column starting point calculation:</span>
+                <span class="c1">// If current diagonal index is less than number of columns,</span>
+                <span class="c1">// start from that column index</span>
+                <span class="c1">// Otherwise, start from the last column</span>
+                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">?</span> <span class="n">i</span> <span class="o">:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+                <span class="c1">// Traverse the diagonal while within matrix bounds</span>
+                <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Add current matrix element to result</span>
+                    <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">];</span>
+
+                    <span class="c1">// Move downwards in the matrix</span>
+                    <span class="n">x</span><span class="o">++;</span>
+
+                    <span class="c1">// Move to the left in the matrix</span>
+                    <span class="n">y</span><span class="o">--;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the array with diagonal traversal order</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Utility method to print an array
+     *
+     * @param arr Input array to be printed
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Iterate through each element and print with space</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// Print a new line after array elements</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to demonstrate diagonal traversal with different matrix types
+     *
+     * @param args Command line arguments (not used)
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: 3x3 Square Matrix</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x3 Matrix Traversal Result:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">findDiagonalOrder</span><span class="o">(</span><span class="n">mat1</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 2: 4x4 Square Matrix</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span>  <span class="mi">2</span><span class="o">,</span>  <span class="mi">3</span><span class="o">,</span>  <span class="mi">4</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">5</span><span class="o">,</span>  <span class="mi">6</span><span class="o">,</span>  <span class="mi">7</span><span class="o">,</span>  <span class="mi">8</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">12</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">13</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mi">16</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"4x4 Matrix Traversal Result:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">findDiagonalOrder</span><span class="o">(</span><span class="n">mat2</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 3: Rectangular Matrix</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat3</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">12</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x4 Matrix Traversal Result:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">findDiagonalOrder</span><span class="o">(</span><span class="n">mat3</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.]]></summary></entry><entry><title type="html">2022. Convert 1D Array Into 2D Array</title><link href="https://zhengstar94.github.io//blog/2024/Convert1DArrayInto2DArray/" rel="alternate" type="text/html" title="2022. Convert 1D Array Into 2D Array"/><published>2024-12-05T00:00:00+00:00</published><updated>2024-12-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/Convert1DArrayInto2DArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/Convert1DArrayInto2DArray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> 1-dimensional (1D) integer array <code class="language-plaintext highlighter-rouge">original</code>, and two integers, <code class="language-plaintext highlighter-rouge">m</code> and <code class="language-plaintext highlighter-rouge">n</code>. You are tasked with creating a 2-dimensional (2D) array with ` m<code class="language-plaintext highlighter-rouge"> rows and </code>n<code class="language-plaintext highlighter-rouge"> columns using **all** the elements from </code>original`.</li> <li>The elements from indices <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code> (<strong>inclusive</strong>) of <code class="language-plaintext highlighter-rouge">original</code> should form the first row of the constructed 2D array, the elements from indices <code class="language-plaintext highlighter-rouge">n</code> to <code class="language-plaintext highlighter-rouge">2 * n - 1</code> (<strong>inclusive</strong>) should form the second row of the constructed 2D array, and so on.</li> <li>Return <em>an</em> <code class="language-plaintext highlighter-rouge">m x n</code> <em>2D array constructed according to the above procedure, or an empty 2D array if it is impossible</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: original = [1,2,3,4], m = 2, n = 2
 Output: [[1,2],[3,4]]
 Explanation: The constructed 2D array should contain 2 rows and 2 columns.
 The first group of n=2 elements in original, [1,2], becomes the first row in the constructed 2D array.
@@ -705,283 +997,4 @@ Output: "abccdcdcdxyz"
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an encoded string, return its decoded string. The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer. You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4]. The test cases are generated so that the length of the output will never exceed 10^5.]]></summary></entry><entry><title type="html">51. N-Queens</title><link href="https://zhengstar94.github.io//blog/2024/NQueens/" rel="alternate" type="text/html" title="51. N-Queens"/><published>2024-12-01T00:00:00+00:00</published><updated>2024-12-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NQueens</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NQueens/"><![CDATA[<ul> <li>The <strong>n-queens</strong> puzzle is the problem of placing <code class="language-plaintext highlighter-rouge">n</code> queens on an <code class="language-plaintext highlighter-rouge">n x n</code> chessboard such that no two queens attack each other.</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <em>all distinct solutions to the <strong>n-queens puzzle</strong></em>. You may return the answer in <strong>any order</strong>.</li> <li>Each solution contains a distinct board configuration of the n-queens’ placement, where <code class="language-plaintext highlighter-rouge">'Q'</code> and <code class="language-plaintext highlighter-rouge">'.'</code> both indicate a queen and an empty space, respectively.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 4
-Output: [ [ ".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.." ] ]
-Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
-Output: [ [ "Q" ] ]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n!) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NQueens</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Main method to solve the N-Queens problem for a given board size.
-     *
-     * This method initializes the solving process and returns all valid queen arrangements.
-     *
-     * @param n The size of the chessboard (number of queens to place)
-     * @return A list of all possible queen arrangements, where each arrangement
-     *         is represented as a list of string representations of board rows
-     *
-     * Key Steps:
-     * 1. Create an empty result list to store solutions
-     * 2. Initialize a queens array to track queen positions
-     * 3. Start the backtracking process from the first row
-     * 4. Return all found solutions
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="nf">solveNQueens</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// List to store all valid solutions</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Array to track queen positions (index = row, value = column)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="c1">// Initialize all positions as unoccupied</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-
-        <span class="c1">// Start backtracking from the first row</span>
-        <span class="n">backtrack</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Recursive backtracking method to explore all possible queen placements.
-     *
-     * This is the core algorithm that systematically tries to place queens
-     * on the board while maintaining the N-Queens constraints.
-     *
-     * @param queens Array representing current queen positions
-     * @param row Current row being processed
-     * @param n Total board size
-     * @param result List to store all valid solutions
-     *
-     * Detailed Algorithm:
-     * 1. Base Case: If all rows are processed, add current solution to results
-     * 2. For each column in the current row:
-     *    - Check if placing a queen is valid
-     *    - If valid, place the queen
-     *    - Recursively process the next row
-     *    - Implicitly backtrack by trying next column positions
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrack</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// If we've successfully placed queens in all rows, we've found a solution</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">row</span> <span class="o">==</span> <span class="n">n</span><span class="o">){</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">constructSolution</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="n">n</span><span class="o">));</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Try placing a queen in each column of the current row</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">col</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if placing a queen at this position is valid</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="n">col</span><span class="o">)){</span>
-                <span class="c1">// Place the queen</span>
-                <span class="n">queens</span><span class="o">[</span><span class="n">row</span><span class="o">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">;</span>
-
-                <span class="c1">// Recursively process the next row</span>
-                <span class="n">backtrack</span><span class="o">(</span><span class="n">queens</span><span class="o">,</span> <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-
-    <span class="cm">/**
-     * Validates whether a queen can be placed at the given position.
-     *
-     * Checks two key constraints:
-     * 1. No queen in the same column
-     * 2. No queen on the same diagonal
-     *
-     * @param queens Current queen positions
-     * @param row Row of the new queen
-     * @param col Column of the new queen
-     * @return true if queen placement is valid, false otherwise
-     *
-     * Validation Logic:
-     * - Column Check: Ensure no queen in the same column
-     * - Diagonal Check: Use absolute value difference to detect diagonal conflicts
-     *   - Diagonal conflict occurs when |row1 - row2| == |col1 - col2|
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Check all previous rows</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check column conflict</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">queens</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">col</span><span class="o">){</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check diagonal conflicts using absolute value difference</span>
-            <span class="c1">// If |row distance| == |column distance|, queens are on the same diagonal</span>
-            <span class="k">if</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">col</span> <span class="o">-</span> <span class="n">queens</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Converts the internal queens array representation to a visual board layout.
-     *
-     * Transforms the queens array into a list of strings where:
-     * - 'Q' represents a queen
-     * - '.' represents an empty square
-     *
-     * @param queens Array representing queen positions
-     * @param n Board size
-     * @return A list of strings representing the board configuration
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">constructSolution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">queens</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">solution</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Create a row filled with '.' initially</span>
-            <span class="kt">char</span><span class="o">[]</span> <span class="n">row</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-            <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">row</span><span class="o">,</span> <span class="sc">'.'</span><span class="o">);</span>
-
-            <span class="c1">// Place queen at the correct column</span>
-            <span class="n">row</span><span class="o">[</span><span class="n">queens</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="sc">'Q'</span><span class="o">;</span>
-
-            <span class="c1">// Convert row to string and add to solution</span>
-            <span class="n">solution</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">row</span><span class="o">));</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">solution</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases for different board sizes</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">:</span> <span class="n">testCases</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"N = "</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s">" Queens Problem Solutions:"</span><span class="o">);</span>
-            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">solutions</span> <span class="o">=</span> <span class="n">solveNQueens</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
-
-            <span class="c1">// Print number of solutions</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of Solutions: "</span> <span class="o">+</span> <span class="n">solutions</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
-
-            <span class="c1">// Print each solution's board layout</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">solutions</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Solution "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
-                <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">row</span> <span class="o">:</span> <span class="n">solutions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">row</span><span class="o">);</span>
-                <span class="o">}</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span> <span class="c1">// Separator between solutions</span>
-            <span class="o">}</span>
-
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-------------------"</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><category term="Hard"/><summary type="html"><![CDATA[The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order. Each solution contains a distinct board configuration of the n-queens’ placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.]]></summary></entry><entry><title type="html">71. Simplify Path</title><link href="https://zhengstar94.github.io//blog/2024/SimplifyPath/" rel="alternate" type="text/html" title="71. Simplify Path"/><published>2024-11-29T00:00:00+00:00</published><updated>2024-11-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SimplifyPath</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SimplifyPath/"><![CDATA[<ul> <li>You are given an <em>absolute</em> path for a Unix-style file system, which always begins with a slash <code class="language-plaintext highlighter-rouge">'/'</code>. Your task is to transform this absolute path into its <strong>simplified canonical path</strong>.</li> <li>The <em>rules</em> of a Unix-style file system are as follows: <ul> <li>A single period <code class="language-plaintext highlighter-rouge">'.'</code> represents the current directory.</li> <li>A double period <code class="language-plaintext highlighter-rouge">'..'</code> represents the previous/parent directory.</li> <li>Multiple consecutive slashes such as <code class="language-plaintext highlighter-rouge">'//'</code> and <code class="language-plaintext highlighter-rouge">'///'</code> are treated as a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file</strong> <strong>name</strong>. For example, <code class="language-plaintext highlighter-rouge">'...' </code>and <code class="language-plaintext highlighter-rouge">'....'</code> are valid directory or file names.</li> </ul> </li> <li>The simplified canonical path should follow these <em>rules</em>: <ul> <li>The path must start with a single slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>Directories within the path must be separated by exactly one slash <code class="language-plaintext highlighter-rouge">'/'</code>.</li> <li>The path must not end with a slash <code class="language-plaintext highlighter-rouge">'/'</code>, unless it is the root directory.</li> <li>The path must not have any single or double periods (<code class="language-plaintext highlighter-rouge">'.'</code> and <code class="language-plaintext highlighter-rouge">'..'</code>) used to denote current or parent directories.</li> </ul> </li> <li>Return the <strong>simplified canonical path</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home/"
-Output: "/home"
-Explanation:
-The trailing slash should be removed.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home//foo/"
-Output: "/home/foo"
-Explanation:
-Multiple consecutive slashes are replaced by a single one.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/home/user/Documents/../Pictures"
-Output: "/home/user/Pictures"
-Explanation:
-A double period ".." refers to the directory up a level (the parent directory).
-</code></pre></div></div> <p><strong>Example 4</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/../"
-Output: "/"
-Explanation:
-Going one level up from the root directory is not possible.
-</code></pre></div></div> <p><strong>Example 5</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: path = "/.../a/../b/c/../d/./"
-Output: "/.../b/d"
-Explanation:
-"..." is a valid name for a directory in this problem.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/11/29
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimplifyPath</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">simplifyPath</span><span class="o">(</span><span class="nc">String</span> <span class="n">path</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a double-ended queue (stack) to store valid directory components</span>
-        <span class="c1">// Using ArrayDeque provides more efficient stack operations compared to traditional Stack</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Split the path into components using "/" as the delimiter</span>
-        <span class="c1">// This handles multiple scenarios like consecutive slashes, leading/trailing slashes</span>
-        <span class="c1">// Example: "/a//b" → ["", "a", "", "b"]</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">components</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
-
-        <span class="c1">// Iterate through each path component to process and simplify</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">component</span> <span class="o">:</span> <span class="n">components</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Skip empty strings and current directory markers (".")</span>
-            <span class="c1">// This handles cases like "//" or "./"</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">component</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">component</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"."</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Handle parent directory navigation ("..")</span>
-            <span class="c1">// If the stack is not empty, remove the last directory (go up one level)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">component</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">".."</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Prevents going above root directory</span>
-                <span class="k">if</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-                    <span class="n">stack</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
-                <span class="o">}</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add valid directory names to the stack</span>
-            <span class="c1">// This includes special directory names like "..."</span>
-            <span class="n">stack</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">component</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Reconstruct the simplified canonical path</span>
-        <span class="c1">// Start with a root slash "/"</span>
-        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
-
-        <span class="c1">// Append each directory from the stack</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">dir</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Remove the trailing slash for non-root paths</span>
-        <span class="c1">// Ensures the path follows canonical format</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic path with trailing slash</span>
-        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"/home/"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 1: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Multiple consecutive slashes</span>
-        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"/home//foo/"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 2: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Path with parent directory navigation</span>
-        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"/home/user/Documents/../Pictures"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 3: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Trying to navigate above root directory</span>
-        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"/../"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 4: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 5: Complex path with multiple scenarios</span>
-        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"/.../a/../b/c/../d/./"</span><span class="o">;;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result 5: "</span> <span class="o">+</span> <span class="n">simplifyPath</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><summary type="html"><![CDATA[You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. Your task is to transform this absolute path into its simplified canonical path. The rules of a Unix-style file system are as follows: A single period '.' represents the current directory. A double period '..' represents the previous/parent directory. Multiple consecutive slashes such as '//' and '///' are treated as a single slash '/'. Any sequence of periods that does not match the rules above should be treated as a valid directory or file name. For example, '...' and '....' are valid directory or file names. The simplified canonical path should follow these rules: The path must start with a single slash '/'. Directories within the path must be separated by exactly one slash '/'. The path must not end with a slash '/', unless it is the root directory. The path must not have any single or double periods ('.' and '..') used to denote current or parent directories. Return the simplified canonical path.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an encoded string, return its decoded string. The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer. You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4]. The test cases are generated so that the length of the output will never exceed 10^5.]]></summary></entry></feed>
