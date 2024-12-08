@@ -30,7 +30,7 @@ Output: 4
 Explanation: The last word is "moon" with length 4.
 ```
 
-**Example 2**
+**Example 3**
 
 ```
 Input: s = "luffy is still joyboy"
