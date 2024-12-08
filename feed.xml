@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-07T07:06:42+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">28. Find the Index of the First Occurrence in a String</title><link href="https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString/" rel="alternate" type="text/html" title="28. Find the Index of the First Occurrence in a String"/><published>2024-12-07T00:00:00+00:00</published><updated>2024-12-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">needle</code> and <code class="language-plaintext highlighter-rouge">haystack</code>, return the index of the first occurrence of <code class="language-plaintext highlighter-rouge">needle</code> in <code class="language-plaintext highlighter-rouge">haystack</code>, or <code class="language-plaintext highlighter-rouge">-1</code> if <code class="language-plaintext highlighter-rouge">needle</code> is not part of <code class="language-plaintext highlighter-rouge">haystack</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: haystack = "sadbutsad", needle = "sad"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-08T04:41:33+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">66. Plus One</title><link href="https://zhengstar94.github.io//blog/2024/PlusOne/" rel="alternate" type="text/html" title="66. Plus One"/><published>2024-12-08T00:00:00+00:00</published><updated>2024-12-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/PlusOne</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/PlusOne/"><![CDATA[<ul> <li>You are given a <strong>large integer</strong> represented as an integer array <code class="language-plaintext highlighter-rouge">digits</code>, where each <code class="language-plaintext highlighter-rouge">digits[i]</code> is the <code class="language-plaintext highlighter-rouge">ith</code> digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading <code class="language-plaintext highlighter-rouge">0</code>’s.</li> <li>Increment the large integer by one and return <em>the resulting array of digits</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
+Incrementing by one gives 4321 + 1 = 4322.
+Thus, the result should be [4,3,2,2].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [9]
+Output: [1,0]
+Explanation: The array represents the integer 9.
+Incrementing by one gives 9 + 1 = 10.
+Thus, the result should be [1,0].
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PlusOne</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">plusOne</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Iterate from the least significant digit (rightmost) to the most significant (leftmost)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="c1">// If the current digit is less than 9, we can simply increment and return</span>
+            <span class="c1">// This handles most cases where no carrying is needed</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">){</span>
+                <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span>
+                <span class="k">return</span> <span class="n">digits</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If the current digit is 9, set it to 0 and continue to the next digit</span>
+            <span class="c1">// This handles the carrying scenario</span>
+            <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Special case: when all digits are 9 (e.g., [9,9,9])</span>
+        <span class="c1">// We need to create a new array with an additional digit</span>
+        <span class="c1">// The new array will have 1 at the most significant position</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">newDigits</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">digits</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+        <span class="n">newDigits</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">newDigits</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal scenario - last digit less than 9</span>
+        <span class="c1">// Input: [1,2,3] → Expected Output: [1,2,4]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">plusOne</span><span class="o">(</span><span class="n">test1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 1 - Input: [1,2,3], Output: "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Scenario with 9 at the end requiring carry</span>
+        <span class="c1">// Input: [1,9,9] → Expected Output: [2,0,0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">plusOne</span><span class="o">(</span><span class="n">test2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 2 - Input: [1,9,9], Output: "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: All 9s scenario - requires creating a new array</span>
+        <span class="c1">// Input: [9,9,9] → Expected Output: [1,0,0,0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">plusOne</span><span class="o">(</span><span class="n">test3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 3 - Input: [9,9,9], Output: "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">result3</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">arrayToString</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0’s. Increment the large integer by one and return the resulting array of digits.]]></summary></entry><entry><title type="html">28. Find the Index of the First Occurrence in a String</title><link href="https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString/" rel="alternate" type="text/html" title="28. Find the Index of the First Occurrence in a String"/><published>2024-12-07T00:00:00+00:00</published><updated>2024-12-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">needle</code> and <code class="language-plaintext highlighter-rouge">haystack</code>, return the index of the first occurrence of <code class="language-plaintext highlighter-rouge">needle</code> in <code class="language-plaintext highlighter-rouge">haystack</code>, or <code class="language-plaintext highlighter-rouge">-1</code> if <code class="language-plaintext highlighter-rouge">needle</code> is not part of <code class="language-plaintext highlighter-rouge">haystack</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: haystack = "sadbutsad", needle = "sad"
 Output: 0
 Explanation: "sad" occurs at index 0 and 6.
 The first occurrence is at index 0, so we return 0.
@@ -811,60 +890,4 @@ Explanation: We can capture the black queen in a single move by doing one of the
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[There is a 1-indexed 8 x 8 chessboard containing 3 pieces. You are given 6 integers a, b, c, d, e, and f where: (a, b) denotes the position of the white rook. (c, d) denotes the position of the white bishop. (e, f) denotes the position of the black queen. Given that you can only move the white pieces, return the minimum number of moves required to capture the black queen. Note that: Rooks can move any number of squares either vertically or horizontally, but cannot jump over other pieces. Bishops can move any number of squares diagonally, but cannot jump over other pieces. A rook or a bishop can capture the queen if it is located in a square that they can move to. The queen does not move.]]></summary></entry><entry><title type="html">766. Toeplitz Matrix</title><link href="https://zhengstar94.github.io//blog/2024/ToeplitzMatrix/" rel="alternate" type="text/html" title="766. Toeplitz Matrix"/><published>2024-12-04T00:00:00+00:00</published><updated>2024-12-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ToeplitzMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ToeplitzMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> <code class="language-plaintext highlighter-rouge">matrix</code>, return <em><code class="language-plaintext highlighter-rouge">true</code> if the matrix is Toeplitz. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</em></li> <li>A matrix is <strong>Toeplitz</strong> if every diagonal from top-left to bottom-right has the same elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
-Output: true
-Explanation:
-In the above grid, the diagonals are:
-"[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".
-In each diagonal all elements are the same, so the answer is True.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [[1,2],[2,2]]
-Output: false
-Explanation:
-The diagonal "[1, 2]" has different elements.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ToeplitzMatrix</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isToeplitzMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Iterate through rows starting from the second row</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Iterate through columns starting from the second column</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Check if current element is equal to its top-left diagonal predecessor</span>
-                <span class="c1">// If not equal, the matrix is not a Toeplitz matrix</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="n">matrix</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]){</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If all elements pass the diagonal consistency check</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: A valid Toeplitz matrix</span>
-        <span class="c1">// In this matrix, each descending diagonal contains identical elements</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 is a Toeplitz matrix: "</span> <span class="o">+</span> <span class="n">isToeplitzMatrix</span><span class="o">(</span><span class="n">matrix1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: A non-Toeplitz matrix</span>
-        <span class="c1">// This matrix does not satisfy the Toeplitz matrix condition</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 is a Toeplitz matrix: "</span> <span class="o">+</span> <span class="n">isToeplitzMatrix</span><span class="o">(</span><span class="n">matrix2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false. A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[There is a 1-indexed 8 x 8 chessboard containing 3 pieces. You are given 6 integers a, b, c, d, e, and f where: (a, b) denotes the position of the white rook. (c, d) denotes the position of the white bishop. (e, f) denotes the position of the black queen. Given that you can only move the white pieces, return the minimum number of moves required to capture the black queen. Note that: Rooks can move any number of squares either vertically or horizontally, but cannot jump over other pieces. Bishops can move any number of squares diagonally, but cannot jump over other pieces. A rook or a bishop can capture the queen if it is located in a square that they can move to. The queen does not move.]]></summary></entry></feed>
