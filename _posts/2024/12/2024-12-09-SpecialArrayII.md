@@ -17,7 +17,7 @@ categories:
 **Example 1**
 
 ```
-Input: nums = [3,4,1,2,6], queries = [[0,4]]
+Input: nums = [3,4,1,2,6], queries = [ [0,4] ]
 Output: [false]
 
 Explanation:
@@ -27,7 +27,7 @@ The subarray is [3,4,1,2,6]. 2 and 6 are both even.
 **Example 2**
 
 ```
-Input: nums = [4,3,1,6], queries = [[0,2],[2,3]]
+Input: nums = [4,3,1,6], queries = [ [0,2],[2,3] ]
 Output: [false,true]
 
 Explanation:
@@ -80,21 +80,21 @@ public class SpecialArrayII {
     public static void main(String[] args) {
         // Test case 1
         int[] nums1 = {4, 3, 1, 6};
-        int[][] queries1 = {{0, 2}, {2, 3}};
+        int[][] queries1 = { { 0, 2}, {2, 3 } };
         boolean[] result1 = isArraySpecial(nums1, queries1);
         System.out.println("Test Case 1 Result:");
         printBooleanArray(result1);  // Expected output: [false, true]
 
         // Test case 2
         int[] nums2 = {3, 4, 1, 2, 6};
-        int[][] queries2 = {{0, 4}};
+        int[][] queries2 = { { 0, 4 } };
         boolean[] result2 = isArraySpecial(nums2, queries2);
         System.out.println("\nTest Case 2 Result:");
         printBooleanArray(result2);  // Expected output: [false]
 
         // Test case 3: More complex example
         int[] nums3 = {1, 2, 3, 4, 5, 6, 7, 8};
-        int[][] queries3 = {{0, 3}, {2, 5}, {4, 7}};
+        int[][] queries3 = { { 0, 3}, {2, 5}, {4, 7 } };
         boolean[] result3 = isArraySpecial(nums3, queries3);
         System.out.println("\nTest Case 3 Result:");
         printBooleanArray(result3);  // Expected output: [true, true, true]
