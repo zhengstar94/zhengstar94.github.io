@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-09T03:44:15+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1812. Determine Color of a Chessboard Square</title><link href="https://zhengstar94.github.io//blog/2024/DetermineColorOfAChessboardSquare/" rel="alternate" type="text/html" title="1812. Determine Color of a Chessboard Square"/><published>2024-12-09T00:00:00+00:00</published><updated>2024-12-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DetermineColorOfAChessboardSquare</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DetermineColorOfAChessboardSquare/"><![CDATA[<ul> <li> <p>You are given <code class="language-plaintext highlighter-rouge">coordinates</code>, a string that represents the coordinates of a square of the chessboard. Below is a chessboard for your reference.</p> </li> <li> <p>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if the square is white, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>if the square is black</em>.</p> <p>The coordinate will always represent a valid chessboard square. The coordinate will always have the letter first, and the number second.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: coordinates = "a1"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-10T02:11:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">935. Knight Dialer</title><link href="https://zhengstar94.github.io//blog/2024/KnightDialer/" rel="alternate" type="text/html" title="935. Knight Dialer"/><published>2024-12-10T00:00:00+00:00</published><updated>2024-12-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KnightDialer</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KnightDialer/"><![CDATA[<ul> <li>The chess knight has a <strong>unique movement</strong>, it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagram:</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return how many distinct phone numbers of length <code class="language-plaintext highlighter-rouge">n</code> we can dial.</li> <li>You are allowed to place the knight <strong>on any numeric cell</strong> initially and then you should perform <code class="language-plaintext highlighter-rouge">n - 1</code> jumps to dial a number of length <code class="language-plaintext highlighter-rouge">n</code>. All jumps should be <strong>valid</strong> knight jumps.</li> <li>As the answer may be very large, <strong>return the answer modulo</strong> <code class="language-plaintext highlighter-rouge">109 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
+Output: 10
+Explanation: We need to dial a number of length 1, so placing the knight over any numeric cell of the 10 cells is sufficient.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
+Output: 20
+Explanation: All the valid number we can dial are [04, 06, 16, 18, 27, 29, 34, 38, 40, 43, 49, 60, 61, 67, 72, 76, 81, 83, 92, 94]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 3131
+Output: 136006598
+Explanation: Please take care of the mod.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KnightDialer</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">knightDialer</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Special case: if number length is 1, return 10 (all digits 0-9 are valid)</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Predefined array showing how many moves are possible from each digit</span>
+        <span class="c1">// Index represents the current digit (0-9)</span>
+        <span class="c1">// Value represents the number of possible next moves</span>
+        <span class="kt">long</span><span class="o">[]</span> <span class="n">help</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
+
+        <span class="c1">// Create a copy of the help array to track current state</span>
+        <span class="kt">long</span><span class="o">[]</span> <span class="n">cur</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">help</span><span class="o">,</span> <span class="n">help</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+
+        <span class="c1">// Dynamic Programming: Iterate to build phone numbers of length n</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate possible moves for each digit based on previous state</span>
+            <span class="c1">// These calculations follow the knight's move rules on a phone keypad</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">6</span><span class="o">];</span>       <span class="c1">// 0 can be reached from 4 and 6</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">8</span><span class="o">];</span>        <span class="c1">// 1 can be reached from 6 and 8</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">9</span><span class="o">];</span>        <span class="c1">// 2 can be reached from 7 and 9</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">8</span><span class="o">];</span>        <span class="c1">// 3 can be reached from 4 and 8</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// 4 can be reached from 3, 9, and 0</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                        <span class="c1">// 5 cannot be reached by knight's move</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// 6 can be reached from 1, 7, and 0</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">6</span><span class="o">];</span>        <span class="c1">// 7 can be reached from 2 and 6</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>        <span class="c1">// 8 can be reached from 1 and 3</span>
+            <span class="n">cur</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="o">=</span> <span class="n">help</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">help</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>        <span class="c1">// 9 can be reached from 2 and 4</span>
+
+            <span class="c1">// Update help array and apply modulo to prevent integer overflow</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
+                <span class="n">help</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">cur</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">%</span> <span class="o">(</span><span class="mi">1000000007</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Sum up all possible phone numbers and apply final modulo</span>
+        <span class="kt">long</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">cur</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">%</span> <span class="o">(</span><span class="mi">1000000007</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test cases with different number lengths</span>
+        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">knightDialer</span><span class="o">(</span><span class="n">n1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"For n = "</span> <span class="o">+</span> <span class="n">n1</span> <span class="o">+</span> <span class="s">", the number of distinct phone numbers is: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">knightDialer</span><span class="o">(</span><span class="n">n2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"For n = "</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">+</span> <span class="s">", the number of distinct phone numbers is: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">3131</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">knightDialer</span><span class="o">(</span><span class="n">n3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"For n = "</span> <span class="o">+</span> <span class="n">n3</span> <span class="o">+</span> <span class="s">", the number of distinct phone numbers is: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><summary type="html"><![CDATA[The chess knight has a unique movement, it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an L). The possible movements of chess knight are shown in this diagram: Given an integer n, return how many distinct phone numbers of length n we can dial. You are allowed to place the knight on any numeric cell initially and then you should perform n - 1 jumps to dial a number of length n. All jumps should be valid knight jumps. As the answer may be very large, return the answer modulo 109 + 7.]]></summary></entry><entry><title type="html">1812. Determine Color of a Chessboard Square</title><link href="https://zhengstar94.github.io//blog/2024/DetermineColorOfAChessboardSquare/" rel="alternate" type="text/html" title="1812. Determine Color of a Chessboard Square"/><published>2024-12-09T00:00:00+00:00</published><updated>2024-12-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DetermineColorOfAChessboardSquare</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DetermineColorOfAChessboardSquare/"><![CDATA[<ul> <li> <p>You are given <code class="language-plaintext highlighter-rouge">coordinates</code>, a string that represents the coordinates of a square of the chessboard. Below is a chessboard for your reference.</p> </li> <li> <p>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if the square is white, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>if the square is black</em>.</p> <p>The coordinate will always represent a valid chessboard square. The coordinate will always have the letter first, and the number second.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: coordinates = "a1"
 Output: false
 Explanation: From the chessboard above, the square with coordinates "a1" is black, so return false.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: coordinates = "h3"
@@ -846,149 +925,4 @@ The rook is attacking the pawns at positions b5, d6, and f5.
 <span class="o">}</span>
 
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an 8 x 8 matrix representing a chessboard. There is exactly one white rook represented by 'R', some number of white bishops 'B', and some number of black pawns 'p'. Empty squares are represented by '.'. A rook can move any number of squares horizontally or vertically (up, down, left, right) until it reaches another piece or the edge of the board. A rook is attacking a pawn if it can move to the pawn’s square in one move. Note: A rook cannot move through other pieces, such as bishops or pawns. This means a rook cannot attack a pawn if there is another piece blocking the path. Return the number of pawns the white rook is attacking.]]></summary></entry><entry><title type="html">498. Diagonal Traverse</title><link href="https://zhengstar94.github.io//blog/2024/DiagonalTraverse/" rel="alternate" type="text/html" title="498. Diagonal Traverse"/><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DiagonalTraverse</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DiagonalTraverse/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">mat</code>, return <em>an array of all the elements of the array in a diagonal order</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [1,2,3],[4,5,6],[7,8,9] ]
-Output: [1,2,4,7,5,3,6,8,9]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [ 1,2],[3,4 ] ]
-Output: [1,2,3,4]
-
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/06
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiagonalTraverse</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findDiagonalOrder</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Number of rows in the matrix</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Number of columns in the matrix</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Result array to store diagonal traversal</span>
-        <span class="c1">// Size is total number of elements in the matrix</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Index to track current position in the result array</span>
-        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Total number of diagonals is (m + n - 1)</span>
-        <span class="c1">// We iterate through each diagonal</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Even-indexed diagonals: Bottom-left to Top-right direction</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Determine the starting point for the current diagonal</span>
-
-                <span class="c1">// Row starting point calculation:</span>
-                <span class="c1">// If current diagonal index is less than number of rows,</span>
-                <span class="c1">// start from that row index</span>
-                <span class="c1">// Otherwise, start from the last row</span>
-                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">?</span> <span class="n">i</span> <span class="o">:</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Column starting point calculation:</span>
-                <span class="c1">// If current diagonal index is less than number of rows,</span>
-                <span class="c1">// start from first column (0)</span>
-                <span class="c1">// Otherwise, calculate the starting column based on diagonal index</span>
-                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">i</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Traverse the diagonal while within matrix bounds</span>
-                <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// Add current matrix element to result</span>
-                    <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">];</span>
-
-                    <span class="c1">// Move upwards in the matrix</span>
-                    <span class="n">x</span><span class="o">--;</span>
-
-                    <span class="c1">// Move to the right in the matrix</span>
-                    <span class="n">y</span><span class="o">++;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="c1">// Odd-indexed diagonals: Top-right to Bottom-left direction</span>
-            <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Determine the starting point for the current diagonal</span>
-
-                <span class="c1">// Row starting point calculation:</span>
-                <span class="c1">// If current diagonal index is less than number of columns,</span>
-                <span class="c1">// start from first row</span>
-                <span class="c1">// Otherwise, calculate the starting row based on diagonal index</span>
-                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">i</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Column starting point calculation:</span>
-                <span class="c1">// If current diagonal index is less than number of columns,</span>
-                <span class="c1">// start from that column index</span>
-                <span class="c1">// Otherwise, start from the last column</span>
-                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">?</span> <span class="n">i</span> <span class="o">:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Traverse the diagonal while within matrix bounds</span>
-                <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// Add current matrix element to result</span>
-                    <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">];</span>
-
-                    <span class="c1">// Move downwards in the matrix</span>
-                    <span class="n">x</span><span class="o">++;</span>
-
-                    <span class="c1">// Move to the left in the matrix</span>
-                    <span class="n">y</span><span class="o">--;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the array with diagonal traversal order</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Utility method to print an array
-     *
-     * @param arr Input array to be printed
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Iterate through each element and print with space</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="c1">// Print a new line after array elements</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method to demonstrate diagonal traversal with different matrix types
-     *
-     * @param args Command line arguments (not used)
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: 3x3 Square Matrix</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x3 Matrix Traversal Result:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">findDiagonalOrder</span><span class="o">(</span><span class="n">mat1</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 2: 4x4 Square Matrix</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span>  <span class="mi">2</span><span class="o">,</span>  <span class="mi">3</span><span class="o">,</span>  <span class="mi">4</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">5</span><span class="o">,</span>  <span class="mi">6</span><span class="o">,</span>  <span class="mi">7</span><span class="o">,</span>  <span class="mi">8</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">12</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">13</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mi">16</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"4x4 Matrix Traversal Result:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">findDiagonalOrder</span><span class="o">(</span><span class="n">mat2</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 3: Rectangular Matrix</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat3</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">12</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3x4 Matrix Traversal Result:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">findDiagonalOrder</span><span class="o">(</span><span class="n">mat3</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">result3</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an 8 x 8 matrix representing a chessboard. There is exactly one white rook represented by 'R', some number of white bishops 'B', and some number of black pawns 'p'. Empty squares are represented by '.'. A rook can move any number of squares horizontally or vertically (up, down, left, right) until it reaches another piece or the edge of the board. A rook is attacking a pawn if it can move to the pawn’s square in one move. Note: A rook cannot move through other pieces, such as bishops or pawns. This means a rook cannot attack a pawn if there is another piece blocking the path. Return the number of pawns the white rook is attacking.]]></summary></entry></feed>
