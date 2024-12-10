@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-10T02:11:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">935. Knight Dialer</title><link href="https://zhengstar94.github.io//blog/2024/KnightDialer/" rel="alternate" type="text/html" title="935. Knight Dialer"/><published>2024-12-10T00:00:00+00:00</published><updated>2024-12-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KnightDialer</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KnightDialer/"><![CDATA[<ul> <li>The chess knight has a <strong>unique movement</strong>, it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagram:</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return how many distinct phone numbers of length <code class="language-plaintext highlighter-rouge">n</code> we can dial.</li> <li>You are allowed to place the knight <strong>on any numeric cell</strong> initially and then you should perform <code class="language-plaintext highlighter-rouge">n - 1</code> jumps to dial a number of length <code class="language-plaintext highlighter-rouge">n</code>. All jumps should be <strong>valid</strong> knight jumps.</li> <li>As the answer may be very large, <strong>return the answer modulo</strong> <code class="language-plaintext highlighter-rouge">109 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-10T02:59:58+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2981. Find Longest Special Substring That Occurs Thrice I</title><link href="https://zhengstar94.github.io//blog/2024/FindLongestSpecialSubstringThatOccursThriceI/" rel="alternate" type="text/html" title="2981. Find Longest Special Substring That Occurs Thrice I"/><published>2024-12-10T00:00:00+00:00</published><updated>2024-12-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindLongestSpecialSubstringThatOccursThriceI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindLongestSpecialSubstringThatOccursThriceI/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> that consists of lowercase English letters.</li> <li>A string is called <strong>special</strong> if it is made up of only a single character. For example, the string <code class="language-plaintext highlighter-rouge">"abc"</code> is not special, whereas the strings <code class="language-plaintext highlighter-rouge">"ddd"</code>, <code class="language-plaintext highlighter-rouge">"zz"</code>, and <code class="language-plaintext highlighter-rouge">"f"</code> are special.</li> <li>Return <em>the length of the <strong>longest special substring</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>which occurs <strong>at least thrice</strong></em>, <em>or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no special substring occurs at least thrice</em>.</li> <li>A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence of characters within a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aaaa"
+Output: 2
+Explanation: The longest special substring which occurs thrice is "aa": substrings "aaaa", "aaaa", and "aaaa".
+It can be shown that the maximum length achievable is 2.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdef"
+Output: -1
+Explanation: There exists no special substring which occurs at least thrice. Hence return -1.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcaba"
+Output: 1
+Explanation: The longest special substring which occurs thrice is "a": substrings "abcaba", "abcaba", and "abcaba".
+It can be shown that the maximum length achievable is 1.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindLongestSpecialSubstringThatOccursThriceI</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumLength</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Convert the input string to a character array for easier manipulation in the next steps</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">tempArray</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+
+        <span class="c1">// Create an array of lists to store the lengths of contiguous substrings for each character (26 letters in the alphabet)</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;[]</span> <span class="n">groups</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">setAll</span><span class="o">(</span><span class="n">groups</span><span class="o">,</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;());</span>
+
+        <span class="c1">// Variable to count the length of the current contiguous substring</span>
+        <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate over the character array to group contiguous occurrences of each character</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tempArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">cnt</span><span class="o">++;</span> <span class="c1">// Increment the current substring length</span>
+            <span class="c1">// If we reach the end of the string or the current character is different from the next</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">tempArray</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">tempArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">tempArray</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]){</span>
+                <span class="c1">// Add the length of the current contiguous substring to the appropriate group</span>
+                <span class="n">groups</span><span class="o">[</span><span class="n">tempArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
+                <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Reset the counter for the next substring</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Variable to store the overall maximum length of a special substring</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate over each group (i.e., each letter's contiguous substring lengths)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nl">group:</span> <span class="n">groups</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Skip empty groups (i.e., letters that don't appear in the string)</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">group</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// Add two zeroes to simulate the case where there are less than 3 substrings</span>
+            <span class="n">group</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Adding zero as a placeholder</span>
+            <span class="n">group</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Adding another zero as a placeholder</span>
+
+            <span class="c1">// Calculate case 1: the longest substring minus 2 (this assumes the longest substring is the special one)</span>
+            <span class="kt">int</span> <span class="n">case1</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Calculate case 2: the best possible substring when there are at least two substrings (find the minimum of the first two, then maximize it with the third)</span>
+            <span class="kt">int</span> <span class="n">case2</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">)),</span> <span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+
+            <span class="c1">// Update the answer by comparing the current maximum with the newly calculated cases</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">case1</span><span class="o">,</span> <span class="n">case2</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the result, or -1 if no valid special substring was found</span>
+        <span class="k">return</span> <span class="n">ans</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">ans</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: The string "aaabbcaaa" contains several groups of contiguous characters.</span>
+        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"aaabbcaaa"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">test1</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: The string "aabbaa" has a mix of substrings but not all substrings are of the same length.</span>
+        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"aabbaa"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">test2</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: The string "abc" contains no repeated substrings, so the maximum length will be 1.</span>
+        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">test3</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+
+        <span class="c1">// Test case 4: The string "aaaaa" has a single repeated character for a long length.</span>
+        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"aaaaa"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">test4</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
+
+        <span class="c1">// Test case 5: The string "a" has only one character, so the maximum length will be 1.</span>
+        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">test5</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s that consists of lowercase English letters. A string is called special if it is made up of only a single character. For example, the string "abc" is not special, whereas the strings "ddd", "zz", and "f" are special. Return the length of the longest special substring of s which occurs at least thrice, or -1 if no special substring occurs at least thrice. A substring is a contiguous non-empty sequence of characters within a string.]]></summary></entry><entry><title type="html">935. Knight Dialer</title><link href="https://zhengstar94.github.io//blog/2024/KnightDialer/" rel="alternate" type="text/html" title="935. Knight Dialer"/><published>2024-12-10T00:00:00+00:00</published><updated>2024-12-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KnightDialer</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KnightDialer/"><![CDATA[<ul> <li>The chess knight has a <strong>unique movement</strong>, it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagram:</li> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return how many distinct phone numbers of length <code class="language-plaintext highlighter-rouge">n</code> we can dial.</li> <li>You are allowed to place the knight <strong>on any numeric cell</strong> initially and then you should perform <code class="language-plaintext highlighter-rouge">n - 1</code> jumps to dial a number of length <code class="language-plaintext highlighter-rouge">n</code>. All jumps should be <strong>valid</strong> knight jumps.</li> <li>As the answer may be very large, <strong>return the answer modulo</strong> <code class="language-plaintext highlighter-rouge">109 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
 Output: 10
 Explanation: We need to dial a number of length 1, so placing the knight over any numeric cell of the 10 cells is sufficient.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
@@ -778,151 +872,4 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Easy"/><summary type="html"><![CDATA[Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.]]></summary></entry><entry><title type="html">999. Available Captures for Rook</title><link href="https://zhengstar94.github.io//blog/2024/AvailableCapturesForRook/" rel="alternate" type="text/html" title="999. Available Captures for Rook"/><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AvailableCapturesForRook</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AvailableCapturesForRook/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">8 x 8</code> <strong>matrix</strong> representing a chessboard. There is <strong>exactly one</strong> white rook represented by <code class="language-plaintext highlighter-rouge">'R'</code>, some number of white bishops <code class="language-plaintext highlighter-rouge">'B'</code>, and some number of black pawns <code class="language-plaintext highlighter-rouge">'p'</code>. Empty squares are represented by <code class="language-plaintext highlighter-rouge">'.'</code>.</li> <li>A rook can move any number of squares horizontally or vertically (up, down, left, right) until it reaches another piece <em>or</em> the edge of the board. A rook is <strong>attacking</strong> a pawn if it can move to the pawn’s square in one move.</li> <li>Note: A rook cannot move through other pieces, such as bishops or pawns. This means a rook cannot attack a pawn if there is another piece blocking the path.</li> <li>Return the <strong>number of pawns</strong> the white rook is <strong>attacking</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [ [ ".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
-
-Output: 3
-
-Explanation:
-
-In this example, the rook is attacking all the pawns.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [ [ ".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
-
-Output: 0
-
-Explanation:
-
-The bishops are blocking the rook from attacking any of the pawns.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: board = [ [ ".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","." ] ]
-
-Output: 3
-
-Explanation:
-
-The rook is attacking the pawns at positions b5, d6, and f5.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/06
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AvailableCapturesForRook</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numRookCaptures</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">captures</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Counter for captured pawns</span>
-    <span class="kt">int</span> <span class="n">rookRow</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">rookCol</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// Initial rook position coordinates</span>
-
-    <span class="c1">// Find the rook's position on the chessboard</span>
-    <span class="c1">// Nested loops iterate through each square to locate the rook</span>
-    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'R'</span><span class="o">)</span> <span class="o">{</span>
-          <span class="c1">// When rook is found, store its row and column coordinates</span>
-          <span class="n">rookRow</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-          <span class="n">rookCol</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
-          <span class="k">break</span><span class="o">;</span>
-        <span class="o">}</span>
-      <span class="o">}</span>
-      <span class="c1">// If the rook's row has been found (rookRow is no longer -1), </span>
-      <span class="c1">// immediately exit the outer loop to optimize the search process. </span>
-      <span class="c1">// This prevents unnecessary iterations through the remaining rows </span>
-      <span class="c1">// after the rook's position has already been located, </span>
-      <span class="c1">// improving the time efficiency of finding the rook on the chessboard.</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">rookRow</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
-        <span class="k">break</span><span class="o">;</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Check capture possibilities in four directions from rook's position</span>
-
-    <span class="c1">// Upward direction capture check</span>
-    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">rookRow</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
-      <span class="o">}</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Downward direction capture check</span>
-    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">rookRow</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
-      <span class="o">}</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">rookCol</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Left direction capture check</span>
-    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">rookCol</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span><span class="o">--)</span> <span class="o">{</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
-      <span class="o">}</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Right direction capture check</span>
-    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">rookCol</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'B'</span><span class="o">){</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop if a bishop blocks the path</span>
-      <span class="o">}</span>
-      <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">rookRow</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">'p'</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">captures</span><span class="o">++;</span> <span class="c1">// Capture the pawn</span>
-        <span class="k">break</span><span class="o">;</span> <span class="c1">// Stop checking this direction after capturing</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="k">return</span> <span class="n">captures</span><span class="o">;</span> <span class="c1">// Return total number of captured pawns</span>
-  <span class="o">}</span>
-
-
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// Test Case 1: Pawns available in multiple directions</span>
-    <span class="kt">char</span><span class="o">[][]</span> <span class="n">board1</span> <span class="o">=</span> <span class="o">{</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'R'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,}</span>
-    <span class="o">};</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numRookCaptures</span><span class="o">(</span><span class="n">board1</span><span class="o">));</span>
-
-    <span class="c1">// Test Case 2: Bishops blocking all pawns</span>
-    <span class="kt">char</span><span class="o">[][]</span> <span class="n">board2</span> <span class="o">=</span> <span class="o">{</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'R'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,}</span>
-    <span class="o">};</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numRookCaptures</span><span class="o">(</span><span class="n">board2</span><span class="o">));</span>
-
-    <span class="c1">// Test Case 3: Pawns available in some directions</span>
-    <span class="kt">char</span><span class="o">[][]</span> <span class="n">board3</span> <span class="o">=</span> <span class="o">{</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'B'</span><span class="o">,</span><span class="sc">'R'</span><span class="o">,</span><span class="sc">'p'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,},</span>
-            <span class="o">{</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,</span><span class="sc">'.'</span><span class="o">,}</span>
-    <span class="o">};</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numRookCaptures</span><span class="o">(</span><span class="n">board3</span><span class="o">));</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an 8 x 8 matrix representing a chessboard. There is exactly one white rook represented by 'R', some number of white bishops 'B', and some number of black pawns 'p'. Empty squares are represented by '.'. A rook can move any number of squares horizontally or vertically (up, down, left, right) until it reaches another piece or the edge of the board. A rook is attacking a pawn if it can move to the pawn’s square in one move. Note: A rook cannot move through other pieces, such as bishops or pawns. This means a rook cannot attack a pawn if there is another piece blocking the path. Return the number of pawns the white rook is attacking.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Easy"/><summary type="html"><![CDATA[Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.]]></summary></entry></feed>
