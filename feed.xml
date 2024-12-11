@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-11T03:01:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2717. Semi-Ordered Permutation</title><link href="https://zhengstar94.github.io//blog/2024/SemiOrderedPermutation/" rel="alternate" type="text/html" title="2717. Semi-Ordered Permutation"/><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SemiOrderedPermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SemiOrderedPermutation/"><![CDATA[<ul> <li>ou are given a <strong>0-indexed</strong> permutation of <code class="language-plaintext highlighter-rouge">n</code> integers <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A permutation is called <strong>semi-ordered</strong> if the first number equals <code class="language-plaintext highlighter-rouge">1</code> and the last number equals <code class="language-plaintext highlighter-rouge">n</code>. You can perform the below operation as many times as you want until you make <code class="language-plaintext highlighter-rouge">nums</code> a <strong>semi-ordered</strong> permutation: <ul> <li>Pick two adjacent elements in <code class="language-plaintext highlighter-rouge">nums</code>, then swap them.</li> </ul> </li> <li>Return <em>the minimum number of operations to make</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>a <strong>semi-ordered permutation</strong></em>.</li> <li>A <strong>permutation</strong> is a sequence of integers from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">n</code> of length <code class="language-plaintext highlighter-rouge">n</code> containing each number exactly once.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-11T03:25:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2779. Maximum Beauty of an Array After Applying Operation</title><link href="https://zhengstar94.github.io//blog/2024/MaximumBeautyOfAnArrayAfterApplyingOperation/" rel="alternate" type="text/html" title="2779. Maximum Beauty of an Array After Applying Operation"/><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumBeautyOfAnArrayAfterApplyingOperation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumBeautyOfAnArrayAfterApplyingOperation/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array <code class="language-plaintext highlighter-rouge">nums</code> and a <strong>non-negative</strong> integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>In one operation, you can do the following: <ul> <li>Choose an index <code class="language-plaintext highlighter-rouge">i</code> that <strong>hasn’t been chosen before</strong> from the range <code class="language-plaintext highlighter-rouge">[0, nums.length - 1]</code>.</li> <li>Replace <code class="language-plaintext highlighter-rouge">nums[i]</code> with any integer from the range <code class="language-plaintext highlighter-rouge">[nums[i] - k, nums[i] + k]</code>.</li> </ul> </li> <li>The <strong>beauty</strong> of the array is the length of the longest subsequence consisting of equal elements.</li> <li>Return <em>the <strong>maximum</strong> possible beauty of the array</em> <code class="language-plaintext highlighter-rouge">nums</code> *after applying the operation any number of times.**</li> <li><strong>*Note</strong> that you can apply the operation to each index <strong>only once</strong>.</li> <li>A <strong>subsequence</strong> of an array is a new array generated from the original array by deleting some elements (possibly none) without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,6,1,2], k = 2
+Output: 3
+Explanation: In this example, we apply the following operations:
+- Choose index 1, replace it with 4 (from range [4,8]), nums = [4,4,1,2].
+- Choose index 3, replace it with 4 (from range [0,4]), nums = [4,4,1,4].
+After the applied operations, the beauty of the array nums is 3 (subsequence consisting of indices 0, 1, and 3).
+It can be proven that 3 is the maximum possible length we can achieve.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1], k = 10
+Output: 4
+Explanation: In this example we don't have to apply any operations.
+The beauty of the array nums is 4 (whole array).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/11
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumBeautyOfAnArrayAfterApplyingOperation</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumBeauty</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Step 1: Sort the array to bring close numbers together.</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">maxBeauty</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Tracks the maximum beauty found.</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Left pointer of the sliding window.</span>
+
+        <span class="c1">// Iterate through the array with the right pointer.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if the difference between nums[right] and nums[left] exceeds 2 * k.</span>
+            <span class="c1">// If it does, increment the left pointer to reduce the window size.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Update the maximum beauty by comparing it to the current window size.</span>
+            <span class="n">maxBeauty</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxBeauty</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">maxBeauty</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">maximumBeauty</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">maximumBeauty</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">maximumBeauty</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected: 2</span>
+
+        <span class="c1">// Test case 4</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">100</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mi">102</span><span class="o">,</span> <span class="mi">103</span><span class="o">,</span> <span class="mi">104</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">maximumBeauty</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Expected: 5</span>
+
+        <span class="c1">// Test case 5</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">maximumBeauty</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed array nums and a non-negative integer k. In one operation, you can do the following: Choose an index i that hasn’t been chosen before from the range [0, nums.length - 1]. Replace nums[i] with any integer from the range [nums[i] - k, nums[i] + k]. The beauty of the array is the length of the longest subsequence consisting of equal elements. Return the maximum possible beauty of the array nums *after applying the operation any number of times.** *Note that you can apply the operation to each index only once. A subsequence of an array is a new array generated from the original array by deleting some elements (possibly none) without changing the order of the remaining elements.]]></summary></entry><entry><title type="html">2717. Semi-Ordered Permutation</title><link href="https://zhengstar94.github.io//blog/2024/SemiOrderedPermutation/" rel="alternate" type="text/html" title="2717. Semi-Ordered Permutation"/><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SemiOrderedPermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SemiOrderedPermutation/"><![CDATA[<ul> <li>ou are given a <strong>0-indexed</strong> permutation of <code class="language-plaintext highlighter-rouge">n</code> integers <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A permutation is called <strong>semi-ordered</strong> if the first number equals <code class="language-plaintext highlighter-rouge">1</code> and the last number equals <code class="language-plaintext highlighter-rouge">n</code>. You can perform the below operation as many times as you want until you make <code class="language-plaintext highlighter-rouge">nums</code> a <strong>semi-ordered</strong> permutation: <ul> <li>Pick two adjacent elements in <code class="language-plaintext highlighter-rouge">nums</code>, then swap them.</li> </ul> </li> <li>Return <em>the minimum number of operations to make</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>a <strong>semi-ordered permutation</strong></em>.</li> <li>A <strong>permutation</strong> is a sequence of integers from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">n</code> of length <code class="language-plaintext highlighter-rouge">n</code> containing each number exactly once.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4,3]
 Output: 2
 Explanation: We can make the permutation semi-ordered using these sequence of operations: 
 1 - swap i = 0 and j = 1. The permutation becomes [1,2,4,3].
@@ -835,95 +905,4 @@ Step 3: "1337c0d3" ("1337" is read in; reading stops because the next character 
 
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer. The algorithm for myAtoi(string s) is as follows: Whitespace: Ignore any leading whitespace (" "). Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present. Conversion: Read the integer by skipping leading zeros until a non-digit character is encountered or the end of the string is reached. If no digits were read, then the result is 0. Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1. Return the integer as the final result.]]></summary></entry><entry><title type="html">28. Find the Index of the First Occurrence in a String</title><link href="https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString/" rel="alternate" type="text/html" title="28. Find the Index of the First Occurrence in a String"/><published>2024-12-07T00:00:00+00:00</published><updated>2024-12-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindTheIndexOfTheFirstOccurrenceInAString/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">needle</code> and <code class="language-plaintext highlighter-rouge">haystack</code>, return the index of the first occurrence of <code class="language-plaintext highlighter-rouge">needle</code> in <code class="language-plaintext highlighter-rouge">haystack</code>, or <code class="language-plaintext highlighter-rouge">-1</code> if <code class="language-plaintext highlighter-rouge">needle</code> is not part of <code class="language-plaintext highlighter-rouge">haystack</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: haystack = "sadbutsad", needle = "sad"
-Output: 0
-Explanation: "sad" occurs at index 0 and 6.
-The first occurrence is at index 0, so we return 0.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: haystack = "leetcode", needle = "leeto"
-Output: -1
-Explanation: "leeto" did not occur in "leetcode", so we return -1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/07
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheIndexOfTheFirstOccurrenceInAString</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">strStr</span><span class="o">(</span><span class="nc">String</span> <span class="n">haystack</span><span class="o">,</span> <span class="nc">String</span> <span class="n">needle</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the lengths of the haystack and needle</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">haystack</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">needle</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-
-        <span class="c1">// Special case: if needle is empty, return 0</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Iterate through possible starting positions in haystack</span>
-        <span class="c1">// Stop at n - m to prevent index out of bounds</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-
-            <span class="c1">// Index used to iterate through the characters of the needle (substring)</span>
-            <span class="c1">// Helps track the current character position during the matching process</span>
-            <span class="c1">// Resets to 0 for each new potential starting position in the haystack</span>
-            <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
-
-            <span class="c1">// Compare characters in the current window</span>
-            <span class="k">for</span> <span class="o">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// If characters don't match, break the inner loop</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">haystack</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="o">)</span> <span class="o">!=</span> <span class="n">needle</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If all characters in the window match the needle</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">m</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Return the starting index of the match</span>
-                <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If no match is found after checking all possible positions</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Standard matching</span>
-        <span class="nc">String</span> <span class="n">haystack1</span> <span class="o">=</span> <span class="s">"sadbutsad"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">needle1</span> <span class="o">=</span> <span class="s">"sad"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Haystack: "</span> <span class="o">+</span> <span class="n">haystack1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Needle: "</span> <span class="o">+</span> <span class="n">needle1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Match Index: "</span> <span class="o">+</span> <span class="n">strStr</span><span class="o">(</span><span class="n">haystack1</span><span class="o">,</span> <span class="n">needle1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: No matching substring</span>
-        <span class="nc">String</span> <span class="n">haystack2</span> <span class="o">=</span> <span class="s">"leetcode"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">needle2</span> <span class="o">=</span> <span class="s">"leeto"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Haystack: "</span> <span class="o">+</span> <span class="n">haystack2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Needle: "</span> <span class="o">+</span> <span class="n">needle2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Match Index: "</span> <span class="o">+</span> <span class="n">strStr</span><span class="o">(</span><span class="n">haystack2</span><span class="o">,</span> <span class="n">needle2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Empty needle</span>
-        <span class="nc">String</span> <span class="n">haystack3</span> <span class="o">=</span> <span class="s">"hello"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">needle3</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Haystack: "</span> <span class="o">+</span> <span class="n">haystack3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Needle: "</span> <span class="o">+</span> <span class="n">needle3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Match Index: "</span> <span class="o">+</span> <span class="n">strStr</span><span class="o">(</span><span class="n">haystack3</span><span class="o">,</span> <span class="n">needle3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: Multiple possible matches, return the first</span>
-        <span class="nc">String</span> <span class="n">haystack4</span> <span class="o">=</span> <span class="s">"mississippi"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">needle4</span> <span class="o">=</span> <span class="s">"issip"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Haystack: "</span> <span class="o">+</span> <span class="n">haystack4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Needle: "</span> <span class="o">+</span> <span class="n">needle4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Match Index: "</span> <span class="o">+</span> <span class="n">strStr</span><span class="o">(</span><span class="n">haystack4</span><span class="o">,</span> <span class="n">needle4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer. The algorithm for myAtoi(string s) is as follows: Whitespace: Ignore any leading whitespace (" "). Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present. Conversion: Read the integer by skipping leading zeros until a non-digit character is encountered or the end of the string is reached. If no digits were read, then the result is 0. Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1. Return the integer as the final result.]]></summary></entry></feed>
