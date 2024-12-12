@@ -20,7 +20,7 @@ categories:
 **Example 1**
 
 ```
-Input: values = [[8,5,2],[6,4,1],[9,7,3]]
+Input: values = [ [ 8,5,2],[6,4,1],[9,7,3 ] ]
 Output: 285
 Explanation: On the first day, we buy product 2 from shop 1 for a price of values[1][2] * 1 = 1.
 On the second day, we buy product 2 from shop 0 for a price of values[0][2] * 2 = 4.
@@ -38,7 +38,7 @@ It can be shown that 285 is the maximum amount of money that can be spent buying
 **Example 2**
 
 ```
-Input: values = [[10,8,6,4,2],[9,7,5,3,2]]
+Input: values = [ [ 10,8,6,4,2],[9,7,5,3,2 ] ]
 Output: 386
 Explanation: On the first day, we buy product 4 from shop 0 for a price of values[0][4] * 1 = 2.
 On the second day, we buy product 4 from shop 1 for a price of values[1][4] * 2 = 4.
@@ -113,22 +113,22 @@ public class MaximumSpendingAfterBuyingItems {
 
     public static void main(String[] args) {
         // Test Case 1: Mixed value stores
-        int[][] values1 = {{8, 5, 2}, {6, 4, 1}, {9, 7, 3}};
+        int[][] values1 = { { 8, 5, 2}, {6, 4, 1}, {9, 7, 3 } };
         long result1 = maxSpending(values1);
         System.out.println("Test Case 1 Result: " + result1);  // Expected output: 285
 
         // Test Case 2: More items per store
-        int[][] values2 = {{10, 8, 6, 4, 2}, {9, 7, 5, 3, 2}};
+        int[][] values2 = { { 10, 8, 6, 4, 2}, {9, 7, 5, 3, 2 } };
         long result2 = maxSpending(values2);
         System.out.println("Test Case 2 Result: " + result2);  // Expected output: 386
 
         // Test Case 3: Single store
-        int[][] values3 = {{5, 3, 1}};
+        int[][] values3 = { { 5, 3, 1 } };
         long result3 = maxSpending(values3);
         System.out.println("Test Case 3 Result: " + result3);
 
         // Test Case 4: All zero values
-        int[][] values4 = {{0, 0, 0}, {0, 0, 0}};
+        int[][] values4 = { { 0, 0, 0}, {0, 0, 0 } };
         long result4 = maxSpending(values4);
     }
 }
