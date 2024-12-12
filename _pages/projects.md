@@ -1,11 +1,11 @@
 ---
 layout: page
-title: SystemDesign
+title: Learning
 permalink: /projects/
-description: System Design Learning
+description: Personal learning
 nav: true
 nav_order: 3
-display_categories: [SystemDesign]
+display_categories: [SystemDesign, Python]
 horizontal: false
 ---
 
