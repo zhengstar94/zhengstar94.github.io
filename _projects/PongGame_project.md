@@ -5,7 +5,7 @@ layout: post
 title: Pong Game
 date: "2024-12-12"
 description: Pong Game
-importance: 1
+importance: 2
 category: Python
 giscus_comments: true
 ---
