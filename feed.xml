@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-13T10:38:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3264. Final Array State After K Multiplication Operations I</title><link href="https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI/" rel="alternate" type="text/html" title="3264. Final Array State After K Multiplication Operations I"/><published>2024-12-13T00:00:00+00:00</published><updated>2024-12-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, an integer <code class="language-plaintext highlighter-rouge">k</code>, and an integer <code class="language-plaintext highlighter-rouge">multiplier</code>.</p> <p>You need to perform <code class="language-plaintext highlighter-rouge">k</code> operations on <code class="language-plaintext highlighter-rouge">nums</code>. In each operation:</p> <ul> <li>Find the <strong>minimum</strong> value <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">nums</code>. If there are multiple occurrences of the minimum value, select the one that appears <strong>first</strong>.</li> <li>Replace the selected minimum value <code class="language-plaintext highlighter-rouge">x</code> with <code class="language-plaintext highlighter-rouge">x * multiplier</code>.</li> </ul> </li> <li> <p>Return an integer array denoting the <em>final state</em> of <code class="language-plaintext highlighter-rouge">nums</code> after performing all <code class="language-plaintext highlighter-rouge">k</code> operations.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,3,5,6], k = 5, multiplier = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-14T04:26:09+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2762. Continuous Subarrays</title><link href="https://zhengstar94.github.io//blog/2024/ContinuousSubarrays/" rel="alternate" type="text/html" title="2762. Continuous Subarrays"/><published>2024-12-14T00:00:00+00:00</published><updated>2024-12-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContinuousSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContinuousSubarrays/"><![CDATA[<ul> <li> <p>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A subarray of <code class="language-plaintext highlighter-rouge">nums</code> is called <strong>continuous</strong> if:</p> <ul> <li>Let <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">i + 1</code>, …, <code class="language-plaintext highlighter-rouge">j</code> be the indices in the subarray. Then, for each pair of indices <code class="language-plaintext highlighter-rouge">i &lt;= i1, i2 &lt;= j</code>, <code class="language-plaintext highlighter-rouge">0 &lt;= |nums[i1] - nums[i2]| &lt;= 2</code>.</li> </ul> </li> <li> <p>Return <em>the total number of <strong>continuous</strong> subarrays.</em></p> <p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,4,2,4]
+Output: 8
+Explanation: 
+Continuous subarray of size 1: [5], [4], [2], [4].
+Continuous subarray of size 2: [5,4], [4,2], [2,4].
+Continuous subarray of size 3: [4,2,4].
+Thereare no subarrys of size 4.
+Total continuous subarrays = 4 + 3 + 1 = 8.
+It can be shown that there are no more continuous subarrays.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
+Output: 6
+Explanation: 
+Continuous subarray of size 1: [1], [2], [3].
+Continuous subarray of size 2: [1,2], [2,3].
+Continuous subarray of size 3: [1,2,3].
+Total continuous subarrays = 3 + 2 + 1 = 6.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(k) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.TreeMap</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContinuousSubarrays</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">continuousSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Left boundary pointer, initially set to 0</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Variable to store the total count of continuous subarrays</span>
+        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Use a TreeMap to maintain elements in the window and their frequencies</span>
+        <span class="c1">// TreeMap allows quick access to the maximum and minimum values</span>
+        <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate through the array using the right boundary pointer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Add the current element to the window, increasing its frequency</span>
+            <span class="c1">// If the element is not present, initialize its frequency to 1; otherwise, increment it</span>
+            <span class="n">t</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="n">t</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="c1">// Shrink the window when the difference between the maximum and minimum values exceeds 2</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">lastKey</span><span class="o">()</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="na">firstKey</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Get the element at the left boundary</span>
+                <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">++];</span>
+
+                <span class="c1">// If the element appears only once, remove it from the TreeMap</span>
+                <span class="c1">// Otherwise, decrease its frequency</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">t</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">t</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">t</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Calculate the number of continuous subarrays ending at the current right boundary</span>
+            <span class="c1">// right - left + 1 represents all possible subarrays in the current window</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total count of continuous subarrays</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1: Example array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">continuousSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="c1">// Expected output: 8</span>
+
+        <span class="c1">// Test case 2: Increasing sequence</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">continuousSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="c1">// Expected output: 6</span>
+
+        <span class="c1">// Test case 3: All elements are the same</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">continuousSubarrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="c1">// Expected output: 10</span>
+
+        <span class="c1">// Test case 4: Array with large differences</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">continuousSubarrays</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+        <span class="c1">// Expected output: 10</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. A subarray of nums is called continuous if:]]></summary></entry><entry><title type="html">3264. Final Array State After K Multiplication Operations I</title><link href="https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI/" rel="alternate" type="text/html" title="3264. Final Array State After K Multiplication Operations I"/><published>2024-12-13T00:00:00+00:00</published><updated>2024-12-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, an integer <code class="language-plaintext highlighter-rouge">k</code>, and an integer <code class="language-plaintext highlighter-rouge">multiplier</code>.</p> <p>You need to perform <code class="language-plaintext highlighter-rouge">k</code> operations on <code class="language-plaintext highlighter-rouge">nums</code>. In each operation:</p> <ul> <li>Find the <strong>minimum</strong> value <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">nums</code>. If there are multiple occurrences of the minimum value, select the one that appears <strong>first</strong>.</li> <li>Replace the selected minimum value <code class="language-plaintext highlighter-rouge">x</code> with <code class="language-plaintext highlighter-rouge">x * multiplier</code>.</li> </ul> </li> <li> <p>Return an integer array denoting the <em>final state</em> of <code class="language-plaintext highlighter-rouge">nums</code> after performing all <code class="language-plaintext highlighter-rouge">k</code> operations.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,3,5,6], k = 5, multiplier = 2
 
 Output: [8,4,6,5,6]
 
@@ -737,98 +827,4 @@ This is the base case.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[The count-and-say sequence is a sequence of digit strings defined by the recursive formula:]]></summary></entry><entry><title type="html">2981. Find Longest Special Substring That Occurs Thrice I</title><link href="https://zhengstar94.github.io//blog/2024/FindLongestSpecialSubstringThatOccursThriceI/" rel="alternate" type="text/html" title="2981. Find Longest Special Substring That Occurs Thrice I"/><published>2024-12-10T00:00:00+00:00</published><updated>2024-12-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindLongestSpecialSubstringThatOccursThriceI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindLongestSpecialSubstringThatOccursThriceI/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> that consists of lowercase English letters.</li> <li>A string is called <strong>special</strong> if it is made up of only a single character. For example, the string <code class="language-plaintext highlighter-rouge">"abc"</code> is not special, whereas the strings <code class="language-plaintext highlighter-rouge">"ddd"</code>, <code class="language-plaintext highlighter-rouge">"zz"</code>, and <code class="language-plaintext highlighter-rouge">"f"</code> are special.</li> <li>Return <em>the length of the <strong>longest special substring</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>which occurs <strong>at least thrice</strong></em>, <em>or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no special substring occurs at least thrice</em>.</li> <li>A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence of characters within a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aaaa"
-Output: 2
-Explanation: The longest special substring which occurs thrice is "aa": substrings "aaaa", "aaaa", and "aaaa".
-It can be shown that the maximum length achievable is 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdef"
-Output: -1
-Explanation: There exists no special substring which occurs at least thrice. Hence return -1.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcaba"
-Output: 1
-Explanation: The longest special substring which occurs thrice is "a": substrings "abcaba", "abcaba", and "abcaba".
-It can be shown that the maximum length achievable is 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindLongestSpecialSubstringThatOccursThriceI</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumLength</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Convert the input string to a character array for easier manipulation in the next steps</span>
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">tempArray</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
-
-        <span class="c1">// Create an array of lists to store the lengths of contiguous substrings for each character (26 letters in the alphabet)</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;[]</span> <span class="n">groups</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">setAll</span><span class="o">(</span><span class="n">groups</span><span class="o">,</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;());</span>
-
-        <span class="c1">// Variable to count the length of the current contiguous substring</span>
-        <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate over the character array to group contiguous occurrences of each character</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tempArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">cnt</span><span class="o">++;</span> <span class="c1">// Increment the current substring length</span>
-            <span class="c1">// If we reach the end of the string or the current character is different from the next</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">tempArray</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">tempArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">tempArray</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]){</span>
-                <span class="c1">// Add the length of the current contiguous substring to the appropriate group</span>
-                <span class="n">groups</span><span class="o">[</span><span class="n">tempArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
-                <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Reset the counter for the next substring</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Variable to store the overall maximum length of a special substring</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate over each group (i.e., each letter's contiguous substring lengths)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nl">group:</span> <span class="n">groups</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Skip empty groups (i.e., letters that don't appear in the string)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">group</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// Add two zeroes to simulate the case where there are less than 3 substrings</span>
-            <span class="n">group</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Adding zero as a placeholder</span>
-            <span class="n">group</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Adding another zero as a placeholder</span>
-
-            <span class="c1">// Calculate case 1: the longest substring minus 2 (this assumes the longest substring is the special one)</span>
-            <span class="kt">int</span> <span class="n">case1</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// Calculate case 2: the best possible substring when there are at least two substrings (find the minimum of the first two, then maximize it with the third)</span>
-            <span class="kt">int</span> <span class="n">case2</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">)),</span> <span class="n">group</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
-
-            <span class="c1">// Update the answer by comparing the current maximum with the newly calculated cases</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">case1</span><span class="o">,</span> <span class="n">case2</span><span class="o">));</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the result, or -1 if no valid special substring was found</span>
-        <span class="k">return</span> <span class="n">ans</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">ans</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: The string "aaabbcaaa" contains several groups of contiguous characters.</span>
-        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"aaabbcaaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">test1</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: The string "aabbaa" has a mix of substrings but not all substrings are of the same length.</span>
-        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"aabbaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">test2</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: The string "abc" contains no repeated substrings, so the maximum length will be 1.</span>
-        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">test3</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
-
-        <span class="c1">// Test case 4: The string "aaaaa" has a single repeated character for a long length.</span>
-        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"aaaaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">test4</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
-
-        <span class="c1">// Test case 5: The string "a" has only one character, so the maximum length will be 1.</span>
-        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">test5</span> <span class="o">+</span> <span class="s">" -&gt; Maximum length: "</span> <span class="o">+</span> <span class="n">maximumLength</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s that consists of lowercase English letters. A string is called special if it is made up of only a single character. For example, the string "abc" is not special, whereas the strings "ddd", "zz", and "f" are special. Return the length of the longest special substring of s which occurs at least thrice, or -1 if no special substring occurs at least thrice. A substring is a contiguous non-empty sequence of characters within a string.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[The count-and-say sequence is a sequence of digit strings defined by the recursive formula:]]></summary></entry></feed>
