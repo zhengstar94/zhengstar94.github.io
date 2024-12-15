@@ -22,7 +22,7 @@ categories:
 **Example 1**
 
 ```
-Input: classes = [[1,2],[3,5],[2,2]], extraStudents = 2
+Input: classes = [ [ 1,2],[3,5],[2,2 ] ], extraStudents = 2
 Output: 0.78333
 Explanation: You can assign the two extra students to the first class. The average pass ratio will be equal to (3/4 + 3/5 + 2/2) / 3 = 0.78333.
 ```
@@ -30,7 +30,7 @@ Explanation: You can assign the two extra students to the first class. The avera
 **Example 2**
 
 ```
-Input: classes = [[2,4],[3,9],[4,5],[2,10]], extraStudents = 4
+Input: classes = [ [ 2,4],[3,9],[4,5],[2,10 ] ], extraStudents = 4
 Output: 0.53485
 ```
 
@@ -112,19 +112,19 @@ public class MaximumAveragePassRatio {
     public static void main(String[] args) {
 
         // Test case 1: Three classes, two extra students
-        int[][] classes1 = {{1,2},{3,5},{2,2}};
+        int[][] classes1 = { { 1,2},{3,5},{2,2 } };
         int extraStudents1 = 2;
         double result1 = maxAverageRatio(classes1, extraStudents1);
         System.out.println("Test case 1 result: " + result1);
 
         // Test case 2: Four classes, four extra students
-        int[][] classes2 = {{2,4},{3,9},{4,5},{2,10}};
+        int[][] classes2 = { { 2,4},{3,9},{4,5},{2,10 } };
         int extraStudents2 = 4;
         double result2 = maxAverageRatio(classes2, extraStudents2);
         System.out.println("Test case 2 result: " + result2);
 
         // Boundary test case: Only one class
-        int[][] classes3 = {{1,3}};
+        int[][] classes3 = { { 1,3 } };
         int extraStudents3 = 1;
         double result3 = maxAverageRatio(classes3, extraStudents3);
         System.out.println("Test case 3 result: " + result3);
