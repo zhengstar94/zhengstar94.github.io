@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-15T06:22:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1539. Kth Missing Positive Number</title><link href="https://zhengstar94.github.io//blog/2024/KthMissingPositiveNumber/" rel="alternate" type="text/html" title="1539. Kth Missing Positive Number"/><published>2024-12-15T00:00:00+00:00</published><updated>2024-12-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KthMissingPositiveNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KthMissingPositiveNumber/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">arr</code> of positive integers sorted in a <strong>strictly increasing order</strong>, and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em><strong>positive</strong> integer that is <strong>missing</strong> from this array.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,3,4,7,11], k = 5
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-15T06:37:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">658. Find K Closest Elements</title><link href="https://zhengstar94.github.io//blog/2024/FindKClosestElements/" rel="alternate" type="text/html" title="658. Find K Closest Elements"/><published>2024-12-15T00:00:00+00:00</published><updated>2024-12-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindKClosestElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindKClosestElements/"><![CDATA[<ul> <li>Given a <strong>sorted</strong> integer array <code class="language-plaintext highlighter-rouge">arr</code>, two integers <code class="language-plaintext highlighter-rouge">k</code> and <code class="language-plaintext highlighter-rouge">x</code>, return the <code class="language-plaintext highlighter-rouge">k</code> closest integers to <code class="language-plaintext highlighter-rouge">x</code> in the array. The result should also be sorted in ascending order.</li> <li>An integer <code class="language-plaintext highlighter-rouge">a</code> is closer to <code class="language-plaintext highlighter-rouge">x</code> than an integer <code class="language-plaintext highlighter-rouge">b</code> if: <ul> <li><code class="language-plaintext highlighter-rouge">|a - x| &lt; |b - x|</code>, or</li> <li><code class="language-plaintext highlighter-rouge">|a - x| == |b - x|</code> and <code class="language-plaintext highlighter-rouge">a &lt; b</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,3,4,5], k = 4, x = 3
+
+Output: [1,2,3,4]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,1,2,3,4,5], k = 4, x = -1
+
+Output: [1,1,2,3]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(k) time | O(k) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/15
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindKClosestElements</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">findClosestElements</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Loop until the subarray has exactly k elements</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Compare the distances between arr[left] and arr[right] to x</span>
+            <span class="k">if</span> <span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">-</span> <span class="n">x</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="n">x</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// If the left element is closer or equal to x, move the right pointer left</span>
+                <span class="n">right</span><span class="o">--;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Otherwise, move the left pointer right</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Create a list to store the k closest elements</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// Add the elements between left and right pointers to the result</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">findClosestElements</span><span class="o">(</span><span class="n">arr1</span><span class="o">,</span> <span class="n">k1</span><span class="o">,</span> <span class="n">x1</span><span class="o">));</span>
+        <span class="c1">// Expected output: [1, 2, 3, 4]</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">findClosestElements</span><span class="o">(</span><span class="n">arr2</span><span class="o">,</span> <span class="n">k2</span><span class="o">,</span> <span class="n">x2</span><span class="o">));</span>
+        <span class="c1">// Expected output: [1, 1, 2, 3]</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">x3</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">findClosestElements</span><span class="o">(</span><span class="n">arr3</span><span class="o">,</span> <span class="n">k3</span><span class="o">,</span> <span class="n">x3</span><span class="o">));</span>
+        <span class="c1">// Expected output: [3, 5, 7]</span>
+
+        <span class="c1">// Test case 4</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">15</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">x4</span> <span class="o">=</span> <span class="mi">12</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">findClosestElements</span><span class="o">(</span><span class="n">arr4</span><span class="o">,</span> <span class="n">k4</span><span class="o">,</span> <span class="n">x4</span><span class="o">));</span>
+        <span class="c1">// Expected output: [10, 15]</span>
+
+        <span class="c1">// Test case 5</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">x5</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">findClosestElements</span><span class="o">(</span><span class="n">arr5</span><span class="o">,</span> <span class="n">k5</span><span class="o">,</span> <span class="n">x5</span><span class="o">));</span>
+        <span class="c1">// Expected output: [1, 2, 3]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order. An integer a is closer to x than an integer b if: |a - x| &lt; |b - x|, or |a - x| == |b - x| and a &lt; b]]></summary></entry><entry><title type="html">1539. Kth Missing Positive Number</title><link href="https://zhengstar94.github.io//blog/2024/KthMissingPositiveNumber/" rel="alternate" type="text/html" title="1539. Kth Missing Positive Number"/><published>2024-12-15T00:00:00+00:00</published><updated>2024-12-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/KthMissingPositiveNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/KthMissingPositiveNumber/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">arr</code> of positive integers sorted in a <strong>strictly increasing order</strong>, and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em><strong>positive</strong> integer that is <strong>missing</strong> from this array.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,3,4,7,11], k = 5
 Output: 9
 Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,3,4], k = 2
@@ -669,72 +751,4 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed m * n integer matrix values, representing the values of m * n different items in m different shops. Each shop has n items where the jth item in the ith shop has a value of values[i][j]. Additionally, the items in the ith shop are sorted in non-increasing order of value. That is, values[i][j] &gt;= values[i][j + 1] for all 0 &lt;= j &lt; n - 1. On each day, you would like to buy a single item from one of the shops. Specifically, On the dth day you can: Pick any shop i. Buy the rightmost available item j for the price of values[i][j] * d. That is, find the greatest index j such that item j was never bought before, and buy it for the price of values[i][j] * d. Note that all items are pairwise different. For example, if you have bought item 0 from shop 1, you can still buy item 0 from any other shop. Return the maximum amount of money that can be spent on buying all m * n products.]]></summary></entry><entry><title type="html">2558. Take Gifts From the Richest Pile</title><link href="https://zhengstar94.github.io//blog/2024/TakeGiftsFromTheRichestPile/" rel="alternate" type="text/html" title="2558. Take Gifts From the Richest Pile"/><published>2024-12-12T00:00:00+00:00</published><updated>2024-12-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/TakeGiftsFromTheRichestPile</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/TakeGiftsFromTheRichestPile/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">gifts</code> denoting the number of gifts in various piles. Every second, you do the following: <ul> <li>Choose the pile with the maximum number of gifts.</li> <li>If there is more than one pile with the maximum number of gifts, choose any.</li> <li>Leave behind the floor of the square root of the number of gifts in the pile. Take the rest of the gifts.</li> </ul> </li> <li>Return <em>the number of gifts remaining after</em> <code class="language-plaintext highlighter-rouge">k</code> <em>seconds.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: gifts = [25,64,9,4,100], k = 4
-Output: 29
-Explanation: 
-The gifts are taken in the following way:
-- In the first second, the last pile is chosen and 10 gifts are left behind.
-- Then the second pile is chosen and 8 gifts are left behind.
-- After that the first pile is chosen and 5 gifts are left behind.
-- Finally, the last pile is chosen again and 3 gifts are left behind.
-The final remaining gifts are [5,8,9,4,3], so the total number of gifts remaining is 29.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: gifts = [1,1,1,1], k = 4
-Output: 4
-Explanation: 
-In this case, regardless which pile you choose, you have to leave behind 1 gift in each pile. 
-That is, you can't take any pile with you. 
-So, the total gifts remaining are 4.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(k * log(n)) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TakeGiftsFromTheRichestPile</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">pickGifts</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">gifts</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a max heap (priority queue with descending order)</span>
-        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">maxHeap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;((</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="o">);</span>
-
-        <span class="c1">// Add all gift quantities to the max heap</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">gift:</span> <span class="n">gifts</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">maxHeap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">gift</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Perform k operations</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">k</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="c1">// Take the largest gift pile</span>
-            <span class="kt">int</span> <span class="n">gift</span> <span class="o">=</span> <span class="n">maxHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-
-            <span class="c1">// Calculate square root and round down</span>
-            <span class="n">gift</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">gift</span><span class="o">);</span>
-
-            <span class="c1">// Add modified gift pile back to the heap</span>
-            <span class="n">maxHeap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">gift</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Calculate total remaining gifts</span>
-        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(!</span><span class="n">maxHeap</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">ans</span> <span class="o">+=</span> <span class="n">maxHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">gifts1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">25</span><span class="o">,</span> <span class="mi">64</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">100</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">pickGifts</span><span class="o">(</span><span class="n">gifts1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: 29</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">gifts2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">pickGifts</span><span class="o">(</span><span class="n">gifts2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array gifts denoting the number of gifts in various piles. Every second, you do the following: Choose the pile with the maximum number of gifts. If there is more than one pile with the maximum number of gifts, choose any. Leave behind the floor of the square root of the number of gifts in the pile. Take the rest of the gifts. Return the number of gifts remaining after k seconds.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed m * n integer matrix values, representing the values of m * n different items in m different shops. Each shop has n items where the jth item in the ith shop has a value of values[i][j]. Additionally, the items in the ith shop are sorted in non-increasing order of value. That is, values[i][j] &gt;= values[i][j + 1] for all 0 &lt;= j &lt; n - 1. On each day, you would like to buy a single item from one of the shops. Specifically, On the dth day you can: Pick any shop i. Buy the rightmost available item j for the price of values[i][j] * d. That is, find the greatest index j such that item j was never bought before, and buy it for the price of values[i][j] * d. Note that all items are pairwise different. For example, if you have bought item 0 from shop 1, you can still buy item 0 from any other shop. Return the maximum amount of money that can be spent on buying all m * n products.]]></summary></entry></feed>
