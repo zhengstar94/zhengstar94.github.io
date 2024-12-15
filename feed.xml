@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-14T04:51:49+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2762. Continuous Subarrays</title><link href="https://zhengstar94.github.io//blog/2024/ContinuousSubarrays/" rel="alternate" type="text/html" title="2762. Continuous Subarrays"/><published>2024-12-14T00:00:00+00:00</published><updated>2024-12-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContinuousSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContinuousSubarrays/"><![CDATA[<ul> <li> <p>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A subarray of <code class="language-plaintext highlighter-rouge">nums</code> is called <strong>continuous</strong> if:</p> <ul> <li>Let <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">i + 1</code>, …, <code class="language-plaintext highlighter-rouge">j</code> be the indices in the subarray. Then, for each pair of indices <code class="language-plaintext highlighter-rouge">i &lt;= i1, i2 &lt;= j</code>, <code class="language-plaintext highlighter-rouge">0 &lt;= |nums[i1] - nums[i2]| &lt;= 2</code>.</li> </ul> </li> <li> <p>Return <em>the total number of <strong>continuous</strong> subarrays.</em></p> <p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,4,2,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-15T05:29:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1338. Reduce Array Size to The Half</title><link href="https://zhengstar94.github.io//blog/2024/ReduceArraySizeToTheHalf/" rel="alternate" type="text/html" title="1338. Reduce Array Size to The Half"/><published>2024-12-15T00:00:00+00:00</published><updated>2024-12-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReduceArraySizeToTheHalf</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReduceArraySizeToTheHalf/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">arr</code>. You can choose a set of integers and remove all the occurrences of these integers in the array.</li> <li>Return <em>the minimum size of the set so that <strong>at least</strong> half of the integers of the array are removed</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [3,3,3,3,5,5,5,2,2,7]
+Output: 2
+Explanation: Choosing {3,7} will make the new array [5,5,5,2,2] which has size 5 (i.e equal to half of the size of the old array).
+Possible sets of size 2 are {3,5},{3,2},{5,2}.
+Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5] which has a size greater than half of the size of the old array.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [7,7,7,7,7,7]
+Output: 1
+Explanation: The only possible set you can choose is {7}. This will make the new array empty.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n) time | O(m) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/15
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReduceArraySizeToTheHalf</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minSetSize</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create a frequency array to count occurrences of each number</span>
+        <span class="c1">// Size 10001 to accommodate the problem's given number range</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10001</span><span class="o">];</span>
+
+        <span class="c1">// Count the frequency of each number in the input array</span>
+        <span class="c1">// For each number, increment its count in the frequency array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">nums</span><span class="o">[</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Sort the frequency array in ascending order</span>
+        <span class="c1">// This allows us to process numbers from highest to lowest frequency</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="c1">// Variable to track the count of elements removed</span>
+        <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate from the end of the array (highest frequencies)</span>
+        <span class="c1">// Work backwards to minimize the number of unique elements removed</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="c1">// Add the current frequency to the total count of removed elements</span>
+            <span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+
+            <span class="c1">// Check if the removed elements exceed half the original array length</span>
+            <span class="c1">// If so, return the number of unique elements removed</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">cnt</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">/</span><span class="mi">2</span><span class="o">){</span>
+                <span class="c1">// Calculate the number of unique elements removed</span>
+                <span class="c1">// nums.length - i + 1 gives the count of frequency groups removed</span>
+                <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If no solution is found, return the entire array length</span>
+        <span class="c1">// This is a fallback scenario, though unlikely to occur given the problem constraints</span>
+        <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with different elements</span>
+        <span class="c1">// Demonstrates removing elements to reduce array size</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minSetSize</span><span class="o">(</span><span class="n">arr1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test Case 2: Array with all same elements</span>
+        <span class="c1">// Shows handling of uniform frequency elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minSetSize</span><span class="o">(</span><span class="n">arr2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test Case 3: More complex array with varied frequencies</span>
+        <span class="c1">// Tests scenario with multiple unique elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minSetSize</span><span class="o">(</span><span class="n">arr3</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test Case 4: Large data range</span>
+        <span class="c1">// Verifies the solution works with a larger, more diverse input</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span><span class="mi">77</span><span class="o">,</span><span class="mi">63</span><span class="o">,</span><span class="mi">22</span><span class="o">,</span><span class="mi">92</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">14</span><span class="o">,</span><span class="mi">54</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">38</span><span class="o">,</span><span class="mi">18</span><span class="o">,</span><span class="mi">64</span><span class="o">,</span><span class="mi">92</span><span class="o">,</span><span class="mi">53</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">57</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">76</span><span class="o">,</span><span class="mi">40</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">minSetSize</span><span class="o">(</span><span class="n">arr4</span><span class="o">));</span> <span class="c1">// Expected output result</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array arr. You can choose a set of integers and remove all the occurrences of these integers in the array. Return the minimum size of the set so that at least half of the integers of the array are removed.]]></summary></entry><entry><title type="html">2762. Continuous Subarrays</title><link href="https://zhengstar94.github.io//blog/2024/ContinuousSubarrays/" rel="alternate" type="text/html" title="2762. Continuous Subarrays"/><published>2024-12-14T00:00:00+00:00</published><updated>2024-12-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ContinuousSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ContinuousSubarrays/"><![CDATA[<ul> <li> <p>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A subarray of <code class="language-plaintext highlighter-rouge">nums</code> is called <strong>continuous</strong> if:</p> <ul> <li>Let <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">i + 1</code>, …, <code class="language-plaintext highlighter-rouge">j</code> be the indices in the subarray. Then, for each pair of indices <code class="language-plaintext highlighter-rouge">i &lt;= i1, i2 &lt;= j</code>, <code class="language-plaintext highlighter-rouge">0 &lt;= |nums[i1] - nums[i2]| &lt;= 2</code>.</li> </ul> </li> <li> <p>Return <em>the total number of <strong>continuous</strong> subarrays.</em></p> <p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,4,2,4]
 Output: 8
 Explanation: 
 Continuous subarray of size 1: [5], [4], [2], [4].
@@ -698,109 +777,4 @@ Explanation: The permutation is already a semi-ordered permutation.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[ou are given a 0-indexed permutation of n integers nums. A permutation is called semi-ordered if the first number equals 1 and the last number equals n. You can perform the below operation as many times as you want until you make nums a semi-ordered permutation: Pick two adjacent elements in nums, then swap them. Return the minimum number of operations to make nums a semi-ordered permutation. A permutation is a sequence of integers from 1 to n of length n containing each number exactly once.]]></summary></entry><entry><title type="html">65. Valid Number</title><link href="https://zhengstar94.github.io//blog/2024/ValidNumber/" rel="alternate" type="text/html" title="65. Valid Number"/><published>2024-12-11T00:00:00+00:00</published><updated>2024-12-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ValidNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ValidNumber/"><![CDATA[<ul> <li> <p>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return whether <code class="language-plaintext highlighter-rouge">s</code> is a <strong>valid number</strong>.</p> </li> <li> <p>For example, all the following are valid numbers: <code class="language-plaintext highlighter-rouge">"2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"</code>, while the following are not valid numbers: <code class="language-plaintext highlighter-rouge">"abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"</code>.</p> </li> <li> <p>Formally, a <strong>valid number</strong> is defined using one of the following definitions:</p> <ol> <li>An <strong>integer number</strong> followed by an <strong>optional exponent</strong>.</li> <li>A <strong>decimal number</strong> followed by an <strong>optional exponent</strong>.</li> </ol> </li> <li> <p>An <strong>integer number</strong> is defined with an <strong>optional sign</strong> <code class="language-plaintext highlighter-rouge">'-'</code> or <code class="language-plaintext highlighter-rouge">'+'</code> followed by <strong>digits</strong>.</p> </li> <li> <p>A <strong>decimal number</strong> is defined with an <strong>optional sign</strong> <code class="language-plaintext highlighter-rouge">'-'</code> or <code class="language-plaintext highlighter-rouge">'+'</code> followed by one of the following definitions:</p> <ol> <li><strong>Digits</strong> followed by a <strong>dot</strong> <code class="language-plaintext highlighter-rouge">'.'</code>.</li> <li><strong>Digits</strong> followed by a <strong>dot</strong> <code class="language-plaintext highlighter-rouge">'.'</code> followed by <strong>digits</strong>.</li> <li>A <strong>dot</strong> <code class="language-plaintext highlighter-rouge">'.'</code> followed by <strong>digits</strong>.</li> </ol> </li> <li> <p>An <strong>exponent</strong> is defined with an <strong>exponent notation</strong> <code class="language-plaintext highlighter-rouge">'e'</code> or <code class="language-plaintext highlighter-rouge">'E'</code> followed by an <strong>integer number</strong>.</p> </li> <li> <p>The <strong>digits</strong> are defined as one or more digits.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0"
-
-Output: true
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "e"
-
-Output: false
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "."
-
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValidNumber</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Check for null or empty input</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Remove leading and trailing spaces</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">trim</span><span class="o">();</span>
-
-        <span class="c1">// Flags to track what parts of a valid number have been seen</span>
-        <span class="kt">boolean</span> <span class="n">seenDigit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Tracks if a digit has been encountered</span>
-        <span class="kt">boolean</span> <span class="n">seenDot</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Tracks if a dot '.' has been encountered</span>
-        <span class="kt">boolean</span> <span class="n">seenExp</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Tracks if an exponent 'e' or 'E' has been encountered</span>
-        <span class="kt">boolean</span> <span class="n">seenSign</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Tracks if a sign '+' or '-' has been encountered</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If the character is a digit, mark seenDigit as true</span>
-                <span class="n">seenDigit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'.'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If the character is a dot:</span>
-                <span class="c1">// 1. It is invalid if a dot or an exponent has already been encountered</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">seenDot</span> <span class="o">||</span> <span class="n">seenExp</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// 2. Mark seenDot as true</span>
-                <span class="n">seenDot</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'e'</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'E'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If the character is an exponent:</span>
-                <span class="c1">// 1. It is invalid if an exponent has already been encountered</span>
-                <span class="c1">//    or if no digit has been encountered before the exponent</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">seenExp</span> <span class="o">||</span> <span class="o">!</span><span class="n">seenDigit</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// 2. Mark seenExp as true</span>
-                <span class="n">seenExp</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="c1">// 3. Reset seenDigit and seenSign to ensure valid format after 'e'/'E'</span>
-                <span class="n">seenDigit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// A valid exponent must be followed by a number</span>
-                <span class="n">seenSign</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Allow a sign immediately after the exponent</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'+'</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'-'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If the character is a sign:</span>
-                <span class="c1">// 1. It is invalid if a sign has already been encountered</span>
-                <span class="c1">//    or if it is not at the start or immediately after an exponent</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">seenSign</span> <span class="o">||</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">!=</span> <span class="sc">'e'</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">!=</span> <span class="sc">'E'</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// 2. Mark seenSign as true</span>
-                <span class="n">seenSign</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If the character is anything else, it is invalid</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The string is valid only if a digit has been encountered</span>
-        <span class="k">return</span> <span class="n">seenDigit</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test cases to validate the implementation</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="s">"0"</span><span class="o">,</span>       <span class="c1">// Simple valid integer</span>
-                <span class="s">".1"</span><span class="o">,</span>      <span class="c1">// Valid floating point with leading dot</span>
-                <span class="s">"2e10"</span><span class="o">,</span>    <span class="c1">// Valid scientific notation</span>
-                <span class="s">"-90E3"</span><span class="o">,</span>   <span class="c1">// Valid negative number in scientific notation</span>
-                <span class="s">"3e+7"</span><span class="o">,</span>    <span class="c1">// Valid positive exponent</span>
-                <span class="s">"+6e-1"</span><span class="o">,</span>   <span class="c1">// Valid positive number with negative exponent</span>
-                <span class="s">"53.5e93"</span><span class="o">,</span> <span class="c1">// Valid number with decimal and exponent</span>
-                <span class="s">"-123.456e789"</span><span class="o">,</span> <span class="c1">// Valid negative number with decimal and exponent</span>
-                <span class="s">"abc"</span><span class="o">,</span>     <span class="c1">// Invalid non-numeric string</span>
-                <span class="s">"1a"</span><span class="o">,</span>      <span class="c1">// Invalid number with trailing characters</span>
-                <span class="s">"1e"</span><span class="o">,</span>      <span class="c1">// Invalid exponent without digits after it</span>
-                <span class="s">"e3"</span><span class="o">,</span>      <span class="c1">// Invalid string starting with exponent</span>
-                <span class="s">"99e2.5"</span><span class="o">,</span>  <span class="c1">// Invalid exponent with decimal part</span>
-                <span class="s">"--6"</span><span class="o">,</span>     <span class="c1">// Invalid double sign</span>
-                <span class="s">"-+3"</span><span class="o">,</span>     <span class="c1">// Invalid mixed signs</span>
-                <span class="s">"95a54e53"</span> <span class="c1">// Invalid characters within the number</span>
-        <span class="o">};</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">testCase</span> <span class="o">:</span> <span class="n">testCases</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">testCase</span> <span class="o">+</span> <span class="s">" -&gt; Output: "</span> <span class="o">+</span> <span class="n">isNumber</span><span class="o">(</span><span class="n">testCase</span><span class="o">));</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Hard"/><summary type="html"><![CDATA[Given a string s, return whether s is a valid number.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[ou are given a 0-indexed permutation of n integers nums. A permutation is called semi-ordered if the first number equals 1 and the last number equals n. You can perform the below operation as many times as you want until you make nums a semi-ordered permutation: Pick two adjacent elements in nums, then swap them. Return the minimum number of operations to make nums a semi-ordered permutation. A permutation is a sequence of integers from 1 to n of length n containing each number exactly once.]]></summary></entry></feed>
