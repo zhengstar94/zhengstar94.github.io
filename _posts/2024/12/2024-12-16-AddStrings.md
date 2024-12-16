@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "415. Add Strings"
 date: "2024-12-16"
-tags: Hard
+tags: Easy
 categories:
   - "LeetCode MathGeometry"
 ---
