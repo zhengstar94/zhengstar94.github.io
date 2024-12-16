@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-16T03:11:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1847. Closest Room</title><link href="https://zhengstar94.github.io//blog/2024/ClosestRoom/" rel="alternate" type="text/html" title="1847. Closest Room"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ClosestRoom</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ClosestRoom/"><![CDATA[<ul> <li>There is a hotel with <code class="language-plaintext highlighter-rouge">n</code> rooms. The rooms are represented by a 2D integer array <code class="language-plaintext highlighter-rouge">rooms</code> where <code class="language-plaintext highlighter-rouge">rooms[i] = [roomIdi, sizei]</code> denotes that there is a room with room number <code class="language-plaintext highlighter-rouge">roomIdi</code> and size equal to <code class="language-plaintext highlighter-rouge">sizei</code>. Each <code class="language-plaintext highlighter-rouge">roomIdi</code> is guaranteed to be <strong>unique</strong>.</li> <li>You are also given <code class="language-plaintext highlighter-rouge">k</code> queries in a 2D array <code class="language-plaintext highlighter-rouge">queries</code> where <code class="language-plaintext highlighter-rouge">queries[j] = [preferredj, minSizej]</code>. The answer to the <code class="language-plaintext highlighter-rouge">jth</code> query is the room number <code class="language-plaintext highlighter-rouge">id</code> of a room such that: <ul> <li>The room has a size of <strong>at least</strong> <code class="language-plaintext highlighter-rouge">minSizej</code>, and</li> <li><code class="language-plaintext highlighter-rouge">abs(id - preferredj)</code> is <strong>minimized</strong>, where <code class="language-plaintext highlighter-rouge">abs(x)</code> is the absolute value of <code class="language-plaintext highlighter-rouge">x</code>.</li> </ul> </li> <li>If there is a <strong>tie</strong> in the absolute difference, then use the room with the <strong>smallest</strong> such <code class="language-plaintext highlighter-rouge">id</code>. If there is <strong>no such room</strong>, the answer is <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">k</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>contains the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rooms = [ [ 2,2],[1,2],[3,2 ] ], queries = [ [ 3,1],[3,3],[5,2 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-16T03:40:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">415. Add Strings</title><link href="https://zhengstar94.github.io//blog/2024/AddStrings/" rel="alternate" type="text/html" title="415. Add Strings"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AddStrings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AddStrings/"><![CDATA[<ul> <li>Given two non-negative integers, <code class="language-plaintext highlighter-rouge">num1</code> and <code class="language-plaintext highlighter-rouge">num2</code> represented as string, return <em>the sum of</em> <code class="language-plaintext highlighter-rouge">num1</code> <em>and</em> <code class="language-plaintext highlighter-rouge">num2</code> <em>as a string</em>.</li> <li>You must solve the problem without using any built-in library for handling large integers (such as <code class="language-plaintext highlighter-rouge">BigInteger</code>). You must also not convert the inputs to integers directly.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "11", num2 = "123"
+Output: "134"
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "456", num2 = "77"
+Output: "533"
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "0", num2 = "0"
+Output: "0"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(max(n, m)) time | O(max(n, m)) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.MathGeometry</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddStrings</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">addStrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">num1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize pointers to the end of both input strings</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">num1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">num2</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Initialize carry variable to track digit overflow</span>
+        <span class="kt">int</span> <span class="n">up</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// StringBuilder to efficiently build the result string</span>
+        <span class="nc">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+        <span class="c1">// Continue while there are digits to process or there's a carry</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">up</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Extract current digits, use 0 if no more digits</span>
+            <span class="c1">// Convert character to integer by subtracting '0'</span>
+            <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">num1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">num2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+
+            <span class="c1">// Calculate sum of current digits and carry</span>
+            <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">up</span><span class="o">;</span>
+
+            <span class="c1">// Append the current digit's ones place to result</span>
+            <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">result</span> <span class="o">%</span> <span class="mi">10</span><span class="o">);</span>
+
+            <span class="c1">// Calculate new carry for next iteration</span>
+            <span class="n">up</span> <span class="o">=</span> <span class="n">result</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
+
+            <span class="c1">// Move pointers to previous digits</span>
+            <span class="n">i</span><span class="o">--;</span>
+            <span class="n">j</span><span class="o">--;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Reverse the string as we built it from least significant digit</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">reverse</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1: Regular numbers with different lengths</span>
+        <span class="nc">String</span> <span class="n">test1Num1</span> <span class="o">=</span> <span class="s">"11"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">test1Num2</span> <span class="o">=</span> <span class="s">"123"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 1: "</span> <span class="o">+</span> <span class="n">test1Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test1Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
+                <span class="n">addStrings</span><span class="o">(</span><span class="n">test1Num1</span><span class="o">,</span> <span class="n">test1Num2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Numbers with carry</span>
+        <span class="nc">String</span> <span class="n">test2Num1</span> <span class="o">=</span> <span class="s">"456"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">test2Num2</span> <span class="o">=</span> <span class="s">"77"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 2: "</span> <span class="o">+</span> <span class="n">test2Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test2Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
+                <span class="n">addStrings</span><span class="o">(</span><span class="n">test2Num1</span><span class="o">,</span> <span class="n">test2Num2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Zero cases</span>
+        <span class="nc">String</span> <span class="n">test3Num1</span> <span class="o">=</span> <span class="s">"0"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">test3Num2</span> <span class="o">=</span> <span class="s">"0"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 3: "</span> <span class="o">+</span> <span class="n">test3Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test3Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
+                <span class="n">addStrings</span><span class="o">(</span><span class="n">test3Num1</span><span class="o">,</span> <span class="n">test3Num2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Large numbers</span>
+        <span class="nc">String</span> <span class="n">test4Num1</span> <span class="o">=</span> <span class="s">"9999"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">test4Num2</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 4: "</span> <span class="o">+</span> <span class="n">test4Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test4Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
+                <span class="n">addStrings</span><span class="o">(</span><span class="n">test4Num1</span><span class="o">,</span> <span class="n">test4Num2</span><span class="o">));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Hard"/><summary type="html"><![CDATA[Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string. You must solve the problem without using any built-in library for handling large integers (such as BigInteger). You must also not convert the inputs to integers directly.]]></summary></entry><entry><title type="html">1847. Closest Room</title><link href="https://zhengstar94.github.io//blog/2024/ClosestRoom/" rel="alternate" type="text/html" title="1847. Closest Room"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ClosestRoom</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ClosestRoom/"><![CDATA[<ul> <li>There is a hotel with <code class="language-plaintext highlighter-rouge">n</code> rooms. The rooms are represented by a 2D integer array <code class="language-plaintext highlighter-rouge">rooms</code> where <code class="language-plaintext highlighter-rouge">rooms[i] = [roomIdi, sizei]</code> denotes that there is a room with room number <code class="language-plaintext highlighter-rouge">roomIdi</code> and size equal to <code class="language-plaintext highlighter-rouge">sizei</code>. Each <code class="language-plaintext highlighter-rouge">roomIdi</code> is guaranteed to be <strong>unique</strong>.</li> <li>You are also given <code class="language-plaintext highlighter-rouge">k</code> queries in a 2D array <code class="language-plaintext highlighter-rouge">queries</code> where <code class="language-plaintext highlighter-rouge">queries[j] = [preferredj, minSizej]</code>. The answer to the <code class="language-plaintext highlighter-rouge">jth</code> query is the room number <code class="language-plaintext highlighter-rouge">id</code> of a room such that: <ul> <li>The room has a size of <strong>at least</strong> <code class="language-plaintext highlighter-rouge">minSizej</code>, and</li> <li><code class="language-plaintext highlighter-rouge">abs(id - preferredj)</code> is <strong>minimized</strong>, where <code class="language-plaintext highlighter-rouge">abs(x)</code> is the absolute value of <code class="language-plaintext highlighter-rouge">x</code>.</li> </ul> </li> <li>If there is a <strong>tie</strong> in the absolute difference, then use the room with the <strong>smallest</strong> such <code class="language-plaintext highlighter-rouge">id</code>. If there is <strong>no such room</strong>, the answer is <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">k</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>contains the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rooms = [ [ 2,2],[1,2],[3,2 ] ], queries = [ [ 3,1],[3,3],[5,2 ] ]
 Output: [3,-1,3]
 Explanation: The answers to the queries are as follows:
 Query = [3,1]: Room number 3 is the closest as abs(3 - 3) = 0, and its size of 2 is at least 1. The answer is 3.
@@ -707,64 +786,4 @@ Our score is 1 + 2 + 2 = 5.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums consisting of positive integers. Starting with score=0, apply the following algorithm: Find the minimum value x in nums. If there are multiple occurrences of the minimum value, select the one that appears first. Replace the selected minimum value x with x * multiplier. Return the score you get after applying the above algorithm.]]></summary></entry><entry><title type="html">670. Maximum Swap</title><link href="https://zhengstar94.github.io//blog/2024/MaximumSwap/" rel="alternate" type="text/html" title="670. Maximum Swap"/><published>2024-12-13T00:00:00+00:00</published><updated>2024-12-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumSwap</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumSwap/"><![CDATA[<ul> <li>You are given an integer <code class="language-plaintext highlighter-rouge">num</code>. You can swap two digits at most once to get the maximum valued number.</li> <li>Return <em>the maximum valued number you can get</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = 2736
-Output: 7236
-Explanation: Swap the number 2 and the number 7.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = 9973
-Output: 9973
-Explanation: No swap.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumSwap</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumSwap</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Convert the input number to a character array to easily manipulate individual digits</span>
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">digits</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">num</span><span class="o">).</span><span class="na">toCharArray</span><span class="o">();</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="c1">// Store the length of the character array</span>
-
-        <span class="c1">// Array to store the last index of each digit (0-9) in the number</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">lastIndex</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-
-        <span class="c1">// Iterate over the digits of the number and update the lastIndex array</span>
-        <span class="c1">// lastIndex[digit] will store the rightmost index of that digit</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">lastIndex</span><span class="o">[</span><span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>  <span class="c1">// The digit is converted from a character ('0' to '9') to an integer (0 to 9)</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Loop through each digit of the number to find a potential swap</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if there is any larger digit to the right of the current digit</span>
-            <span class="c1">// Start checking from digit 9 and go downwards (this ensures we check the largest possible digits first)</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">9</span><span class="o">;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">;</span> <span class="n">d</span><span class="o">--)</span> <span class="o">{</span>
-                <span class="c1">// If a larger digit is found to the right of the current digit (i.e., lastIndex[d] &gt; i)</span>
-                <span class="c1">// Swap the digits to form the largest possible number</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">lastIndex</span><span class="o">[</span><span class="n">d</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">i</span><span class="o">){</span>
-                    <span class="c1">// Swap the digits at the current position (i) and the last occurrence of the larger digit</span>
-                    <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-                    <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">digits</span><span class="o">[</span><span class="n">lastIndex</span><span class="o">[</span><span class="n">d</span><span class="o">]];</span>
-                    <span class="n">digits</span><span class="o">[</span><span class="n">lastIndex</span><span class="o">[</span><span class="n">d</span><span class="o">]]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-
-                    <span class="c1">// Convert the modified character array back to an integer and return the result</span>
-                    <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="n">digits</span><span class="o">));</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If no swap was needed, return the original number</span>
-        <span class="k">return</span> <span class="n">num</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumSwap</span><span class="o">(</span><span class="mi">2736</span><span class="o">));</span> <span class="c1">// Output: 7236</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumSwap</span><span class="o">(</span><span class="mi">9973</span><span class="o">));</span> <span class="c1">// Output: 9973</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumSwap</span><span class="o">(</span><span class="mi">1234</span><span class="o">));</span> <span class="c1">// Output: 4231</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumSwap</span><span class="o">(</span><span class="mi">98368</span><span class="o">));</span> <span class="c1">// Output: 98863</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer num. You can swap two digits at most once to get the maximum valued number. Return the maximum valued number you can get.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums consisting of positive integers. Starting with score=0, apply the following algorithm: Find the minimum value x in nums. If there are multiple occurrences of the minimum value, select the one that appears first. Replace the selected minimum value x with x * multiplier. Return the score you get after applying the above algorithm.]]></summary></entry></feed>
