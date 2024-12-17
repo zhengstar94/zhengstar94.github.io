@@ -5,7 +5,7 @@ layout: post
 title: Pomodoro
 date: "2024-12-16"
 description: Pomodoro Timer
-img: assets/img/2024/python/tomato/tomato.png
+img: assets/img/2024/python/tomato/clock.png
 importance: 4
 category: Python
 giscus_comments: true

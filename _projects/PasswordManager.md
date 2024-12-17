@@ -5,7 +5,7 @@ layout: post
 title: Password Manager
 date: "2024-12-17"
 description: Password Manager
-img: assets/img/2024/python/password/logo.png
+img: assets/img/2024/python/password/passwordPic.png
 importance: 5
 category: Python
 giscus_comments: true
