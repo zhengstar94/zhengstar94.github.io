@@ -5,7 +5,7 @@ layout: post
 title: Pomodoro
 date: "2024-12-16"
 description: Pomodoro Timer
-img: assets/img/2024/tomato/tomato.png
+img: assets/img/2024/python/tomato/tomato.png
 importance: 4
 category: Python
 giscus_comments: true
@@ -113,3 +113,5 @@ check_marks.grid(column=1, row=3)
 window.mainloop()
         
 ```
+
+{% include figure.liquid loading="eager" path="assets/img/2024/python/tomato/tomato.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
