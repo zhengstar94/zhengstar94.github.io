@@ -53,7 +53,7 @@ public class SpiralMatrixIII {
         result[count++] = new int[]{rStart, cStart};
 
         // Define the four directions in the order: Right -> Down -> Left -> Up
-        int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int[][] directions = { { 0, 1}, {1, 0}, {0, -1}, {-1, 0 } };
         // Initialize step size for each direction
         int step = 1;
         // Initialize the direction index to point to the first direction (Right)
