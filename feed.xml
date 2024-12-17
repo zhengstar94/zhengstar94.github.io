@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-16T08:28:05+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">415. Add Strings</title><link href="https://zhengstar94.github.io//blog/2024/AddStrings/" rel="alternate" type="text/html" title="415. Add Strings"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AddStrings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AddStrings/"><![CDATA[<ul> <li>Given two non-negative integers, <code class="language-plaintext highlighter-rouge">num1</code> and <code class="language-plaintext highlighter-rouge">num2</code> represented as string, return <em>the sum of</em> <code class="language-plaintext highlighter-rouge">num1</code> <em>and</em> <code class="language-plaintext highlighter-rouge">num2</code> <em>as a string</em>.</li> <li>You must solve the problem without using any built-in library for handling large integers (such as <code class="language-plaintext highlighter-rouge">BigInteger</code>). You must also not convert the inputs to integers directly.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "11", num2 = "123"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-17T04:02:40+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2182. Construct String With Repeat Limit</title><link href="https://zhengstar94.github.io//blog/2024/ConstructStringWithRepeatLimit/" rel="alternate" type="text/html" title="2182. Construct String With Repeat Limit"/><published>2024-12-17T00:00:00+00:00</published><updated>2024-12-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ConstructStringWithRepeatLimit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ConstructStringWithRepeatLimit/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">repeatLimit</code>. Construct (vt. 修建, 建立 构成, 组成) a new string <code class="language-plaintext highlighter-rouge">repeatLimitedString</code> using the characters of <code class="language-plaintext highlighter-rouge">s</code> such that no letter appears <strong>more than</strong> <code class="language-plaintext highlighter-rouge">repeatLimit</code> times <strong>in a row</strong>. You do <strong>not</strong> have to use all characters from <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <em>the <strong>lexicographically largest</strong></em> <code class="language-plaintext highlighter-rouge">repeatLimitedString</code> <em>possible</em>.</li> <li>A string <code class="language-plaintext highlighter-rouge">a</code> is <strong>lexicographically larger</strong> than a string <code class="language-plaintext highlighter-rouge">b</code> if in the first position where <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> differ, string <code class="language-plaintext highlighter-rouge">a</code> has a letter that appears later in the alphabet than the corresponding letter in <code class="language-plaintext highlighter-rouge">b</code>. If the first <code class="language-plaintext highlighter-rouge">min(a.length, b.length)</code> characters do not differ, then the longer string is the lexicographically larger one.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cczazcc", repeatLimit = 3
+Output: "zzcccac"
+Explanation: We use all of the characters from s to construct the repeatLimitedString "zzcccac".
+The letter 'a' appears at most 1 time in a row.
+The letter 'c' appears at most 3 times in a row.
+The letter 'z' appears at most 2 times in a row.
+Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
+The string is the lexicographically largest repeatLimitedString possible so we return "zzcccac".
+Note that the string "zzcccca" is lexicographically larger but the letter 'c' appears more than 3 times in a row, so it is not a valid repeatLimitedString.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aababab", repeatLimit = 2
+Output: "bbabaa"
+Explanation: We use only some of the characters from s to construct the repeatLimitedString "bbabaa". 
+The letter 'a' appears at most 2 times in a row.
+The letter 'b' appears at most 2 times in a row.
+Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
+The string is the lexicographically largest repeatLimitedString possible so we return "bbabaa".
+Note that the string "bbabaaa" is lexicographically larger but the letter 'a' appears more than 2 times in a row, so it is not a valid repeatLimitedString.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/17
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConstructStringWithRepeatLimit</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">repeatLimitedString</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">repeatLimit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+        <span class="c1">// Count the occurrences of each character in the string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">ch</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">ch</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Start from the largest character</span>
+        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="c1">// Ensure that r does not exceed the previous smaller character</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="k">while</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">repeatLimit</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Add `repeatLimit` occurrences of the current character</span>
+                    <span class="kt">int</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">repeatLimit</span><span class="o">;</span>
+                    <span class="k">while</span> <span class="o">(</span><span class="n">curr</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="sc">'a'</span> <span class="o">+</span> <span class="n">i</span><span class="o">));</span>
+                    <span class="o">}</span>
+
+                    <span class="c1">// Find the next available smaller character</span>
+                    <span class="k">while</span> <span class="o">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">r</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">r</span><span class="o">--;</span>
+                    <span class="o">}</span>
+
+                    <span class="c1">// If no smaller character is available, return the constructed string</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+                    <span class="o">}</span>
+
+                    <span class="c1">// Add the smaller character found</span>
+                    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="sc">'a'</span> <span class="o">+</span> <span class="n">r</span><span class="o">));</span>
+                    <span class="n">count</span><span class="o">[</span><span class="n">r</span><span class="o">]--;</span>
+                    <span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-=</span> <span class="n">repeatLimit</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="c1">// Add all remaining occurrences of the current character</span>
+                    <span class="kt">int</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                    <span class="k">while</span> <span class="o">(</span><span class="n">curr</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="sc">'a'</span> <span class="o">+</span> <span class="n">i</span><span class="o">));</span>
+                    <span class="o">}</span>
+                    <span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic scenario</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aabccc"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">repeatLimit1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">repeatLimit1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: All characters are the same</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"aaaaa"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">repeatLimit2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">repeatLimit2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Complex scenario</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"cczzzzeeddaabb"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">repeatLimit3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">repeatLimit3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: Repeat limit is 1</span>
+        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"aabbccddee"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">repeatLimit4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s4</span><span class="o">,</span> <span class="n">repeatLimit4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result4</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s and an integer repeatLimit. Construct (vt. 修建, 建立 构成, 组成) a new string repeatLimitedString using the characters of s such that no letter appears more than repeatLimit times in a row. You do not have to use all characters from s. Return the lexicographically largest repeatLimitedString possible. A string a is lexicographically larger than a string b if in the first position where a and b differ, string a has a letter that appears later in the alphabet than the corresponding letter in b. If the first min(a.length, b.length) characters do not differ, then the longer string is the lexicographically larger one.]]></summary></entry><entry><title type="html">415. Add Strings</title><link href="https://zhengstar94.github.io//blog/2024/AddStrings/" rel="alternate" type="text/html" title="415. Add Strings"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AddStrings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AddStrings/"><![CDATA[<ul> <li>Given two non-negative integers, <code class="language-plaintext highlighter-rouge">num1</code> and <code class="language-plaintext highlighter-rouge">num2</code> represented as string, return <em>the sum of</em> <code class="language-plaintext highlighter-rouge">num1</code> <em>and</em> <code class="language-plaintext highlighter-rouge">num2</code> <em>as a string</em>.</li> <li>You must solve the problem without using any built-in library for handling large integers (such as <code class="language-plaintext highlighter-rouge">BigInteger</code>). You must also not convert the inputs to integers directly.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "11", num2 = "123"
 Output: "134"
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "456", num2 = "77"
 Output: "533"
@@ -703,77 +821,4 @@ Output: 2
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.]]></summary></entry><entry><title type="html">3264. Final Array State After K Multiplication Operations I</title><link href="https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI/" rel="alternate" type="text/html" title="3264. Final Array State After K Multiplication Operations I"/><published>2024-12-13T00:00:00+00:00</published><updated>2024-12-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FinalArrayStateAfterKMultiplicationOperationsI/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, an integer <code class="language-plaintext highlighter-rouge">k</code>, and an integer <code class="language-plaintext highlighter-rouge">multiplier</code>.</p> <p>You need to perform <code class="language-plaintext highlighter-rouge">k</code> operations on <code class="language-plaintext highlighter-rouge">nums</code>. In each operation:</p> <ul> <li>Find the <strong>minimum</strong> value <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">nums</code>. If there are multiple occurrences of the minimum value, select the one that appears <strong>first</strong>.</li> <li>Replace the selected minimum value <code class="language-plaintext highlighter-rouge">x</code> with <code class="language-plaintext highlighter-rouge">x * multiplier</code>.</li> </ul> </li> <li> <p>Return an integer array denoting the <em>final state</em> of <code class="language-plaintext highlighter-rouge">nums</code> after performing all <code class="language-plaintext highlighter-rouge">k</code> operations.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,3,5,6], k = 5, multiplier = 2
-
-Output: [8,4,6,5,6]
-
-Explanation:
-
-Operation	Result
-After operation 1	[2, 2, 3, 5, 6]
-After operation 2	[4, 2, 3, 5, 6]
-After operation 3	[4, 4, 3, 5, 6]
-After operation 4	[4, 4, 6, 5, 6]
-After operation 5	[8, 4, 6, 5, 6]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2], k = 3, multiplier = 4
-
-Output: [16,8]
-
-Explanation:
-
-Operation	Result
-After operation 1	[4, 2]
-After operation 2	[4, 8]
-After operation 3	[16, 8]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * k) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FinalArrayStateAfterKMultiplicationOperationsI</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getFinalState</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="kt">int</span> <span class="n">multiplier</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Perform k multiplication operations</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Initialize minimum value to maximum integer</span>
-            <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-
-            <span class="c1">// Initialize index of minimum value</span>
-            <span class="kt">int</span> <span class="n">minIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-            <span class="c1">// Find the minimum value and its index in the array</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Update minimum value and its index if a smaller value is found</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="o">){</span>
-                    <span class="n">minIndex</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
-                    <span class="n">min</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Multiply the minimum value by the multiplier</span>
-            <span class="n">nums</span><span class="o">[</span><span class="n">minIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">min</span> <span class="o">*</span> <span class="n">multiplier</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">nums</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">multiplier1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">getFinalState</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">,</span> <span class="n">multiplier1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">multiplier2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">getFinalState</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">,</span> <span class="n">multiplier2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums, an integer k, and an integer multiplier.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.]]></summary></entry></feed>
