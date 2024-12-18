@@ -2,10 +2,10 @@
 toc:
     sidebar: left
 layout: post
-title: Password Manager
+title: Password
 date: "2024-12-17"
-description: Password
-img: assets/img/2024/python/password/passwordPic.png
+description: Password Manager
+img: assets/img/2024/python/password/password.png
 importance: 5
 category: Python
 giscus_comments: true
