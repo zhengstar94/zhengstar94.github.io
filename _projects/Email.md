@@ -3,7 +3,7 @@ toc:
     sidebar: left
 layout: post
 title: Email
-date: "2024-12-17"
+date: "2024-12-18"
 description: Auto send birthday email
 importance: 7
 category: Python
