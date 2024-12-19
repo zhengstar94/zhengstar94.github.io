@@ -5,7 +5,7 @@ layout: post
 title: Quizzler
 date: "2024-12-18"
 description: Quiz
-img: 
+img: assets/img/2024/python/quizzler/quizzler.png
 importance: 9
 category: Python
 giscus_comments: true

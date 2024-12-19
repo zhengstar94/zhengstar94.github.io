@@ -5,6 +5,7 @@ layout: post
 title: Email
 date: "2024-12-18"
 description: Auto send birthday email
+img: assets/img/2024/python/email/email.png
 importance: 7
 category: Python
 giscus_comments: true
