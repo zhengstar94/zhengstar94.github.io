@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-20T02:50:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3138. Minimum Length of Anagram Concatenation</title><link href="https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation/" rel="alternate" type="text/html" title="3138. Minimum Length of Anagram Concatenation"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>, which is known to be a concatenation of <strong>anagrams</strong> of some string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>Return the <strong>minimum</strong> possible length of the string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>An <strong>anagram</strong> is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abba"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-20T03:22:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">643. Maximum Average Subarray I</title><link href="https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI/" rel="alternate" type="text/html" title="643. Maximum Average Subarray I"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> consisting of <code class="language-plaintext highlighter-rouge">n</code> elements, and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Find a contiguous subarray whose <strong>length is equal to</strong> <code class="language-plaintext highlighter-rouge">k</code> that has the maximum average value and return <em>this value</em>. Any answer with a calculation error less than <code class="language-plaintext highlighter-rouge">10-5</code> will be accepted.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,12,-5,-6,50,3], k = 4
+Output: 12.75000
+Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5], k = 1
+Output: 5.00000
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumAverageSubarrayI</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">findMaxAverage</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Calculate initial sum of first k elements</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Track maximum sum found so far</span>
+        <span class="kt">int</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="n">sum</span><span class="o">;</span>
+
+        <span class="c1">// Slide window by one position at a time</span>
+        <span class="c1">// Remove leftmost element and add rightmost element</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="n">maxSum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxSum</span><span class="o">,</span> <span class="n">sum</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert to double and calculate average</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">maxSum</span> <span class="o">/</span> <span class="n">k</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1: Regular array with positive numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">,</span> <span class="o">-</span><span class="mi">6</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">findMaxAverage</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>  <span class="c1">// Expected: 12.75</span>
+
+        <span class="c1">// Test Case 2: Array with all same numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">findMaxAverage</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>  <span class="c1">// Expected: 5.0</span>
+
+        <span class="c1">// Test Case 3: Array with negative numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">,</span> <span class="o">-</span><span class="mi">4</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">findMaxAverage</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>  <span class="c1">// Expected: -1.5</span>
+
+        <span class="c1">// Test Case 4: Array where k equals array length</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">findMaxAverage</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span>  <span class="c1">// Expected: 2.0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums consisting of n elements, and an integer k. Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.]]></summary></entry><entry><title type="html">3138. Minimum Length of Anagram Concatenation</title><link href="https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation/" rel="alternate" type="text/html" title="3138. Minimum Length of Anagram Concatenation"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>, which is known to be a concatenation of <strong>anagrams</strong> of some string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>Return the <strong>minimum</strong> possible length of the string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>An <strong>anagram</strong> is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abba"
 Output: 2
 Explanation:
 One possible string t could be "ba".
@@ -99,7 +159,133 @@ One possible string t could be "cdef", notice that t can be equal to s.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s, which is known to be a concatenation of anagrams of some string t. Return the minimum possible length of the string t. An anagram is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.]]></summary></entry><entry><title type="html">3285. Find Indices of Stable Mountains</title><link href="https://zhengstar94.github.io//blog/2024/FindIndicesOfStableMountains/" rel="alternate" type="text/html" title="3285. Find Indices of Stable Mountains"/><published>2024-12-19T00:00:00+00:00</published><updated>2024-12-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindIndicesOfStableMountains</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindIndicesOfStableMountains/"><![CDATA[<ul> <li>There are <code class="language-plaintext highlighter-rouge">n</code> mountains in a row, and each mountain has a height. You are given an integer array <code class="language-plaintext highlighter-rouge">height</code> where <code class="language-plaintext highlighter-rouge">height[i]</code> represents the height of mountain <code class="language-plaintext highlighter-rouge">i</code>, and an integer <code class="language-plaintext highlighter-rouge">threshold</code>.</li> <li>A mountain is called <strong>stable</strong> if the mountain just before it (<strong>if it exists</strong>) has a height <strong>strictly greater</strong> than <code class="language-plaintext highlighter-rouge">threshold</code>. <strong>Note</strong> that mountain 0 is <strong>not</strong> stable.</li> <li>Return an array containing the indices of <em>all</em> <strong>stable</strong> mountains in <strong>any</strong> order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: height = [1,2,3,4,5], threshold = 2
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s, which is known to be a concatenation of anagrams of some string t. Return the minimum possible length of the string t. An anagram is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.]]></summary></entry><entry><title type="html">2415. Reverse Odd Levels of Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/ReverseOddLevelsOfBinaryTree/" rel="alternate" type="text/html" title="2415. Reverse Odd Levels of Binary Tree"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReverseOddLevelsOfBinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReverseOddLevelsOfBinaryTree/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a <strong>perfect</strong> binary tree, reverse the node values at each <strong>odd</strong> level of the tree. <ul> <li>For example, suppose the node values at level 3 are <code class="language-plaintext highlighter-rouge">[2,1,3,4,7,11,29,18]</code>, then it should become <code class="language-plaintext highlighter-rouge">[18,29,11,7,4,3,1,2]</code>.</li> </ul> </li> <li>Return <em>the root of the reversed tree</em>.</li> <li>A binary tree is <strong>perfect</strong> if all parent nodes have two children and all leaves are on the same level.</li> <li>The <strong>level</strong> of a node is the number of edges along the path between it and the root node.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [2,3,5,8,13,21,34]
+Output: [2,5,3,8,13,21,34]
+Explanation: 
+The tree has only one odd level.
+The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [7,13,11]
+Output: [7,11,13]
+Explanation: 
+The nodes at level 1 are 13, 11, which are reversed and become 11, 13.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [0,1,2,0,0,0,0,1,1,1,1,2,2,2,2]
+Output: [0,2,1,0,0,0,0,2,2,2,2,1,1,1,1]
+Explanation: 
+The odd levels have non-zero values.
+The nodes at level 1 were 1, 2, and are 2, 1 after the reversal.
+The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1 after the reversal.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(h) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+
+<span class="cm">/**
+* @author zhengxingxing
+* @date 2024/12/20
+ **/</span>
+
+<span class="kd">class</span> <span class="nc">TreeNode</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+    <span class="nc">TreeNode</span> <span class="n">left</span><span class="o">;</span>
+    <span class="nc">TreeNode</span> <span class="n">right</span><span class="o">;</span>
+    <span class="nc">TreeNode</span><span class="o">()</span> <span class="o">{}</span>
+    <span class="nc">TreeNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span> <span class="o">}</span>
+    <span class="nc">TreeNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseOddLevelsOfBinaryTree</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">TreeNode</span> <span class="nf">reverseOddLevels</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Start processing from level 1 (children of root)</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">right</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isOdd</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Return if either node is null (reached leaf)</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If at odd level, swap the values</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">isOdd</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+            <span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+            <span class="n">right</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Recursively process next level</span>
+        <span class="c1">// Process symmetric pairs: left's left child with right's right child</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="o">!</span><span class="n">isOdd</span><span class="o">);</span>
+        <span class="c1">// Process symmetric pairs: left's right child with right's left child</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="o">!</span><span class="n">isOdd</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1: Simple tree with 3 levels</span>
+        <span class="nc">TreeNode</span> <span class="n">root1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - Before:"</span><span class="o">);</span>
+        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root1</span><span class="o">);</span>
+        <span class="n">reverseOddLevels</span><span class="o">(</span><span class="n">root1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - After:"</span><span class="o">);</span>
+        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root1</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 2: Tree with 4 levels</span>
+        <span class="nc">TreeNode</span> <span class="n">root2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">11</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">12</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">13</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2 - Before:"</span><span class="o">);</span>
+        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root2</span><span class="o">);</span>
+        <span class="n">reverseOddLevels</span><span class="o">(</span><span class="n">root2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 - After:"</span><span class="o">);</span>
+        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Helper method to print tree in level order</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printLevelOrder</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">TreeNode</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+
+        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">levelSize</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">levelSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="nc">TreeNode</span> <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><summary type="html"><![CDATA[Given the root of a perfect binary tree, reverse the node values at each odd level of the tree. For example, suppose the node values at level 3 are [2,1,3,4,7,11,29,18], then it should become [18,29,11,7,4,3,1,2]. Return the root of the reversed tree. A binary tree is perfect if all parent nodes have two children and all leaves are on the same level. The level of a node is the number of edges along the path between it and the root node.]]></summary></entry><entry><title type="html">3285. Find Indices of Stable Mountains</title><link href="https://zhengstar94.github.io//blog/2024/FindIndicesOfStableMountains/" rel="alternate" type="text/html" title="3285. Find Indices of Stable Mountains"/><published>2024-12-19T00:00:00+00:00</published><updated>2024-12-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindIndicesOfStableMountains</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindIndicesOfStableMountains/"><![CDATA[<ul> <li>There are <code class="language-plaintext highlighter-rouge">n</code> mountains in a row, and each mountain has a height. You are given an integer array <code class="language-plaintext highlighter-rouge">height</code> where <code class="language-plaintext highlighter-rouge">height[i]</code> represents the height of mountain <code class="language-plaintext highlighter-rouge">i</code>, and an integer <code class="language-plaintext highlighter-rouge">threshold</code>.</li> <li>A mountain is called <strong>stable</strong> if the mountain just before it (<strong>if it exists</strong>) has a height <strong>strictly greater</strong> than <code class="language-plaintext highlighter-rouge">threshold</code>. <strong>Note</strong> that mountain 0 is <strong>not</strong> stable.</li> <li>Return an array containing the indices of <em>all</em> <strong>stable</strong> mountains in <strong>any</strong> order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: height = [1,2,3,4,5], threshold = 2
 
 Output: [3,4]
 
@@ -676,199 +862,4 @@ Output: [ [ 1,4],[1,5],[2,5],[2,4],[2,3],[1,3],[0,3],[0,4],[0,5],[3,5],[3,4],[3,
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You start at the cell (rStart, cStart) of an rows x cols grid facing east. The northwest corner is at the first row and column in the grid, and the southeast corner is at the last row and column. You will walk in a clockwise spiral shape to visit every position in this grid. Whenever you move outside the grid’s boundary, we continue our walk outside the grid (but may return to the grid boundary later.). Eventually, we reach all rows * cols spaces of the grid. Return an array of coordinates representing the positions of the grid in the order you visited them.]]></summary></entry><entry><title type="html">415. Add Strings</title><link href="https://zhengstar94.github.io//blog/2024/AddStrings/" rel="alternate" type="text/html" title="415. Add Strings"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/AddStrings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/AddStrings/"><![CDATA[<ul> <li>Given two non-negative integers, <code class="language-plaintext highlighter-rouge">num1</code> and <code class="language-plaintext highlighter-rouge">num2</code> represented as string, return <em>the sum of</em> <code class="language-plaintext highlighter-rouge">num1</code> <em>and</em> <code class="language-plaintext highlighter-rouge">num2</code> <em>as a string</em>.</li> <li>You must solve the problem without using any built-in library for handling large integers (such as <code class="language-plaintext highlighter-rouge">BigInteger</code>). You must also not convert the inputs to integers directly.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "11", num2 = "123"
-Output: "134"
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "456", num2 = "77"
-Output: "533"
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = "0", num2 = "0"
-Output: "0"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(max(n, m)) time | O(max(n, m)) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.MathGeometry</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddStrings</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">addStrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">num1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize pointers to the end of both input strings</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">num1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">num2</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Initialize carry variable to track digit overflow</span>
-        <span class="kt">int</span> <span class="n">up</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// StringBuilder to efficiently build the result string</span>
-        <span class="nc">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-
-        <span class="c1">// Continue while there are digits to process or there's a carry</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">up</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Extract current digits, use 0 if no more digits</span>
-            <span class="c1">// Convert character to integer by subtracting '0'</span>
-            <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">num1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">num2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
-
-            <span class="c1">// Calculate sum of current digits and carry</span>
-            <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">up</span><span class="o">;</span>
-
-            <span class="c1">// Append the current digit's ones place to result</span>
-            <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">result</span> <span class="o">%</span> <span class="mi">10</span><span class="o">);</span>
-
-            <span class="c1">// Calculate new carry for next iteration</span>
-            <span class="n">up</span> <span class="o">=</span> <span class="n">result</span> <span class="o">/</span> <span class="mi">10</span><span class="o">;</span>
-
-            <span class="c1">// Move pointers to previous digits</span>
-            <span class="n">i</span><span class="o">--;</span>
-            <span class="n">j</span><span class="o">--;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Reverse the string as we built it from least significant digit</span>
-        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">reverse</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1: Regular numbers with different lengths</span>
-        <span class="nc">String</span> <span class="n">test1Num1</span> <span class="o">=</span> <span class="s">"11"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">test1Num2</span> <span class="o">=</span> <span class="s">"123"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 1: "</span> <span class="o">+</span> <span class="n">test1Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test1Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
-                <span class="n">addStrings</span><span class="o">(</span><span class="n">test1Num1</span><span class="o">,</span> <span class="n">test1Num2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Numbers with carry</span>
-        <span class="nc">String</span> <span class="n">test2Num1</span> <span class="o">=</span> <span class="s">"456"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">test2Num2</span> <span class="o">=</span> <span class="s">"77"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 2: "</span> <span class="o">+</span> <span class="n">test2Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test2Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
-                <span class="n">addStrings</span><span class="o">(</span><span class="n">test2Num1</span><span class="o">,</span> <span class="n">test2Num2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Zero cases</span>
-        <span class="nc">String</span> <span class="n">test3Num1</span> <span class="o">=</span> <span class="s">"0"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">test3Num2</span> <span class="o">=</span> <span class="s">"0"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 3: "</span> <span class="o">+</span> <span class="n">test3Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test3Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
-                <span class="n">addStrings</span><span class="o">(</span><span class="n">test3Num1</span><span class="o">,</span> <span class="n">test3Num2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Large numbers</span>
-        <span class="nc">String</span> <span class="n">test4Num1</span> <span class="o">=</span> <span class="s">"9999"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">test4Num2</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 4: "</span> <span class="o">+</span> <span class="n">test4Num1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">test4Num2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span>
-                <span class="n">addStrings</span><span class="o">(</span><span class="n">test4Num1</span><span class="o">,</span> <span class="n">test4Num2</span><span class="o">));</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Easy"/><summary type="html"><![CDATA[Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string. You must solve the problem without using any built-in library for handling large integers (such as BigInteger). You must also not convert the inputs to integers directly.]]></summary></entry><entry><title type="html">1847. Closest Room</title><link href="https://zhengstar94.github.io//blog/2024/ClosestRoom/" rel="alternate" type="text/html" title="1847. Closest Room"/><published>2024-12-16T00:00:00+00:00</published><updated>2024-12-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ClosestRoom</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ClosestRoom/"><![CDATA[<ul> <li>There is a hotel with <code class="language-plaintext highlighter-rouge">n</code> rooms. The rooms are represented by a 2D integer array <code class="language-plaintext highlighter-rouge">rooms</code> where <code class="language-plaintext highlighter-rouge">rooms[i] = [roomIdi, sizei]</code> denotes that there is a room with room number <code class="language-plaintext highlighter-rouge">roomIdi</code> and size equal to <code class="language-plaintext highlighter-rouge">sizei</code>. Each <code class="language-plaintext highlighter-rouge">roomIdi</code> is guaranteed to be <strong>unique</strong>.</li> <li>You are also given <code class="language-plaintext highlighter-rouge">k</code> queries in a 2D array <code class="language-plaintext highlighter-rouge">queries</code> where <code class="language-plaintext highlighter-rouge">queries[j] = [preferredj, minSizej]</code>. The answer to the <code class="language-plaintext highlighter-rouge">jth</code> query is the room number <code class="language-plaintext highlighter-rouge">id</code> of a room such that: <ul> <li>The room has a size of <strong>at least</strong> <code class="language-plaintext highlighter-rouge">minSizej</code>, and</li> <li><code class="language-plaintext highlighter-rouge">abs(id - preferredj)</code> is <strong>minimized</strong>, where <code class="language-plaintext highlighter-rouge">abs(x)</code> is the absolute value of <code class="language-plaintext highlighter-rouge">x</code>.</li> </ul> </li> <li>If there is a <strong>tie</strong> in the absolute difference, then use the room with the <strong>smallest</strong> such <code class="language-plaintext highlighter-rouge">id</code>. If there is <strong>no such room</strong>, the answer is <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">k</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>contains the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rooms = [ [ 2,2],[1,2],[3,2 ] ], queries = [ [ 3,1],[3,3],[5,2 ] ]
-Output: [3,-1,3]
-Explanation: The answers to the queries are as follows:
-Query = [3,1]: Room number 3 is the closest as abs(3 - 3) = 0, and its size of 2 is at least 1. The answer is 3.
-Query = [3,3]: There are no rooms with a size of at least 3, so the answer is -1.
-Query = [5,2]: Room number 3 is the closest as abs(3 - 5) = 2, and its size of 2 is at least 2. The answer is 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rooms = [ [ 1,4],[2,3],[3,5],[4,1],[5,2 ] ], queries = [ [ 2,3],[2,4],[2,5 ] ]
-Output: [2,1,3]
-Explanation: The answers to the queries are as follows:
-Query = [2,3]: Room number 2 is the closest as abs(2 - 2) = 0, and its size of 3 is at least 3. The answer is 2.
-Query = [2,4]: Room numbers 1 and 3 both have sizes of at least 4. The answer is 1 since it is smaller.
-Query = [2,5]: Room number 3 is the only room with a size of at least 5. The answer is 3.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(NlogN + QlogQ + QlogN) time | O(N + Q) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClosestRoom</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">closestRoom</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">rooms</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create an array to track original query indices</span>
-        <span class="c1">// This allows us to maintain the original query order while sorting</span>
-        <span class="nc">Integer</span><span class="o">[]</span> <span class="n">queryIndices</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">[</span><span class="n">queries</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">queries</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">queryIndices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>  <span class="c1">// Initialize with original indices</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Sort query indices based on room size in descending order</span>
-        <span class="c1">// This helps process larger room size requirements first</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">queryIndices</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">queries</span><span class="o">[</span><span class="n">b</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span> <span class="n">queries</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="mi">1</span><span class="o">]));</span>
-
-        <span class="c1">// Sort rooms by size in descending order</span>
-        <span class="c1">// Allows efficient filtering of rooms that meet size requirements</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">rooms</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-
-        <span class="c1">// Initialize result array and room ID set</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">queries</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">roomIds</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Track which rooms have been processed</span>
-        <span class="kt">int</span> <span class="n">roomIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Process each query in sorted order</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">queryIdx</span> <span class="o">:</span> <span class="n">queryIndices</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Extract query parameters</span>
-            <span class="kt">int</span> <span class="n">preferred</span> <span class="o">=</span> <span class="n">queries</span><span class="o">[</span><span class="n">queryIdx</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// Preferred room number</span>
-            <span class="kt">int</span> <span class="n">minSize</span> <span class="o">=</span> <span class="n">queries</span><span class="o">[</span><span class="n">queryIdx</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>    <span class="c1">// Minimum room size</span>
-
-            <span class="c1">// Add room IDs that meet the size requirement</span>
-            <span class="c1">// Dynamically build a set of valid room IDs</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">roomIndex</span> <span class="o">&lt;</span> <span class="n">rooms</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">rooms</span><span class="o">[</span><span class="n">roomIndex</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">minSize</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">roomIds</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rooms</span><span class="o">[</span><span class="n">roomIndex</span><span class="o">][</span><span class="mi">0</span><span class="o">]);</span>
-                <span class="n">roomIndex</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If no rooms meet the size requirement, mark as -1</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">roomIds</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">answer</span><span class="o">[</span><span class="n">queryIdx</span><span class="o">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Find the closest room numbers</span>
-            <span class="c1">// floor: largest room number &lt;= preferred</span>
-            <span class="c1">// ceiling: smallest room number &gt;= preferred</span>
-            <span class="nc">Integer</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">roomIds</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">preferred</span><span class="o">);</span>
-            <span class="nc">Integer</span> <span class="n">higher</span> <span class="o">=</span> <span class="n">roomIds</span><span class="o">.</span><span class="na">ceiling</span><span class="o">(</span><span class="n">preferred</span><span class="o">);</span>
-
-            <span class="c1">// Handle edge cases where lower or higher might be null</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">lower</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// No room number lower than preferred, use higher</span>
-                <span class="n">answer</span><span class="o">[</span><span class="n">queryIdx</span><span class="o">]</span> <span class="o">=</span> <span class="n">higher</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">higher</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// No room number higher than preferred, use lower</span>
-                <span class="n">answer</span><span class="o">[</span><span class="n">queryIdx</span><span class="o">]</span> <span class="o">=</span> <span class="n">lower</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Compare absolute differences to find the closest room</span>
-                <span class="kt">int</span> <span class="n">lowDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">preferred</span> <span class="o">-</span> <span class="n">lower</span><span class="o">);</span>
-                <span class="kt">int</span> <span class="n">highDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">preferred</span> <span class="o">-</span> <span class="n">higher</span><span class="o">);</span>
-
-                <span class="c1">// Choose the closer room</span>
-                <span class="c1">// If distances are equal, prefer the lower room number</span>
-                <span class="n">answer</span><span class="o">[</span><span class="n">queryIdx</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">lowDiff</span> <span class="o">&lt;=</span> <span class="n">highDiff</span><span class="o">)</span> <span class="o">?</span> <span class="n">lower</span> <span class="o">:</span> <span class="n">higher</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1: Basic scenario</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">rooms1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">closestRoom</span><span class="o">(</span><span class="n">rooms1</span><span class="o">,</span> <span class="n">queries1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
-        <span class="c1">// Expected: [3, -1, 3]</span>
-
-        <span class="c1">// Test Case 2: More complex scenario</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">rooms2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">closestRoom</span><span class="o">(</span><span class="n">rooms2</span><span class="o">,</span> <span class="n">queries2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
-        <span class="c1">// Expected: [2, 1, 3]</span>
-
-        <span class="c1">// Test Case 3: Edge cases</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">rooms3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">20</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">30</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">9</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">21</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">40</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">closestRoom</span><span class="o">(</span><span class="n">rooms3</span><span class="o">,</span> <span class="n">queries3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result3</span><span class="o">));</span>
-        <span class="c1">// Expected: [1, 3, -1]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><category term="Hard"/><summary type="html"><![CDATA[There is a hotel with n rooms. The rooms are represented by a 2D integer array rooms where rooms[i] = [roomIdi, sizei] denotes that there is a room with room number roomIdi and size equal to sizei. Each roomIdi is guaranteed to be unique. You are also given k queries in a 2D array queries where queries[j] = [preferredj, minSizej]. The answer to the jth query is the room number id of a room such that: The room has a size of at least minSizej, and abs(id - preferredj) is minimized, where abs(x) is the absolute value of x. If there is a tie in the absolute difference, then use the room with the smallest such id. If there is no such room, the answer is -1. Return an array answer of length k where answer[j] contains the answer to the jth query.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You start at the cell (rStart, cStart) of an rows x cols grid facing east. The northwest corner is at the first row and column in the grid, and the southeast corner is at the last row and column. You will walk in a clockwise spiral shape to visit every position in this grid. Whenever you move outside the grid’s boundary, we continue our walk outside the grid (but may return to the grid boundary later.). Eventually, we reach all rows * cols spaces of the grid. Return an array of coordinates representing the positions of the grid in the order you visited them.]]></summary></entry></feed>
