@@ -113,7 +113,7 @@ public class MaximumNumberOfKDivisibleComponents {
         // Test Case 1: Example from the problem
         System.out.println("Test Case 1:");
         int n1 = 5;
-        int[][] edges1 = {{0,2}, {1,2}, {1,3}, {2,4}};
+        int[][] edges1 = { { 0,2}, {1,2}, {1,3}, {2,4 } };
         int[] values1 = {1,8,1,4,4};
         int k1 = 6;
         System.out.println("Expected: 2");
