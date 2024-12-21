@@ -40,7 +40,7 @@ Explanation: In the above diagram, S denotes the student, while E denotes the ex
 ## Method 1
 
 ```tex
-【O(nlog(n) time | O(n) space】
+【O(nlog(n)) time | O(n) space】
 ```
 
 ```java
