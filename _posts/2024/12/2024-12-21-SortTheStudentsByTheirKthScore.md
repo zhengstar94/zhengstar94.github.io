@@ -1,6 +1,6 @@
 ---
 toc:
-  beginning: true
+    sidebar: left
 giscus_comments: true
 layout: post
 title: "2545. Sort the Students by Their Kth Score"
