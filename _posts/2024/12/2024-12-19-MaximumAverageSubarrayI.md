@@ -44,26 +44,34 @@ package Leetcode.SlideWindow;
  */
 public class MaximumAverageSubarrayI {
     public static double findMaxAverage(int[] nums, int k) {
-        // Calculate initial sum of first k elements
-        int sum = 0;
         int n = nums.length;
-
-        for (int i = 0; i < k; i++) {
-            sum += nums[i];
+        if (n == 0) {
+          return 0;
         }
-
-        // Track maximum sum found so far
-        int maxSum = sum;
-
-        // Slide window by one position at a time
-        // Remove leftmost element and add rightmost element
-        for (int i = k; i < n; i++) {
-            sum = sum - nums[i - k] + nums[i];
-            maxSum = Math.max(maxSum, sum);
+  
+        // Running sum of current window
+        int subArraySum = 0;
+        // Initialize max sum with the minimum value
+        int maxSum = Integer.MIN_VALUE;
+  
+        for (int i = 0; i < n; i++) {
+          // Add current element to window sum
+          subArraySum += nums[i];
+  
+          // Skip until we have k elements in our window
+          if (i < k - 1) {
+            continue;
+          }
+  
+          // Update max sum
+          maxSum = Math.max(maxSum, subArraySum);
+  
+          // Remove the leftmost element from window sum
+          subArraySum -= nums[i - k + 1];
         }
-
-        // Convert to double and calculate average
-        return 1.0 * maxSum / k;
+  
+        // Return the maximum average
+        return (1.0 * maxSum) / k;
     }
 
     public static void main(String[] args) {
