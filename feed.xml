@@ -1,4 +1,158 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-20T05:38:05+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">643. Maximum Average Subarray I</title><link href="https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI/" rel="alternate" type="text/html" title="643. Maximum Average Subarray I"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> consisting of <code class="language-plaintext highlighter-rouge">n</code> elements, and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Find a contiguous subarray whose <strong>length is equal to</strong> <code class="language-plaintext highlighter-rouge">k</code> that has the maximum average value and return <em>this value</em>. Any answer with a calculation error less than <code class="language-plaintext highlighter-rouge">10-5</code> will be accepted.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,12,-5,-6,50,3], k = 4
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-21T04:16:53+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2872. Maximum Number of K-Divisible Components</title><link href="https://zhengstar94.github.io//blog/2024/MaximumNumberOfKDivisibleComponents/" rel="alternate" type="text/html" title="2872. Maximum Number of K-Divisible Components"/><published>2024-12-21T00:00:00+00:00</published><updated>2024-12-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumNumberOfKDivisibleComponents</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumNumberOfKDivisibleComponents/"><![CDATA[<ul> <li>There is an undirected tree with <code class="language-plaintext highlighter-rouge">n</code> nodes labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code>. You are given the integer <code class="language-plaintext highlighter-rouge">n</code> and a 2D integer array <code class="language-plaintext highlighter-rouge">edges</code> of length <code class="language-plaintext highlighter-rouge">n - 1</code>, where <code class="language-plaintext highlighter-rouge">edges[i] = [ai, bi]</code> indicates that there is an edge between nodes <code class="language-plaintext highlighter-rouge">ai</code> and <code class="language-plaintext highlighter-rouge">bi</code> in the tree.</li> <li>You are also given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">values</code> of length <code class="language-plaintext highlighter-rouge">n</code>, where <code class="language-plaintext highlighter-rouge">values[i]</code> is the <strong>value</strong> associated with the <code class="language-plaintext highlighter-rouge">ith</code> node, and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>valid split</strong> of the tree is obtained by removing any set of edges, possibly empty, from the tree such that the resulting components all have values that are divisible by <code class="language-plaintext highlighter-rouge">k</code>, where the <strong>value of a connected component</strong> is the sum of the values of its nodes.</li> <li>Return <em>the <strong>maximum number of components</strong> in any valid split</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, edges = [ [ 0,2],[1,2],[1,3],[2,4 ] ], values = [1,8,1,4,4], k = 6
+Output: 2
+Explanation: We remove the edge connecting node 1 with 2. The resulting split is valid because:
+- The value of the component containing nodes 1 and 3 is values[1] + values[3] = 12.
+- The value of the component containing nodes 0, 2, and 4 is values[0] + values[2] + values[4] = 6.
+It can be shown that no other valid split has more than 2 connected components.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 7, edges = [ [ 0,1],[0,2],[1,3],[1,4],[2,5],[2,6 ] ], values = [3,0,6,1,5,2,1], k = 3
+Output: 3
+Explanation: We remove the edge connecting node 0 with 2, and the edge connecting node 0 with 1. The resulting split is valid because:
+- The value of the component containing node 0 is values[0] = 3.
+- The value of the component containing nodes 2, 5, and 6 is values[2] + values[5] + values[6] = 9.
+- The value of the component containing nodes 1, 3, and 4 is values[1] + values[3] + values[4] = 6.
+It can be shown that no other valid split has more than 3 connected components.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DFS</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfKDivisibleComponents</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;[]</span> <span class="n">graph</span><span class="o">;</span>  <span class="c1">// Adjacency list representation of the tree</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">values</span><span class="o">;</span>          <span class="c1">// Array storing the value of each node</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">k</span><span class="o">;</span>                 <span class="c1">// The divisor</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">result</span><span class="o">;</span>           <span class="c1">// Counter for number of valid components</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">maxKDivisibleComponents</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">edges</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">values</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize member variables</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">values</span> <span class="o">=</span> <span class="n">values</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Build undirected graph using adjacency list</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">List</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">graph</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="o">}</span>
+        <span class="c1">// Add edges to the graph (both directions as it's undirected)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">edge</span> <span class="o">:</span> <span class="n">edges</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">graph</span><span class="o">[</span><span class="n">edge</span><span class="o">[</span><span class="mi">0</span><span class="o">]].</span><span class="na">add</span><span class="o">(</span><span class="n">edge</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+            <span class="n">graph</span><span class="o">[</span><span class="n">edge</span><span class="o">[</span><span class="mi">1</span><span class="o">]].</span><span class="na">add</span><span class="o">(</span><span class="n">edge</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Start DFS from root node 0</span>
+        <span class="n">dfs</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">long</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">node</span><span class="o">,</span> <span class="kt">int</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize sum with current node's value</span>
+        <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">values</span><span class="o">[</span><span class="n">node</span><span class="o">];</span>
+
+        <span class="c1">// Process all neighbors of current node</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">child</span> <span class="o">:</span> <span class="n">graph</span><span class="o">[</span><span class="n">node</span><span class="o">])</span> <span class="o">{</span>
+            <span class="c1">// Skip parent node to avoid cycles</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">child</span> <span class="o">!=</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Add the sum returned from child's subtree</span>
+                <span class="c1">// If child's subtree formed a component, it will return 0</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">child</span><span class="o">,</span> <span class="n">node</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Check if current subtree can form a valid component</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">++;</span>  <span class="c1">// Found a new valid component</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Return 0 as this subtree is now a separate component</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return sum for parent's calculation</span>
+        <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">MaximumNumberOfKDivisibleComponents</span> <span class="n">solution</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MaximumNumberOfKDivisibleComponents</span><span class="o">();</span>
+        <span class="c1">// Test Case 1: Example from the problem</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">edges1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">values1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">solution</span><span class="o">.</span><span class="na">maxKDivisibleComponents</span><span class="o">(</span><span class="n">n1</span><span class="o">,</span> <span class="n">edges1</span><span class="o">,</span> <span class="n">values1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Hard"/><summary type="html"><![CDATA[There is an undirected tree with n nodes labeled from 0 to n - 1. You are given the integer n and a 2D integer array edges of length n - 1, where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree. You are also given a 0-indexed integer array values of length n, where values[i] is the value associated with the ith node, and an integer k. A valid split of the tree is obtained by removing any set of edges, possibly empty, from the tree such that the resulting components all have values that are divisible by k, where the value of a connected component is the sum of the values of its nodes. Return the maximum number of components in any valid split.]]></summary></entry><entry><title type="html">2545. Sort the Students by Their Kth Score</title><link href="https://zhengstar94.github.io//blog/2024/SortTheStudentsByTheirKthScore/" rel="alternate" type="text/html" title="2545. Sort the Students by Their Kth Score"/><published>2024-12-21T00:00:00+00:00</published><updated>2024-12-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SortTheStudentsByTheirKthScore</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SortTheStudentsByTheirKthScore/"><![CDATA[<ul> <li>There is a class with <code class="language-plaintext highlighter-rouge">m</code> students and <code class="language-plaintext highlighter-rouge">n</code> exams. You are given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> integer matrix <code class="language-plaintext highlighter-rouge">score</code>, where each row represents one student and <code class="language-plaintext highlighter-rouge">score[i][j]</code> denotes the score the <code class="language-plaintext highlighter-rouge">ith</code> student got in the <code class="language-plaintext highlighter-rouge">jth</code> exam. The matrix <code class="language-plaintext highlighter-rouge">score</code> contains <strong>distinct</strong> integers only.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">k</code>. Sort the students (i.e., the rows of the matrix) by their scores in the <code class="language-plaintext highlighter-rouge">kth</code> (<strong>0-indexed</strong>) exam from the highest to the lowest.</li> <li>Return <em>the matrix after sorting it.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: score = [ [10,6,9,1],[7,5,11,2],[4,8,3,15 ] ], k = 2
+Output: [ [7,5,11,2],[10,6,9,1],[4,8,3,15 ] ]
+Explanation: In the above diagram, S denotes the student, while E denotes the exam.
+- The student with index 1 scored 11 in exam 2, which is the highest score, so they got first place.
+- The student with index 0 scored 9 in exam 2, which is the second highest score, so they got second place.
+- The student with index 2 scored 3 in exam 2, which is the lowest score, so they got third place.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: score = [ [ 3,4],[5,6 ] ], k = 0
+Output: [ [ 5,6],[3,4 ] ]
+Explanation: In the above diagram, S denotes the student, while E denotes the exam.
+- The student with index 1 scored 5 in exam 0, which is the highest score, so they got first place.
+- The student with index 0 scored 3 in exam 0, which is the lowest score, so they got second place.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortTheStudentsByTheirKthScore</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">sortTheStudents</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">score</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the array in descending order based on the k-th column</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">score</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">-</span> <span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]);</span>
+        <span class="k">return</span> <span class="n">score</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">score1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">15</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Original matrix:"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">score1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sorted matrix by column "</span> <span class="o">+</span> <span class="n">k1</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">sortTheStudents</span><span class="o">(</span><span class="n">score1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">score2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Original matrix:"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">score2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sorted matrix by column "</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">sortTheStudents</span><span class="o">(</span><span class="n">score2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+
+        <span class="c1">// Additional Test Case 3 (Edge case with single row)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Single row):"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">score3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Original matrix:"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">score3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sorted matrix by column "</span> <span class="o">+</span> <span class="n">k3</span> <span class="o">+</span> <span class="s">":"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">sortTheStudents</span><span class="o">(</span><span class="n">score3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">row</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[There is a class with m students and n exams. You are given a 0-indexed m x n integer matrix score, where each row represents one student and score[i][j] denotes the score the ith student got in the jth exam. The matrix score contains distinct integers only. You are also given an integer k. Sort the students (i.e., the rows of the matrix) by their scores in the kth (0-indexed) exam from the highest to the lowest. Return the matrix after sorting it.]]></summary></entry><entry><title type="html">643. Maximum Average Subarray I</title><link href="https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI/" rel="alternate" type="text/html" title="643. Maximum Average Subarray I"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumAverageSubarrayI/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> consisting of <code class="language-plaintext highlighter-rouge">n</code> elements, and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Find a contiguous subarray whose <strong>length is equal to</strong> <code class="language-plaintext highlighter-rouge">k</code> that has the maximum average value and return <em>this value</em>. Any answer with a calculation error less than <code class="language-plaintext highlighter-rouge">10-5</code> will be accepted.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,12,-5,-6,50,3], k = 4
 Output: 12.75000
 Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5], k = 1
@@ -602,220 +756,4 @@ Output: [9,0,1,6]
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array prices where prices[i] is the price of the ith item in a shop. There is a special discount for items in the shop. If you buy the ith item, then you will receive a discount equivalent to prices[j] where j is the minimum index such that j &gt; i and prices[j] &lt;= prices[i]. Otherwise, you will not receive any discount at all. Return an integer array answer where answer[i] is the final price you will pay for the ith item of the shop, considering the special discount.]]></summary></entry><entry><title type="html">7. Reverse Integer</title><link href="https://zhengstar94.github.io//blog/2024/ReverseInteger/" rel="alternate" type="text/html" title="7. Reverse Integer"/><published>2024-12-18T00:00:00+00:00</published><updated>2024-12-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReverseInteger</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReverseInteger/"><![CDATA[<ul> <li>Given a signed 32-bit integer <code class="language-plaintext highlighter-rouge">x</code>, return <code class="language-plaintext highlighter-rouge">x</code> <em>with its digits reversed</em>. If reversing <code class="language-plaintext highlighter-rouge">x</code> causes the value to go outside the signed 32-bit integer range <code class="language-plaintext highlighter-rouge">[-231, 231 - 1]</code>, then return <code class="language-plaintext highlighter-rouge">0</code>.</li> <li><strong>Assume the environment does not allow you to store 64-bit integers (signed or unsigned).</strong></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: x = 123
-Output: 321
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: x = -123
-Output: -321
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: x = 120
-Output: 21
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.MathGeometry</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/18
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseInteger</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reverse</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a variable to store the reversed number</span>
-        <span class="c1">// This will be built digit by digit during the reversal process</span>
-        <span class="kt">int</span> <span class="n">reversed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Continue the loop until all digits of the input number are processed</span>
-        <span class="c1">// The loop will terminate when x becomes 0</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Extract the last digit of the current number</span>
-            <span class="c1">// Using modulo 10 operation to get the rightmost digit</span>
-            <span class="c1">// For positive numbers like 123, this will give 3</span>
-            <span class="c1">// For negative numbers like -456, this will give -6</span>
-            <span class="kt">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>
-
-            <span class="c1">// Overflow check for positive integer limits</span>
-            <span class="c1">// Two conditions to prevent integer overflow:</span>
-            <span class="c1">// 1. If reversed is already greater than Integer.MAX_VALUE / 10</span>
-            <span class="c1">// 2. If reversed is equal to Integer.MAX_VALUE / 10 and the next digit</span>
-            <span class="c1">//    would make it exceed MAX_VALUE</span>
-            <span class="c1">// MAX_VALUE is 2147483647, so the last digit can't be greater than 7</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">reversed</span> <span class="o">&gt;</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">||</span>
-                    <span class="o">(</span><span class="n">reversed</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">digit</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If overflow would occur, return 0 as per the problem specification</span>
-                <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Overflow check for negative integer limits</span>
-            <span class="c1">// Similar to positive overflow check, but for negative numbers</span>
-            <span class="c1">// MIN_VALUE is -2147483648, so the last digit can't be less than -8</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">reversed</span> <span class="o">&lt;</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">||</span>
-                    <span class="o">(</span><span class="n">reversed</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">digit</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">8</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If overflow would occur, return 0</span>
-                <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Build the reversed number</span>
-            <span class="c1">// This is done by:</span>
-            <span class="c1">// 1. Multiplying the current reversed number by 10 (shifting left)</span>
-            <span class="c1">// 2. Adding the new digit</span>
-            <span class="c1">// Example progression:</span>
-            <span class="c1">// First iteration: 0 * 10 + 3 = 3</span>
-            <span class="c1">// Second iteration: 3 * 10 + 2 = 32</span>
-            <span class="c1">// Third iteration: 32 * 10 + 1 = 321</span>
-            <span class="n">reversed</span> <span class="o">=</span> <span class="n">reversed</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">digit</span><span class="o">;</span>
-
-            <span class="c1">// Remove the last digit from the original number</span>
-            <span class="c1">// Integer division by 10 effectively drops the last digit</span>
-            <span class="c1">// 123 / 10 = 12</span>
-            <span class="c1">// -456 / 10 = -45</span>
-            <span class="n">x</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the fully reversed number</span>
-        <span class="k">return</span> <span class="n">reversed</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test case 1: Normal positive number</span>
-        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">123</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">+</span> <span class="s">" reversed: "</span> <span class="o">+</span> <span class="n">reverse</span><span class="o">(</span><span class="n">num1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Negative number</span>
-        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">456</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span> <span class="o">+</span> <span class="s">" reversed: "</span> <span class="o">+</span> <span class="n">reverse</span><span class="o">(</span><span class="n">num2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: Number with trailing zeros</span>
-        <span class="kt">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">1200</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num3</span> <span class="o">+</span> <span class="s">" reversed: "</span> <span class="o">+</span> <span class="n">reverse</span><span class="o">(</span><span class="n">num3</span><span class="o">));</span>
-
-        <span class="c1">// Test case 4: Number that would cause overflow</span>
-        <span class="kt">int</span> <span class="n">num4</span> <span class="o">=</span> <span class="mi">1534236469</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num4</span> <span class="o">+</span> <span class="s">" reversed: "</span> <span class="o">+</span> <span class="n">reverse</span><span class="o">(</span><span class="n">num4</span><span class="o">));</span>
-
-        <span class="c1">// Test case 5: Zero</span>
-        <span class="kt">int</span> <span class="n">num5</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num5</span> <span class="o">+</span> <span class="s">" reversed: "</span> <span class="o">+</span> <span class="n">reverse</span><span class="o">(</span><span class="n">num5</span><span class="o">));</span>
-
-        <span class="c1">// Test case 6: Negative number that would cause overflow</span>
-        <span class="kt">int</span> <span class="n">num6</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2147483648</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num6</span> <span class="o">+</span> <span class="s">" reversed: "</span> <span class="o">+</span> <span class="n">reverse</span><span class="o">(</span><span class="n">num6</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Medium"/><summary type="html"><![CDATA[Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0. Assume the environment does not allow you to store 64-bit integers (signed or unsigned).]]></summary></entry><entry><title type="html">2182. Construct String With Repeat Limit</title><link href="https://zhengstar94.github.io//blog/2024/ConstructStringWithRepeatLimit/" rel="alternate" type="text/html" title="2182. Construct String With Repeat Limit"/><published>2024-12-17T00:00:00+00:00</published><updated>2024-12-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ConstructStringWithRepeatLimit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ConstructStringWithRepeatLimit/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">repeatLimit</code>. Construct a new string <code class="language-plaintext highlighter-rouge">repeatLimitedString</code> using the characters of <code class="language-plaintext highlighter-rouge">s</code> such that no letter appears <strong>more than</strong> <code class="language-plaintext highlighter-rouge">repeatLimit</code> times <strong>in a row</strong>. You do <strong>not</strong> have to use all characters from <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <em>the <strong>lexicographically largest</strong></em> <code class="language-plaintext highlighter-rouge">repeatLimitedString</code> <em>possible</em>.</li> <li>A string <code class="language-plaintext highlighter-rouge">a</code> is <strong>lexicographically larger</strong> than a string <code class="language-plaintext highlighter-rouge">b</code> if in the first position where <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> differ, string <code class="language-plaintext highlighter-rouge">a</code> has a letter that appears later in the alphabet than the corresponding letter in <code class="language-plaintext highlighter-rouge">b</code>. If the first <code class="language-plaintext highlighter-rouge">min(a.length, b.length)</code> characters do not differ, then the longer string is the lexicographically larger one.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cczazcc", repeatLimit = 3
-Output: "zzcccac"
-Explanation: We use all of the characters from s to construct the repeatLimitedString "zzcccac".
-The letter 'a' appears at most 1 time in a row.
-The letter 'c' appears at most 3 times in a row.
-The letter 'z' appears at most 2 times in a row.
-Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
-The string is the lexicographically largest repeatLimitedString possible so we return "zzcccac".
-Note that the string "zzcccca" is lexicographically larger but the letter 'c' appears more than 3 times in a row, so it is not a valid repeatLimitedString.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aababab", repeatLimit = 2
-Output: "bbabaa"
-Explanation: We use only some of the characters from s to construct the repeatLimitedString "bbabaa". 
-The letter 'a' appears at most 2 times in a row.
-The letter 'b' appears at most 2 times in a row.
-Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
-The string is the lexicographically largest repeatLimitedString possible so we return "bbabaa".
-Note that the string "bbabaaa" is lexicographically larger but the letter 'a' appears more than 2 times in a row, so it is not a valid repeatLimitedString.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConstructStringWithRepeatLimit</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">repeatLimitedString</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">repeatLimit</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-        <span class="c1">// Count the occurrences of each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">ch</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">ch</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Start from the largest character</span>
-        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>
-        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-            <span class="c1">// Ensure that r does not exceed the previous smaller character</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-
-            <span class="k">while</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">repeatLimit</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// Add `repeatLimit` occurrences of the current character</span>
-                    <span class="kt">int</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">repeatLimit</span><span class="o">;</span>
-                    <span class="k">while</span> <span class="o">(</span><span class="n">curr</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="sc">'a'</span> <span class="o">+</span> <span class="n">i</span><span class="o">));</span>
-                    <span class="o">}</span>
-
-                    <span class="c1">// Find the next available smaller character</span>
-                    <span class="k">while</span> <span class="o">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">r</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">r</span><span class="o">--;</span>
-                    <span class="o">}</span>
-
-                    <span class="c1">// If no smaller character is available, return the constructed string</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-                    <span class="o">}</span>
-
-                    <span class="c1">// Add the smaller character found</span>
-                    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="sc">'a'</span> <span class="o">+</span> <span class="n">r</span><span class="o">));</span>
-                    <span class="n">count</span><span class="o">[</span><span class="n">r</span><span class="o">]--;</span>
-                    <span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-=</span> <span class="n">repeatLimit</span><span class="o">;</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="c1">// Add all remaining occurrences of the current character</span>
-                    <span class="kt">int</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-                    <span class="k">while</span> <span class="o">(</span><span class="n">curr</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="sc">'a'</span> <span class="o">+</span> <span class="n">i</span><span class="o">));</span>
-                    <span class="o">}</span>
-                    <span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic scenario</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aabccc"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">repeatLimit1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">repeatLimit1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: All characters are the same</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"aaaaa"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">repeatLimit2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">repeatLimit2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Complex scenario</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"cczzzzeeddaabb"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">repeatLimit3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">repeatLimit3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: Repeat limit is 1</span>
-        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"aabbccddee"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">repeatLimit4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">repeatLimitedString</span><span class="o">(</span><span class="n">s4</span><span class="o">,</span> <span class="n">repeatLimit4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input String: "</span> <span class="o">+</span> <span class="n">s4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Repeat Limit: "</span> <span class="o">+</span> <span class="n">repeatLimit4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">result4</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s and an integer repeatLimit. Construct a new string repeatLimitedString using the characters of s such that no letter appears more than repeatLimit times in a row. You do not have to use all characters from s. Return the lexicographically largest repeatLimitedString possible. A string a is lexicographically larger than a string b if in the first position where a and b differ, string a has a letter that appears later in the alphabet than the corresponding letter in b. If the first min(a.length, b.length) characters do not differ, then the longer string is the lexicographically larger one.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array prices where prices[i] is the price of the ith item in a shop. There is a special discount for items in the shop. If you buy the ith item, then you will receive a discount equivalent to prices[j] where j is the minimum index such that j &gt; i and prices[j] &lt;= prices[i]. Otherwise, you will not receive any discount at all. Return an integer array answer where answer[i] is the final price you will pay for the ith item of the shop, considering the special discount.]]></summary></entry></feed>
