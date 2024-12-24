@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-24T03:22:40+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1705. Maximum Number of Eaten Apples</title><link href="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/" rel="alternate" type="text/html" title="1705. Maximum Number of Eaten Apples"/><published>2024-12-24T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/"><![CDATA[<ul> <li>There is a special kind of apple tree that grows apples every day for <code class="language-plaintext highlighter-rouge">n</code> days. On the <code class="language-plaintext highlighter-rouge">ith</code> day, the tree grows <code class="language-plaintext highlighter-rouge">apples[i]</code> apples that will rot after <code class="language-plaintext highlighter-rouge">days[i]</code> days, that is on day <code class="language-plaintext highlighter-rouge">i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code class="language-plaintext highlighter-rouge">apples[i] == 0</code> and <code class="language-plaintext highlighter-rouge">days[i] == 0</code>.</li> <li>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code class="language-plaintext highlighter-rouge">n</code> days.</li> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">days</code> and <code class="language-plaintext highlighter-rouge">apples</code> of length <code class="language-plaintext highlighter-rouge">n</code>, return <em>the maximum number of apples you can eat.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: apples = [1,2,3,5,2], days = [3,2,1,4,2]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-24T03:50:07+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1052. Grumpy Bookstore Owner</title><link href="https://zhengstar94.github.io//blog/2024/GrumpyBookstoreOwner/" rel="alternate" type="text/html" title="1052. Grumpy Bookstore Owner"/><published>2024-12-24T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/GrumpyBookstoreOwner</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/GrumpyBookstoreOwner/"><![CDATA[<ul> <li>There is a bookstore owner that has a store open for <code class="language-plaintext highlighter-rouge">n</code> minutes. You are given an integer array <code class="language-plaintext highlighter-rouge">customers</code> of length <code class="language-plaintext highlighter-rouge">n</code> where <code class="language-plaintext highlighter-rouge">customers[i]</code> is the number of the customers that enter the store at the start of the <code class="language-plaintext highlighter-rouge">ith</code> minute and all those customers leave after the end of that minute.</li> <li>During certain minutes, the bookstore owner is grumpy. You are given a binary array grumpy where <code class="language-plaintext highlighter-rouge">grumpy[i]</code> is <code class="language-plaintext highlighter-rouge">1</code> if the bookstore owner is grumpy during the <code class="language-plaintext highlighter-rouge">ith</code> minute, and is <code class="language-plaintext highlighter-rouge">0</code> otherwise.</li> <li>When the bookstore owner is grumpy, the customers entering during that minute are not <strong>satisfied</strong>. Otherwise, they are satisfied.</li> <li>The bookstore owner knows a secret technique to remain <strong>not grumpy</strong> for <code class="language-plaintext highlighter-rouge">minutes</code> consecutive minutes, but this technique can only be used <strong>once</strong>.</li> <li>Return the <strong>maximum</strong> number of customers that can be <em>satisfied</em> throughout the day.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3
+
+Output: 16
+
+Explanation:
+
+The bookstore owner keeps themselves not grumpy for the last 3 minutes.
+
+The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 16.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: customers = [1], grumpy = [0], minutes = 1
+
+Output: 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/24
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GrumpyBookstoreOwner</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxSatisfied</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">customers</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy</span><span class="o">,</span> <span class="kt">int</span> <span class="n">minutes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">customers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Calculate base satisfied customers (when owner is not grumpy)</span>
+        <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">grumpy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+                <span class="n">base</span> <span class="o">+=</span> <span class="n">customers</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize sliding window sum and maximum increase</span>
+        <span class="kt">int</span> <span class="n">windowSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxIncrease</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Process array using sliding window technique</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Add current customer to window if owner is grumpy</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">grumpy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+                <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">customers</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Skip until window is fully formed</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">minutes</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Update maximum increase for current window</span>
+            <span class="n">maxIncrease</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxIncrease</span><span class="o">,</span> <span class="n">windowSum</span><span class="o">);</span>
+
+            <span class="c1">// Remove leftmost element from window</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">grumpy</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">windowSum</span> <span class="o">-=</span> <span class="n">customers</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return total satisfied customers</span>
+        <span class="k">return</span> <span class="n">base</span> <span class="o">+</span> <span class="n">maxIncrease</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Example from problem description</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">minutes1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers1</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy1</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 16"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers1</span><span class="o">,</span> <span class="n">grumpy1</span><span class="o">,</span> <span class="n">minutes1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Single element array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">minutes2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers2</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy2</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers2</span><span class="o">,</span> <span class="n">grumpy2</span><span class="o">,</span> <span class="n">minutes2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: All grumpy moments</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">minutes3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers3</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy3</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 9"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers3</span><span class="o">,</span> <span class="n">grumpy3</span><span class="o">,</span> <span class="n">minutes3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: All non-grumpy moments</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">minutes4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers4</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy4</span><span class="o">)</span> <span class="o">+</span>
+                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 15"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers4</span><span class="o">,</span> <span class="n">grumpy4</span><span class="o">,</span> <span class="n">minutes4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">arrayToString</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There is a bookstore owner that has a store open for n minutes. You are given an integer array customers of length n where customers[i] is the number of the customers that enter the store at the start of the ith minute and all those customers leave after the end of that minute. During certain minutes, the bookstore owner is grumpy. You are given a binary array grumpy where grumpy[i] is 1 if the bookstore owner is grumpy during the ith minute, and is 0 otherwise. When the bookstore owner is grumpy, the customers entering during that minute are not satisfied. Otherwise, they are satisfied. The bookstore owner knows a secret technique to remain not grumpy for minutes consecutive minutes, but this technique can only be used once. Return the maximum number of customers that can be satisfied throughout the day.]]></summary></entry><entry><title type="html">1705. Maximum Number of Eaten Apples</title><link href="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/" rel="alternate" type="text/html" title="1705. Maximum Number of Eaten Apples"/><published>2024-12-24T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/"><![CDATA[<ul> <li>There is a special kind of apple tree that grows apples every day for <code class="language-plaintext highlighter-rouge">n</code> days. On the <code class="language-plaintext highlighter-rouge">ith</code> day, the tree grows <code class="language-plaintext highlighter-rouge">apples[i]</code> apples that will rot after <code class="language-plaintext highlighter-rouge">days[i]</code> days, that is on day <code class="language-plaintext highlighter-rouge">i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code class="language-plaintext highlighter-rouge">apples[i] == 0</code> and <code class="language-plaintext highlighter-rouge">days[i] == 0</code>.</li> <li>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code class="language-plaintext highlighter-rouge">n</code> days.</li> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">days</code> and <code class="language-plaintext highlighter-rouge">apples</code> of length <code class="language-plaintext highlighter-rouge">n</code>, return <em>the maximum number of apples you can eat.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: apples = [1,2,3,5,2], days = [3,2,1,4,2]
 Output: 7
 Explanation: You can eat 7 apples:
 - On the first day, you eat an apple that grew on the first day.
@@ -884,105 +1010,4 @@ Output: 5.00000
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums consisting of n elements, and an integer k. Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.]]></summary></entry><entry><title type="html">3138. Minimum Length of Anagram Concatenation</title><link href="https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation/" rel="alternate" type="text/html" title="3138. Minimum Length of Anagram Concatenation"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumLengthOfAnagramConcatenation/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>, which is known to be a concatenation of <strong>anagrams</strong> of some string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>Return the <strong>minimum</strong> possible length of the string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>An <strong>anagram</strong> is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abba"
-Output: 2
-Explanation:
-One possible string t could be "ba".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cdef"
-Output: 4
-Explanation:
-One possible string t could be "cdef", notice that t can be equal to s.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.MathGeometry</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumLengthOfAnagramConcatenation</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minAnagramLength</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-
-        <span class="c1">// Count frequency of each character</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">minLen</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="c1">// Try each possible divisor from n down to 1</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-            <span class="c1">// Skip if length n is not divisible by i</span>
-            <span class="c1">// Why: If n/i is not an integer, we cannot split string s into equal parts of length i</span>
-            <span class="c1">// Example: If s.length=6, we cannot split it into parts of length 4</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check if the frequency of each character can be evenly distributed</span>
-            <span class="c1">// among the substrings of length i</span>
-            <span class="c1">// This is crucial because:</span>
-            <span class="c1">// 1. Each character's frequency must be divisible by i to form valid anagrams</span>
-            <span class="c1">// 2. If any character's frequency is not divisible by i, we cannot form</span>
-            <span class="c1">//    equal distribution in each substring of length i</span>
-            <span class="kt">boolean</span> <span class="n">possible</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">freq</span> <span class="o">:</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// For each character frequency, check if it's divisible by current length i</span>
-                <span class="c1">// Example: if a character appears 3 times and i=2, it's impossible because</span>
-                <span class="c1">// we cannot distribute 3 characters evenly into substrings of length 2</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">freq</span> <span class="o">%</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">possible</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>  <span class="c1">// Early termination if any frequency check fails</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If all frequency checks passed (possible = true):</span>
-            <span class="c1">// 1. Current length i is a valid candidate for the original string t</span>
-            <span class="c1">// 2. Update minLen to track the minimum valid length found so far</span>
-            <span class="c1">// 3. We don't break here because we need to check all possibilities to find minimum</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">possible</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">minLen</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">minLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test case 1: Regular case with repeated pattern</span>
-        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"aaabbb"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: s = \""</span> <span class="o">+</span> <span class="n">test1</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minAnagramLength</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 2: String is already an anagram</span>
-        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"abba"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: s = \""</span> <span class="o">+</span> <span class="n">test2</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 2"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minAnagramLength</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 3: All characters are same</span>
-        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"aaaaaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: s = \""</span> <span class="o">+</span> <span class="n">test3</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minAnagramLength</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 4: No repeating pattern</span>
-        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"cdef"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: s = \""</span> <span class="o">+</span> <span class="n">test4</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 4"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minAnagramLength</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 5: Complex pattern</span>
-        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"abcabcabc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: s = \""</span> <span class="o">+</span> <span class="n">test5</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minAnagramLength</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s, which is known to be a concatenation of anagrams of some string t. Return the minimum possible length of the string t. An anagram is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums consisting of n elements, and an integer k. Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.]]></summary></entry></feed>
