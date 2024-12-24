@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-23T03:42:25+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2471. Minimum Number of Operations to Sort a Binary Tree by Level</title><link href="https://zhengstar94.github.io//blog/2024/MinimumNumberOfOperationsToSortABinaryTreeByLevel/" rel="alternate" type="text/html" title="2471. Minimum Number of Operations to Sort a Binary Tree by Level"/><published>2024-12-23T00:00:00+00:00</published><updated>2024-12-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumNumberOfOperationsToSortABinaryTreeByLevel</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumNumberOfOperationsToSortABinaryTreeByLevel/"><![CDATA[<ul> <li>You are given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree with <strong>unique values</strong>.</li> <li>In one operation, you can choose any two nodes <strong>at the same level</strong> and swap their values.</li> <li>Return <em>the minimum number of operations needed to make the values at each level sorted in a <strong>strictly increasing order</strong></em>.</li> <li>The <strong>level</strong> of a node is the number of edges along the path between it and the root node<em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,4,3,7,6,8,5,null,null,null,null,9,null,10]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-24T03:22:40+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1705. Maximum Number of Eaten Apples</title><link href="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/" rel="alternate" type="text/html" title="1705. Maximum Number of Eaten Apples"/><published>2024-12-24T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/"><![CDATA[<ul> <li>There is a special kind of apple tree that grows apples every day for <code class="language-plaintext highlighter-rouge">n</code> days. On the <code class="language-plaintext highlighter-rouge">ith</code> day, the tree grows <code class="language-plaintext highlighter-rouge">apples[i]</code> apples that will rot after <code class="language-plaintext highlighter-rouge">days[i]</code> days, that is on day <code class="language-plaintext highlighter-rouge">i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code class="language-plaintext highlighter-rouge">apples[i] == 0</code> and <code class="language-plaintext highlighter-rouge">days[i] == 0</code>.</li> <li>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code class="language-plaintext highlighter-rouge">n</code> days.</li> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">days</code> and <code class="language-plaintext highlighter-rouge">apples</code> of length <code class="language-plaintext highlighter-rouge">n</code>, return <em>the maximum number of apples you can eat.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: apples = [1,2,3,5,2], days = [3,2,1,4,2]
+Output: 7
+Explanation: You can eat 7 apples:
+- On the first day, you eat an apple that grew on the first day.
+- On the second day, you eat an apple that grew on the second day.
+- On the third day, you eat an apple that grew on the second day. After this day, the apples that grew on the third day rot.
+- On the fourth to the seventh days, you eat apples that grew on the fourth day.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: apples = [3,0,0,0,0,2], days = [3,0,0,0,0,2]
+Output: 5
+Explanation: You can eat 5 apples:
+- On the first to the third day you eat apples that grew on the first day.
+- Do nothing on the fouth and fifth days.
+- On the sixth and seventh days you eat apples that grew on the sixth day.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Heap</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/24
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfEatenApples</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">eatenApples</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">apples</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">days</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Length of the growing period</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">apples</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// Counter for eaten apples</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Priority Queue storing [rotting_date, remaining_apples]</span>
+        <span class="c1">// Sorted by rotting_date to always eat apples that will rot the earliest</span>
+        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">pq</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// Sort by rotting date in ascending order</span>
+        <span class="o">});</span>
+
+        <span class="c1">// Process each day, including days after the growing period (i &gt;= n)</span>
+        <span class="c1">// Continue while either:</span>
+        <span class="c1">// 1. Still within growing period (i &lt; n) OR</span>
+        <span class="c1">// 2. Still have apples in queue (!pq.isEmpty())</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">||</span> <span class="o">!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Remove all rotten apples</span>
+            <span class="c1">// Keep removing while:</span>
+            <span class="c1">// 1. Queue is not empty AND</span>
+            <span class="c1">// 2. The earliest rotting date &lt;= current day</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">pq</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">0</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add new apples if:</span>
+            <span class="c1">// 1. Still in growing period (i &lt; n) AND</span>
+            <span class="c1">// 2. There are apples grown on this day (apples[i] != 0)</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">apples</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Add [rotting_date, apple_count] to queue</span>
+                <span class="c1">// rotting_date = current_day + days_until_rot</span>
+                <span class="n">pq</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span> <span class="n">i</span> <span class="o">+</span> <span class="n">days</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">apples</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">}</span> <span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Try to eat an apple if any are available</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">++;</span>  <span class="c1">// Eat one apple</span>
+                <span class="c1">// Decrease the count of apples in the current batch</span>
+                <span class="c1">// If no apples left in this batch, remove it from queue</span>
+                <span class="k">if</span> <span class="o">(--</span><span class="n">pq</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Regular case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">days1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Expected: 7, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples1</span><span class="o">,</span> <span class="n">days1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Some days without apples</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">days2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Expected: 5, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples2</span><span class="o">,</span> <span class="n">days2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Single day case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">days3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Expected: 2, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples3</span><span class="o">,</span> <span class="n">days3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Empty case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples4</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">days4</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Expected: 0, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples4</span><span class="o">,</span> <span class="n">days4</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 5: All apples rot immediately</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">days5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Expected: 0, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples5</span><span class="o">,</span> <span class="n">days5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Heap"/><category term="Medium"/><summary type="html"><![CDATA[There is a special kind of apple tree that grows apples every day for n days. On the ith day, the tree grows apples[i] apples that will rot after days[i] days, that is on day i + days[i] the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by apples[i] == 0 and days[i] == 0. You decided to eat at most one apple a day (to keep the doctors away). Note that you can keep eating after the first n days. Given two integer arrays days and apples of length n, return the maximum number of apples you can eat.]]></summary></entry><entry><title type="html">2471. Minimum Number of Operations to Sort a Binary Tree by Level</title><link href="https://zhengstar94.github.io//blog/2024/MinimumNumberOfOperationsToSortABinaryTreeByLevel/" rel="alternate" type="text/html" title="2471. Minimum Number of Operations to Sort a Binary Tree by Level"/><published>2024-12-23T00:00:00+00:00</published><updated>2024-12-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumNumberOfOperationsToSortABinaryTreeByLevel</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumNumberOfOperationsToSortABinaryTreeByLevel/"><![CDATA[<ul> <li>You are given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree with <strong>unique values</strong>.</li> <li>In one operation, you can choose any two nodes <strong>at the same level</strong> and swap their values.</li> <li>Return <em>the minimum number of operations needed to make the values at each level sorted in a <strong>strictly increasing order</strong></em>.</li> <li>The <strong>level</strong> of a node is the number of edges along the path between it and the root node<em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,4,3,7,6,8,5,null,null,null,null,9,null,10]
 Output: 3
 Explanation:
 - Swap 4 and 3. The 2nd level becomes [3,4].
@@ -887,130 +985,4 @@ One possible string t could be "cdef", notice that t can be equal to s.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s, which is known to be a concatenation of anagrams of some string t. Return the minimum possible length of the string t. An anagram is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.]]></summary></entry><entry><title type="html">2415. Reverse Odd Levels of Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/ReverseOddLevelsOfBinaryTree/" rel="alternate" type="text/html" title="2415. Reverse Odd Levels of Binary Tree"/><published>2024-12-20T00:00:00+00:00</published><updated>2024-12-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ReverseOddLevelsOfBinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ReverseOddLevelsOfBinaryTree/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a <strong>perfect</strong> binary tree, reverse the node values at each <strong>odd</strong> level of the tree. <ul> <li>For example, suppose the node values at level 3 are <code class="language-plaintext highlighter-rouge">[2,1,3,4,7,11,29,18]</code>, then it should become <code class="language-plaintext highlighter-rouge">[18,29,11,7,4,3,1,2]</code>.</li> </ul> </li> <li>Return <em>the root of the reversed tree</em>.</li> <li>A binary tree is <strong>perfect</strong> if all parent nodes have two children and all leaves are on the same level.</li> <li>The <strong>level</strong> of a node is the number of edges along the path between it and the root node.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [2,3,5,8,13,21,34]
-Output: [2,5,3,8,13,21,34]
-Explanation: 
-The tree has only one odd level.
-The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [7,13,11]
-Output: [7,11,13]
-Explanation: 
-The nodes at level 1 are 13, 11, which are reversed and become 11, 13.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [0,1,2,0,0,0,0,1,1,1,1,2,2,2,2]
-Output: [0,2,1,0,0,0,0,2,2,2,2,1,1,1,1]
-Explanation: 
-The odd levels have non-zero values.
-The nodes at level 1 were 1, 2, and are 2, 1 after the reversal.
-The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1 after the reversal.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(h) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
-
-<span class="cm">/**
-* @author zhengxingxing
-* @date 2024/12/20
- **/</span>
-
-<span class="kd">class</span> <span class="nc">TreeNode</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-    <span class="nc">TreeNode</span> <span class="n">left</span><span class="o">;</span>
-    <span class="nc">TreeNode</span> <span class="n">right</span><span class="o">;</span>
-    <span class="nc">TreeNode</span><span class="o">()</span> <span class="o">{}</span>
-    <span class="nc">TreeNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span> <span class="o">}</span>
-    <span class="nc">TreeNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseOddLevelsOfBinaryTree</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">TreeNode</span> <span class="nf">reverseOddLevels</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Start processing from level 1 (children of root)</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">left</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">right</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isOdd</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Return if either node is null (reached leaf)</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If at odd level, swap the values</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">isOdd</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
-            <span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
-            <span class="n">right</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Recursively process next level</span>
-        <span class="c1">// Process symmetric pairs: left's left child with right's right child</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="o">!</span><span class="n">isOdd</span><span class="o">);</span>
-        <span class="c1">// Process symmetric pairs: left's right child with right's left child</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="o">!</span><span class="n">isOdd</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1: Simple tree with 3 levels</span>
-        <span class="nc">TreeNode</span> <span class="n">root1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - Before:"</span><span class="o">);</span>
-        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root1</span><span class="o">);</span>
-        <span class="n">reverseOddLevels</span><span class="o">(</span><span class="n">root1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - After:"</span><span class="o">);</span>
-        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root1</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 2: Tree with 4 levels</span>
-        <span class="nc">TreeNode</span> <span class="n">root2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">11</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">12</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">13</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
-        <span class="n">root2</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2 - Before:"</span><span class="o">);</span>
-        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root2</span><span class="o">);</span>
-        <span class="n">reverseOddLevels</span><span class="o">(</span><span class="n">root2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 - After:"</span><span class="o">);</span>
-        <span class="n">printLevelOrder</span><span class="o">(</span><span class="n">root2</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Helper method to print tree in level order</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printLevelOrder</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">TreeNode</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-
-        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">levelSize</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">levelSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="nc">TreeNode</span> <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><summary type="html"><![CDATA[Given the root of a perfect binary tree, reverse the node values at each odd level of the tree. For example, suppose the node values at level 3 are [2,1,3,4,7,11,29,18], then it should become [18,29,11,7,4,3,1,2]. Return the root of the reversed tree. A binary tree is perfect if all parent nodes have two children and all leaves are on the same level. The level of a node is the number of edges along the path between it and the root node.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode MathGeometry"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s, which is known to be a concatenation of anagrams of some string t. Return the minimum possible length of the string t. An anagram is formed by rearranging the letters of a string. For example, “aab”, “aba”, and, “baa” are anagrams of “aab”.]]></summary></entry></feed>
