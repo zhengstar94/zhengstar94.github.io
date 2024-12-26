@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-25T02:36:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1461. Check If a String Contains All Binary Codes of Size K</title><link href="https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK/" rel="alternate" type="text/html" title="1461. Check If a String Contains All Binary Codes of Size K"/><published>2024-12-25T00:00:00+00:00</published><updated>2024-12-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK/"><![CDATA[<ul> <li>Given a binary string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if every binary code of length</em> <code class="language-plaintext highlighter-rouge">k</code> <em>is a substring of</em> <code class="language-plaintext highlighter-rouge">s</code>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "00110110", k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-26T02:06:38+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3083. Existence of a Substring in a String and Its Reverse</title><link href="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/" rel="alternate" type="text/html" title="3083. Existence of a Substring in a String and Its Reverse"/><published>2024-12-26T00:00:00+00:00</published><updated>2024-12-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, find any substring of length <code class="language-plaintext highlighter-rouge">2</code> which is also present in the reverse of <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if such a substring exists, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "leetcode"
+
+Output: true
+
+Explanation: Substring "ee" is of length 2 which is also present  in reverse(s) == "edocteel".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcba"
+
+Output: true
+
+Explanation: All of the substrings of length 2 "ab", "bc", "cb", "ba" are also present  in reverse(s) == "abcba".
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd"
+
+Output: false
+
+Explanation: There is no substring of length 2 in s, which is also present  in the reverse of s.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/26
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExistenceOfASubstringInAStringAndItsReverse</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isSubstringPresent</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the length of input string</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="c1">// If length is less than 2, no such substring exists</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Create a 26x26 boolean array to store all possible two-character combinations</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">26</span><span class="o">][</span><span class="mi">26</span><span class="o">];</span>
+
+        <span class="c1">// First pass: Mark all substrings of length 2 in the original string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
+            <span class="n">seen</span><span class="o">[</span><span class="n">c1</span><span class="o">][</span><span class="n">c2</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Second pass: Check if any reverse substring exists in the original string</span>
+        <span class="c1">// Note: There was a bug in the original code where i++ should be i--</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">c1</span><span class="o">][</span><span class="n">c2</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"leetcode"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcba"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Additional Test Case 4: Empty string</span>
+        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">s4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s4</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s, find any substring of length 2 which is also present in the reverse of s. Return true if such a substring exists, and false otherwise.]]></summary></entry><entry><title type="html">1461. Check If a String Contains All Binary Codes of Size K</title><link href="https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK/" rel="alternate" type="text/html" title="1461. Check If a String Contains All Binary Codes of Size K"/><published>2024-12-25T00:00:00+00:00</published><updated>2024-12-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK/"><![CDATA[<ul> <li>Given a binary string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if every binary code of length</em> <code class="language-plaintext highlighter-rouge">k</code> <em>is a substring of</em> <code class="language-plaintext highlighter-rouge">s</code>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "00110110", k = 2
 Output: true
 Explanation: The binary codes of length 2 are "00", "01", "10" and "11". They can be all found as substrings at indices 0, 1, 3 and 2 respectively.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0110", k = 1
@@ -72,13 +157,13 @@ Explanation: The binary code "00" is of length 2 and does not exist in the array
 
         <span class="c1">// Test Case 1: s = "00110110", k = 2</span>
         <span class="c1">// Should return true as it contains all binary codes of length 2</span>
-<span class="c1">//        String s1 = "00110110";</span>
-<span class="c1">//        int k1 = 2;</span>
-<span class="c1">//        System.out.println("Test Case 1:");</span>
-<span class="c1">//        System.out.println("Input: s = " + s1 + ", k = " + k1);</span>
-<span class="c1">//        System.out.println("Expected: true");</span>
-<span class="c1">//        System.out.println("Output: " + hasAllCodes(s1, k1));</span>
-<span class="c1">//        System.out.println();</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"00110110"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">hasAllCodes</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
 
         <span class="c1">// Test Case 2: s = "00110", k = 2</span>
         <span class="c1">// Should return true as it contains all binary codes of length 2</span>
@@ -995,95 +1080,4 @@ It can be shown that no other valid split has more than 3 connected components.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Hard"/><summary type="html"><![CDATA[There is an undirected tree with n nodes labeled from 0 to n - 1. You are given the integer n and a 2D integer array edges of length n - 1, where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree. You are also given a 0-indexed integer array values of length n, where values[i] is the value associated with the ith node, and an integer k. A valid split of the tree is obtained by removing any set of edges, possibly empty, from the tree such that the resulting components all have values that are divisible by k, where the value of a connected component is the sum of the values of its nodes. Return the maximum number of components in any valid split.]]></summary></entry><entry><title type="html">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold</title><link href="https://zhengstar94.github.io//blog/2024/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold/" rel="alternate" type="text/html" title="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"/><published>2024-12-21T00:00:00+00:00</published><updated>2024-12-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">arr</code> and two integers <code class="language-plaintext highlighter-rouge">k</code> and <code class="language-plaintext highlighter-rouge">threshold</code>, return <em>the number of sub-arrays of size</em> <code class="language-plaintext highlighter-rouge">k</code> <em>and average greater than or equal to</em> <code class="language-plaintext highlighter-rouge">threshold</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,2,2,2,5,5,5,8], k = 3, threshold = 4
-Output: 3
-Explanation: Sub-arrays [2,5,5],[5,5,5] and [5,5,8] have averages 4, 5 and 6 respectively. All other sub-arrays of size 3 have averages less than 4 (the threshold).
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [11,13,17,23,29,31,7,5,2,3], k = 3, threshold = 5
-Output: 6
-Explanation: The first 6 sub-arrays of size 3 have averages greater than 5. Note that averages are not integers.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/21
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numOfSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="kt">int</span> <span class="n">threshold</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Running sum of current window</span>
-        <span class="kt">int</span> <span class="n">subArraySum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Count of valid subarrays</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through the array</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to window sum</span>
-            <span class="n">subArraySum</span> <span class="o">+=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-            <span class="c1">// Skip until we have k elements in our window</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check if current window's average meets threshold</span>
-            <span class="k">if</span><span class="o">((</span><span class="n">subArraySum</span> <span class="o">/</span> <span class="n">k</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">result</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Remove leftmost element from window sum</span>
-            <span class="c1">// as we'll slide the window right in next iteration</span>
-            <span class="n">subArraySum</span> <span class="o">-=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1: Basic case</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">threshold1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr1</span><span class="o">,</span> <span class="n">k1</span><span class="o">,</span> <span class="n">threshold1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: No valid subarrays</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">threshold2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 0"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr2</span><span class="o">,</span> <span class="n">k2</span><span class="o">,</span> <span class="n">threshold2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: All subarrays valid</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">threshold3</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr3</span><span class="o">,</span> <span class="n">k3</span><span class="o">,</span> <span class="n">threshold3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Empty array</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr4</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">threshold4</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 0"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr4</span><span class="o">,</span> <span class="n">k4</span><span class="o">,</span> <span class="n">threshold4</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 5: Single valid subarray</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">threshold5</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr5</span><span class="o">,</span> <span class="n">k5</span><span class="o">,</span> <span class="n">threshold5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given an array of integers arr and two integers k and threshold, return the number of sub-arrays of size k and average greater than or equal to threshold.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Hard"/><summary type="html"><![CDATA[There is an undirected tree with n nodes labeled from 0 to n - 1. You are given the integer n and a 2D integer array edges of length n - 1, where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the tree. You are also given a 0-indexed integer array values of length n, where values[i] is the value associated with the ith node, and an integer k. A valid split of the tree is obtained by removing any set of edges, possibly empty, from the tree such that the resulting components all have values that are divisible by k, where the value of a connected component is the sum of the values of its nodes. Return the maximum number of components in any valid split.]]></summary></entry></feed>
