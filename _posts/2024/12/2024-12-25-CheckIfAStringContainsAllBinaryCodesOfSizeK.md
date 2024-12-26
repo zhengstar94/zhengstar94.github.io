@@ -107,13 +107,13 @@ public class CheckIfAStringContainsAllBinaryCodesOfSizeK {
 
         // Test Case 1: s = "00110110", k = 2
         // Should return true as it contains all binary codes of length 2
-//        String s1 = "00110110";
-//        int k1 = 2;
-//        System.out.println("Test Case 1:");
-//        System.out.println("Input: s = " + s1 + ", k = " + k1);
-//        System.out.println("Expected: true");
-//        System.out.println("Output: " + hasAllCodes(s1, k1));
-//        System.out.println();
+        String s1 = "00110110";
+        int k1 = 2;
+        System.out.println("Test Case 1:");
+        System.out.println("Input: s = " + s1 + ", k = " + k1);
+        System.out.println("Expected: true");
+        System.out.println("Output: " + hasAllCodes(s1, k1));
+        System.out.println();
 
         // Test Case 2: s = "00110", k = 2
         // Should return true as it contains all binary codes of length 2
