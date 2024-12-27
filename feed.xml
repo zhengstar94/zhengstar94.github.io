@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-26T02:38:52+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3083. Existence of a Substring in a String and Its Reverse</title><link href="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/" rel="alternate" type="text/html" title="3083. Existence of a Substring in a String and Its Reverse"/><published>2024-12-26T00:00:00+00:00</published><updated>2024-12-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, find any substring of length <code class="language-plaintext highlighter-rouge">2</code> which is also present in the reverse of <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if such a substring exists, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "leetcode"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-27T03:04:29+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3159. Find Occurrences of an Element in an Array</title><link href="https://zhengstar94.github.io//blog/2024/FindOccurrencesOfAnElementInAnArray/" rel="alternate" type="text/html" title="3159. Find Occurrences of an Element in an Array"/><published>2024-12-27T00:00:00+00:00</published><updated>2024-12-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindOccurrencesOfAnElementInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindOccurrencesOfAnElementInAnArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, an integer array <code class="language-plaintext highlighter-rouge">queries</code>, and an integer <code class="language-plaintext highlighter-rouge">x</code>.</li> <li>For each <code class="language-plaintext highlighter-rouge">queries[i]</code>, you need to find the index of the <code class="language-plaintext highlighter-rouge">queries[i]th</code> occurrence of <code class="language-plaintext highlighter-rouge">x</code> in the <code class="language-plaintext highlighter-rouge">nums</code> array. If there are fewer than <code class="language-plaintext highlighter-rouge">queries[i]</code> occurrences of <code class="language-plaintext highlighter-rouge">x</code>, the answer should be -1 for that query.</li> <li>Return an integer array <code class="language-plaintext highlighter-rouge">answer</code> containing the answers to all queries.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,1,7], queries = [1,3,2,4], x = 1
+
+Output: [0,-1,2,-1]
+
+Explanation:
+
+For the 1st query, the first occurrence of 1 is at index 0.
+For the 2nd query, there are only two occurrences of 1 in nums, so the answer is -1.
+For the 3rd query, the second occurrence of 1 is at index 2.
+For the 4th query, there are only two occurrences of 1 in nums, so the answer is -1.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], queries = [10], x = 5
+
+Output: [-1]
+
+Explanation:
+
+For the 1st query, 5 doesn't exist in nums, so the answer is -1.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(q+n) time | O(k) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/27
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindOccurrencesOfAnElementInAnArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findIndices</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">queries</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Store all positions where x appears in nums array</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">positions</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// First pass: record all positions where x appears</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">positions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Create array to store answers for each query</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">queries</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+        <span class="c1">// Process each query</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">queries</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Convert from 1-based counting (human-readable) to 0-based indexing (computer-readable)</span>
+            <span class="c1">// Example:</span>
+            <span class="c1">// If queries[i] = 1, we want first occurrence, so we need positions.get(0)</span>
+            <span class="c1">// If queries[i] = 2, we want second occurrence, so we need positions.get(1)</span>
+            <span class="c1">// Therefore, we subtract 1 to convert query number to array index</span>
+            <span class="kt">int</span> <span class="n">occurrence</span> <span class="o">=</span> <span class="n">queries</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+            <span class="c1">// Check if we have enough occurrences in our positions list</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">occurrence</span> <span class="o">&gt;=</span> <span class="n">positions</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>  <span class="c1">// Not enough occurrences found</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">positions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">occurrence</span><span class="o">);</span>  <span class="c1">// Return the index of the requested occurrence</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input: nums = [1,3,1,7], queries = [1,3,2,4], x = 1"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">findIndices</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">queries1</span><span class="o">,</span> <span class="n">x1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nOutput: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>  <span class="c1">// Expected: [0,-1,2,-1]</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input: nums = [1,2,3], queries = [10], x = 5"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">findIndices</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">queries2</span><span class="o">,</span> <span class="n">x2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nOutput: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>  <span class="c1">// Expected: [-1]</span>
+
+        <span class="c1">// Additional Test Case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">queries3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">x3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input: nums = [1,1,1,1], queries = [1,2,3,4,5], x = 1"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">findIndices</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">queries3</span><span class="o">,</span> <span class="n">x3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nOutput: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result3</span><span class="o">));</span>  <span class="c1">// Expected: [0,1,2,3,-1]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums, an integer array queries, and an integer x. For each queries[i], you need to find the index of the queries[i]th occurrence of x in the nums array. If there are fewer than queries[i] occurrences of x, the answer should be -1 for that query. Return an integer array answer containing the answers to all queries.]]></summary></entry><entry><title type="html">3083. Existence of a Substring in a String and Its Reverse</title><link href="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/" rel="alternate" type="text/html" title="3083. Existence of a Substring in a String and Its Reverse"/><published>2024-12-26T00:00:00+00:00</published><updated>2024-12-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, find any substring of length <code class="language-plaintext highlighter-rouge">2</code> which is also present in the reverse of <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if such a substring exists, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "leetcode"
 
 Output: true
 
@@ -976,117 +1069,4 @@ Explanation:
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed array nums of n integers, and an integer k. The k-radius average for a subarray of nums centered at some index i with the radius k is the average of all elements in nums between the indices i - k and i + k (inclusive). If there are less than k elements before or after the index i, then the k-radius average is -1. Build and return an array avgs of length n where avgs[i] is the k-radius average for the subarray centered at index i. The average of x elements is the sum of the x elements divided by x, using integer division. The integer division truncates toward zero, which means losing its fractional part. For example, the average of four elements 2, 3, 1, and 5 is (2 + 3 + 1 + 5) / 4=11 / 4=2.75, which truncates to 2.]]></summary></entry><entry><title type="html">1387. Sort Integers by The Power Value</title><link href="https://zhengstar94.github.io//blog/2024/SortIntegersByThePowerValue/" rel="alternate" type="text/html" title="1387. Sort Integers by The Power Value"/><published>2024-12-22T00:00:00+00:00</published><updated>2024-12-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SortIntegersByThePowerValue</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SortIntegersByThePowerValue/"><![CDATA[<ul> <li>The power of an integer <code class="language-plaintext highlighter-rouge">x</code> is defined as the number of steps needed to transform <code class="language-plaintext highlighter-rouge">x</code> into <code class="language-plaintext highlighter-rouge">1</code> using the following steps: <ul> <li>if <code class="language-plaintext highlighter-rouge">x</code> is even then <code class="language-plaintext highlighter-rouge">x = x / 2</code></li> <li>if <code class="language-plaintext highlighter-rouge">x</code> is odd then <code class="language-plaintext highlighter-rouge">x = 3 * x + 1</code></li> </ul> </li> <li>For example, the power of <code class="language-plaintext highlighter-rouge">x = 3</code> is <code class="language-plaintext highlighter-rouge">7</code> because <code class="language-plaintext highlighter-rouge">3</code> needs <code class="language-plaintext highlighter-rouge">7</code> steps to become <code class="language-plaintext highlighter-rouge">1</code> (<code class="language-plaintext highlighter-rouge">3 --&gt; 10 --&gt; 5 --&gt; 16 --&gt; 8 --&gt; 4 --&gt; 2 --&gt; 1</code>).</li> <li>Given three integers <code class="language-plaintext highlighter-rouge">lo</code>, <code class="language-plaintext highlighter-rouge">hi</code> and <code class="language-plaintext highlighter-rouge">k</code>. The task is to sort all integers in the interval <code class="language-plaintext highlighter-rouge">[lo, hi]</code> by the power value in <strong>ascending order</strong>, if two or more integers have <strong>the same</strong> power value sort them by <strong>ascending order</strong>.</li> <li>Return the <code class="language-plaintext highlighter-rouge">kth</code> integer in the range <code class="language-plaintext highlighter-rouge">[lo, hi]</code> sorted by the power value.</li> <li>Notice that for any integer <code class="language-plaintext highlighter-rouge">x</code> <code class="language-plaintext highlighter-rouge">(lo &lt;= x &lt;= hi)</code> it is <strong>guaranteed</strong> that <code class="language-plaintext highlighter-rouge">x</code> will transform into <code class="language-plaintext highlighter-rouge">1</code> using these steps and that the power of <code class="language-plaintext highlighter-rouge">x</code> is will <strong>fit</strong> in a 32-bit signed integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lo = 12, hi = 15, k = 2
-Output: 13
-Explanation: The power of 12 is 9 (12 --&gt; 6 --&gt; 3 --&gt; 10 --&gt; 5 --&gt; 16 --&gt; 8 --&gt; 4 --&gt; 2 --&gt; 1)
-The power of 13 is 9
-The power of 14 is 17
-The power of 15 is 17
-The interval sorted by the power value [12,13,14,15]. For k = 2 answer is the second element which is 13.
-Notice that 12 and 13 have the same power value and we sorted them in ascending order. Same for 14 and 15.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lo = 7, hi = 11, k = 4
-Output: 7
-Explanation: The power array corresponding to the interval [7, 8, 9, 10, 11] is [16, 3, 19, 6, 14].
-The interval sorted by power is [8, 10, 11, 7, 9].
-The fourth number in the sorted array is 7.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DFS</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/22
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortIntegersByThePowerValue</span> <span class="o">{</span>
-    <span class="c1">// Static HashMap to cache computation results, can be reused between multiple test cases</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">memo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getKth</span><span class="o">(</span><span class="kt">int</span> <span class="n">lo</span><span class="o">,</span> <span class="kt">int</span> <span class="n">hi</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create Integer array ranging from lo to hi</span>
-        <span class="nc">Integer</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">[</span><span class="n">hi</span> <span class="o">-</span> <span class="n">lo</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-        <span class="c1">// Initialize array using Arrays.setAll, more elegant than loop</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">setAll</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="n">lo</span><span class="o">);</span>
-
-        <span class="c1">// Sort array using custom comparator</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
-            <span class="c1">// Get power values for both numbers</span>
-            <span class="kt">int</span> <span class="n">fx</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">x</span><span class="o">),</span> <span class="n">fy</span> <span class="o">=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-            <span class="c1">// If power values are different, sort by power value</span>
-            <span class="c1">// If power values are same, sort by original number</span>
-            <span class="k">return</span> <span class="n">fx</span> <span class="o">!=</span> <span class="n">fy</span> <span class="o">?</span> <span class="n">fx</span> <span class="o">-</span> <span class="n">fy</span> <span class="o">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="o">;</span>
-        <span class="o">});</span>
-
-        <span class="c1">// Return kth number (k is 1-based, so subtract 1)</span>
-        <span class="k">return</span> <span class="n">nums</span><span class="o">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Base case: if number is 1, power value is 0</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we've calculated this number before, return cached result</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">memo</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">memo</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Handle odd numbers: combine two steps into one</span>
-        <span class="c1">// Traditional: i -&gt; 3i+1 -&gt; (3i+1)/2, needs two steps</span>
-        <span class="c1">// Optimized: directly calculate (3i+1)/2, counted as two steps</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">memo</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">dfs</span><span class="o">((</span><span class="n">i</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="c1">// Handle even numbers: divide by 2, counted as one step</span>
-        <span class="k">else</span> <span class="o">{</span>
-            <span class="n">memo</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">dfs</span><span class="o">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return calculated power value</span>
-        <span class="k">return</span> <span class="n">memo</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Main method with test cases</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">getKth</span><span class="o">(</span><span class="mi">12</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: lo = 12, hi = 15, k = 2"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 13"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">result1</span> <span class="o">==</span> <span class="mi">13</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">getKth</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: lo = 7, hi = 11, k = 4"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 7"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">result2</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3 (Additional test case)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">getKth</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: lo = 1, hi = 1, k = 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">result3</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4 (Additional test case with larger numbers)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">getKth</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: lo = 1, hi = 20, k = 10"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">result4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"This test case demonstrates sorting for a larger range"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Medium"/><summary type="html"><![CDATA[The power of an integer x is defined as the number of steps needed to transform x into 1 using the following steps: if x is even then x=x / 2 if x is odd then x=3 * x + 1 For example, the power of x=3 is 7 because 3 needs 7 steps to become 1 (3 --&gt; 10 --&gt; 5 --&gt; 16 --&gt; 8 --&gt; 4 --&gt; 2 --&gt; 1). Given three integers lo, hi and k. The task is to sort all integers in the interval [lo, hi] by the power value in ascending order, if two or more integers have the same power value sort them by ascending order. Return the kth integer in the range [lo, hi] sorted by the power value. Notice that for any integer x (lo &lt;= x &lt;= hi) it is guaranteed that x will transform into 1 using these steps and that the power of x is will fit in a 32-bit signed integer.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed array nums of n integers, and an integer k. The k-radius average for a subarray of nums centered at some index i with the radius k is the average of all elements in nums between the indices i - k and i + k (inclusive). If there are less than k elements before or after the index i, then the k-radius average is -1. Build and return an array avgs of length n where avgs[i] is the k-radius average for the subarray centered at index i. The average of x elements is the sum of the x elements divided by x, using integer division. The integer division truncates toward zero, which means losing its fractional part. For example, the average of four elements 2, 3, 1, and 5 is (2 + 3 + 1 + 5) / 4=11 / 4=2.75, which truncates to 2.]]></summary></entry></feed>
