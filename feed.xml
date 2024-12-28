@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-28T03:56:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3046. Split the Array</title><link href="https://zhengstar94.github.io//blog/2024/SplitTheArray/" rel="alternate" type="text/html" title="3046. Split the Array"/><published>2024-12-28T00:00:00+00:00</published><updated>2024-12-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SplitTheArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SplitTheArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>even</strong> length. You have to split the array into two parts <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">nums1.length == nums2.length == nums.length / 2</code>.</li> <li><code class="language-plaintext highlighter-rouge">nums1</code> should contain <strong>distinct</strong> elements.</li> <li><code class="language-plaintext highlighter-rouge">nums2</code> should also contain <strong>distinct</strong> elements.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to split the array, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise**.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,2,3,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-28T04:42:49+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1423. Maximum Points You Can Obtain from Cards</title><link href="https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards/" rel="alternate" type="text/html" title="1423. Maximum Points You Can Obtain from Cards"/><published>2024-12-28T00:00:00+00:00</published><updated>2024-12-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards/"><![CDATA[<ul> <li>There are several cards <strong>arranged in a row</strong>, and each card has an associated number of points. The points are given in the integer array <code class="language-plaintext highlighter-rouge">cardPoints</code>.</li> <li>In one step, you can take one card from the beginning or from the end of the row. You have to take exactly <code class="language-plaintext highlighter-rouge">k</code> cards.</li> <li>Your score is the sum of the points of the cards you have taken.</li> <li>Given the integer array <code class="language-plaintext highlighter-rouge">cardPoints</code> and the integer <code class="language-plaintext highlighter-rouge">k</code>, return the <em>maximum score</em> you can obtain.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: cardPoints = [1,2,3,4,5,6,1], k = 3
+Output: 12
+Explanation: After the first step, your score will always be 1. However, choosing the rightmost card first will maximize your total score. The optimal strategy is to take the three cards on the right, giving a final score of 1 + 6 + 5 = 12.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: cardPoints = [2,2,2], k = 2
+Output: 4
+Explanation: Regardless of which two cards you take, your score will always be 4.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: cardPoints = [9,7,7,9,7,7,9], k = 7
+Output: 55
+Explanation: You have to take all the cards. Your score is the sum of points of all cards.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumPointsYouCanObtainFromCards</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxScore</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">cardPoints</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">cardPoints</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="c1">// Total number of cards.</span>
+
+        <span class="c1">// Calculate the total points of all cards.</span>
+        <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">point</span> <span class="o">:</span> <span class="n">cardPoints</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">point</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If `k` equals the total number of cards, return the total sum of the array.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">total</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Determine the size of the window to exclude from the selection.</span>
+        <span class="c1">// This window contains the cards that are *not* part of the chosen `k` cards.</span>
+        <span class="kt">int</span> <span class="n">windowSize</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">k</span><span class="o">;</span>
+
+        <span class="c1">// Calculate the initial sum of the first `windowSize` cards.</span>
+        <span class="kt">int</span> <span class="n">windowSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">windowSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">cardPoints</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize the minimum window sum to the sum of the first `windowSize` cards.</span>
+        <span class="kt">int</span> <span class="n">minWindowSum</span> <span class="o">=</span> <span class="n">windowSum</span><span class="o">;</span>
+
+        <span class="c1">// Slide the window across the array, updating the window sum and tracking the minimum.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">windowSize</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Add the next card in the window and remove the first card of the previous window.</span>
+            <span class="n">windowSum</span> <span class="o">=</span> <span class="n">windowSum</span> <span class="o">+</span> <span class="n">cardPoints</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">cardPoints</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">windowSize</span><span class="o">];</span>
+
+            <span class="c1">// Update the minimum window sum if the current window sum is smaller.</span>
+            <span class="n">minWindowSum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minWindowSum</span><span class="o">,</span> <span class="n">windowSum</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// The maximum score is the total sum minus the smallest sum of the excluded window.</span>
+        <span class="k">return</span> <span class="n">total</span> <span class="o">-</span> <span class="n">minWindowSum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">cardPoints1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">maxScore</span><span class="o">(</span><span class="n">cardPoints1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: 12</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">cardPoints2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">maxScore</span><span class="o">(</span><span class="n">cardPoints2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">cardPoints3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">maxScore</span><span class="o">(</span><span class="n">cardPoints3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected: 55</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There are several cards arranged in a row, and each card has an associated number of points. The points are given in the integer array cardPoints. In one step, you can take one card from the beginning or from the end of the row. You have to take exactly k cards. Your score is the sum of the points of the cards you have taken. Given the integer array cardPoints and the integer k, return the maximum score you can obtain.]]></summary></entry><entry><title type="html">3046. Split the Array</title><link href="https://zhengstar94.github.io//blog/2024/SplitTheArray/" rel="alternate" type="text/html" title="3046. Split the Array"/><published>2024-12-28T00:00:00+00:00</published><updated>2024-12-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SplitTheArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SplitTheArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>even</strong> length. You have to split the array into two parts <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">nums1.length == nums2.length == nums.length / 2</code>.</li> <li><code class="language-plaintext highlighter-rouge">nums1</code> should contain <strong>distinct</strong> elements.</li> <li><code class="language-plaintext highlighter-rouge">nums2</code> should also contain <strong>distinct</strong> elements.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to split the array, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise**.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,2,3,4]
 Output: true
 Explanation: One of the possible ways to split nums is nums1 = [1,2,3] and nums2 = [1,2,4].
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1]
@@ -803,102 +878,4 @@ Output: 1
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There is a bookstore owner that has a store open for n minutes. You are given an integer array customers of length n where customers[i] is the number of the customers that enter the store at the start of the ith minute and all those customers leave after the end of that minute. During certain minutes, the bookstore owner is grumpy. You are given a binary array grumpy where grumpy[i] is 1 if the bookstore owner is grumpy during the ith minute, and is 0 otherwise. When the bookstore owner is grumpy, the customers entering during that minute are not satisfied. Otherwise, they are satisfied. The bookstore owner knows a secret technique to remain not grumpy for minutes consecutive minutes, but this technique can only be used once. Return the maximum number of customers that can be satisfied throughout the day.]]></summary></entry><entry><title type="html">1705. Maximum Number of Eaten Apples</title><link href="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/" rel="alternate" type="text/html" title="1705. Maximum Number of Eaten Apples"/><published>2024-12-24T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumNumberOfEatenApples/"><![CDATA[<ul> <li>There is a special kind of apple tree that grows apples every day for <code class="language-plaintext highlighter-rouge">n</code> days. On the <code class="language-plaintext highlighter-rouge">ith</code> day, the tree grows <code class="language-plaintext highlighter-rouge">apples[i]</code> apples that will rot after <code class="language-plaintext highlighter-rouge">days[i]</code> days, that is on day <code class="language-plaintext highlighter-rouge">i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code class="language-plaintext highlighter-rouge">apples[i] == 0</code> and <code class="language-plaintext highlighter-rouge">days[i] == 0</code>.</li> <li>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code class="language-plaintext highlighter-rouge">n</code> days.</li> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">days</code> and <code class="language-plaintext highlighter-rouge">apples</code> of length <code class="language-plaintext highlighter-rouge">n</code>, return <em>the maximum number of apples you can eat.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: apples = [1,2,3,5,2], days = [3,2,1,4,2]
-Output: 7
-Explanation: You can eat 7 apples:
-- On the first day, you eat an apple that grew on the first day.
-- On the second day, you eat an apple that grew on the second day.
-- On the third day, you eat an apple that grew on the second day. After this day, the apples that grew on the third day rot.
-- On the fourth to the seventh days, you eat apples that grew on the fourth day.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: apples = [3,0,0,0,0,2], days = [3,0,0,0,0,2]
-Output: 5
-Explanation: You can eat 5 apples:
-- On the first to the third day you eat apples that grew on the first day.
-- Do nothing on the fouth and fifth days.
-- On the sixth and seventh days you eat apples that grew on the sixth day.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Heap</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/24
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfEatenApples</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">eatenApples</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">apples</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">days</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Length of the growing period</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">apples</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Counter for eaten apples</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Priority Queue storing [rotting_date, remaining_apples]</span>
-        <span class="c1">// Sorted by rotting_date to always eat apples that will rot the earliest</span>
-        <span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">pq</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// Sort by rotting date in ascending order</span>
-        <span class="o">});</span>
-
-        <span class="c1">// Process each day, including days after the growing period (i &gt;= n)</span>
-        <span class="c1">// Continue while either:</span>
-        <span class="c1">// 1. Still within growing period (i &lt; n) OR</span>
-        <span class="c1">// 2. Still have apples in queue (!pq.isEmpty())</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">||</span> <span class="o">!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Remove all rotten apples</span>
-            <span class="c1">// Keep removing while:</span>
-            <span class="c1">// 1. Queue is not empty AND</span>
-            <span class="c1">// 2. The earliest rotting date &lt;= current day</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">pq</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">0</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add new apples if:</span>
-            <span class="c1">// 1. Still in growing period (i &lt; n) AND</span>
-            <span class="c1">// 2. There are apples grown on this day (apples[i] != 0)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">apples</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Add [rotting_date, apple_count] to queue</span>
-                <span class="c1">// rotting_date = current_day + days_until_rot</span>
-                <span class="n">pq</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span> <span class="n">i</span> <span class="o">+</span> <span class="n">days</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">apples</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">}</span> <span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Try to eat an apple if any are available</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">result</span><span class="o">++;</span>  <span class="c1">// Eat one apple</span>
-                <span class="c1">// Decrease the count of apples in the current batch</span>
-                <span class="c1">// If no apples left in this batch, remove it from queue</span>
-                <span class="k">if</span> <span class="o">(--</span><span class="n">pq</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Regular case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">days1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Expected: 7, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples1</span><span class="o">,</span> <span class="n">days1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Some days without apples</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">days2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Expected: 5, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples2</span><span class="o">,</span> <span class="n">days2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Single day case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">days3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Expected: 2, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples3</span><span class="o">,</span> <span class="n">days3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Empty case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples4</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">days4</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Expected: 0, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples4</span><span class="o">,</span> <span class="n">days4</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 5: All apples rot immediately</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">apples5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">days5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Expected: 0, Actual: "</span> <span class="o">+</span> <span class="n">eatenApples</span><span class="o">(</span><span class="n">apples5</span><span class="o">,</span> <span class="n">days5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Heap"/><category term="Medium"/><summary type="html"><![CDATA[There is a special kind of apple tree that grows apples every day for n days. On the ith day, the tree grows apples[i] apples that will rot after days[i] days, that is on day i + days[i] the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by apples[i] == 0 and days[i] == 0. You decided to eat at most one apple a day (to keep the doctors away). Note that you can keep eating after the first n days. Given two integer arrays days and apples of length n, return the maximum number of apples you can eat.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There is a bookstore owner that has a store open for n minutes. You are given an integer array customers of length n where customers[i] is the number of the customers that enter the store at the start of the ith minute and all those customers leave after the end of that minute. During certain minutes, the bookstore owner is grumpy. You are given a binary array grumpy where grumpy[i] is 1 if the bookstore owner is grumpy during the ith minute, and is 0 otherwise. When the bookstore owner is grumpy, the customers entering during that minute are not satisfied. Otherwise, they are satisfied. The bookstore owner knows a secret technique to remain not grumpy for minutes consecutive minutes, but this technique can only be used once. Return the maximum number of customers that can be satisfied throughout the day.]]></summary></entry></feed>
