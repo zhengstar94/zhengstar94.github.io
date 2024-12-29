@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3046. Split the Array"
 date: "2024-12-28"
-tags: Medium
+tags: Easy
 categories:
   - "LeetCode Array"
 ---
