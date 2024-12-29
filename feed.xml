@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-29T04:23:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1366. Rank Teams by Votes</title><link href="https://zhengstar94.github.io//blog/2024/RankTeamsByVotes/" rel="alternate" type="text/html" title="1366. Rank Teams by Votes"/><published>2024-12-29T00:00:00+00:00</published><updated>2024-12-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RankTeamsByVotes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RankTeamsByVotes/"><![CDATA[<ul> <li>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</li> <li>The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter.</li> <li>You are given an array of strings <code class="language-plaintext highlighter-rouge">votes</code> which is the votes of all voters in the ranking systems. Sort all teams according to the ranking system described above.</li> <li>Return <em>a string of all teams <strong>sorted</strong> by the ranking system</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: votes = ["ABC","ACB","ABC","ACB","ACB"]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-29T05:05:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1652. Defuse the Bomb</title><link href="https://zhengstar94.github.io//blog/2024/DefuseTheBomb/" rel="alternate" type="text/html" title="1652. Defuse the Bomb"/><published>2024-12-29T00:00:00+00:00</published><updated>2024-12-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DefuseTheBomb</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DefuseTheBomb/"><![CDATA[<ul> <li>You have a bomb to defuse, and your time is running out! Your informer will provide you with a <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">code</code> of length of <code class="language-plaintext highlighter-rouge">n</code> and a key <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>To decrypt the code, you must replace every number. All the numbers are replaced <strong>simultaneously</strong>. <ul> <li>If <code class="language-plaintext highlighter-rouge">k &gt; 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with the sum of the <strong>next</strong> <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> <li>If <code class="language-plaintext highlighter-rouge">k &lt; 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with the sum of the <strong>previous</strong> <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> <li>If <code class="language-plaintext highlighter-rouge">k == 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> </li> <li>As <code class="language-plaintext highlighter-rouge">code</code> is circular, the next element of <code class="language-plaintext highlighter-rouge">code[n-1]</code> is <code class="language-plaintext highlighter-rouge">code[0]</code>, and the previous element of <code class="language-plaintext highlighter-rouge">code[0]</code> is <code class="language-plaintext highlighter-rouge">code[n-1]</code>.</li> <li>Given the <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">code</code> and an integer key <code class="language-plaintext highlighter-rouge">k</code>, return <em>the decrypted code to defuse the bomb</em>!</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: code = [5,7,1,4], k = 3
+Output: [12,10,16,13]
+Explanation: Each number is replaced by the sum of the next 3 numbers. The decrypted code is [7+1+4, 1+4+5, 4+5+7, 5+7+1]. Notice that the numbers wrap around.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: code = [1,2,3,4], k = 0
+Output: [0,0,0,0]
+Explanation: When k is zero, the numbers are replaced by 0. 
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: code = [2,4,9,3], k = -2
+Output: [12,5,6,13]
+Explanation: The decrypted code is [3+9, 2+3, 4+2, 9+4]. Notice that the numbers wrap around again. If k is negative, the sum is of the previous numbers.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/29
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DefuseTheBomb</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">decrypt</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">code</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">code</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>  <span class="c1">// Store the result array</span>
+
+        <span class="c1">// Initialize the right boundary 'r'</span>
+        <span class="c1">// If k &gt; 0: r = k + 1 (points to the position after the first window)</span>
+        <span class="c1">// If k &lt; 0: r = n (points to the end of array)</span>
+        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">n</span><span class="o">;</span>
+
+        <span class="c1">// Take absolute value of k to handle both positive and negative cases uniformly</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">k</span><span class="o">);</span>
+
+        <span class="c1">// Initialize sum for first position</span>
+        <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// First loop: Calculate sum for the initial window</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">k</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// For k &gt; 0: directly sum the next k numbers</span>
+            <span class="c1">// For k &lt; 0: using modulo to wrap around and sum the previous k numbers</span>
+            <span class="c1">// Example for k = 3: sums code[1] + code[2] + code[3]</span>
+            <span class="c1">// Example for k = -3: sums code[3] + code[4] + code[5] (using i % n)</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">code</span><span class="o">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">n</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Second loop: Slide the window to calculate sums for all positions</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Store current window sum in result array</span>
+            <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+
+            <span class="c1">// Slide window by:</span>
+            <span class="c1">// 1. Adding new element (code[r % n])</span>
+            <span class="c1">// 2. Removing leftmost element (code[(r - k) % n])</span>
+            <span class="c1">// Example: if current sum is [1,4,1], next sum will be [4,1,5]</span>
+            <span class="c1">// by adding code[4]=5 and removing code[1]=1</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">code</span><span class="o">[</span><span class="n">r</span> <span class="o">%</span> <span class="n">n</span><span class="o">]</span> <span class="o">-</span> <span class="n">code</span><span class="o">[(</span><span class="n">r</span> <span class="o">-</span> <span class="n">k</span><span class="o">)</span> <span class="o">%</span> <span class="n">n</span><span class="o">];</span>
+            <span class="n">r</span><span class="o">++;</span>  <span class="c1">// Move window right by one position</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method to test the solution with example cases
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: k &gt; 0</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">code1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">decrypt</span><span class="o">(</span><span class="n">code1</span><span class="o">,</span> <span class="n">k1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 (k &gt; 0):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: code = [5,7,1,4], k = 3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Output: ["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">result1</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">result1</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">?</span> <span class="s">","</span> <span class="o">:</span> <span class="s">""</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>  <span class="c1">// Expected: [12,10,16,13]</span>
+
+        <span class="c1">// Test Case 2: k = 0</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">code2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">decrypt</span><span class="o">(</span><span class="n">code2</span><span class="o">,</span> <span class="n">k2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2 (k = 0):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: code = [1,2,3,4], k = 0"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Output: ["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">result2</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result2</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">result2</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">?</span> <span class="s">","</span> <span class="o">:</span> <span class="s">""</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>  <span class="c1">// Expected: [0,0,0,0]</span>
+
+        <span class="c1">// Test Case 3: k &lt; 0</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">code3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">decrypt</span><span class="o">(</span><span class="n">code3</span><span class="o">,</span> <span class="n">k3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3 (k &lt; 0):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: code = [2,4,9,3], k = -2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Output: ["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">result3</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">result3</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">?</span> <span class="s">","</span> <span class="o">:</span> <span class="s">""</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>  <span class="c1">// Expected: [12,5,6,13]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[You have a bomb to defuse, and your time is running out! Your informer will provide you with a circular array code of length of n and a key k. To decrypt the code, you must replace every number. All the numbers are replaced simultaneously. If k &gt; 0, replace the ith number with the sum of the next k numbers. If k &lt; 0, replace the ith number with the sum of the previous k numbers. If k== 0, replace the ith number with 0. As code is circular, the next element of code[n-1] is code[0], and the previous element of code[0] is code[n-1]. Given the circular array code and an integer key k, return the decrypted code to defuse the bomb!]]></summary></entry><entry><title type="html">1366. Rank Teams by Votes</title><link href="https://zhengstar94.github.io//blog/2024/RankTeamsByVotes/" rel="alternate" type="text/html" title="1366. Rank Teams by Votes"/><published>2024-12-29T00:00:00+00:00</published><updated>2024-12-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RankTeamsByVotes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RankTeamsByVotes/"><![CDATA[<ul> <li>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</li> <li>The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter.</li> <li>You are given an array of strings <code class="language-plaintext highlighter-rouge">votes</code> which is the votes of all voters in the ranking systems. Sort all teams according to the ranking system described above.</li> <li>Return <em>a string of all teams <strong>sorted</strong> by the ranking system</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: votes = ["ABC","ACB","ABC","ACB","ACB"]
 Output: "ACB"
 Explanation: 
 Team A was ranked first place by 5 voters. No other team was voted as first place, so team A is the first team.
@@ -794,100 +894,4 @@ Explanation: The binary code "00" is of length 2 and does not exist in the array
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given a binary string s and an integer k, return true if every binary code of length k is a substring of s. Otherwise, return false.]]></summary></entry><entry><title type="html">515. Find Largest Value in Each Tree Row</title><link href="https://zhengstar94.github.io//blog/2024/FindLargestValueInEachTreeRow/" rel="alternate" type="text/html" title="515. Find Largest Value in Each Tree Row"/><published>2024-12-25T00:00:00+00:00</published><updated>2024-12-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/FindLargestValueInEachTreeRow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/FindLargestValueInEachTreeRow/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree, return <em>an array of the largest value in each row</em> of the tree <strong>(0-indexed)</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,3,2,5,3,null,9]
-Output: [1,3,9]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [1,2,3]
-Output: [1,3]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(w) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BFS</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindLargestValueInEachTreeRow</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">largestValues</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Queue for BFS traversal</span>
-        <span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">TreeNode</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-
-        <span class="k">while</span> <span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Get the size of current level</span>
-            <span class="kt">int</span> <span class="n">levelSize</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-            <span class="kt">int</span> <span class="n">maxVal</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
-
-            <span class="c1">// Process all nodes in current level</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">levelSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="nc">TreeNode</span> <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="n">maxVal</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxVal</span><span class="o">,</span> <span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
-
-                <span class="c1">// Add children to queue for next level processing</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-                <span class="o">}</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add maximum value of current level to result</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">maxVal</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1: Regular binary tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 - Expected: [1, 3, 9], Output: "</span> <span class="o">+</span>
-                <span class="n">largestValues</span><span class="o">(</span><span class="n">root1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Single node tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 - Expected: [1], Output: "</span> <span class="o">+</span>
-                <span class="n">largestValues</span><span class="o">(</span><span class="n">root2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Empty tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root3</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 - Expected: [], Output: "</span> <span class="o">+</span>
-                <span class="n">largestValues</span><span class="o">(</span><span class="n">root3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Complete binary tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root4</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root4</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">root4</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root4</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">root4</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
-        <span class="n">root4</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 - Expected: [1, 3, 7], Output: "</span> <span class="o">+</span>
-                <span class="n">largestValues</span><span class="o">(</span><span class="n">root4</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 5: Unbalanced tree</span>
-        <span class="nc">TreeNode</span> <span class="n">root5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">root5</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">root5</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">root5</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 - Expected: [1, 2, 4, 8], Output: "</span> <span class="o">+</span>
-                <span class="n">largestValues</span><span class="o">(</span><span class="n">root5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BFS"/><category term="Medium"/><summary type="html"><![CDATA[Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given a binary string s and an integer k, return true if every binary code of length k is a substring of s. Otherwise, return false.]]></summary></entry></feed>
