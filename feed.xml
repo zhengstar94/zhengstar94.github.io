@@ -1,4 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-28T04:42:49+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1423. Maximum Points You Can Obtain from Cards</title><link href="https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards/" rel="alternate" type="text/html" title="1423. Maximum Points You Can Obtain from Cards"/><published>2024-12-28T00:00:00+00:00</published><updated>2024-12-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards/"><![CDATA[<ul> <li>There are several cards <strong>arranged in a row</strong>, and each card has an associated number of points. The points are given in the integer array <code class="language-plaintext highlighter-rouge">cardPoints</code>.</li> <li>In one step, you can take one card from the beginning or from the end of the row. You have to take exactly <code class="language-plaintext highlighter-rouge">k</code> cards.</li> <li>Your score is the sum of the points of the cards you have taken.</li> <li>Given the integer array <code class="language-plaintext highlighter-rouge">cardPoints</code> and the integer <code class="language-plaintext highlighter-rouge">k</code>, return the <em>maximum score</em> you can obtain.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: cardPoints = [1,2,3,4,5,6,1], k = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-29T04:23:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1366. Rank Teams by Votes</title><link href="https://zhengstar94.github.io//blog/2024/RankTeamsByVotes/" rel="alternate" type="text/html" title="1366. Rank Teams by Votes"/><published>2024-12-29T00:00:00+00:00</published><updated>2024-12-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/RankTeamsByVotes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/RankTeamsByVotes/"><![CDATA[<ul> <li>In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition.</li> <li>The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter.</li> <li>You are given an array of strings <code class="language-plaintext highlighter-rouge">votes</code> which is the votes of all voters in the ranking systems. Sort all teams according to the ranking system described above.</li> <li>Return <em>a string of all teams <strong>sorted</strong> by the ranking system</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: votes = ["ABC","ACB","ABC","ACB","ACB"]
+Output: "ACB"
+Explanation: 
+Team A was ranked first place by 5 voters. No other team was voted as first place, so team A is the first team.
+Team B was ranked second by 2 voters and ranked third by 3 voters.
+Team C was ranked second by 3 voters and ranked third by 2 voters.
+As most of the voters ranked C second, team C is the second team, and team B is the third.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: votes = ["WXYZ","XYZW"]
+Output: "XWYZ"
+Explanation:
+X is the winner due to the tie-breaking rule. X has the same votes as W for the first position, but X has one vote in the second position, while W does not have any votes in the second position. 
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: votes = ["ZMNAGUEDSJYLBOPHRQICWFXTVK"]
+Output: "ZMNAGUEDSJYLBOPHRQICWFXTVK"
+Explanation: Only one voter, so their votes are used for the ranking.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(N * K + M * log M) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/29
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RankTeamsByVotes</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">rankTeams</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">votes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases: empty input or null</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">votes</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">votes</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If there's only one vote, return it directly</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">votes</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span> <span class="n">votes</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Create a 2D array to store vote counts</span>
+        <span class="c1">// First dimension [26]: represents teams (A-Z)</span>
+        <span class="c1">// Second dimension [26]: represents positions (0 to 25)</span>
+        <span class="c1">// count[team][position] stores how many votes a team got for that position</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">][</span><span class="mi">26</span><span class="o">];</span>
+
+        <span class="c1">// Array to track which teams participated in voting</span>
+        <span class="c1">// teams[i] will be true if team (A+i) received any votes</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">teams</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">teamCount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="cm">/* First Important Section: Vote Counting Loop
+         * Outer loop: Iterates through each vote (ballot)
+         * Inner loop: Processes each position in the current vote
+         *
+         * For example, if vote is "ABC":
+         * - First iteration (i=0): Increment count for A in position 0
+         * - Second iteration (i=1): Increment count for B in position 1
+         * - Third iteration (i=2): Increment count for C in position 2
+         *
+         * Also marks teams as participating when they first appear
+         */</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">vote</span> <span class="o">:</span> <span class="n">votes</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vote</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">team</span> <span class="o">=</span> <span class="n">vote</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'A'</span><span class="o">;</span>  <span class="c1">// Convert character to 0-25 index</span>
+                <span class="n">count</span><span class="o">[</span><span class="n">team</span><span class="o">][</span><span class="n">i</span><span class="o">]++;</span>                 <span class="c1">// Increment vote count for team at position i</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">teams</span><span class="o">[</span><span class="n">team</span><span class="o">])</span> <span class="o">{</span>               <span class="c1">// If this is first time seeing this team</span>
+                    <span class="n">teams</span><span class="o">[</span><span class="n">team</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>           <span class="c1">// Mark team as participating</span>
+                    <span class="n">teamCount</span><span class="o">++;</span>                  <span class="c1">// Increment total number of teams</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Create array to store participating teams as characters</span>
+        <span class="nc">Character</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Character</span><span class="o">[</span><span class="n">teamCount</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">teams</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)(</span><span class="sc">'A'</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="cm">/* Second Important Section: Custom Sorting Logic
+         * This comparator implements the ranking rules:
+         * 1. Primary Rule: Teams are ranked by votes at each position, starting from position 0
+         * 2. Secondary Rule: If teams tie in all positions, sort alphabetically
+         *
+         * For example, comparing teams A and B:
+         * - First checks votes in position 0
+         * - If tied, checks position 1
+         * - If tied, checks position 2
+         * - If tied in all positions, compares team names (A vs B)
+         *
+         * The subtraction (count[teamB][i] - count[teamA][i]) ensures:
+         * - Positive result: teamB ranks higher (has more votes)
+         * - Negative result: teamA ranks higher
+         * - Zero: tied at this position, continue checking
+         */</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">teamA</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="sc">'A'</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">teamB</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="sc">'A'</span><span class="o">;</span>
+
+            <span class="c1">// Compare votes at each position</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">teamA</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">count</span><span class="o">[</span><span class="n">teamB</span><span class="o">][</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="n">count</span><span class="o">[</span><span class="n">teamB</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">count</span><span class="o">[</span><span class="n">teamA</span><span class="o">][</span><span class="n">i</span><span class="o">];</span>  <span class="c1">// Higher votes first</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="c1">// If all positions are tied, sort alphabetically</span>
+            <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">;</span>
+        <span class="o">});</span>
+
+        <span class="c1">// Convert result array to string</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Multiple votes with clear preference</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">votes1</span> <span class="o">=</span> <span class="o">{</span><span class="s">"ABC"</span><span class="o">,</span><span class="s">"ACB"</span><span class="o">,</span><span class="s">"ABC"</span><span class="o">,</span><span class="s">"ACB"</span><span class="o">,</span><span class="s">"ACB"</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">votes1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">rankTeams</span><span class="o">(</span><span class="n">votes1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: ACB"</span><span class="o">);</span>
+
+        <span class="c1">// Test case 2: Minimal votes with different preferences</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">votes2</span> <span class="o">=</span> <span class="o">{</span><span class="s">"WXYZ"</span><span class="o">,</span><span class="s">"XYZW"</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">votes2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">rankTeams</span><span class="o">(</span><span class="n">votes2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: XWYZ"</span><span class="o">);</span>
+
+        <span class="c1">// Test case 3: Single vote with all letters</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">votes3</span> <span class="o">=</span> <span class="o">{</span><span class="s">"ZMNAGUEDSJYLBOPHRQICWFXTVK"</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">votes3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">rankTeams</span><span class="o">(</span><span class="n">votes3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: ZMNAGUEDSJYLBOPHRQICWFXTVK"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[In a special ranking system, each voter gives a rank from highest to lowest to all teams participating in the competition. The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter. You are given an array of strings votes which is the votes of all voters in the ranking systems. Sort all teams according to the ranking system described above. Return a string of all teams sorted by the ranking system.]]></summary></entry><entry><title type="html">1423. Maximum Points You Can Obtain from Cards</title><link href="https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards/" rel="alternate" type="text/html" title="1423. Maximum Points You Can Obtain from Cards"/><published>2024-12-28T00:00:00+00:00</published><updated>2024-12-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumPointsYouCanObtainFromCards/"><![CDATA[<ul> <li>There are several cards <strong>arranged in a row</strong>, and each card has an associated number of points. The points are given in the integer array <code class="language-plaintext highlighter-rouge">cardPoints</code>.</li> <li>In one step, you can take one card from the beginning or from the end of the row. You have to take exactly <code class="language-plaintext highlighter-rouge">k</code> cards.</li> <li>Your score is the sum of the points of the cards you have taken.</li> <li>Given the integer array <code class="language-plaintext highlighter-rouge">cardPoints</code> and the integer <code class="language-plaintext highlighter-rouge">k</code>, return the <em>maximum score</em> you can obtain.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: cardPoints = [1,2,3,4,5,6,1], k = 3
 Output: 12
 Explanation: After the first step, your score will always be 1. However, choosing the rightmost card first will maximize your total score. The optimal strategy is to take the three cards on the right, giving a final score of 1 + 6 + 5 = 12.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: cardPoints = [2,2,2], k = 2
@@ -134,7 +272,7 @@ Explanation: The only possible way to split nums is nums1 = [1,1] and nums2 = [1
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of even length. You have to split the array into two parts nums1 and nums2 such that: nums1.length == nums2.length == nums.length / 2. nums1 should contain distinct elements. nums2 should also contain distinct elements. Return true if it is possible to split the array, and false otherwise**.]]></summary></entry><entry><title type="html">1014. Best Sightseeing Pair</title><link href="https://zhengstar94.github.io//blog/2024/BestSightseeingPair/" rel="alternate" type="text/html" title="1014. Best Sightseeing Pair"/><published>2024-12-27T00:00:00+00:00</published><updated>2024-12-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BestSightseeingPair</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BestSightseeingPair/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">values</code> where values[i] represents the value of the <code class="language-plaintext highlighter-rouge">ith</code> sightseeing spot. Two sightseeing spots <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> have a <strong>distance</strong> <code class="language-plaintext highlighter-rouge">j - i</code> between them.</li> <li>The score of a pair (<code class="language-plaintext highlighter-rouge">i &lt; j</code>) of sightseeing spots is <code class="language-plaintext highlighter-rouge">values[i] + values[j] + i - j</code>: the sum of the values of the sightseeing spots, minus the distance between them.</li> <li>Return <em>the maximum score of a pair of sightseeing spots</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: values = [8,1,5,2,6]
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums of even length. You have to split the array into two parts nums1 and nums2 such that: nums1.length == nums2.length == nums.length / 2. nums1 should contain distinct elements. nums2 should also contain distinct elements. Return true if it is possible to split the array, and false otherwise**.]]></summary></entry><entry><title type="html">1014. Best Sightseeing Pair</title><link href="https://zhengstar94.github.io//blog/2024/BestSightseeingPair/" rel="alternate" type="text/html" title="1014. Best Sightseeing Pair"/><published>2024-12-27T00:00:00+00:00</published><updated>2024-12-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/BestSightseeingPair</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/BestSightseeingPair/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">values</code> where values[i] represents the value of the <code class="language-plaintext highlighter-rouge">ith</code> sightseeing spot. Two sightseeing spots <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> have a <strong>distance</strong> <code class="language-plaintext highlighter-rouge">j - i</code> between them.</li> <li>The score of a pair (<code class="language-plaintext highlighter-rouge">i &lt; j</code>) of sightseeing spots is <code class="language-plaintext highlighter-rouge">values[i] + values[j] + i - j</code>: the sum of the values of the sightseeing spots, minus the distance between them.</li> <li>Return <em>the maximum score of a pair of sightseeing spots</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: values = [8,1,5,2,6]
 Output: 11
 Explanation: i = 0, j = 2, values[i] + values[j] + i - j = 8 + 5 + 0 - 2 = 11
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: values = [1,2]
@@ -752,130 +890,4 @@ Output: [1,3]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BFS"/><category term="Medium"/><summary type="html"><![CDATA[Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).]]></summary></entry><entry><title type="html">1052. Grumpy Bookstore Owner</title><link href="https://zhengstar94.github.io//blog/2024/GrumpyBookstoreOwner/" rel="alternate" type="text/html" title="1052. Grumpy Bookstore Owner"/><published>2024-12-24T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/GrumpyBookstoreOwner</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/GrumpyBookstoreOwner/"><![CDATA[<ul> <li>There is a bookstore owner that has a store open for <code class="language-plaintext highlighter-rouge">n</code> minutes. You are given an integer array <code class="language-plaintext highlighter-rouge">customers</code> of length <code class="language-plaintext highlighter-rouge">n</code> where <code class="language-plaintext highlighter-rouge">customers[i]</code> is the number of the customers that enter the store at the start of the <code class="language-plaintext highlighter-rouge">ith</code> minute and all those customers leave after the end of that minute.</li> <li>During certain minutes, the bookstore owner is grumpy. You are given a binary array grumpy where <code class="language-plaintext highlighter-rouge">grumpy[i]</code> is <code class="language-plaintext highlighter-rouge">1</code> if the bookstore owner is grumpy during the <code class="language-plaintext highlighter-rouge">ith</code> minute, and is <code class="language-plaintext highlighter-rouge">0</code> otherwise.</li> <li>When the bookstore owner is grumpy, the customers entering during that minute are not <strong>satisfied</strong>. Otherwise, they are satisfied.</li> <li>The bookstore owner knows a secret technique to remain <strong>not grumpy</strong> for <code class="language-plaintext highlighter-rouge">minutes</code> consecutive minutes, but this technique can only be used <strong>once</strong>.</li> <li>Return the <strong>maximum</strong> number of customers that can be <em>satisfied</em> throughout the day.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3
-
-Output: 16
-
-Explanation:
-
-The bookstore owner keeps themselves not grumpy for the last 3 minutes.
-
-The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 16.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: customers = [1], grumpy = [0], minutes = 1
-
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/24
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GrumpyBookstoreOwner</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxSatisfied</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">customers</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy</span><span class="o">,</span> <span class="kt">int</span> <span class="n">minutes</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">customers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Calculate base satisfied customers (when owner is not grumpy)</span>
-        <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">grumpy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-                <span class="n">base</span> <span class="o">+=</span> <span class="n">customers</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Initialize sliding window sum and maximum increase</span>
-        <span class="kt">int</span> <span class="n">windowSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxIncrease</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Process array using sliding window technique</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current customer to window if owner is grumpy</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">grumpy</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
-                <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">customers</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Skip until window is fully formed</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">minutes</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Update maximum increase for current window</span>
-            <span class="n">maxIncrease</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxIncrease</span><span class="o">,</span> <span class="n">windowSum</span><span class="o">);</span>
-
-            <span class="c1">// Remove leftmost element from window</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">grumpy</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">windowSum</span> <span class="o">-=</span> <span class="n">customers</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">minutes</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return total satisfied customers</span>
-        <span class="k">return</span> <span class="n">base</span> <span class="o">+</span> <span class="n">maxIncrease</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Example from problem description</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">minutes1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers1</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy1</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 16"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers1</span><span class="o">,</span> <span class="n">grumpy1</span><span class="o">,</span> <span class="n">minutes1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Single element array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">minutes2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers2</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy2</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers2</span><span class="o">,</span> <span class="n">grumpy2</span><span class="o">,</span> <span class="n">minutes2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: All grumpy moments</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">minutes3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers3</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy3</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 9"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers3</span><span class="o">,</span> <span class="n">grumpy3</span><span class="o">,</span> <span class="n">minutes3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: All non-grumpy moments</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">customers4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">grumpy4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">minutes4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: customers = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">customers4</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", grumpy = "</span> <span class="o">+</span> <span class="n">arrayToString</span><span class="o">(</span><span class="n">grumpy4</span><span class="o">)</span> <span class="o">+</span>
-                <span class="s">", minutes = "</span> <span class="o">+</span> <span class="n">minutes4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 15"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">maxSatisfied</span><span class="o">(</span><span class="n">customers4</span><span class="o">,</span> <span class="n">grumpy4</span><span class="o">,</span> <span class="n">minutes4</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">arrayToString</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There is a bookstore owner that has a store open for n minutes. You are given an integer array customers of length n where customers[i] is the number of the customers that enter the store at the start of the ith minute and all those customers leave after the end of that minute. During certain minutes, the bookstore owner is grumpy. You are given a binary array grumpy where grumpy[i] is 1 if the bookstore owner is grumpy during the ith minute, and is 0 otherwise. When the bookstore owner is grumpy, the customers entering during that minute are not satisfied. Otherwise, they are satisfied. The bookstore owner knows a secret technique to remain not grumpy for minutes consecutive minutes, but this technique can only be used once. Return the maximum number of customers that can be satisfied throughout the day.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BFS"/><category term="Medium"/><summary type="html"><![CDATA[Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).]]></summary></entry></feed>
