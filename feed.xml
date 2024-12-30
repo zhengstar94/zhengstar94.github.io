@@ -1,4 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-29T05:05:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1652. Defuse the Bomb</title><link href="https://zhengstar94.github.io//blog/2024/DefuseTheBomb/" rel="alternate" type="text/html" title="1652. Defuse the Bomb"/><published>2024-12-29T00:00:00+00:00</published><updated>2024-12-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DefuseTheBomb</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DefuseTheBomb/"><![CDATA[<ul> <li>You have a bomb to defuse, and your time is running out! Your informer will provide you with a <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">code</code> of length of <code class="language-plaintext highlighter-rouge">n</code> and a key <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>To decrypt the code, you must replace every number. All the numbers are replaced <strong>simultaneously</strong>. <ul> <li>If <code class="language-plaintext highlighter-rouge">k &gt; 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with the sum of the <strong>next</strong> <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> <li>If <code class="language-plaintext highlighter-rouge">k &lt; 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with the sum of the <strong>previous</strong> <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> <li>If <code class="language-plaintext highlighter-rouge">k == 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> </li> <li>As <code class="language-plaintext highlighter-rouge">code</code> is circular, the next element of <code class="language-plaintext highlighter-rouge">code[n-1]</code> is <code class="language-plaintext highlighter-rouge">code[0]</code>, and the previous element of <code class="language-plaintext highlighter-rouge">code[0]</code> is <code class="language-plaintext highlighter-rouge">code[n-1]</code>.</li> <li>Given the <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">code</code> and an integer key <code class="language-plaintext highlighter-rouge">k</code>, return <em>the decrypted code to defuse the bomb</em>!</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: code = [5,7,1,4], k = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-30T02:54:11+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1367. Linked List in Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree/" rel="alternate" type="text/html" title="1367. Linked List in Binary Tree"/><published>2024-12-30T00:00:00+00:00</published><updated>2024-12-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree/"><![CDATA[<ul> <li>Given a binary tree <code class="language-plaintext highlighter-rouge">root</code> and a linked list with <code class="language-plaintext highlighter-rouge">head</code> as the first node.</li> <li>Return True if all the elements in the linked list starting from the <code class="language-plaintext highlighter-rouge">head</code> correspond to some <em>downward path</em> connected in the binary tree otherwise return False.</li> <li>In this context downward path means a path that starts at some node and goes downwards.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [4,2,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+Output: true
+Explanation: Nodes in blue form a subpath in the binary Tree.  
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,4,2,6], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+Output: true
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,4,2,6,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+Output: false
+Explanation: There is no path in the binary tree that contains all the elements of the linked list from head.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(N × min(L, H)) time | O(H) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Trees</span><span class="o">;</span>
+
+<span class="cm">/**
+* @author zhengxingxing
+* @date 2024/12/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedListInBinaryTree</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isSubPath</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Empty list is always a valid path</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Empty tree can't contain any path</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// First, try to match the entire linked list starting from current tree node</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">dfs</span><span class="o">(</span><span class="n">head</span><span class="o">,</span> <span class="n">root</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="cm">/**
+         * If current node doesn't lead to a match, try finding a match in left or right subtrees.
+         * This is different from the DFS below because:
+         * 1. It looks for a completely new starting point for the entire linked list
+         * 2. It resets back to the head of the linked list for each new tree node
+         * 3. It explores every possible starting point in the tree
+         * Example: If we're looking for [4,2,8] and current node is 1, we check if either
+         * the left or right subtree contains the entire sequence [4,2,8] starting from any node
+         */</span>
+        <span class="k">return</span> <span class="nf">isSubPath</span><span class="o">(</span><span class="n">head</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">)</span> <span class="o">||</span> <span class="n">isSubPath</span><span class="o">(</span><span class="n">head</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">dfs</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">head</span><span class="o">,</span> <span class="nc">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Matched entire linked list</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Reached end of tree path without full match</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Current nodes must match to continue</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="na">val</span> <span class="o">!=</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="cm">/**
+         * Continue matching the rest of the linked list with either left or right child.
+         * This is different from the isSubPath recursion above because:
+         * 1. It continues an existing match (uses head.next instead of head)
+         * 2. Only looks for the next value in the current path
+         * 3. Doesn't try to restart the sequence from the beginning
+         * Example: If we matched first node 4, we only look for the next value 2
+         * in the immediate children of current node
+         */</span>
+        <span class="k">return</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">)</span> <span class="o">||</span> <span class="n">dfs</span><span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1: Example from the problem statement</span>
+        <span class="nc">TreeNode</span> <span class="n">root1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root1</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+        <span class="nc">ListNode</span> <span class="n">head1</span> <span class="o">=</span> <span class="n">createLinkedList</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">8</span><span class="o">});</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">isSubPath</span><span class="o">(</span><span class="n">head1</span><span class="o">,</span> <span class="n">root1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Simple tree with matching path</span>
+        <span class="nc">TreeNode</span> <span class="n">root2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">root2</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+
+        <span class="nc">ListNode</span> <span class="n">head2</span> <span class="o">=</span> <span class="n">createLinkedList</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">});</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Expected: true"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">isSubPath</span><span class="o">(</span><span class="n">head2</span><span class="o">,</span> <span class="n">root2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: No matching path</span>
+        <span class="nc">TreeNode</span> <span class="n">root3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">root3</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">root3</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeNode</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+        <span class="nc">ListNode</span> <span class="n">head3</span> <span class="o">=</span> <span class="n">createLinkedList</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">});</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Expected: false"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">isSubPath</span><span class="o">(</span><span class="n">head3</span><span class="o">,</span> <span class="n">root3</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">ListNode</span> <span class="nf">createLinkedList</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">values</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">values</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">values</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">ListNode</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="nc">ListNode</span> <span class="n">current</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">val</span> <span class="o">:</span> <span class="n">values</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">current</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListNode</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+    <span class="nc">ListNode</span> <span class="n">next</span><span class="o">;</span>
+    <span class="nc">ListNode</span><span class="o">()</span> <span class="o">{}</span>
+    <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span> <span class="o">}</span>
+    <span class="nc">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span> <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><category term="Medium"/><summary type="html"><![CDATA[Given a binary tree root and a linked list with head as the first node. Return True if all the elements in the linked list starting from the head correspond to some downward path connected in the binary tree otherwise return False. In this context downward path means a path that starts at some node and goes downwards.]]></summary></entry><entry><title type="html">1652. Defuse the Bomb</title><link href="https://zhengstar94.github.io//blog/2024/DefuseTheBomb/" rel="alternate" type="text/html" title="1652. Defuse the Bomb"/><published>2024-12-29T00:00:00+00:00</published><updated>2024-12-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/DefuseTheBomb</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/DefuseTheBomb/"><![CDATA[<ul> <li>You have a bomb to defuse, and your time is running out! Your informer will provide you with a <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">code</code> of length of <code class="language-plaintext highlighter-rouge">n</code> and a key <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>To decrypt the code, you must replace every number. All the numbers are replaced <strong>simultaneously</strong>. <ul> <li>If <code class="language-plaintext highlighter-rouge">k &gt; 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with the sum of the <strong>next</strong> <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> <li>If <code class="language-plaintext highlighter-rouge">k &lt; 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with the sum of the <strong>previous</strong> <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> <li>If <code class="language-plaintext highlighter-rouge">k == 0</code>, replace the <code class="language-plaintext highlighter-rouge">ith</code> number with <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> </li> <li>As <code class="language-plaintext highlighter-rouge">code</code> is circular, the next element of <code class="language-plaintext highlighter-rouge">code[n-1]</code> is <code class="language-plaintext highlighter-rouge">code[0]</code>, and the previous element of <code class="language-plaintext highlighter-rouge">code[0]</code> is <code class="language-plaintext highlighter-rouge">code[n-1]</code>.</li> <li>Given the <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">code</code> and an integer key <code class="language-plaintext highlighter-rouge">k</code>, return <em>the decrypted code to defuse the bomb</em>!</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: code = [5,7,1,4], k = 3
 Output: [12,10,16,13]
 Explanation: Each number is replaced by the sum of the next 3 numbers. The decrypted code is [7+1+4, 1+4+5, 4+5+7, 5+7+1]. Notice that the numbers wrap around.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: code = [1,2,3,4], k = 0
@@ -781,117 +912,4 @@ Explanation: There are no subarrays of size k = 3 that contain at least m = 3 di
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and two positive integers m and k. Return the maximum sum out of all almost unique subarrays of length k of nums. If no such subarray exists, return 0. A subarray of nums is almost unique if it contains at least m distinct elements. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry><entry><title type="html">1461. Check If a String Contains All Binary Codes of Size K</title><link href="https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK/" rel="alternate" type="text/html" title="1461. Check If a String Contains All Binary Codes of Size K"/><published>2024-12-25T00:00:00+00:00</published><updated>2024-12-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/CheckIfAStringContainsAllBinaryCodesOfSizeK/"><![CDATA[<ul> <li>Given a binary string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if every binary code of length</em> <code class="language-plaintext highlighter-rouge">k</code> <em>is a substring of</em> <code class="language-plaintext highlighter-rouge">s</code>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "00110110", k = 2
-Output: true
-Explanation: The binary codes of length 2 are "00", "01", "10" and "11". They can be all found as substrings at indices 0, 1, 3 and 2 respectively.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0110", k = 1
-Output: true
-Explanation: The binary codes of length 1 are "0" and "1", it is clear that both exist as a substring. 
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0110", k = 2
-Output: false
-Explanation: The binary code "00" is of length 2 and does not exist in the array.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(2<span class="p">^</span>k) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckIfAStringContainsAllBinaryCodesOfSizeK</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">hasAllCodes</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="c1">// Early return if string length is less than k</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Total number of possible binary codes of length k is 2^k</span>
-        <span class="c1">// For example, if k=2, need=4 (00,01,10,11)</span>
-        <span class="kt">int</span> <span class="n">need</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">k</span><span class="o">;</span>
-        <span class="c1">// Array to mark which codes we've seen</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">need</span><span class="o">];</span>
-        <span class="c1">// Count of unique codes found so far</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Current value in the sliding window</span>
-        <span class="kt">int</span> <span class="n">windowVal</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Process each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Step 1: Add new bit to window</span>
-            <span class="c1">// Left shift to make room for new bit</span>
-            <span class="n">windowVal</span> <span class="o">=</span> <span class="n">windowVal</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="c1">// Add new bit to rightmost position</span>
-            <span class="n">windowVal</span> <span class="o">=</span> <span class="n">windowVal</span> <span class="o">|</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">);</span>
-
-            <span class="c1">// Skip until window is fully formed (need k characters)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Step 2: Clean up window</span>
-            <span class="c1">// Use mask to keep only k bits</span>
-            <span class="c1">// For example, if k=2, mask=11 (binary)</span>
-            <span class="n">windowVal</span> <span class="o">=</span> <span class="n">windowVal</span> <span class="o">&amp;</span> <span class="o">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-
-            <span class="c1">// Step 3: Process current window</span>
-            <span class="c1">// If this is a new code we haven't seen before</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="n">seen</span><span class="o">[</span><span class="n">windowVal</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">seen</span><span class="o">[</span><span class="n">windowVal</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="n">count</span><span class="o">++;</span>
-
-                <span class="c1">// If we've found all possible codes, can return early</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">need</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return whether we found all possible codes</span>
-        <span class="k">return</span> <span class="n">count</span> <span class="o">==</span> <span class="n">need</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1: s = "00110110", k = 2</span>
-        <span class="c1">// Should return true as it contains all binary codes of length 2</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"00110110"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">hasAllCodes</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: s = "00110", k = 2</span>
-        <span class="c1">// Should return true as it contains all binary codes of length 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"00110"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">hasAllCodes</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: s = "0110", k = 2</span>
-        <span class="c1">// Should return false as it's missing "00"</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"0110"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s3</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">hasAllCodes</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: s = "0000000001", k = 1</span>
-        <span class="c1">// Should return true as it contains both "0" and "1"</span>
-        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"0000000001"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s4</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">hasAllCodes</span><span class="o">(</span><span class="n">s4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given a binary string s and an integer k, return true if every binary code of length k is a substring of s. Otherwise, return false.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and two positive integers m and k. Return the maximum sum out of all almost unique subarrays of length k of nums. If no such subarray exists, return 0. A subarray of nums is almost unique if it contains at least m distinct elements. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
