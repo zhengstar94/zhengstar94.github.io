@@ -1,4 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-30T04:01:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1367. Linked List in Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree/" rel="alternate" type="text/html" title="1367. Linked List in Binary Tree"/><published>2024-12-30T00:00:00+00:00</published><updated>2024-12-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree/"><![CDATA[<ul> <li>Given a binary tree <code class="language-plaintext highlighter-rouge">root</code> and a linked list with <code class="language-plaintext highlighter-rouge">head</code> as the first node.</li> <li>Return True if all the elements in the linked list starting from the <code class="language-plaintext highlighter-rouge">head</code> correspond to some <em>downward path</em> connected in the binary tree otherwise return False.</li> <li>In this context downward path means a path that starts at some node and goes downwards.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [4,2,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-31T04:33:37+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2134. Minimum Swaps to Group All 1’s Together II</title><link href="https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII/" rel="alternate" type="text/html" title="2134. Minimum Swaps to Group All 1’s Together II"/><published>2024-12-31T00:00:00+00:00</published><updated>2024-12-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII/"><![CDATA[<ul> <li>A <strong>swap</strong> is defined as taking two <strong>distinct</strong> positions in an array and swapping the values in them.</li> <li>A <strong>circular</strong> array is defined as an array where we consider the <strong>first</strong> element and the <strong>last</strong> element to be <strong>adjacent</strong>.</li> <li>Given a <strong>binary</strong> <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the minimum number of swaps required to group all</em> <code class="language-plaintext highlighter-rouge">1</code><em>’s present in the array together at <strong>any location</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,1,1,0,0]
+Output: 1
+Explanation: Here are a few of the ways to group all the 1's together:
+[0,0,1,1,1,0,0] using 1 swap.
+[0,1,1,1,0,0,0] using 1 swap.
+[1,1,0,0,0,0,1] using 2 swaps (using the circular property of the array).
+There is no way to group all 1's together with 0 swaps.
+Thus, the minimum number of swaps required is 1.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,1,1,0,0,1,1,0]
+Output: 2
+Explanation: Here are a few of the ways to group all the 1's together:
+[1,1,1,0,0,0,0,1,1] using 2 swaps (using the circular property of the array).
+[1,1,1,1,1,0,0,0,0] using 2 swaps.
+There is no way to group all 1's together with 0 or 1 swaps.
+Thus, the minimum number of swaps required is 2.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,0,0,1]
+Output: 0
+Explanation: All the 1's are already grouped together due to the circular property of the array.
+Thus, the minimum number of swaps required is 0.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2024/12/31
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumSwapsToGroupAll1sTogetherII</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minSwaps</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Edge case: if array is null or length less than 2, no swaps needed</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 1: Count the number of 1's in the array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">onesCount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">onesCount</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If there are 0 or 1 ones, no swaps needed</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">onesCount</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 2: Create double-length array to handle circular nature</span>
+        <span class="c1">// Example: [1,0,1] -&gt; [1,0,1,1,0,1]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">doubleNums</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">doubleNums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="n">doubleNums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>  <span class="c1">// Copy first half to second half</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 3: Initialize the first window</span>
+        <span class="c1">// Count zeros in the first window of size onesCount</span>
+        <span class="kt">int</span> <span class="n">windowZeros</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Tracks number of zeros in current window</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">onesCount</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">doubleNums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">windowZeros</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize minZeros with first window's zero count</span>
+        <span class="kt">int</span> <span class="n">minZeros</span> <span class="o">=</span> <span class="n">windowZeros</span><span class="o">;</span>
+
+        <span class="c1">// Step 4: Slide the window and find minimum zeros</span>
+        <span class="c1">// Example: For array [1,0,1,0,1] with onesCount = 3</span>
+        <span class="c1">// Windows: [1,0,1], [0,1,0], [1,0,1], [0,1,1], etc.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">onesCount</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="n">onesCount</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Remove leftmost element from window</span>
+            <span class="c1">// If it's 0, decrease window's zero count</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">doubleNums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">onesCount</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">windowZeros</span><span class="o">--;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add rightmost element to window</span>
+            <span class="c1">// If it's 0, increase window's zero count</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">doubleNums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">windowZeros</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="cm">/* Update minimum zeros if current window has fewer zeros
+             * Why this represents minimum swaps:
+             * 1. Each window of size onesCount represents a potential position for grouped 1's
+             * 2. Number of zeros in window = number of swaps needed for that position
+             * Example: Window [1,0,1] has 1 zero
+             * - Need 1 swap to make it [1,1,1]
+             * Window [0,1,0] has 2 zeros
+             * - Need 2 swaps to make it [1,1,1]
+             * Therefore, minimum zeros across all windows = minimum swaps needed
+             */</span>
+            <span class="n">minZeros</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minZeros</span><span class="o">,</span> <span class="n">windowZeros</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the minimum number of zeros found in any window</span>
+        <span class="c1">// This equals the minimum number of swaps needed</span>
+        <span class="k">return</span> <span class="n">minZeros</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: [1,0,1,0,1]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minSwaps</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: All ones</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: [1,1,1]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minSwaps</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: All zeros</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: [0,0,0]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minSwaps</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: Multiple swaps needed</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: [1,0,1,0,1,0]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minSwaps</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 5: Edge case - empty array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test5</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: []"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minSwaps</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[A swap is defined as taking two distinct positions in an array and swapping the values in them. A circular array is defined as an array where we consider the first element and the last element to be adjacent. Given a binary circular array nums, return the minimum number of swaps required to group all 1’s present in the array together at any location.]]></summary></entry><entry><title type="html">1367. Linked List in Binary Tree</title><link href="https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree/" rel="alternate" type="text/html" title="1367. Linked List in Binary Tree"/><published>2024-12-30T00:00:00+00:00</published><updated>2024-12-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/LinkedListInBinaryTree/"><![CDATA[<ul> <li>Given a binary tree <code class="language-plaintext highlighter-rouge">root</code> and a linked list with <code class="language-plaintext highlighter-rouge">head</code> as the first node.</li> <li>Return True if all the elements in the linked list starting from the <code class="language-plaintext highlighter-rouge">head</code> correspond to some <em>downward path</em> connected in the binary tree otherwise return False.</li> <li>In this context downward path means a path that starts at some node and goes downwards.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [4,2,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
 Output: true
 Explanation: Nodes in blue form a subpath in the binary Tree.  
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: head = [1,4,2,6], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
@@ -824,89 +957,4 @@ We return 0 because no subarrays meet the conditions.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. Find the maximum subarray sum of all the subarrays of nums that meet the following conditions: The length of the subarray is k, and All the elements of the subarray are distinct. Return the maximum subarray sum of all the subarrays that meet the conditions**. If no subarray meets the conditions, return 0. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry><entry><title type="html">3083. Existence of a Substring in a String and Its Reverse</title><link href="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/" rel="alternate" type="text/html" title="3083. Existence of a Substring in a String and Its Reverse"/><published>2024-12-26T00:00:00+00:00</published><updated>2024-12-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/ExistenceOfASubstringInAStringAndItsReverse/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, find any substring of length <code class="language-plaintext highlighter-rouge">2</code> which is also present in the reverse of <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if such a substring exists, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "leetcode"
-
-Output: true
-
-Explanation: Substring "ee" is of length 2 which is also present  in reverse(s) == "edocteel".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcba"
-
-Output: true
-
-Explanation: All of the substrings of length 2 "ab", "bc", "cb", "ba" are also present  in reverse(s) == "abcba".
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd"
-
-Output: false
-
-Explanation: There is no substring of length 2 in s, which is also present  in the reverse of s.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/26
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExistenceOfASubstringInAStringAndItsReverse</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isSubstringPresent</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of input string</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="c1">// If length is less than 2, no such substring exists</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Create a 26x26 boolean array to store all possible two-character combinations</span>
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">26</span><span class="o">][</span><span class="mi">26</span><span class="o">];</span>
-
-        <span class="c1">// First pass: Mark all substrings of length 2 in the original string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
-            <span class="n">seen</span><span class="o">[</span><span class="n">c1</span><span class="o">][</span><span class="n">c2</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Second pass: Check if any reverse substring exists in the original string</span>
-        <span class="c1">// Note: There was a bug in the original code where i++ should be i--</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">;</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">c1</span><span class="o">][</span><span class="n">c2</span><span class="o">])</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Test Case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"leetcode"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcba"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Additional Test Case 4: Empty string</span>
-        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">s4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">isSubstringPresent</span><span class="o">(</span><span class="n">s4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s, find any substring of length 2 which is also present in the reverse of s. Return true if such a substring exists, and false otherwise.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. Find the maximum subarray sum of all the subarrays of nums that meet the following conditions: The length of the subarray is k, and All the elements of the subarray are distinct. Return the maximum subarray sum of all the subarrays that meet the conditions**. If no subarray meets the conditions, return 0. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
