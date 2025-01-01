@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-31T04:33:37+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2134. Minimum Swaps to Group All 1’s Together II</title><link href="https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII/" rel="alternate" type="text/html" title="2134. Minimum Swaps to Group All 1’s Together II"/><published>2024-12-31T00:00:00+00:00</published><updated>2024-12-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII/"><![CDATA[<ul> <li>A <strong>swap</strong> is defined as taking two <strong>distinct</strong> positions in an array and swapping the values in them.</li> <li>A <strong>circular</strong> array is defined as an array where we consider the <strong>first</strong> element and the <strong>last</strong> element to be <strong>adjacent</strong>.</li> <li>Given a <strong>binary</strong> <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the minimum number of swaps required to group all</em> <code class="language-plaintext highlighter-rouge">1</code><em>’s present in the array together at <strong>any location</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,1,1,0,0]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-01T03:08:52+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3280. Convert Date to Binary</title><link href="https://zhengstar94.github.io//blog/2025/ConvertDateToBinary/" rel="alternate" type="text/html" title="3280. Convert Date to Binary"/><published>2025-01-01T00:00:00+00:00</published><updated>2025-01-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConvertDateToBinary</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConvertDateToBinary/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">date</code> representing a Gregorian calendar date in the <code class="language-plaintext highlighter-rouge">yyyy-mm-dd</code> format.</li> <li><code class="language-plaintext highlighter-rouge">date</code> can be written in its binary representation obtained by converting year, month, and day to their binary representations without any leading zeroes and writing them down in <code class="language-plaintext highlighter-rouge">year-month-day</code> format.</li> <li>Return the <strong>binary</strong> representation of <code class="language-plaintext highlighter-rouge">date</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: date = "2080-02-29"
+
+Output: "100000100000-10-11101"
+
+Explanation:
+
+100000100000, 10, and 11101 are the binary representations of 2080, 02, and 29 respectively.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: date = "1900-01-01"
+
+Output: "11101101100-1-1"
+
+Explanation:
+
+11101101100, 1, and 1 are the binary representations of 1900, 1, and 1 respectively.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConvertDateToBinary</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">convertToBinary</span><span class="o">(</span><span class="nc">String</span> <span class="n">date</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Split the date string</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">parts</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"-"</span><span class="o">);</span>
+
+        <span class="c1">// Convert year, month, and day to integers</span>
+        <span class="kt">int</span> <span class="n">year</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">parts</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="kt">int</span> <span class="n">month</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">parts</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+        <span class="kt">int</span> <span class="n">day</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">parts</span><span class="o">[</span><span class="mi">2</span><span class="o">]);</span>
+
+        <span class="c1">// Convert to binary and remove leading zeros</span>
+        <span class="nc">String</span> <span class="n">binaryYear</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">year</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">binaryMonth</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">month</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">binaryDay</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
+
+        <span class="c1">// Concatenate the result in the required format</span>
+        <span class="k">return</span> <span class="n">binaryYear</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="n">binaryMonth</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="n">binaryDay</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">date1</span> <span class="o">=</span> <span class="s">"2080-02-29"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">date1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">convertToBinary</span><span class="o">(</span><span class="n">date1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">String</span> <span class="n">date2</span> <span class="o">=</span> <span class="s">"1900-01-01"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">date2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">convertToBinary</span><span class="o">(</span><span class="n">date2</span><span class="o">));</span>
+
+        <span class="c1">// Additional test case</span>
+        <span class="nc">String</span> <span class="n">date3</span> <span class="o">=</span> <span class="s">"2024-03-20"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">date3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">convertToBinary</span><span class="o">(</span><span class="n">date3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given a string date representing a Gregorian calendar date in the yyyy-mm-dd format. date can be written in its binary representation obtained by converting year, month, and day to their binary representations without any leading zeroes and writing them down in year-month-day format. Return the binary representation of date.]]></summary></entry><entry><title type="html">2134. Minimum Swaps to Group All 1’s Together II</title><link href="https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII/" rel="alternate" type="text/html" title="2134. Minimum Swaps to Group All 1’s Together II"/><published>2024-12-31T00:00:00+00:00</published><updated>2024-12-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MinimumSwapsToGroupAll1sTogetherII/"><![CDATA[<ul> <li>A <strong>swap</strong> is defined as taking two <strong>distinct</strong> positions in an array and swapping the values in them.</li> <li>A <strong>circular</strong> array is defined as an array where we consider the <strong>first</strong> element and the <strong>last</strong> element to be <strong>adjacent</strong>.</li> <li>Given a <strong>binary</strong> <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the minimum number of swaps required to group all</em> <code class="language-plaintext highlighter-rouge">1</code><em>’s present in the array together at <strong>any location</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,0,1,1,0,0]
 Output: 1
 Explanation: Here are a few of the ways to group all the 1's together:
 [0,0,1,1,1,0,0] using 1 swap.
@@ -871,90 +931,4 @@ For the 1st query, 5 doesn't exist in nums, so the answer is -1.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums, an integer array queries, and an integer x. For each queries[i], you need to find the index of the queries[i]th occurrence of x in the nums array. If there are fewer than queries[i] occurrences of x, the answer should be -1 for that query. Return an integer array answer containing the answers to all queries.]]></summary></entry><entry><title type="html">2461. Maximum Sum of Distinct Subarrays With Length K</title><link href="https://zhengstar94.github.io//blog/2024/MaximumSumOfDistinctSubarraysWithLengthK/" rel="alternate" type="text/html" title="2461. Maximum Sum of Distinct Subarrays With Length K"/><published>2024-12-27T00:00:00+00:00</published><updated>2024-12-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/MaximumSumOfDistinctSubarraysWithLengthK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/MaximumSumOfDistinctSubarraysWithLengthK/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. Find the maximum subarray sum of all the subarrays of <code class="language-plaintext highlighter-rouge">nums</code> that meet the following conditions: <ul> <li>The length of the subarray is <code class="language-plaintext highlighter-rouge">k</code>, and</li> <li>All the elements of the subarray are <strong>distinct</strong>.</li> </ul> </li> <li>Return <em>the maximum subarray sum of all the subarrays that meet the conditions**.</em> If no subarray meets the conditions, return <code class="language-plaintext highlighter-rouge">0</code>.</li> <li><em>A <strong>subarray</strong> is a contiguous non-empty sequence of elements within an array.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,5,4,2,9,9,9], k = 3
-Output: 15
-Explanation: The subarrays of nums with length 3 are:
-- [1,5,4] which meets the requirements and has a sum of 10.
-- [5,4,2] which meets the requirements and has a sum of 11.
-- [4,2,9] which meets the requirements and has a sum of 15.
-- [2,9,9] which does not meet the requirements because the element 9 is repeated.
-- [9,9,9] which does not meet the requirements because the element 9 is repeated.
-We return 15 because it is the maximum subarray sum of all the subarrays that meet the conditions
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,4,4], k = 3
-Output: 0
-Explanation: The subarrays of nums with length 3 are:
-- [4,4,4] which does not meet the requirements because the element 4 is repeated.
-We return 0 because no subarrays meet the conditions.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(k) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/27
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumSumOfDistinctSubarraysWithLengthK</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">maximumSubarraySum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Map to store frequency of elements in current window</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Sum of elements in current window</span>
-        <span class="kt">long</span> <span class="n">windowSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Maximum sum found so far</span>
-        <span class="kt">long</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to window and update its frequency in map</span>
-            <span class="n">count</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">count</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-            <span class="c1">// Skip until we have a complete window of size k</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">){</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If number of distinct elements equals k, update maximum sum</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="n">k</span><span class="o">){</span>
-                <span class="n">maxSum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxSum</span><span class="o">,</span> <span class="n">windowSum</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Remove leftmost element from window</span>
-            <span class="kt">int</span> <span class="n">out</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-            <span class="c1">// Decrease its frequency in map</span>
-            <span class="n">count</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">out</span><span class="o">,</span> <span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">out</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="c1">// If frequency becomes 0, remove element from map to maintain correct distinct count</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">out</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-                <span class="n">count</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="c1">// Subtract the removed element from window sum</span>
-            <span class="n">windowSum</span> <span class="o">-=</span> <span class="n">out</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxSum</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Contains distinct and repeated elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Output: "</span> <span class="o">+</span> <span class="n">maximumSubarraySum</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: 15</span>
-
-        <span class="c1">// Test Case 2: All elements are same</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Output: "</span> <span class="o">+</span> <span class="n">maximumSubarraySum</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test Case 3: All elements are distinct</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Output: "</span> <span class="o">+</span> <span class="n">maximumSubarraySum</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected output: 12</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. Find the maximum subarray sum of all the subarrays of nums that meet the following conditions: The length of the subarray is k, and All the elements of the subarray are distinct. Return the maximum subarray sum of all the subarrays that meet the conditions**. If no subarray meets the conditions, return 0. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums, an integer array queries, and an integer x. For each queries[i], you need to find the index of the queries[i]th occurrence of x in the nums array. If there are fewer than queries[i] occurrences of x, the answer should be -1 for that query. Return an integer array answer containing the answers to all queries.]]></summary></entry></feed>
