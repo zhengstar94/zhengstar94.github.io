@@ -23,7 +23,7 @@ categories:
 ```
 Input
 ["MyCalendar", "book", "book", "book"]
-[[], [10, 20], [15, 25], [20, 30]]
+[ [], [10, 20], [15, 25], [20, 30 ] ]
 Output
 [null, true, false, true]
 
@@ -83,16 +83,16 @@ class MyCalendar {
 
         // Test case 1: Basic booking scenarios
         System.out.println("Test case 1:");
-        System.out.println(myCalendar.book(10, 20)); // Should return true
+        System.out.println( myCalendar.book(10, 20) ); // Should return true
         System.out.println(myCalendar.book(15, 25)); // Should return false
         System.out.println(myCalendar.book(20, 30)); // Should return true
 
         // Test case 2: Edge cases
         System.out.println("\nTest case 2:");
         MyCalendar myCalendar2 = new MyCalendar();
-        System.out.println(myCalendar2.book(0, 1));   // Should return true
-        System.out.println(myCalendar2.book(1, 2));   // Should return true
-        System.out.println(myCalendar2.book(0, 2));   // Should return false
+        System.out.println( myCalendar2.book(0, 1) );   // Should return true
+        System.out.println( myCalendar2.book(1, 2) );   // Should return true
+        System.out.println( myCalendar2.book(0, 2) );   // Should return false
     }
 }
 
