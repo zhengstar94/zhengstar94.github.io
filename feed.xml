@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-01T04:35:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3280. Convert Date to Binary</title><link href="https://zhengstar94.github.io//blog/2025/ConvertDateToBinary/" rel="alternate" type="text/html" title="3280. Convert Date to Binary"/><published>2025-01-01T00:00:00+00:00</published><updated>2025-01-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConvertDateToBinary</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConvertDateToBinary/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">date</code> representing a Gregorian calendar date in the <code class="language-plaintext highlighter-rouge">yyyy-mm-dd</code> format.</li> <li><code class="language-plaintext highlighter-rouge">date</code> can be written in its binary representation obtained by converting year, month, and day to their binary representations without any leading zeroes and writing them down in <code class="language-plaintext highlighter-rouge">year-month-day</code> format.</li> <li>Return the <strong>binary</strong> representation of <code class="language-plaintext highlighter-rouge">date</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: date = "2080-02-29"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-02T06:12:25+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">729. My Calendar I</title><link href="https://zhengstar94.github.io//blog/2025/MyCalendar/" rel="alternate" type="text/html" title="729. My Calendar I"/><published>2025-01-02T00:00:00+00:00</published><updated>2025-01-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MyCalendar</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MyCalendar/"><![CDATA[<ul> <li>You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a <strong>double booking</strong>.</li> <li>A <strong>double booking</strong> happens when two events have some non-empty intersection (i.e., some moment is common to both events.).</li> <li>The event can be represented as a pair of integers <code class="language-plaintext highlighter-rouge">startTime</code> and <code class="language-plaintext highlighter-rouge">endTime</code> that represents a booking on the half-open interval <code class="language-plaintext highlighter-rouge">[startTime, endTime)</code>, the range of real numbers <code class="language-plaintext highlighter-rouge">x</code> such that <code class="language-plaintext highlighter-rouge">startTime &lt;= x &lt; endTime</code>.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">MyCalendar</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">MyCalendar()</code> Initializes the calendar object.</li> <li><code class="language-plaintext highlighter-rouge">boolean book(int startTime, int endTime)</code> Returns <code class="language-plaintext highlighter-rouge">true</code> if the event can be added to the calendar successfully without causing a <strong>double booking</strong>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code> and do not add the event to the calendar.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["MyCalendar", "book", "book", "book"]
+[ [], [10, 20], [15, 25], [20, 30 ] ]
+Output
+[null, true, false, true]
+
+Explanation
+MyCalendar myCalendar = new MyCalendar();
+myCalendar.book(10, 20); // return True
+myCalendar.book(15, 25); // return False, It can not be booked because time 15 is already booked by another event.
+myCalendar.book(20, 30); // return True, The event can be booked, as the first event takes every time less than 20, but not including 20.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log(n)) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Trees</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.TreeMap</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/02
+ */</span>
+<span class="kd">class</span> <span class="nc">MyCalendar</span> <span class="o">{</span>
+    <span class="c1">// Use TreeMap to store bookings, key is start time, value is end time</span>
+    <span class="kd">private</span> <span class="nc">TreeMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">calendar</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyCalendar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">calendar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeMap</span><span class="o">&lt;&gt;();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">book</span><span class="o">(</span><span class="kt">int</span> <span class="n">startTime</span><span class="o">,</span> <span class="kt">int</span> <span class="n">endTime</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the largest start time less than or equal to startTime</span>
+        <span class="nc">Integer</span> <span class="n">prevStart</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">floorKey</span><span class="o">(</span><span class="n">startTime</span><span class="o">);</span>
+        <span class="c1">// Get the smallest start time greater than startTime</span>
+        <span class="nc">Integer</span> <span class="n">nextStart</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">ceilingKey</span><span class="o">(</span><span class="n">startTime</span><span class="o">);</span>
+
+        <span class="c1">// Check if there's any conflict with the previous booking</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">prevStart</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">calendar</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">prevStart</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">startTime</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// Check if there's any conflict with the next booking</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nextStart</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">endTime</span> <span class="o">&gt;</span> <span class="n">nextStart</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// No conflict found, add the new booking</span>
+        <span class="n">calendar</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">startTime</span><span class="o">,</span> <span class="n">endTime</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Test cases in main method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">MyCalendar</span> <span class="n">myCalendar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyCalendar</span><span class="o">();</span>
+
+        <span class="c1">// Test case 1: Basic booking scenarios</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">myCalendar</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">)</span> <span class="o">);</span> <span class="c1">// Should return true</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myCalendar</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">15</span><span class="o">,</span> <span class="mi">25</span><span class="o">));</span> <span class="c1">// Should return false</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myCalendar</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="mi">30</span><span class="o">));</span> <span class="c1">// Should return true</span>
+
+        <span class="c1">// Test case 2: Edge cases</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2:"</span><span class="o">);</span>
+        <span class="nc">MyCalendar</span> <span class="n">myCalendar2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyCalendar</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">myCalendar2</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">);</span>   <span class="c1">// Should return true</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">myCalendar2</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span> <span class="o">);</span>   <span class="c1">// Should return true</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">myCalendar2</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span> <span class="o">);</span>   <span class="c1">// Should return false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><category term="Medium"/><summary type="html"><![CDATA[You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a double booking. A double booking happens when two events have some non-empty intersection (i.e., some moment is common to both events.). The event can be represented as a pair of integers startTime and endTime that represents a booking on the half-open interval [startTime, endTime), the range of real numbers x such that startTime &lt;= x &lt; endTime. Implement the MyCalendar class: MyCalendar() Initializes the calendar object. boolean book(int startTime, int endTime) Returns true if the event can be added to the calendar successfully without causing a double booking. Otherwise, return false and do not add the event to the calendar.]]></summary></entry><entry><title type="html">3280. Convert Date to Binary</title><link href="https://zhengstar94.github.io//blog/2025/ConvertDateToBinary/" rel="alternate" type="text/html" title="3280. Convert Date to Binary"/><published>2025-01-01T00:00:00+00:00</published><updated>2025-01-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConvertDateToBinary</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConvertDateToBinary/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">date</code> representing a Gregorian calendar date in the <code class="language-plaintext highlighter-rouge">yyyy-mm-dd</code> format.</li> <li><code class="language-plaintext highlighter-rouge">date</code> can be written in its binary representation obtained by converting year, month, and day to their binary representations without any leading zeroes and writing them down in <code class="language-plaintext highlighter-rouge">year-month-day</code> format.</li> <li>Return the <strong>binary</strong> representation of <code class="language-plaintext highlighter-rouge">date</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: date = "2080-02-29"
 
 Output: "100000100000-10-11101"
 
@@ -922,65 +989,4 @@ Explanation: You have to take all the cards. Your score is the sum of points of 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There are several cards arranged in a row, and each card has an associated number of points. The points are given in the integer array cardPoints. In one step, you can take one card from the beginning or from the end of the row. You have to take exactly k cards. Your score is the sum of the points of the cards you have taken. Given the integer array cardPoints and the integer k, return the maximum score you can obtain.]]></summary></entry><entry><title type="html">3046. Split the Array</title><link href="https://zhengstar94.github.io//blog/2024/SplitTheArray/" rel="alternate" type="text/html" title="3046. Split the Array"/><published>2024-12-28T00:00:00+00:00</published><updated>2024-12-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2024/SplitTheArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2024/SplitTheArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>even</strong> length. You have to split the array into two parts <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">nums1.length == nums2.length == nums.length / 2</code>.</li> <li><code class="language-plaintext highlighter-rouge">nums1</code> should contain <strong>distinct</strong> elements.</li> <li><code class="language-plaintext highlighter-rouge">nums2</code> should also contain <strong>distinct</strong> elements.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to split the array, and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise**.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,2,3,4]
-Output: true
-Explanation: One of the possible ways to split nums is nums1 = [1,2,3] and nums2 = [1,2,4].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1]
-Output: false
-Explanation: The only possible way to split nums is nums1 = [1,1] and nums2 = [1,1]. Both nums1 and nums2 do not contain distinct elements. Therefore, we return false.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2024/12/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SplitTheArray</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPossibleToSplit</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create counting array for numbers 1-100 (given constraint)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">101</span><span class="o">];</span>
-
-        <span class="c1">// Count frequency of each number and check if any number appears more than twice</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">num</span><span class="o">]++;</span>
-            <span class="c1">// If any number appears more than twice, it's impossible to split</span>
-            <span class="c1">// because each part can contain at most one occurrence of each number</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">num</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">){</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we reach here, no number appears more than twice</span>
-        <span class="c1">// so we can split the array (one occurrence per part if needed)</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Valid split possible</span>
-        <span class="c1">// Can be split into [1,2,3] and [1,2,4]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isPossibleToSplit</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Invalid case - number appears more than twice</span>
-        <span class="c1">// Cannot be split as '1' appears four times</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isPossibleToSplit</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Edge case - all distinct elements</span>
-        <span class="c1">// Can be split into [1,2] and [3,4]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isPossibleToSplit</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums of even length. You have to split the array into two parts nums1 and nums2 such that: nums1.length == nums2.length == nums.length / 2. nums1 should contain distinct elements. nums2 should also contain distinct elements. Return true if it is possible to split the array, and false otherwise**.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[There are several cards arranged in a row, and each card has an associated number of points. The points are given in the integer array cardPoints. In one step, you can take one card from the beginning or from the end of the row. You have to take exactly k cards. Your score is the sum of the points of the cards you have taken. Given the integer array cardPoints and the integer k, return the maximum score you can obtain.]]></summary></entry></feed>
