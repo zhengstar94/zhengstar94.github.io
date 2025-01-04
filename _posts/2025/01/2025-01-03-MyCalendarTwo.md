@@ -10,7 +10,7 @@ categories:
   - "LeetCode Trees"
 ---
 
-# 
+
 
 - You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a **triple booking**.
 - A **triple booking** happens when three events have some non-empty intersection (n.横断; 交叉;十字路口) (i.e., some moment is common to all the three events.).
@@ -25,7 +25,7 @@ categories:
 ```
 Input
 ["MyCalendarTwo", "book", "book", "book", "book", "book", "book"]
-[[], [10, 20], [50, 60], [10, 40], [5, 15], [5, 10], [25, 55]]
+[ [ ], [10, 20], [50, 60], [10, 40], [5, 15], [5, 10], [25, 55 ] ]
 Output
 [null, true, true, true, false, true, true]
 
