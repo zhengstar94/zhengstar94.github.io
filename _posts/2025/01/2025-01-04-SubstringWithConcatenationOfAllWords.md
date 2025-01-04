@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "(Review)30. Substring with Concatenation of All Words"
 date: "2025-01-04"
-tags: Hard
+tags: Hard Review
 categories:
   - "LeetCode SlideWindow"
 ---
