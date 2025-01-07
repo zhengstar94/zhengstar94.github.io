@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-06T14:22:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2274. Maximum Consecutive Floors Without Special Floors</title><link href="https://zhengstar94.github.io//blog/2025/MaximumConsecutiveFloorsWithoutSpecialFloors/" rel="alternate" type="text/html" title="2274. Maximum Consecutive Floors Without Special Floors"/><published>2025-01-06T00:00:00+00:00</published><updated>2025-01-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumConsecutiveFloorsWithoutSpecialFloors</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumConsecutiveFloorsWithoutSpecialFloors/"><![CDATA[<ul> <li>Alice manages a company and has rented some floors of a building as office space. Alice has decided some of these floors should be <strong>special floors</strong>, used for relaxation only.</li> <li>You are given two integers <code class="language-plaintext highlighter-rouge">bottom</code> and <code class="language-plaintext highlighter-rouge">top</code>, which denote that Alice has rented all the floors from <code class="language-plaintext highlighter-rouge">bottom</code> to <code class="language-plaintext highlighter-rouge">top</code> (<strong>inclusive</strong>). You are also given the integer array <code class="language-plaintext highlighter-rouge">special</code>, where <code class="language-plaintext highlighter-rouge">special[i]</code> denotes a special floor that Alice has designated for relaxation.</li> <li>Return <em>the <strong>maximum</strong> number of consecutive floors without a special floor</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: bottom = 2, top = 9, special = [4,6]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-07T02:28:28+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3019. Number of Changing Keys</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfChangingKeys/" rel="alternate" type="text/html" title="3019. Number of Changing Keys"/><published>2025-01-07T00:00:00+00:00</published><updated>2025-01-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfChangingKeys</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfChangingKeys/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">s</code> typed by a user. Changing a key is defined as using a key different from the last used key. For example, <code class="language-plaintext highlighter-rouge">s = "ab"</code> has a change of a key while <code class="language-plaintext highlighter-rouge">s = "bBBb"</code> does not have any.</li> <li>Return *the number of times the user had to change the key.**</li> <li><strong>*Note:</strong> Modifiers like <code class="language-plaintext highlighter-rouge">shift</code> or <code class="language-plaintext highlighter-rouge">caps lock</code> won’t be counted in changing the key that is if a user typed the letter <code class="language-plaintext highlighter-rouge">'a'</code> and then the letter <code class="language-plaintext highlighter-rouge">'A'</code> then it will not be considered as a changing of key.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aAbBcC"
+Output: 2
+Explanation: 
+From s[0] = 'a' to s[1] = 'A', there is no change of key as caps lock or shift is not counted.
+From s[1] = 'A' to s[2] = 'b', there is a change of key.
+From s[2] = 'b' to s[3] = 'B', there is no change of key as caps lock or shift is not counted.
+From s[3] = 'B' to s[4] = 'c', there is a change of key.
+From s[4] = 'c' to s[5] = 'C', there is no change of key as caps lock or shift is not counted.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "AaAaAaaA"
+Output: 0
+Explanation: There is no change of key since only the letters 'a' and 'A' are pressed which does not require change of key.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/07
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfChangingKeys</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countKeyChanges</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">change</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Convert first character to lowercase as initial comparison character</span>
+        <span class="kt">char</span> <span class="n">prev</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+
+        <span class="c1">// Iterate through each character in the string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Convert current character to lowercase for comparison</span>
+            <span class="kt">char</span> <span class="n">curr</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+
+            <span class="c1">// If current character is different from previous, increment change counter</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="n">prev</span><span class="o">){</span>
+                <span class="n">change</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">change</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aAbBcC"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countKeyChanges</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"AaAaAaaA"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 0"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countKeyChanges</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
+
+        <span class="c1">// Additional test case</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"mZiEPOz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countKeyChanges</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed string s typed by a user. Changing a key is defined as using a key different from the last used key. For example, s="ab" has a change of a key while s="bBBb" does not have any. Return *the number of times the user had to change the key.** *Note: Modifiers like shift or caps lock won’t be counted in changing the key that is if a user typed the letter 'a' and then the letter 'A' then it will not be considered as a changing of key.]]></summary></entry><entry><title type="html">2274. Maximum Consecutive Floors Without Special Floors</title><link href="https://zhengstar94.github.io//blog/2025/MaximumConsecutiveFloorsWithoutSpecialFloors/" rel="alternate" type="text/html" title="2274. Maximum Consecutive Floors Without Special Floors"/><published>2025-01-06T00:00:00+00:00</published><updated>2025-01-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumConsecutiveFloorsWithoutSpecialFloors</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumConsecutiveFloorsWithoutSpecialFloors/"><![CDATA[<ul> <li>Alice manages a company and has rented some floors of a building as office space. Alice has decided some of these floors should be <strong>special floors</strong>, used for relaxation only.</li> <li>You are given two integers <code class="language-plaintext highlighter-rouge">bottom</code> and <code class="language-plaintext highlighter-rouge">top</code>, which denote that Alice has rented all the floors from <code class="language-plaintext highlighter-rouge">bottom</code> to <code class="language-plaintext highlighter-rouge">top</code> (<strong>inclusive</strong>). You are also given the integer array <code class="language-plaintext highlighter-rouge">special</code>, where <code class="language-plaintext highlighter-rouge">special[i]</code> denotes a special floor that Alice has designated for relaxation.</li> <li>Return <em>the <strong>maximum</strong> number of consecutive floors without a special floor</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: bottom = 2, top = 9, special = [4,6]
 Output: 3
 Explanation: The following are the ranges (inclusive) of consecutive floors without a special floor:
 - (2, 3) with a total amount of 2 floors.
@@ -814,74 +877,4 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Book [40, 50]: "</span> <span class="o">+</span> <span class="n">calendar3</span><span class="o">.</span><span class="na">book</span><span class="o">(</span><span class="mi">40</span><span class="o">,</span> <span class="mi">50</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><category term="Medium"/><summary type="html"><![CDATA[You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a triple booking. A triple booking happens when three events have some non-empty intersection (n.横断; 交叉;十字路口) (i.e., some moment is common to all the three events.). The event can be represented as a pair of integers startTime and endTime that represents a booking on the half-open interval [startTime, endTime), the range of real numbers x such that startTime &lt;= x &lt; endTime. Implement the MyCalendarTwo class: MyCalendarTwo() Initializes the calendar object. boolean book(int startTime, int endTime) Returns true if the event can be added to the calendar successfully without causing a triple booking. Otherwise, return false and do not add the event to the calendar.]]></summary></entry><entry><title type="html">2270. Number of Ways to Split Array</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfWaysToSplitArray/" rel="alternate" type="text/html" title="2270. Number of Ways to Split Array"/><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfWaysToSplitArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfWaysToSplitArray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>.</li> <li><code class="language-plaintext highlighter-rouge">nums</code> contains a <strong>valid split</strong> at index <code class="language-plaintext highlighter-rouge">i</code> if the following are true: <ul> <li>The sum of the first <code class="language-plaintext highlighter-rouge">i + 1</code> elements is <strong>greater than or equal to</strong> the sum of the last <code class="language-plaintext highlighter-rouge">n - i - 1</code> elements.</li> <li>There is <strong>at least one</strong> element to the right of <code class="language-plaintext highlighter-rouge">i</code>. That is, <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; n - 1</code>.</li> </ul> </li> <li>Return <em>the number of <strong>valid splits</strong> in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,4,-8,7]
-Output: 2
-Explanation: 
-There are three ways of splitting nums into two non-empty parts:
-- Split nums at index 0. Then, the first part is [10], and its sum is 10. The second part is [4,-8,7], and its sum is 3. Since 10 &gt;= 3, i = 0 is a valid split.
-- Split nums at index 1. Then, the first part is [10,4], and its sum is 14. The second part is [-8,7], and its sum is -1. Since 14 &gt;= -1, i = 1 is a valid split.
-- Split nums at index 2. Then, the first part is [10,4,-8], and its sum is 6. The second part is [7], and its sum is 7. Since 6 &lt; 7, i = 2 is not a valid split.
-Thus, the number of valid splits in nums is 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,1,0]
-Output: 2
-Explanation: 
-There are two valid splits in nums:
-- Split nums at index 1. Then, the first part is [2,3], and its sum is 5. The second part is [1,0], and its sum is 1. Since 5 &gt;= 1, i = 1 is a valid split. 
-- Split nums at index 2. Then, the first part is [2,3,1], and its sum is 6. The second part is [0], and its sum is 0. Since 6 &gt;= 0, i = 2 is a valid split.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/03
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfWaysToSplitArray</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Calculate the number of valid ways to split the array
-     * @param nums input array
-     * @return number of valid splits
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">waysToSplitArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">long</span> <span class="n">totalSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Use long to prevent integer overflow</span>
-        <span class="kt">long</span> <span class="n">leftSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// Sum of elements on the left side</span>
-        <span class="kt">int</span> <span class="n">validSpilt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Counter for valid splits</span>
-
-        <span class="c1">// Calculate the total sum of the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">totalSum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Iterate through potential split points</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>  <span class="c1">// n-1 because we need at least one element on the right</span>
-            <span class="n">leftSum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="kt">long</span> <span class="n">rightSum</span> <span class="o">=</span> <span class="n">totalSum</span> <span class="o">-</span> <span class="n">leftSum</span><span class="o">;</span>
-
-            <span class="c1">// Check if current split is valid</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">leftSum</span> <span class="o">&gt;=</span> <span class="n">rightSum</span><span class="o">){</span>
-                <span class="n">validSpilt</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">validSpilt</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with positive and negative numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">4</span><span class="o">,-</span><span class="mi">8</span><span class="o">,</span><span class="mi">7</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">waysToSplitArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test Case 2: Array with all positive numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">waysToSplitArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test Case 3: Edge case with large numbers and negative values</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1000000000</span><span class="o">,</span><span class="mi">1000000000</span><span class="o">,</span><span class="mi">1000000000</span><span class="o">,-</span><span class="mi">1000000000</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">waysToSplitArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Testing large numbers</span>
-
-        <span class="c1">// Test Case 4: Boundary case with minimum length</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">waysToSplitArray</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Testing minimum length</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums of length n. nums contains a valid split at index i if the following are true: The sum of the first i + 1 elements is greater than or equal to the sum of the last n - i - 1 elements. There is at least one element to the right of i. That is, 0 &lt;= i &lt; n - 1. Return the number of valid splits in nums.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Trees"/><category term="Medium"/><summary type="html"><![CDATA[You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a triple booking. A triple booking happens when three events have some non-empty intersection (n.横断; 交叉;十字路口) (i.e., some moment is common to all the three events.). The event can be represented as a pair of integers startTime and endTime that represents a booking on the half-open interval [startTime, endTime), the range of real numbers x such that startTime &lt;= x &lt; endTime. Implement the MyCalendarTwo class: MyCalendarTwo() Initializes the calendar object. boolean book(int startTime, int endTime) Returns true if the event can be added to the calendar successfully without causing a triple booking. Otherwise, return false and do not add the event to the calendar.]]></summary></entry></feed>
