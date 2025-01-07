@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3019. Number of Changing Keys"
 date: "2025-01-07"
-tags: Medium
+tags: Easy
 categories:
   - "LeetCode String"
 ---
