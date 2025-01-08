@@ -7,7 +7,7 @@ title: "2264. Largest 3-Same-Digit Number in String"
 date: "2025-01-08"
 tags: Easy
 categories:
-  - "LeetCode Array"
+  - "LeetCode String"
 ---
 
 
