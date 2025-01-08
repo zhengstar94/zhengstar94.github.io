@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-07T03:09:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2269. Find the K-Beauty of a Number</title><link href="https://zhengstar94.github.io//blog/2025/FindTheKBeautyOfANumber/" rel="alternate" type="text/html" title="2269. Find the K-Beauty of a Number"/><published>2025-01-07T00:00:00+00:00</published><updated>2025-01-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheKBeautyOfANumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheKBeautyOfANumber/"><![CDATA[<ul> <li>The <strong>k-beauty</strong> of an integer <code class="language-plaintext highlighter-rouge">num</code> is defined as the number of <strong>substrings</strong> of <code class="language-plaintext highlighter-rouge">num</code> when it is read as a string that meet the following conditions: <ul> <li>It has a length of <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>It is a divisor of <code class="language-plaintext highlighter-rouge">num</code>.</li> </ul> </li> <li>Given integers <code class="language-plaintext highlighter-rouge">num</code> and <code class="language-plaintext highlighter-rouge">k</code>, return <em>the k-beauty of</em> <code class="language-plaintext highlighter-rouge">num</code>.</li> <li>Note: <ul> <li><strong>Leading zeros</strong> are allowed.</li> <li><code class="language-plaintext highlighter-rouge">0</code> is not a divisor of any value.</li> </ul> </li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = 240, k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-08T03:19:23+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2264. Largest 3-Same-Digit Number in String</title><link href="https://zhengstar94.github.io//blog/2025/Largest3SameDigitNumberInString/" rel="alternate" type="text/html" title="2264. Largest 3-Same-Digit Number in String"/><published>2025-01-08T00:00:00+00:00</published><updated>2025-01-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/Largest3SameDigitNumberInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/Largest3SameDigitNumberInString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">num</code> representing a large integer. An integer is <strong>good</strong> if it meets the following conditions: <ul> <li>It is a <strong>substring</strong> of <code class="language-plaintext highlighter-rouge">num</code> with length <code class="language-plaintext highlighter-rouge">3</code>.</li> <li>It consists of only one unique digit.</li> </ul> </li> <li>Return <em>the <strong>maximum good</strong> integer as a <strong>string</strong> or an empty string</em> <code class="language-plaintext highlighter-rouge">""</code> <em>if no such integer exists</em>.</li> <li>Note: <ul> <li>A <strong>substring</strong> is a contiguous sequence of characters within a string.</li> <li>There may be <strong>leading zeroes</strong> in <code class="language-plaintext highlighter-rouge">num</code> or a good integer.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = "6777133339"
+Output: "777"
+Explanation: There are two distinct good integers: "777" and "333".
+"777" is the largest, so we return "777".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = "2300019"
+Output: "000"
+Explanation: "000" is the only good integer.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = "42352338"
+Output: ""
+Explanation: No substring of length 3 consists of only one unique digit. Therefore, there are no good integers.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Largest3SameDigitNumberInString</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">largestGoodInteger</span><span class="o">(</span><span class="nc">String</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span> <span class="n">maxDigit</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="o">;</span>  <span class="c1">// Initialize with null character to track the largest digit found</span>
+
+        <span class="c1">// Check each possible substring of length 3</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+                    <span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">maxDigit</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxDigit</span><span class="o">,</span> <span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return empty string if no valid substring found</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">maxDigit</span> <span class="o">==</span> <span class="sc">'\0'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Build the result string using StringBuilder</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">maxDigit</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">maxDigit</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">maxDigit</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Multiple valid substrings</span>
+        <span class="nc">String</span> <span class="n">num1</span> <span class="o">=</span> <span class="s">"6777133339"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">num1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: 777"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">largestGoodInteger</span><span class="o">(</span><span class="n">num1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 2: Leading zeros</span>
+        <span class="nc">String</span> <span class="n">num2</span> <span class="o">=</span> <span class="s">"2300019"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: 000"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">largestGoodInteger</span><span class="o">(</span><span class="n">num2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 3: No valid substring</span>
+        <span class="nc">String</span> <span class="n">num3</span> <span class="o">=</span> <span class="s">"42352338"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">num3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">largestGoodInteger</span><span class="o">(</span><span class="n">num3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a string num representing a large integer. An integer is good if it meets the following conditions: It is a substring of num with length 3. It consists of only one unique digit. Return the maximum good integer as a string or an empty string "" if no such integer exists. Note: A substring is a contiguous sequence of characters within a string. There may be leading zeroes in num or a good integer.]]></summary></entry><entry><title type="html">2269. Find the K-Beauty of a Number</title><link href="https://zhengstar94.github.io//blog/2025/FindTheKBeautyOfANumber/" rel="alternate" type="text/html" title="2269. Find the K-Beauty of a Number"/><published>2025-01-07T00:00:00+00:00</published><updated>2025-01-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheKBeautyOfANumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheKBeautyOfANumber/"><![CDATA[<ul> <li>The <strong>k-beauty</strong> of an integer <code class="language-plaintext highlighter-rouge">num</code> is defined as the number of <strong>substrings</strong> of <code class="language-plaintext highlighter-rouge">num</code> when it is read as a string that meet the following conditions: <ul> <li>It has a length of <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>It is a divisor of <code class="language-plaintext highlighter-rouge">num</code>.</li> </ul> </li> <li>Given integers <code class="language-plaintext highlighter-rouge">num</code> and <code class="language-plaintext highlighter-rouge">k</code>, return <em>the k-beauty of</em> <code class="language-plaintext highlighter-rouge">num</code>.</li> <li>Note: <ul> <li><strong>Leading zeros</strong> are allowed.</li> <li><code class="language-plaintext highlighter-rouge">0</code> is not a divisor of any value.</li> </ul> </li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = 240, k = 2
 Output: 2
 Explanation: The following are the substrings of num of length k:
 - "24" from "240": 24 is a divisor of 240.
@@ -728,85 +793,4 @@ The substring starting at 12 is "thefoobar". It is the concatenation of ["the","
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Hard"/><category term="Review"/><summary type="html"><![CDATA[You are given a string s and an array of strings words. All the strings of words are of the same length. A concatenated string is a string that exactly contains all the strings of any permutation of words concatenated. For example, if words=["ab","cd","ef"], then "abcdef", "abefcd", "cdabef", "cdefab", "efabcd", and "efcdab" are all concatenated strings. "acdbef" is not a concatenated string because it is not the concatenation of any permutation of words. Return an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.]]></summary></entry><entry><title type="html">1930. Unique Length-3 Palindromic Subsequences</title><link href="https://zhengstar94.github.io//blog/2025/UniqueLength3PalindromicSubsequences/" rel="alternate" type="text/html" title="1930. Unique Length-3 Palindromic Subsequences"/><published>2025-01-04T00:00:00+00:00</published><updated>2025-01-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/UniqueLength3PalindromicSubsequences</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/UniqueLength3PalindromicSubsequences/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the number of <strong>unique palindromes of length three</strong> that are a <strong>subsequence</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Note that even if there are multiple ways to obtain the same subsequence, it is still only counted <strong>once</strong>.</li> <li>A <strong>palindrome</strong> is a string that reads the same forwards and backwards.</li> <li>A <strong>subsequence</strong> of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. <ul> <li>For example, <code class="language-plaintext highlighter-rouge">"ace"</code> is a subsequence of <code class="language-plaintext highlighter-rouge">"abcde"</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aabca"
-Output: 3
-Explanation: The 3 palindromic subsequences of length 3 are:
-- "aba" (subsequence of "aabca")
-- "aaa" (subsequence of "aabca")
-- "aca" (subsequence of "aabca")
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "adc"
-Output: 0
-Explanation: There are no palindromic subsequences of length 3 in "adc".
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bbcbaba"
-Output: 4
-Explanation: The 4 palindromic subsequences of length 3 are:
-- "bbb" (subsequence of "bbcbaba")
-- "bcb" (subsequence of "bbcbaba")
-- "bab" (subsequence of "bbcbaba")
-- "aba" (subsequence of "bbcbaba")
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UniqueLength3PalindromicSubsequences</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countPalindromicSubsequence</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Counter for unique palindromic subsequences</span>
-        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through all lowercase letters (a-z)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Array to count occurrences of characters between two same letters</span>
-            <span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-
-            <span class="c1">// Get current character and find its leftmost and rightmost positions</span>
-            <span class="kt">char</span> <span class="n">index</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)(</span><span class="n">i</span> <span class="o">+</span> <span class="sc">'a'</span><span class="o">);</span>
-            <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-            <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-
-            <span class="c1">// Count occurrences of each character between left and right positions</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="n">arr</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Count unique characters between left and right positions</span>
-            <span class="c1">// Each unique character forms a new palindromic subsequence</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">){</span>
-                    <span class="n">num</span><span class="o">++;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">num</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: aabca"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 3"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countPalindromicSubsequence</span><span class="o">(</span><span class="s">"aabca"</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2: adc"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 0"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countPalindromicSubsequence</span><span class="o">(</span><span class="s">"adc"</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3: bbcbaba"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 4"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countPalindromicSubsequence</span><span class="o">(</span><span class="s">"bbcbaba"</span><span class="o">));</span>
-
-        <span class="c1">// Edge cases</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nEdge case 1: aa"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 0"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countPalindromicSubsequence</span><span class="o">(</span><span class="s">"aa"</span><span class="o">));</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nEdge case 2: aaaa"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countPalindromicSubsequence</span><span class="o">(</span><span class="s">"aaaa"</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, return the number of unique palindromes of length three that are a subsequence of s. Note that even if there are multiple ways to obtain the same subsequence, it is still only counted once. A palindrome is a string that reads the same forwards and backwards. A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. For example, "ace" is a subsequence of "abcde".]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Hard"/><category term="Review"/><summary type="html"><![CDATA[You are given a string s and an array of strings words. All the strings of words are of the same length. A concatenated string is a string that exactly contains all the strings of any permutation of words concatenated. For example, if words=["ab","cd","ef"], then "abcdef", "abefcd", "cdabef", "cdefab", "efabcd", and "efcdab" are all concatenated strings. "acdbef" is not a concatenated string because it is not the concatenation of any permutation of words. Return an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.]]></summary></entry></feed>
