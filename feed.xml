@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-08T03:58:21+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1016. Binary String With Substrings Representing 1 To N</title><link href="https://zhengstar94.github.io//blog/2025/BinaryStringWithSubstringsRepresenting1ToN/" rel="alternate" type="text/html" title="1016. Binary String With Substrings Representing 1 To N"/><published>2025-01-08T00:00:00+00:00</published><updated>2025-01-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BinaryStringWithSubstringsRepresenting1ToN</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BinaryStringWithSubstringsRepresenting1ToN/"><![CDATA[<ul> <li>Given a binary string <code class="language-plaintext highlighter-rouge">s</code> and a positive integer <code class="language-plaintext highlighter-rouge">n</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if the binary representation of all the integers in the range</em> <code class="language-plaintext highlighter-rouge">[1, n]</code> <em>are <strong>substrings</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code><em>, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters within a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0110", n = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-09T15:26:10+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3297. Count Substrings That Can Be Rearranged to Contain a String I</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringI/" rel="alternate" type="text/html" title="3297. Count Substrings That Can Be Rearranged to Contain a String I"/><published>2025-01-09T00:00:00+00:00</published><updated>2025-01-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringI/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>.</li> <li>A string <code class="language-plaintext highlighter-rouge">x</code> is called <strong>valid</strong> if <code class="language-plaintext highlighter-rouge">x</code> can be rearranged to have <code class="language-plaintext highlighter-rouge">word2</code> as a prefix.</li> <li>Return the total number of <strong>valid</strong> substrings of <code class="language-plaintext highlighter-rouge">word1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "bcca", word2 = "abc"
+Output: 1
+
+Explanation:
+
+The only valid substring is "bcca" which can be rearranged to "abcc" having "abc" as a prefix.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abcabc", word2 = "abc"
+Output: 10
+
+Explanation:
+
+All the substrings except  substrings of size 1 and size 2 are valid.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word1 = "abcabc", word2 = "aaabc"
+
+Output: 0
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubstringsThatCanBeRearrangedToContainAStringI</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">validSubstringCount</span><span class="o">(</span><span class="nc">String</span> <span class="n">word1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">word2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Early return if word1 is shorter than word2, as no valid substring possible</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">word1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">word2</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert strings to char arrays for efficient access</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">s</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">t</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+
+        <span class="c1">// Array to track the difference in character frequencies</span>
+        <span class="c1">// diff[i] &gt; 0 means we need more of character i</span>
+        <span class="c1">// diff[i] = 0 means we have exactly enough of character i</span>
+        <span class="c1">// diff[i] &lt; 0 means we have excess of character i</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+
+        <span class="c1">// Initialize diff array with character frequencies from word2</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">diff</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Count how many characters we still need</span>
+        <span class="c1">// less represents the number of unique characters we still need</span>
+        <span class="kt">int</span> <span class="n">less</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">:</span> <span class="n">diff</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">less</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Variables to track results and window</span>
+        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// Total count of valid substrings</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// Left boundary of sliding window</span>
+
+        <span class="c1">// Process each character in word1</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Add current character to window by decreasing its needed count</span>
+            <span class="n">diff</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
+
+            <span class="c1">// If after adding this character, its frequency matches exactly what we need</span>
+            <span class="c1">// (diff becomes 0), we have one less character to worry about</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">diff</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">less</span><span class="o">--;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// When less == 0, we have all characters we need</span>
+            <span class="c1">// Try to minimize the window by removing characters from left</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">less</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Get the character we're about to remove</span>
+                <span class="kt">char</span> <span class="n">outChar</span> <span class="o">=</span> <span class="n">s</span><span class="o">[</span><span class="n">left</span><span class="o">++];</span>
+
+                <span class="c1">// If this character's count was exactly what we needed (diff == 0)</span>
+                <span class="c1">// removing it will make it deficient, so increase less</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">diff</span><span class="o">[</span><span class="n">outChar</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">less</span><span class="o">++;</span>
+                <span class="o">}</span>
+                <span class="c1">// Update diff array as we remove the character</span>
+                <span class="n">diff</span><span class="o">[</span><span class="n">outChar</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add left to answer - this is crucial!</span>
+            <span class="c1">// left represents how many valid substrings end at the current position</span>
+            <span class="c1">// because we can start the substring at any position from 0 to left-1</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">left</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Expect 1 valid substring</span>
+        <span class="nc">String</span> <span class="n">word1_1</span> <span class="o">=</span> <span class="s">"bcca"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word2_1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">validSubstringCount</span><span class="o">(</span><span class="n">word1_1</span><span class="o">,</span> <span class="n">word2_1</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
+
+        <span class="c1">// Test case 2: Expect 10 valid substrings</span>
+        <span class="nc">String</span> <span class="n">word1_2</span> <span class="o">=</span> <span class="s">"abcabc"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word2_2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">validSubstringCount</span><span class="o">(</span><span class="n">word1_2</span><span class="o">,</span> <span class="n">word2_2</span><span class="o">));</span> <span class="c1">// Expected: 10</span>
+
+        <span class="c1">// Test case 3: Expect 0 valid substrings</span>
+        <span class="nc">String</span> <span class="n">word1_3</span> <span class="o">=</span> <span class="s">"abcabc"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">word2_3</span> <span class="o">=</span> <span class="s">"aaabc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">validSubstringCount</span><span class="o">(</span><span class="n">word1_3</span><span class="o">,</span> <span class="n">word2_3</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given two strings word1 and word2. A string x is called valid if x can be rearranged to have word2 as a prefix. Return the total number of valid substrings of word1.]]></summary></entry><entry><title type="html">1016. Binary String With Substrings Representing 1 To N</title><link href="https://zhengstar94.github.io//blog/2025/BinaryStringWithSubstringsRepresenting1ToN/" rel="alternate" type="text/html" title="1016. Binary String With Substrings Representing 1 To N"/><published>2025-01-08T00:00:00+00:00</published><updated>2025-01-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BinaryStringWithSubstringsRepresenting1ToN</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BinaryStringWithSubstringsRepresenting1ToN/"><![CDATA[<ul> <li>Given a binary string <code class="language-plaintext highlighter-rouge">s</code> and a positive integer <code class="language-plaintext highlighter-rouge">n</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if the binary representation of all the integers in the range</em> <code class="language-plaintext highlighter-rouge">[1, n]</code> <em>are <strong>substrings</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code><em>, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters within a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0110", n = 3
 Output: true
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "0110", n = 4
 Output: false
@@ -618,96 +728,4 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[There is an ATM machine that stores banknotes of 5 denominations: 20, 50, 100, 200, and 500 dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money. When withdrawing, the machine prioritizes using banknotes of larger values. For example, if you want to withdraw $300 and there are 2 $50 banknotes, 1 $100 banknote, and 1 $200 banknote, then the machine will use the $100 and $200 banknotes. However, if you try to withdraw $600 and there are 3 $200 banknotes and 1 $500 banknote, then the withdraw request will be rejected because the machine will first try to use the $500 banknote and then be unable to use banknotes to complete the remaining $100. Note that the machine is not allowed to use the $200 banknotes instead of the $500 banknote. Implement the ATM class: ATM() Initializes the ATM object. void deposit(int[] banknotesCount) Deposits new banknotes in the order $20, $50, $100, $200, and $500. int[] withdraw(int amount) Returns an array of length 5 of the number of banknotes that will be handed to the user in the order $20, $50, $100, $200, and $500, and update the number of banknotes in the ATM after withdrawing. Returns [-1] if it is not possible (do not withdraw any banknotes in this case).]]></summary></entry><entry><title type="html">2381. Shifting Letters II</title><link href="https://zhengstar94.github.io//blog/2025/ShiftingLettersII/" rel="alternate" type="text/html" title="2381. Shifting Letters II"/><published>2025-01-05T00:00:00+00:00</published><updated>2025-01-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShiftingLettersII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShiftingLettersII/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> of lowercase English letters and a 2D integer array <code class="language-plaintext highlighter-rouge">shifts</code> where <code class="language-plaintext highlighter-rouge">shifts[i] = [starti, endi, directioni]</code>. For every <code class="language-plaintext highlighter-rouge">i</code>, <strong>shift</strong> the characters in <code class="language-plaintext highlighter-rouge">s</code> from the index <code class="language-plaintext highlighter-rouge">starti</code> to the index <code class="language-plaintext highlighter-rouge">endi</code> (<strong>inclusive</strong>) forward if <code class="language-plaintext highlighter-rouge">directioni = 1</code>, or shift the characters backward if <code class="language-plaintext highlighter-rouge">directioni = 0</code>.</li> <li>Shifting a character <strong>forward</strong> means replacing it with the <strong>next</strong> letter in the alphabet (wrapping around so that <code class="language-plaintext highlighter-rouge">'z'</code> becomes <code class="language-plaintext highlighter-rouge">'a'</code>). Similarly, shifting a character <strong>backward</strong> means replacing it with the <strong>previous</strong> letter in the alphabet (wrapping around so that <code class="language-plaintext highlighter-rouge">'a'</code> becomes <code class="language-plaintext highlighter-rouge">'z'</code>).</li> <li>Return <em>the final string after all such shifts to</em> <code class="language-plaintext highlighter-rouge">s</code> <em>are applied</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc", shifts = [ [ 0,1,0],[1,2,1],[0,2,1 ] ]
-Output: "ace"
-Explanation: Firstly, shift the characters from index 0 to index 1 backward. Now s = "zac".
-Secondly, shift the characters from index 1 to index 2 forward. Now s = "zbd".
-Finally, shift the characters from index 0 to index 2 forward. Now s = "ace".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "dztz", shifts = [ [ 0,0,0],[1,1,1 ] ]
-Output: "catz"
-Explanation: Firstly, shift the characters from index 0 to index 0 backward. Now s = "cztz".
-Finally, shift the characters from index 1 to index 1 forward. Now s = "catz".
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/05
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShiftingLettersII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">shiftString</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">shifts</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="c1">// Create difference array with size n+1 to handle the boundary case</span>
-        <span class="c1">// The extra position is used to mark the end of the last interval</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-
-        <span class="c1">// First loop: Process all shift operations using difference array technique</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">shift</span> <span class="o">:</span> <span class="n">shifts</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">shift</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>    <span class="c1">// Start index of current interval</span>
-            <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">shift</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>      <span class="c1">// End index of current interval</span>
-            <span class="c1">// Convert direction to actual shift value</span>
-            <span class="c1">// If direction is 1 (forward), use 1; if direction is 0 (backward), use -1</span>
-            <span class="kt">int</span> <span class="n">direction</span> <span class="o">=</span> <span class="n">shift</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// Mark the start of interval with the shift value</span>
-            <span class="n">diff</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">+=</span> <span class="n">direction</span><span class="o">;</span>
-            <span class="c1">// Mark the position after end of interval with opposite shift value</span>
-            <span class="c1">// This ensures the shift effect stops after the interval</span>
-            <span class="n">diff</span><span class="o">[</span><span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">-=</span> <span class="n">direction</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Create StringBuilder for efficient string construction</span>
-        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-        <span class="c1">// Track accumulated shift value for current position</span>
-        <span class="kt">int</span> <span class="n">currentShift</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Second loop: Build the result string by applying accumulated shifts</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current position's difference value to running sum</span>
-            <span class="c1">// This gives us the total shift amount for current position</span>
-            <span class="n">currentShift</span> <span class="o">+=</span> <span class="n">diff</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-            <span class="c1">// Get current character from input string</span>
-            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-
-            <span class="c1">// Calculate new character position after shifting</span>
-            <span class="c1">// 1. (c - 'a'): Convert character to 0-based position (a=0, b=1, ...)</span>
-            <span class="c1">// 2. currentShift % 26: Ensure shift amount stays within alphabet range</span>
-            <span class="c1">// 3. + 26: Handle negative shifts by adding full alphabet length</span>
-            <span class="c1">// 4. % 26: Ensure final position stays within alphabet range (0-25)</span>
-            <span class="kt">int</span> <span class="n">shifted</span> <span class="o">=</span> <span class="o">((</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">)</span> <span class="o">+</span> <span class="n">currentShift</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="mi">26</span><span class="o">)</span> <span class="o">%</span> <span class="mi">26</span><span class="o">;</span>
-
-            <span class="c1">// Convert numerical position back to character and append to result</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="o">(</span><span class="n">shifted</span> <span class="o">+</span> <span class="sc">'a'</span><span class="o">));</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Multiple overlapping shifts</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">shifts1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>  <span class="c1">// Shift index 0-1 backward</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span>  <span class="c1">// Shift index 1-2 forward</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">}</span>   <span class="c1">// Shift index 0-2 forward</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input string: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: ace"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">shiftString</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">shifts1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Single character shifts</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"dztz"</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">shifts2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>  <span class="c1">// Shift first character backward</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">}</span>   <span class="c1">// Shift second character forward</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input string: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: catz"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">shiftString</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">shifts2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s of lowercase English letters and a 2D integer array shifts where shifts[i] = [starti, endi, directioni]. For every i, shift the characters in s from the index starti to the index endi (inclusive) forward if directioni=1, or shift the characters backward if directioni=0. Shifting a character forward means replacing it with the next letter in the alphabet (wrapping around so that 'z' becomes 'a'). Similarly, shifting a character backward means replacing it with the previous letter in the alphabet (wrapping around so that 'a' becomes 'z'). Return the final string after all such shifts to s are applied.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[There is an ATM machine that stores banknotes of 5 denominations: 20, 50, 100, 200, and 500 dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money. When withdrawing, the machine prioritizes using banknotes of larger values. For example, if you want to withdraw $300 and there are 2 $50 banknotes, 1 $100 banknote, and 1 $200 banknote, then the machine will use the $100 and $200 banknotes. However, if you try to withdraw $600 and there are 3 $200 banknotes and 1 $500 banknote, then the withdraw request will be rejected because the machine will first try to use the $500 banknote and then be unable to use banknotes to complete the remaining $100. Note that the machine is not allowed to use the $200 banknotes instead of the $500 banknote. Implement the ATM class: ATM() Initializes the ATM object. void deposit(int[] banknotesCount) Deposits new banknotes in the order $20, $50, $100, $200, and $500. int[] withdraw(int amount) Returns an array of length 5 of the number of banknotes that will be handed to the user in the order $20, $50, $100, $200, and $500, and update the number of banknotes in the ATM after withdrawing. Returns [-1] if it is not possible (do not withdraw any banknotes in this case).]]></summary></entry></feed>
