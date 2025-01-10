@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-10T03:09:58+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3298. Count Substrings That Can Be Rearranged to Contain a String II</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringII/" rel="alternate" type="text/html" title="3298. Count Substrings That Can Be Rearranged to Contain a String II"/><published>2025-01-10T00:00:00+00:00</published><updated>2025-01-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringII/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>.</li> <li>A string <code class="language-plaintext highlighter-rouge">x</code> is called <strong>valid</strong> if <code class="language-plaintext highlighter-rouge">x</code> can be rearranged to have <code class="language-plaintext highlighter-rouge">word2</code> as a prefix.</li> <li>Return the total number of <strong>valid</strong> substrings of <code class="language-plaintext highlighter-rouge">word1</code>.</li> <li><strong>Note</strong> that the memory limits in this problem are <strong>smaller</strong> than usual, so you <strong>must</strong> implement a solution with a <em>linear</em> runtime complexity.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [90], k = 1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-10T03:46:07+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">220. Contains Duplicate III</title><link href="https://zhengstar94.github.io//blog/2025/ContainsDuplicateIII/" rel="alternate" type="text/html" title="220. Contains Duplicate III"/><published>2025-01-10T00:00:00+00:00</published><updated>2025-01-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ContainsDuplicateIII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ContainsDuplicateIII/"><![CDATA[<h1 id="220-contains-duplicate-iii">220. Contains Duplicate III</h1> <ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">indexDiff</code> and <code class="language-plaintext highlighter-rouge">valueDiff</code>.</li> <li>Find a pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">i != j</code>,</li> <li><code class="language-plaintext highlighter-rouge">abs(i - j) &lt;= indexDiff</code>.</li> <li><code class="language-plaintext highlighter-rouge">abs(nums[i] - nums[j]) &lt;= valueDiff</code>, and</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if such pair exists or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1], indexDiff = 3, valueDiff = 0
+Output: true
+Explanation: We can choose (i, j) = (0, 3).
+We satisfy the three conditions:
+i != j --&gt; 0 != 3
+abs(i - j) &lt;= indexDiff --&gt; abs(0 - 3) &lt;= 3
+abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,5,9,1,5,9], indexDiff = 2, valueDiff = 3
+Output: false
+Explanation: After trying all the possible pairs (i, j), we cannot satisfy the three conditions, so we return false.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(k)) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContainsDuplicateIII</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">indexDiff</span><span class="o">,</span> <span class="kt">int</span> <span class="n">valueDiff</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases: null array, array length less than 2, invalid indexDiff or valueDiff</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">indexDiff</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">valueDiff</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// 1. Enter window</span>
+            <span class="c1">// Convert current number to long to avoid integer overflow</span>
+            <span class="nc">Long</span> <span class="n">curr</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="c1">// Find the smallest value greater than or equal to (curr - valueDiff)</span>
+            <span class="nc">Long</span> <span class="n">ceiling</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">ceiling</span><span class="o">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">valueDiff</span><span class="o">);</span>
+            <span class="c1">// If such value exists and is within the valueDiff range, we found a valid pair</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">ceiling</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">ceiling</span> <span class="o">&lt;=</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">valueDiff</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">indexDiff</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Window size has not reached indexDiff yet</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// 2. Update answer</span>
+            <span class="c1">// No need to update answer here as we return true immediately when finding a valid pair</span>
+
+            <span class="c1">// 3. Exit window</span>
+            <span class="c1">// Remove the leftmost element from the window</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">remove</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">indexDiff</span><span class="o">]);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Should return true</span>
+        <span class="c1">// Contains duplicate values (1) within indexDiff = 3 and valueDiff = 0</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">indexDiff1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">valueDiff1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">indexDiff1</span><span class="o">,</span> <span class="n">valueDiff1</span><span class="o">));</span>
+        <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test Case 2: Should return false</span>
+        <span class="c1">// No pairs satisfy both indexDiff and valueDiff conditions</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">indexDiff2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">valueDiff2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">indexDiff2</span><span class="o">,</span> <span class="n">valueDiff2</span><span class="o">));</span>
+        <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test Case 3: Edge case - single element array</span>
+        <span class="c1">// Should return false as no pairs exist</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">indexDiff3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">valueDiff3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">indexDiff3</span><span class="o">,</span> <span class="n">valueDiff3</span><span class="o">));</span>
+        <span class="c1">// Expected output: false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Hard"/><summary type="html"><![CDATA[220. Contains Duplicate III]]></summary></entry><entry><title type="html">3298. Count Substrings That Can Be Rearranged to Contain a String II</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringII/" rel="alternate" type="text/html" title="3298. Count Substrings That Can Be Rearranged to Contain a String II"/><published>2025-01-10T00:00:00+00:00</published><updated>2025-01-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsThatCanBeRearrangedToContainAStringII/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">word1</code> and <code class="language-plaintext highlighter-rouge">word2</code>.</li> <li>A string <code class="language-plaintext highlighter-rouge">x</code> is called <strong>valid</strong> if <code class="language-plaintext highlighter-rouge">x</code> can be rearranged to have <code class="language-plaintext highlighter-rouge">word2</code> as a prefix.</li> <li>Return the total number of <strong>valid</strong> substrings of <code class="language-plaintext highlighter-rouge">word1</code>.</li> <li><strong>Note</strong> that the memory limits in this problem are <strong>smaller</strong> than usual, so you <strong>must</strong> implement a solution with a <em>linear</em> runtime complexity.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [90], k = 1
 Output: 0
 Explanation: There is one way to pick score(s) of one student:
 - [90]. The difference between the highest and lowest score is 90 - 90 = 0.
@@ -672,67 +753,4 @@ Therefore, the k-beauty is 2.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 2"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[The k-beauty of an integer num is defined as the number of substrings of num when it is read as a string that meet the following conditions: It has a length of k. It is a divisor of num. Given integers num and k, return the k-beauty of num. Note: Leading zeros are allowed. 0 is not a divisor of any value. A substring is a contiguous sequence of characters in a string.]]></summary></entry><entry><title type="html">3019. Number of Changing Keys</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfChangingKeys/" rel="alternate" type="text/html" title="3019. Number of Changing Keys"/><published>2025-01-07T00:00:00+00:00</published><updated>2025-01-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfChangingKeys</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfChangingKeys/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">s</code> typed by a user. Changing a key is defined as using a key different from the last used key. For example, <code class="language-plaintext highlighter-rouge">s = "ab"</code> has a change of a key while <code class="language-plaintext highlighter-rouge">s = "bBBb"</code> does not have any.</li> <li>Return *the number of times the user had to change the key.**</li> <li><strong>*Note:</strong> Modifiers like <code class="language-plaintext highlighter-rouge">shift</code> or <code class="language-plaintext highlighter-rouge">caps lock</code> won’t be counted in changing the key that is if a user typed the letter <code class="language-plaintext highlighter-rouge">'a'</code> and then the letter <code class="language-plaintext highlighter-rouge">'A'</code> then it will not be considered as a changing of key.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aAbBcC"
-Output: 2
-Explanation: 
-From s[0] = 'a' to s[1] = 'A', there is no change of key as caps lock or shift is not counted.
-From s[1] = 'A' to s[2] = 'b', there is a change of key.
-From s[2] = 'b' to s[3] = 'B', there is no change of key as caps lock or shift is not counted.
-From s[3] = 'B' to s[4] = 'c', there is a change of key.
-From s[4] = 'c' to s[5] = 'C', there is no change of key as caps lock or shift is not counted.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "AaAaAaaA"
-Output: 0
-Explanation: There is no change of key since only the letters 'a' and 'A' are pressed which does not require change of key.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/07
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfChangingKeys</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countKeyChanges</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">change</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Convert first character to lowercase as initial comparison character</span>
-        <span class="kt">char</span> <span class="n">prev</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
-
-        <span class="c1">// Iterate through each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Convert current character to lowercase for comparison</span>
-            <span class="kt">char</span> <span class="n">curr</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-
-            <span class="c1">// If current character is different from previous, increment change counter</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="n">prev</span><span class="o">){</span>
-                <span class="n">change</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">change</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aAbBcC"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 2"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countKeyChanges</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"AaAaAaaA"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 0"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countKeyChanges</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
-
-        <span class="c1">// Additional test case</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"mZiEPOz"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">countKeyChanges</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed string s typed by a user. Changing a key is defined as using a key different from the last used key. For example, s="ab" has a change of a key while s="bBBb" does not have any. Return *the number of times the user had to change the key.** *Note: Modifiers like shift or caps lock won’t be counted in changing the key that is if a user typed the letter 'a' and then the letter 'A' then it will not be considered as a changing of key.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[The k-beauty of an integer num is defined as the number of substrings of num when it is read as a string that meet the following conditions: It has a length of k. It is a divisor of num. Given integers num and k, return the k-beauty of num. Note: Leading zeros are allowed. 0 is not a divisor of any value. A substring is a contiguous sequence of characters in a string.]]></summary></entry></feed>
