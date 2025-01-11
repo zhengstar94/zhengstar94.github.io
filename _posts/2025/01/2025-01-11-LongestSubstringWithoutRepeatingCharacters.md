@@ -3,10 +3,11 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "LeetCode 3. Longest Substring Without Repeating Characters"
-date: "2024-02-26"
+title: "3. Longest Substring Without Repeating Characters"
+date: "2025-01-11"
+tags: Medium
 categories:
-  - "LeetCode SlideWindow"
+  - "LeetCode DynamicSlidingWindow"
 ---
 
 
