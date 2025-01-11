@@ -3,13 +3,12 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "3. Longest Substring Without Repeating Characters"
+title: "LeetCode 3. Longest Substring Without Repeating Characters"
 date: "2024-02-26"
 categories:
   - "LeetCode SlideWindow"
 ---
 
-# LeetCode 3. Longest Substring Without Repeating Characters 
 
 - Given a string `s`, find the length of the **longest** **substring** without repeating characters.
 
@@ -41,63 +40,71 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 ## Method 1
 
 ```tex
-【O(n)time∣O(n)space】
+【O(n)time∣O(m)space】
 ```
 
 ```java
+
 package Leetcode.SlideWindow;
 
-import java.util.HashMap;
+import java.util.Arrays;
 
 /**
  * @author zhengstars
  * @date 2024/03/26
  */
 public class LongestSubstringWithoutRepeatingCharacters {
-    public static int lengthOfLongestSubstring(String s) {
-        // We start by initializing a HashMap to keep track of the characters we have encountered
-        HashMap<Character, Integer> map = new HashMap<>();
+  public static int lengthOfLongestSubstring(String S) {
+    char[] s = S.toCharArray();
+    // Use array instead of HashMap to store the last position of each character
+    // Array index is the character's ASCII value (0-127)
+    // Array value is the last position where this character appeared
+    int[] lastSeen = new int[128];
 
-        // 'start' and 'end' pointers represent the current window
-        // 'length' holds the maximum length of substring without repeating characters we have found till now.
-        int start = 0, end = 0, length = 0;
+    // Initialize all positions to -1, meaning no character has been seen yet
+    Arrays.fill(lastSeen, -1);
 
-        // We expand the window by incrementing 'end' and move 'start' as needed
-        while (end < s.length()){
-            // The current character at the 'end' of the window
-            char c = s.charAt(end);
+    // Variable to store the length of longest substring found so far
+    int ans = 0;
+    // Variable to mark the start position of current window
+    int start = 0;
 
-            // If character 'c' has already been encountered, move 'start' pointer to the next position from its previous occurrence
-            if(map.containsKey(c)){
-                start = Math.max(start, map.get(c) + 1);
-            }
+    for (int i = 0; i < s.length; i++) {
+      // 1. Window Entry Check:
+      // Check if current character causes window to shrink
+      // If the last occurrence of current character is within or at the start of our window,
+      // we need to move the window start to avoid repeating characters
+      if (lastSeen[s[i]] >= start) {
+        start = lastSeen[s[i]] + 1;  // Move start to just after the last occurrence
+      }
 
-            // Update the position of character 'c'
-            map.put(c, end);
+      // 2. Update Answer:
+      // Current window size is (i - start + 1)
+      // Update max length if current window is longer
+      ans = Math.max(ans, i - start + 1);
 
-            // Update the length of the longest substring without repeating characters
-            length = Math.max(length, end-start+1);
-
-            // Expand the window
-            end++;
-        }
-        // Finally, return the length of longest substring without repeating characters
-        return length;
+      // 3. Update Character Position:
+      // Record the current position of character for future reference
+      // This helps us detect repeating characters in future iterations
+      lastSeen[s[i]] = i;
     }
 
-    public static void main(String[] args) {
-        // Test the function with example string "abcabcbb"
-        String s1 = "abcabcbb";
-        System.out.println(lengthOfLongestSubstring(s1));  // Output: 3
+    return ans;
+  }
 
-        // Test the function with example string "bbbbb"
-        String s2 = "bbbbb";
-        System.out.println(lengthOfLongestSubstring(s2));  // Output: 1
+  public static void main(String[] args) {
+    // Test the function with example string "abcabcbb"
+    String s1 = "abcabcbb";
+    System.out.println(lengthOfLongestSubstring(s1));  // Output: 3
 
-        // Test the function with example string "pwwkew"
-        String s3 = "pwwkew";
-        System.out.println(lengthOfLongestSubstring(s3));  // Output: 3
-    }
+    // Test the function with example string "bbbbb"
+    String s2 = "bbbbb";
+    System.out.println(lengthOfLongestSubstring(s2));  // Output: 1
+
+    // Test the function with example string "pwwkew"
+    String s3 = "pwwkew";
+    System.out.println(lengthOfLongestSubstring(s3));  // Output: 3
+  }
 }
 
 ```
