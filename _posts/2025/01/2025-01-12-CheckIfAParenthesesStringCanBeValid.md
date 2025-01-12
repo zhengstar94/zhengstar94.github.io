@@ -23,7 +23,7 @@ categories:
 **Example 1**
 
 ```
-Input: s = "))()))", locked = "010100"
+Input: s = " ) ) ( ) ) ) ", locked = "010100"
 Output: true
 Explanation: locked[1] == '1' and locked[3] == '1', so we cannot change s[1] or s[3].
 We change s[0] and s[4] to '(' while leaving s[2] and s[5] unchanged to make s valid.
@@ -32,7 +32,7 @@ We change s[0] and s[4] to '(' while leaving s[2] and s[5] unchanged to make s v
 **Example 2**
 
 ```
-Input: s = "()()", locked = "0000"
+Input: s = " ( ) ( ) ", locked = "0000"
 Output: true
 Explanation: We do not need to make any changes because s is already valid.
 ```
@@ -127,12 +127,12 @@ public class CheckIfAParenthesesStringCanBeValid {
 
     public static void main(String[] args) {
         // Test Case 1: String can be made valid by modifying unlocked positions
-        String s1 = "))()))";
+        String s1 = " ) ) ( ) ) )";
         String locked1 = "010100";
         System.out.println("Test Case 1: " + canBeValid(s1, locked1));  // Expected output: true
 
         // Test Case 2: Already valid string with all positions modifiable
-        String s2 = "()()";
+        String s2 = " ( ) ( ) ";
         String locked2 = "0000";
         System.out.println("Test Case 2: " + canBeValid(s2, locked2));  // Expected output: true
 
@@ -142,7 +142,7 @@ public class CheckIfAParenthesesStringCanBeValid {
         System.out.println("Test Case 3: " + canBeValid(s3, locked3));  // Expected output: false
 
         // Test Case 4: Additional test case with all positions modifiable
-        String s4 = "())";
+        String s4 = " ( ) ) ";
         String locked4 = "000";
         System.out.println("Test Case 4: " + canBeValid(s4, locked4));  // Expected output: true
     }
