@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-13T01:22:59+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3223. Minimum Length of String After Operations</title><link href="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations/" rel="alternate" type="text/html" title="3223. Minimum Length of String After Operations"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>You can perform the following process on <code class="language-plaintext highlighter-rouge">s</code> <strong>any</strong> number of times: <ul> <li>Choose an index <code class="language-plaintext highlighter-rouge">i</code> in the string such that there is <strong>at least</strong> one character to the left of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>, and <strong>at least</strong> one character to the right that is also equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> <li>Delete the <strong>closest</strong> character to the <strong>left</strong> of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> <li>Delete the <strong>closest</strong> character to the <strong>right</strong> of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> </ul> </li> <li>Return the <strong>minimum</strong> length of the final string <code class="language-plaintext highlighter-rouge">s</code> that you can achieve.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abaacbcbb"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-13T03:00:27+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1208. Get Equal Substrings Within Budget</title><link href="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/" rel="alternate" type="text/html" title="1208. Get Equal Substrings Within Budget"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> of the same length and an integer <code class="language-plaintext highlighter-rouge">maxCost</code>.</li> <li>You want to change <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">t</code>. Changing the <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">t</code> costs <code class="language-plaintext highlighter-rouge">|s[i] - t[i]|</code> (i.e., the absolute difference between the ASCII values of the characters).</li> <li>Return <em>the maximum length of a substring of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that can be changed to be the same as the corresponding substring of</em> <code class="language-plaintext highlighter-rouge">t</code> <em>with a cost less than or equal to</em> <code class="language-plaintext highlighter-rouge">maxCost</code>. If there is no substring from <code class="language-plaintext highlighter-rouge">s</code> that can be changed to its corresponding substring from <code class="language-plaintext highlighter-rouge">t</code>, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "bcdf", maxCost = 3
+Output: 3
+Explanation: "abc" of s can change to "bcd".
+That costs 3, so the maximum length is 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "cdef", maxCost = 3
+Output: 1
+Explanation: Each character in s costs 2 to change to character in t,  so the maximum length is 1.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "acde", maxCost = 0
+Output: 1
+Explanation: You cannot make any change, so the maximum length is 1.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetEqualSubstringsWithinBudget</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">equalSubstring</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">t</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxCost</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="c1">// Array to store the conversion cost for each character</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">costs</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="c1">// Calculate the cost of changing each character from s to t</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">maxLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// Track the maximum valid substring length</span>
+        <span class="kt">int</span> <span class="n">currentCost</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// Track the current window's total cost</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>         <span class="c1">// Left pointer of the window</span>
+
+        <span class="c1">// Iterate through the string with right pointer (end)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">end</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// 1. Enter Window: Add cost of current character to window</span>
+            <span class="n">currentCost</span> <span class="o">+=</span> <span class="n">costs</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+
+            <span class="c1">// 2. Exit Window: Shrink window while cost exceeds budget</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">currentCost</span> <span class="o">&gt;</span> <span class="n">maxCost</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">currentCost</span> <span class="o">-=</span> <span class="n">costs</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+                <span class="n">start</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// 3. Update Answer: Update maximum length of valid substring</span>
+            <span class="n">maxLength</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLength</span><span class="o">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxLength</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Multiple characters can be changed within budget</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">t1</span> <span class="o">=</span> <span class="s">"bcdf"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxCost1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">t1</span><span class="o">,</span> <span class="n">maxCost1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test Case 2: High conversion cost limits substring length</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">t2</span> <span class="o">=</span> <span class="s">"cdef"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxCost2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">t2</span><span class="o">,</span> <span class="n">maxCost2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test Case 3: Zero budget allows only identical characters</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">t3</span> <span class="o">=</span> <span class="s">"acde"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxCost3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">t3</span><span class="o">,</span> <span class="n">maxCost3</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given two strings s and t of the same length and an integer maxCost. You want to change s to t. Changing the ith character of s to ith character of t costs |s[i] - t[i]| (i.e., the absolute difference between the ASCII values of the characters). Return the maximum length of a substring of s that can be changed to be the same as the corresponding substring of t with a cost less than or equal to maxCost. If there is no substring from s that can be changed to its corresponding substring from t, return 0.]]></summary></entry><entry><title type="html">3223. Minimum Length of String After Operations</title><link href="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations/" rel="alternate" type="text/html" title="3223. Minimum Length of String After Operations"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>You can perform the following process on <code class="language-plaintext highlighter-rouge">s</code> <strong>any</strong> number of times: <ul> <li>Choose an index <code class="language-plaintext highlighter-rouge">i</code> in the string such that there is <strong>at least</strong> one character to the left of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>, and <strong>at least</strong> one character to the right that is also equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> <li>Delete the <strong>closest</strong> character to the <strong>left</strong> of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> <li>Delete the <strong>closest</strong> character to the <strong>right</strong> of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> </ul> </li> <li>Return the <strong>minimum</strong> length of the final string <code class="language-plaintext highlighter-rouge">s</code> that you can achieve.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abaacbcbb"
 
 Output: 5
 
@@ -609,85 +679,4 @@ The following substring has a length of 2 and contains at most two occurrences o
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s, return the maximum length of a substring such that it contains at most two occurrences of each character.]]></summary></entry><entry><title type="html">220. Contains Duplicate III</title><link href="https://zhengstar94.github.io//blog/2025/ContainsDuplicateIII/" rel="alternate" type="text/html" title="220. Contains Duplicate III"/><published>2025-01-10T00:00:00+00:00</published><updated>2025-01-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ContainsDuplicateIII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ContainsDuplicateIII/"><![CDATA[<h1 id="220-contains-duplicate-iii">220. Contains Duplicate III</h1> <ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">indexDiff</code> and <code class="language-plaintext highlighter-rouge">valueDiff</code>.</li> <li>Find a pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">i != j</code>,</li> <li><code class="language-plaintext highlighter-rouge">abs(i - j) &lt;= indexDiff</code>.</li> <li><code class="language-plaintext highlighter-rouge">abs(nums[i] - nums[j]) &lt;= valueDiff</code>, and</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if such pair exists or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1], indexDiff = 3, valueDiff = 0
-Output: true
-Explanation: We can choose (i, j) = (0, 3).
-We satisfy the three conditions:
-i != j --&gt; 0 != 3
-abs(i - j) &lt;= indexDiff --&gt; abs(0 - 3) &lt;= 3
-abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,5,9,1,5,9], indexDiff = 2, valueDiff = 3
-Output: false
-Explanation: After trying all the possible pairs (i, j), we cannot satisfy the three conditions, so we return false.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(k)) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContainsDuplicateIII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">indexDiff</span><span class="o">,</span> <span class="kt">int</span> <span class="n">valueDiff</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases: null array, array length less than 2, invalid indexDiff or valueDiff</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">indexDiff</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">valueDiff</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="nc">TreeSet</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreeSet</span><span class="o">&lt;&gt;();</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// 1. Enter window</span>
-            <span class="c1">// Convert current number to long to avoid integer overflow</span>
-            <span class="nc">Long</span> <span class="n">curr</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="c1">// Find the smallest value greater than or equal to (curr - valueDiff)</span>
-            <span class="nc">Long</span> <span class="n">ceiling</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">ceiling</span><span class="o">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">valueDiff</span><span class="o">);</span>
-            <span class="c1">// If such value exists and is within the valueDiff range, we found a valid pair</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">ceiling</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">ceiling</span> <span class="o">&lt;=</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">valueDiff</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">);</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">indexDiff</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Window size has not reached indexDiff yet</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// 2. Update answer</span>
-            <span class="c1">// No need to update answer here as we return true immediately when finding a valid pair</span>
-
-            <span class="c1">// 3. Exit window</span>
-            <span class="c1">// Remove the leftmost element from the window</span>
-            <span class="n">set</span><span class="o">.</span><span class="na">remove</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">indexDiff</span><span class="o">]);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Should return true</span>
-        <span class="c1">// Contains duplicate values (1) within indexDiff = 3 and valueDiff = 0</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">indexDiff1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">valueDiff1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">indexDiff1</span><span class="o">,</span> <span class="n">valueDiff1</span><span class="o">));</span>
-        <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test Case 2: Should return false</span>
-        <span class="c1">// No pairs satisfy both indexDiff and valueDiff conditions</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">indexDiff2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">valueDiff2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">indexDiff2</span><span class="o">,</span> <span class="n">valueDiff2</span><span class="o">));</span>
-        <span class="c1">// Expected output: false</span>
-
-        <span class="c1">// Test Case 3: Edge case - single element array</span>
-        <span class="c1">// Should return false as no pairs exist</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">indexDiff3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">valueDiff3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">containsNearbyAlmostDuplicate</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">indexDiff3</span><span class="o">,</span> <span class="n">valueDiff3</span><span class="o">));</span>
-        <span class="c1">// Expected output: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Hard"/><summary type="html"><![CDATA[220. Contains Duplicate III]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s, return the maximum length of a substring such that it contains at most two occurrences of each character.]]></summary></entry></feed>
