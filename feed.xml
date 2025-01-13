@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-13T03:00:27+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1208. Get Equal Substrings Within Budget</title><link href="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/" rel="alternate" type="text/html" title="1208. Get Equal Substrings Within Budget"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> of the same length and an integer <code class="language-plaintext highlighter-rouge">maxCost</code>.</li> <li>You want to change <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">t</code>. Changing the <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">t</code> costs <code class="language-plaintext highlighter-rouge">|s[i] - t[i]|</code> (i.e., the absolute difference between the ASCII values of the characters).</li> <li>Return <em>the maximum length of a substring of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that can be changed to be the same as the corresponding substring of</em> <code class="language-plaintext highlighter-rouge">t</code> <em>with a cost less than or equal to</em> <code class="language-plaintext highlighter-rouge">maxCost</code>. If there is no substring from <code class="language-plaintext highlighter-rouge">s</code> that can be changed to its corresponding substring from <code class="language-plaintext highlighter-rouge">t</code>, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "bcdf", maxCost = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-13T04:36:30+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2730. Find the Longest Semi-Repetitive Substring</title><link href="https://zhengstar94.github.io//blog/2025/FindTheLongestSemiRepetitiveSubstring/" rel="alternate" type="text/html" title="2730. Find the Longest Semi-Repetitive Substring"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheLongestSemiRepetitiveSubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheLongestSemiRepetitiveSubstring/"><![CDATA[<ul> <li>You are given a digit string <code class="language-plaintext highlighter-rouge">s</code> that consists of digits from 0 to 9.</li> <li>A string is called <strong>semi-repetitive</strong> if there is <strong>at most</strong> one adjacent pair of the same digit. For example, <code class="language-plaintext highlighter-rouge">"0010"</code>, <code class="language-plaintext highlighter-rouge">"002020"</code>, <code class="language-plaintext highlighter-rouge">"0123"</code>, <code class="language-plaintext highlighter-rouge">"2002"</code>, and <code class="language-plaintext highlighter-rouge">"54944"</code> are semi-repetitive while the following are not: <code class="language-plaintext highlighter-rouge">"00101022"</code> (adjacent same digit pairs are 00 and 22), and <code class="language-plaintext highlighter-rouge">"1101234883"</code> (adjacent same digit pairs are 11 and 88).</li> <li>Return the length of the <strong>longest semi-repetitive substring</strong> of <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "52233"
+Output: 4
+
+Explanation:
+
+The longest semi-repetitive substring is "5223". Picking the whole string "52233" has two adjacent same digit pairs 22 and 33, but at most one is allowed.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "5494"
+Output: 4
+
+Explanation:
+
+s is a semi-repetitive string.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "1111111"
+Output: 2
+
+Explanation:
+
+The longest semi-repetitive substring is "11". Picking the substring "111" has two adjacent same digit pairs, but at most one is allowed.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheLongestSemiRepetitiveSubstring</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * This function finds the length of the longest "semi-repetitive" substring.
+     * A "semi-repetitive" substring allows at most one pair of consecutive, identical characters.
+     *
+     * @param s The input string consisting of alphanumeric characters.
+     * @return The length of the longest semi-repetitive substring.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">longestSemiRepetitiveSubstring</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If the input string length is less than or equal to 2, the substring will always have the same length</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Variable to store the maximum length of the semi-repetitive substring we have found so far</span>
+        <span class="kt">int</span> <span class="n">maxLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// `start` is the beginning index of the current substring that satisfies the condition</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// `lastPair` stores the index of the first element of the most recent pair of consecutive identical characters</span>
+        <span class="kt">int</span> <span class="n">lastPair</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>  <span class="c1">// Initially set to -1 because no pair has been found yet</span>
+
+        <span class="c1">// Traverse the string from the second character to the last character</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if the current character is equal to the previous character</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+
+                <span class="cm">/**
+                 * If this is the second occurrence of a consecutive pair (i.e., we already encountered a pair before):
+                 * - We adjust `start` to the second element of the first consecutive pair (i.e., `lastPair + 1`).
+                 * - This ensures the new substring being processed doesn't include more than one pair.
+                 */</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">lastPair</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">lastPair</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Update `lastPair` to the current location of the first element in the new pair</span>
+                <span class="n">lastPair</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * Calculate the length of the current semi-repetitive substring:
+             * - It's the distance from `start` to the current index `i` (inclusive).
+             * Update `maxLength` if this substring is longer.
+             */</span>
+            <span class="n">maxLength</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLength</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the length of the longest semi-repetitive substring found</span>
+        <span class="k">return</span> <span class="n">maxLength</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Input string contains two pairs of consecutive identical characters</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"5224336"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 4"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">longestSemiRepetitiveSubstring</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
+
+        <span class="c1">// Uncomment other test cases to validate the implementation:</span>
+        <span class="c1">// Test case 2</span>
+        <span class="c1">// String s2 = "5494";</span>
+        <span class="c1">// System.out.println("\nTest Case 2: " + s2);</span>
+        <span class="c1">// System.out.println("Expected Output: 4");</span>
+        <span class="c1">// System.out.println("Actual Output: " + longestSemiRepetitiveSubstring(s2));</span>
+        <span class="c1">//</span>
+        <span class="c1">// // Test case 3</span>
+        <span class="c1">// String s3 = "1111111";</span>
+        <span class="c1">// System.out.println("\nTest Case 3: " + s3);</span>
+        <span class="c1">// System.out.println("Expected Output: 2");</span>
+        <span class="c1">// System.out.println("Actual Output: " + longestSemiRepetitiveSubstring(s3));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a digit string s that consists of digits from 0 to 9. A string is called semi-repetitive if there is at most one adjacent pair of the same digit. For example, "0010", "002020", "0123", "2002", and "54944" are semi-repetitive while the following are not: "00101022" (adjacent same digit pairs are 00 and 22), and "1101234883" (adjacent same digit pairs are 11 and 88). Return the length of the longest semi-repetitive substring of s.]]></summary></entry><entry><title type="html">1208. Get Equal Substrings Within Budget</title><link href="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/" rel="alternate" type="text/html" title="1208. Get Equal Substrings Within Budget"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> of the same length and an integer <code class="language-plaintext highlighter-rouge">maxCost</code>.</li> <li>You want to change <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">t</code>. Changing the <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">t</code> costs <code class="language-plaintext highlighter-rouge">|s[i] - t[i]|</code> (i.e., the absolute difference between the ASCII values of the characters).</li> <li>Return <em>the maximum length of a substring of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that can be changed to be the same as the corresponding substring of</em> <code class="language-plaintext highlighter-rouge">t</code> <em>with a cost less than or equal to</em> <code class="language-plaintext highlighter-rouge">maxCost</code>. If there is no substring from <code class="language-plaintext highlighter-rouge">s</code> that can be changed to its corresponding substring from <code class="language-plaintext highlighter-rouge">t</code>, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "bcdf", maxCost = 3
 Output: 3
 Explanation: "abc" of s can change to "bcd".
 That costs 3, so the maximum length is 3.
@@ -621,62 +722,4 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
   <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, find the length of the longest substring without repeating characters.]]></summary></entry><entry><title type="html">3090. Maximum Length Substring With Two Occurrences</title><link href="https://zhengstar94.github.io//blog/2025/MaximumLengthSubstringWithTwoOccurrences/" rel="alternate" type="text/html" title="3090. Maximum Length Substring With Two Occurrences"/><published>2025-01-11T00:00:00+00:00</published><updated>2025-01-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumLengthSubstringWithTwoOccurrences</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumLengthSubstringWithTwoOccurrences/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return the <strong>maximum</strong> length of a substring such that it contains <em>at most two occurrences</em> of each character.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bcbbbcba"
-Output: 4
-
-Explanation:
-The following substring has a length of 4 and contains at most two occurrences of each character: "bcbbbcba".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aaaa"
-Output: 2
-
-Explanation:
-The following substring has a length of 2 and contains at most two occurrences of each character: "aaaa".
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumLengthSubstringWithTwoOccurrences</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumLengthSubstring</span><span class="o">(</span><span class="nc">String</span> <span class="no">S</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">char</span><span class="o">[]</span> <span class="n">s</span> <span class="o">=</span> <span class="no">S</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span> <span class="c1">// Convert the input string to a character array for easier access.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span> <span class="c1">// Array to track the frequency of each character ('a' to 'z').</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Variable to store the maximum length of the substring found so far.</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Left pointer of the sliding window.</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// 1. Enter window</span>
-            <span class="c1">// Increment the frequency of the current character as it enters the window.</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">s</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-
-            <span class="c1">// 2. Maintain the condition: At most two occurrences of each character.</span>
-            <span class="c1">// If the frequency of the current character exceeds 2, move the left pointer</span>
-            <span class="c1">// to shrink the window until the condition is satisfied.</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">s</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// 3. Exit window</span>
-                <span class="c1">// Decrease the frequency of the character that is leaving the window</span>
-                <span class="c1">// and move the left pointer one step forward.</span>
-                <span class="n">count</span><span class="o">[</span><span class="n">s</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// 4. Update the maximum length</span>
-            <span class="c1">// Calculate the length of the current valid window and update the maxLen if needed.</span>
-            <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span> <span class="c1">// Return the maximum length of the substring found.</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumLengthSubstring</span><span class="o">(</span><span class="s">"bcbbbcba"</span><span class="o">));</span> <span class="c1">// Output: 4</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumLengthSubstring</span><span class="o">(</span><span class="s">"aaaa"</span><span class="o">));</span>     <span class="c1">// Output: 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumLengthSubstring</span><span class="o">(</span><span class="s">"abcabc"</span><span class="o">));</span>   <span class="c1">// Output: 6</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumLengthSubstring</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>         <span class="c1">// Output: 0</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maximumLengthSubstring</span><span class="o">(</span><span class="s">"aabbccdd"</span><span class="o">));</span> <span class="c1">// Output: 8</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s, return the maximum length of a substring such that it contains at most two occurrences of each character.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, find the length of the longest substring without repeating characters.]]></summary></entry></feed>
