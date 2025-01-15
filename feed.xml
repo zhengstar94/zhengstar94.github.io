@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-15T08:40:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2429. Minimize XOR</title><link href="https://zhengstar94.github.io//blog/2025/MinimizeXOR/" rel="alternate" type="text/html" title="2429. Minimize XOR"/><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimizeXOR</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimizeXOR/"><![CDATA[<ul> <li>Given two positive integers <code class="language-plaintext highlighter-rouge">num1</code> and <code class="language-plaintext highlighter-rouge">num2</code>, find the positive integer <code class="language-plaintext highlighter-rouge">x</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">x</code> has the same number of set bits as <code class="language-plaintext highlighter-rouge">num2</code>, and</li> <li>The value <code class="language-plaintext highlighter-rouge">x XOR num1</code> is <strong>minimal</strong>.</li> </ul> </li> <li>Note that <code class="language-plaintext highlighter-rouge">XOR</code> is the bitwise XOR operation.</li> <li>Return <em>the integer</em> <code class="language-plaintext highlighter-rouge">x</code>. The test cases are generated such that <code class="language-plaintext highlighter-rouge">x</code> is <strong>uniquely determined</strong>.</li> <li>The number of <strong>set bits</strong> of an integer is the number of <code class="language-plaintext highlighter-rouge">1</code>’s in its binary representation.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = 3, num2 = 5
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-15T09:22:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">904. Fruit Into Baskets</title><link href="https://zhengstar94.github.io//blog/2025/FruitIntoBaskets/" rel="alternate" type="text/html" title="904. Fruit Into Baskets"/><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FruitIntoBaskets</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FruitIntoBaskets/"><![CDATA[<ul> <li>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code class="language-plaintext highlighter-rouge">fruits</code> where <code class="language-plaintext highlighter-rouge">fruits[i]</code> is the <strong>type</strong> of fruit the <code class="language-plaintext highlighter-rouge">ith</code> tree produces.</li> <li>You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow: <ul> <li>You only have <strong>two</strong> baskets, and each basket can only hold a <strong>single type</strong> of fruit. There is no limit on the amount of fruit each basket can hold.</li> <li>Starting from any tree of your choice, you must pick <strong>exactly one fruit</strong> from <strong>every</strong> tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.</li> <li>Once you reach a tree with fruit that cannot fit in your baskets, you must stop.</li> </ul> </li> <li>Given the integer array <code class="language-plaintext highlighter-rouge">fruits</code>, return <em>the <strong>maximum</strong> number of fruits you can pick</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: fruits = [1,2,1]
+Output: 3
+Explanation: We can pick from all 3 trees.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: fruits = [0,1,2,2]
+Output: 3
+Explanation: We can pick from trees [1,2,2].
+If we had started at the first tree, we would only pick from trees [0,1].
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: fruits = [1,2,3,2,2]
+Output: 4
+Explanation: We can pick from trees [2,3,2,2].
+If we had started at the first tree, we would only pick from trees [1,2].
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/15
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FruitIntoBaskets</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">totalFruit</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">fruits</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">maxFruits</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Maximum number of fruits</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>      <span class="c1">// Left pointer of sliding window</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span> <span class="c1">// Map to track fruit types and their counts</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">fruits</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Add current fruit to the basket</span>
+            <span class="n">basket</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">fruits</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="n">basket</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">fruits</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="c1">// While we have more than 2 types of fruits in the basket</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">basket</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">leftFruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="o">[</span><span class="n">left</span><span class="o">];</span> <span class="c1">// Get the fruit type at the left pointer</span>
+                <span class="n">basket</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">leftFruit</span><span class="o">,</span> <span class="n">basket</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">leftFruit</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// Decrease the count of that fruit</span>
+
+                <span class="c1">// If the count becomes 0, remove this fruit type from the basket</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">basket</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">leftFruit</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">basket</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">leftFruit</span><span class="o">);</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Move the left pointer to shrink the window</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Update maximum fruits count</span>
+            <span class="n">maxFruits</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxFruits</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxFruits</span><span class="o">;</span> <span class="c1">// Return the maximum number of fruits collected</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test Case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">totalFruit</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span> <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">totalFruit</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span> <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test Case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">totalFruit</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
+
+        <span class="c1">// Test Case 4</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">totalFruit</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
+
+        <span class="c1">// Test Case 5</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test5</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span> <span class="n">totalFruit</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
+
+        <span class="c1">// Test Case 6</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test6</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 6 Result: "</span> <span class="o">+</span> <span class="n">totalFruit</span><span class="o">(</span><span class="n">test6</span><span class="o">));</span> <span class="c1">// Expected: 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces. You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow: You only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold. Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets. Once you reach a tree with fruit that cannot fit in your baskets, you must stop. Given the integer array fruits, return the maximum number of fruits you can pick.]]></summary></entry><entry><title type="html">2429. Minimize XOR</title><link href="https://zhengstar94.github.io//blog/2025/MinimizeXOR/" rel="alternate" type="text/html" title="2429. Minimize XOR"/><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimizeXOR</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimizeXOR/"><![CDATA[<ul> <li>Given two positive integers <code class="language-plaintext highlighter-rouge">num1</code> and <code class="language-plaintext highlighter-rouge">num2</code>, find the positive integer <code class="language-plaintext highlighter-rouge">x</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">x</code> has the same number of set bits as <code class="language-plaintext highlighter-rouge">num2</code>, and</li> <li>The value <code class="language-plaintext highlighter-rouge">x XOR num1</code> is <strong>minimal</strong>.</li> </ul> </li> <li>Note that <code class="language-plaintext highlighter-rouge">XOR</code> is the bitwise XOR operation.</li> <li>Return <em>the integer</em> <code class="language-plaintext highlighter-rouge">x</code>. The test cases are generated such that <code class="language-plaintext highlighter-rouge">x</code> is <strong>uniquely determined</strong>.</li> <li>The number of <strong>set bits</strong> of an integer is the number of <code class="language-plaintext highlighter-rouge">1</code>’s in its binary representation.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num1 = 3, num2 = 5
 Output: 3
 Explanation:
 The binary representations of num1 and num2 are 0011 and 0101, respectively.
@@ -626,71 +706,4 @@ The size of the combination is 2, so we return 2.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[The bitwise AND of an array nums is the bitwise AND of all integers in nums. For example, for nums=[1, 5, 3], the bitwise AND is equal to 1 &amp; 5 &amp; 3=1. Also, for nums=[7], the bitwise AND is 7. You are given an array of positive integers candidates. Compute the bitwise AND for all possible combinations of elements in the candidates array. Return the size of the largest combination of candidates with a bitwise AND greater than 0.]]></summary></entry><entry><title type="html">1493. Longest Subarray of 1’s After Deleting One Element</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubarrayOf1sAfteDeletingOneElement/" rel="alternate" type="text/html" title="1493. Longest Subarray of 1’s After Deleting One Element"/><published>2025-01-12T00:00:00+00:00</published><updated>2025-01-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubarrayOf1sAfteDeletingOneElement</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubarrayOf1sAfteDeletingOneElement/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code>, you should delete one element from it.</li> <li>Return <em>the size of the longest non-empty subarray containing only</em> <code class="language-plaintext highlighter-rouge">1</code><em>’s in the resulting array</em>. Return <code class="language-plaintext highlighter-rouge">0</code> if there is no such subarray.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,0,1]
-Output: 3
-Explanation: After deleting the number in position 2, [1,1,1] contains 3 numbers with value of 1's.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,1,1,0,1,1,0,1]
-Output: 5
-Explanation: After deleting the number in position 4, [0,1,1,1,1,1,0,1] longest subarray with value of 1's is [1,1,1,1,1].
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
-Output: 2
-Explanation: You must delete one element.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestSubarrayOf1sAfteDeletingOneElement</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">longestSubarray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">zeroCount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Keeps track of the number of zeros in the current window</span>
-        <span class="kt">int</span> <span class="n">maxLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Tracks the length of the longest subarray found</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// Left boundary of the sliding window</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">end</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// 1. Enter window: The current element is added to the window</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">zeroCount</span><span class="o">++;</span> <span class="c1">// Increment zero count if the current element is 0</span>
-            <span class="o">}</span>
-
-            <span class="c1">// 2. Exit window: Adjust the window to ensure the condition (at most one zero) is satisfied</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">zeroCount</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// If there are more than one zero in the window</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">zeroCount</span><span class="o">--;</span> <span class="c1">// Decrement zero count if the leftmost element is 0</span>
-                <span class="o">}</span>
-                <span class="n">start</span><span class="o">++;</span> <span class="c1">// Move the left boundary of the window to the right</span>
-            <span class="o">}</span>
-
-            <span class="c1">// 3. Update answer: Update the maximum length for a valid subarray</span>
-            <span class="n">maxLength</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLength</span><span class="o">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="o">);</span> <span class="c1">// Calculate the current valid window size</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Special case: If the array consists entirely of 1s, the result should exclude one element</span>
-        <span class="k">return</span> <span class="n">maxLength</span> <span class="o">==</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">?</span> <span class="n">maxLength</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">maxLength</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Additional test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Additional test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given a binary array nums, you should delete one element from it. Return the size of the longest non-empty subarray containing only 1’s in the resulting array. Return 0 if there is no such subarray.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[The bitwise AND of an array nums is the bitwise AND of all integers in nums. For example, for nums=[1, 5, 3], the bitwise AND is equal to 1 &amp; 5 &amp; 3=1. Also, for nums=[7], the bitwise AND is 7. You are given an array of positive integers candidates. Compute the bitwise AND for all possible combinations of elements in the candidates array. Return the size of the largest combination of candidates with a bitwise AND greater than 0.]]></summary></entry></feed>
