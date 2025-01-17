@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-17T06:09:44+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review)3097. Shortest Subarray With OR at Least K II</title><link href="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII/" rel="alternate" type="text/html" title="(Review)3097. Shortest Subarray With OR at Least K II"/><published>2025-01-17T00:00:00+00:00</published><updated>2025-01-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>non-negative</strong> integers and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>An array is called <strong>special</strong> if the bitwise <code class="language-plaintext highlighter-rouge">OR</code> of all of its elements is <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code></li> <li>Return <em>the length of the <strong>shortest</strong> <strong>special</strong> <strong>non-empty</strong></em> <em>subarray</em> <em>of</em> <code class="language-plaintext highlighter-rouge">nums</code>, <em>or return</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no special subarray exists</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-17T06:29:03+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2683. Neighboring Bitwise XOR</title><link href="https://zhengstar94.github.io//blog/2025/NeighboringBitwiseXOR/" rel="alternate" type="text/html" title="2683. Neighboring Bitwise XOR"/><published>2025-01-17T00:00:00+00:00</published><updated>2025-01-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NeighboringBitwiseXOR</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NeighboringBitwiseXOR/"><![CDATA[<ul> <li>A <strong>0-indexed</strong> array <code class="language-plaintext highlighter-rouge">derived</code> with length <code class="language-plaintext highlighter-rouge">n</code> is derived by computing the <strong>bitwise XOR</strong> (⊕) of adjacent values in a <strong>binary array</strong> <code class="language-plaintext highlighter-rouge">original</code> of length <code class="language-plaintext highlighter-rouge">n</code>.</li> <li>Specifically, for each index <code class="language-plaintext highlighter-rouge">i</code> in the range <code class="language-plaintext highlighter-rouge">[0, n - 1]</code>: <ul> <li>If <code class="language-plaintext highlighter-rouge">i = n - 1</code>, then <code class="language-plaintext highlighter-rouge">derived[i] = original[i] ⊕ original[0]</code>.</li> <li>Otherwise, <code class="language-plaintext highlighter-rouge">derived[i] = original[i] ⊕ original[i + 1]</code>.</li> </ul> </li> <li>Given an array <code class="language-plaintext highlighter-rouge">derived</code>, your task is to determine whether there exists a <strong>valid binary array</strong> <code class="language-plaintext highlighter-rouge">original</code> that could have formed <code class="language-plaintext highlighter-rouge">derived</code>.</li> <li>Return <em><strong>true</strong> if such an array exists or <strong>false</strong> otherwise.</em> <ul> <li>A binary array is an array containing only <strong>0’s</strong> and <strong>1’s</strong></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: derived = [1,1,0]
+Output: true
+Explanation: A valid original array that gives derived is [0,1,0].
+derived[0] = original[0] ⊕ original[1] = 0 ⊕ 1 = 1 
+derived[1] = original[1] ⊕ original[2] = 1 ⊕ 0 = 1
+derived[2] = original[2] ⊕ original[0] = 0 ⊕ 0 = 0
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: derived = [1,1]
+Output: true
+Explanation: A valid original array that gives derived is [0,1].
+derived[0] = original[0] ⊕ original[1] = 1
+derived[1] = original[1] ⊕ original[0] = 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/17
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NeighboringBitwiseXOR</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">doesValidArrayExist</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">derived</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the running XOR result, assuming original[0] = 0</span>
+        <span class="c1">// This variable tracks the cumulative XOR of all elements</span>
+        <span class="kt">int</span> <span class="n">original</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each element in derived array</span>
+        <span class="c1">// For each iteration, we're essentially checking if the running XOR</span>
+        <span class="c1">// maintains the necessary relationship between adjacent elements</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">derived</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// XOR current element with running result</span>
+            <span class="c1">// This operation simulates building the original array and checking</span>
+            <span class="c1">// if adjacent elements can satisfy the derived array's requirements</span>
+            <span class="n">original</span> <span class="o">^=</span> <span class="n">num</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Final check: if original is 0, it means:</span>
+        <span class="c1">// 1. All elements in the hypothetical original array properly cancel out</span>
+        <span class="c1">// 2. The circular property (last element XOR first element) is satisfied</span>
+        <span class="c1">// 3. A valid original array exists</span>
+        <span class="k">return</span> <span class="n">original</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: [1,1,0] - Valid case</span>
+        <span class="c1">// Can be derived from original array [0,1,0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">derived1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">doesValidArrayExist</span><span class="o">(</span><span class="n">derived1</span><span class="o">));</span> <span class="c1">// Expected: true</span>
+
+        <span class="c1">// Test Case 2: [1,1] - Valid case</span>
+        <span class="c1">// Can be derived from original array [0,1]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">derived2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">doesValidArrayExist</span><span class="o">(</span><span class="n">derived2</span><span class="o">));</span> <span class="c1">// Expected: true</span>
+
+        <span class="c1">// Test Case 3: [1,0] - Invalid case</span>
+        <span class="c1">// No possible original array can generate this derived array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">derived3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">doesValidArrayExist</span><span class="o">(</span><span class="n">derived3</span><span class="o">));</span> <span class="c1">// Expected: false</span>
+
+        <span class="c1">// Test Case 4: [0] - Valid case</span>
+        <span class="c1">// Simplest possible case, can be derived from original array [0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">derived4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">doesValidArrayExist</span><span class="o">(</span><span class="n">derived4</span><span class="o">));</span> <span class="c1">// Expected: true</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[A 0-indexed array derived with length n is derived by computing the bitwise XOR (⊕) of adjacent values in a binary array original of length n. Specifically, for each index i in the range [0, n - 1]: If i=n - 1, then derived[i] = original[i] ⊕ original[0]. Otherwise, derived[i] = original[i] ⊕ original[i + 1]. Given an array derived, your task is to determine whether there exists a valid binary array original that could have formed derived. Return true if such an array exists or false otherwise. A binary array is an array containing only 0’s and 1’s]]></summary></entry><entry><title type="html">(Review)3097. Shortest Subarray With OR at Least K II</title><link href="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII/" rel="alternate" type="text/html" title="(Review)3097. Shortest Subarray With OR at Least K II"/><published>2025-01-17T00:00:00+00:00</published><updated>2025-01-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>non-negative</strong> integers and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>An array is called <strong>special</strong> if the bitwise <code class="language-plaintext highlighter-rouge">OR</code> of all of its elements is <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code></li> <li>Return <em>the length of the <strong>shortest</strong> <strong>special</strong> <strong>non-empty</strong></em> <em>subarray</em> <em>of</em> <code class="language-plaintext highlighter-rouge">nums</code>, <em>or return</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no special subarray exists</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], k = 2
 
 Output: 1
 
@@ -694,74 +758,4 @@ The longest semi-repetitive substring is "11". Picking the substring "111" has t
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a digit string s that consists of digits from 0 to 9. A string is called semi-repetitive if there is at most one adjacent pair of the same digit. For example, "0010", "002020", "0123", "2002", and "54944" are semi-repetitive while the following are not: "00101022" (adjacent same digit pairs are 00 and 22), and "1101234883" (adjacent same digit pairs are 11 and 88). Return the length of the longest semi-repetitive substring of s.]]></summary></entry><entry><title type="html">1208. Get Equal Substrings Within Budget</title><link href="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/" rel="alternate" type="text/html" title="1208. Get Equal Substrings Within Budget"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/GetEqualSubstringsWithinBudget/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> of the same length and an integer <code class="language-plaintext highlighter-rouge">maxCost</code>.</li> <li>You want to change <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">t</code>. Changing the <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">s</code> to <code class="language-plaintext highlighter-rouge">ith</code> character of <code class="language-plaintext highlighter-rouge">t</code> costs <code class="language-plaintext highlighter-rouge">|s[i] - t[i]|</code> (i.e., the absolute difference between the ASCII values of the characters).</li> <li>Return <em>the maximum length of a substring of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that can be changed to be the same as the corresponding substring of</em> <code class="language-plaintext highlighter-rouge">t</code> <em>with a cost less than or equal to</em> <code class="language-plaintext highlighter-rouge">maxCost</code>. If there is no substring from <code class="language-plaintext highlighter-rouge">s</code> that can be changed to its corresponding substring from <code class="language-plaintext highlighter-rouge">t</code>, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "bcdf", maxCost = 3
-Output: 3
-Explanation: "abc" of s can change to "bcd".
-That costs 3, so the maximum length is 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "cdef", maxCost = 3
-Output: 1
-Explanation: Each character in s costs 2 to change to character in t,  so the maximum length is 1.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", t = "acde", maxCost = 0
-Output: 1
-Explanation: You cannot make any change, so the maximum length is 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetEqualSubstringsWithinBudget</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">equalSubstring</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">t</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxCost</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="c1">// Array to store the conversion cost for each character</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">costs</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Calculate the cost of changing each character from s to t</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">maxLength</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// Track the maximum valid substring length</span>
-        <span class="kt">int</span> <span class="n">currentCost</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// Track the current window's total cost</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>         <span class="c1">// Left pointer of the window</span>
-
-        <span class="c1">// Iterate through the string with right pointer (end)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">end</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// 1. Enter Window: Add cost of current character to window</span>
-            <span class="n">currentCost</span> <span class="o">+=</span> <span class="n">costs</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-
-            <span class="c1">// 2. Exit Window: Shrink window while cost exceeds budget</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">currentCost</span> <span class="o">&gt;</span> <span class="n">maxCost</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">currentCost</span> <span class="o">-=</span> <span class="n">costs</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-                <span class="n">start</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// 3. Update Answer: Update maximum length of valid substring</span>
-            <span class="n">maxLength</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLength</span><span class="o">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxLength</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Multiple characters can be changed within budget</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">t1</span> <span class="o">=</span> <span class="s">"bcdf"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxCost1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">t1</span><span class="o">,</span> <span class="n">maxCost1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test Case 2: High conversion cost limits substring length</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">t2</span> <span class="o">=</span> <span class="s">"cdef"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxCost2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">t2</span><span class="o">,</span> <span class="n">maxCost2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test Case 3: Zero budget allows only identical characters</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">t3</span> <span class="o">=</span> <span class="s">"acde"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxCost3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">t3</span><span class="o">,</span> <span class="n">maxCost3</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given two strings s and t of the same length and an integer maxCost. You want to change s to t. Changing the ith character of s to ith character of t costs |s[i] - t[i]| (i.e., the absolute difference between the ASCII values of the characters). Return the maximum length of a substring of s that can be changed to be the same as the corresponding substring of t with a cost less than or equal to maxCost. If there is no substring from s that can be changed to its corresponding substring from t, return 0.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a digit string s that consists of digits from 0 to 9. A string is called semi-repetitive if there is at most one adjacent pair of the same digit. For example, "0010", "002020", "0123", "2002", and "54944" are semi-repetitive while the following are not: "00101022" (adjacent same digit pairs are 00 and 22), and "1101234883" (adjacent same digit pairs are 11 and 88). Return the length of the longest semi-repetitive substring of s.]]></summary></entry></feed>
