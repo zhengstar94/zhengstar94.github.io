@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-16T05:10:10+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2425. Bitwise XOR of All Pairings</title><link href="https://zhengstar94.github.io//blog/2025/BitwiseXOROfAllPairings/" rel="alternate" type="text/html" title="2425. Bitwise XOR of All Pairings"/><published>2025-01-16T00:00:00+00:00</published><updated>2025-01-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BitwiseXOROfAllPairings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BitwiseXOROfAllPairings/"><![CDATA[<ul> <li>You are given two <strong>0-indexed</strong> arrays, <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, consisting of non-negative integers. There exists another array, <code class="language-plaintext highlighter-rouge">nums3</code>, which contains the bitwise XOR of <strong>all pairings</strong> of integers between <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> (every integer in <code class="language-plaintext highlighter-rouge">nums1</code> is paired with every integer in <code class="language-plaintext highlighter-rouge">nums2</code> <strong>exactly once</strong>).</li> <li>Return <em>the <strong>bitwise XOR</strong> of all integers in</em> <code class="language-plaintext highlighter-rouge">nums3</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [2,1,3], nums2 = [10,2,5,0]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-17T05:45:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3097. Shortest Subarray With OR at Least K II</title><link href="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII/" rel="alternate" type="text/html" title="3097. Shortest Subarray With OR at Least K II"/><published>2025-01-17T00:00:00+00:00</published><updated>2025-01-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKII/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>non-negative</strong> integers and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>An array is called <strong>special</strong> if the bitwise <code class="language-plaintext highlighter-rouge">OR</code> of all of its elements is <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code></li> <li>Return <em>the length of the <strong>shortest</strong> <strong>special</strong> <strong>non-empty</strong></em> <em>subarray</em> <em>of</em> <code class="language-plaintext highlighter-rouge">nums</code>, <em>or return</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no special subarray exists</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], k = 2
+
+Output: 1
+
+Explanation:
+
+The subarray [3] has OR value of 3. Hence, we return 1.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,8], k = 10
+
+Output: 3
+
+Explanation:
+
+The subarray [2,1,8] has OR value of 11. Hence, we return 3.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2], k = 0
+
+Output: 1
+
+Explanation:
+
+The subarray [1] has OR value of 1. Hence, we return 1.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/17
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShortestSubarrayWithORAtLeastKII</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimumSubarrayLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize answer with maximum value to track minimum length</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="c1">// Left pointer of sliding window</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Bottom marker to track the last position where OR values were properly calculated</span>
+        <span class="kt">int</span> <span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Variable to store the running OR value of current window</span>
+        <span class="kt">int</span> <span class="n">rightOr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through array with right pointer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update running OR value by including current element</span>
+            <span class="n">rightOr</span> <span class="o">|=</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
+
+            <span class="c1">// Try to minimize window size while maintaining OR &gt;= k condition</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">|</span> <span class="n">rightOr</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Update minimum length found so far</span>
+                <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+                <span class="c1">// Move left pointer to try finding smaller valid window</span>
+                <span class="n">left</span><span class="o">++;</span>
+
+                <span class="c1">// If left pointer moves beyond bottom marker, need to recalculate OR values</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">bottom</span> <span class="o">&lt;</span> <span class="n">left</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Rebuild OR values from right to left</span>
+                    <span class="c1">// This is necessary because moving left pointer affects the OR values</span>
+                    <span class="c1">// We store cumulative OR values in the original array</span>
+                    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+                        <span class="c1">// Update each position with its OR value with the next element</span>
+                        <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">|=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+                    <span class="o">}</span>
+
+                    <span class="c1">// Update bottom marker to current right position</span>
+                    <span class="c1">// This indicates we've recalculated OR values up to this point</span>
+                    <span class="n">bottom</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span>
+                    <span class="c1">// Reset rightOr as the OR values are now stored in the array</span>
+                    <span class="n">rightOr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return -1 if no valid subarray found, otherwise return minimum length</span>
+        <span class="k">return</span> <span class="n">ans</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Expected output is 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Expected output is 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Expected output is 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums of non-negative integers and an integer k. An array is called special if the bitwise OR of all of its elements is at least k Return the length of the shortest special non-empty subarray of nums, or return -1 if no special subarray exists.]]></summary></entry><entry><title type="html">2425. Bitwise XOR of All Pairings</title><link href="https://zhengstar94.github.io//blog/2025/BitwiseXOROfAllPairings/" rel="alternate" type="text/html" title="2425. Bitwise XOR of All Pairings"/><published>2025-01-16T00:00:00+00:00</published><updated>2025-01-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BitwiseXOROfAllPairings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BitwiseXOROfAllPairings/"><![CDATA[<ul> <li>You are given two <strong>0-indexed</strong> arrays, <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, consisting of non-negative integers. There exists another array, <code class="language-plaintext highlighter-rouge">nums3</code>, which contains the bitwise XOR of <strong>all pairings</strong> of integers between <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> (every integer in <code class="language-plaintext highlighter-rouge">nums1</code> is paired with every integer in <code class="language-plaintext highlighter-rouge">nums2</code> <strong>exactly once</strong>).</li> <li>Return <em>the <strong>bitwise XOR</strong> of all integers in</em> <code class="language-plaintext highlighter-rouge">nums3</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [2,1,3], nums2 = [10,2,5,0]
 Output: 13
 Explanation:
 A possible nums3 array is [8,0,7,2,11,3,4,1,9,1,6,3].
@@ -244,7 +337,7 @@ The subarray [1] has OR value of 1. Hence, we return 1.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an array nums of non-negative integers and an integer k. An array is called special if the bitwise OR of all of its elements is at least k. Return the length of the shortest special non-empty subarray of nums, or return -1 if no special subarray exists.]]></summary></entry><entry><title type="html">904. Fruit Into Baskets</title><link href="https://zhengstar94.github.io//blog/2025/FruitIntoBaskets/" rel="alternate" type="text/html" title="904. Fruit Into Baskets"/><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FruitIntoBaskets</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FruitIntoBaskets/"><![CDATA[<ul> <li>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code class="language-plaintext highlighter-rouge">fruits</code> where <code class="language-plaintext highlighter-rouge">fruits[i]</code> is the <strong>type</strong> of fruit the <code class="language-plaintext highlighter-rouge">ith</code> tree produces.</li> <li>You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow: <ul> <li>You only have <strong>two</strong> baskets, and each basket can only hold a <strong>single type</strong> of fruit. There is no limit on the amount of fruit each basket can hold.</li> <li>Starting from any tree of your choice, you must pick <strong>exactly one fruit</strong> from <strong>every</strong> tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.</li> <li>Once you reach a tree with fruit that cannot fit in your baskets, you must stop.</li> </ul> </li> <li>Given the integer array <code class="language-plaintext highlighter-rouge">fruits</code>, return <em>the <strong>maximum</strong> number of fruits you can pick</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: fruits = [1,2,1]
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Easy"/><summary type="html"><![CDATA[You are given an array nums of non-negative integers and an integer k. An array is called special if the bitwise OR of all of its elements is at least k. Return the length of the shortest special non-empty subarray of nums, or return -1 if no special subarray exists.]]></summary></entry><entry><title type="html">904. Fruit Into Baskets</title><link href="https://zhengstar94.github.io//blog/2025/FruitIntoBaskets/" rel="alternate" type="text/html" title="904. Fruit Into Baskets"/><published>2025-01-15T00:00:00+00:00</published><updated>2025-01-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FruitIntoBaskets</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FruitIntoBaskets/"><![CDATA[<ul> <li>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code class="language-plaintext highlighter-rouge">fruits</code> where <code class="language-plaintext highlighter-rouge">fruits[i]</code> is the <strong>type</strong> of fruit the <code class="language-plaintext highlighter-rouge">ith</code> tree produces.</li> <li>You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow: <ul> <li>You only have <strong>two</strong> baskets, and each basket can only hold a <strong>single type</strong> of fruit. There is no limit on the amount of fruit each basket can hold.</li> <li>Starting from any tree of your choice, you must pick <strong>exactly one fruit</strong> from <strong>every</strong> tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.</li> <li>Once you reach a tree with fruit that cannot fit in your baskets, you must stop.</li> </ul> </li> <li>Given the integer array <code class="language-plaintext highlighter-rouge">fruits</code>, return <em>the <strong>maximum</strong> number of fruits you can pick</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: fruits = [1,2,1]
 Output: 3
 Explanation: We can pick from all 3 trees.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: fruits = [0,1,2,2]
@@ -671,85 +764,4 @@ Explanation: You cannot make any change, so the maximum length is 1.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">equalSubstring</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">t3</span><span class="o">,</span> <span class="n">maxCost3</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given two strings s and t of the same length and an integer maxCost. You want to change s to t. Changing the ith character of s to ith character of t costs |s[i] - t[i]| (i.e., the absolute difference between the ASCII values of the characters). Return the maximum length of a substring of s that can be changed to be the same as the corresponding substring of t with a cost less than or equal to maxCost. If there is no substring from s that can be changed to its corresponding substring from t, return 0.]]></summary></entry><entry><title type="html">3223. Minimum Length of String After Operations</title><link href="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations/" rel="alternate" type="text/html" title="3223. Minimum Length of String After Operations"/><published>2025-01-13T00:00:00+00:00</published><updated>2025-01-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterOperations/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>You can perform the following process on <code class="language-plaintext highlighter-rouge">s</code> <strong>any</strong> number of times: <ul> <li>Choose an index <code class="language-plaintext highlighter-rouge">i</code> in the string such that there is <strong>at least</strong> one character to the left of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>, and <strong>at least</strong> one character to the right that is also equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> <li>Delete the <strong>closest</strong> character to the <strong>left</strong> of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> <li>Delete the <strong>closest</strong> character to the <strong>right</strong> of index <code class="language-plaintext highlighter-rouge">i</code> that is equal to <code class="language-plaintext highlighter-rouge">s[i]</code>.</li> </ul> </li> <li>Return the <strong>minimum</strong> length of the final string <code class="language-plaintext highlighter-rouge">s</code> that you can achieve.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abaacbcbb"
-
-Output: 5
-
-Explanation:
-We do the following operations:
-
-Choose index 2, then remove the characters at indices 0 and 3. The resulting string is s = "bacbcbb".
-Choose index 3, then remove the characters at indices 0 and 5. The resulting string is s = "acbcb".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aa"
-
-Output: 2
-
-Explanation:
-We cannot perform any operations, so we return the length of the original string.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumLengthOfStringAfterOperations</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimumLength</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Array to count frequency of each lowercase letter (a-z)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-
-        <span class="c1">// Count the frequency of each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="nl">ch:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">cnt</span><span class="o">[</span><span class="n">ch</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>  <span class="c1">// Convert char to index (e.g., 'a'-&gt;0, 'b'-&gt;1, etc.)</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Process each character's frequency to determine its contribution to final length</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">count:</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="cm">/* Mathematical formula explanation:
-                 * (count - 1) % 2 + 1 determines how many characters will remain:
-                 *
-                 * For count = 1: (1-1)%2 + 1 = 0%2 + 1 = 1  (one char remains)
-                 * For count = 2: (2-1)%2 + 1 = 1%2 + 1 = 2  (two chars remain)
-                 * For count = 3: (3-1)%2 + 1 = 2%2 + 1 = 1  (one char remains)
-                 * For count = 4: (4-1)%2 + 1 = 3%2 + 1 = 2  (two chars remain)
-                 *
-                 * Pattern:
-                 * - Odd counts (1,3,5,...)  -&gt; 1 char remains
-                 * - Even counts (2,4,6,...) -&gt; 2 chars remain
-                 *
-                 * This works because:
-                 * 1. We can delete 3 chars at a time
-                 * 2. For odd counts, we can delete all but one char
-                 * 3. For even counts, we must leave two chars
-                 */</span>
-                <span class="n">ans</span> <span class="o">+=</span> <span class="o">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abaacbcbb"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: 5"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"aa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: 2"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"aaaaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected output: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual output: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s. You can perform the following process on s any number of times: Choose an index i in the string such that there is at least one character to the left of index i that is equal to s[i], and at least one character to the right that is also equal to s[i]. Delete the closest character to the left of index i that is equal to s[i]. Delete the closest character to the right of index i that is equal to s[i]. Return the minimum length of the final string s that you can achieve.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given two strings s and t of the same length and an integer maxCost. You want to change s to t. Changing the ith character of s to ith character of t costs |s[i] - t[i]| (i.e., the absolute difference between the ASCII values of the characters). Return the maximum length of a substring of s that can be changed to be the same as the corresponding substring of t with a cost less than or equal to maxCost. If there is no substring from s that can be changed to its corresponding substring from t, return 0.]]></summary></entry></feed>
