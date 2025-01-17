@@ -7,7 +7,7 @@ title: "3095. Shortest Subarray With OR at Least K I"
 date: "2025-01-16"
 tags: Easy
 categories:
-  - "LeetCode Math"
+  - "LeetCode DynamicSlidingWindow"
 ---
 
 - You are given an array `nums` of **non-negative** integers and an integer `k`.
