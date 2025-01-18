@@ -4,10 +4,10 @@ toc:
 giscus_comments: true
 layout: post
 title: "2779. Maximum Beauty of an Array After Applying Operation"
-date: "2024-12-11"
+date: "2025-01-18"
 tags: Medium
 categories:
-  - "LeetCode Array"
+  - "LeetCode DynamicSlidingWindow"
 ---
 
 
