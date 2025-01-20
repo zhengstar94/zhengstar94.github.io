@@ -18,7 +18,7 @@ categories:
 **Example 1**
 
 ```
-Input: arr = [1,3,4,2], mat = [[1,4],[2,3]]
+Input: arr = [1,3,4,2], mat = [ [ 1,4],[2,3 ] ]
 Output: 2
 Explanation: The moves are shown in order, and both the first row and second column of the matrix become fully painted at arr[2].
 ```
@@ -26,7 +26,7 @@ Explanation: The moves are shown in order, and both the first row and second col
 **Example 2**
 
 ```
-Input: arr = [2,8,7,4,1,3,5,6,9], mat = [[3,2,5],[1,4,6],[8,7,9]]
+Input: arr = [2,8,7,4,1,3,5,6,9], mat = [ [ 3,2,5],[1,4,6],[8,7,9 ] ]
 Output: 3
 Explanation: The second column becomes fully painted at arr[3].
 ```
@@ -98,13 +98,13 @@ public class FirstCompletelyPaintedRowOrColumn {
     public static void main(String[] args) {
         // Test case 1
         int[] arr1 = {1, 3, 4, 2};
-        int[][] mat1 = {{1, 4}, {2, 3}};
+        int[][] mat1 = { { 1, 4}, {2, 3 } };
         // Expected output: 2, as the first completely painted row or column (row 0) is done on the 3rd element (index 2)
         System.out.println("Test Case 1 Result: " + firstCompleteIndex(arr1, mat1));
 
         // Test case 2
         int[] arr2 = {2, 8, 7, 4, 1, 3, 5, 6, 9};
-        int[][] mat2 = {{3, 2, 5}, {1, 4, 6}, {8, 7, 9}};
+        int[][] mat2 = { { 3, 2, 5}, {1, 4, 6}, {8, 7, 9 } };
         // Expected output: 3, as the first completely painted column (column 1) is done on the 4th element (index 3)
         System.out.println("Test Case 2 Result: " + firstCompleteIndex(arr2, mat2));
     }
