@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-19T05:18:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2266. Count Number of Texts</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfTexts/" rel="alternate" type="text/html" title="2266. Count Number of Texts"/><published>2025-01-19T00:00:00+00:00</published><updated>2025-01-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfTexts</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfTexts/"><![CDATA[<ul> <li>Alice is texting Bob using her phone. The <strong>mapping</strong> of digits to letters is shown in the figure below.</li> <li>In order to <strong>add</strong> a letter, Alice has to <strong>press</strong> the key of the corresponding digit <code class="language-plaintext highlighter-rouge">i</code> times, where <code class="language-plaintext highlighter-rouge">i</code> is the position of the letter in the key. <ul> <li>For example, to add the letter <code class="language-plaintext highlighter-rouge">'s'</code>, Alice has to press <code class="language-plaintext highlighter-rouge">'7'</code> four times. Similarly, to add the letter <code class="language-plaintext highlighter-rouge">'k'</code>, Alice has to press <code class="language-plaintext highlighter-rouge">'5'</code> twice.</li> <li>Note that the digits <code class="language-plaintext highlighter-rouge">'0'</code> and <code class="language-plaintext highlighter-rouge">'1'</code> do not map to any letters, so Alice <strong>does not</strong> use them.</li> </ul> </li> <li>However, due to an error in transmission, Bob did not receive Alice’s text message but received a <strong>string of pressed keys</strong> instead. <ul> <li>For example, when Alice sent the message <code class="language-plaintext highlighter-rouge">"bob"</code>, Bob received the string <code class="language-plaintext highlighter-rouge">"2266622"</code>.</li> </ul> </li> <li>Given a string <code class="language-plaintext highlighter-rouge">pressedKeys</code> representing the string received by Bob, return <em>the <strong>total number of possible text messages</strong> Alice could have sent</em>.</li> <li>Since the answer may be very large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pressedKeys = "22233"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-20T03:44:21+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2239. Find Closest Number to Zero</title><link href="https://zhengstar94.github.io//blog/2025/FindClosestNumberToZero/" rel="alternate" type="text/html" title="2239. Find Closest Number to Zero"/><published>2025-01-20T00:00:00+00:00</published><updated>2025-01-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindClosestNumberToZero</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindClosestNumberToZero/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, return <em>the number with the value <strong>closest</strong> to</em> <code class="language-plaintext highlighter-rouge">0</code> <em>in</em> <code class="language-plaintext highlighter-rouge">nums</code>. If there are multiple answers, return <em>the number with the <strong>largest</strong> value</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-4,-2,1,4,8]
+Output: 1
+Explanation:
+The distance from -4 to 0 is |-4| = 4.
+The distance from -2 to 0 is |-2| = 2.
+The distance from 1 to 0 is |1| = 1.
+The distance from 4 to 0 is |4| = 4.
+The distance from 8 to 0 is |8| = 8.
+Thus, the closest number to 0 in the array is 1.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,-1,1]
+Output: 1
+Explanation: 1 and -1 are both the closest numbers to 0, so 1 being larger is returned.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindClosestNumberToZero</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findClosestNumber</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// The result closest to zero</span>
+        <span class="kt">int</span> <span class="n">minDif</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span> <span class="c1">// Initialize minimum difference as positive infinity</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">dif</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span> <span class="c1">// Calculate absolute difference from zero</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">dif</span> <span class="o">&lt;</span> <span class="n">minDif</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// If current difference is smaller</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                <span class="n">minDif</span> <span class="o">=</span> <span class="n">dif</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">dif</span> <span class="o">==</span> <span class="n">minDif</span> <span class="o">&amp;&amp;</span> <span class="n">res</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// If differences are equal and current result is negative</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> <span class="c1">// Update to current number (prefer positive over negative)</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Mixed positive and negative numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">4</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">findClosestNumber</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test case 2: Numbers with same absolute value</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">findClosestNumber</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Edge case: Symmetric positive and negative numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">findClosestNumber</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
+
+        <span class="c1">// Edge case: Single element array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">findClosestNumber</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Edge case: Only positive numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">15</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5 result: "</span> <span class="o">+</span> <span class="n">findClosestNumber</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Edge case: Only negative numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums6</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">7</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">,</span> <span class="o">-</span><span class="mi">12</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 6 result: "</span> <span class="o">+</span> <span class="n">findClosestNumber</span><span class="o">(</span><span class="n">nums6</span><span class="o">));</span> <span class="c1">// Expected output: -3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums of size n, return the number with the value closest to 0 in nums. If there are multiple answers, return the number with the largest value.]]></summary></entry><entry><title type="html">2266. Count Number of Texts</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfTexts/" rel="alternate" type="text/html" title="2266. Count Number of Texts"/><published>2025-01-19T00:00:00+00:00</published><updated>2025-01-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfTexts</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfTexts/"><![CDATA[<ul> <li>Alice is texting Bob using her phone. The <strong>mapping</strong> of digits to letters is shown in the figure below.</li> <li>In order to <strong>add</strong> a letter, Alice has to <strong>press</strong> the key of the corresponding digit <code class="language-plaintext highlighter-rouge">i</code> times, where <code class="language-plaintext highlighter-rouge">i</code> is the position of the letter in the key. <ul> <li>For example, to add the letter <code class="language-plaintext highlighter-rouge">'s'</code>, Alice has to press <code class="language-plaintext highlighter-rouge">'7'</code> four times. Similarly, to add the letter <code class="language-plaintext highlighter-rouge">'k'</code>, Alice has to press <code class="language-plaintext highlighter-rouge">'5'</code> twice.</li> <li>Note that the digits <code class="language-plaintext highlighter-rouge">'0'</code> and <code class="language-plaintext highlighter-rouge">'1'</code> do not map to any letters, so Alice <strong>does not</strong> use them.</li> </ul> </li> <li>However, due to an error in transmission, Bob did not receive Alice’s text message but received a <strong>string of pressed keys</strong> instead. <ul> <li>For example, when Alice sent the message <code class="language-plaintext highlighter-rouge">"bob"</code>, Bob received the string <code class="language-plaintext highlighter-rouge">"2266622"</code>.</li> </ul> </li> <li>Given a string <code class="language-plaintext highlighter-rouge">pressedKeys</code> representing the string received by Bob, return <em>the <strong>total number of possible text messages</strong> Alice could have sent</em>.</li> <li>Since the answer may be very large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pressedKeys = "22233"
 Output: 8
 Explanation:
 The possible text messages Alice could have sent are:
@@ -669,89 +733,4 @@ Explanation: The optimal subarray here is [5,2,1] or [1,2,5].
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array of positive integers nums and want to erase a subarray containing unique elements. The score you get by erasing the subarray is equal to the sum of its elements. Return the maximum score you can get by erasing exactly one subarray. An array b is called to be a subarray of a if it forms a contiguous subsequence of a, that is, if it is equal to a[l],a[l+1],...,a[r] for some (l,r).]]></summary></entry><entry><title type="html">3095. Shortest Subarray With OR at Least K I</title><link href="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKI/" rel="alternate" type="text/html" title="3095. Shortest Subarray With OR at Least K I"/><published>2025-01-16T00:00:00+00:00</published><updated>2025-01-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestSubarrayWithORAtLeastKI/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> of <strong>non-negative</strong> integers and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>An array is called <strong>special</strong> if the bitwise <code class="language-plaintext highlighter-rouge">OR</code> of all of its elements is <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return <em>the length of the <strong>shortest</strong> <strong>special</strong> <strong>non-empty</strong></em> <em>subarray</em> <em>of</em> <code class="language-plaintext highlighter-rouge">nums</code>, <em>or return</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no special subarray exists</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], k = 2
-
-Output: 1
-
-Explanation:
-
-The subarray [3] has OR value of 3. Hence, we return 1.
-
-Note that [2] is also a special subarray.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,8], k = 10
-
-Output: 3
-
-Explanation:
-
-The subarray [2,1,8] has OR value of 11. Hence, we return 3.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2], k = 0
-
-Output: 1
-
-Explanation:
-
-The subarray [1] has OR value of 1. Hence, we return 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShortestSubarrayWithORAtLeastKI</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimumSubarrayLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of input array</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Return -1 if array is empty</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Initialize answer with maximum integer value</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-
-        <span class="c1">// Outer loop: iterate through all possible starting positions</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Initialize OR sum for current subarray</span>
-            <span class="kt">int</span> <span class="n">orSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="c1">// Inner loop: extend subarray and calculate OR sum</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Update OR sum by including current element</span>
-                <span class="n">orSum</span> <span class="o">|=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
-                <span class="c1">// If OR sum reaches or exceeds k, update minimum length</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">orSum</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-                    <span class="k">break</span><span class="o">;</span>  <span class="c1">// Found valid subarray, move to next starting position</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return -1 if no valid subarray found, otherwise return minimum length</span>
-        <span class="k">return</span> <span class="n">ans</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Simple case with small numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test Case 2: Case requiring multiple elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test Case 3: Case with k = 0</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test Case 4: Case with no valid solution</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">minimumSubarrayLength</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Expected output: -1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Easy"/><summary type="html"><![CDATA[You are given an array nums of non-negative integers and an integer k. An array is called special if the bitwise OR of all of its elements is at least k. Return the length of the shortest special non-empty subarray of nums, or return -1 if no special subarray exists.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array of positive integers nums and want to erase a subarray containing unique elements. The score you get by erasing the subarray is equal to the sum of its elements. Return the maximum score you can get by erasing exactly one subarray. An array b is called to be a subarray of a if it forms a contiguous subsequence of a, that is, if it is equal to a[l],a[l+1],...,a[r] for some (l,r).]]></summary></entry></feed>
