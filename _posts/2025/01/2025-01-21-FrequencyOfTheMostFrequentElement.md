@@ -44,7 +44,7 @@ Output: 1
 ## Method 1
 
 ```tex
-【O(n) time | O(n) space】
+【O(nlog(n)) time | O(1) space】
 ```
 
 ```java
