@@ -13,8 +13,8 @@ categories:
 
 - You are given an integer matrix `isWater` of size `m x n` that represents a map of **land** and **water** cells.
 
-    - If `isWater[i][j] == 0`, cell `(i, j)` is a **land** cell.
-    - If `isWater[i][j] == 1`, cell `(i, j)` is a **water** cell.
+    - If `isWater [ i ] [ j ] == 0`, cell `(i, j)` is a **land** cell.
+    - If `isWater [ i ] [ j ] == 1`, cell `(i, j)` is a **water** cell.
 
 - You must assign each cell a height in a way that follows these rules:
 
@@ -64,7 +64,7 @@ import java.util.Queue;
 public class MapOfHighestPeak {
     public static int[][] highestPeak(int[][] isWater) {
         // Define directions for adjacent cells (up, down, left, right)
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] directions = { { -1, 0}, {1, 0}, {0, -1}, {0, 1 } };
 
         // Initialize queue for BFS (Breadth-First Search)
         Queue<int[]> queue = new ArrayDeque<>();
