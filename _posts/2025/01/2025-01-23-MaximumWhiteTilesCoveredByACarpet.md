@@ -19,7 +19,7 @@ categories:
 **Example 1**
 
 ```
-Input: tiles = [[1,5],[10,11],[12,18],[20,25],[30,32]], carpetLen = 10
+Input: tiles = [ [1,5],[10,11],[12,18],[20,25],[30,32 ] ], carpetLen = 10
 Output: 9
 Explanation: Place the carpet starting on tile 10. 
 It covers 9 white tiles, so we return 9.
@@ -30,7 +30,7 @@ It can be shown that the carpet cannot cover more than 9 white tiles.
 **Example 2**
 
 ```
-Input: tiles = [[10,11],[1,1]], carpetLen = 2
+Input: tiles = [ [ 10,11],[1,1 ] ], carpetLen = 2
 Output: 2
 Explanation: Place the carpet starting on tile 10. 
 It covers 2 white tiles, so we return 2.
@@ -92,17 +92,17 @@ public class MaximumWhiteTilesCoveredByACarpet {
 
     public static void main(String[] args) {
         // Test Case 1: Complex case with multiple intervals
-        int[][] tiles1 = {{1, 5}, {10, 11}, {12, 18}, {20, 25}, {30, 32}};
+        int[][] tiles1 = { { 1, 5}, {10, 11}, {12, 18}, {20, 25}, {30, 32 } };
         int carpetLen1 = 10;
         System.out.println("Test case 1: " + maximumWhiteTiles(tiles1, carpetLen1)); // Expected output: 9
 
         // Test Case 2: Consecutive intervals with small gaps
-        int[][] tiles2 = {{1, 3}, {4, 6}, {8, 10}, {11, 13}};
+        int[][] tiles2 = { { 1, 3}, {4, 6}, {8, 10}, {11, 13 } };
         int carpetLen2 = 5;
         System.out.println("Test case 2: " + maximumWhiteTiles(tiles2, carpetLen2));
 
         // Test Case 3: Intervals with large gaps
-        int[][] tiles3 = {{5, 10}, {15, 20}, {25, 30}};
+        int[][] tiles3 = { { 5, 10}, {15, 20}, {25, 30 } };
         int carpetLen3 = 15;
         System.out.println("Test case 3: " + maximumWhiteTiles(tiles3, carpetLen3));
     }
