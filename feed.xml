@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-23T00:51:53+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2831. Find the Longest Equal Subarray</title><link href="https://zhengstar94.github.io//blog/2025/FindTheLongestEqualSubarray/" rel="alternate" type="text/html" title="2831. Find the Longest Equal Subarray"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheLongestEqualSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheLongestEqualSubarray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A subarray is called <strong>equal</strong> if all of its elements are equal. Note that the empty subarray is an <strong>equal</strong> subarray.</li> <li>Return <em>the length of the <strong>longest</strong> possible equal subarray after deleting <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code> <em>elements from</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A <strong>subarray</strong> is a contiguous, possibly empty sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,3,1,3], k = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-23T04:25:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1267. Count Servers that Communicate</title><link href="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/" rel="alternate" type="text/html" title="1267. Count Servers that Communicate"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/"><![CDATA[<ul> <li>You are given a map of a server center, represented as a <code class="language-plaintext highlighter-rouge">m * n</code> integer matrix <code class="language-plaintext highlighter-rouge">grid</code>, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.</li> <li>Return the number of servers that communicate with any other server.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[0,1 ] ]
+Output: 0
+Explanation: No servers can communicate with others.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[1,1 ] ]
+Output: 3
+Explanation: All three servers can communicate with at least one other server.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1 ] ]
+Output: 4
+Explanation: The two servers  in the first row can communicate with each other. The two servers in the third column can communicate with each other. The server at right bottom corner can't communicate with any other server.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n + m) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/23
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountServersThatCommunicate</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countServers</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases for null or empty grid</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">grid</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Get grid dimensions</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>     <span class="c1">// Number of rows</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>  <span class="c1">// Number of columns</span>
+
+        <span class="c1">// Arrays to store count of servers in each row and column</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">rowCount</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">];</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">colCount</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="c1">// First pass: Count servers in each row and column</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span> <span class="o">[</span> <span class="n">i</span> <span class="o">][</span> <span class="n">j</span> <span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+                    <span class="n">rowCount</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span> <span class="c1">// Increment server count for current row</span>
+                    <span class="n">colCount</span><span class="o">[</span><span class="n">j</span><span class="o">]++;</span> <span class="c1">// Increment server count for current column</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Second pass: Count servers that can communicate</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// A server can communicate if there's another server in same row or column</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">rowCount</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">colCount</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">++;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: No servers can communicate</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test case 2: All servers can communicate</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test case 3: Some servers can communicate</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid3</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test case 4: Empty grid</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid4</span> <span class="o">=</span> <span class="o">{</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test case 5: Single server (cannot communicate)</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid5</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid5</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a map of a server center, represented as a m * n integer matrix grid, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column. Return the number of servers that communicate with any other server.]]></summary></entry><entry><title type="html">2831. Find the Longest Equal Subarray</title><link href="https://zhengstar94.github.io//blog/2025/FindTheLongestEqualSubarray/" rel="alternate" type="text/html" title="2831. Find the Longest Equal Subarray"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheLongestEqualSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheLongestEqualSubarray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A subarray is called <strong>equal</strong> if all of its elements are equal. Note that the empty subarray is an <strong>equal</strong> subarray.</li> <li>Return <em>the length of the <strong>longest</strong> possible equal subarray after deleting <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code> <em>elements from</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A <strong>subarray</strong> is a contiguous, possibly empty sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,3,1,3], k = 3
 Output: 3
 Explanation: It's optimal to delete the elements at index 2 and index 4.
 After deleting them, nums becomes equal to [1, 3, 3, 3].
@@ -87,7 +171,83 @@ It can be proven that no longer equal subarrays can be created.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer k. A subarray is called equal if all of its elements are equal. Note that the empty subarray is an equal subarray. Return the length of the longest possible equal subarray after deleting at most k elements from nums. A subarray is a contiguous, possibly empty sequence of elements within an array.]]></summary></entry><entry><title type="html">1765. Map of Highest Peak</title><link href="https://zhengstar94.github.io//blog/2025/MapOfHighestPeak/" rel="alternate" type="text/html" title="1765. Map of Highest Peak"/><published>2025-01-22T00:00:00+00:00</published><updated>2025-01-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MapOfHighestPeak</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MapOfHighestPeak/"><![CDATA[<ul> <li> <p>You are given an integer matrix <code class="language-plaintext highlighter-rouge">isWater</code> of size <code class="language-plaintext highlighter-rouge">m x n</code> that represents a map of <strong>land</strong> and <strong>water</strong> cells.</p> <ul> <li>If <code class="language-plaintext highlighter-rouge">isWater [ i ] [ j ] == 0</code>, cell <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>land</strong> cell.</li> <li>If <code class="language-plaintext highlighter-rouge">isWater [ i ] [ j ] == 1</code>, cell <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>water</strong> cell.</li> </ul> </li> <li> <p>You must assign each cell a height in a way that follows these rules:</p> <ul> <li>The height of each cell must be non-negative.</li> <li>If the cell is a <strong>water</strong> cell, its height must be <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>Any two adjacent cells must have an absolute height difference of <strong>at most</strong> <code class="language-plaintext highlighter-rouge">1</code>. A cell is adjacent to another cell if the former is directly north, east, south, or west of the latter (i.e., their sides are touching).</li> </ul> </li> <li> <p>Find an assignment of heights such that the maximum height in the matrix is <strong>maximized</strong>.</p> <p>Return <em>an integer matrix</em> <code class="language-plaintext highlighter-rouge">height</code> <em>of size</em> <code class="language-plaintext highlighter-rouge">m x n</code> <em>where</em> <code class="language-plaintext highlighter-rouge">height[i][j]</code> <em>is cell</em> <code class="language-plaintext highlighter-rouge">(i, j)</code><em>’s height. If there are multiple solutions, return <strong>any</strong> of them</em>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: isWater = [ [ 0,1],[0,0 ] ]
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer k. A subarray is called equal if all of its elements are equal. Note that the empty subarray is an equal subarray. Return the length of the longest possible equal subarray after deleting at most k elements from nums. A subarray is a contiguous, possibly empty sequence of elements within an array.]]></summary></entry><entry><title type="html">2271. Maximum White Tiles Covered by a Carpet</title><link href="https://zhengstar94.github.io//blog/2025/MaximumWhiteTilesCoveredByACarpet/" rel="alternate" type="text/html" title="2271. Maximum White Tiles Covered by a Carpet"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumWhiteTilesCoveredByACarpet</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumWhiteTilesCoveredByACarpet/"><![CDATA[<ul> <li>You are given a 2D integer array <code class="language-plaintext highlighter-rouge">tiles</code> where <code class="language-plaintext highlighter-rouge">tiles[i] = [li, ri]</code> represents that every tile <code class="language-plaintext highlighter-rouge">j</code> in the range <code class="language-plaintext highlighter-rouge">li &lt;= j &lt;= ri</code> is colored white.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">carpetLen</code>, the length of a single carpet that can be placed <strong>anywhere</strong>.</li> <li>Return <em>the <strong>maximum</strong> number of white tiles that can be covered by the carpet</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tiles = [ [1,5],[10,11],[12,18],[20,25],[30,32 ] ], carpetLen = 10
+Output: 9
+Explanation: Place the carpet starting on tile 10. 
+It covers 9 white tiles, so we return 9.
+Note that there may be other places where the carpet covers 9 white tiles.
+It can be shown that the carpet cannot cover more than 9 white tiles.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tiles = [ [ 10,11],[1,1 ] ], carpetLen = 2
+Output: 2
+Explanation: Place the carpet starting on tile 10. 
+It covers 2 white tiles, so we return 2.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/23
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumWhiteTilesCoveredByACarpet</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumWhiteTiles</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles</span><span class="o">,</span> <span class="kt">int</span> <span class="n">carpetLen</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort tiles array by left endpoint in ascending order</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">tiles</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Store the maximum number of white tiles that can be covered</span>
+        <span class="kt">int</span> <span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Track the current number of tiles covered</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// Left pointer for the sliding window</span>
+
+        <span class="c1">// Iterate through each tile interval</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">tile</span> <span class="o">:</span> <span class="n">tiles</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tl</span> <span class="o">=</span> <span class="n">tile</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// Left endpoint of current interval</span>
+            <span class="kt">int</span> <span class="n">tr</span> <span class="o">=</span> <span class="n">tile</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span> <span class="c1">// Right endpoint of current interval</span>
+
+            <span class="c1">// Add number of tiles in current interval to cover</span>
+            <span class="c1">// Formula: right - left + 1 gives the count of tiles in current interval</span>
+            <span class="n">cover</span> <span class="o">+=</span> <span class="n">tr</span> <span class="o">-</span> <span class="n">tl</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+            <span class="c1">// While the carpet cannot fully cover from left interval to current interval</span>
+            <span class="c1">// Need to remove tiles from left side that are out of carpet's range</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">carpetLen</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">tr</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Remove tiles count of the leftmost interval that's out of range</span>
+                <span class="n">cover</span> <span class="o">-=</span> <span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="n">left</span><span class="o">++;</span> <span class="c1">// Move left pointer to next interval</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Calculate uncovered tiles within the current carpet placement</span>
+            <span class="c1">// tr - carpetLen + 1: leftmost position carpet needs to start to cover tr</span>
+            <span class="c1">// tiles[left][0]: actual leftmost position of current tiles</span>
+            <span class="c1">// Difference gives number of tiles that cannot be covered</span>
+            <span class="kt">int</span> <span class="n">uncover</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">tr</span> <span class="o">-</span> <span class="n">carpetLen</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
+
+            <span class="c1">// Update answer: maximum between current answer and (covered tiles - uncovered tiles)</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">cover</span> <span class="o">-</span> <span class="n">uncover</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Complex case with multiple intervals</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">},</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="mi">18</span><span class="o">},</span> <span class="o">{</span><span class="mi">20</span><span class="o">,</span> <span class="mi">25</span><span class="o">},</span> <span class="o">{</span><span class="mi">30</span><span class="o">,</span> <span class="mi">32</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">carpetLen1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">maximumWhiteTiles</span><span class="o">(</span><span class="n">tiles1</span><span class="o">,</span> <span class="n">carpetLen1</span><span class="o">));</span> <span class="c1">// Expected output: 9</span>
+
+        <span class="c1">// Test Case 2: Consecutive intervals with small gaps</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">11</span><span class="o">,</span> <span class="mi">13</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">carpetLen2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">maximumWhiteTiles</span><span class="o">(</span><span class="n">tiles2</span><span class="o">,</span> <span class="n">carpetLen2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Intervals with large gaps</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">20</span><span class="o">},</span> <span class="o">{</span><span class="mi">25</span><span class="o">,</span> <span class="mi">30</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">carpetLen3</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">maximumWhiteTiles</span><span class="o">(</span><span class="n">tiles3</span><span class="o">,</span> <span class="n">carpetLen3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 2D integer array tiles where tiles[i] = [li, ri] represents that every tile j in the range li &lt;= j &lt;= ri is colored white. You are also given an integer carpetLen, the length of a single carpet that can be placed anywhere. Return the maximum number of white tiles that can be covered by the carpet.]]></summary></entry><entry><title type="html">1765. Map of Highest Peak</title><link href="https://zhengstar94.github.io//blog/2025/MapOfHighestPeak/" rel="alternate" type="text/html" title="1765. Map of Highest Peak"/><published>2025-01-22T00:00:00+00:00</published><updated>2025-01-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MapOfHighestPeak</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MapOfHighestPeak/"><![CDATA[<ul> <li> <p>You are given an integer matrix <code class="language-plaintext highlighter-rouge">isWater</code> of size <code class="language-plaintext highlighter-rouge">m x n</code> that represents a map of <strong>land</strong> and <strong>water</strong> cells.</p> <ul> <li>If <code class="language-plaintext highlighter-rouge">isWater [ i ] [ j ] == 0</code>, cell <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>land</strong> cell.</li> <li>If <code class="language-plaintext highlighter-rouge">isWater [ i ] [ j ] == 1</code>, cell <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>water</strong> cell.</li> </ul> </li> <li> <p>You must assign each cell a height in a way that follows these rules:</p> <ul> <li>The height of each cell must be non-negative.</li> <li>If the cell is a <strong>water</strong> cell, its height must be <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>Any two adjacent cells must have an absolute height difference of <strong>at most</strong> <code class="language-plaintext highlighter-rouge">1</code>. A cell is adjacent to another cell if the former is directly north, east, south, or west of the latter (i.e., their sides are touching).</li> </ul> </li> <li> <p>Find an assignment of heights such that the maximum height in the matrix is <strong>maximized</strong>.</p> <p>Return <em>an integer matrix</em> <code class="language-plaintext highlighter-rouge">height</code> <em>of size</em> <code class="language-plaintext highlighter-rouge">m x n</code> <em>where</em> <code class="language-plaintext highlighter-rouge">height[i][j]</code> <em>is cell</em> <code class="language-plaintext highlighter-rouge">(i, j)</code><em>’s height. If there are multiple solutions, return <strong>any</strong> of them</em>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: isWater = [ [ 0,1],[0,0 ] ]
 Output: [ [ 1,0],[2,1 ] ]
 Explanation: The image shows the assigned heights of each cell.
 The blue cell is the water cell, and the green cells are the land cells.
@@ -697,184 +857,4 @@ Explanation: The second column becomes fully painted at arr[3].
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array arr, and an m x n integer matrix mat. arr and mat both contain all the integers in the range [1, m * n]. Go through each index i in arr starting from index 0 and paint the cell in mat containing the integer arr[i]. Return the smallest index i at which either a row or a column will be completely painted in mat.]]></summary></entry><entry><title type="html">1658. Minimum Operations to Reduce X to Zero</title><link href="https://zhengstar94.github.io//blog/2025/MinimumOperationsToReduceXToZero/" rel="alternate" type="text/html" title="1658. Minimum Operations to Reduce X to Zero"/><published>2025-01-20T00:00:00+00:00</published><updated>2025-01-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumOperationsToReduceXToZero</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumOperationsToReduceXToZero/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">x</code>. In one operation, you can either remove the leftmost or the rightmost element from the array <code class="language-plaintext highlighter-rouge">nums</code> and subtract its value from <code class="language-plaintext highlighter-rouge">x</code>. Note that this <strong>modifies</strong> the array for future operations.</li> <li>Return <em>the <strong>minimum number</strong> of operations to reduce</em> <code class="language-plaintext highlighter-rouge">x</code> <em>to <strong>exactly</strong></em> <code class="language-plaintext highlighter-rouge">0</code> <em>if it is possible**, otherwise, return</em> <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,4,2,3], x = 5
-Output: 2
-Explanation: The optimal solution is to remove the last two elements to reduce x to zero.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,6,7,8,9], x = 4
-Output: -1
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,20,1,1,3], x = 10
-Output: 5
-Explanation: The optimal solution is to remove the last three elements and the first two elements (5 operations in total) to reduce x to zero.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumOperationsToReduceXToZero</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Step 1: Calculate the total sum of the array</span>
-        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 2: Calculate target sum for the sliding window</span>
-        <span class="c1">// We want to find a subarray that sums to (total_sum - x)</span>
-        <span class="kt">int</span> <span class="n">target</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">x</span><span class="o">;</span>
-
-        <span class="c1">// If target is negative, it's impossible to find a solution</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If target is zero, we need to remove all elements</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 3: Initialize sliding window variables</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>              <span class="c1">// Left pointer of the window</span>
-        <span class="kt">int</span> <span class="n">currentSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>        <span class="c1">// Current sum within the window</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>          <span class="c1">// Length of longest subarray summing to target</span>
-
-        <span class="c1">// Step 4: Implement sliding window technique</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to window sum</span>
-            <span class="n">currentSum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
-
-            <span class="c1">// Shrink window while sum exceeds target</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">currentSum</span> <span class="o">&gt;</span> <span class="n">target</span> <span class="o">&amp;&amp;</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">currentSum</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If window sum equals target, update maximum length</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">currentSum</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 5: Return result</span>
-        <span class="c1">// If no valid subarray found, return -1</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">maxLen</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return number of elements to remove (total length minus length of valid subarray)</span>
-        <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">maxLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Normal case</span>
-        <span class="c1">// Expected output: 2 (remove 2 and 3 from the end)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">x1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Impossible case</span>
-        <span class="c1">// Expected output: -1 (no combination sums to 4)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">x2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Multiple operations needed</span>
-        <span class="c1">// Expected output: 5 (remove [3,2] from left and [1,1,3] from right)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">x3</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">x3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Edge case - Empty array</span>
-        <span class="c1">// Expected output: -1 (impossible with empty array)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="kt">int</span> <span class="n">x4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">x4</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 5: Edge case - Single element</span>
-        <span class="c1">// Expected output: 1 (remove the single element)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">x5</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">x5</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and an integer x. In one operation, you can either remove the leftmost or the rightmost element from the array nums and subtract its value from x. Note that this modifies the array for future operations. Return the minimum number of operations to reduce x to exactly 0 if it is possible**, otherwise, return -1.]]></summary></entry><entry><title type="html">2266. Count Number of Texts</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfTexts/" rel="alternate" type="text/html" title="2266. Count Number of Texts"/><published>2025-01-19T00:00:00+00:00</published><updated>2025-01-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfTexts</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfTexts/"><![CDATA[<ul> <li>Alice is texting Bob using her phone. The <strong>mapping</strong> of digits to letters is shown in the figure below.</li> <li>In order to <strong>add</strong> a letter, Alice has to <strong>press</strong> the key of the corresponding digit <code class="language-plaintext highlighter-rouge">i</code> times, where <code class="language-plaintext highlighter-rouge">i</code> is the position of the letter in the key. <ul> <li>For example, to add the letter <code class="language-plaintext highlighter-rouge">'s'</code>, Alice has to press <code class="language-plaintext highlighter-rouge">'7'</code> four times. Similarly, to add the letter <code class="language-plaintext highlighter-rouge">'k'</code>, Alice has to press <code class="language-plaintext highlighter-rouge">'5'</code> twice.</li> <li>Note that the digits <code class="language-plaintext highlighter-rouge">'0'</code> and <code class="language-plaintext highlighter-rouge">'1'</code> do not map to any letters, so Alice <strong>does not</strong> use them.</li> </ul> </li> <li>However, due to an error in transmission, Bob did not receive Alice’s text message but received a <strong>string of pressed keys</strong> instead. <ul> <li>For example, when Alice sent the message <code class="language-plaintext highlighter-rouge">"bob"</code>, Bob received the string <code class="language-plaintext highlighter-rouge">"2266622"</code>.</li> </ul> </li> <li>Given a string <code class="language-plaintext highlighter-rouge">pressedKeys</code> representing the string received by Bob, return <em>the <strong>total number of possible text messages</strong> Alice could have sent</em>.</li> <li>Since the answer may be very large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pressedKeys = "22233"
-Output: 8
-Explanation:
-The possible text messages Alice could have sent are:
-"aaadd", "abdd", "badd", "cdd", "aaae", "abe", "bae", and "ce".
-Since there are 8 possible messages, we return 8.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pressedKeys = "222222222222222222222222222222222222"
-Output: 82876089
-Explanation:
-There are 2082876103 possible text messages Alice could have sent.
-Since we need to return the answer modulo 10^9 + 7, we return 2082876103 % (10^9 + 7) = 82876089.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountNumberOfTexts</span> <span class="o">{</span>
-
-    <span class="c1">// Define the modulus as required by the problem to avoid overflow</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1_000_000_007</span><span class="o">;</span>
-
-    <span class="c1">// Method to calculate the total number of text messages that can be formed</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countTexts</span><span class="o">(</span><span class="nc">String</span> <span class="n">pressedKeys</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="c1">// Get the length of the input string pressedKeys</span>
-        <span class="kt">long</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>  <span class="c1">// Create a dp array of size n+1 to store results for subproblems</span>
-        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Base case: An empty sequence has exactly one way to form it (do nothing)</span>
-
-        <span class="c1">// Iterate from the 1st pressed key to the nth pressed key</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add the number of ways using the last single key press (always valid)</span>
-            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span> <span class="c1">// Single key usage, inherits from dp[i-1]</span>
-
-            <span class="c1">// Check if the current key can combine with the previous key</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If they are the same, add the values from dp[i-2] (combining two keys)</span>
-                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">])</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check if the current key can combine with the last two keys (three keys total)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span>
-                    <span class="o">&amp;&amp;</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span> <span class="o">==</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If three consecutive keys are the same, add the values from dp[i-3]</span>
-                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="o">])</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check if the current key can combine with the last three keys (four keys total)</span>
-            <span class="c1">// This is only valid for the keys '7' and '9', as they can form up to 4-letter combinations</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'7'</span> <span class="o">||</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'9'</span><span class="o">)</span>
-                    <span class="o">&amp;&amp;</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span>
-                    <span class="o">&amp;&amp;</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">)</span> <span class="o">==</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="o">)</span>
-                    <span class="o">&amp;&amp;</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="o">)</span> <span class="o">==</span> <span class="n">pressedKeys</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If four consecutive keys are the same and the key is 7 or 9, add the values from dp[i-4]</span>
-                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span><span class="o">])</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The final result is stored in dp[n], the number of ways to form messages from the entire string</span>
-        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="c1">// Main method to test the implementation with examples</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">pressedKeys1</span> <span class="o">=</span> <span class="s">"22233"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countTexts</span><span class="o">(</span><span class="n">pressedKeys1</span><span class="o">));</span> <span class="c1">// Expected output: 8</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">String</span> <span class="n">pressedKeys2</span> <span class="o">=</span> <span class="s">"222222222222222222222222222222222222"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countTexts</span><span class="o">(</span><span class="n">pressedKeys2</span><span class="o">));</span> <span class="c1">// Expected output: 82876089</span>
-
-        <span class="c1">// Additional test case</span>
-        <span class="nc">String</span> <span class="n">pressedKeys3</span> <span class="o">=</span> <span class="s">"2266622"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countTexts</span><span class="o">(</span><span class="n">pressedKeys3</span><span class="o">));</span> <span class="c1">// Expected output depends on the pattern</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[Alice is texting Bob using her phone. The mapping of digits to letters is shown in the figure below. In order to add a letter, Alice has to press the key of the corresponding digit i times, where i is the position of the letter in the key. For example, to add the letter 's', Alice has to press '7' four times. Similarly, to add the letter 'k', Alice has to press '5' twice. Note that the digits '0' and '1' do not map to any letters, so Alice does not use them. However, due to an error in transmission, Bob did not receive Alice’s text message but received a string of pressed keys instead. For example, when Alice sent the message "bob", Bob received the string "2266622". Given a string pressedKeys representing the string received by Bob, return the total number of possible text messages Alice could have sent. Since the answer may be very large, return it modulo 10^9 + 7.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array arr, and an m x n integer matrix mat. arr and mat both contain all the integers in the range [1, m * n]. Go through each index i in arr starting from index 0 and paint the cell in mat containing the integer arr[i]. Return the smallest index i at which either a row or a column will be completely painted in mat.]]></summary></entry></feed>
