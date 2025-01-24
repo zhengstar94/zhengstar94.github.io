@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-23T04:25:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1267. Count Servers that Communicate</title><link href="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/" rel="alternate" type="text/html" title="1267. Count Servers that Communicate"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/"><![CDATA[<ul> <li>You are given a map of a server center, represented as a <code class="language-plaintext highlighter-rouge">m * n</code> integer matrix <code class="language-plaintext highlighter-rouge">grid</code>, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.</li> <li>Return the number of servers that communicate with any other server.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[0,1 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-24T08:12:15+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review) 2944. Minimum Number of Coins for Fruits</title><link href="https://zhengstar94.github.io//blog/2025/MinimumNumberOfCoinsForFruits/" rel="alternate" type="text/html" title="(Review) 2944. Minimum Number of Coins for Fruits"/><published>2025-01-24T00:00:00+00:00</published><updated>2025-01-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumNumberOfCoinsForFruits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumNumberOfCoinsForFruits/"><![CDATA[<ul> <li>You are given an <strong>1-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">prices</code> where <code class="language-plaintext highlighter-rouge">prices[i]</code> denotes the number of coins needed to purchase the <code class="language-plaintext highlighter-rouge">ith</code> fruit.</li> <li>The fruit market has the following reward for each fruit: <ul> <li>If you purchase the <code class="language-plaintext highlighter-rouge">ith</code> fruit at <code class="language-plaintext highlighter-rouge">prices[i]</code> coins, you can get any number of the next <code class="language-plaintext highlighter-rouge">i</code> fruits for free.</li> </ul> </li> <li><strong>Note</strong> that even if you <strong>can</strong> take fruit <code class="language-plaintext highlighter-rouge">j</code> for free, you can still purchase it for <code class="language-plaintext highlighter-rouge">prices[j]</code> coins to receive its reward.</li> <li>Return the <strong>minimum</strong> number of coins needed to acquire all the fruits.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [3,1,2]
+Output: 4
+
+Explanation:
+Purchase the 1st fruit with prices[0] = 3 coins, you are allowed to take the 2nd fruit for free.
+Purchase the 2nd fruit with prices[1] = 1 coin, you are allowed to take the 3rd fruit for free.
+Take the 3rd fruit for free.
+
+Note that even though you could take the 2nd fruit for free as a reward of buying 1st fruit, you purchase it to receive its reward, which is more optimal.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [1,10,1,1]
+Output: 2
+
+Explanation:
+Purchase the 1st fruit with prices[0] = 1 coin, you are allowed to take the 2nd fruit for free.
+Take the 2nd fruit for free.
+Purchase the 3rd fruit for prices[2] = 1 coin, you are allowed to take the 4th fruit for free.
+Take the 4th fruit for free.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [26,18,6,12,49,7,45,45]
+Output: 39
+
+Explanation:
+Purchase the 1st fruit with prices[0] = 26 coin, you are allowed to take the 2nd fruit for free.
+Take the 2nd fruit for free.
+Purchase the 3rd fruit for prices[2] = 6 coin, you are allowed to take the 4th, 5th and 6th (the next three) fruits for free.
+Take the 4th fruit for free.
+Take the 5th fruit for free.
+Purchase the 6th fruit with prices[5] = 7 coin, you are allowed to take the 8th and 9th fruit for free.
+Take the 7th fruit for free.
+Take the 8th fruit for free.
+
+Note that even though you could take the 6th fruit for free as a reward of buying 3rd fruit, you purchase it to receive its reward, which is more optimal.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/24
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumNumberOfCoinsForFruits</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimumCoins</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="c1">// Number of fruits</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// If there are no fruits, the cost is 0</span>
+        <span class="o">}</span>
+
+        <span class="c1">// dp[i] represents the minimum cost to purchase the first (i+1) fruits</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">dp</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span> <span class="c1">// Initialize all values to a large number</span>
+        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">prices</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// The first fruit must be purchased, so its cost is prices[0]</span>
+
+        <span class="c1">// Iterate through each fruit starting from the second one</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// The starting point for j is i/2 because purchasing the j-th fruit</span>
+            <span class="c1">// allows you to get the next j fruits for free</span>
+            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Iterate through all possible j values that can cover the i-th fruit</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// prev represents the cost to purchase the first j fruits</span>
+                <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">?</span> <span class="n">dp</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
+
+                <span class="c1">// If prev is valid (not Integer.MAX_VALUE), update dp[i]</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">prev</span> <span class="o">!=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prices</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the minimum cost to purchase all fruits</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minimumCoins</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">}));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minimumCoins</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">}));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minimumCoins</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">26</span><span class="o">,</span> <span class="mi">18</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">45</span><span class="o">,</span> <span class="mi">45</span><span class="o">}));</span> <span class="c1">// Expected output: 39</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode LeetCode Dynamic Programming"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[You are given an 1-indexed integer array prices where prices[i] denotes the number of coins needed to purchase the ith fruit. The fruit market has the following reward for each fruit: If you purchase the ith fruit at prices[i] coins, you can get any number of the next i fruits for free. Note that even if you can take fruit j for free, you can still purchase it for prices[j] coins to receive its reward. Return the minimum number of coins needed to acquire all the fruits.]]></summary></entry><entry><title type="html">1267. Count Servers that Communicate</title><link href="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/" rel="alternate" type="text/html" title="1267. Count Servers that Communicate"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/"><![CDATA[<ul> <li>You are given a map of a server center, represented as a <code class="language-plaintext highlighter-rouge">m * n</code> integer matrix <code class="language-plaintext highlighter-rouge">grid</code>, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.</li> <li>Return the number of servers that communicate with any other server.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[0,1 ] ]
 Output: 0
 Explanation: No servers can communicate with others.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[1,1 ] ]
@@ -778,83 +864,4 @@ Explanation: 1 and -1 are both the closest numbers to 0, so 1 being larger is re
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums of size n, return the number with the value closest to 0 in nums. If there are multiple answers, return the number with the largest value.]]></summary></entry><entry><title type="html">2661. First Completely Painted Row or Column</title><link href="https://zhengstar94.github.io//blog/2025/FirstCompletelyPaintedRowOrColumn/" rel="alternate" type="text/html" title="2661. First Completely Painted Row or Column"/><published>2025-01-20T00:00:00+00:00</published><updated>2025-01-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FirstCompletelyPaintedRowOrColumn</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FirstCompletelyPaintedRowOrColumn/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">arr</code>, and an <code class="language-plaintext highlighter-rouge">m x n</code> integer <strong>matrix</strong> <code class="language-plaintext highlighter-rouge">mat</code>. <code class="language-plaintext highlighter-rouge">arr</code> and <code class="language-plaintext highlighter-rouge">mat</code> both contain <strong>all</strong> the integers in the range <code class="language-plaintext highlighter-rouge">[1, m * n]</code>.</li> <li>Go through each index <code class="language-plaintext highlighter-rouge">i</code> in <code class="language-plaintext highlighter-rouge">arr</code> starting from index <code class="language-plaintext highlighter-rouge">0</code> and paint the cell in <code class="language-plaintext highlighter-rouge">mat</code> containing the integer <code class="language-plaintext highlighter-rouge">arr[i]</code>.</li> <li>Return <em>the smallest index</em> <code class="language-plaintext highlighter-rouge">i</code> <em>at which either a row or a column will be completely painted in</em> <code class="language-plaintext highlighter-rouge">mat</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,3,4,2], mat = [ [ 1,4],[2,3 ] ]
-Output: 2
-Explanation: The moves are shown in order, and both the first row and second column of the matrix become fully painted at arr[2].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,8,7,4,1,3,5,6,9], mat = [ [ 3,2,5],[1,4,6],[8,7,9 ] ]
-Output: 3
-Explanation: The second column becomes fully painted at arr[3].
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n*m) time | O(n*m) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FirstCompletelyPaintedRowOrColumn</span> <span class="o">{</span>
-
-    <span class="c1">// Function to find the first index in `arr` such that a row or a column in the matrix `mat` is completely filled</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">firstCompleteIndex</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the number of rows in the matrix</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Get the number of columns in the matrix</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Create a hash map to store the position (row and column) of each number in the matrix</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">numToPos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Populate the hash map:</span>
-        <span class="c1">// Loop through all rows (i)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Loop through all columns (j)</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Add the current matrix element as the key, and its position [row, column] as the value</span>
-                <span class="n">numToPos</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">],</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">});</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Create two arrays to track the count of painted cells in each row and each column</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">rowCount</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">];</span> <span class="c1">// Keeps track of how many cells are painted in each row</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">colCount</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span> <span class="c1">// Keeps track of how many cells are painted in each column</span>
-
-        <span class="c1">// Loop through the array `arr` in the given order</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Get the position of the current number from the hash map</span>
-            <span class="kt">int</span><span class="o">[]</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">numToPos</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// Row index of the current number in `mat`</span>
-            <span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="n">pos</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span> <span class="c1">// Column index of the current number in `mat`</span>
-
-            <span class="c1">// Increment the count for the corresponding row and column</span>
-            <span class="n">rowCount</span><span class="o">[</span><span class="n">row</span><span class="o">]++;</span>
-            <span class="n">colCount</span><span class="o">[</span><span class="n">col</span><span class="o">]++;</span>
-
-            <span class="c1">// Check if the current row has been completely painted</span>
-            <span class="c1">// OR if the current column has been completely painted</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">rowCount</span><span class="o">[</span><span class="n">row</span><span class="o">]</span> <span class="o">==</span> <span class="n">n</span> <span class="o">||</span> <span class="n">colCount</span><span class="o">[</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">m</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="n">i</span><span class="o">;</span> <span class="c1">// If so, return the current index from `arr`</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If no row or column is completely painted, return the last possible index</span>
-        <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="c1">// Expected output: 2, as the first completely painted row or column (row 0) is done on the 3rd element (index 2)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">firstCompleteIndex</span><span class="o">(</span><span class="n">arr1</span><span class="o">,</span> <span class="n">mat1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="c1">// Expected output: 3, as the first completely painted column (column 1) is done on the 4th element (index 3)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">firstCompleteIndex</span><span class="o">(</span><span class="n">arr2</span><span class="o">,</span> <span class="n">mat2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array arr, and an m x n integer matrix mat. arr and mat both contain all the integers in the range [1, m * n]. Go through each index i in arr starting from index 0 and paint the cell in mat containing the integer arr[i]. Return the smallest index i at which either a row or a column will be completely painted in mat.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums of size n, return the number with the value closest to 0 in nums. If there are multiple answers, return the number with the largest value.]]></summary></entry></feed>
