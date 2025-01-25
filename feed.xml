@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-24T09:13:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">802. Find Eventual Safe States</title><link href="https://zhengstar94.github.io//blog/2025/FindEventualSafeStates/" rel="alternate" type="text/html" title="802. Find Eventual Safe States"/><published>2025-01-24T00:00:00+00:00</published><updated>2025-01-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindEventualSafeStates</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindEventualSafeStates/"><![CDATA[<ul> <li>There is a directed graph of <code class="language-plaintext highlighter-rouge">n</code> nodes with each node labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code>. The graph is represented by a <strong>0-indexed</strong> 2D integer array <code class="language-plaintext highlighter-rouge">graph</code> where <code class="language-plaintext highlighter-rouge">graph[i]</code> is an integer array of nodes adjacent to node <code class="language-plaintext highlighter-rouge">i</code>, meaning there is an edge from node <code class="language-plaintext highlighter-rouge">i</code> to each node in <code class="language-plaintext highlighter-rouge">graph[i]</code>.</li> <li>A node is a <strong>terminal node</strong> if there are no outgoing edges. A node is a <strong>safe node</strong> if every possible path starting from that node leads to a <strong>terminal node</strong> (or another safe node).</li> <li>Return <em>an array containing all the <strong>safe nodes</strong> of the graph</em>. The answer should be sorted in <strong>ascending</strong> order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: graph = [ [ 1,2],[2,3],[5],[0],[5],[],[ ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-25T06:15:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2412. Minimum Money Required Before Transactions</title><link href="https://zhengstar94.github.io//blog/2025/MinimumMoneyRequiredBeforeTransactions/" rel="alternate" type="text/html" title="2412. Minimum Money Required Before Transactions"/><published>2025-01-25T00:00:00+00:00</published><updated>2025-01-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumMoneyRequiredBeforeTransactions</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumMoneyRequiredBeforeTransactions/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> 2D integer array <code class="language-plaintext highlighter-rouge">transactions</code>, where <code class="language-plaintext highlighter-rouge">transactions[i] = [costi, cashbacki]</code>.</li> <li>The array describes transactions, where each transaction must be completed exactly once in <strong>some order</strong>. At any given moment, you have a certain amount of <code class="language-plaintext highlighter-rouge">money</code>. In order to complete transaction <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">money &gt;= costi</code> must hold true. After performing a transaction, <code class="language-plaintext highlighter-rouge">money</code> becomes <code class="language-plaintext highlighter-rouge">money - costi + cashbacki</code>.</li> <li>Return <em>the minimum amount of</em> <code class="language-plaintext highlighter-rouge">money</code> <em>required before any transaction so that all of the transactions can be completed <strong>regardless of the order</strong> of the transactions.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: transactions = [ [ 2,1],[5,0],[4,2 ] ]
+Output: 10
+Explanation:
+Starting with money = 10, the transactions can be performed in any order.
+It can be shown that starting with money &lt; 10 will fail to complete all transactions in some order.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: transactions = [ [ 3,0],[0,3 ] ]
+Output: 3
+Explanation:
+- If transactions are in the order [ [ 3,0],[0,3 ] ], the minimum money required to complete the transactions is 3.
+- If transactions are in the order [ [ 0,3],[3,0 ] ], the minimum money required to complete the transactions is 0.
+Thus, starting with money = 3, the transactions can be performed in any order.
+
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/25
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumMoneyRequiredBeforeTransactions</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Calculate the minimum initial money required to complete all transactions
+     *
+     * @param transactions 2D array where each inner array contains [cost, cashback]
+     * @return long value representing the minimum initial money needed
+     *
+     * Algorithm explanation:
+     * 1. totalLose: Accumulates the total money lost from all losing transactions
+     * 2. mx: Tracks the maximum of minimum starting money needed for any single transaction
+     * 3. Final result = totalLose + mx
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">minimumMoney</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Track the total money lost from all losing transactions</span>
+        <span class="kt">long</span> <span class="n">totalLose</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Track the maximum of minimum starting money needed for any transaction</span>
+        <span class="kt">int</span> <span class="n">mx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each transaction</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">transaction</span> <span class="o">:</span> <span class="n">transactions</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate and accumulate losses</span>
+            <span class="c1">// If cost &gt; cashback, add the difference to totalLose</span>
+            <span class="c1">// If cost &lt;= cashback, add 0 (no loss)</span>
+            <span class="n">totalLose</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">transaction</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">transaction</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
+
+            <span class="c1">// Calculate minimum starting money needed for this transaction</span>
+            <span class="c1">// Why min?: Because we need at least the smaller of (cost, cashback)</span>
+            <span class="c1">// to start this transaction at any point</span>
+            <span class="kt">int</span> <span class="n">minStart</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">transaction</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">transaction</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+
+            <span class="c1">// Update mx if current transaction needs more starting money</span>
+            <span class="c1">// This ensures we have enough money to start the most demanding transaction</span>
+            <span class="n">mx</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">mx</span><span class="o">,</span> <span class="n">minStart</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return total losses plus maximum starting money needed</span>
+        <span class="c1">// This sum ensures we can complete all transactions in any order</span>
+        <span class="k">return</span> <span class="n">totalLose</span> <span class="o">+</span> <span class="n">mx</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Mixed transactions with losses</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Example 1 ==="</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">long</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">minimumMoney</span><span class="o">(</span><span class="n">transactions1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Minimum initial money needed for Example 1: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 2: Transactions with extreme cashback differences</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n\n=== Example 2 ==="</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">long</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">minimumMoney</span><span class="o">(</span><span class="n">transactions2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Minimum initial money needed for Example 2: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 3: More complex transactions with varying profits/losses</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n\n=== Example 3 ==="</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">10</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">long</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">minimumMoney</span><span class="o">(</span><span class="n">transactions3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Minimum initial money needed for Example 3: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed 2D integer array transactions, where transactions[i] = [costi, cashbacki]. The array describes transactions, where each transaction must be completed exactly once in some order. At any given moment, you have a certain amount of money. In order to complete transaction i, money &gt;= costi must hold true. After performing a transaction, money becomes money - costi + cashbacki. Return the minimum amount of money required before any transaction so that all of the transactions can be completed regardless of the order of the transactions.]]></summary></entry><entry><title type="html">802. Find Eventual Safe States</title><link href="https://zhengstar94.github.io//blog/2025/FindEventualSafeStates/" rel="alternate" type="text/html" title="802. Find Eventual Safe States"/><published>2025-01-24T00:00:00+00:00</published><updated>2025-01-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindEventualSafeStates</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindEventualSafeStates/"><![CDATA[<ul> <li>There is a directed graph of <code class="language-plaintext highlighter-rouge">n</code> nodes with each node labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code>. The graph is represented by a <strong>0-indexed</strong> 2D integer array <code class="language-plaintext highlighter-rouge">graph</code> where <code class="language-plaintext highlighter-rouge">graph[i]</code> is an integer array of nodes adjacent to node <code class="language-plaintext highlighter-rouge">i</code>, meaning there is an edge from node <code class="language-plaintext highlighter-rouge">i</code> to each node in <code class="language-plaintext highlighter-rouge">graph[i]</code>.</li> <li>A node is a <strong>terminal node</strong> if there are no outgoing edges. A node is a <strong>safe node</strong> if every possible path starting from that node leads to a <strong>terminal node</strong> (or another safe node).</li> <li>Return <em>an array containing all the <strong>safe nodes</strong> of the graph</em>. The answer should be sorted in <strong>ascending</strong> order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: graph = [ [ 1,2],[2,3],[5],[0],[5],[],[ ] ]
 Output: [2,4,5,6]
 Explanation: The given graph is shown above.
 Nodes 5 and 6 are terminal nodes as there are no outgoing edges from either of them.
@@ -767,99 +848,4 @@ Explanation: It is not possible to take one 'b' or 'c' so return -1.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of the characters 'a', 'b', and 'c' and a non-negative integer k. Each minute, you may take either the leftmost character of s, or the rightmost character of s. Return the minimum number of minutes needed for you to take at least k of each character, or return -1 if it is not possible to take k of each character.]]></summary></entry><entry><title type="html">1838. Frequency of the Most Frequent Element</title><link href="https://zhengstar94.github.io//blog/2025/FrequencyOfTheMostFrequentElement/" rel="alternate" type="text/html" title="1838. Frequency of the Most Frequent Element"/><published>2025-01-21T00:00:00+00:00</published><updated>2025-01-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FrequencyOfTheMostFrequentElement</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FrequencyOfTheMostFrequentElement/"><![CDATA[<ul> <li>The <strong>frequency</strong> of an element is the number of times it occurs in an array.</li> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. In one operation, you can choose an index of <code class="language-plaintext highlighter-rouge">nums</code> and increment the element at that index by <code class="language-plaintext highlighter-rouge">1</code>.</li> <li>Return <em>the <strong>maximum possible frequency</strong> of an element after performing <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code> <em>operations</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,4], k = 5
-Output: 3
-Explanation: Increment the first element three times and the second element two times to make nums = [4,4,4].
-4 has a frequency of 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,4,8,13], k = 5
-Output: 2
-Explanation: There are multiple optimal solutions:
-- Increment the first element three times to make nums = [4,4,8,13]. 4 has a frequency of 2.
-- Increment the second element four times to make nums = [1,8,8,13]. 8 has a frequency of 2.
-- Increment the third element five times to make nums = [1,4,13,13]. 13 has a frequency of 2.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,9,6], k = 2
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/21
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FrequencyOfTheMostFrequentElement</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxFrequency</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort array to enable sliding window approach</span>
-        <span class="c1">// After sorting, we ensure that elements in any window can only be increased to match the rightmost element</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-
-        <span class="c1">// Initialize sliding window pointers and variables</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                  <span class="c1">// Left boundary of sliding window</span>
-        <span class="kt">int</span> <span class="n">windowSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>             <span class="c1">// Sum of all elements in current window</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>                <span class="c1">// Minimum possible result is 1 (single element)</span>
-
-        <span class="c1">// Iterate through array with right pointer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to window sum</span>
-            <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
-
-            <span class="cm">/**
-             * Key Part: Window Validity Check
-             * Formula: windowSum + k &lt; nums[right] * (right - left + 1)
-             *
-             * Left side (windowSum + k):
-             * - windowSum: current sum of all elements in window
-             * - k: available operations we can use
-             * - Together they represent the maximum sum we can achieve with given operations
-             *
-             * Right side (nums[right] * (right - left + 1)):
-             * - nums[right]: target value (maximum element in current window)
-             * - (right - left + 1): window size
-             * - Product represents total sum needed to make all elements equal to nums[right]
-             *
-             * If left side &lt; right side: window is invalid and needs shrinking
-             */</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">windowSum</span> <span class="o">+</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">*</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Shrink window by removing leftmost element</span>
-                <span class="n">windowSum</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
-                <span class="c1">// Move left pointer to shrink window</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Update result with current valid window size</span>
-            <span class="c1">// Window size represents the frequency we can achieve</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with small array</span>
-        <span class="c1">// We can increment 1 three times and 2 two times to get [4,4,4]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">maxFrequency</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: 3</span>
-
-        <span class="c1">// Test Case 2: Multiple optimal solutions possible</span>
-        <span class="c1">// Can either make two 4s, two 8s, or two 13s</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">13</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">maxFrequency</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: 2</span>
-
-        <span class="c1">// Test Case 3: Limited operations available</span>
-        <span class="c1">// Can't make more than one element equal with only 2 operations</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">maxFrequency</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
-
-        <span class="c1">// Test Case 4: Array with duplicates</span>
-        <span class="c1">// Tests handling of already existing frequencies</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">maxFrequency</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[The frequency of an element is the number of times it occurs in an array. You are given an integer array nums and an integer k. In one operation, you can choose an index of nums and increment the element at that index by 1. Return the maximum possible frequency of an element after performing at most k operations.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of the characters 'a', 'b', and 'c' and a non-negative integer k. Each minute, you may take either the leftmost character of s, or the rightmost character of s. Return the minimum number of minutes needed for you to take at least k of each character, or return -1 if it is not possible to take k of each character.]]></summary></entry></feed>
