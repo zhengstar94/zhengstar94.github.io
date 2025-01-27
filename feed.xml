@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-26T04:34:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">40. Combination Sum II</title><link href="https://zhengstar94.github.io//blog/2025/CombinationSumII/" rel="alternate" type="text/html" title="40. Combination Sum II"/><published>2025-01-26T00:00:00+00:00</published><updated>2025-01-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CombinationSumII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CombinationSumII/"><![CDATA[<ul> <li>Given a collection of candidate numbers (<code class="language-plaintext highlighter-rouge">candidates</code>) and a target number (<code class="language-plaintext highlighter-rouge">target</code>), find all unique combinations in <code class="language-plaintext highlighter-rouge">candidates</code> where the candidate numbers sum to <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>Each number in <code class="language-plaintext highlighter-rouge">candidates</code> may only be used <strong>once</strong> in the combination.</li> <li><strong>Note:</strong> The solution set must not contain duplicate combinations.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [10,1,2,7,6,1,5], target = 8
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-27T01:52:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">45. Jump Game II</title><link href="https://zhengstar94.github.io//blog/2025/JumpGameII/" rel="alternate" type="text/html" title="45. Jump Game II"/><published>2025-01-27T00:00:00+00:00</published><updated>2025-01-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/JumpGameII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/JumpGameII/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of integers <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>. You are initially positioned at <code class="language-plaintext highlighter-rouge">nums[0]</code>.</li> <li>Each element <code class="language-plaintext highlighter-rouge">nums[i]</code> represents the maximum length of a forward jump from index <code class="language-plaintext highlighter-rouge">i</code>. In other words, if you are at <code class="language-plaintext highlighter-rouge">nums[i]</code>, you can jump to any <code class="language-plaintext highlighter-rouge">nums[i + j]</code> where: <ul> <li><code class="language-plaintext highlighter-rouge">0 &lt;= j &lt;= nums[i]</code> and</li> <li><code class="language-plaintext highlighter-rouge">i + j &lt; n</code></li> </ul> </li> <li>Return <em>the minimum number of jumps to reach</em> <code class="language-plaintext highlighter-rouge">nums[n - 1]</code>. The test cases are generated such that you can reach <code class="language-plaintext highlighter-rouge">nums[n - 1]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,1,1,4]
+Output: 2
+Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,0,1,4]
+Output: 2
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/27
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JumpGameII</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">jump</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Counter for the minimum number of jumps needed</span>
+        <span class="kt">int</span> <span class="n">jumps</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// The farthest position that can be reached in the current jump</span>
+        <span class="kt">int</span> <span class="n">curEnd</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// The farthest position that can be reached considering all positions up to current position</span>
+        <span class="kt">int</span> <span class="n">curFarthest</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through the array (except the last element as we don't need to jump from there)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update the farthest position that can be reached from current position</span>
+            <span class="n">curFarthest</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">curFarthest</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+
+            <span class="c1">// If we've reached the end of current jump range</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">curEnd</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// We must take a jump</span>
+                <span class="n">jumps</span><span class="o">++;</span>
+                <span class="c1">// Update the end range for the next jump</span>
+                <span class="n">curEnd</span> <span class="o">=</span> <span class="n">curFarthest</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">jumps</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case with multiple possible paths</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">jump</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test Case 2: Another case with same minimum jumps but different path</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">jump</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test Case 3: Case where each step can only jump one position</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">jump</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0]. Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where: 0 &lt;= j &lt;= nums[i] and i + j &lt; n Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].]]></summary></entry><entry><title type="html">40. Combination Sum II</title><link href="https://zhengstar94.github.io//blog/2025/CombinationSumII/" rel="alternate" type="text/html" title="40. Combination Sum II"/><published>2025-01-26T00:00:00+00:00</published><updated>2025-01-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CombinationSumII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CombinationSumII/"><![CDATA[<ul> <li>Given a collection of candidate numbers (<code class="language-plaintext highlighter-rouge">candidates</code>) and a target number (<code class="language-plaintext highlighter-rouge">target</code>), find all unique combinations in <code class="language-plaintext highlighter-rouge">candidates</code> where the candidate numbers sum to <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>Each number in <code class="language-plaintext highlighter-rouge">candidates</code> may only be used <strong>once</strong> in the combination.</li> <li><strong>Note:</strong> The solution set must not contain duplicate combinations.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: candidates = [10,1,2,7,6,1,5], target = 8
 Output: 
 [
 [1,1,6],
@@ -735,80 +789,4 @@ It can be proven that no longer equal subarrays can be created.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer k. A subarray is called equal if all of its elements are equal. Note that the empty subarray is an equal subarray. Return the length of the longest possible equal subarray after deleting at most k elements from nums. A subarray is a contiguous, possibly empty sequence of elements within an array.]]></summary></entry><entry><title type="html">2271. Maximum White Tiles Covered by a Carpet</title><link href="https://zhengstar94.github.io//blog/2025/MaximumWhiteTilesCoveredByACarpet/" rel="alternate" type="text/html" title="2271. Maximum White Tiles Covered by a Carpet"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumWhiteTilesCoveredByACarpet</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumWhiteTilesCoveredByACarpet/"><![CDATA[<ul> <li>You are given a 2D integer array <code class="language-plaintext highlighter-rouge">tiles</code> where <code class="language-plaintext highlighter-rouge">tiles[i] = [li, ri]</code> represents that every tile <code class="language-plaintext highlighter-rouge">j</code> in the range <code class="language-plaintext highlighter-rouge">li &lt;= j &lt;= ri</code> is colored white.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">carpetLen</code>, the length of a single carpet that can be placed <strong>anywhere</strong>.</li> <li>Return <em>the <strong>maximum</strong> number of white tiles that can be covered by the carpet</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tiles = [ [1,5],[10,11],[12,18],[20,25],[30,32 ] ], carpetLen = 10
-Output: 9
-Explanation: Place the carpet starting on tile 10. 
-It covers 9 white tiles, so we return 9.
-Note that there may be other places where the carpet covers 9 white tiles.
-It can be shown that the carpet cannot cover more than 9 white tiles.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tiles = [ [ 10,11],[1,1 ] ], carpetLen = 2
-Output: 2
-Explanation: Place the carpet starting on tile 10. 
-It covers 2 white tiles, so we return 2.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumWhiteTilesCoveredByACarpet</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumWhiteTiles</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles</span><span class="o">,</span> <span class="kt">int</span> <span class="n">carpetLen</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort tiles array by left endpoint in ascending order</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">tiles</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
-
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Store the maximum number of white tiles that can be covered</span>
-        <span class="kt">int</span> <span class="n">cover</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Track the current number of tiles covered</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// Left pointer for the sliding window</span>
-
-        <span class="c1">// Iterate through each tile interval</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">tile</span> <span class="o">:</span> <span class="n">tiles</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tl</span> <span class="o">=</span> <span class="n">tile</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// Left endpoint of current interval</span>
-            <span class="kt">int</span> <span class="n">tr</span> <span class="o">=</span> <span class="n">tile</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span> <span class="c1">// Right endpoint of current interval</span>
-
-            <span class="c1">// Add number of tiles in current interval to cover</span>
-            <span class="c1">// Formula: right - left + 1 gives the count of tiles in current interval</span>
-            <span class="n">cover</span> <span class="o">+=</span> <span class="n">tr</span> <span class="o">-</span> <span class="n">tl</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// While the carpet cannot fully cover from left interval to current interval</span>
-            <span class="c1">// Need to remove tiles from left side that are out of carpet's range</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">carpetLen</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">tr</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Remove tiles count of the leftmost interval that's out of range</span>
-                <span class="n">cover</span> <span class="o">-=</span> <span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">left</span><span class="o">++;</span> <span class="c1">// Move left pointer to next interval</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate uncovered tiles within the current carpet placement</span>
-            <span class="c1">// tr - carpetLen + 1: leftmost position carpet needs to start to cover tr</span>
-            <span class="c1">// tiles[left][0]: actual leftmost position of current tiles</span>
-            <span class="c1">// Difference gives number of tiles that cannot be covered</span>
-            <span class="kt">int</span> <span class="n">uncover</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">tr</span> <span class="o">-</span> <span class="n">carpetLen</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">tiles</span><span class="o">[</span><span class="n">left</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
-
-            <span class="c1">// Update answer: maximum between current answer and (covered tiles - uncovered tiles)</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">cover</span> <span class="o">-</span> <span class="n">uncover</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Complex case with multiple intervals</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">},</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="mi">18</span><span class="o">},</span> <span class="o">{</span><span class="mi">20</span><span class="o">,</span> <span class="mi">25</span><span class="o">},</span> <span class="o">{</span><span class="mi">30</span><span class="o">,</span> <span class="mi">32</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">carpetLen1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">maximumWhiteTiles</span><span class="o">(</span><span class="n">tiles1</span><span class="o">,</span> <span class="n">carpetLen1</span><span class="o">));</span> <span class="c1">// Expected output: 9</span>
-
-        <span class="c1">// Test Case 2: Consecutive intervals with small gaps</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">},</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">11</span><span class="o">,</span> <span class="mi">13</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">carpetLen2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">maximumWhiteTiles</span><span class="o">(</span><span class="n">tiles2</span><span class="o">,</span> <span class="n">carpetLen2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Intervals with large gaps</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">tiles3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">},</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">20</span><span class="o">},</span> <span class="o">{</span><span class="mi">25</span><span class="o">,</span> <span class="mi">30</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">int</span> <span class="n">carpetLen3</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">maximumWhiteTiles</span><span class="o">(</span><span class="n">tiles3</span><span class="o">,</span> <span class="n">carpetLen3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 2D integer array tiles where tiles[i] = [li, ri] represents that every tile j in the range li &lt;= j &lt;= ri is colored white. You are also given an integer carpetLen, the length of a single carpet that can be placed anywhere. Return the maximum number of white tiles that can be covered by the carpet.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer k. A subarray is called equal if all of its elements are equal. Note that the empty subarray is an equal subarray. Return the length of the longest possible equal subarray after deleting at most k elements from nums. A subarray is a contiguous, possibly empty sequence of elements within an array.]]></summary></entry></feed>
