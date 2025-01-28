@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-27T04:42:35+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1462. Course Schedule IV</title><link href="https://zhengstar94.github.io//blog/2025/CourseScheduleIV/" rel="alternate" type="text/html" title="1462. Course Schedule IV"/><published>2025-01-27T00:00:00+00:00</published><updated>2025-01-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CourseScheduleIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CourseScheduleIV/"><![CDATA[<ul> <li>There are a total of <code class="language-plaintext highlighter-rouge">numCourses</code> courses you have to take, labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">numCourses - 1</code>. You are given an array <code class="language-plaintext highlighter-rouge">prerequisites</code> where <code class="language-plaintext highlighter-rouge">prerequisites[i] = [ai, bi]</code> indicates that you <strong>must</strong> take course <code class="language-plaintext highlighter-rouge">ai</code> first if you want to take course <code class="language-plaintext highlighter-rouge">bi</code>. <ul> <li>For example, the pair <code class="language-plaintext highlighter-rouge">[0, 1]</code> indicates that you have to take course <code class="language-plaintext highlighter-rouge">0</code> before you can take course <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> </li> <li>Prerequisites can also be <strong>indirect</strong>. If course <code class="language-plaintext highlighter-rouge">a</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">b</code>, and course <code class="language-plaintext highlighter-rouge">b</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">c</code>, then course <code class="language-plaintext highlighter-rouge">a</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">c</code>.</li> <li>You are also given an array <code class="language-plaintext highlighter-rouge">queries</code> where <code class="language-plaintext highlighter-rouge">queries[j] = [uj, vj]</code>. For the <code class="language-plaintext highlighter-rouge">jth</code> query, you should answer whether course <code class="language-plaintext highlighter-rouge">uj</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">vj</code> or not.</li> <li>Return <em>a boolean array</em> <code class="language-plaintext highlighter-rouge">answer</code><em>, where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>is the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: numCourses = 2, prerequisites = [ [ 1,0 ] ], queries = [ [ 0,1],[1,0 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-28T04:27:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">119. Pascal’s Triangle II</title><link href="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/" rel="alternate" type="text/html" title="119. Pascal’s Triangle II"/><published>2025-01-28T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PascalsTriangleII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">rowIndex</code>, return the <code class="language-plaintext highlighter-rouge">rowIndexth</code> (<strong>0-indexed</strong>) row of the <strong>Pascal’s triangle</strong>.</li> <li>In <strong>Pascal’s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 3
+Output: [1,3,3,1]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 0
+Output: [1]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 1
+Output: [1,1]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(rowIndex) time | O(rowIndex) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PascalsTriangleII</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">getRow</span><span class="o">(</span><span class="kt">int</span> <span class="n">rowIndex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize a list to store the final result.</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Create an array to store the current row values.</span>
+        <span class="c1">// The size of the array is rowIndex + 1 because the row is 0-indexed.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">rowIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// The first element of every row in Pascal's Triangle is always 1.</span>
+        <span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Loop to calculate each element in the row.</span>
+        <span class="c1">// Start from the second element (i=1) because the first element is already set to 1.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">rowIndex</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Get the previous element in the row.</span>
+            <span class="c1">// This is equivalent to C(n, k-1) in the combination formula.</span>
+            <span class="kt">long</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">row</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+
+            <span class="c1">// Calculate the current element using the combination formula:</span>
+            <span class="c1">// C(n, k) = C(n, k-1) * (n - k + 1) / k</span>
+            <span class="c1">// Here:</span>
+            <span class="c1">// - n is the rowIndex.</span>
+            <span class="c1">// - k is the current position in the row (i).</span>
+            <span class="c1">// - (rowIndex - i + 1) is the numerator part of the formula.</span>
+            <span class="c1">// - i is the denominator part of the formula.</span>
+            <span class="kt">long</span> <span class="n">current</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">*</span> <span class="o">(</span><span class="n">rowIndex</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="n">i</span><span class="o">;</span>
+
+            <span class="c1">// Store the calculated value in the current position of the row.</span>
+            <span class="n">row</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">current</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert the array to a list for the final result.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">row</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the generated row.</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: rowIndex = 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 3: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>  <span class="c1">// Expected output: [1, 3, 3, 1]</span>
+
+        <span class="c1">// Test case 2: rowIndex = 0</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 0: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>  <span class="c1">// Expected output: [1]</span>
+
+        <span class="c1">// Test case 3: rowIndex = 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 1: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>  <span class="c1">// Expected output: [1, 1]</span>
+
+        <span class="c1">// Additional test case: rowIndex = 4</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 4: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>  <span class="c1">// Expected output: [1, 4, 6, 4, 1]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal’s triangle. In Pascal’s triangle, each number is the sum of the two numbers directly above it as shown:]]></summary></entry><entry><title type="html">1462. Course Schedule IV</title><link href="https://zhengstar94.github.io//blog/2025/CourseScheduleIV/" rel="alternate" type="text/html" title="1462. Course Schedule IV"/><published>2025-01-27T00:00:00+00:00</published><updated>2025-01-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CourseScheduleIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CourseScheduleIV/"><![CDATA[<ul> <li>There are a total of <code class="language-plaintext highlighter-rouge">numCourses</code> courses you have to take, labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">numCourses - 1</code>. You are given an array <code class="language-plaintext highlighter-rouge">prerequisites</code> where <code class="language-plaintext highlighter-rouge">prerequisites[i] = [ai, bi]</code> indicates that you <strong>must</strong> take course <code class="language-plaintext highlighter-rouge">ai</code> first if you want to take course <code class="language-plaintext highlighter-rouge">bi</code>. <ul> <li>For example, the pair <code class="language-plaintext highlighter-rouge">[0, 1]</code> indicates that you have to take course <code class="language-plaintext highlighter-rouge">0</code> before you can take course <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> </li> <li>Prerequisites can also be <strong>indirect</strong>. If course <code class="language-plaintext highlighter-rouge">a</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">b</code>, and course <code class="language-plaintext highlighter-rouge">b</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">c</code>, then course <code class="language-plaintext highlighter-rouge">a</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">c</code>.</li> <li>You are also given an array <code class="language-plaintext highlighter-rouge">queries</code> where <code class="language-plaintext highlighter-rouge">queries[j] = [uj, vj]</code>. For the <code class="language-plaintext highlighter-rouge">jth</code> query, you should answer whether course <code class="language-plaintext highlighter-rouge">uj</code> is a prerequisite of course <code class="language-plaintext highlighter-rouge">vj</code> or not.</li> <li>Return <em>a boolean array</em> <code class="language-plaintext highlighter-rouge">answer</code><em>, where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>is the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: numCourses = 2, prerequisites = [ [ 1,0 ] ], queries = [ [ 0,1],[1,0 ] ]
 Output: [false,true]
 Explanation: The pair [1, 0] indicates that you have to take course 1 before you can take course 0.
 Course 0 is not a prerequisite of course 1, but the opposite is true.
@@ -695,88 +768,4 @@ Note that even though you could take the 6th fruit for free as a reward of buyin
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[You are given an 1-indexed integer array prices where prices[i] denotes the number of coins needed to purchase the ith fruit. The fruit market has the following reward for each fruit: If you purchase the ith fruit at prices[i] coins, you can get any number of the next i fruits for free. Note that even if you can take fruit j for free, you can still purchase it for prices[j] coins to receive its reward. Return the minimum number of coins needed to acquire all the fruits.]]></summary></entry><entry><title type="html">1267. Count Servers that Communicate</title><link href="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/" rel="alternate" type="text/html" title="1267. Count Servers that Communicate"/><published>2025-01-23T00:00:00+00:00</published><updated>2025-01-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountServersThatCommunicate/"><![CDATA[<ul> <li>You are given a map of a server center, represented as a <code class="language-plaintext highlighter-rouge">m * n</code> integer matrix <code class="language-plaintext highlighter-rouge">grid</code>, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column.</li> <li>Return the number of servers that communicate with any other server.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[0,1 ] ]
-Output: 0
-Explanation: No servers can communicate with others.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0],[1,1 ] ]
-Output: 3
-Explanation: All three servers can communicate with at least one other server.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1 ] ]
-Output: 4
-Explanation: The two servers  in the first row can communicate with each other. The two servers in the third column can communicate with each other. The server at right bottom corner can't communicate with any other server.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n + m) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountServersThatCommunicate</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countServers</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases for null or empty grid</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">grid</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Get grid dimensions</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>     <span class="c1">// Number of rows</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>  <span class="c1">// Number of columns</span>
-
-        <span class="c1">// Arrays to store count of servers in each row and column</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">rowCount</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">];</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">colCount</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// First pass: Count servers in each row and column</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span> <span class="o">[</span> <span class="n">i</span> <span class="o">][</span> <span class="n">j</span> <span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
-                    <span class="n">rowCount</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span> <span class="c1">// Increment server count for current row</span>
-                    <span class="n">colCount</span><span class="o">[</span><span class="n">j</span><span class="o">]++;</span> <span class="c1">// Increment server count for current column</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Second pass: Count servers that can communicate</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// A server can communicate if there's another server in same row or column</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">rowCount</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">colCount</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="n">result</span><span class="o">++;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: No servers can communicate</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test case 2: All servers can communicate</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test case 3: Some servers can communicate</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid3</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test case 4: Empty grid</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid4</span> <span class="o">=</span> <span class="o">{</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test case 5: Single server (cannot communicate)</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid5</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5 result: "</span> <span class="o">+</span> <span class="n">countServers</span><span class="o">(</span><span class="n">grid5</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a map of a server center, represented as a m * n integer matrix grid, where 1 means that on that cell there is a server and 0 means that it is no server. Two servers are said to communicate if they are on the same row or on the same column. Return the number of servers that communicate with any other server.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[You are given an 1-indexed integer array prices where prices[i] denotes the number of coins needed to purchase the ith fruit. The fruit market has the following reward for each fruit: If you purchase the ith fruit at prices[i] coins, you can get any number of the next i fruits for free. Note that even if you can take fruit j for free, you can still purchase it for prices[j] coins to receive its reward. Return the minimum number of coins needed to acquire all the fruits.]]></summary></entry></feed>
