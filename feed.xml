@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-28T04:27:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">119. Pascal’s Triangle II</title><link href="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/" rel="alternate" type="text/html" title="119. Pascal’s Triangle II"/><published>2025-01-28T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PascalsTriangleII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">rowIndex</code>, return the <code class="language-plaintext highlighter-rouge">rowIndexth</code> (<strong>0-indexed</strong>) row of the <strong>Pascal’s triangle</strong>.</li> <li>In <strong>Pascal’s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-28T05:04:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2658. Maximum Number of Fish in a Grid</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfFishInAGrid/" rel="alternate" type="text/html" title="2658. Maximum Number of Fish in a Grid"/><published>2025-01-28T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfFishInAGrid</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfFishInAGrid/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> 2D matrix <code class="language-plaintext highlighter-rouge">grid</code> of size <code class="language-plaintext highlighter-rouge">m x n</code>, where <code class="language-plaintext highlighter-rouge">(r, c)</code> represents: <ul> <li>A <strong>land</strong> cell if <code class="language-plaintext highlighter-rouge">grid[r][c] = 0</code>, or</li> <li>A <strong>water</strong> cell containing <code class="language-plaintext highlighter-rouge">grid[r][c]</code> fish, if <code class="language-plaintext highlighter-rouge">grid[r][c] &gt; 0</code>.</li> </ul> </li> <li>A fisher can start at any <strong>water</strong> cell <code class="language-plaintext highlighter-rouge">(r, c)</code> and can do the following operations any number of times: <ul> <li>Catch all the fish at cell <code class="language-plaintext highlighter-rouge">(r, c)</code>, or</li> <li>Move to any adjacent <strong>water</strong> cell.</li> </ul> </li> <li>Return <em>the <strong>maximum</strong> number of fish the fisher can catch if he chooses his starting cell optimally, or</em> <code class="language-plaintext highlighter-rouge">0</code> if no water cell exists.</li> <li>An <strong>adjacent</strong> cell of the cell <code class="language-plaintext highlighter-rouge">(r, c)</code>, is one of the cells <code class="language-plaintext highlighter-rouge">(r, c + 1)</code>, <code class="language-plaintext highlighter-rouge">(r, c - 1)</code>, <code class="language-plaintext highlighter-rouge">(r + 1, c)</code> or <code class="language-plaintext highlighter-rouge">(r - 1, c)</code> if it exists.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,2,1,0],[4,0,0,3],[1,0,0,4],[0,3,2,0 ] ]
+Output: 7
+Explanation: The fisher can start at cell (1,3) and collect 3 fish, then move to cell (2,3) and collect 4 fish.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,1 ] ]
+Output: 1
+Explanation: The fisher can start at cells (0,0) or (3,3) and collect a single fish. 
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DFS</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfFishInAGrid</span> <span class="o">{</span>
+
+    <span class="c1">// Define four directional movements: up, down, left, right</span>
+    <span class="c1">// Used for exploring adjacent cells in the grid</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[][]</span> <span class="no">DIRECTIONS</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMaxFish</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Check for null or empty grid</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">grid</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Get grid dimensions</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxFish</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each cell in the grid</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// If current cell is a water cell (contains fish)</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+                    <span class="c1">// Start DFS from this cell and update maximum fish count</span>
+                    <span class="n">maxFish</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxFish</span><span class="o">,</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">));</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">maxFish</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Check boundaries and if cell is already visited (0)</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">row</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span>
+                <span class="n">col</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">col</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">||</span>
+                <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Store current cell's fish count</span>
+        <span class="kt">int</span> <span class="n">currentFish</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
+        <span class="c1">// Mark cell as visited by setting to 0</span>
+        <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Initialize total fish count with current cell's fish</span>
+        <span class="kt">int</span> <span class="n">totalFish</span> <span class="o">=</span> <span class="n">currentFish</span><span class="o">;</span>
+        <span class="c1">// Explore all four directions</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">dir:</span> <span class="no">DIRECTIONS</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">newRow</span> <span class="o">=</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+            <span class="kt">int</span> <span class="n">newCol</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+            <span class="c1">// Add fish count from adjacent water cells</span>
+            <span class="n">totalFish</span> <span class="o">+=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">newRow</span><span class="o">,</span> <span class="n">newCol</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">totalFish</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal grid with multiple water cells</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Expected output: 7</span>
+
+        <span class="c1">// Test Case 2: Grid with isolated water cells</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// Test Case 3: Empty grid</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test Case 4: Grid with only land cells</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid4</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed 2D matrix grid of size m x n, where (r, c) represents: A land cell if grid[r][c] = 0, or A water cell containing grid[r][c] fish, if grid[r][c] &gt; 0. A fisher can start at any water cell (r, c) and can do the following operations any number of times: Catch all the fish at cell (r, c), or Move to any adjacent water cell. Return the maximum number of fish the fisher can catch if he chooses his starting cell optimally, or 0 if no water cell exists. An adjacent cell of the cell (r, c), is one of the cells (r, c + 1), (r, c - 1), (r + 1, c) or (r - 1, c) if it exists.]]></summary></entry><entry><title type="html">119. Pascal’s Triangle II</title><link href="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/" rel="alternate" type="text/html" title="119. Pascal’s Triangle II"/><published>2025-01-28T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PascalsTriangleII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">rowIndex</code>, return the <code class="language-plaintext highlighter-rouge">rowIndexth</code> (<strong>0-indexed</strong>) row of the <strong>Pascal’s triangle</strong>.</li> <li>In <strong>Pascal’s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 3
 Output: [1,3,3,1]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 0
 Output: [1]
@@ -682,90 +784,4 @@ Explanation: For this example, one choice for the segments is [3, 3] and [4, 4],
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[There are some prizes on the X-axis. You are given an integer array prizePositions that is sorted in non-decreasing order, where prizePositions[i] is the position of the ith prize. There could be different prizes at the same position on the line. You are also given an integer k. You are allowed to select two segments with integer endpoints. The length of each segment must be k. You will collect all prizes whose position falls within at least one of the two selected segments (including the endpoints of the segments). The two selected segments may intersect. For example if k=2, you can choose segments [1, 3] and [2, 4], and you will win any prize i that satisfies 1 &lt;= prizePositions[i] &lt;= 3 or 2 &lt;= prizePositions[i] &lt;= 4. Return the maximum number of prizes you can win if you choose the two segments optimally.]]></summary></entry><entry><title type="html">(Review) 2944. Minimum Number of Coins for Fruits</title><link href="https://zhengstar94.github.io//blog/2025/MinimumNumberOfCoinsForFruits/" rel="alternate" type="text/html" title="(Review) 2944. Minimum Number of Coins for Fruits"/><published>2025-01-24T00:00:00+00:00</published><updated>2025-01-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumNumberOfCoinsForFruits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumNumberOfCoinsForFruits/"><![CDATA[<ul> <li>You are given an <strong>1-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">prices</code> where <code class="language-plaintext highlighter-rouge">prices[i]</code> denotes the number of coins needed to purchase the <code class="language-plaintext highlighter-rouge">ith</code> fruit.</li> <li>The fruit market has the following reward for each fruit: <ul> <li>If you purchase the <code class="language-plaintext highlighter-rouge">ith</code> fruit at <code class="language-plaintext highlighter-rouge">prices[i]</code> coins, you can get any number of the next <code class="language-plaintext highlighter-rouge">i</code> fruits for free.</li> </ul> </li> <li><strong>Note</strong> that even if you <strong>can</strong> take fruit <code class="language-plaintext highlighter-rouge">j</code> for free, you can still purchase it for <code class="language-plaintext highlighter-rouge">prices[j]</code> coins to receive its reward.</li> <li>Return the <strong>minimum</strong> number of coins needed to acquire all the fruits.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [3,1,2]
-Output: 4
-
-Explanation:
-Purchase the 1st fruit with prices[0] = 3 coins, you are allowed to take the 2nd fruit for free.
-Purchase the 2nd fruit with prices[1] = 1 coin, you are allowed to take the 3rd fruit for free.
-Take the 3rd fruit for free.
-
-Note that even though you could take the 2nd fruit for free as a reward of buying 1st fruit, you purchase it to receive its reward, which is more optimal.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [1,10,1,1]
-Output: 2
-
-Explanation:
-Purchase the 1st fruit with prices[0] = 1 coin, you are allowed to take the 2nd fruit for free.
-Take the 2nd fruit for free.
-Purchase the 3rd fruit for prices[2] = 1 coin, you are allowed to take the 4th fruit for free.
-Take the 4th fruit for free.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: prices = [26,18,6,12,49,7,45,45]
-Output: 39
-
-Explanation:
-Purchase the 1st fruit with prices[0] = 26 coin, you are allowed to take the 2nd fruit for free.
-Take the 2nd fruit for free.
-Purchase the 3rd fruit for prices[2] = 6 coin, you are allowed to take the 4th, 5th and 6th (the next three) fruits for free.
-Take the 4th fruit for free.
-Take the 5th fruit for free.
-Purchase the 6th fruit with prices[5] = 7 coin, you are allowed to take the 8th and 9th fruit for free.
-Take the 7th fruit for free.
-Take the 8th fruit for free.
-
-Note that even though you could take the 6th fruit for free as a reward of buying 3rd fruit, you purchase it to receive its reward, which is more optimal.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/24
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumNumberOfCoinsForFruits</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimumCoins</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="c1">// Number of fruits</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// If there are no fruits, the cost is 0</span>
-        <span class="o">}</span>
-
-        <span class="c1">// dp[i] represents the minimum cost to purchase the first (i+1) fruits</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">dp</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span> <span class="c1">// Initialize all values to a large number</span>
-        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">prices</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// The first fruit must be purchased, so its cost is prices[0]</span>
-
-        <span class="c1">// Iterate through each fruit starting from the second one</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// The starting point for j is i/2 because purchasing the j-th fruit</span>
-            <span class="c1">// allows you to get the next j fruits for free</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// Iterate through all possible j values that can cover the i-th fruit</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// prev represents the cost to purchase the first j fruits</span>
-                <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">?</span> <span class="n">dp</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span>
-
-                <span class="c1">// If prev is valid (not Integer.MAX_VALUE), update dp[i]</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">prev</span> <span class="o">!=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prices</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the minimum cost to purchase all fruits</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minimumCoins</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">}));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minimumCoins</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">}));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minimumCoins</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">26</span><span class="o">,</span> <span class="mi">18</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">45</span><span class="o">,</span> <span class="mi">45</span><span class="o">}));</span> <span class="c1">// Expected output: 39</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[You are given an 1-indexed integer array prices where prices[i] denotes the number of coins needed to purchase the ith fruit. The fruit market has the following reward for each fruit: If you purchase the ith fruit at prices[i] coins, you can get any number of the next i fruits for free. Note that even if you can take fruit j for free, you can still purchase it for prices[j] coins to receive its reward. Return the minimum number of coins needed to acquire all the fruits.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Medium"/><summary type="html"><![CDATA[There are some prizes on the X-axis. You are given an integer array prizePositions that is sorted in non-decreasing order, where prizePositions[i] is the position of the ith prize. There could be different prizes at the same position on the line. You are also given an integer k. You are allowed to select two segments with integer endpoints. The length of each segment must be k. You will collect all prizes whose position falls within at least one of the two selected segments (including the endpoints of the segments). The two selected segments may intersect. For example if k=2, you can choose segments [1, 3] and [2, 4], and you will win any prize i that satisfies 1 &lt;= prizePositions[i] &lt;= 3 or 2 &lt;= prizePositions[i] &lt;= 4. Return the maximum number of prizes you can win if you choose the two segments optimally.]]></summary></entry></feed>
