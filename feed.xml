@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-29T03:20:44+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">219. Contains Duplicate II</title><link href="https://zhengstar94.github.io//blog/2025/ContainsDuplicateII/" rel="alternate" type="text/html" title="219. Contains Duplicate II"/><published>2025-01-29T00:00:00+00:00</published><updated>2025-01-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ContainsDuplicateII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ContainsDuplicateII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if there are two <strong>distinct indices</strong></em> <code class="language-plaintext highlighter-rouge">i</code> <em>and</em> <code class="language-plaintext highlighter-rouge">j</code> <em>in the array such that</em> <code class="language-plaintext highlighter-rouge">nums[i] == nums[j]</code> <em>and</em> <code class="language-plaintext highlighter-rouge">abs(i - j) &lt;= k</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1], k = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-30T01:43:23+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">350. Intersection of Two Arrays II</title><link href="https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII/" rel="alternate" type="text/html" title="350. Intersection of Two Arrays II"/><published>2025-01-30T00:00:00+00:00</published><updated>2025-01-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII/"><![CDATA[<ul> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, return <em>an array of their intersection</em>. Each element in the result must appear as many times as it shows in both arrays and you may return the result in <strong>any order</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [4,9]
+Explanation: [9,4] is also accepted.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(min(n, m)) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntersectionOfTwoArraysII</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">intersect</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If nums1 is longer than nums2, swap them to ensure nums1 is the shorter array</span>
+        <span class="c1">// This optimization helps reduce space complexity by using the shorter array to create HashMap</span>
+        <span class="c1">// For example:</span>
+        <span class="c1">// nums1 = [1,2], length = 2</span>
+        <span class="c1">// nums2 = [1,2,3,4,5,...,1000000], length = 1000000</span>
+        <span class="c1">// After swap, HashMap only needs to store 2 elements instead of 1000000</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="n">nums2</span><span class="o">.</span><span class="na">length</span><span class="o">){</span>
+            <span class="k">return</span> <span class="nf">intersect</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">nums1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Use HashMap to store the frequency of each number in nums1</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// First loop: Iterate through nums1 and count frequency of each number</span>
+        <span class="c1">// Time complexity: O(n) where n is length of nums1</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Store intersection results in a dynamic ArrayList</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">intersection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// Second loop: Iterate through nums2 to find intersections</span>
+        <span class="c1">// For each number in nums2, check if it exists in HashMap and has remaining count</span>
+        <span class="c1">// Time complexity: O(m) where m is length of nums2</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">intersection</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>  <span class="c1">// Decrease count as we've used this number</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert ArrayList to fixed-size array for return</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">intersection</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+        <span class="c1">// Third loop: Convert dynamic ArrayList to static array</span>
+        <span class="c1">// Time complexity: O(k) where k is size of intersection</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">intersection</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Test cases</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Basic test with repeated elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">intersect</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">)));</span>
+
+        <span class="c1">// Test case 2: Test with different array sizes and multiple occurrences</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">intersect</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">nums4</span><span class="o">)));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><summary type="html"><![CDATA[Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.]]></summary></entry><entry><title type="html">219. Contains Duplicate II</title><link href="https://zhengstar94.github.io//blog/2025/ContainsDuplicateII/" rel="alternate" type="text/html" title="219. Contains Duplicate II"/><published>2025-01-29T00:00:00+00:00</published><updated>2025-01-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ContainsDuplicateII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ContainsDuplicateII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if there are two <strong>distinct indices</strong></em> <code class="language-plaintext highlighter-rouge">i</code> <em>and</em> <code class="language-plaintext highlighter-rouge">j</code> <em>in the array such that</em> <code class="language-plaintext highlighter-rouge">nums[i] == nums[j]</code> <em>and</em> <code class="language-plaintext highlighter-rouge">abs(i - j) &lt;= k</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,1], k = 3
 Output: true
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1,1], k = 1
 Output: true
@@ -691,95 +763,4 @@ The resulting array is [1,2,3,4], which is continuous.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Hard"/><summary type="html"><![CDATA[You are given an integer array nums. In one operation, you can replace any element in nums with any integer. nums is considered continuous if both of the following conditions are fulfilled: All elements in nums are unique. The difference between the maximum element and the minimum element in nums equals nums.length - 1. For example, nums=[4, 2, 5, 3] is continuous, but nums=[1, 2, 3, 5, 6] is not continuous. Return the minimum number of operations to make nums *continuous*.]]></summary></entry><entry><title type="html">802. Find Eventual Safe States</title><link href="https://zhengstar94.github.io//blog/2025/FindEventualSafeStates/" rel="alternate" type="text/html" title="802. Find Eventual Safe States"/><published>2025-01-24T00:00:00+00:00</published><updated>2025-01-24T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindEventualSafeStates</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindEventualSafeStates/"><![CDATA[<ul> <li>There is a directed graph of <code class="language-plaintext highlighter-rouge">n</code> nodes with each node labeled from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code>. The graph is represented by a <strong>0-indexed</strong> 2D integer array <code class="language-plaintext highlighter-rouge">graph</code> where <code class="language-plaintext highlighter-rouge">graph[i]</code> is an integer array of nodes adjacent to node <code class="language-plaintext highlighter-rouge">i</code>, meaning there is an edge from node <code class="language-plaintext highlighter-rouge">i</code> to each node in <code class="language-plaintext highlighter-rouge">graph[i]</code>.</li> <li>A node is a <strong>terminal node</strong> if there are no outgoing edges. A node is a <strong>safe node</strong> if every possible path starting from that node leads to a <strong>terminal node</strong> (or another safe node).</li> <li>Return <em>an array containing all the <strong>safe nodes</strong> of the graph</em>. The answer should be sorted in <strong>ascending</strong> order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: graph = [ [ 1,2],[2,3],[5],[0],[5],[],[ ] ]
-Output: [2,4,5,6]
-Explanation: The given graph is shown above.
-Nodes 5 and 6 are terminal nodes as there are no outgoing edges from either of them.
-Every path starting at nodes 2, 4, 5, and 6 all lead to either node 5 or 6.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: graph = [ [ 1,2,3,4],[1,2],[3,4],[0,4],[ ] ]
-Output: [4]
-Explanation:
-Only node 4 is a terminal node, and every path starting at node 4 leads to node 4.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(V + E) time | O(V) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DFS</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/24
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindEventualSafeStates</span> <span class="o">{</span>
-
-    <span class="cm">/**
-     * Array to keep track of node states:
-     * 0 = unvisited
-     * 1 = currently being visited (in the current DFS path)
-     * 2 = confirmed safe node
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">visited</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">eventualSafeNodes</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">graph</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through each node in the graph to check if it's safe</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">graph</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">node</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">graph</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Case 1: If we encounter a node that's currently being visited,</span>
-        <span class="c1">// we've found a cycle, and all nodes in this cycle are unsafe</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Case 2: If we encounter a node that's already been confirmed safe,</span>
-        <span class="c1">// we can return true without further exploration</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">]</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Mark the current node as being visited (in the current DFS path)</span>
-        <span class="c1">// This helps in cycle detection</span>
-        <span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Explore all neighboring nodes</span>
-        <span class="c1">// If any path from the current node leads to an unsafe node,</span>
-        <span class="c1">// the current node is also unsafe</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">next</span> <span class="o">:</span> <span class="n">graph</span><span class="o">[</span><span class="n">node</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="n">dfs</span><span class="o">(</span><span class="n">next</span><span class="o">,</span> <span class="n">graph</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Found an unsafe path</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we reach here, all paths from this node are safe</span>
-        <span class="c1">// Mark the node as a confirmed safe node</span>
-        <span class="n">visited</span><span class="o">[</span><span class="n">node</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// Node is safe</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Graph with multiple safe nodes</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">graph1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">5</span><span class="o">},{</span><span class="mi">0</span><span class="o">},{</span><span class="mi">5</span><span class="o">},{},{</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">eventualSafeNodes</span><span class="o">(</span><span class="n">graph1</span><span class="o">));</span> <span class="c1">// Expected output: [2,4,5,6]</span>
-
-        <span class="c1">// Test Case 2: Graph with only one safe node</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">graph2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span><span class="mi">0</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">eventualSafeNodes</span><span class="o">(</span><span class="n">graph2</span><span class="o">));</span> <span class="c1">// Expected output: [4]</span>
-
-        <span class="c1">// Test Case 3: Graph where all nodes are safe</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">graph3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="o">},{</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span><span class="mi">3</span><span class="o">},{</span><span class="mi">4</span><span class="o">},{</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">eventualSafeNodes</span><span class="o">(</span><span class="n">graph3</span><span class="o">));</span> <span class="c1">// Expected output: [0,1,2,3,4]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Medium"/><summary type="html"><![CDATA[There is a directed graph of n nodes with each node labeled from 0 to n - 1. The graph is represented by a 0-indexed 2D integer array graph where graph[i] is an integer array of nodes adjacent to node i, meaning there is an edge from node i to each node in graph[i]. A node is a terminal node if there are no outgoing edges. A node is a safe node if every possible path starting from that node leads to a terminal node (or another safe node). Return an array containing all the safe nodes of the graph. The answer should be sorted in ascending order.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Hard"/><summary type="html"><![CDATA[You are given an integer array nums. In one operation, you can replace any element in nums with any integer. nums is considered continuous if both of the following conditions are fulfilled: All elements in nums are unique. The difference between the maximum element and the minimum element in nums equals nums.length - 1. For example, nums=[4, 2, 5, 3] is continuous, but nums=[1, 2, 3, 5, 6] is not continuous. Return the minimum number of operations to make nums *continuous*.]]></summary></entry></feed>
