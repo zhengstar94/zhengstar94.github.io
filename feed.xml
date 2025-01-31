@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-30T01:43:23+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">350. Intersection of Two Arrays II</title><link href="https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII/" rel="alternate" type="text/html" title="350. Intersection of Two Arrays II"/><published>2025-01-30T00:00:00+00:00</published><updated>2025-01-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII/"><![CDATA[<ul> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, return <em>an array of their intersection</em>. Each element in the result must appear as many times as it shows in both arrays and you may return the result in <strong>any order</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,2,1], nums2 = [2,2]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-31T05:29:03+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">541. Reverse String II</title><link href="https://zhengstar94.github.io//blog/2025/ReverseStringII/" rel="alternate" type="text/html" title="541. Reverse String II"/><published>2025-01-31T00:00:00+00:00</published><updated>2025-01-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReverseStringII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReverseStringII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, reverse the first <code class="language-plaintext highlighter-rouge">k</code> characters for every <code class="language-plaintext highlighter-rouge">2k</code> characters counting from the start of the string.</li> <li>If there are fewer than <code class="language-plaintext highlighter-rouge">k</code> characters left, reverse all of them. If there are less than <code class="language-plaintext highlighter-rouge">2k</code> but greater than or equal to <code class="language-plaintext highlighter-rouge">k</code> characters, then reverse the first <code class="language-plaintext highlighter-rouge">k</code> characters and leave the other as original.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefg", k = 2
+Output: "bacdfeg"
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", k = 2
+Output: "bacd"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/31
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseStringII</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">reverseStr</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the actual length that needs to be reversed each time</span>
+            <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="c1">// Use Math.min to handle boundary cases when remaining chars less than k</span>
+            <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="c1">// Two pointers approach to reverse characters</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">){</span>
+                <span class="kt">char</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+                <span class="n">left</span><span class="o">++;</span>
+                <span class="n">right</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">String</span><span class="o">(</span><span class="n">arr</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Regular case</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcdefg"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">reverseStr</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: "bacdfeg"</span>
+
+        <span class="c1">// Test case 2: String length equals 2k</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">reverseStr</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: "bacd"</span>
+
+        <span class="c1">// Test case 3: Edge case - single character</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">reverseStr</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected output: "a"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><summary type="html"><![CDATA[Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string. If there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.]]></summary></entry><entry><title type="html">350. Intersection of Two Arrays II</title><link href="https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII/" rel="alternate" type="text/html" title="350. Intersection of Two Arrays II"/><published>2025-01-30T00:00:00+00:00</published><updated>2025-01-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IntersectionOfTwoArraysII/"><![CDATA[<ul> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, return <em>an array of their intersection</em>. Each element in the result must appear as many times as it shows in both arrays and you may return the result in <strong>any order</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,2,1], nums2 = [2,2]
 Output: [2,2]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [4,9]
@@ -678,89 +729,4 @@ Thus, starting with money = 3, the transactions can be performed in any order.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed 2D integer array transactions, where transactions[i] = [costi, cashbacki]. The array describes transactions, where each transaction must be completed exactly once in some order. At any given moment, you have a certain amount of money. In order to complete transaction i, money &gt;= costi must hold true. After performing a transaction, money becomes money - costi + cashbacki. Return the minimum amount of money required before any transaction so that all of the transactions can be completed regardless of the order of the transactions.]]></summary></entry><entry><title type="html">2009. Minimum Number of Operations to Make Array Continuous</title><link href="https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeArrayContinuous/" rel="alternate" type="text/html" title="2009. Minimum Number of Operations to Make Array Continuous"/><published>2025-01-25T00:00:00+00:00</published><updated>2025-01-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeArrayContinuous</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeArrayContinuous/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. In one operation, you can replace <strong>any</strong> element in <code class="language-plaintext highlighter-rouge">nums</code> with <strong>any</strong> integer.</li> <li><code class="language-plaintext highlighter-rouge">nums</code> is considered <strong>continuous</strong> if both of the following conditions are fulfilled: <ul> <li>All elements in <code class="language-plaintext highlighter-rouge">nums</code> are <strong>unique</strong>.</li> <li>The difference between the <strong>maximum</strong> element and the <strong>minimum</strong> element in <code class="language-plaintext highlighter-rouge">nums</code> equals <code class="language-plaintext highlighter-rouge">nums.length - 1</code>.</li> </ul> </li> <li>For example, <code class="language-plaintext highlighter-rouge">nums = [4, 2, 5, 3]</code> is <strong>continuous</strong>, but <code class="language-plaintext highlighter-rouge">nums = [1, 2, 3, 5, 6]</code> is <strong>not continuous</strong>.</li> <li>Return <em>the <strong>minimum</strong> number of operations to make</em> <code class="language-plaintext highlighter-rouge">nums</code> <strong>*continuous*</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,5,3]
-Output: 0
-Explanation: nums is already continuous.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,5,6]
-Output: 1
-Explanation: One possible solution is to change the last element to 4.
-The resulting array is [1,2,3,5,4], which is continuous.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,10,100,1000]
-Output: 3
-Explanation: One possible solution is to:
-- Change the second element to 2.
-- Change the third element to 3.
-- Change the fourth element to 4.
-The resulting array is [1,2,3,4], which is continuous.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumNumberOfOperationsToMakeArrayContinuous</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Step 1: Sort and remove duplicates</span>
-        <span class="c1">// - Sort the array first to handle duplicates and make it easier to find continuous ranges</span>
-        <span class="c1">// - This also helps in implementing the sliding window approach</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">unique</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Only keep unique elements by moving them to the front of the array</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">nums</span><span class="o">[</span><span class="n">unique</span><span class="o">++]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 2: Use sliding window to find minimum replacements needed</span>
-        <span class="c1">// Initialize minOperations with n (worst case: need to replace all elements)</span>
-        <span class="kt">int</span> <span class="n">minOperations</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each possible starting point</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">unique</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Find the first number that's out of range for current window</span>
-            <span class="c1">// For a continuous array of length n starting at nums[i],</span>
-            <span class="c1">// all elements must be in range [nums[i], nums[i] + n - 1]</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">unique</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">j</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate number of elements in current window</span>
-            <span class="c1">// j - i represents the count of numbers that can be used in the continuous array</span>
-            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Calculate minimum operations needed for this window</span>
-            <span class="c1">// Total length (n) minus the count of usable numbers equals</span>
-            <span class="c1">// the number of elements that need to be replaced</span>
-            <span class="n">minOperations</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minOperations</span><span class="o">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">count</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">minOperations</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Already continuous array</span>
-        <span class="c1">// Expected output: 0 (no operations needed as [2,3,4,5] is already continuous)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Array with one gap</span>
-        <span class="c1">// Expected output: 1 (replace either 5 with 4 or 6 with 4)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Array with large gaps</span>
-        <span class="c1">// Expected output: 3 (need to replace 3 elements to make it continuous)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">1000</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindow"/><category term="Hard"/><summary type="html"><![CDATA[You are given an integer array nums. In one operation, you can replace any element in nums with any integer. nums is considered continuous if both of the following conditions are fulfilled: All elements in nums are unique. The difference between the maximum element and the minimum element in nums equals nums.length - 1. For example, nums=[4, 2, 5, 3] is continuous, but nums=[1, 2, 3, 5, 6] is not continuous. Return the minimum number of operations to make nums *continuous*.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed 2D integer array transactions, where transactions[i] = [costi, cashbacki]. The array describes transactions, where each transaction must be completed exactly once in some order. At any given moment, you have a certain amount of money. In order to complete transaction i, money &gt;= costi must hold true. After performing a transaction, money becomes money - costi + cashbacki. Return the minimum amount of money required before any transaction so that all of the transactions can be completed regardless of the order of the transactions.]]></summary></entry></feed>
