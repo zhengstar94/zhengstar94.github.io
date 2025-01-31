@@ -5,6 +5,7 @@ giscus_comments: true
 layout: post
 title: "350. Intersection of Two Arrays II"
 date: "2025-01-30"
+tags: Easy
 categories:
   - "LeetCode HashTable"
 ---
