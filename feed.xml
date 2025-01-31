@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-31T05:58:34+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">541. Reverse String II</title><link href="https://zhengstar94.github.io//blog/2025/ReverseStringII/" rel="alternate" type="text/html" title="541. Reverse String II"/><published>2025-01-31T00:00:00+00:00</published><updated>2025-01-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReverseStringII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReverseStringII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, reverse the first <code class="language-plaintext highlighter-rouge">k</code> characters for every <code class="language-plaintext highlighter-rouge">2k</code> characters counting from the start of the string.</li> <li>If there are fewer than <code class="language-plaintext highlighter-rouge">k</code> characters left, reverse all of them. If there are less than <code class="language-plaintext highlighter-rouge">2k</code> but greater than or equal to <code class="language-plaintext highlighter-rouge">k</code> characters, then reverse the first <code class="language-plaintext highlighter-rouge">k</code> characters and leave the other as original.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefg", k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-01-31T06:47:04+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">209. Minimum Size Subarray Sum</title><link href="https://zhengstar94.github.io//blog/2025/MinimumSizeSubarraySum/" rel="alternate" type="text/html" title="209. Minimum Size Subarray Sum"/><published>2025-01-31T00:00:00+00:00</published><updated>2025-01-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumSizeSubarraySum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumSizeSubarraySum/"><![CDATA[<ul> <li>Given an array of positive integers <code class="language-plaintext highlighter-rouge">nums</code> and a positive integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the <strong>minimal length</strong> of a</em> <em>subarray</em> <em>whose sum is greater than or equal to</em> <code class="language-plaintext highlighter-rouge">target</code>. If there is no such subarray, return <code class="language-plaintext highlighter-rouge">0</code> instead.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 4, nums = [1,4,4]
+Output: 1
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 11, nums = [1,1,1,1,1,1,1,1]
+Output: 0
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowMin</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/01/31
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumSizeSubarraySum</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minSubArrayLen</span><span class="o">(</span><span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// sum of subarray</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// start position of sliding window</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">end</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+            <span class="c1">// try to shrink the window when sum is greater than or equal to target</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+                <span class="n">sum</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+                <span class="n">start</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">minSubArrayLen</span><span class="o">(</span><span class="n">target1</span><span class="o">,</span> <span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">minSubArrayLen</span><span class="o">(</span><span class="n">target2</span><span class="o">,</span> <span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+
+        <span class="c1">// test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">minSubArrayLen</span><span class="o">(</span><span class="n">target3</span><span class="o">,</span> <span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMin"/><summary type="html"><![CDATA[Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.]]></summary></entry><entry><title type="html">541. Reverse String II</title><link href="https://zhengstar94.github.io//blog/2025/ReverseStringII/" rel="alternate" type="text/html" title="541. Reverse String II"/><published>2025-01-31T00:00:00+00:00</published><updated>2025-01-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReverseStringII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReverseStringII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, reverse the first <code class="language-plaintext highlighter-rouge">k</code> characters for every <code class="language-plaintext highlighter-rouge">2k</code> characters counting from the start of the string.</li> <li>If there are fewer than <code class="language-plaintext highlighter-rouge">k</code> characters left, reverse all of them. If there are less than <code class="language-plaintext highlighter-rouge">2k</code> but greater than or equal to <code class="language-plaintext highlighter-rouge">k</code> characters, then reverse the first <code class="language-plaintext highlighter-rouge">k</code> characters and leave the other as original.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefg", k = 2
 Output: "bacdfeg"
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcd", k = 2
 Output: "bacd"
@@ -648,85 +699,4 @@ It can be shown that all other substrings contain either "de", "le", or "e" as a
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMax"/><category term="Hard"/><summary type="html"><![CDATA[You are given a string word and an array of strings forbidden. A string is called valid if none of its substrings are present in forbidden. Return the length of the longest valid substring of the string word. A substring is a contiguous sequence of characters in a string, possibly empty.]]></summary></entry><entry><title type="html">2412. Minimum Money Required Before Transactions</title><link href="https://zhengstar94.github.io//blog/2025/MinimumMoneyRequiredBeforeTransactions/" rel="alternate" type="text/html" title="2412. Minimum Money Required Before Transactions"/><published>2025-01-25T00:00:00+00:00</published><updated>2025-01-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumMoneyRequiredBeforeTransactions</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumMoneyRequiredBeforeTransactions/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> 2D integer array <code class="language-plaintext highlighter-rouge">transactions</code>, where <code class="language-plaintext highlighter-rouge">transactions[i] = [costi, cashbacki]</code>.</li> <li>The array describes transactions, where each transaction must be completed exactly once in <strong>some order</strong>. At any given moment, you have a certain amount of <code class="language-plaintext highlighter-rouge">money</code>. In order to complete transaction <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">money &gt;= costi</code> must hold true. After performing a transaction, <code class="language-plaintext highlighter-rouge">money</code> becomes <code class="language-plaintext highlighter-rouge">money - costi + cashbacki</code>.</li> <li>Return <em>the minimum amount of</em> <code class="language-plaintext highlighter-rouge">money</code> <em>required before any transaction so that all of the transactions can be completed <strong>regardless of the order</strong> of the transactions.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: transactions = [ [ 2,1],[5,0],[4,2 ] ]
-Output: 10
-Explanation:
-Starting with money = 10, the transactions can be performed in any order.
-It can be shown that starting with money &lt; 10 will fail to complete all transactions in some order.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: transactions = [ [ 3,0],[0,3 ] ]
-Output: 3
-Explanation:
-- If transactions are in the order [ [ 3,0],[0,3 ] ], the minimum money required to complete the transactions is 3.
-- If transactions are in the order [ [ 0,3],[3,0 ] ], the minimum money required to complete the transactions is 0.
-Thus, starting with money = 3, the transactions can be performed in any order.
-
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumMoneyRequiredBeforeTransactions</span> <span class="o">{</span>
-
-    <span class="cm">/**
-     * Calculate the minimum initial money required to complete all transactions
-     *
-     * @param transactions 2D array where each inner array contains [cost, cashback]
-     * @return long value representing the minimum initial money needed
-     *
-     * Algorithm explanation:
-     * 1. totalLose: Accumulates the total money lost from all losing transactions
-     * 2. mx: Tracks the maximum of minimum starting money needed for any single transaction
-     * 3. Final result = totalLose + mx
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">minimumMoney</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Track the total money lost from all losing transactions</span>
-        <span class="kt">long</span> <span class="n">totalLose</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Track the maximum of minimum starting money needed for any transaction</span>
-        <span class="kt">int</span> <span class="n">mx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each transaction</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">transaction</span> <span class="o">:</span> <span class="n">transactions</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate and accumulate losses</span>
-            <span class="c1">// If cost &gt; cashback, add the difference to totalLose</span>
-            <span class="c1">// If cost &lt;= cashback, add 0 (no loss)</span>
-            <span class="n">totalLose</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">transaction</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">transaction</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
-
-            <span class="c1">// Calculate minimum starting money needed for this transaction</span>
-            <span class="c1">// Why min?: Because we need at least the smaller of (cost, cashback)</span>
-            <span class="c1">// to start this transaction at any point</span>
-            <span class="kt">int</span> <span class="n">minStart</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">transaction</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">transaction</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
-
-            <span class="c1">// Update mx if current transaction needs more starting money</span>
-            <span class="c1">// This ensures we have enough money to start the most demanding transaction</span>
-            <span class="n">mx</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">mx</span><span class="o">,</span> <span class="n">minStart</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return total losses plus maximum starting money needed</span>
-        <span class="c1">// This sum ensures we can complete all transactions in any order</span>
-        <span class="k">return</span> <span class="n">totalLose</span> <span class="o">+</span> <span class="n">mx</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Mixed transactions with losses</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Example 1 ==="</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">long</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">minimumMoney</span><span class="o">(</span><span class="n">transactions1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Minimum initial money needed for Example 1: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 2: Transactions with extreme cashback differences</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n\n=== Example 2 ==="</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">long</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">minimumMoney</span><span class="o">(</span><span class="n">transactions2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Minimum initial money needed for Example 2: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 3: More complex transactions with varying profits/losses</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n\n=== Example 3 ==="</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">transactions3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">10</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="kt">long</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">minimumMoney</span><span class="o">(</span><span class="n">transactions3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Minimum initial money needed for Example 3: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed 2D integer array transactions, where transactions[i] = [costi, cashbacki]. The array describes transactions, where each transaction must be completed exactly once in some order. At any given moment, you have a certain amount of money. In order to complete transaction i, money &gt;= costi must hold true. After performing a transaction, money becomes money - costi + cashbacki. Return the minimum amount of money required before any transaction so that all of the transactions can be completed regardless of the order of the transactions.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMax"/><category term="Hard"/><summary type="html"><![CDATA[You are given a string word and an array of strings forbidden. A string is called valid if none of its substrings are present in forbidden. Return the length of the longest valid substring of the string word. A substring is a contiguous sequence of characters in a string, possibly empty.]]></summary></entry></feed>
