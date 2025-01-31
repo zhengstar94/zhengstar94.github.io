@@ -7,7 +7,7 @@ title: "904. Fruit Into Baskets"
 date: "2025-01-15"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

@@ -7,7 +7,7 @@ title: "2730. Find the Longest Semi-Repetitive Substring"
 date: "2025-01-13"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

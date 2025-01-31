@@ -7,7 +7,7 @@ title: "1695. Maximum Erasure Value"
 date: "2025-01-16"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

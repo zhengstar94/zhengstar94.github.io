@@ -7,7 +7,7 @@ title: "2831. Find the Longest Equal Subarray"
 date: "2025-01-23"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

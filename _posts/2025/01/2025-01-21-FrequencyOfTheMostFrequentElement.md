@@ -7,7 +7,7 @@ title: "1838. Frequency of the Most Frequent Element"
 date: "2025-01-21"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 - The **frequency** of an element is the number of times it occurs in an array.

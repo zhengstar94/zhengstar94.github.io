@@ -7,7 +7,7 @@ title: "2555. Maximize Win From Two Segments"
 date: "2025-01-24"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

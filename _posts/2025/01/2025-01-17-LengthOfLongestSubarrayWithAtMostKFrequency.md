@@ -7,7 +7,7 @@ title: "2958. Length of Longest Subarray With at Most K Frequency"
 date: "2025-01-17"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

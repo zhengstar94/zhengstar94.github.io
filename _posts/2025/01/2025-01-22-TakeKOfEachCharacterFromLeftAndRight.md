@@ -7,7 +7,7 @@ title: "2516. Take K of Each Character From Left and Right"
 date: "2025-01-22"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

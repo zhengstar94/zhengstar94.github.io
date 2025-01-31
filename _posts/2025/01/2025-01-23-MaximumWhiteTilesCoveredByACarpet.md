@@ -7,7 +7,7 @@ title: "2271. Maximum White Tiles Covered by a Carpet"
 date: "2025-01-23"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 
