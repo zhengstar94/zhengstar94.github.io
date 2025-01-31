@@ -7,7 +7,7 @@ title: "2779. Maximum Beauty of an Array After Applying Operation"
 date: "2025-01-18"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

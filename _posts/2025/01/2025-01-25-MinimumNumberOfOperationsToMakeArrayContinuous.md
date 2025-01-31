@@ -7,7 +7,7 @@ title: "2009. Minimum Number of Operations to Make Array Continuous"
 date: "2025-01-25"
 tags: Hard
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

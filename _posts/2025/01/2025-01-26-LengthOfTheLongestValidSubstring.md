@@ -7,7 +7,7 @@ title: "2781. Length of the Longest Valid Substring"
 date: "2025-01-26"
 tags: Hard
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 - You are given a string `word` and an array of strings `forbidden`.

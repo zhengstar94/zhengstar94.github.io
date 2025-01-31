@@ -7,7 +7,7 @@ title: "1208. Get Equal Substrings Within Budget"
 date: "2025-01-13"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

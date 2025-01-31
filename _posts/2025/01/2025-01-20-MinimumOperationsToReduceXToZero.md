@@ -7,7 +7,7 @@ title: "1658. Minimum Operations to Reduce X to Zero"
 date: "2025-01-20"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

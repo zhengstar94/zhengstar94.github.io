@@ -7,7 +7,7 @@ title: "3090. Maximum Length Substring With Two Occurrences"
 date: "2025-01-11"
 tags: Easy
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

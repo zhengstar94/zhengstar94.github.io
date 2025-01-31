@@ -7,7 +7,7 @@ title: "2024. Maximize the Confusion of an Exam"
 date: "2025-01-18"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 

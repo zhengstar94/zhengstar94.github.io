@@ -7,7 +7,7 @@ title: "1004. Max Consecutive Ones III"
 date: "2025-01-19"
 tags: Medium
 categories:
-  - "LeetCode DynamicSlidingWindow"
+  - "LeetCode DynamicSlidingWindowMax"
 ---
 
 
