@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-01T06:58:42+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1234. Replace the Substring for Balanced String</title><link href="https://zhengstar94.github.io//blog/2025/ReplaceTheSubstringForBalancedString/" rel="alternate" type="text/html" title="1234. Replace the Substring for Balanced String"/><published>2025-02-01T00:00:00+00:00</published><updated>2025-02-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReplaceTheSubstringForBalancedString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReplaceTheSubstringForBalancedString/"><![CDATA[<ul> <li>You are given a string s of length <code class="language-plaintext highlighter-rouge">n</code> containing only four kinds of characters: <code class="language-plaintext highlighter-rouge">'Q'</code>, <code class="language-plaintext highlighter-rouge">'W'</code>, <code class="language-plaintext highlighter-rouge">'E'</code>, and <code class="language-plaintext highlighter-rouge">'R'</code>.</li> <li>A string is said to be <strong>balanced</strong> if each of its characters appears <code class="language-plaintext highlighter-rouge">n / 4</code> times where <code class="language-plaintext highlighter-rouge">n</code> is the length of the string.</li> <li>Return <em>the minimum length of the substring that can be replaced with <strong>any</strong> other string of the same length to make</em> <code class="language-plaintext highlighter-rouge">s</code> <strong><em>balanced</em></strong>. If s is already <strong>balanced</strong>, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "QWER"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-02T06:46:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">598. Range Addition II</title><link href="https://zhengstar94.github.io//blog/2025/RangeAdditionII/" rel="alternate" type="text/html" title="598. Range Addition II"/><published>2025-02-02T00:00:00+00:00</published><updated>2025-02-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RangeAdditionII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RangeAdditionII/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">M</code> initialized with all <code class="language-plaintext highlighter-rouge">0</code>’s and an array of operations <code class="language-plaintext highlighter-rouge">ops</code>, where <code class="language-plaintext highlighter-rouge">ops[i] = [ai, bi]</code> means <code class="language-plaintext highlighter-rouge">M[x][y]</code> should be incremented by one for all <code class="language-plaintext highlighter-rouge">0 &lt;= x &lt; ai</code> and <code class="language-plaintext highlighter-rouge">0 &lt;= y &lt; bi</code></li> <li>Count and return <em>the number of maximum integers in the matrix after performing all the operations</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3] ]
+Output: 4
+Explanation: The maximum integer in M is 2, and there are four of it in M. So return 4.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3] ]
+Output: 4
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = []
+Output: 9
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(k) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RangeAdditionII</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If operations array is empty or null, return the total area of matrix</span>
+        <span class="c1">// as all elements will be 0 (maximum value) in this case</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">ops</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">ops</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize variables to track minimum rows and columns</span>
+        <span class="c1">// The overlapping area will be determined by these minimums</span>
+        <span class="kt">int</span> <span class="n">minRow</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">minCol</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each operation to find the smallest affected area</span>
+        <span class="c1">// This will be the area where all operations overlap</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">op</span> <span class="o">:</span> <span class="n">ops</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">minRow</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minRow</span><span class="o">,</span> <span class="n">op</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>  <span class="c1">// Find minimum row bound</span>
+            <span class="n">minCol</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minCol</span><span class="o">,</span> <span class="n">op</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>  <span class="c1">// Find minimum column bound</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the area of overlap (number of maximum elements)</span>
+        <span class="c1">// This is the product of minimum rows and columns</span>
+        <span class="k">return</span> <span class="n">minRow</span> <span class="o">*</span> <span class="n">minCol</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case with two operations</span>
+        <span class="kt">int</span> <span class="n">m1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">maxCount</span><span class="o">(</span><span class="n">m1</span><span class="o">,</span> <span class="n">n1</span><span class="o">,</span> <span class="n">ops1</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test Case 2: Multiple operations with same pattern</span>
+        <span class="kt">int</span> <span class="n">m2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">maxCount</span><span class="o">(</span><span class="n">m2</span><span class="o">,</span> <span class="n">n2</span><span class="o">,</span> <span class="n">ops2</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test Case 3: Empty operations array</span>
+        <span class="kt">int</span> <span class="n">m3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops3</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">maxCount</span><span class="o">(</span><span class="n">m3</span><span class="o">,</span> <span class="n">n3</span><span class="o">,</span> <span class="n">ops3</span><span class="o">));</span> <span class="c1">// Expected output: 9</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an m x n matrix M initialized with all 0’s and an array of operations ops, where ops[i] = [ai, bi] means M[x][y] should be incremented by one for all 0 &lt;= x &lt; ai and 0 &lt;= y &lt; bi Count and return the number of maximum integers in the matrix after performing all the operations.]]></summary></entry><entry><title type="html">1234. Replace the Substring for Balanced String</title><link href="https://zhengstar94.github.io//blog/2025/ReplaceTheSubstringForBalancedString/" rel="alternate" type="text/html" title="1234. Replace the Substring for Balanced String"/><published>2025-02-01T00:00:00+00:00</published><updated>2025-02-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReplaceTheSubstringForBalancedString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReplaceTheSubstringForBalancedString/"><![CDATA[<ul> <li>You are given a string s of length <code class="language-plaintext highlighter-rouge">n</code> containing only four kinds of characters: <code class="language-plaintext highlighter-rouge">'Q'</code>, <code class="language-plaintext highlighter-rouge">'W'</code>, <code class="language-plaintext highlighter-rouge">'E'</code>, and <code class="language-plaintext highlighter-rouge">'R'</code>.</li> <li>A string is said to be <strong>balanced</strong> if each of its characters appears <code class="language-plaintext highlighter-rouge">n / 4</code> times where <code class="language-plaintext highlighter-rouge">n</code> is the length of the string.</li> <li>Return <em>the minimum length of the substring that can be replaced with <strong>any</strong> other string of the same length to make</em> <code class="language-plaintext highlighter-rouge">s</code> <strong><em>balanced</em></strong>. If s is already <strong>balanced</strong>, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "QWER"
 Output: 0
 Explanation: s is already balanced.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "QQWE"
@@ -684,77 +743,4 @@ Explanation: The fisher can start at cells (0,0) or (3,3) and collect a single f
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed 2D matrix grid of size m x n, where (r, c) represents: A land cell if grid[r][c] = 0, or A water cell containing grid[r][c] fish, if grid[r][c] &gt; 0. A fisher can start at any water cell (r, c) and can do the following operations any number of times: Catch all the fish at cell (r, c), or Move to any adjacent water cell. Return the maximum number of fish the fisher can catch if he chooses his starting cell optimally, or 0 if no water cell exists. An adjacent cell of the cell (r, c), is one of the cells (r, c + 1), (r, c - 1), (r + 1, c) or (r - 1, c) if it exists.]]></summary></entry><entry><title type="html">119. Pascal’s Triangle II</title><link href="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/" rel="alternate" type="text/html" title="119. Pascal’s Triangle II"/><published>2025-01-28T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PascalsTriangleII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PascalsTriangleII/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">rowIndex</code>, return the <code class="language-plaintext highlighter-rouge">rowIndexth</code> (<strong>0-indexed</strong>) row of the <strong>Pascal’s triangle</strong>.</li> <li>In <strong>Pascal’s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 3
-Output: [1,3,3,1]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 0
-Output: [1]
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: rowIndex = 1
-Output: [1,1]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(rowIndex) time | O(rowIndex) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PascalsTriangleII</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">getRow</span><span class="o">(</span><span class="kt">int</span> <span class="n">rowIndex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a list to store the final result.</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Create an array to store the current row values.</span>
-        <span class="c1">// The size of the array is rowIndex + 1 because the row is 0-indexed.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">rowIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-
-        <span class="c1">// The first element of every row in Pascal's Triangle is always 1.</span>
-        <span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Loop to calculate each element in the row.</span>
-        <span class="c1">// Start from the second element (i=1) because the first element is already set to 1.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">rowIndex</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Get the previous element in the row.</span>
-            <span class="c1">// This is equivalent to C(n, k-1) in the combination formula.</span>
-            <span class="kt">long</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">row</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-
-            <span class="c1">// Calculate the current element using the combination formula:</span>
-            <span class="c1">// C(n, k) = C(n, k-1) * (n - k + 1) / k</span>
-            <span class="c1">// Here:</span>
-            <span class="c1">// - n is the rowIndex.</span>
-            <span class="c1">// - k is the current position in the row (i).</span>
-            <span class="c1">// - (rowIndex - i + 1) is the numerator part of the formula.</span>
-            <span class="c1">// - i is the denominator part of the formula.</span>
-            <span class="kt">long</span> <span class="n">current</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">*</span> <span class="o">(</span><span class="n">rowIndex</span> <span class="o">-</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Store the calculated value in the current position of the row.</span>
-            <span class="n">row</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">current</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert the array to a list for the final result.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">row</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the generated row.</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: rowIndex = 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 3: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>  <span class="c1">// Expected output: [1, 3, 3, 1]</span>
-
-        <span class="c1">// Test case 2: rowIndex = 0</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 0: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>  <span class="c1">// Expected output: [1]</span>
-
-        <span class="c1">// Test case 3: rowIndex = 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 1: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>  <span class="c1">// Expected output: [1, 1]</span>
-
-        <span class="c1">// Additional test case: rowIndex = 4</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rowIndex = 4: "</span> <span class="o">+</span> <span class="n">getRow</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>  <span class="c1">// Expected output: [1, 4, 6, 4, 1]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal’s triangle. In Pascal’s triangle, each number is the sum of the two numbers directly above it as shown:]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed 2D matrix grid of size m x n, where (r, c) represents: A land cell if grid[r][c] = 0, or A water cell containing grid[r][c] fish, if grid[r][c] &gt; 0. A fisher can start at any water cell (r, c) and can do the following operations any number of times: Catch all the fish at cell (r, c), or Move to any adjacent water cell. Return the maximum number of fish the fisher can catch if he chooses his starting cell optimally, or 0 if no water cell exists. An adjacent cell of the cell (r, c), is one of the cells (r, c + 1), (r, c - 1), (r + 1, c) or (r - 1, c) if it exists.]]></summary></entry></feed>
