@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-02T06:46:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">598. Range Addition II</title><link href="https://zhengstar94.github.io//blog/2025/RangeAdditionII/" rel="alternate" type="text/html" title="598. Range Addition II"/><published>2025-02-02T00:00:00+00:00</published><updated>2025-02-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RangeAdditionII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RangeAdditionII/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">M</code> initialized with all <code class="language-plaintext highlighter-rouge">0</code>’s and an array of operations <code class="language-plaintext highlighter-rouge">ops</code>, where <code class="language-plaintext highlighter-rouge">ops[i] = [ai, bi]</code> means <code class="language-plaintext highlighter-rouge">M[x][y]</code> should be incremented by one for all <code class="language-plaintext highlighter-rouge">0 &lt;= x &lt; ai</code> and <code class="language-plaintext highlighter-rouge">0 &lt;= y &lt; bi</code></li> <li>Count and return <em>the number of maximum integers in the matrix after performing all the operations</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-02T08:54:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1752. Check if Array Is Sorted and Rotated</title><link href="https://zhengstar94.github.io//blog/2025/CheckIfArrayIsSortedAndRotated/" rel="alternate" type="text/html" title="1752. Check if Array Is Sorted and Rotated"/><published>2025-02-02T00:00:00+00:00</published><updated>2025-02-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CheckIfArrayIsSortedAndRotated</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CheckIfArrayIsSortedAndRotated/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if the array was originally sorted in non-decreasing order, then rotated <strong>some</strong> number of positions (including zero)</em>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> <li>There may be <strong>duplicates</strong> in the original array.</li> <li><strong>Note:</strong> An array <code class="language-plaintext highlighter-rouge">A</code> rotated by <code class="language-plaintext highlighter-rouge">x</code> positions results in an array <code class="language-plaintext highlighter-rouge">B</code> of the same length such that <code class="language-plaintext highlighter-rouge">A[i] == B[(i+x) % A.length]</code>, where <code class="language-plaintext highlighter-rouge">%</code> is the modulo operation.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,4,5,1,2]
+Output: true
+Explanation: [1,2,3,4,5] is the original sorted array.
+You can rotate the array by x = 3 positions to begin on the the element of value 3: [3,4,5,1,2].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,3,4]
+Output: false
+Explanation: There is no sorted array once rotated that can make nums.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
+Output: true
+Explanation: [1,2,3] is the original sorted array.
+You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckIfArrayIsSortedAndRotated</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Count the number of inversions (where current element &gt; next element)</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Check adjacent elements including first and last (circular check)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">n</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// If more than one inversion is found, array cannot be sorted and rotated</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array that is sorted and rotated</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">check</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Should output true</span>
+
+        <span class="c1">// Test Case 2: Array that cannot be sorted by rotation</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">check</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Should output false</span>
+
+        <span class="c1">// Test Case 3: Already sorted array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">check</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Should output true</span>
+
+        <span class="c1">// Test Case 4: Array with duplicate elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">check</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Should output true</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false. There may be duplicates in the original array. Note: An array A rotated by x positions results in an array B of the same length such that A[i] == B[(i+x) % A.length], where % is the modulo operation.]]></summary></entry><entry><title type="html">598. Range Addition II</title><link href="https://zhengstar94.github.io//blog/2025/RangeAdditionII/" rel="alternate" type="text/html" title="598. Range Addition II"/><published>2025-02-02T00:00:00+00:00</published><updated>2025-02-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RangeAdditionII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RangeAdditionII/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">M</code> initialized with all <code class="language-plaintext highlighter-rouge">0</code>’s and an array of operations <code class="language-plaintext highlighter-rouge">ops</code>, where <code class="language-plaintext highlighter-rouge">ops[i] = [ai, bi]</code> means <code class="language-plaintext highlighter-rouge">M[x][y]</code> should be incremented by one for all <code class="language-plaintext highlighter-rouge">0 &lt;= x &lt; ai</code> and <code class="language-plaintext highlighter-rouge">0 &lt;= y &lt; bi</code></li> <li>Count and return <em>the number of maximum integers in the matrix after performing all the operations</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3] ]
 Output: 4
 Explanation: The maximum integer in M is 2, and there are four of it in M. So return 4.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3] ]
@@ -641,106 +699,4 @@ Output: false
 <span class="o">}</span>
 
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) &lt;= k.]]></summary></entry><entry><title type="html">2658. Maximum Number of Fish in a Grid</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfFishInAGrid/" rel="alternate" type="text/html" title="2658. Maximum Number of Fish in a Grid"/><published>2025-01-28T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfFishInAGrid</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfFishInAGrid/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> 2D matrix <code class="language-plaintext highlighter-rouge">grid</code> of size <code class="language-plaintext highlighter-rouge">m x n</code>, where <code class="language-plaintext highlighter-rouge">(r, c)</code> represents: <ul> <li>A <strong>land</strong> cell if <code class="language-plaintext highlighter-rouge">grid[r][c] = 0</code>, or</li> <li>A <strong>water</strong> cell containing <code class="language-plaintext highlighter-rouge">grid[r][c]</code> fish, if <code class="language-plaintext highlighter-rouge">grid[r][c] &gt; 0</code>.</li> </ul> </li> <li>A fisher can start at any <strong>water</strong> cell <code class="language-plaintext highlighter-rouge">(r, c)</code> and can do the following operations any number of times: <ul> <li>Catch all the fish at cell <code class="language-plaintext highlighter-rouge">(r, c)</code>, or</li> <li>Move to any adjacent <strong>water</strong> cell.</li> </ul> </li> <li>Return <em>the <strong>maximum</strong> number of fish the fisher can catch if he chooses his starting cell optimally, or</em> <code class="language-plaintext highlighter-rouge">0</code> if no water cell exists.</li> <li>An <strong>adjacent</strong> cell of the cell <code class="language-plaintext highlighter-rouge">(r, c)</code>, is one of the cells <code class="language-plaintext highlighter-rouge">(r, c + 1)</code>, <code class="language-plaintext highlighter-rouge">(r, c - 1)</code>, <code class="language-plaintext highlighter-rouge">(r + 1, c)</code> or <code class="language-plaintext highlighter-rouge">(r - 1, c)</code> if it exists.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,2,1,0],[4,0,0,3],[1,0,0,4],[0,3,2,0 ] ]
-Output: 7
-Explanation: The fisher can start at cell (1,3) and collect 3 fish, then move to cell (2,3) and collect 4 fish.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,1 ] ]
-Output: 1
-Explanation: The fisher can start at cells (0,0) or (3,3) and collect a single fish. 
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DFS</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfFishInAGrid</span> <span class="o">{</span>
-
-    <span class="c1">// Define four directional movements: up, down, left, right</span>
-    <span class="c1">// Used for exploring adjacent cells in the grid</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[][]</span> <span class="no">DIRECTIONS</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMaxFish</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Check for null or empty grid</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">grid</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Get grid dimensions</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxFish</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each cell in the grid</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// If current cell is a water cell (contains fish)</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-                    <span class="c1">// Start DFS from this cell and update maximum fish count</span>
-                    <span class="n">maxFish</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxFish</span><span class="o">,</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">));</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">maxFish</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Check boundaries and if cell is already visited (0)</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">row</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span>
-                <span class="n">col</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">col</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span> <span class="o">||</span>
-                <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Store current cell's fish count</span>
-        <span class="kt">int</span> <span class="n">currentFish</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
-        <span class="c1">// Mark cell as visited by setting to 0</span>
-        <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Initialize total fish count with current cell's fish</span>
-        <span class="kt">int</span> <span class="n">totalFish</span> <span class="o">=</span> <span class="n">currentFish</span><span class="o">;</span>
-        <span class="c1">// Explore all four directions</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">dir:</span> <span class="no">DIRECTIONS</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">newRow</span> <span class="o">=</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-            <span class="kt">int</span> <span class="n">newCol</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-            <span class="c1">// Add fish count from adjacent water cells</span>
-            <span class="n">totalFish</span> <span class="o">+=</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">newRow</span><span class="o">,</span> <span class="n">newCol</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">totalFish</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Normal grid with multiple water cells</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Expected output: 7</span>
-
-        <span class="c1">// Test Case 2: Grid with isolated water cells</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// Test Case 3: Empty grid</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test Case 4: Grid with only land cells</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid4</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">findMaxFish</span><span class="o">(</span><span class="n">grid4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DFS"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed 2D matrix grid of size m x n, where (r, c) represents: A land cell if grid[r][c] = 0, or A water cell containing grid[r][c] fish, if grid[r][c] &gt; 0. A fisher can start at any water cell (r, c) and can do the following operations any number of times: Catch all the fish at cell (r, c), or Move to any adjacent water cell. Return the maximum number of fish the fisher can catch if he chooses his starting cell optimally, or 0 if no water cell exists. An adjacent cell of the cell (r, c), is one of the cells (r, c + 1), (r, c - 1), (r + 1, c) or (r - 1, c) if it exists.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) &lt;= k.]]></summary></entry></feed>
