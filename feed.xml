@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-03T05:45:58+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3105. Longest Strictly Increasing or Strictly Decreasing Subarray</title><link href="https://zhengstar94.github.io//blog/2025/LongestStrictlyIncreasingOrStrictlyDecreasingSubarray/" rel="alternate" type="text/html" title="3105. Longest Strictly Increasing or Strictly Decreasing Subarray"/><published>2025-02-03T00:00:00+00:00</published><updated>2025-02-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestStrictlyIncreasingOrStrictlyDecreasingSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestStrictlyIncreasingOrStrictlyDecreasingSubarray/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>. Return <em>the length of the <strong>longest</strong> subarray of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>which is either <strong>strictly increasing</strong> or <strong>strictly decreasing</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,4,3,3,2]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-03T06:12:15+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2962. Count Subarrays Where Max Element Appears at Least K Times</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysWhereMaxElementAppearsAtLeastKTimes/" rel="alternate" type="text/html" title="2962. Count Subarrays Where Max Element Appears at Least K Times"/><published>2025-02-03T00:00:00+00:00</published><updated>2025-02-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysWhereMaxElementAppearsAtLeastKTimes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysWhereMaxElementAppearsAtLeastKTimes/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and a <strong>positive</strong> integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return <em>the number of subarrays where the <strong>maximum</strong> element of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>appears <strong>at least</strong></em> <code class="language-plaintext highlighter-rouge">k</code> <em>times in that subarray.</em></li> <li>A <strong>subarray</strong> is a contiguous sequence of elements within (prep. 在…之内 adv. 在内部) an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,3,3], k = 2
+Output: 6
+Explanation: The subarrays that contain the element 3 at least 2 times are: [1,3,2,3], [1,3,2,3,3], [3,2,3], [3,2,3,3], [2,3,3] and [3,3].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,4,2,1], k = 3
+Output: 0
+Explanation: No subarray contains the element 4 at least 3 times.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/03
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysWhereMaxElementAppearsAtLeastKTimes</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 1. Find the maximum value in the array</span>
+        <span class="kt">int</span> <span class="n">mx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mx</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">mx</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 2. Process using sliding window technique</span>
+        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Store the final count of valid subarrays</span>
+        <span class="kt">int</span> <span class="n">cntMx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Count of maximum value occurrences in current window</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Left pointer of the sliding window</span>
+
+        <span class="c1">// Iterate through array using right pointer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If current element is the maximum value, increment the counter</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">mx</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">cntMx</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * Key Part 1: Window Adjustment
+             * When we find exactly k occurrences of maximum value in the window:
+             * 1. We need to shrink the window from left until cntMx &lt; k
+             * 2. This helps us find the leftmost valid position for the current right pointer
+             *
+             * For example, in [1,3,2,3,3] with k=2:
+             * When right=3 (fourth position), window contains [1,3,2,3]
+             * We move left pointer until we have less than k max values
+             */</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">cntMx</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If we remove a maximum value from the left, decrease the counter</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">++]</span> <span class="o">==</span> <span class="n">mx</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">cntMx</span><span class="o">--;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * Key Part 2: Counting Valid Subarrays
+             * After the while loop:
+             * - 'left' represents the position where window becomes invalid
+             * - All positions before 'left' can be valid starting points
+             *
+             * For example, when right=3 in [1,3,2,3]:
+             * If left=2, we can start subarrays from:
+             * - position 0: [1,3,2,3]
+             * - position 1: [3,2,3]
+             * So we add 'left' (2) to answer
+             *
+             * This is why ans += left works:
+             * - It counts all possible valid starting positions
+             * - Each starting position forms exactly one valid subarray with current right pointer
+             */</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">left</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with maximum value appearing multiple times</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Expected: 6</span>
+        <span class="c1">// Valid subarrays are: [1,3,2,3], [3,2,3], [1,3,2,3,3], [3,2,3,3], [2,3,3], [3,3]</span>
+
+        <span class="c1">// Test Case 2: Array where maximum value appears less than k times</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
+        <span class="c1">// No valid subarrays as maximum value (4) appears less than 3 times</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and a positive integer k. Return the number of subarrays where the maximum element of nums appears at least k times in that subarray. A subarray is a contiguous sequence of elements within (prep. 在…之内 adv. 在内部) an array.]]></summary></entry><entry><title type="html">3105. Longest Strictly Increasing or Strictly Decreasing Subarray</title><link href="https://zhengstar94.github.io//blog/2025/LongestStrictlyIncreasingOrStrictlyDecreasingSubarray/" rel="alternate" type="text/html" title="3105. Longest Strictly Increasing or Strictly Decreasing Subarray"/><published>2025-02-03T00:00:00+00:00</published><updated>2025-02-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestStrictlyIncreasingOrStrictlyDecreasingSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestStrictlyIncreasingOrStrictlyDecreasingSubarray/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>. Return <em>the length of the <strong>longest</strong> subarray of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>which is either <strong>strictly increasing</strong> or <strong>strictly decreasing</strong></em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,4,3,3,2]
 
 Output: 2
 
@@ -653,99 +740,4 @@ Output: "bacd"
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string. If there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.]]></summary></entry><entry><title type="html">(Review)2904. Shortest and Lexicographically Smallest Beautiful String</title><link href="https://zhengstar94.github.io//blog/2025/ShortestAndLexicographicallySmallestBeautifulString/" rel="alternate" type="text/html" title="(Review)2904. Shortest and Lexicographically Smallest Beautiful String"/><published>2025-01-31T00:00:00+00:00</published><updated>2025-01-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestAndLexicographicallySmallestBeautifulString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestAndLexicographicallySmallestBeautifulString/"><![CDATA[<ul> <li>You are given a binary string <code class="language-plaintext highlighter-rouge">s</code> and a positive integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A substring of <code class="language-plaintext highlighter-rouge">s</code> is <strong>beautiful</strong> if the number of <code class="language-plaintext highlighter-rouge">1</code>’s in it is exactly <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Let <code class="language-plaintext highlighter-rouge">len</code> be the length of the <strong>shortest</strong> beautiful substring.</li> <li>Return <em>the lexicographically <strong>smallest</strong> beautiful substring of string</em> <code class="language-plaintext highlighter-rouge">s</code> <em>with length equal to</em> <code class="language-plaintext highlighter-rouge">len</code>. If <code class="language-plaintext highlighter-rouge">s</code> doesn’t contain a beautiful substring, return <em>an <strong>empty</strong> string</em>.</li> <li>A string <code class="language-plaintext highlighter-rouge">a</code> is lexicographically <strong>larger</strong> than a string <code class="language-plaintext highlighter-rouge">b</code> (of the same length) if in the first position where <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> differ, <code class="language-plaintext highlighter-rouge">a</code> has a character strictly larger than the corresponding character in <code class="language-plaintext highlighter-rouge">b</code>. <ul> <li>For example, <code class="language-plaintext highlighter-rouge">"abcd"</code> is lexicographically larger than <code class="language-plaintext highlighter-rouge">"abcc"</code> because the first position they differ is at the fourth character, and <code class="language-plaintext highlighter-rouge">d</code> is greater than <code class="language-plaintext highlighter-rouge">c</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "100011001", k = 3
-Output: "11001"
-Explanation: There are 7 beautiful substrings in this example:
-1. The substring "100011001".
-2. The substring "100011001".
-3. The substring "100011001".
-4. The substring "100011001".
-5. The substring "100011001".
-6. The substring "100011001".
-7. The substring "100011001".
-The length of the shortest beautiful substring is 5.
-The lexicographically smallest beautiful substring with length 5 is the substring "11001".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "1011", k = 2
-Output: "11"
-Explanation: There are 3 beautiful substrings in this example:
-1. The substring "1011".
-2. The substring "1011".
-3. The substring "1011".
-The length of the shortest beautiful substring is 2.
-The lexicographically smallest beautiful substring with length 2 is the substring "11".
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "000", k = 1
-Output: ""
-Explanation: There are no beautiful substrings in this example.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowMin</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/31
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShortestAndLexicographicallySmallestBeautifulString</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">shortestBeautifulSubstring</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">bestLeft</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>  <span class="c1">// Store the starting position of the best substring found</span>
-        <span class="kt">int</span> <span class="n">minLength</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Initialize with length greater than possible</span>
-        <span class="kt">int</span> <span class="n">ones</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Counter for number of '1's in current window</span>
-
-        <span class="c1">// Iterate through string using sliding window technique</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Count '1's as we expand the window</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'1'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">ones</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Process window when we have exactly k ones</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">ones</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="cm">/* First condition: Check if current window length is smaller than minLength
-                 * If true, we've found a shorter valid substring
-                 * Update both bestLeft and minLength to track this new shortest substring
-                 * Example: if current window "11001" (length 5) is shorter than previous "100011" (length 6)
-                 */</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">minLength</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">bestLeft</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-                    <span class="n">minLength</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="cm">/* Second condition: If current window length equals minLength
-                 * We need to check if current substring is lexicographically smaller
-                 * bestLeft == -1: handles the first valid substring case
-                 * compareTo &lt; 0: true if current substring is lexicographically smaller
-                 * Example: "01111" is lexicographically smaller than "10001" (both length 5)
-                 */</span>
-                <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">minLength</span> <span class="o">&amp;&amp;</span>
-                        <span class="o">(</span><span class="n">bestLeft</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">left</span> <span class="o">+</span> <span class="n">minLength</span><span class="o">)</span>
-                                <span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">bestLeft</span><span class="o">,</span> <span class="n">bestLeft</span> <span class="o">+</span> <span class="n">minLength</span><span class="o">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="n">bestLeft</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span>
-                <span class="o">}</span>
-
-                <span class="c1">// Shrink window from left and update ones count</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">++)</span> <span class="o">==</span> <span class="sc">'1'</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">ones</span><span class="o">--;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return empty string if no valid substring found, otherwise return the best substring</span>
-        <span class="k">return</span> <span class="n">bestLeft</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">bestLeft</span><span class="o">,</span> <span class="n">bestLeft</span> <span class="o">+</span> <span class="n">minLength</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Should find shortest substring with exactly 3 ones</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"100011001"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">shortestBeautifulSubstring</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: "11001"</span>
-
-        <span class="c1">// Test case 2: Should find shortest substring with exactly 2 ones</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"1011"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">shortestBeautifulSubstring</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: "11"</span>
-
-        <span class="c1">// Test case 3: Should return empty string as no substring has exactly 1 one</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"000"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">shortestBeautifulSubstring</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected: ""</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMin"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[You are given a binary string s and a positive integer k. A substring of s is beautiful if the number of 1’s in it is exactly k. Let len be the length of the shortest beautiful substring. Return the lexicographically smallest beautiful substring of string s with length equal to len. If s doesn’t contain a beautiful substring, return an empty string. A string a is lexicographically larger than a string b (of the same length) if in the first position where a and b differ, a has a character strictly larger than the corresponding character in b. For example, "abcd" is lexicographically larger than "abcc" because the first position they differ is at the fourth character, and d is greater than c.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Two Pointers"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string. If there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.]]></summary></entry></feed>
