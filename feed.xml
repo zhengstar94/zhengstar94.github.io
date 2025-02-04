@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-04T04:16:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">922. Sort Array By Parity II</title><link href="https://zhengstar94.github.io//blog/2025/SortArrayByParityII/" rel="alternate" type="text/html" title="922. Sort Array By Parity II"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SortArrayByParityII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SortArrayByParityII/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>, half of the integers in <code class="language-plaintext highlighter-rouge">nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</li> <li>Sort the array so that whenever <code class="language-plaintext highlighter-rouge">nums[i]</code> is odd, <code class="language-plaintext highlighter-rouge">i</code> is <strong>odd</strong>, and whenever <code class="language-plaintext highlighter-rouge">nums[i]</code> is even, <code class="language-plaintext highlighter-rouge">i</code> is <strong>even</strong>.</li> <li>Return <em>any answer array that satisfies this condition</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,5,7]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-04T05:07:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1800. Maximum Ascending Subarray Sum</title><link href="https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum/" rel="alternate" type="text/html" title="1800. Maximum Ascending Subarray Sum"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum/"><![CDATA[<ul> <li>Given an array of positive integers <code class="language-plaintext highlighter-rouge">nums</code>, return the <em>maximum possible sum of an <strong>ascending</strong> subarray in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A subarray is defined as a contiguous sequence of numbers in an array.</li> <li>A subarray <code class="language-plaintext highlighter-rouge">[numsl, numsl+1, ..., numsr-1, numsr]</code> is <strong>ascending</strong> if for all <code class="language-plaintext highlighter-rouge">i</code> where <code class="language-plaintext highlighter-rouge">l &lt;= i &lt; r</code>, <code class="language-plaintext highlighter-rouge">numsi &lt; numsi+1</code>. Note that a subarray of size <code class="language-plaintext highlighter-rouge">1</code> is <strong>ascending</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,20,30,5,10,50]
+Output: 65
+Explanation: [5,10,50] is the ascending subarray with the maximum sum of 65.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,20,30,40,50]
+Output: 150
+Explanation: [10,20,30,40,50] is the ascending subarray with the maximum sum of 150.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [12,17,15,13,10,11,12]
+Output: 33
+Explanation: [10,11,12] is the ascending subarray with the maximum sum of 33.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/04
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumAscendingSubarraySum</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxAscendingSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Handle edge cases: null array or empty array</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize variables:</span>
+        <span class="c1">// maxSum: keeps track of the maximum sum found so far</span>
+        <span class="c1">// currentSum: keeps track of the current ascending sequence sum</span>
+        <span class="kt">int</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">currentSum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+
+        <span class="c1">// Iterate through the array starting from second element</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If current element is greater than previous element</span>
+            <span class="c1">// Continue building the ascending sequence</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">currentSum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If sequence breaks, start a new sequence from current element</span>
+                <span class="n">currentSum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Update maxSum if currentSum is greater</span>
+            <span class="n">maxSum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxSum</span><span class="o">,</span> <span class="n">currentSum</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxSum</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with mixed ascending and non-ascending sequences</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">30</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">50</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">maxAscendingSum</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 65</span>
+
+        <span class="c1">// Test Case 2: Completely ascending array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">30</span><span class="o">,</span><span class="mi">40</span><span class="o">,</span><span class="mi">50</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">maxAscendingSum</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 150</span>
+
+        <span class="c1">// Test Case 3: Array with multiple small ascending sequences</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">15</span><span class="o">,</span><span class="mi">13</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">11</span><span class="o">,</span><span class="mi">12</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">maxAscendingSum</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 33</span>
+
+        <span class="c1">// Test Case 4: Array with single element</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">maxAscendingSum</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of positive integers nums, return the maximum possible sum of an ascending subarray in nums. A subarray is defined as a contiguous sequence of numbers in an array. A subarray [numsl, numsl+1, ..., numsr-1, numsr] is ascending if for all i where l &lt;= i &lt; r, numsi &lt; numsi+1. Note that a subarray of size 1 is ascending.]]></summary></entry><entry><title type="html">922. Sort Array By Parity II</title><link href="https://zhengstar94.github.io//blog/2025/SortArrayByParityII/" rel="alternate" type="text/html" title="922. Sort Array By Parity II"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SortArrayByParityII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SortArrayByParityII/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>, half of the integers in <code class="language-plaintext highlighter-rouge">nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</li> <li>Sort the array so that whenever <code class="language-plaintext highlighter-rouge">nums[i]</code> is odd, <code class="language-plaintext highlighter-rouge">i</code> is <strong>odd</strong>, and whenever <code class="language-plaintext highlighter-rouge">nums[i]</code> is even, <code class="language-plaintext highlighter-rouge">i</code> is <strong>even</strong>.</li> <li>Return <em>any answer array that satisfies this condition</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,5,7]
 Output: [4,5,2,7]
 Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3]
@@ -696,55 +763,4 @@ nums[1] and nums[2] are both odd. So the answer is false.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[An array is considered special if every pair of its adjacent elements contains two numbers with different parity. You are given an array of integers nums. Return true if nums is a special array, otherwise, return false.]]></summary></entry><entry><title type="html">209. Minimum Size Subarray Sum</title><link href="https://zhengstar94.github.io//blog/2025/MinimumSizeSubarraySum/" rel="alternate" type="text/html" title="209. Minimum Size Subarray Sum"/><published>2025-01-31T00:00:00+00:00</published><updated>2025-01-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumSizeSubarraySum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumSizeSubarraySum/"><![CDATA[<ul> <li>Given an array of positive integers <code class="language-plaintext highlighter-rouge">nums</code> and a positive integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the <strong>minimal length</strong> of a</em> <em>subarray</em> <em>whose sum is greater than or equal to</em> <code class="language-plaintext highlighter-rouge">target</code>. If there is no such subarray, return <code class="language-plaintext highlighter-rouge">0</code> instead.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 7, nums = [2,3,1,2,4,3]
-Output: 2
-Explanation: The subarray [4,3] has the minimal length under the problem constraint.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 4, nums = [1,4,4]
-Output: 1
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: target = 11, nums = [1,1,1,1,1,1,1,1]
-Output: 0
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowMin</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/01/31
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumSizeSubarraySum</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minSubArrayLen</span><span class="o">(</span><span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// sum of subarray</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// start position of sliding window</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">end</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
-            <span class="c1">// try to shrink the window when sum is greater than or equal to target</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-                <span class="n">sum</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-                <span class="n">start</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">minSubArrayLen</span><span class="o">(</span><span class="n">target1</span><span class="o">,</span> <span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">minSubArrayLen</span><span class="o">(</span><span class="n">target2</span><span class="o">,</span> <span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-
-        <span class="c1">// test case 3</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">minSubArrayLen</span><span class="o">(</span><span class="n">target3</span><span class="o">,</span> <span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMin"/><category term="Medium"/><summary type="html"><![CDATA[Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[An array is considered special if every pair of its adjacent elements contains two numbers with different parity. You are given an array of integers nums. Return true if nums is a special array, otherwise, return false.]]></summary></entry></feed>
