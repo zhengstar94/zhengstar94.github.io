@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-04T05:07:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1800. Maximum Ascending Subarray Sum</title><link href="https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum/" rel="alternate" type="text/html" title="1800. Maximum Ascending Subarray Sum"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum/"><![CDATA[<ul> <li>Given an array of positive integers <code class="language-plaintext highlighter-rouge">nums</code>, return the <em>maximum possible sum of an <strong>ascending</strong> subarray in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A subarray is defined as a contiguous sequence of numbers in an array.</li> <li>A subarray <code class="language-plaintext highlighter-rouge">[numsl, numsl+1, ..., numsr-1, numsr]</code> is <strong>ascending</strong> if for all <code class="language-plaintext highlighter-rouge">i</code> where <code class="language-plaintext highlighter-rouge">l &lt;= i &lt; r</code>, <code class="language-plaintext highlighter-rouge">numsi &lt; numsi+1</code>. Note that a subarray of size <code class="language-plaintext highlighter-rouge">1</code> is <strong>ascending</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,20,30,5,10,50]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-05T03:00:35+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1790. Check if One String Swap Can Make Strings Equal</title><link href="https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual/" rel="alternate" type="text/html" title="1790. Check if One String Swap Can Make Strings Equal"/><published>2025-02-05T00:00:00+00:00</published><updated>2025-02-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code> of equal length. A <strong>string swap</strong> is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to make both strings equal by performing <strong>at most one string swap</strong> on <strong>exactly one</strong> of the strings.</em> Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "bank", s2 = "kanb"
+Output: true
+Explanation: For example, swap the first character with the last character of s2 to make "bank".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "attack", s2 = "defend"
+Output: false
+Explanation: It is impossible to make them equal with one string swap.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "kelb", s2 = "kelb"
+Output: true
+Explanation: The two strings are already equal, so no string swap operation is required.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/05
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckIfOneStringSwapCanMakeStringsEqual</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">areAlmostEqual</span><span class="o">(</span><span class="nc">String</span> <span class="n">s1</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If the lengths of the two strings are not equal, return false</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">!=</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Variables to store indices of different characters</span>
+        <span class="c1">// i1 will store the index of the first differing character</span>
+        <span class="c1">// i2 will store the index of the second differing character</span>
+        <span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">i2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each character of both strings</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If characters at the current index are the same, continue to the next index</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If we already found two differences and another one is found,</span>
+            <span class="c1">// then we need more than one swap, hence return false</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i2</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If this is the first differing character, store its index</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">i1</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// This is the second differing character, store its index</span>
+                <span class="n">i2</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If no differing characters were found, it means both strings are already equal</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">i2</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If we found only one differing character, return false</span>
+        <span class="c1">// Because a single swap can only fix two differing characters</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i2</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Finally, check if swapping the characters at these two indices</span>
+        <span class="c1">// would make the two strings equal</span>
+        <span class="k">return</span> <span class="n">s1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i1</span><span class="o">)</span> <span class="o">==</span> <span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">s1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i2</span><span class="o">)</span> <span class="o">==</span> <span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i1</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"bank"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"kanb"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">areAlmostEqual</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="s">"attack"</span><span class="o">;</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="s">"defend"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">areAlmostEqual</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="s">"kelb"</span><span class="o">;</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="s">"kelb"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">areAlmostEqual</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test case 4 (where there's a possible swap)</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="s">"abcd"</span><span class="o">;</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="s">"badc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: "</span> <span class="o">+</span> <span class="n">areAlmostEqual</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test case 5 (where too many differences)</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="s">"xyz"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5: "</span> <span class="o">+</span> <span class="n">areAlmostEqual</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected output: false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[You are given two strings s1 and s2 of equal length. A string swap is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices. Return true if it is possible to make both strings equal by performing at most one string swap on exactly one of the strings. Otherwise, return false.]]></summary></entry><entry><title type="html">3325. Count Substrings With K-Frequency Characters I</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsWithKFrequencyCharactersI/" rel="alternate" type="text/html" title="3325. Count Substrings With K-Frequency Characters I"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsWithKFrequencyCharactersI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsWithKFrequencyCharactersI/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return the total number of substrings of <code class="language-plaintext highlighter-rouge">s</code> where <strong>at least one</strong> character appears <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code> times.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abacb", k = 2
+
+Output: 4
+
+Explanation:
+
+The valid substrings are:
+
+"aba" (character 'a' appears 2 times).
+"abac" (character 'a' appears 2 times).
+"abacb" (character 'a' appears 2 times).
+"bacb" (character 'b' appears 2 times).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcde", k = 1
+
+Output: 15
+
+Explanation:
+
+All substrings are valid because every character appears at least once.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/04
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubstringsWithKFrequencyCharactersI</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numberOfSubstrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Array to store frequency of each character (a-z)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">charFreq</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+        <span class="c1">// Left pointer of sliding window</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Right pointer of sliding window</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Store the final result</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Expand window by moving right pointer</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// Increment frequency of current character at right pointer</span>
+            <span class="c1">// charFreq[0] represents 'a', charFreq[1] represents 'b', and so on</span>
+            <span class="n">charFreq</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
+
+            <span class="c1">// When frequency of current character equals k,</span>
+            <span class="c1">// contract window from left until its frequency becomes less than k</span>
+            <span class="c1">// This is because we want to count substrings where character appears exactly k times</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">charFreq</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Decrement frequency of character at left pointer</span>
+                <span class="c1">// as we're removing it from our window</span>
+                <span class="n">charFreq</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
+                <span class="c1">// Move left pointer ahead to shrink window</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add left pointer value to result</span>
+            <span class="c1">// This counts all valid substrings ending at right pointer</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">left</span><span class="o">;</span>
+            <span class="c1">// Move right pointer ahead to expand window</span>
+            <span class="n">right</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abacb"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">numberOfSubstrings</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">numberOfSubstrings</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: 15</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"aaa"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">numberOfSubstrings</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s and an integer k, return the total number of substrings of s where at least one character appears at least k times.]]></summary></entry><entry><title type="html">1800. Maximum Ascending Subarray Sum</title><link href="https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum/" rel="alternate" type="text/html" title="1800. Maximum Ascending Subarray Sum"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumAscendingSubarraySum/"><![CDATA[<ul> <li>Given an array of positive integers <code class="language-plaintext highlighter-rouge">nums</code>, return the <em>maximum possible sum of an <strong>ascending</strong> subarray in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A subarray is defined as a contiguous sequence of numbers in an array.</li> <li>A subarray <code class="language-plaintext highlighter-rouge">[numsl, numsl+1, ..., numsr-1, numsr]</code> is <strong>ascending</strong> if for all <code class="language-plaintext highlighter-rouge">i</code> where <code class="language-plaintext highlighter-rouge">l &lt;= i &lt; r</code>, <code class="language-plaintext highlighter-rouge">numsi &lt; numsi+1</code>. Note that a subarray of size <code class="language-plaintext highlighter-rouge">1</code> is <strong>ascending</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,20,30,5,10,50]
 Output: 65
 Explanation: [5,10,50] is the ascending subarray with the maximum sum of 65.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,20,30,40,50]
@@ -615,152 +793,4 @@ Explanation: We can replace the first "QQ" to "ER".
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMin"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s of length n containing only four kinds of characters: 'Q', 'W', 'E', and 'R'. A string is said to be balanced if each of its characters appears n / 4 times where n is the length of the string. Return the minimum length of the substring that can be replaced with any other string of the same length to make s balanced. If s is already balanced, return 0.]]></summary></entry><entry><title type="html">81. Search in Rotated Sorted Array II</title><link href="https://zhengstar94.github.io//blog/2025/SearchInRotatedSortedArrayII/" rel="alternate" type="text/html" title="81. Search in Rotated Sorted Array II"/><published>2025-02-01T00:00:00+00:00</published><updated>2025-02-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SearchInRotatedSortedArrayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SearchInRotatedSortedArrayII/"><![CDATA[<ul> <li>There is an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in non-decreasing order (not necessarily with <strong>distinct</strong> values).</li> <li>Before being passed to your function, <code class="language-plaintext highlighter-rouge">nums</code> is <strong>rotated</strong> at an unknown pivot index <code class="language-plaintext highlighter-rouge">k</code> (<code class="language-plaintext highlighter-rouge">0 &lt;= k &lt; nums.length</code>) such that the resulting array is <code class="language-plaintext highlighter-rouge">[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code> (<strong>0-indexed</strong>). For example, <code class="language-plaintext highlighter-rouge">[0,1,2,4,4,4,5,6,6,7]</code> might be rotated at pivot index <code class="language-plaintext highlighter-rouge">5</code> and become <code class="language-plaintext highlighter-rouge">[4,5,6,6,7,0,1,2,4,4]</code>.</li> <li>Given the array <code class="language-plaintext highlighter-rouge">nums</code> <strong>after</strong> the rotation and an integer <code class="language-plaintext highlighter-rouge">target</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if</em> <code class="language-plaintext highlighter-rouge">target</code> <em>is in</em> <code class="language-plaintext highlighter-rouge">nums</code><em>, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>if it is not in</em> <code class="language-plaintext highlighter-rouge">nums</code><em>.</em></li> <li>You must decrease the overall operation steps as much as possible.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,5,6,0,0,1,2], target = 0
-Output: true
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,5,6,0,0,1,2], target = 3
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log(n))time∣O(1)space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengstars
- * @date 2025/02/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SearchInRotatedSortedArrayII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases: empty array or null input</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Initialize pointers for binary search</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate middle point avoiding potential integer overflow</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// If target is found at mid, return true</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Handle the case where left element equals middle element</span>
-            <span class="c1">// This is the key difference from the original rotated sorted array problem</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Skip one duplicate element and continue</span>
-                <span class="n">left</span><span class="o">++;</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Check if the left half is sorted</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Check if target lies in the left sorted half</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">target</span> <span class="o">&amp;&amp;</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="c1">// Target is in the left half, search there</span>
-                    <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="c1">// Target is in the right half</span>
-                    <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="c1">// Right half must be sorted</span>
-            <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Check if target lies in the right sorted half</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span> <span class="o">&amp;&amp;</span> <span class="n">target</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="c1">// Target is in the right half, search there</span>
-                    <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="c1">// Target is in the left half</span>
-                    <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Target was not found in the array</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="c1">// Here we test our solution with five common cases.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">search</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="mi">0</span><span class="o">));</span> <span class="c1">// We expect: true</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">search</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// We expect: false</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">search</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="mi">0</span><span class="o">));</span> <span class="c1">// We expect: true</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">search</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// We expect: false</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">search</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">},</span> <span class="mi">2</span><span class="o">));</span>     <span class="c1">// We expect: true</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[There is an integer array nums sorted in non-decreasing order (not necessarily with distinct values). Before being passed to your function, nums is rotated at an unknown pivot index k (0 &lt;= k &lt; nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,4,4,5,6,6,7] might be rotated at pivot index 5 and become [4,5,6,6,7,0,1,2,4,4]. Given the array nums after the rotation and an integer target, return true if target is in nums, or false if it is not in nums. You must decrease the overall operation steps as much as possible.]]></summary></entry><entry><title type="html">3151. Special Array I</title><link href="https://zhengstar94.github.io//blog/2025/SpecialArrayI/" rel="alternate" type="text/html" title="3151. Special Array I"/><published>2025-02-01T00:00:00+00:00</published><updated>2025-02-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SpecialArrayI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SpecialArrayI/"><![CDATA[<ul> <li>An array is considered <strong>special</strong> if every pair of its adjacent elements contains two numbers with different parity.</li> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>. Return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">nums</code> is a <strong>special</strong> array, otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1]
-
-Output: true
-
-Explanation:
-
-There is only one element. So the answer is true.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4]
-
-Output: true
-
-Explanation:
-
-There is only two pairs: (2,1) and (1,4), and both of them contain numbers with different parity. So the answer is true.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,3,1,6]
-
-Output: false
-
-Explanation:
-
-nums[1] and nums[2] are both odd. So the answer is false.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialArrayI</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isArraySpecial</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Iterate through the array up to the second-to-last element</span>
-        <span class="c1">// We use length-1 because we're checking pairs of elements (current and next)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if current element and next element have the same parity</span>
-            <span class="c1">// nums[i] % 2 gets the remainder (0 for even, 1 for odd)</span>
-            <span class="c1">// If both elements have the same parity (both odd or both even),</span>
-            <span class="c1">// then the array is not special</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">%</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Found two adjacent elements with same parity</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// If we've made it through the entire array without finding</span>
-        <span class="c1">// any adjacent elements with the same parity, the array is special</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Single element array</span>
-        <span class="c1">// Any single element array is considered special by default</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">isArraySpecial</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">}));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test Case 2: Array with alternating even-odd parity</span>
-        <span class="c1">// [2(even), 1(odd), 4(even)] - all adjacent pairs have different parity</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">isArraySpecial</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">}));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test Case 3: Array with adjacent odd numbers</span>
-        <span class="c1">// [4(even), 3(odd), 1(odd), 6(even)] - contains adjacent odd numbers</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">isArraySpecial</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">6</span><span class="o">}));</span> <span class="c1">// Expected: false</span>
-
-        <span class="c1">// Test Case 4: Longer array with alternating parity</span>
-        <span class="c1">// [2(even), 1(odd), 4(even), 3(odd), 6(even), 5(odd)]</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">isArraySpecial</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">}));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test Case 5: Array with adjacent even numbers</span>
-        <span class="c1">// [2(even), 2(even), 4(even)] - contains adjacent even numbers</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5: "</span> <span class="o">+</span> <span class="n">isArraySpecial</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">}));</span> <span class="c1">// Expected: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[An array is considered special if every pair of its adjacent elements contains two numbers with different parity. You are given an array of integers nums. Return true if nums is a special array, otherwise, return false.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMin"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s of length n containing only four kinds of characters: 'Q', 'W', 'E', and 'R'. A string is said to be balanced if each of its characters appears n / 4 times where n is the length of the string. Return the minimum length of the substring that can be replaced with any other string of the same length to make s balanced. If s is already balanced, return 0.]]></summary></entry></feed>
