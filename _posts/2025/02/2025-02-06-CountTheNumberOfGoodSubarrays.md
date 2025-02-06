@@ -3,9 +3,9 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "2537. Count the Number of Good Subarrays"
+title: "(Review)2537. Count the Number of Good Subarrays"
 date: "2025-02-06"
-tags: Medium
+tags: Medium Review
 categories:
   - "LeetCode DynamicSlidingWindowCountLongest"
 ---
