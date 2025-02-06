@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-05T03:48:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1790. Check if One String Swap Can Make Strings Equal</title><link href="https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual/" rel="alternate" type="text/html" title="1790. Check if One String Swap Can Make Strings Equal"/><published>2025-02-05T00:00:00+00:00</published><updated>2025-02-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code> of equal length. A <strong>string swap</strong> is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to make both strings equal by performing <strong>at most one string swap</strong> on <strong>exactly one</strong> of the strings.</em> Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "bank", s2 = "kanb"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-06T04:16:24+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review)2537. Count the Number of Good Subarrays</title><link href="https://zhengstar94.github.io//blog/2025/CountTheNumberOfGoodSubarrays/" rel="alternate" type="text/html" title="(Review)2537. Count the Number of Good Subarrays"/><published>2025-02-06T00:00:00+00:00</published><updated>2025-02-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTheNumberOfGoodSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTheNumberOfGoodSubarrays/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the number of <strong>good</strong> subarrays of</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A subarray <code class="language-plaintext highlighter-rouge">arr</code> is <strong>good</strong> if there are <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code> pairs of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> such that <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">arr[i] == arr[j]</code>.</li> <li>A <strong>subarray</strong> is a contiguous <strong>non-empty</strong> sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1,1], k = 10
+Output: 1
+Explanation: The only good subarray is the array nums itself.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,1,4,3,2,2,4], k = 2
+Output: 4
+Explanation: There are 4 different good subarrays:
+- [3,1,4,3,2,2] that has 2 pairs.
+- [3,1,4,3,2,2,4] that has 3 pairs.
+- [1,4,3,2,2,4] that has 2 pairs.
+- [4,3,2,2,4] that has 2 pairs.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountTheNumberOfGoodSubarrays</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countGood</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// HashMap to store the frequency of each number in the current window</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Store the total count of good subarrays</span>
+        <span class="kt">long</span> <span class="n">currentPairs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Track the number of pairs in current window</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Left pointer of sliding window</span>
+
+        <span class="c1">// Iterate through array using right pointer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// When adding a new element at right, it forms pairs with all its previous occurrences</span>
+            <span class="c1">// For example: if we have [1,1] and add another 1, it forms 2 new pairs</span>
+            <span class="n">currentPairs</span> <span class="o">+=</span> <span class="n">count</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
+            <span class="n">count</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
+
+            <span class="cm">/**
+             * Key Part 1: Window Shrinking Condition
+             * while (left &lt;= right &amp;&amp; currentPairs - count.get(nums[left]) + 1 &gt;= k)
+             *
+             * This condition checks if we can shrink the window from the left while still maintaining k pairs:
+             * - left &lt;= right: ensures left pointer doesn't exceed right pointer
+             * - currentPairs - count.get(nums[left]) + 1 &gt;= k: 
+             *   - currentPairs: current total pairs in window
+             *   - count.get(nums[left]): number of occurrences of leftmost element
+             *   - +1: adjustment factor for remaining pairs after removal
+             *   If this condition is true, we can safely remove the leftmost element
+             *   and still have enough pairs to meet the requirement
+             */</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">currentPairs</span> <span class="o">-</span> <span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Remove the leftmost element and update pairs count</span>
+                <span class="n">currentPairs</span> <span class="o">-=</span> <span class="n">count</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">],</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * Key Part 2: Counting Valid Subarrays
+             * if (currentPairs &gt;= k)
+             * result += left + 1
+             *
+             * When we find a window with enough pairs (currentPairs &gt;= k):
+             * - left + 1 represents the number of valid subarrays ending at 'right'
+             * - For example, if left=2 and right=4, we add 3 because:
+             *   We can start the subarray from index 0,1,or 2 (total of 3 possibilities)
+             *   all ending at index 4, and each of these subarrays is valid
+             * - This counts all possible valid subarrays that end at the current right pointer
+             */</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">currentPairs</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with all same elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countGood</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
+
+        <span class="c1">// Test Case 2: Array with different elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countGood</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
+
+        <span class="c1">// Test Case 3: Small array with same elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countGood</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected: 2</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="Review"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return the number of good subarrays of nums. A subarray arr is good if there are at least k pairs of indices (i, j) such that i &lt; j and arr[i] == arr[j]. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry><entry><title type="html">1790. Check if One String Swap Can Make Strings Equal</title><link href="https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual/" rel="alternate" type="text/html" title="1790. Check if One String Swap Can Make Strings Equal"/><published>2025-02-05T00:00:00+00:00</published><updated>2025-02-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CheckIfOneStringSwapCanMakeStringsEqual/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code> of equal length. A <strong>string swap</strong> is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to make both strings equal by performing <strong>at most one string swap</strong> on <strong>exactly one</strong> of the strings.</em> Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "bank", s2 = "kanb"
 Output: true
 Explanation: For example, swap the first character with the last character of s2 to make "bank".
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s1 = "attack", s2 = "defend"
@@ -711,63 +803,4 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false. There may be duplicates in the original array. Note: An array A rotated by x positions results in an array B of the same length such that A[i] == B[(i+x) % A.length], where % is the modulo operation.]]></summary></entry><entry><title type="html">598. Range Addition II</title><link href="https://zhengstar94.github.io//blog/2025/RangeAdditionII/" rel="alternate" type="text/html" title="598. Range Addition II"/><published>2025-02-02T00:00:00+00:00</published><updated>2025-02-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RangeAdditionII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RangeAdditionII/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">M</code> initialized with all <code class="language-plaintext highlighter-rouge">0</code>’s and an array of operations <code class="language-plaintext highlighter-rouge">ops</code>, where <code class="language-plaintext highlighter-rouge">ops[i] = [ai, bi]</code> means <code class="language-plaintext highlighter-rouge">M[x][y]</code> should be incremented by one for all <code class="language-plaintext highlighter-rouge">0 &lt;= x &lt; ai</code> and <code class="language-plaintext highlighter-rouge">0 &lt;= y &lt; bi</code></li> <li>Count and return <em>the number of maximum integers in the matrix after performing all the operations</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3] ]
-Output: 4
-Explanation: The maximum integer in M is 2, and there are four of it in M. So return 4.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = [ [2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3] ]
-Output: 4
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, ops = []
-Output: 9
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(k) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/02
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RangeAdditionII</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// If operations array is empty or null, return the total area of matrix</span>
-        <span class="c1">// as all elements will be 0 (maximum value) in this case</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">ops</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">ops</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Initialize variables to track minimum rows and columns</span>
-        <span class="c1">// The overlapping area will be determined by these minimums</span>
-        <span class="kt">int</span> <span class="n">minRow</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">minCol</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each operation to find the smallest affected area</span>
-        <span class="c1">// This will be the area where all operations overlap</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">op</span> <span class="o">:</span> <span class="n">ops</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">minRow</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minRow</span><span class="o">,</span> <span class="n">op</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>  <span class="c1">// Find minimum row bound</span>
-            <span class="n">minCol</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minCol</span><span class="o">,</span> <span class="n">op</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>  <span class="c1">// Find minimum column bound</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the area of overlap (number of maximum elements)</span>
-        <span class="c1">// This is the product of minimum rows and columns</span>
-        <span class="k">return</span> <span class="n">minRow</span> <span class="o">*</span> <span class="n">minCol</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with two operations</span>
-        <span class="kt">int</span> <span class="n">m1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">maxCount</span><span class="o">(</span><span class="n">m1</span><span class="o">,</span> <span class="n">n1</span><span class="o">,</span> <span class="n">ops1</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test Case 2: Multiple operations with same pattern</span>
-        <span class="kt">int</span> <span class="n">m2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">maxCount</span><span class="o">(</span><span class="n">m2</span><span class="o">,</span> <span class="n">n2</span><span class="o">,</span> <span class="n">ops2</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test Case 3: Empty operations array</span>
-        <span class="kt">int</span> <span class="n">m3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ops3</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">maxCount</span><span class="o">(</span><span class="n">m3</span><span class="o">,</span> <span class="n">n3</span><span class="o">,</span> <span class="n">ops3</span><span class="o">));</span> <span class="c1">// Expected output: 9</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an m x n matrix M initialized with all 0’s and an array of operations ops, where ops[i] = [ai, bi] means M[x][y] should be incremented by one for all 0 &lt;= x &lt; ai and 0 &lt;= y &lt; bi Count and return the number of maximum integers in the matrix after performing all the operations.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false. There may be duplicates in the original array. Note: An array A rotated by x positions results in an array B of the same length such that A[i] == B[(i+x) % A.length], where % is the modulo operation.]]></summary></entry></feed>
