@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "(Review)2904. Shortest and Lexicographically Smallest Beautiful String"
 date: "2025-01-31"
-tags: Medium Review
+tags: Medium Review SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMin"
 ---

@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1208. Get Equal Substrings Within Budget"
 date: "2025-01-13"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

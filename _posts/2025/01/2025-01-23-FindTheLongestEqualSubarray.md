@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2831. Find the Longest Equal Subarray"
 date: "2025-01-23"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

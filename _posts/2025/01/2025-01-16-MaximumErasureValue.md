@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1695. Maximum Erasure Value"
 date: "2025-01-16"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

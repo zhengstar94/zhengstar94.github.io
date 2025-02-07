@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1658. Minimum Operations to Reduce X to Zero"
 date: "2025-01-20"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

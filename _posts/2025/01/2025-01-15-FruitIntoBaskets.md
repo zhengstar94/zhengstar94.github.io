@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "904. Fruit Into Baskets"
 date: "2025-01-15"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

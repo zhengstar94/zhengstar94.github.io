@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2958. Length of Longest Subarray With at Most K Frequency"
 date: "2025-01-17"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2555. Maximize Win From Two Segments"
 date: "2025-01-24"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---
