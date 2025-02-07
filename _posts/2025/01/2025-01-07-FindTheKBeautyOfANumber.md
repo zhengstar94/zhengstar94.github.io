@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2269. Find the K-Beauty of a Number"
 date: "2025-01-07"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

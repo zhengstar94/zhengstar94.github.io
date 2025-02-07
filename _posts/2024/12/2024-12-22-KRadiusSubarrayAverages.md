@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2090. K Radius Subarray Averages"
 date: "2024-12-22"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

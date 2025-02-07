@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1888. Minimum Number of Flips to Make the Binary String Alternating"
 date: "2025-01-02"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

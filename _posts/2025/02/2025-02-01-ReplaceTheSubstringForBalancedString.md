@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1234. Replace the Substring for Balanced String"
 date: "2025-02-01"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMin"
 ---

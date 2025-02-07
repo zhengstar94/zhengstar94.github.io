@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3325. Count Substrings With K-Frequency Characters I"
 date: "2025-02-04"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowCountLongest"
 ---

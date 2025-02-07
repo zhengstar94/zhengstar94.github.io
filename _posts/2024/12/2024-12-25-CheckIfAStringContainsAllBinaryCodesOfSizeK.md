@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1461. Check If a String Contains All Binary Codes of Size K"
 date: "2024-12-25"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

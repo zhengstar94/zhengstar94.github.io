@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1456. Maximum Number of Vowels in a Substring of Given Length"
 date: "2024-12-19"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

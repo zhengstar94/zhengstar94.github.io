@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1423. Maximum Points You Can Obtain from Cards"
 date: "2024-12-28"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

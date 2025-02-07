@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "713. Subarray Product Less Than K"
 date: "2025-02-07"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowCountShortest"
 ---

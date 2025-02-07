@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2962. Count Subarrays Where Max Element Appears at Least K Times"
 date: "2025-02-03"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowCountLongest"
 ---

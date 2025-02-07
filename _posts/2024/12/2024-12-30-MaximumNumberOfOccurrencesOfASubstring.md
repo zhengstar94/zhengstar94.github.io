@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1297. Maximum Number of Occurrences of a Substring"
 date: "2024-12-30"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

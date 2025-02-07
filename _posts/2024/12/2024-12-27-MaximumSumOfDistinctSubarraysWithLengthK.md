@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2461. Maximum Sum of Distinct Subarrays With Length K"
 date: "2024-12-27"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

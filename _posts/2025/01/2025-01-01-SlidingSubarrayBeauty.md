@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2653. Sliding Subarray Beauty"
 date: "2025-01-01"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

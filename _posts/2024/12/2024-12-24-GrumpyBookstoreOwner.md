@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1052. Grumpy Bookstore Owner"
 date: "2024-12-24"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---
