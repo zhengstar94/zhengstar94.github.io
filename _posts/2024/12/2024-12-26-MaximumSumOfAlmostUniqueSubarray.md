@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2841. Maximum Sum of Almost Unique Subarray"
 date: "2024-12-26"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3297. Count Substrings That Can Be Rearranged to Contain a String I"
 date: "2025-01-09"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

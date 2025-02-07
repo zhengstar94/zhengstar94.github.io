@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1652. Defuse the Bomb"
 date: "2024-12-29"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

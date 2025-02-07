@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "438. Find All Anagrams in a String"
 date: "2025-01-03"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

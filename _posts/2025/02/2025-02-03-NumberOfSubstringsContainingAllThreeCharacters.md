@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1358. Number of Substrings Containing All Three Characters"
 date: "2025-02-03"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowCountLongest"
 ---

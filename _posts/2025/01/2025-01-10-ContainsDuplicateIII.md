@@ -5,12 +5,10 @@ giscus_comments: true
 layout: post
 title: "220. Contains Duplicate III"
 date: "2025-01-10"
-tags: Hard
+tags: Hard SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---
-
-# 220. Contains Duplicate III
 
 - You are given an integer array `nums` and two integers `indexDiff` and `valueDiff`.
 - Find a pair of indices `(i, j)` such that:

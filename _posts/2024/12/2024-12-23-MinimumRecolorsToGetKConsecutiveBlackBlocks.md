@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2379. Minimum Recolors to Get K Consecutive Black Blocks"
 date: "2024-12-23"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1984. Minimum Difference Between Highest and Lowest of K Scores"
 date: "2025-01-09"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

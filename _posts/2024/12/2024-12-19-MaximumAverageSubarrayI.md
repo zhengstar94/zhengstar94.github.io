@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "643. Maximum Average Subarray I"
 date: "2024-12-20"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2134. Minimum Swaps to Group All 1's Together II"
 date: "2024-12-31"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---

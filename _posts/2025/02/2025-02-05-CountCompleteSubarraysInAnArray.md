@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2799. Count Complete Subarrays in an Array"
 date: "2025-02-05"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowCountLongest"
 ---

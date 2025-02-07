@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
 date: "2024-12-21"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode SlideWindow"
 ---
