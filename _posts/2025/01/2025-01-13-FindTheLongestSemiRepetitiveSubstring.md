@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2730. Find the Longest Semi-Repetitive Substring"
 date: "2025-01-13"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

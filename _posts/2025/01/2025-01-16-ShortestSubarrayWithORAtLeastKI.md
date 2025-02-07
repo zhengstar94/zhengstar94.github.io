@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3095. Shortest Subarray With OR at Least K I"
 date: "2025-01-16"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

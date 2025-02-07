@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1493. Longest Subarray of 1's After Deleting One Element"
 date: "2025-01-12"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

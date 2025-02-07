@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "1838. Frequency of the Most Frequent Element"
 date: "2025-01-21"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

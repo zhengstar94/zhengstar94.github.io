@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2779. Maximum Beauty of an Array After Applying Operation"
 date: "2025-01-18"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

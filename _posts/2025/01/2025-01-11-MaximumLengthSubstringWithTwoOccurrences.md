@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3090. Maximum Length Substring With Two Occurrences"
 date: "2025-01-11"
-tags: Easy
+tags: Easy SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

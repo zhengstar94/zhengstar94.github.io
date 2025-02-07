@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "2516. Take K of Each Character From Left and Right"
 date: "2025-01-22"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---

@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "3. Longest Substring Without Repeating Characters"
 date: "2025-01-11"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowMax"
 ---
