@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-08T10:05:46+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3258. Count Substrings That Satisfy K-Constraint I</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI/" rel="alternate" type="text/html" title="3258. Count Substrings That Satisfy K-Constraint I"/><published>2025-02-08T00:00:00+00:00</published><updated>2025-02-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI/"><![CDATA[<ul> <li>You are given a <strong>binary</strong> string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>binary string</strong> satisfies the <strong>k-constraint</strong> if <strong>either</strong> of the following conditions holds: <ul> <li>The number of <code class="language-plaintext highlighter-rouge">0</code>’s in the string is at most <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>The number of <code class="language-plaintext highlighter-rouge">1</code>’s in the string is at most <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li>Return an integer denoting the number of substrings of <code class="language-plaintext highlighter-rouge">s</code> that satisfy the <strong>k-constraint</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "10101", k = 1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-09T06:26:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">80. Remove Duplicates from Sorted Array II</title><link href="https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII/" rel="alternate" type="text/html" title="80. Remove Duplicates from Sorted Array II"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in <strong>non-decreasing order</strong>, remove some duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that each unique element appears <strong>at most twice</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>.</p> </li> <li> <p>Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the <strong>first part</strong> of the array <code class="language-plaintext highlighter-rouge">nums</code>. More formally, if there are <code class="language-plaintext highlighter-rouge">k</code> elements after removing the duplicates, then the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> should hold the final result. It does not matter what you leave beyond the first <code class="language-plaintext highlighter-rouge">k</code> elements.</p> </li> <li> <p>Return <code class="language-plaintext highlighter-rouge">k</code> <em>after placing the final result in the first</em> <code class="language-plaintext highlighter-rouge">k</code> <em>slots of</em> <code class="language-plaintext highlighter-rouge">nums</code>.</p> </li> <li> <p>Do <strong>not</strong> allocate extra space for another array. You must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a></strong> with O(1) extra memory.</p> </li> <li> <p><strong>Custom Judge:</strong></p> </li> <li> <p>The judge will test your solution with the following code:</p> <ul> <li> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
+int[] expectedNums = [...]; // The expected answer with correct length
+
+int k = removeDuplicates(nums); // Calls your implementation
+
+assert k == expectedNums.length;
+for (int i = 0; i &lt; k; i++) {
+    assert nums[i] == expectedNums[i];
+}
+</code></pre></div> </div> </blockquote> </li> </ul> </li> <li> <p>If all assertions pass, then your solution will be <strong>accepted</strong>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,2,2,3]
+Output: 5, nums = [1,1,2,2,3,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+It does not matter what you leave beyond  the returned k (hence they are underscores).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,0,1,1,1,1,2,3,3]
+Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
+It does not matter what you leave beyond  the returned k (hence they are underscores).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveDuplicatesFromSortedArrayII</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">removeDuplicates</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// If the array has less than or equal to 2 elements, no need to remove any duplicates.</span>
+        <span class="c1">// All elements can be kept, as they satisfy the condition of appearing at most twice.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Two-pointer technique:</span>
+        <span class="c1">// i acts as the pointer for the new, filtered array where elements are written.</span>
+        <span class="c1">// Initialize i to 2 because the first two elements are always kept (no extra duplicates to remove).</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through the array starting from the 3rd element (index 2).</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// nums[j] is the current element being checked.</span>
+            <span class="c1">// nums[i - 2] is the element at the position 2 steps behind the last written position i.</span>
+            <span class="c1">// If nums[j] != nums[i - 2], it means nums[j] has not yet appeared more than twice.</span>
+            <span class="c1">// This allows us to keep nums[j] in the final array.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Copy nums[j] to the current position i, effectively "keeping" this element.</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+                <span class="c1">// Increment i, moving to the next position to potentially write to in the filtered array.</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// If nums[j] == nums[i - 2], it means nums[j] has already been included twice,</span>
+            <span class="c1">// so we skip it and do not increment i.</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the new length of the array. The elements from nums[0] to nums[i - 1]</span>
+        <span class="c1">// are the elements that satisfy the condition of appearing at most twice.</span>
+        <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Example 1: Input array has multiple duplicates (more than twice).</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span> <span class="c1">// Call the method to remove duplicates.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"New length: "</span> <span class="o">+</span> <span class="n">k1</span> <span class="o">+</span> <span class="s">", Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">);</span> <span class="c1">// Print the modified array up to the new length.</span>
+
+        <span class="c1">// Example 2: Input array has a mixture of duplicates and unique elements.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">removeDuplicates</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span> <span class="c1">// Call the method to remove duplicates.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"New length: "</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">+</span> <span class="s">", Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">);</span> <span class="c1">// Print the modified array up to the new length.</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">length</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Print each of the first `length` elements of the array.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// Print a new line after printing all required elements.</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.]]></summary></entry><entry><title type="html">3258. Count Substrings That Satisfy K-Constraint I</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI/" rel="alternate" type="text/html" title="3258. Count Substrings That Satisfy K-Constraint I"/><published>2025-02-08T00:00:00+00:00</published><updated>2025-02-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI/"><![CDATA[<ul> <li>You are given a <strong>binary</strong> string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>binary string</strong> satisfies the <strong>k-constraint</strong> if <strong>either</strong> of the following conditions holds: <ul> <li>The number of <code class="language-plaintext highlighter-rouge">0</code>’s in the string is at most <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>The number of <code class="language-plaintext highlighter-rouge">1</code>’s in the string is at most <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li>Return an integer denoting the number of substrings of <code class="language-plaintext highlighter-rouge">s</code> that satisfy the <strong>k-constraint</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "10101", k = 1
 
 Output: 12
 
@@ -711,91 +795,4 @@ Output: [2,3]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of integers nums, half of the integers in nums are odd, and the other half are even. Sort the array so that whenever nums[i] is odd, i is odd, and whenever nums[i] is even, i is even. Return any answer array that satisfies this condition.]]></summary></entry><entry><title type="html">2962. Count Subarrays Where Max Element Appears at Least K Times</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysWhereMaxElementAppearsAtLeastKTimes/" rel="alternate" type="text/html" title="2962. Count Subarrays Where Max Element Appears at Least K Times"/><published>2025-02-03T00:00:00+00:00</published><updated>2025-02-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysWhereMaxElementAppearsAtLeastKTimes</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysWhereMaxElementAppearsAtLeastKTimes/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and a <strong>positive</strong> integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return <em>the number of subarrays where the <strong>maximum</strong> element of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>appears <strong>at least</strong></em> <code class="language-plaintext highlighter-rouge">k</code> <em>times in that subarray.</em></li> <li>A <strong>subarray</strong> is a contiguous sequence of elements within (prep. 在…之内 adv. 在内部) an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,3,3], k = 2
-Output: 6
-Explanation: The subarrays that contain the element 3 at least 2 times are: [1,3,2,3], [1,3,2,3,3], [3,2,3], [3,2,3,3], [2,3,3] and [3,3].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,4,2,1], k = 3
-Output: 0
-Explanation: No subarray contains the element 4 at least 3 times.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/03
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysWhereMaxElementAppearsAtLeastKTimes</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// 1. Find the maximum value in the array</span>
-        <span class="kt">int</span> <span class="n">mx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mx</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">mx</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// 2. Process using sliding window technique</span>
-        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Store the final count of valid subarrays</span>
-        <span class="kt">int</span> <span class="n">cntMx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Count of maximum value occurrences in current window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Left pointer of the sliding window</span>
-
-        <span class="c1">// Iterate through array using right pointer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If current element is the maximum value, increment the counter</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">mx</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">cntMx</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="cm">/**
-             * Key Part 1: Window Adjustment
-             * When we find exactly k occurrences of maximum value in the window:
-             * 1. We need to shrink the window from left until cntMx &lt; k
-             * 2. This helps us find the leftmost valid position for the current right pointer
-             *
-             * For example, in [1,3,2,3,3] with k=2:
-             * When right=3 (fourth position), window contains [1,3,2,3]
-             * We move left pointer until we have less than k max values
-             */</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">cntMx</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If we remove a maximum value from the left, decrease the counter</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">++]</span> <span class="o">==</span> <span class="n">mx</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">cntMx</span><span class="o">--;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="cm">/**
-             * Key Part 2: Counting Valid Subarrays
-             * After the while loop:
-             * - 'left' represents the position where window becomes invalid
-             * - All positions before 'left' can be valid starting points
-             *
-             * For example, when right=3 in [1,3,2,3]:
-             * If left=2, we can start subarrays from:
-             * - position 0: [1,3,2,3]
-             * - position 1: [3,2,3]
-             * So we add 'left' (2) to answer
-             *
-             * This is why ans += left works:
-             * - It counts all possible valid starting positions
-             * - Each starting position forms exactly one valid subarray with current right pointer
-             */</span>
-            <span class="n">ans</span> <span class="o">+=</span> <span class="n">left</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with maximum value appearing multiple times</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Expected: 6</span>
-        <span class="c1">// Valid subarrays are: [1,3,2,3], [3,2,3], [1,3,2,3,3], [3,2,3,3], [2,3,3], [3,3]</span>
-
-        <span class="c1">// Test Case 2: Array where maximum value appears less than k times</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
-        <span class="c1">// No valid subarrays as maximum value (4) appears less than 3 times</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given an integer array nums and a positive integer k. Return the number of subarrays where the maximum element of nums appears at least k times in that subarray. A subarray is a contiguous sequence of elements within (prep. 在…之内 adv. 在内部) an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of integers nums, half of the integers in nums are odd, and the other half are even. Sort the array so that whenever nums[i] is odd, i is odd, and whenever nums[i] is even, i is even. Return any answer array that satisfies this condition.]]></summary></entry></feed>
