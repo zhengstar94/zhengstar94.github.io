@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-09T06:26:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">80. Remove Duplicates from Sorted Array II</title><link href="https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII/" rel="alternate" type="text/html" title="80. Remove Duplicates from Sorted Array II"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in <strong>non-decreasing order</strong>, remove some duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that each unique element appears <strong>at most twice</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>.</p> </li> <li> <p>Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the <strong>first part</strong> of the array <code class="language-plaintext highlighter-rouge">nums</code>. More formally, if there are <code class="language-plaintext highlighter-rouge">k</code> elements after removing the duplicates, then the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> should hold the final result. It does not matter what you leave beyond the first <code class="language-plaintext highlighter-rouge">k</code> elements.</p> </li> <li> <p>Return <code class="language-plaintext highlighter-rouge">k</code> <em>after placing the final result in the first</em> <code class="language-plaintext highlighter-rouge">k</code> <em>slots of</em> <code class="language-plaintext highlighter-rouge">nums</code>.</p> </li> <li> <p>Do <strong>not</strong> allocate extra space for another array. You must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a></strong> with O(1) extra memory.</p> </li> <li> <p><strong>Custom Judge:</strong></p> </li> <li> <p>The judge will test your solution with the following code:</p> <ul> <li> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-09T06:44:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2364. Count Number of Bad Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/" rel="alternate" type="text/html" title="2364. Count Number of Bad Pairs"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>bad pair</strong> if <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">j - i != nums[j] - nums[i]</code>.</li> <li>Return <em>the total number of <strong>bad pairs</strong> in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,1,3,3]
+Output: 5
+Explanation: The pair (0, 1) is a bad pair since 1 - 0 != 1 - 4.
+The pair (0, 2) is a bad pair since 2 - 0 != 3 - 4, 2 != -1.
+The pair (0, 3) is a bad pair since 3 - 0 != 3 - 4, 3 != -1.
+The pair (1, 2) is a bad pair since 2 - 1 != 3 - 1, 1 != 2.
+The pair (2, 3) is a bad pair since 3 - 2 != 3 - 3, 1 != 0.
+There are a total of 5 bad pairs, so we return 5.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,5]
+Output: 0
+Explanation: There are no bad pairs.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountNumberOfBadPairs</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countBadPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize a HashMap to store the frequency of nums[i] - i values.</span>
+        <span class="c1">// This helps us efficiently count how many times a specific "difference" has occurred.</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Variable to count the number of good pairs, initialized to 0.</span>
+        <span class="c1">// A good pair satisfies the condition nums[j] - j == nums[i] - i.</span>
+        <span class="kt">long</span> <span class="n">goodPairs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through the array, calculating the current difference and updating goodPairs.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the difference (nums[i] - i), which is used to identify good pairs.</span>
+            <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
+
+            <span class="c1">// Add the number of previous occurrences of the current difference to goodPairs.</span>
+            <span class="c1">// This indicates how many indices before i have the same difference, forming good pairs with the current index.</span>
+            <span class="n">goodPairs</span> <span class="o">+=</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+
+            <span class="c1">// Update the frequency of the current difference in the map.</span>
+            <span class="c1">// This prepares for future iterations to count good pairs for subsequent elements.</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Calculate the total number of possible pairs in the array.</span>
+        <span class="c1">// Using the formula for combinations: n * (n - 1) / 2 (where n = nums.length).</span>
+        <span class="kt">long</span> <span class="n">totalPairs</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">*</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+        <span class="c1">// The number of bad pairs is equal to the total pairs minus the number of good pairs.</span>
+        <span class="k">return</span> <span class="n">totalPairs</span> <span class="o">-</span> <span class="n">goodPairs</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Example array with some bad pairs</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
+
+        <span class="c1">// Test Case 2: Example array with no bad pairs (fully good pairs)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test Case 3: A large array with perfectly ordered elements (no bad pairs)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100000</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums3</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">nums3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Each element is its index + 1</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test Case 4: Array where all elements are identical</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Expected output: 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. A pair of indices (i, j) is a bad pair if i &lt; j and j - i != nums[j] - nums[i]. Return the total number of bad pairs in nums.]]></summary></entry><entry><title type="html">80. Remove Duplicates from Sorted Array II</title><link href="https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII/" rel="alternate" type="text/html" title="80. Remove Duplicates from Sorted Array II"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveDuplicatesFromSortedArrayII/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> sorted in <strong>non-decreasing order</strong>, remove some duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that each unique element appears <strong>at most twice</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>.</p> </li> <li> <p>Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the <strong>first part</strong> of the array <code class="language-plaintext highlighter-rouge">nums</code>. More formally, if there are <code class="language-plaintext highlighter-rouge">k</code> elements after removing the duplicates, then the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> should hold the final result. It does not matter what you leave beyond the first <code class="language-plaintext highlighter-rouge">k</code> elements.</p> </li> <li> <p>Return <code class="language-plaintext highlighter-rouge">k</code> <em>after placing the final result in the first</em> <code class="language-plaintext highlighter-rouge">k</code> <em>slots of</em> <code class="language-plaintext highlighter-rouge">nums</code>.</p> </li> <li> <p>Do <strong>not</strong> allocate extra space for another array. You must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a></strong> with O(1) extra memory.</p> </li> <li> <p><strong>Custom Judge:</strong></p> </li> <li> <p>The judge will test your solution with the following code:</p> <ul> <li> <blockquote> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
 int[] expectedNums = [...]; // The expected answer with correct length
 
 int k = removeDuplicates(nums); // Calls your implementation
@@ -737,62 +813,4 @@ Explanation: [10,11,12] is the ascending subarray with the maximum sum of 33.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of positive integers nums, return the maximum possible sum of an ascending subarray in nums. A subarray is defined as a contiguous sequence of numbers in an array. A subarray [numsl, numsl+1, ..., numsr-1, numsr] is ascending if for all i where l &lt;= i &lt; r, numsi &lt; numsi+1. Note that a subarray of size 1 is ascending.]]></summary></entry><entry><title type="html">922. Sort Array By Parity II</title><link href="https://zhengstar94.github.io//blog/2025/SortArrayByParityII/" rel="alternate" type="text/html" title="922. Sort Array By Parity II"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SortArrayByParityII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SortArrayByParityII/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code>, half of the integers in <code class="language-plaintext highlighter-rouge">nums</code> are <strong>odd</strong>, and the other half are <strong>even</strong>.</li> <li>Sort the array so that whenever <code class="language-plaintext highlighter-rouge">nums[i]</code> is odd, <code class="language-plaintext highlighter-rouge">i</code> is <strong>odd</strong>, and whenever <code class="language-plaintext highlighter-rouge">nums[i]</code> is even, <code class="language-plaintext highlighter-rouge">i</code> is <strong>even</strong>.</li> <li>Return <em>any answer array that satisfies this condition</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,5,7]
-Output: [4,5,2,7]
-Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3]
-Output: [2,3]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SortArrayByParityII</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">sortArrayByParityII</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize pointer for even indices starting from 0</span>
-        <span class="kt">int</span> <span class="n">evenIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Initialize pointer for odd indices starting from 1</span>
-        <span class="kt">int</span> <span class="n">oddIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Get the length of input array</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Create a new array to store the result</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Iterate through each number in the input array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If number is even, place it at even index</span>
-                <span class="n">result</span><span class="o">[</span><span class="n">evenIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
-                <span class="c1">// Move even index pointer by 2 positions</span>
-                <span class="n">evenIndex</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If number is odd, place it at odd index</span>
-                <span class="n">result</span><span class="o">[</span><span class="n">oddIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
-                <span class="c1">// Move odd index pointer by 2 positions</span>
-                <span class="n">oddIndex</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Return the sorted array</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with multiple elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">sortArrayByParityII</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Array with minimum elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">sortArrayByParityII</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of integers nums, half of the integers in nums are odd, and the other half are even. Sort the array so that whenever nums[i] is odd, i is odd, and whenever nums[i] is even, i is even. Return any answer array that satisfies this condition.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of positive integers nums, return the maximum possible sum of an ascending subarray in nums. A subarray is defined as a contiguous sequence of numbers in an array. A subarray [numsl, numsl+1, ..., numsr-1, numsr] is ascending if for all i where l &lt;= i &lt; r, numsi &lt; numsi+1. Note that a subarray of size 1 is ascending.]]></summary></entry></feed>
