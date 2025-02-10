@@ -7,7 +7,7 @@ title: "2762. Continuous Subarrays"
 date: "2024-12-14"
 tags: Medium SlideWindow
 categories:
-  - "LeetCode SlideWindow"
+  - "LeetCode DynamicSlidingWindowCountShortest"
 ---
 
 - You are given a **0-indexed** integer array `nums`. A subarray of `nums` is called **continuous** if:
