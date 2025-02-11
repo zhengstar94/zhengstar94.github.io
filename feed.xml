@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-10T02:26:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2364. Count Number of Bad Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/" rel="alternate" type="text/html" title="2364. Count Number of Bad Pairs"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>bad pair</strong> if <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">j - i != nums[j] - nums[i]</code>.</li> <li>Return <em>the total number of <strong>bad pairs</strong> in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,1,3,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-11T14:04:05+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1910. Remove All Occurrences of a Substring</title><link href="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/" rel="alternate" type="text/html" title="1910. Remove All Occurrences of a Substring"/><published>2025-02-10T00:00:00+00:00</published><updated>2025-02-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">part</code>, perform the following operation on <code class="language-plaintext highlighter-rouge">s</code> until <strong>all</strong> occurrences of the substring <code class="language-plaintext highlighter-rouge">part</code> are removed: <ul> <li>Find the <strong>leftmost</strong> occurrence of the substring <code class="language-plaintext highlighter-rouge">part</code> and <strong>remove</strong> it from <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">s</code> <em>after removing all occurrences of</em> <code class="language-plaintext highlighter-rouge">part</code>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "daabcbaabcbc", part = "abc"
+Output: "dab"
+Explanation: The following operations are done:
+- s = "daabcbaabcbc", remove "abc" starting at index 2, so s = "dabaabcbc".
+- s = "dabaabcbc", remove "abc" starting at index 4, so s = "dababc".
+- s = "dababc", remove "abc" starting at index 3, so s = "dab".
+Now s has no occurrences of "abc".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "axxxxyyyyb", part = "xy"
+Output: "ab"
+Explanation: The following operations are done:
+- s = "axxxxyyyyb", remove "xy" starting at index 4 so s = "axxxyyyb".
+- s = "axxxyyyb", remove "xy" starting at index 3 so s = "axxyyb".
+- s = "axxyyb", remove "xy" starting at index 2 so s = "axyb".
+- s = "axyb", remove "xy" starting at index 1 so s = "ab".
+Now s has no occurrences of "xy".
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/11
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveAllOccurrencesOfASubstring</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">removeOccurrences</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">part</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Convert input string to StringBuilder for efficient modification</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+        <span class="c1">// Store the length of the substring to be removed</span>
+        <span class="kt">int</span> <span class="n">partLen</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+
+        <span class="c1">// Variable to store the index of found substring</span>
+        <span class="kt">int</span> <span class="n">index</span><span class="o">;</span>
+        <span class="c1">// Continue loop until no more occurrences of 'part' are found</span>
+        <span class="c1">// indexOf() returns -1 when the substring is not found</span>
+        <span class="k">while</span> <span class="o">((</span><span class="n">index</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">part</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Remove the substring from StringBuilder</span>
+            <span class="c1">// delete() removes characters from index to (index + partLen - 1)</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">index</span> <span class="o">+</span> <span class="n">partLen</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert StringBuilder back to String and return</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Multiple overlapping removals</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"daabcbaabcbc"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">part1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">", part = "</span> <span class="o">+</span> <span class="n">part1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">removeOccurrences</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">part1</span><span class="o">));</span> <span class="c1">// Expected: "dab"</span>
+
+        <span class="c1">// Test Case 2: Multiple consecutive removals</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"axxxxyyyyb"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">part2</span> <span class="o">=</span> <span class="s">"xy"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="s">", part = "</span> <span class="o">+</span> <span class="n">part2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">removeOccurrences</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">part2</span><span class="o">));</span> <span class="c1">// Expected: "ab"</span>
+
+        <span class="c1">// Test Case 3: Single removal at the end</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"welcome"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">part3</span> <span class="o">=</span> <span class="s">"come"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s3</span> <span class="o">+</span> <span class="s">", part = "</span> <span class="o">+</span> <span class="n">part3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">removeOccurrences</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">part3</span><span class="o">));</span> <span class="c1">// Expected: "wel"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Given two strings s and part, perform the following operation on s until all occurrences of the substring part are removed: Find the leftmost occurrence of the substring part and remove it from s. Return s after removing all occurrences of part. A substring is a contiguous sequence of characters in a string.]]></summary></entry><entry><title type="html">2364. Count Number of Bad Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/" rel="alternate" type="text/html" title="2364. Count Number of Bad Pairs"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>bad pair</strong> if <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">j - i != nums[j] - nums[i]</code>.</li> <li>Return <em>the total number of <strong>bad pairs</strong> in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,1,3,3]
 Output: 5
 Explanation: The pair (0, 1) is a bad pair since 1 - 0 != 1 - 4.
 The pair (0, 2) is a bad pair since 2 - 0 != 3 - 4, 2 != -1.
@@ -751,87 +820,4 @@ Explanation: The array consists only of the integer 5, so any subarray is comple
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given an array nums consisting of positive integers. We call a subarray of an array complete if the following condition is satisfied: The number of distinct elements in the subarray is equal to the number of distinct elements in the whole array. Return the number of complete subarrays. A subarray is a contiguous non-empty part of an array.]]></summary></entry><entry><title type="html">3325. Count Substrings With K-Frequency Characters I</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsWithKFrequencyCharactersI/" rel="alternate" type="text/html" title="3325. Count Substrings With K-Frequency Characters I"/><published>2025-02-04T00:00:00+00:00</published><updated>2025-02-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsWithKFrequencyCharactersI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsWithKFrequencyCharactersI/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return the total number of substrings of <code class="language-plaintext highlighter-rouge">s</code> where <strong>at least one</strong> character appears <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code> times.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abacb", k = 2
-
-Output: 4
-
-Explanation:
-
-The valid substrings are:
-
-"aba" (character 'a' appears 2 times).
-"abac" (character 'a' appears 2 times).
-"abacb" (character 'a' appears 2 times).
-"bacb" (character 'b' appears 2 times).
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcde", k = 1
-
-Output: 15
-
-Explanation:
-
-All substrings are valid because every character appears at least once.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubstringsWithKFrequencyCharactersI</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numberOfSubstrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Array to store frequency of each character (a-z)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">charFreq</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-        <span class="c1">// Left pointer of sliding window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Right pointer of sliding window</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Store the final result</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Expand window by moving right pointer</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Increment frequency of current character at right pointer</span>
-            <span class="c1">// charFreq[0] represents 'a', charFreq[1] represents 'b', and so on</span>
-            <span class="n">charFreq</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-
-            <span class="c1">// When frequency of current character equals k,</span>
-            <span class="c1">// contract window from left until its frequency becomes less than k</span>
-            <span class="c1">// This is because we want to count substrings where character appears exactly k times</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">charFreq</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Decrement frequency of character at left pointer</span>
-                <span class="c1">// as we're removing it from our window</span>
-                <span class="n">charFreq</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span>
-                <span class="c1">// Move left pointer ahead to shrink window</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add left pointer value to result</span>
-            <span class="c1">// This counts all valid substrings ending at right pointer</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="n">left</span><span class="o">;</span>
-            <span class="c1">// Move right pointer ahead to expand window</span>
-            <span class="n">right</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"abacb"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">numberOfSubstrings</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">numberOfSubstrings</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: 15</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"aaa"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">numberOfSubstrings</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given a string s and an integer k, return the total number of substrings of s where at least one character appears at least k times.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given an array nums consisting of positive integers. We call a subarray of an array complete if the following condition is satisfied: The number of distinct elements in the subarray is equal to the number of distinct elements in the whole array. Return the number of complete subarrays. A subarray is a contiguous non-empty part of an array.]]></summary></entry></feed>
