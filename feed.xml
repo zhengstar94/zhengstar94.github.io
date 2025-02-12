@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-11T14:04:05+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1910. Remove All Occurrences of a Substring</title><link href="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/" rel="alternate" type="text/html" title="1910. Remove All Occurrences of a Substring"/><published>2025-02-10T00:00:00+00:00</published><updated>2025-02-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">part</code>, perform the following operation on <code class="language-plaintext highlighter-rouge">s</code> until <strong>all</strong> occurrences of the substring <code class="language-plaintext highlighter-rouge">part</code> are removed: <ul> <li>Find the <strong>leftmost</strong> occurrence of the substring <code class="language-plaintext highlighter-rouge">part</code> and <strong>remove</strong> it from <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">s</code> <em>after removing all occurrences of</em> <code class="language-plaintext highlighter-rouge">part</code>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "daabcbaabcbc", part = "abc"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-12T05:03:51+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">LCP 68. Beautiful Bouquet</title><link href="https://zhengstar94.github.io//blog/2025/BeautifulBouquet/" rel="alternate" type="text/html" title="LCP 68. Beautiful Bouquet"/><published>2025-02-12T00:00:00+00:00</published><updated>2025-02-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BeautifulBouquet</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BeautifulBouquet/"><![CDATA[<ul> <li> <p>At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array <code class="language-plaintext highlighter-rouge">flowers</code> where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed <code class="language-plaintext highlighter-rouge">cnt</code> flowers, then we consider this floral arrangement to be “aesthetically pleasing.”</p> <blockquote> <p>For example: In <code class="language-plaintext highlighter-rouge">[5,5,5,6,6]</code>, there are <code class="language-plaintext highlighter-rouge">3</code> flowers of variety <code class="language-plaintext highlighter-rouge">5</code> and <code class="language-plaintext highlighter-rouge">2</code> flowers of variety <code class="language-plaintext highlighter-rouge">6</code>. The quantity of <strong>each variety</strong> does not exceed <code class="language-plaintext highlighter-rouge">3</code>.</p> </blockquote> </li> <li> <p>Return the total number of possible continuous segments that can be selected from this row of flowers where the resulting floral arrangement would be “aesthetically pleasing.”</p> </li> <li> <p>Note:</p> <ul> <li>The answer should be calculated modulo <code class="language-plaintext highlighter-rouge">1e9 + 7 (1000000007)</code>. For example, if the initial result is <code class="language-plaintext highlighter-rouge">1000000008</code>, return <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Let me translate this example with its explanation:
+Input: flowers = [1,2,3,2], cnt = 1
+Output: 8
+Explanation: For arrangements where each flower variety cannot exceed 1 flower, there are 8 aesthetically pleasing arrangements:
+Length-1 segments: [1], [2], [3], [2] all meet the condition, giving 4 possible segments
+Length-2 segments: [1,2], [2,3], [3,2] all meet the condition, giving 3 possible segments
+Length-3 segments: [1,2,3] meets the condition, giving 1 possible segment
+Segments [2,3,2] and [1,2,3,2] both contain 2 flowers of variety 2, so they don't meet the condition.
+Total count is 4+3+1 = 8
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: flowers = [5,3,3,3], cnt = 2
+Output: 8
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(k) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountShortest</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/12
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeautifulBouquet</span> <span class="o">{</span>
+    <span class="c1">// Constant for modulo operation to prevent integer overflow</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">beautifulBouquet</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">flowers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Array to store the count of each flower type</span>
+        <span class="c1">// Size is 100001 because flower types range from 1 to 100000</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100001</span><span class="o">];</span>
+
+        <span class="c1">// Use long to prevent overflow during calculations</span>
+        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Left pointer of sliding window</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through the array using right pointer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">flowers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Increment count of current flower type at right pointer</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">flowers</span><span class="o">[</span><span class="n">right</span><span class="o">]]++;</span>
+
+            <span class="c1">// Shrink window from left while current flower type exceeds cnt</span>
+            <span class="c1">// This ensures window always contains valid counts</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">flowers</span><span class="o">[</span><span class="n">right</span><span class="o">]]</span> <span class="o">&gt;</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">[</span><span class="n">flowers</span><span class="o">[</span><span class="n">left</span><span class="o">]]--;</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Calculate number of valid subarrays ending at current right pointer</span>
+            <span class="c1">// For current window [left, right]:</span>
+            <span class="c1">// - We can form subarrays: [right], [right-1,right], [right-2,right],...,[left,right]</span>
+            <span class="c1">// - Total count of such subarrays is (right - left + 1)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">result</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case with repeated flower</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">cnt1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers1</span><span class="o">,</span> <span class="n">cnt1</span><span class="o">));</span>
+        <span class="c1">// Expected output: 8</span>
+
+        <span class="c1">// Test Case 2: Case with multiple repeated flowers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">cnt2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers2</span><span class="o">,</span> <span class="n">cnt2</span><span class="o">));</span>
+        <span class="c1">// Expected output: 8</span>
+
+        <span class="c1">// Test Case 3: Edge case with all same flowers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">cnt3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers3</span><span class="o">,</span> <span class="n">cnt3</span><span class="o">));</span>
+        <span class="c1">// Testing case with all identical elements</span>
+
+        <span class="c1">// Test Case 4: Edge case with single element</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">cnt4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers4</span><span class="o">,</span> <span class="n">cnt4</span><span class="o">));</span>
+        <span class="c1">// Testing single element case</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><summary type="html"><![CDATA[At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array flowers where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed cnt flowers, then we consider this floral arrangement to be “aesthetically pleasing.”]]></summary></entry><entry><title type="html">1910. Remove All Occurrences of a Substring</title><link href="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/" rel="alternate" type="text/html" title="1910. Remove All Occurrences of a Substring"/><published>2025-02-10T00:00:00+00:00</published><updated>2025-02-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">part</code>, perform the following operation on <code class="language-plaintext highlighter-rouge">s</code> until <strong>all</strong> occurrences of the substring <code class="language-plaintext highlighter-rouge">part</code> are removed: <ul> <li>Find the <strong>leftmost</strong> occurrence of the substring <code class="language-plaintext highlighter-rouge">part</code> and <strong>remove</strong> it from <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">s</code> <em>after removing all occurrences of</em> <code class="language-plaintext highlighter-rouge">part</code>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "daabcbaabcbc", part = "abc"
 Output: "dab"
 Explanation: The following operations are done:
 - s = "daabcbaabcbc", remove "abc" starting at index 2, so s = "dabaabcbc".
@@ -738,86 +820,4 @@ Explanation: The two strings are already equal, so no string swap operation is r
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[You are given two strings s1 and s2 of equal length. A string swap is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices. Return true if it is possible to make both strings equal by performing at most one string swap on exactly one of the strings. Otherwise, return false.]]></summary></entry><entry><title type="html">2799. Count Complete Subarrays in an Array</title><link href="https://zhengstar94.github.io//blog/2025/CountCompleteSubarraysInAnArray/" rel="alternate" type="text/html" title="2799. Count Complete Subarrays in an Array"/><published>2025-02-05T00:00:00+00:00</published><updated>2025-02-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountCompleteSubarraysInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountCompleteSubarraysInAnArray/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> consisting of <strong>positive</strong> integers.</li> <li>We call a subarray of an array <strong>complete</strong> if the following condition is satisfied: <ul> <li>The number of <strong>distinct</strong> elements in the subarray is equal to the number of distinct elements in the whole array.</li> </ul> </li> <li>Return <em>the number of <strong>complete</strong> subarrays</em>.</li> <li>A <strong>subarray</strong> is a contiguous non-empty part of an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,1,2,2]
-Output: 4
-Explanation: The complete subarrays are the following: [1,3,1,2], [1,3,1,2,2], [3,1,2] and [3,1,2,2].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,5,5,5]
-Output: 10
-Explanation: The array consists only of the integer 5, so any subarray is complete. The number of subarrays that we can choose is 10.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/05
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountCompleteSubarraysInAnArray</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countCompleteSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Step 1: Count distinct elements in the entire array using HashSet</span>
-        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">total</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">total</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="c1">// Store the total number of distinct elements</span>
-        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-
-        <span class="c1">// Initialize variables for sliding window</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Counter for valid complete subarrays</span>
-        <span class="kt">int</span> <span class="n">distinct</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// Count of distinct elements in current window</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>  <span class="c1">// Frequency map for elements in window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>         <span class="c1">// Left pointer of sliding window</span>
-
-        <span class="c1">// Iterate through array with right pointer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to frequency map</span>
-            <span class="c1">// If element exists, increment its count, if not, set count to 1</span>
-            <span class="n">count</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="n">count</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-
-            <span class="c1">// If this is the first occurrence of the element in window</span>
-            <span class="c1">// increment distinct counter</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">])</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">distinct</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If window contains same number of distinct elements as whole array</span>
-            <span class="c1">// start shrinking window from left</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">distinct</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Decrease frequency of leftmost element</span>
-                <span class="n">count</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">],</span> <span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">])</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-
-                <span class="c1">// If element frequency becomes 0, it's no longer in window</span>
-                <span class="c1">// so decrease distinct counter</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">])</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">distinct</span><span class="o">--;</span>
-                <span class="o">}</span>
-
-                <span class="c1">// Move left pointer forward</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add number of valid subarrays ending at current right pointer</span>
-            <span class="c1">// left represents how many starting positions can form valid subarrays</span>
-            <span class="c1">// with current right position as ending point</span>
-            <span class="n">ans</span> <span class="o">+=</span> <span class="n">left</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Array with repeated elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">countCompleteSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Array with all same elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">countCompleteSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given an array nums consisting of positive integers. We call a subarray of an array complete if the following condition is satisfied: The number of distinct elements in the subarray is equal to the number of distinct elements in the whole array. Return the number of complete subarrays. A subarray is a contiguous non-empty part of an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[You are given two strings s1 and s2 of equal length. A string swap is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices. Return true if it is possible to make both strings equal by performing at most one string swap on exactly one of the strings. Otherwise, return false.]]></summary></entry></feed>
