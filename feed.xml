@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-13T04:56:38+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1742. Maximum Number of Balls in a Box</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox/" rel="alternate" type="text/html" title="1742. Maximum Number of Balls in a Box"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox/"><![CDATA[<ul> <li>You are working in a ball factory where you have <code class="language-plaintext highlighter-rouge">n</code> balls numbered from <code class="language-plaintext highlighter-rouge">lowLimit</code> up to <code class="language-plaintext highlighter-rouge">highLimit</code> <strong>inclusive</strong> (i.e., <code class="language-plaintext highlighter-rouge">n == highLimit - lowLimit + 1</code>), and an infinite number of boxes numbered from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">infinity</code>.</li> <li>Your job at this factory is to put each ball in the box with a number equal to the sum of digits of the ball’s number. For example, the ball number <code class="language-plaintext highlighter-rouge">321</code> will be put in the box number <code class="language-plaintext highlighter-rouge">3 + 2 + 1 = 6</code> and the ball number <code class="language-plaintext highlighter-rouge">10</code> will be put in the box number <code class="language-plaintext highlighter-rouge">1 + 0 = 1</code>.</li> <li>Given two integers <code class="language-plaintext highlighter-rouge">lowLimit</code> and <code class="language-plaintext highlighter-rouge">highLimit</code>, return <em>the number of balls in the box with the most balls.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lowLimit = 1, highLimit = 10
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-13T05:23:27+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">930. Binary Subarrays With Sum</title><link href="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/" rel="alternate" type="text/html" title="930. Binary Subarrays With Sum"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">goal</code>, return <em>the number of non-empty <strong>subarrays</strong> with a sum</em> <code class="language-plaintext highlighter-rouge">goal</code>.</li> <li>A <strong>subarray</strong> is a contiguous part of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1,0,1], goal = 2
+Output: 4
+Explanation: The 4 subarrays are bolded and underlined below:
+[1,0,1,0,1]
+[1,0,1,0,1]
+[1,0,1,0,1]
+[1,0,1,0,1]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,0,0,0,0], goal = 0
+Output: 15
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountExact</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinarySubarraysWithSum</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numSubarraysWithSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">goal</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Result counter to store the number of valid subarrays</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// sum1: tracks sum for window1 (sum &gt;= goal)</span>
+        <span class="c1">// sum2: tracks sum for window2 (sum &gt;= goal + 1)</span>
+        <span class="kt">int</span> <span class="n">sum1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">sum2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Using three pointers:</span>
+        <span class="c1">// l1: left boundary for sum &gt;= goal</span>
+        <span class="c1">// l2: left boundary for sum &gt;= goal + 1</span>
+        <span class="c1">// r: right boundary for both windows</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">l1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">r</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Expand both windows by adding the current element</span>
+            <span class="n">sum1</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">r</span><span class="o">];</span>
+            <span class="n">sum2</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">r</span><span class="o">];</span>
+
+            <span class="c1">// First window: contract from left while sum1 &gt;= goal</span>
+            <span class="c1">// This window finds all subarrays with sum &gt;= goal</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">l1</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">sum1</span> <span class="o">&gt;=</span> <span class="n">goal</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sum1</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">l1</span><span class="o">];</span>
+                <span class="n">l1</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Second window: contract from left while sum2 &gt;= goal + 1</span>
+            <span class="c1">// This window finds all subarrays with sum &gt;= goal + 1</span>
+            <span class="c1">// The purpose is to exclude subarrays with sum greater than goal</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">l2</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">sum2</span> <span class="o">&gt;=</span> <span class="n">goal</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sum2</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">l2</span><span class="o">];</span>
+                <span class="n">l2</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// The difference (l1 - l2) gives us the count of subarrays</span>
+            <span class="c1">// with sum exactly equal to goal ending at current right pointer 'r'</span>
+            <span class="c1">// Because:</span>
+            <span class="c1">// l1 represents: how many positions we can place left boundary to get sum &gt;= goal</span>
+            <span class="c1">// l2 represents: how many positions we can place left boundary to get sum &gt;= goal+1</span>
+            <span class="c1">// Their difference is exactly the count of subarrays with sum == goal</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">l1</span> <span class="o">-</span> <span class="n">l2</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Regular case with mixed 0s and 1s</span>
+        <span class="c1">// Expected subarrays with sum=2: [1,0,1], [1,0,1], [0,1,0,1], [1,0,1]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">goal1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numSubarraysWithSum</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">goal1</span><span class="o">));</span> <span class="c1">// Output: 4</span>
+
+        <span class="c1">// Test Case 2: Array with all zeros</span>
+        <span class="c1">// Every subarray has sum=0, total number of subarrays = n*(n+1)/2 where n=5</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">goal2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numSubarraysWithSum</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">goal2</span><span class="o">));</span> <span class="c1">// Output: 15</span>
+
+        <span class="c1">// Test Case 3: Array with all ones</span>
+        <span class="c1">// Subarrays with sum=3: [1,1,1], [1,1,1], [1,1,1]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">goal3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numSubarraysWithSum</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">goal3</span><span class="o">));</span> <span class="c1">// Output: 3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountExact"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum goal. A subarray is a contiguous part of the array.]]></summary></entry><entry><title type="html">1742. Maximum Number of Balls in a Box</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox/" rel="alternate" type="text/html" title="1742. Maximum Number of Balls in a Box"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox/"><![CDATA[<ul> <li>You are working in a ball factory where you have <code class="language-plaintext highlighter-rouge">n</code> balls numbered from <code class="language-plaintext highlighter-rouge">lowLimit</code> up to <code class="language-plaintext highlighter-rouge">highLimit</code> <strong>inclusive</strong> (i.e., <code class="language-plaintext highlighter-rouge">n == highLimit - lowLimit + 1</code>), and an infinite number of boxes numbered from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">infinity</code>.</li> <li>Your job at this factory is to put each ball in the box with a number equal to the sum of digits of the ball’s number. For example, the ball number <code class="language-plaintext highlighter-rouge">321</code> will be put in the box number <code class="language-plaintext highlighter-rouge">3 + 2 + 1 = 6</code> and the ball number <code class="language-plaintext highlighter-rouge">10</code> will be put in the box number <code class="language-plaintext highlighter-rouge">1 + 0 = 1</code>.</li> <li>Given two integers <code class="language-plaintext highlighter-rouge">lowLimit</code> and <code class="language-plaintext highlighter-rouge">highLimit</code>, return <em>the number of balls in the box with the most balls.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lowLimit = 1, highLimit = 10
 Output: 2
 Explanation:
 Box Number:  1 2 3 4 5 6 7 8 9 10 11 ...
@@ -149,7 +233,7 @@ Output: 8
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><summary type="html"><![CDATA[At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array flowers where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed cnt flowers, then we consider this floral arrangement to be “aesthetically pleasing.”]]></summary></entry><entry><title type="html">1910. Remove All Occurrences of a Substring</title><link href="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/" rel="alternate" type="text/html" title="1910. Remove All Occurrences of a Substring"/><published>2025-02-10T00:00:00+00:00</published><updated>2025-02-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">part</code>, perform the following operation on <code class="language-plaintext highlighter-rouge">s</code> until <strong>all</strong> occurrences of the substring <code class="language-plaintext highlighter-rouge">part</code> are removed: <ul> <li>Find the <strong>leftmost</strong> occurrence of the substring <code class="language-plaintext highlighter-rouge">part</code> and <strong>remove</strong> it from <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">s</code> <em>after removing all occurrences of</em> <code class="language-plaintext highlighter-rouge">part</code>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "daabcbaabcbc", part = "abc"
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array flowers where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed cnt flowers, then we consider this floral arrangement to be “aesthetically pleasing.”]]></summary></entry><entry><title type="html">1910. Remove All Occurrences of a Substring</title><link href="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/" rel="alternate" type="text/html" title="1910. Remove All Occurrences of a Substring"/><published>2025-02-10T00:00:00+00:00</published><updated>2025-02-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">part</code>, perform the following operation on <code class="language-plaintext highlighter-rouge">s</code> until <strong>all</strong> occurrences of the substring <code class="language-plaintext highlighter-rouge">part</code> are removed: <ul> <li>Find the <strong>leftmost</strong> occurrence of the substring <code class="language-plaintext highlighter-rouge">part</code> and <strong>remove</strong> it from <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">s</code> <em>after removing all occurrences of</em> <code class="language-plaintext highlighter-rouge">part</code>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "daabcbaabcbc", part = "abc"
 Output: "dab"
 Explanation: The following operations are done:
 - s = "daabcbaabcbc", remove "abc" starting at index 2, so s = "dabaabcbc".
@@ -702,96 +786,4 @@ Output: 0
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.]]></summary></entry><entry><title type="html">(Review)2537. Count the Number of Good Subarrays</title><link href="https://zhengstar94.github.io//blog/2025/CountTheNumberOfGoodSubarrays/" rel="alternate" type="text/html" title="(Review)2537. Count the Number of Good Subarrays"/><published>2025-02-06T00:00:00+00:00</published><updated>2025-02-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTheNumberOfGoodSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTheNumberOfGoodSubarrays/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the number of <strong>good</strong> subarrays of</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A subarray <code class="language-plaintext highlighter-rouge">arr</code> is <strong>good</strong> if there are <strong>at least</strong> <code class="language-plaintext highlighter-rouge">k</code> pairs of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> such that <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">arr[i] == arr[j]</code>.</li> <li>A <strong>subarray</strong> is a contiguous <strong>non-empty</strong> sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1,1], k = 10
-Output: 1
-Explanation: The only good subarray is the array nums itself.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,1,4,3,2,2,4], k = 2
-Output: 4
-Explanation: There are 4 different good subarrays:
-- [3,1,4,3,2,2] that has 2 pairs.
-- [3,1,4,3,2,2,4] that has 3 pairs.
-- [1,4,3,2,2,4] that has 2 pairs.
-- [4,3,2,2,4] that has 2 pairs.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountLongest</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/06
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountTheNumberOfGoodSubarrays</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countGood</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// HashMap to store the frequency of each number in the current window</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Store the total count of good subarrays</span>
-        <span class="kt">long</span> <span class="n">currentPairs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Track the number of pairs in current window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Left pointer of sliding window</span>
-
-        <span class="c1">// Iterate through array using right pointer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// When adding a new element at right, it forms pairs with all its previous occurrences</span>
-            <span class="c1">// For example: if we have [1,1] and add another 1, it forms 2 new pairs</span>
-            <span class="n">currentPairs</span> <span class="o">+=</span> <span class="n">count</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
-            <span class="n">count</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">],</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
-
-            <span class="cm">/**
-             * Key Part 1: Window Shrinking Condition
-             * while (left &lt;= right &amp;&amp; currentPairs - count.get(nums[left]) + 1 &gt;= k)
-             *
-             * This condition checks if we can shrink the window from the left while still maintaining k pairs:
-             * - left &lt;= right: ensures left pointer doesn't exceed right pointer
-             * - currentPairs - count.get(nums[left]) + 1 &gt;= k: 
-             *   - currentPairs: current total pairs in window
-             *   - count.get(nums[left]): number of occurrences of leftmost element
-             *   - +1: adjustment factor for remaining pairs after removal
-             *   If this condition is true, we can safely remove the leftmost element
-             *   and still have enough pairs to meet the requirement
-             */</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">currentPairs</span> <span class="o">-</span> <span class="n">count</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">])</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Remove the leftmost element and update pairs count</span>
-                <span class="n">currentPairs</span> <span class="o">-=</span> <span class="n">count</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">],</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="cm">/**
-             * Key Part 2: Counting Valid Subarrays
-             * if (currentPairs &gt;= k)
-             * result += left + 1
-             *
-             * When we find a window with enough pairs (currentPairs &gt;= k):
-             * - left + 1 represents the number of valid subarrays ending at 'right'
-             * - For example, if left=2 and right=4, we add 3 because:
-             *   We can start the subarray from index 0,1,or 2 (total of 3 possibilities)
-             *   all ending at index 4, and each of these subarrays is valid
-             * - This counts all possible valid subarrays that end at the current right pointer
-             */</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">currentPairs</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">result</span> <span class="o">+=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with all same elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countGood</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
-
-        <span class="c1">// Test Case 2: Array with different elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countGood</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
-
-        <span class="c1">// Test Case 3: Small array with same elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countGood</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected: 2</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountLongest"/><category term="Medium"/><category term="Review"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given an integer array nums and an integer k, return the number of good subarrays of nums. A subarray arr is good if there are at least k pairs of indices (i, j) such that i &lt; j and arr[i] == arr[j]. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.]]></summary></entry></feed>
