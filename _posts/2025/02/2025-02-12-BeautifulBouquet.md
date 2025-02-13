@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "LCP 68. Beautiful Bouquet"
 date: "2025-02-12"
-tags: Medium
+tags: Medium SlideWindow
 categories:
   - "LeetCode DynamicSlidingWindowCountShortest"
 ---
