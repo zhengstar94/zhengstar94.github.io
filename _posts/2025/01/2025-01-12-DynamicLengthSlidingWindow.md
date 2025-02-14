@@ -7,13 +7,14 @@ title: "Sliding Window Techniques"
 date: "2025-01-12"
 categories: 
   - "Data Structure"
+giscus_comments: true
 ---
 
 
 ## Comparison of Fixed-Length and Dynamic-Length Windows
 
 | Type    | Window Length | Typical Problems                                             | Core Operations                                             |
-| ------- | ------------- | ------------------------------------------------------------ | ----------------------------------------------------------- |
+|:------- | ------------- | ------------------------------------------------------------ | -----------------------------------------------------------:|
 | Fixed   | Constant      | Fixed-length substring statistics, K-size subarray calculations | Element enters and exits immediately to maintain fixed size |
 | Dynamic | Variable      | Longest/shortest substring search, Condition-based subarray finding | Window contracts only when conditions are violated          |
 
