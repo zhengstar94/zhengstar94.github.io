@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-13T08:27:50+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">930. Binary Subarrays With Sum</title><link href="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/" rel="alternate" type="text/html" title="930. Binary Subarrays With Sum"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">goal</code>, return <em>the number of non-empty <strong>subarrays</strong> with a sum</em> <code class="language-plaintext highlighter-rouge">goal</code>.</li> <li>A <strong>subarray</strong> is a contiguous part of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1,0,1], goal = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-14T04:45:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1352. Product of the Last K Numbers</title><link href="https://zhengstar94.github.io//blog/2025/ProductOfNumbers/" rel="alternate" type="text/html" title="1352. Product of the Last K Numbers"/><published>2025-02-14T00:00:00+00:00</published><updated>2025-02-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ProductOfNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ProductOfNumbers/"><![CDATA[<ul> <li>Design an algorithm that accepts a stream of integers and retrieves (vt. 重新得到；恢复；检索 vi. 找回猎物) the product of the last <code class="language-plaintext highlighter-rouge">k</code> integers of the stream.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">ProductOfNumbers</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">ProductOfNumbers()</code> Initializes the object with an empty stream.</li> <li><code class="language-plaintext highlighter-rouge">void add(int num)</code> Appends the integer <code class="language-plaintext highlighter-rouge">num</code> to the stream.</li> <li><code class="language-plaintext highlighter-rouge">int getProduct(int k)</code> Returns the product of the last <code class="language-plaintext highlighter-rouge">k</code> numbers in the current list. You can assume that always the current list has at least <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> </ul> </li> <li>The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["ProductOfNumbers","add","add","add","add","add","getProduct","getProduct","getProduct","add","getProduct"]
+[[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]
+
+Output
+[null,null,null,null,null,null,20,40,0,null,32]
+
+Explanation
+ProductOfNumbers productOfNumbers = new ProductOfNumbers();
+productOfNumbers.add(3);        // [3]
+productOfNumbers.add(0);        // [3,0]
+productOfNumbers.add(2);        // [3,0,2]
+productOfNumbers.add(5);        // [3,0,2,5]
+productOfNumbers.add(4);        // [3,0,2,5,4]
+productOfNumbers.getProduct(2); // return 20. The product of the last 2 numbers is 5 * 4 = 20
+productOfNumbers.getProduct(3); // return 40. The product of the last 3 numbers is 2 * 5 * 4 = 40
+productOfNumbers.getProduct(4); // return 0. The product of the last 4 numbers is 0 * 2 * 5 * 4 = 0
+productOfNumbers.add(8);        // [3,0,2,5,4,8]
+productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Author: zhengxingxing
+ * Date: 2025/02/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductOfNumbers</span> <span class="o">{</span>
+    <span class="c1">// Use ArrayList to store the prefix product of the numbers in the stream.</span>
+    <span class="c1">// prefixProduct[i] represents the product of all numbers from the start of the list to index i.</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">prefixProduct</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">ProductOfNumbers</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">prefixProduct</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">prefixProduct</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// Add 1 as the initial base of the prefix product list.</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the number is 0, reset the prefix product list.</span>
+            <span class="c1">// This resets the product calculation due to the zero.</span>
+            <span class="n">prefixProduct</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+            <span class="n">prefixProduct</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// Start fresh with 1 again as the base.</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">// If the number is not zero, calculate the new prefix product </span>
+            <span class="c1">// by multiplying the last prefix product with the new number.</span>
+            <span class="n">prefixProduct</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">prefixProduct</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">prefixProduct</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">num</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getProduct</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">prefixProduct</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="c1">// If `k` is greater than or equal to the size of the prefix list,</span>
+        <span class="c1">// it means the range includes a zero, so the product is 0.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">k</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the product of the last `k` numbers using:</span>
+        <span class="c1">// prefixProduct[n-1] (total product up to the last number)</span>
+        <span class="c1">// divided by prefixProduct[n-k-1] (product up to the last `n-k` numbers).</span>
+        <span class="k">return</span> <span class="n">prefixProduct</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="n">prefixProduct</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">ProductOfNumbers</span> <span class="n">productOfNumbers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ProductOfNumbers</span><span class="o">();</span>
+
+        <span class="c1">// Test case 1</span>
+        <span class="n">productOfNumbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span> <span class="c1">// Stream: [3]</span>
+        <span class="n">productOfNumbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Stream: [3,0] - reset due to zero</span>
+        <span class="n">productOfNumbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// Stream: [2] - starting fresh</span>
+        <span class="n">productOfNumbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span> <span class="c1">// Stream: [2,5]</span>
+        <span class="n">productOfNumbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// Stream: [2,5,4]</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">productOfNumbers</span><span class="o">.</span><span class="na">getProduct</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span> <span class="c1">// Expected output: 20 (5 * 4)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">productOfNumbers</span><span class="o">.</span><span class="na">getProduct</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected output: 40 (2 * 5 * 4)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">productOfNumbers</span><span class="o">.</span><span class="na">getProduct</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span> <span class="c1">// Expected output: 0 (due to zero in the range)</span>
+        <span class="n">productOfNumbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span> <span class="c1">// Stream: [2,5,4,8]</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">productOfNumbers</span><span class="o">.</span><span class="na">getProduct</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span> <span class="c1">// Expected output: 32 (4 * 8)</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">ProductOfNumbers</span> <span class="n">test2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ProductOfNumbers</span><span class="o">();</span>
+        <span class="n">test2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// Stream: [2]</span>
+        <span class="n">test2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span> <span class="c1">// Stream: [2,3]</span>
+        <span class="n">test2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// Stream: [2,3,4]</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">test2</span><span class="o">.</span><span class="na">getProduct</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span> <span class="c1">// Expected output: 12 (3 * 4)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">test2</span><span class="o">.</span><span class="na">getProduct</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected output: 24 (2 * 3 * 4)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[Design an algorithm that accepts a stream of integers and retrieves (vt. 重新得到；恢复；检索 vi. 找回猎物) the product of the last k integers of the stream. Implement the ProductOfNumbers class: ProductOfNumbers() Initializes the object with an empty stream. void add(int num) Appends the integer num to the stream. int getProduct(int k) Returns the product of the last k numbers in the current list. You can assume that always the current list has at least k numbers. The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.]]></summary></entry><entry><title type="html">930. Binary Subarrays With Sum</title><link href="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/" rel="alternate" type="text/html" title="930. Binary Subarrays With Sum"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">goal</code>, return <em>the number of non-empty <strong>subarrays</strong> with a sum</em> <code class="language-plaintext highlighter-rouge">goal</code>.</li> <li>A <strong>subarray</strong> is a contiguous part of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1,0,1], goal = 2
 Output: 4
 Explanation: The 4 subarrays are bolded and underlined below:
 [1,0,1,0,1]
@@ -700,81 +790,4 @@ All substrings of s satisfy the k-constraint.
         <span class="c1">// Output: 15</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given a binary string s and an integer k. A binary string satisfies the k-constraint if either of the following conditions holds: The number of 0’s in the string is at most k. The number of 1’s in the string is at most k. Return an integer denoting the number of substrings of s that satisfy the k-constraint.]]></summary></entry><entry><title type="html">59. Spiral Matrix II</title><link href="https://zhengstar94.github.io//blog/2025/SpiralMatrixII/" rel="alternate" type="text/html" title="59. Spiral Matrix II"/><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SpiralMatrixII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SpiralMatrixII/"><![CDATA[<ul> <li>Given a positive integer <code class="language-plaintext highlighter-rouge">n</code>, generate an <code class="language-plaintext highlighter-rouge">n x n</code> <code class="language-plaintext highlighter-rouge">matrix</code> filled with elements from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">n2</code> in spiral order.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 3
-Output: [ [1,2,3],[8,9,4],[7,6,5 ] ]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
-Output: [ [1] ]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n²) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/07
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpiralMatrixII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">generateMatrix</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the result matrix</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Define four pointers to track the boundaries</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>      <span class="c1">// leftmost column not yet filled</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// rightmost column not yet filled</span>
-        <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>       <span class="c1">// topmost row not yet filled</span>
-        <span class="kt">int</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span><span class="c1">// bottommost row not yet filled</span>
-
-        <span class="c1">// Start with 1 and go up to n^2</span>
-        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Continue until all numbers from 1 to n^2 are placed</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Fill top row from left to right</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="n">matrix</span><span class="o">[</span><span class="n">top</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">top</span><span class="o">++;</span> <span class="c1">// Move top boundary down</span>
-
-            <span class="c1">// Fill rightmost column from top to bottom</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">top</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">bottom</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">right</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">right</span><span class="o">--;</span> <span class="c1">// Move right boundary left</span>
-
-            <span class="c1">// Fill bottom row from right to left</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">right</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-                <span class="n">matrix</span><span class="o">[</span><span class="n">bottom</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">bottom</span><span class="o">--;</span> <span class="c1">// Move bottom boundary up</span>
-
-            <span class="c1">// Fill leftmost column from bottom to top</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">bottom</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">top</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-                <span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">left</span><span class="o">]</span> <span class="o">=</span> <span class="n">num</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">left</span><span class="o">++;</span> <span class="c1">// Move left boundary right</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">matrix</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: 3x3 matrix</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">generateMatrix</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="n">printMatrix</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 2: 1x1 matrix</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">generateMatrix</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="n">printMatrix</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">row</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given a positive integer n, generate an n x n matrix filled with elements from 1 to n2 in spiral order.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given a binary string s and an integer k. A binary string satisfies the k-constraint if either of the following conditions holds: The number of 0’s in the string is at most k. The number of 1’s in the string is at most k. Return an integer denoting the number of substrings of s that satisfy the k-constraint.]]></summary></entry></feed>
