@@ -18,9 +18,6 @@ giscus_comments: true
 | Fixed   | Constant      | Fixed-length substring statistics, K-size subarray calculations | Element enters and exits immediately to maintain fixed size |
 | Dynamic | Variable      | Longest/shortest substring search, Condition-based subarray finding | Window contracts only when conditions are violated          |
 
------
-
-[Previous content remains exactly the same, starting with "Part 1: Master Fixed-Length Sliding Window - A Universal Approach" through the end of Part 2]
 
 -----
 
