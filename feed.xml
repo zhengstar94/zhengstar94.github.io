@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-14T05:49:42+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1352. Product of the Last K Numbers</title><link href="https://zhengstar94.github.io//blog/2025/ProductOfNumbers/" rel="alternate" type="text/html" title="1352. Product of the Last K Numbers"/><published>2025-02-14T00:00:00+00:00</published><updated>2025-02-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ProductOfNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ProductOfNumbers/"><![CDATA[<ul> <li>Design an algorithm that accepts a stream of integers and retrieves (vt. 重新得到；恢复；检索 vi. 找回猎物) the product of the last <code class="language-plaintext highlighter-rouge">k</code> integers of the stream.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">ProductOfNumbers</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">ProductOfNumbers()</code> Initializes the object with an empty stream.</li> <li><code class="language-plaintext highlighter-rouge">void add(int num)</code> Appends the integer <code class="language-plaintext highlighter-rouge">num</code> to the stream.</li> <li><code class="language-plaintext highlighter-rouge">int getProduct(int k)</code> Returns the product of the last <code class="language-plaintext highlighter-rouge">k</code> numbers in the current list. You can assume that always the current list has at least <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> </ul> </li> <li>The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-15T06:29:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1706. Where Will the Ball Fall</title><link href="https://zhengstar94.github.io//blog/2025/WhereWillTheBallFall/" rel="alternate" type="text/html" title="1706. Where Will the Ball Fall"/><published>2025-02-15T00:00:00+00:00</published><updated>2025-02-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/WhereWillTheBallFall</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/WhereWillTheBallFall/"><![CDATA[<ul> <li>You have a 2-D <code class="language-plaintext highlighter-rouge">grid</code> of size <code class="language-plaintext highlighter-rouge">m x n</code> representing a box, and you have <code class="language-plaintext highlighter-rouge">n</code> balls. The box is open on the top and bottom sides.</li> <li>Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left. <ul> <li>A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as <code class="language-plaintext highlighter-rouge">1</code>.</li> <li>A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> </li> <li>We drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball gets stuck if it hits a “V” shaped pattern between two boards or if a board redirects the ball into either wall of the box.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of size</em> <code class="language-plaintext highlighter-rouge">n</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the column that the ball falls out of at the bottom after dropping the ball from the</em> <code class="language-plaintext highlighter-rouge">ith</code> <em>column at the top, or <code class="language-plaintext highlighter-rouge">-1</code> *if the ball gets stuck in the box*.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1] ]
+Output: [1,-1,-1,-1,-1]
+Explanation: This example is shown in the photo.
+Ball b0 is dropped at column 0 and falls out of the box at column 1.
+Ball b1 is dropped at column 1 and will get stuck in the box between column 2 and 3 and row 1.
+Ball b2 is dropped at column 2 and will get stuck on the box between column 2 and 3 and row 0.
+Ball b3 is dropped at column 3 and will get stuck on the box between column 2 and 3 and row 0.
+Ball b4 is dropped at column 4 and will get stuck on the box between column 2 and 3 and row 1.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [-1] ]
+Output: [-1]
+Explanation: The ball gets stuck against the left wall.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1],[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1 ] ]
+Output: [0,1,2,3,4,-1]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/15
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WhereWillTheBallFall</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findBall</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the width of the grid (number of columns)</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// Initialize result array to store the exit positions for each ball</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="c1">// Simulate dropping a ball from each column</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Track current column position of the ball</span>
+            <span class="c1">// Initially, ball starts from column j</span>
+            <span class="kt">int</span> <span class="n">curCol</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+
+            <span class="c1">// Iterate through each row of the grid</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Get the direction of the current board</span>
+                <span class="c1">// d = 1: board directs ball to right</span>
+                <span class="c1">// d = -1: board directs ball to left</span>
+                <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">row</span><span class="o">[</span><span class="n">curCol</span><span class="o">];</span>
+
+                <span class="c1">// Move ball to next position based on board direction</span>
+                <span class="n">curCol</span> <span class="o">+=</span> <span class="n">d</span><span class="o">;</span>
+
+                <span class="c1">// Check if ball gets stuck:</span>
+                <span class="c1">// 1. curCol &lt; 0: ball hits left boundary</span>
+                <span class="c1">// 2. curCol == n: ball hits right boundary</span>
+                <span class="c1">// 3. row[curCol] != d: forms V-shape with adjacent board</span>
+                <span class="c1">//    Example: Current board goes right (1) but next position board goes left (-1)</span>
+                <span class="c1">//    or current board goes left (-1) but next position board goes right (1)</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">curCol</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">curCol</span> <span class="o">==</span> <span class="n">n</span> <span class="o">||</span> <span class="n">row</span><span class="o">[</span><span class="n">curCol</span><span class="o">]</span> <span class="o">!=</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Ball is stuck, mark position as -1</span>
+                    <span class="n">curCol</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                    <span class="c1">// Stop simulating this ball's path</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="c1">// Store final position for ball dropped from column j</span>
+            <span class="n">ans</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">curCol</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Complex path with multiple directions</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">},</span>
+                <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">},</span>
+                <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findBall</span><span class="o">(</span><span class="n">grid1</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 2: Simplest case with single cell</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findBall</span><span class="o">(</span><span class="n">grid2</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 3: Alternating rows of same direction</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span>
+                <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span>
+                <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findBall</span><span class="o">(</span><span class="n">grid3</span><span class="o">)));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides. Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left. A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1. A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1. We drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball gets stuck if it hits a “V” shaped pattern between two boards or if a board redirects the ball into either wall of the box. Return an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 *if the ball gets stuck in the box*.]]></summary></entry><entry><title type="html">1352. Product of the Last K Numbers</title><link href="https://zhengstar94.github.io//blog/2025/ProductOfNumbers/" rel="alternate" type="text/html" title="1352. Product of the Last K Numbers"/><published>2025-02-14T00:00:00+00:00</published><updated>2025-02-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ProductOfNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ProductOfNumbers/"><![CDATA[<ul> <li>Design an algorithm that accepts a stream of integers and retrieves (vt. 重新得到；恢复；检索 vi. 找回猎物) the product of the last <code class="language-plaintext highlighter-rouge">k</code> integers of the stream.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">ProductOfNumbers</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">ProductOfNumbers()</code> Initializes the object with an empty stream.</li> <li><code class="language-plaintext highlighter-rouge">void add(int num)</code> Appends the integer <code class="language-plaintext highlighter-rouge">num</code> to the stream.</li> <li><code class="language-plaintext highlighter-rouge">int getProduct(int k)</code> Returns the product of the last <code class="language-plaintext highlighter-rouge">k</code> numbers in the current list. You can assume that always the current list has at least <code class="language-plaintext highlighter-rouge">k</code> numbers.</li> </ul> </li> <li>The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
 ["ProductOfNumbers","add","add","add","add","add","getProduct","getProduct","getProduct","add","getProduct"]
 [[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]
 
@@ -705,89 +797,4 @@ It does not matter what you leave beyond  the returned k (hence they are undersc
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.]]></summary></entry><entry><title type="html">3258. Count Substrings That Satisfy K-Constraint I</title><link href="https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI/" rel="alternate" type="text/html" title="3258. Count Substrings That Satisfy K-Constraint I"/><published>2025-02-08T00:00:00+00:00</published><updated>2025-02-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubstringsThatSatisfyKConstraintI/"><![CDATA[<ul> <li>You are given a <strong>binary</strong> string <code class="language-plaintext highlighter-rouge">s</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>binary string</strong> satisfies the <strong>k-constraint</strong> if <strong>either</strong> of the following conditions holds: <ul> <li>The number of <code class="language-plaintext highlighter-rouge">0</code>’s in the string is at most <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>The number of <code class="language-plaintext highlighter-rouge">1</code>’s in the string is at most <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li>Return an integer denoting the number of substrings of <code class="language-plaintext highlighter-rouge">s</code> that satisfy the <strong>k-constraint</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "10101", k = 1
-
-Output: 12
-
-Explanation:
-
-Every substring of s except  the substrings "1010", "10101", and "0101" satisfies the k-constraint.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "1010101", k = 2
-
-Output: 25
-
-Explanation:
-
-Every substring of s except  the substrings with a length greater than 5 satisfies the k-constraint.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "11111", k = 1
-
-Output: 15
-
-Explanation:
-
-All substrings of s satisfy the k-constraint.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountShortest</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/08
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubstringsThatSatisfyKConstraintI</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countKConstraintSubstrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">cnt0</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Keeps track of the count of '0's in the current window</span>
-        <span class="kt">int</span> <span class="n">cnt1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Keeps track of the count of '1's in the current window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// The left boundary of the dynamic sliding window</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Stores the total count of valid substrings</span>
-
-        <span class="c1">// Iterate over the string with the right boundary expanding</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Expand the window by including the current character `s.charAt(right)`</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">cnt0</span><span class="o">++;</span>  <span class="c1">// Increment the count of '0's</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">cnt1</span><span class="o">++;</span>  <span class="c1">// Increment the count of '1's</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Shrink the window (move the left boundary) as long as it violates the k-constraint:</span>
-            <span class="c1">// Both cnt0 and cnt1 cannot exceed `k`.</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">cnt0</span> <span class="o">&gt;</span> <span class="n">k</span> <span class="o">&amp;&amp;</span> <span class="n">cnt1</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Remove the character at the left boundary from the window</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">cnt0</span><span class="o">--;</span>  <span class="c1">// Decrement the count of '0's</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="n">cnt1</span><span class="o">--;</span>  <span class="c1">// Decrement the count of '1's</span>
-                <span class="o">}</span>
-                <span class="n">left</span><span class="o">++;</span> <span class="c1">// Move the left boundary one step forward</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add the number of valid substrings in the current window:</span>
-            <span class="c1">// The number of substrings ending at `right` is equal to the size of the window.</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"10101"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for test case 1: "</span> <span class="o">+</span> <span class="n">countKConstraintSubstrings</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
-        <span class="c1">// Output: 12</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"1010101"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for test case 2: "</span> <span class="o">+</span> <span class="n">countKConstraintSubstrings</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
-        <span class="c1">// Output: 25</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"11111"</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result for test case 3: "</span> <span class="o">+</span> <span class="n">countKConstraintSubstrings</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
-        <span class="c1">// Output: 15</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[You are given a binary string s and an integer k. A binary string satisfies the k-constraint if either of the following conditions holds: The number of 0’s in the string is at most k. The number of 1’s in the string is at most k. Return an integer denoting the number of substrings of s that satisfy the k-constraint.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.]]></summary></entry></feed>
