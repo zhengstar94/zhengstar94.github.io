@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-16T05:31:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1299. Replace Elements with Greatest Element on Right Side</title><link href="https://zhengstar94.github.io//blog/2025/ReplaceElementsWithGreatestElementOnRightSide/" rel="alternate" type="text/html" title="1299. Replace Elements with Greatest Element on Right Side"/><published>2025-02-16T00:00:00+00:00</published><updated>2025-02-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReplaceElementsWithGreatestElementOnRightSide</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReplaceElementsWithGreatestElementOnRightSide/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">arr</code>, replace every element in that array with the greatest element among the elements to its right, and replace the last element with <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>After doing so, return the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [17,18,5,4,6,1]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-16T06:17:11+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</title><link href="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/" rel="alternate" type="text/html" title="(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"/><published>2025-02-16T00:00:00+00:00</published><updated>2025-02-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code class="language-plaintext highlighter-rouge">limit</code><em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [8,2,4,7], limit = 4
+Output: 2 
+Explanation: All subarrays are: 
+[8] with maximum absolute diff |8-8| = 0 &lt;= 4.
+[8,2] with maximum absolute diff |8-2| = 6 &gt; 4. 
+[8,2,4] with maximum absolute diff |8-2| = 6 &gt; 4.
+[8,2,4,7] with maximum absolute diff |8-2| = 6 &gt; 4.
+[2] with maximum absolute diff |2-2| = 0 &lt;= 4.
+[2,4] with maximum absolute diff |2-4| = 2 &lt;= 4.
+[2,4,7] with maximum absolute diff |2-7| = 5 &gt; 4.
+[4] with maximum absolute diff |4-4| = 0 &lt;= 4.
+[4,7] with maximum absolute diff |4-7| = 3 &lt;= 4.
+[7] with maximum absolute diff |7-7| = 0 &lt;= 4. 
+Therefore, the size of the longest subarray is 2.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,1,2,4,7,2], limit = 5
+Output: 4 
+Explanation: The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 &lt;= 5.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,2,2,4,4,2,2], limit = 0
+Output: 3
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/16
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">longestSubarray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Monotonic decreasing deque to maintain window maximum</span>
+        <span class="c1">// Elements are stored in decreasing order, so first element is always the maximum</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">maxDeque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Monotonic increasing deque to maintain window minimum</span>
+        <span class="c1">// Elements are stored in increasing order, so first element is always the minimum</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minDeque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Left pointer of the sliding window</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Length of the longest valid subarray found so far</span>
+        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Right pointer iterates through the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Maintain the monotonic decreasing property of maxDeque</span>
+            <span class="c1">// Remove all elements smaller than the current element from the back</span>
+            <span class="c1">// This ensures that maxDeque.peekFirst() always gives the maximum element</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">maxDeque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">maxDeque</span><span class="o">.</span><span class="na">peekLast</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">maxDeque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">maxDeque</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]);</span>
+
+            <span class="c1">// Maintain the monotonic increasing property of minDeque</span>
+            <span class="c1">// Remove all elements larger than the current element from the back</span>
+            <span class="c1">// This ensures that minDeque.peekFirst() always gives the minimum element</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">minDeque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">minDeque</span><span class="o">.</span><span class="na">peekLast</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">minDeque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">minDeque</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]);</span>
+
+            <span class="c1">// Shrink the window if the difference between max and min exceeds limit</span>
+            <span class="c1">// Keep shrinking until the window becomes valid or empty</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">maxDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">()</span> <span class="o">-</span> <span class="n">minDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If the leftmost element is the current maximum, remove it from maxDeque</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">==</span> <span class="n">maxDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">maxDeque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="c1">// If the leftmost element is the current minimum, remove it from minDeque</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">==</span> <span class="n">minDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">minDeque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="c1">// Move the left pointer to shrink the window</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Update the maximum length if current window is valid</span>
+            <span class="c1">// Current window size is (right - left + 1)</span>
+            <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Expected output: 2</span>
+        <span class="c1">// Valid subarrays are [2,4] and [4,7] with max diff &lt;= 4</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">limit1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">limit1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Expected output: 4</span>
+        <span class="c1">// Longest valid subarray is [2,4,7,2] with max diff &lt;= 5</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">limit2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">limit2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Expected output: 3</span>
+        <span class="c1">// Longest valid subarray contains equal elements (either [2,2,2] or [4,4,4])</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">limit3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">limit3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMax"/><category term="Medium"/><category term="SlideWindow"/><category term="Review"/><summary type="html"><![CDATA[Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray such that the absolute difference between any two elements of this subarray is less than or equal to limit.]]></summary></entry><entry><title type="html">1299. Replace Elements with Greatest Element on Right Side</title><link href="https://zhengstar94.github.io//blog/2025/ReplaceElementsWithGreatestElementOnRightSide/" rel="alternate" type="text/html" title="1299. Replace Elements with Greatest Element on Right Side"/><published>2025-02-16T00:00:00+00:00</published><updated>2025-02-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReplaceElementsWithGreatestElementOnRightSide</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReplaceElementsWithGreatestElementOnRightSide/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">arr</code>, replace every element in that array with the greatest element among the elements to its right, and replace the last element with <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>After doing so, return the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [17,18,5,4,6,1]
 Output: [18,6,6,6,1,-1]
 Explanation: 
 - index 0 --&gt; the greatest element to the right of index 0 is index 1 (18).
@@ -681,92 +789,4 @@ Explanation: There are no bad pairs.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. A pair of indices (i, j) is a bad pair if i &lt; j and j - i != nums[j] - nums[i]. Return the total number of bad pairs in nums.]]></summary></entry><entry><title type="html">2302. Count Subarrays With Score Less Than K</title><link href="https://zhengstar94.github.io//blog/2025/DynamicSlidingWindowCountShortest/" rel="alternate" type="text/html" title="2302. Count Subarrays With Score Less Than K"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DynamicSlidingWindowCountShortest</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DynamicSlidingWindowCountShortest/"><![CDATA[<ul> <li>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length. <ul> <li>For example, the score of <code class="language-plaintext highlighter-rouge">[1, 2, 3, 4, 5]</code> is <code class="language-plaintext highlighter-rouge">(1 + 2 + 3 + 4 + 5) * 5 = 75</code>.</li> </ul> </li> <li>Given a positive integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the <strong>number of non-empty subarrays</strong> of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>whose score is <strong>strictly less</strong> than</em> <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4,3,5], k = 10
-Output: 6
-Explanation:
-The 6 subarrays having scores less than 10 are:
-- [2] with score 2 * 1 = 2.
-- [1] with score 1 * 1 = 1.
-- [4] with score 4 * 1 = 4.
-- [3] with score 3 * 1 = 3. 
-- [5] with score 5 * 1 = 5.
-- [2,1] with score (2 + 1) * 2 = 6.
-Note that subarrays such as [1,4] and [4,3,5] are not considered because their scores are 10 and 36 respectively, while we need scores strictly less than 10.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1], k = 5
-Output: 5
-Explanation:
-Every subarray except  [1,1,1] has a score less than 5.
-[1,1,1] has a score (1 + 1 + 1) * 3 = 9, which is greater than 5.
-Thus, there are 5 subarrays having scores less than 5.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountShortest</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysWithScoreLessThanK</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">long</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize result counter for valid subarrays</span>
-        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Track running sum of current window</span>
-        <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Left pointer of sliding window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through array using right pointer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to window sum</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
-
-            <span class="c1">// Shrink window while score is &gt;= k</span>
-            <span class="c1">// Window score = sum * window_length</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">sum</span> <span class="o">*</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Remove leftmost element from sum</span>
-                <span class="n">sum</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
-                <span class="c1">// Move left pointer to shrink window</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add count of valid subarrays ending at current right pointer</span>
-            <span class="c1">// All subarrays from left to right are valid</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with mixed numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected: 6</span>
-
-        <span class="c1">// Test Case 2: Array with identical elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected: 5</span>
-
-        <span class="c1">// Test Case 3: Large array performance test</span>
-        <span class="c1">// Creates array of size 100000 filled with 1's</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100000</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums3</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">nums3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="kt">long</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Performance test</span>
-
-        <span class="c1">// Test Case 4: Single element array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
-
-        <span class="c1">// Test Case 5: No valid subarrays</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">30</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Hard"/><category term="SlideWindow"/><summary type="html"><![CDATA[The score of an array is defined as the product of its sum and its length. For example, the score of [1, 2, 3, 4, 5] is (1 + 2 + 3 + 4 + 5) * 5=75. Given a positive integer array nums and an integer k, return the number of non-empty subarrays of nums whose score is strictly less than k. A subarray is a contiguous sequence of elements within an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. A pair of indices (i, j) is a bad pair if i &lt; j and j - i != nums[j] - nums[i]. Return the total number of bad pairs in nums.]]></summary></entry></feed>
