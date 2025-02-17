@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-16T06:17:11+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</title><link href="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/" rel="alternate" type="text/html" title="(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"/><published>2025-02-16T00:00:00+00:00</published><updated>2025-02-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code class="language-plaintext highlighter-rouge">limit</code><em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [8,2,4,7], limit = 4
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-17T05:33:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1287. Element Appearing More Than 25% In Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/" rel="alternate" type="text/html" title="1287. Element Appearing More Than 25% In Sorted Array"/><published>2025-02-17T00:00:00+00:00</published><updated>2025-02-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/"><![CDATA[<ul> <li>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,2,6,6,6,6,7,10]
+Output: 6
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,1]
+Output: 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/17
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElementAppearingMoreThan25PercentInSortedArray</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findSpecialInteger</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the length of input array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Calculate quarter of array length</span>
+        <span class="c1">// This is our window size as element must appear more than 25%</span>
+        <span class="kt">int</span> <span class="n">quarter</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through array until (n - quarter)</span>
+        <span class="c1">// This ensures we don't get ArrayIndexOutOfBounds when checking arr[i + quarter]</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">quarter</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If current element equals element at quarter distance ahead</span>
+            <span class="c1">// We found our answer as it spans more than 25% of array</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">quarter</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return last element for special cases:</span>
+        <span class="c1">// 1. When array length is very small (≤ 4)</span>
+        <span class="c1">// 2. When all elements are the same</span>
+        <span class="c1">// This works because array is sorted and answer must exist</span>
+        <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Element appears in middle of array</span>
+        <span class="c1">// Expected output: 6 (appears 4 times, which is more than 25% of 9)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">input1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findSpecialInteger</span><span class="o">(</span><span class="n">input1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: Minimal array with two same elements</span>
+        <span class="c1">// Expected output: 1 (appears 2 times, which is 100% of array)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">input2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findSpecialInteger</span><span class="o">(</span><span class="n">input2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: Element appears at the beginning</span>
+        <span class="c1">// Expected output: 2 (appears 4 times, which is more than 25% of 7)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">input3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findSpecialInteger</span><span class="o">(</span><span class="n">input3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.]]></summary></entry><entry><title type="html">(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</title><link href="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/" rel="alternate" type="text/html" title="(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"/><published>2025-02-16T00:00:00+00:00</published><updated>2025-02-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code class="language-plaintext highlighter-rouge">limit</code><em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [8,2,4,7], limit = 4
 Output: 2 
 Explanation: All subarrays are: 
 [8] with maximum absolute diff |8-8| = 0 &lt;= 4.
@@ -713,80 +770,4 @@ Now s has no occurrences of "xy".
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Given two strings s and part, perform the following operation on s until all occurrences of the substring part are removed: Find the leftmost occurrence of the substring part and remove it from s. Return s after removing all occurrences of part. A substring is a contiguous sequence of characters in a string.]]></summary></entry><entry><title type="html">2364. Count Number of Bad Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/" rel="alternate" type="text/html" title="2364. Count Number of Bad Pairs"/><published>2025-02-09T00:00:00+00:00</published><updated>2025-02-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNumberOfBadPairs/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> is a <strong>bad pair</strong> if <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">j - i != nums[j] - nums[i]</code>.</li> <li>Return <em>the total number of <strong>bad pairs</strong> in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,1,3,3]
-Output: 5
-Explanation: The pair (0, 1) is a bad pair since 1 - 0 != 1 - 4.
-The pair (0, 2) is a bad pair since 2 - 0 != 3 - 4, 2 != -1.
-The pair (0, 3) is a bad pair since 3 - 0 != 3 - 4, 3 != -1.
-The pair (1, 2) is a bad pair since 2 - 1 != 3 - 1, 1 != 2.
-The pair (2, 3) is a bad pair since 3 - 2 != 3 - 3, 1 != 0.
-There are a total of 5 bad pairs, so we return 5.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,5]
-Output: 0
-Explanation: There are no bad pairs.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountNumberOfBadPairs</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countBadPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize a HashMap to store the frequency of nums[i] - i values.</span>
-        <span class="c1">// This helps us efficiently count how many times a specific "difference" has occurred.</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Variable to count the number of good pairs, initialized to 0.</span>
-        <span class="c1">// A good pair satisfies the condition nums[j] - j == nums[i] - i.</span>
-        <span class="kt">long</span> <span class="n">goodPairs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through the array, calculating the current difference and updating goodPairs.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the difference (nums[i] - i), which is used to identify good pairs.</span>
-            <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Add the number of previous occurrences of the current difference to goodPairs.</span>
-            <span class="c1">// This indicates how many indices before i have the same difference, forming good pairs with the current index.</span>
-            <span class="n">goodPairs</span> <span class="o">+=</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-
-            <span class="c1">// Update the frequency of the current difference in the map.</span>
-            <span class="c1">// This prepares for future iterations to count good pairs for subsequent elements.</span>
-            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Calculate the total number of possible pairs in the array.</span>
-        <span class="c1">// Using the formula for combinations: n * (n - 1) / 2 (where n = nums.length).</span>
-        <span class="kt">long</span> <span class="n">totalPairs</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">*</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-        <span class="c1">// The number of bad pairs is equal to the total pairs minus the number of good pairs.</span>
-        <span class="k">return</span> <span class="n">totalPairs</span> <span class="o">-</span> <span class="n">goodPairs</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Example array with some bad pairs</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
-
-        <span class="c1">// Test Case 2: Example array with no bad pairs (fully good pairs)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test Case 3: A large array with perfectly ordered elements (no bad pairs)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100000</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums3</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">nums3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Each element is its index + 1</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test Case 4: Array where all elements are identical</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countBadPairs</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Expected output: 6</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. A pair of indices (i, j) is a bad pair if i &lt; j and j - i != nums[j] - nums[i]. Return the total number of bad pairs in nums.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Given two strings s and part, perform the following operation on s until all occurrences of the substring part are removed: Find the leftmost occurrence of the substring part and remove it from s. Return s after removing all occurrences of part. A substring is a contiguous sequence of characters in a string.]]></summary></entry></feed>
