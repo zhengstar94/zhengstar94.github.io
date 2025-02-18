@@ -6,7 +6,7 @@ layout: post
 title: "977.Squares of a Sorted Array"
 date: "2024-02-12"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 # LeetCode 977. Squares of a Sorted Array [Easy]

@@ -6,7 +6,7 @@ layout: post
 title: "1768. Merge Strings Alternately"
 date: "2024-11-18"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 - You are given two strings `word1` and `word2`. Merge the strings by adding letters in alternating order, starting with `word1`. If a string is longer than the other, append the additional letters onto the end of the merged string.

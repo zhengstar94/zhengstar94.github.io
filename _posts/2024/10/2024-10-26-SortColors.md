@@ -6,7 +6,7 @@ layout: post
 title: "75.Sort Colors"
 date: "2024-10-26"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 - Given an array `nums` with `n` objects colored red, white, or blue, sort them **[in-place](https://en.wikipedia.org/wiki/In-place_algorithm)** so that objects of the same color are adjacent, with the colors in the order red, white, and blue.

@@ -6,7 +6,7 @@ layout: post
 title: "167.Two Sum II - Input Array Is Sorted"
 date: "2024-02-11"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 # LeetCode 167. Two Sum II - Input Array Is Sorted [Easy]

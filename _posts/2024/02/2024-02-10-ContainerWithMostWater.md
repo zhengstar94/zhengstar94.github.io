@@ -6,7 +6,7 @@ layout: post
 title: "11.Container With Most Water"
 date: "2024-02-10"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 # LeetCode 11. Container With Most Water ★★

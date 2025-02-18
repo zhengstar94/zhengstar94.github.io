@@ -6,7 +6,7 @@ layout: post
 title: "528.Random Pick with Weight"
 date: "2024-11-06"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 - You are given a **0-indexed** array of positive integers `w` where `w[i]` describes the **weight** of the `ith` index.

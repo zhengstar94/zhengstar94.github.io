@@ -7,7 +7,7 @@ title: "1930. Unique Length-3 Palindromic Subsequences"
 date: "2025-01-04"
 tags: Medium
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 

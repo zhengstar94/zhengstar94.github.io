@@ -6,7 +6,7 @@ layout: post
 title: "125.Valid Palindrome"
 date: "2024-02-09"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 # LeetCode 125. Valid Palindrome [Easy]
