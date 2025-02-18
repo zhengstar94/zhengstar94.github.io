@@ -6,7 +6,7 @@ layout: post
 title: "680.Valid Palindrome II"
 date: "2024-11-11"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 - Given a string `s`, return `true` *if the* `s` *can be palindrome after deleting **at most one** character from it*.

@@ -6,7 +6,7 @@ layout: post
 title: "443. String Compression"
 date: "2024-11-16"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 - Given an array of characters `chars`, compress it using the following algorithm:

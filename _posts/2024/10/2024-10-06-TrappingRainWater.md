@@ -6,7 +6,7 @@ layout: post
 title: "42.Trapping Rain Water"
 date: "2024-10-06"
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 

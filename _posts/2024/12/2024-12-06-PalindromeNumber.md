@@ -7,7 +7,7 @@ title: "9. Palindrome Number"
 date: "2024-12-06"
 tags: Easy
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 

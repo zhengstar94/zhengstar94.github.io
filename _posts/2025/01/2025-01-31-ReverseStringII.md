@@ -7,7 +7,7 @@ title: "541. Reverse String II"
 date: "2025-01-31"
 tags: Medium
 categories:
-  - "LeetCode Two Pointers"
+  - "LeetCode TwoPointers"
 ---
 
 - Given a string `s` and an integer `k`, reverse the first `k` characters for every `2k` characters counting from the start of the string.
