@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-17T05:33:32+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1287. Element Appearing More Than 25% In Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/" rel="alternate" type="text/html" title="1287. Element Appearing More Than 25% In Sorted Array"/><published>2025-02-17T00:00:00+00:00</published><updated>2025-02-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/"><![CDATA[<ul> <li>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,2,6,6,6,6,7,10]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-18T13:42:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">344. Reverse String</title><link href="https://zhengstar94.github.io//blog/2025/ReverseString/" rel="alternate" type="text/html" title="344. Reverse String"/><published>2025-02-18T00:00:00+00:00</published><updated>2025-02-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReverseString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReverseString/"><![CDATA[<ul> <li>Write a function that reverses a string. The input string is given as an array of characters <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code class="language-plaintext highlighter-rouge">O(1)</code> extra memory.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = ["H","a","n","n","a","h"]
+Output: ["h","a","n","n","a","H"]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/18
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">reverseString</span><span class="o">(</span><span class="kt">char</span><span class="o">[]</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Swap characters from both ends until pointers meet in middle &lt;sup data-citation="3" className="inline select-none [&amp;&gt;a]:rounded-2xl [&amp;&gt;a]:border [&amp;&gt;a]:px-1.5 [&amp;&gt;a]:py-0.5 [&amp;&gt;a]:transition-colors shadow [&amp;&gt;a]:bg-ds-bg-subtle [&amp;&gt;a]:text-xs [&amp;&gt;svg]:w-4 [&amp;&gt;svg]:h-4 relative -top-[2px] citation-shimmer"&gt;&lt;a href="https://codegym.cc/groups/posts/1015-different-ways-to-reverse-a-string-in-java"&gt;3&lt;/a&gt;&lt;/sup&gt;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Swap characters at left and right pointers</span>
+            <span class="kt">char</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">s</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
+            <span class="n">s</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">=</span> <span class="n">s</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>
+            <span class="n">s</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+
+            <span class="n">left</span><span class="o">++;</span>
+            <span class="n">right</span><span class="o">--;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"hello"</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Original string: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str1</span><span class="o">);</span>
+        <span class="n">reverseString</span><span class="o">(</span><span class="n">str1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"After reverse: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str1</span><span class="o">);</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"umbrella"</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Original string: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span><span class="o">);</span>
+        <span class="n">reverseString</span><span class="o">(</span><span class="n">str2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"After reverse: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Easy"/><summary type="html"><![CDATA[Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.]]></summary></entry><entry><title type="html">1287. Element Appearing More Than 25% In Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/" rel="alternate" type="text/html" title="1287. Element Appearing More Than 25% In Sorted Array"/><published>2025-02-17T00:00:00+00:00</published><updated>2025-02-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/"><![CDATA[<ul> <li>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,2,6,6,6,6,7,10]
 Output: 6
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,1]
 Output: 1
@@ -701,73 +749,4 @@ Output: 8
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array flowers where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed cnt flowers, then we consider this floral arrangement to be “aesthetically pleasing.”]]></summary></entry><entry><title type="html">1910. Remove All Occurrences of a Substring</title><link href="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/" rel="alternate" type="text/html" title="1910. Remove All Occurrences of a Substring"/><published>2025-02-10T00:00:00+00:00</published><updated>2025-02-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveAllOccurrencesOfASubstring/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">part</code>, perform the following operation on <code class="language-plaintext highlighter-rouge">s</code> until <strong>all</strong> occurrences of the substring <code class="language-plaintext highlighter-rouge">part</code> are removed: <ul> <li>Find the <strong>leftmost</strong> occurrence of the substring <code class="language-plaintext highlighter-rouge">part</code> and <strong>remove</strong> it from <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">s</code> <em>after removing all occurrences of</em> <code class="language-plaintext highlighter-rouge">part</code>.</li> <li>A <strong>substring</strong> is a contiguous sequence of characters in a string.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "daabcbaabcbc", part = "abc"
-Output: "dab"
-Explanation: The following operations are done:
-- s = "daabcbaabcbc", remove "abc" starting at index 2, so s = "dabaabcbc".
-- s = "dabaabcbc", remove "abc" starting at index 4, so s = "dababc".
-- s = "dababc", remove "abc" starting at index 3, so s = "dab".
-Now s has no occurrences of "abc".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "axxxxyyyyb", part = "xy"
-Output: "ab"
-Explanation: The following operations are done:
-- s = "axxxxyyyyb", remove "xy" starting at index 4 so s = "axxxyyyb".
-- s = "axxxyyyb", remove "xy" starting at index 3 so s = "axxyyb".
-- s = "axxyyb", remove "xy" starting at index 2 so s = "axyb".
-- s = "axyb", remove "xy" starting at index 1 so s = "ab".
-Now s has no occurrences of "xy".
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveAllOccurrencesOfASubstring</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">removeOccurrences</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">part</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Convert input string to StringBuilder for efficient modification</span>
-        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-        <span class="c1">// Store the length of the substring to be removed</span>
-        <span class="kt">int</span> <span class="n">partLen</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-
-        <span class="c1">// Variable to store the index of found substring</span>
-        <span class="kt">int</span> <span class="n">index</span><span class="o">;</span>
-        <span class="c1">// Continue loop until no more occurrences of 'part' are found</span>
-        <span class="c1">// indexOf() returns -1 when the substring is not found</span>
-        <span class="k">while</span> <span class="o">((</span><span class="n">index</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">part</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Remove the substring from StringBuilder</span>
-            <span class="c1">// delete() removes characters from index to (index + partLen - 1)</span>
-            <span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">index</span> <span class="o">+</span> <span class="n">partLen</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert StringBuilder back to String and return</span>
-        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Multiple overlapping removals</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"daabcbaabcbc"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">part1</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">", part = "</span> <span class="o">+</span> <span class="n">part1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">removeOccurrences</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">part1</span><span class="o">));</span> <span class="c1">// Expected: "dab"</span>
-
-        <span class="c1">// Test Case 2: Multiple consecutive removals</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"axxxxyyyyb"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">part2</span> <span class="o">=</span> <span class="s">"xy"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="s">", part = "</span> <span class="o">+</span> <span class="n">part2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">removeOccurrences</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">part2</span><span class="o">));</span> <span class="c1">// Expected: "ab"</span>
-
-        <span class="c1">// Test Case 3: Single removal at the end</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"welcome"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">part3</span> <span class="o">=</span> <span class="s">"come"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = "</span> <span class="o">+</span> <span class="n">s3</span> <span class="o">+</span> <span class="s">", part = "</span> <span class="o">+</span> <span class="n">part3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">removeOccurrences</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">part3</span><span class="o">));</span> <span class="c1">// Expected: "wel"</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Given two strings s and part, perform the following operation on s until all occurrences of the substring part are removed: Find the leftmost occurrence of the substring part and remove it from s. Return s after removing all occurrences of part. A substring is a contiguous sequence of characters in a string.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array flowers where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed cnt flowers, then we consider this floral arrangement to be “aesthetically pleasing.”]]></summary></entry></feed>
