@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-18T13:42:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">344. Reverse String</title><link href="https://zhengstar94.github.io//blog/2025/ReverseString/" rel="alternate" type="text/html" title="344. Reverse String"/><published>2025-02-18T00:00:00+00:00</published><updated>2025-02-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReverseString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReverseString/"><![CDATA[<ul> <li>Write a function that reverses a string. The input string is given as an array of characters <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code class="language-plaintext highlighter-rouge">O(1)</code> extra memory.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = ["h","e","l","l","o"]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-18T14:15:07+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1750. Minimum Length of String After Deleting Similar Ends</title><link href="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds/" rel="alternate" type="text/html" title="1750. Minimum Length of String After Deleting Similar Ends"/><published>2025-02-18T00:00:00+00:00</published><updated>2025-02-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> consisting only of characters <code class="language-plaintext highlighter-rouge">'a'</code>, <code class="language-plaintext highlighter-rouge">'b'</code>, and <code class="language-plaintext highlighter-rouge">'c'</code>. You are asked to apply the following algorithm on the string any number of times: <ol> <li>Pick a <strong>non-empty</strong> prefix from the string <code class="language-plaintext highlighter-rouge">s</code> where all the characters in the prefix are equal.</li> <li>Pick a <strong>non-empty</strong> suffix from the string <code class="language-plaintext highlighter-rouge">s</code> where all the characters in this suffix are equal.</li> <li>The prefix and the suffix should not intersect at any index.</li> <li>The characters from the prefix and suffix must be the same.</li> <li>Delete both the prefix and the suffix.</li> </ol> </li> <li>Return <em>the <strong>minimum length</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>after performing the above operation any number of times (possibly zero times)</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ca"
+Output: 2
+Explanation: You can't remove any characters, so the string stays as is.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cabaabac"
+Output: 0
+Explanation: An optimal sequence of operations is:
+- Take prefix = "c" and suffix = "c" and remove them, s = "abaaba".
+- Take prefix = "a" and suffix = "a" and remove them, s = "baab".
+- Take prefix = "b" and suffix = "b" and remove them, s = "aa".
+- Take prefix = "a" and suffix = "a" and remove them, s = "".
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aabccabba"
+Output: 3
+Explanation: An optimal sequence of operations is:
+- Take prefix = "aa" and suffix = "a" and remove them, s = "bccabb".
+- Take prefix = "b" and suffix = "bb" and remove them, s = "cca".
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/18
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumLengthOfStringAfterDeletingSimilarEnds</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimumLength</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize two pointers</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Continue while pointers haven't met and characters at both ends are same</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">))</span> <span class="o">{</span>
+            <span class="kt">char</span> <span class="n">current</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">);</span>
+
+            <span class="c1">// Move left pointer while same character continues</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">==</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Move right pointer while same character continues</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">right</span><span class="o">)</span> <span class="o">==</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">right</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return remaining length</span>
+        <span class="k">return</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"ca"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"cabaabac"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>  <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"aabccabba"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3: "</span> <span class="o">+</span> <span class="n">s3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span>  <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Additional test case</span>
+        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"bbbbbbbbbbbbbbbbbbb"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 4: "</span> <span class="o">+</span> <span class="n">s4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">minimumLength</span><span class="o">(</span><span class="n">s4</span><span class="o">));</span>  <span class="c1">// Expected output: 0</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s consisting only of characters 'a', 'b', and 'c'. You are asked to apply the following algorithm on the string any number of times: Pick a non-empty prefix from the string s where all the characters in the prefix are equal. Pick a non-empty suffix from the string s where all the characters in this suffix are equal. The prefix and the suffix should not intersect at any index. The characters from the prefix and suffix must be the same. Delete both the prefix and the suffix. Return the minimum length of s after performing the above operation any number of times (possibly zero times).]]></summary></entry><entry><title type="html">344. Reverse String</title><link href="https://zhengstar94.github.io//blog/2025/ReverseString/" rel="alternate" type="text/html" title="344. Reverse String"/><published>2025-02-18T00:00:00+00:00</published><updated>2025-02-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReverseString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReverseString/"><![CDATA[<ul> <li>Write a function that reverses a string. The input string is given as an array of characters <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code class="language-plaintext highlighter-rouge">O(1)</code> extra memory.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = ["h","e","l","l","o"]
 Output: ["o","l","l","e","h"]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = ["H","a","n","n","a","h"]
 Output: ["h","a","n","n","a","H"]
@@ -667,86 +738,4 @@ Box 10 has the most number of balls with 2 balls.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are working in a ball factory where you have n balls numbered from lowLimit up to highLimit inclusive (i.e., n== highLimit - lowLimit + 1), and an infinite number of boxes numbered from 1 to infinity. Your job at this factory is to put each ball in the box with a number equal to the sum of digits of the ball’s number. For example, the ball number 321 will be put in the box number 3 + 2 + 1=6 and the ball number 10 will be put in the box number 1 + 0=1. Given two integers lowLimit and highLimit, return the number of balls in the box with the most balls.]]></summary></entry><entry><title type="html">LCP 68. Beautiful Bouquet</title><link href="https://zhengstar94.github.io//blog/2025/BeautifulBouquet/" rel="alternate" type="text/html" title="LCP 68. Beautiful Bouquet"/><published>2025-02-12T00:00:00+00:00</published><updated>2025-02-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BeautifulBouquet</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BeautifulBouquet/"><![CDATA[<ul> <li> <p>At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array <code class="language-plaintext highlighter-rouge">flowers</code> where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed <code class="language-plaintext highlighter-rouge">cnt</code> flowers, then we consider this floral arrangement to be “aesthetically pleasing.”</p> <blockquote> <p>For example: In <code class="language-plaintext highlighter-rouge">[5,5,5,6,6]</code>, there are <code class="language-plaintext highlighter-rouge">3</code> flowers of variety <code class="language-plaintext highlighter-rouge">5</code> and <code class="language-plaintext highlighter-rouge">2</code> flowers of variety <code class="language-plaintext highlighter-rouge">6</code>. The quantity of <strong>each variety</strong> does not exceed <code class="language-plaintext highlighter-rouge">3</code>.</p> </blockquote> </li> <li> <p>Return the total number of possible continuous segments that can be selected from this row of flowers where the resulting floral arrangement would be “aesthetically pleasing.”</p> </li> <li> <p>Note:</p> <ul> <li>The answer should be calculated modulo <code class="language-plaintext highlighter-rouge">1e9 + 7 (1000000007)</code>. For example, if the initial result is <code class="language-plaintext highlighter-rouge">1000000008</code>, return <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Let me translate this example with its explanation:
-Input: flowers = [1,2,3,2], cnt = 1
-Output: 8
-Explanation: For arrangements where each flower variety cannot exceed 1 flower, there are 8 aesthetically pleasing arrangements:
-Length-1 segments: [1], [2], [3], [2] all meet the condition, giving 4 possible segments
-Length-2 segments: [1,2], [2,3], [3,2] all meet the condition, giving 3 possible segments
-Length-3 segments: [1,2,3] meets the condition, giving 1 possible segment
-Segments [2,3,2] and [1,2,3,2] both contain 2 flowers of variety 2, so they don't meet the condition.
-Total count is 4+3+1 = 8
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: flowers = [5,3,3,3], cnt = 2
-Output: 8
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(k) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountShortest</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeautifulBouquet</span> <span class="o">{</span>
-    <span class="c1">// Constant for modulo operation to prevent integer overflow</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">beautifulBouquet</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">flowers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Array to store the count of each flower type</span>
-        <span class="c1">// Size is 100001 because flower types range from 1 to 100000</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100001</span><span class="o">];</span>
-
-        <span class="c1">// Use long to prevent overflow during calculations</span>
-        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Left pointer of sliding window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through the array using right pointer</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">flowers</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Increment count of current flower type at right pointer</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">flowers</span><span class="o">[</span><span class="n">right</span><span class="o">]]++;</span>
-
-            <span class="c1">// Shrink window from left while current flower type exceeds cnt</span>
-            <span class="c1">// This ensures window always contains valid counts</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">flowers</span><span class="o">[</span><span class="n">right</span><span class="o">]]</span> <span class="o">&gt;</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">[</span><span class="n">flowers</span><span class="o">[</span><span class="n">left</span><span class="o">]]--;</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate number of valid subarrays ending at current right pointer</span>
-            <span class="c1">// For current window [left, right]:</span>
-            <span class="c1">// - We can form subarrays: [right], [right-1,right], [right-2,right],...,[left,right]</span>
-            <span class="c1">// - Total count of such subarrays is (right - left + 1)</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">result</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with repeated flower</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">cnt1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers1</span><span class="o">,</span> <span class="n">cnt1</span><span class="o">));</span>
-        <span class="c1">// Expected output: 8</span>
-
-        <span class="c1">// Test Case 2: Case with multiple repeated flowers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">cnt2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers2</span><span class="o">,</span> <span class="n">cnt2</span><span class="o">));</span>
-        <span class="c1">// Expected output: 8</span>
-
-        <span class="c1">// Test Case 3: Edge case with all same flowers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">cnt3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers3</span><span class="o">,</span> <span class="n">cnt3</span><span class="o">));</span>
-        <span class="c1">// Testing case with all identical elements</span>
-
-        <span class="c1">// Test Case 4: Edge case with single element</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">flowers4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">cnt4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">beautifulBouquet</span><span class="o">(</span><span class="n">flowers4</span><span class="o">,</span> <span class="n">cnt4</span><span class="o">));</span>
-        <span class="c1">// Testing single element case</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountShortest"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[At the LeetCode Carnival’s flower shop, flowers are arranged in a row from left to right, recorded in an integer array flowers where each number represents the variety ID of the flower at that position. You can select a continuous segment of flowers to make a floral arrangement, and no flowers can be discarded. In your chosen arrangement, if the quantity of each flower variety does not exceed cnt flowers, then we consider this floral arrangement to be “aesthetically pleasing.”]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are working in a ball factory where you have n balls numbered from lowLimit up to highLimit inclusive (i.e., n== highLimit - lowLimit + 1), and an infinite number of boxes numbered from 1 to infinity. Your job at this factory is to put each ball in the box with a number equal to the sum of digits of the ball’s number. For example, the ball number 321 will be put in the box number 3 + 2 + 1=6 and the ball number 10 will be put in the box number 1 + 0=1. Given two integers lowLimit and highLimit, return the number of balls in the box with the most balls.]]></summary></entry></feed>
