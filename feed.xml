@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-18T14:15:07+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1750. Minimum Length of String After Deleting Similar Ends</title><link href="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds/" rel="alternate" type="text/html" title="1750. Minimum Length of String After Deleting Similar Ends"/><published>2025-02-18T00:00:00+00:00</published><updated>2025-02-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> consisting only of characters <code class="language-plaintext highlighter-rouge">'a'</code>, <code class="language-plaintext highlighter-rouge">'b'</code>, and <code class="language-plaintext highlighter-rouge">'c'</code>. You are asked to apply the following algorithm on the string any number of times: <ol> <li>Pick a <strong>non-empty</strong> prefix from the string <code class="language-plaintext highlighter-rouge">s</code> where all the characters in the prefix are equal.</li> <li>Pick a <strong>non-empty</strong> suffix from the string <code class="language-plaintext highlighter-rouge">s</code> where all the characters in this suffix are equal.</li> <li>The prefix and the suffix should not intersect at any index.</li> <li>The characters from the prefix and suffix must be the same.</li> <li>Delete both the prefix and the suffix.</li> </ol> </li> <li>Return <em>the <strong>minimum length</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>after performing the above operation any number of times (possibly zero times)</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ca"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-19T04:25:59+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2375. Construct Smallest Number From DI String</title><link href="https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString/" rel="alternate" type="text/html" title="2375. Construct Smallest Number From DI String"/><published>2025-02-19T00:00:00+00:00</published><updated>2025-02-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">pattern</code> of length <code class="language-plaintext highlighter-rouge">n</code> consisting of the characters <code class="language-plaintext highlighter-rouge">'I'</code> meaning <strong>increasing</strong> and <code class="language-plaintext highlighter-rouge">'D'</code> meaning <strong>decreasing</strong>.</li> <li>A <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">num</code> of length <code class="language-plaintext highlighter-rouge">n + 1</code> is created using the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">num</code> consists of the digits <code class="language-plaintext highlighter-rouge">'1'</code> to <code class="language-plaintext highlighter-rouge">'9'</code>, where each digit is used <strong>at most</strong> once.</li> <li>If <code class="language-plaintext highlighter-rouge">pattern[i] == 'I'</code>, then <code class="language-plaintext highlighter-rouge">num[i] &lt; num[i + 1]</code>.</li> <li>If <code class="language-plaintext highlighter-rouge">pattern[i] == 'D'</code>, then <code class="language-plaintext highlighter-rouge">num[i] &gt; num[i + 1]</code>.</li> </ul> </li> <li>Return <em>the lexicographically <strong>smallest</strong> possible string</em> <code class="language-plaintext highlighter-rouge">num</code> <em>that meets the conditions.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "IIIDIDDD"
+Output: "123549876"
+Explanation:
+At indices 0, 1, 2, and 4 we must have that num[i] &lt; num[i+1].
+At indices 3, 5, 6, and 7 we must have that num[i] &gt; num[i+1].
+Some possible values of num are "245639871", "135749862", and "123849765".
+It can be proven that "123549876" is the smallest possible num that meets the conditions.
+Note that "123414321" is not possible because the digit '1' is used more than once.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "DDD"
+Output: "4321"
+Explanation:
+Some possible values of num are "9876", "7321", and "8742".
+It can be proven that "4321" is the smallest possible num that meets the conditions.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Author: zhengxingxing
+ * Date: 2025/02/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConstructSmallestNumberFromDIString</span> <span class="o">{</span>
+    <span class="c1">// Method to construct the smallest number based on the given pattern</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">smallestNumber</span><span class="o">(</span><span class="nc">String</span> <span class="n">pattern</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span> <span class="c1">// StringBuilder to store the final result</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>  <span class="c1">// Stack to temporarily store digits</span>
+
+        <span class="c1">// Iterate through the pattern (including one extra pass for the last number)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// Push the current number (i+1) onto the stack.</span>
+
+            <span class="c1">// If we encounter 'I' (increasing) in the pattern, OR we reach the end of the pattern:</span>
+            <span class="c1">// Pop all numbers from the stack and append them to the result.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">||</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'I'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the constructed smallest number as a string</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Main method - serves as an entry point to test the program</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Example test cases</span>
+        <span class="nc">String</span> <span class="n">pattern1</span> <span class="o">=</span> <span class="s">"IIIDIDDD"</span><span class="o">;</span> <span class="c1">// Pattern: Increasing-Increasing-Increasing-Decreasing-Increasing-Decreasing-Decreasing-Decreasing</span>
+        <span class="nc">String</span> <span class="n">pattern2</span> <span class="o">=</span> <span class="s">"DDD"</span><span class="o">;</span>      <span class="c1">// Pattern: Decreasing-Decreasing-Decreasing</span>
+
+        <span class="c1">// Outputs the smallest numbers corresponding to each pattern</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">pattern1</span> <span class="o">+</span> <span class="s">" Output: "</span> <span class="o">+</span> <span class="n">smallestNumber</span><span class="o">(</span><span class="n">pattern1</span><span class="o">));</span> <span class="c1">// Output: "123549876"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">pattern2</span> <span class="o">+</span> <span class="s">" Output: "</span> <span class="o">+</span> <span class="n">smallestNumber</span><span class="o">(</span><span class="n">pattern2</span><span class="o">));</span> <span class="c1">// Output: "4321"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed string pattern of length n consisting of the characters 'I' meaning increasing and 'D' meaning decreasing. A 0-indexed string num of length n + 1 is created using the following conditions: num consists of the digits '1' to '9', where each digit is used at most once. If pattern[i] == 'I', then num[i] &lt; num[i + 1]. If pattern[i] == 'D', then num[i] &gt; num[i + 1]. Return the lexicographically smallest possible string num that meets the conditions.]]></summary></entry><entry><title type="html">1750. Minimum Length of String After Deleting Similar Ends</title><link href="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds/" rel="alternate" type="text/html" title="1750. Minimum Length of String After Deleting Similar Ends"/><published>2025-02-18T00:00:00+00:00</published><updated>2025-02-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumLengthOfStringAfterDeletingSimilarEnds/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> consisting only of characters <code class="language-plaintext highlighter-rouge">'a'</code>, <code class="language-plaintext highlighter-rouge">'b'</code>, and <code class="language-plaintext highlighter-rouge">'c'</code>. You are asked to apply the following algorithm on the string any number of times: <ol> <li>Pick a <strong>non-empty</strong> prefix from the string <code class="language-plaintext highlighter-rouge">s</code> where all the characters in the prefix are equal.</li> <li>Pick a <strong>non-empty</strong> suffix from the string <code class="language-plaintext highlighter-rouge">s</code> where all the characters in this suffix are equal.</li> <li>The prefix and the suffix should not intersect at any index.</li> <li>The characters from the prefix and suffix must be the same.</li> <li>Delete both the prefix and the suffix.</li> </ol> </li> <li>Return <em>the <strong>minimum length</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>after performing the above operation any number of times (possibly zero times)</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ca"
 Output: 2
 Explanation: You can't remove any characters, so the string stays as is.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cabaabac"
@@ -669,73 +726,4 @@ Output: 16
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountExact"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it. Return the number of nice sub-arrays.]]></summary></entry><entry><title type="html">1742. Maximum Number of Balls in a Box</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox/" rel="alternate" type="text/html" title="1742. Maximum Number of Balls in a Box"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfBallsInABox/"><![CDATA[<ul> <li>You are working in a ball factory where you have <code class="language-plaintext highlighter-rouge">n</code> balls numbered from <code class="language-plaintext highlighter-rouge">lowLimit</code> up to <code class="language-plaintext highlighter-rouge">highLimit</code> <strong>inclusive</strong> (i.e., <code class="language-plaintext highlighter-rouge">n == highLimit - lowLimit + 1</code>), and an infinite number of boxes numbered from <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">infinity</code>.</li> <li>Your job at this factory is to put each ball in the box with a number equal to the sum of digits of the ball’s number. For example, the ball number <code class="language-plaintext highlighter-rouge">321</code> will be put in the box number <code class="language-plaintext highlighter-rouge">3 + 2 + 1 = 6</code> and the ball number <code class="language-plaintext highlighter-rouge">10</code> will be put in the box number <code class="language-plaintext highlighter-rouge">1 + 0 = 1</code>.</li> <li>Given two integers <code class="language-plaintext highlighter-rouge">lowLimit</code> and <code class="language-plaintext highlighter-rouge">highLimit</code>, return <em>the number of balls in the box with the most balls.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lowLimit = 1, highLimit = 10
-Output: 2
-Explanation:
-Box Number:  1 2 3 4 5 6 7 8 9 10 11 ...
-Ball Count:  2 1 1 1 1 1 1 1 1 0  0  ...
-Box 1 has the most number of balls with 2 balls.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lowLimit = 5, highLimit = 15
-Output: 2
-Explanation:
-Box Number:  1 2 3 4 5 6 7 8 9 10 11 ...
-Ball Count:  1 1 1 1 2 2 1 1 1 0  0  ...
-Boxes 5 and 6 have the most number of balls with 2 balls in each.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: lowLimit = 19, highLimit = 28
-Output: 2
-Explanation:
-Box Number:  1 2 3 4 5 6 7 8 9 10 11 12 ...
-Ball Count:  0 1 1 1 1 1 1 1 1 2  0  0  ...
-Box 10 has the most number of balls with 2 balls.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * logm) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfBallsInABox</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countBalls</span><span class="o">(</span><span class="kt">int</span> <span class="n">lowLimit</span><span class="o">,</span> <span class="kt">int</span> <span class="n">highLimit</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Array to store the count of balls in each box</span>
-        <span class="c1">// Size is 46 because max sum of digits for 100000 is 9*5=45</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">boxes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">46</span><span class="o">];</span>
-
-        <span class="c1">// Iterate through each ball number</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">lowLimit</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">highLimit</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Increment the count in the box corresponding to the digit sum</span>
-            <span class="n">boxes</span><span class="o">[</span><span class="n">getDigitSum</span><span class="o">(</span><span class="n">i</span><span class="o">)]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Find the maximum number of balls in any box</span>
-        <span class="kt">int</span> <span class="n">maxBalls</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">count</span> <span class="o">:</span> <span class="n">boxes</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">maxBalls</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxBalls</span><span class="o">,</span> <span class="n">count</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxBalls</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getDigitSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Extract each digit and add to sum</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>    <span class="c1">// Get the last digit</span>
-            <span class="n">num</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">;</span>          <span class="c1">// Remove the last digit</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">countBalls</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span> <span class="n">countBalls</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">15</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test Case 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span> <span class="n">countBalls</span><span class="o">(</span><span class="mi">19</span><span class="o">,</span> <span class="mi">28</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are working in a ball factory where you have n balls numbered from lowLimit up to highLimit inclusive (i.e., n== highLimit - lowLimit + 1), and an infinite number of boxes numbered from 1 to infinity. Your job at this factory is to put each ball in the box with a number equal to the sum of digits of the ball’s number. For example, the ball number 321 will be put in the box number 3 + 2 + 1=6 and the ball number 10 will be put in the box number 1 + 0=1. Given two integers lowLimit and highLimit, return the number of balls in the box with the most balls.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountExact"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it. Return the number of nice sub-arrays.]]></summary></entry></feed>
