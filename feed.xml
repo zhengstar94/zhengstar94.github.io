@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-19T04:44:44+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2375. Construct Smallest Number From DI String</title><link href="https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString/" rel="alternate" type="text/html" title="2375. Construct Smallest Number From DI String"/><published>2025-02-19T00:00:00+00:00</published><updated>2025-02-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">pattern</code> of length <code class="language-plaintext highlighter-rouge">n</code> consisting of the characters <code class="language-plaintext highlighter-rouge">'I'</code> meaning <strong>increasing</strong> and <code class="language-plaintext highlighter-rouge">'D'</code> meaning <strong>decreasing</strong>.</li> <li>A <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">num</code> of length <code class="language-plaintext highlighter-rouge">n + 1</code> is created using the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">num</code> consists of the digits <code class="language-plaintext highlighter-rouge">'1'</code> to <code class="language-plaintext highlighter-rouge">'9'</code>, where each digit is used <strong>at most</strong> once.</li> <li>If <code class="language-plaintext highlighter-rouge">pattern[i] == 'I'</code>, then <code class="language-plaintext highlighter-rouge">num[i] &lt; num[i + 1]</code>.</li> <li>If <code class="language-plaintext highlighter-rouge">pattern[i] == 'D'</code>, then <code class="language-plaintext highlighter-rouge">num[i] &gt; num[i + 1]</code>.</li> </ul> </li> <li>Return <em>the lexicographically <strong>smallest</strong> possible string</em> <code class="language-plaintext highlighter-rouge">num</code> <em>that meets the conditions.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "IIIDIDDD"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-20T04:48:19+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1980. Find Unique Binary String</title><link href="https://zhengstar94.github.io//blog/2025/FindUniqueBinaryString/" rel="alternate" type="text/html" title="1980. Find Unique Binary String"/><published>2025-02-20T00:00:00+00:00</published><updated>2025-02-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindUniqueBinaryString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindUniqueBinaryString/"><![CDATA[<ul> <li>Given an array of strings <code class="language-plaintext highlighter-rouge">nums</code> containing <code class="language-plaintext highlighter-rouge">n</code> <strong>unique</strong> binary strings each of length <code class="language-plaintext highlighter-rouge">n</code>, return <em>a binary string of length</em> <code class="language-plaintext highlighter-rouge">n</code> <em>that <strong>does not appear</strong> in</em> <code class="language-plaintext highlighter-rouge">nums</code><em>. If there are multiple answers, you may return <strong>any</strong> of them</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = ["01","10"]
+Output: "11"
+Explanation: "11" does not appear in nums. "00" would also be correct.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = ["00","01"]
+Output: "11"
+Explanation: "11" does not appear in nums. "10" would also be correct.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = ["111","011","001"]
+Output: "101"
+Explanation: "101" does not appear in nums. "000", "010", "100", and "110" would also be correct.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindUniqueBinaryString</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">findDifferentBinaryString</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+
+        <span class="c1">// Iterate through each string's diagonal position (i,i)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Flip the bit at diagonal position:</span>
+            <span class="c1">// If current bit is '0', append '1'</span>
+            <span class="c1">// If current bit is '1', append '0'</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span> <span class="o">?</span> <span class="sc">'1'</span> <span class="o">:</span> <span class="sc">'0'</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Binary strings of length 2</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="s">"01"</span><span class="o">,</span> <span class="s">"10"</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">findDifferentBinaryString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: "11"</span>
+
+        <span class="c1">// Test Case 2: Another set of binary strings of length 2</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="s">"00"</span><span class="o">,</span> <span class="s">"01"</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">findDifferentBinaryString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: "11"</span>
+
+        <span class="c1">// Test Case 3: Binary strings of length 3</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="s">"111"</span><span class="o">,</span> <span class="s">"011"</span><span class="o">,</span> <span class="s">"001"</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">findDifferentBinaryString</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected output: "101"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Medium"/><summary type="html"><![CDATA[Given an array of strings nums containing n unique binary strings each of length n, return a binary string of length n that does not appear in nums. If there are multiple answers, you may return any of them.]]></summary></entry><entry><title type="html">2375. Construct Smallest Number From DI String</title><link href="https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString/" rel="alternate" type="text/html" title="2375. Construct Smallest Number From DI String"/><published>2025-02-19T00:00:00+00:00</published><updated>2025-02-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConstructSmallestNumberFromDIString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">pattern</code> of length <code class="language-plaintext highlighter-rouge">n</code> consisting of the characters <code class="language-plaintext highlighter-rouge">'I'</code> meaning <strong>increasing</strong> and <code class="language-plaintext highlighter-rouge">'D'</code> meaning <strong>decreasing</strong>.</li> <li>A <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">num</code> of length <code class="language-plaintext highlighter-rouge">n + 1</code> is created using the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">num</code> consists of the digits <code class="language-plaintext highlighter-rouge">'1'</code> to <code class="language-plaintext highlighter-rouge">'9'</code>, where each digit is used <strong>at most</strong> once.</li> <li>If <code class="language-plaintext highlighter-rouge">pattern[i] == 'I'</code>, then <code class="language-plaintext highlighter-rouge">num[i] &lt; num[i + 1]</code>.</li> <li>If <code class="language-plaintext highlighter-rouge">pattern[i] == 'D'</code>, then <code class="language-plaintext highlighter-rouge">num[i] &gt; num[i + 1]</code>.</li> </ul> </li> <li>Return <em>the lexicographically <strong>smallest</strong> possible string</em> <code class="language-plaintext highlighter-rouge">num</code> <em>that meets the conditions.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: pattern = "IIIDIDDD"
 Output: "123549876"
 Explanation:
 At indices 0, 1, 2, and 4 we must have that num[i] &lt; num[i+1].
@@ -666,88 +713,4 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[Design an algorithm that accepts a stream of integers and retrieves (vt. 重新得到；恢复；检索 vi. 找回猎物) the product of the last k integers of the stream. Implement the ProductOfNumbers class: ProductOfNumbers() Initializes the object with an empty stream. void add(int num) Appends the integer num to the stream. int getProduct(int k) Returns the product of the last k numbers in the current list. You can assume that always the current list has at least k numbers. The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.]]></summary></entry><entry><title type="html">930. Binary Subarrays With Sum</title><link href="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/" rel="alternate" type="text/html" title="930. Binary Subarrays With Sum"/><published>2025-02-13T00:00:00+00:00</published><updated>2025-02-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BinarySubarraysWithSum/"><![CDATA[<ul> <li>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">goal</code>, return <em>the number of non-empty <strong>subarrays</strong> with a sum</em> <code class="language-plaintext highlighter-rouge">goal</code>.</li> <li>A <strong>subarray</strong> is a contiguous part of the array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1,0,1], goal = 2
-Output: 4
-Explanation: The 4 subarrays are bolded and underlined below:
-[1,0,1,0,1]
-[1,0,1,0,1]
-[1,0,1,0,1]
-[1,0,1,0,1]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,0,0,0,0], goal = 0
-Output: 15
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindowCountExact</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinarySubarraysWithSum</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numSubarraysWithSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">goal</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Result counter to store the number of valid subarrays</span>
-        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// sum1: tracks sum for window1 (sum &gt;= goal)</span>
-        <span class="c1">// sum2: tracks sum for window2 (sum &gt;= goal + 1)</span>
-        <span class="kt">int</span> <span class="n">sum1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">sum2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Using three pointers:</span>
-        <span class="c1">// l1: left boundary for sum &gt;= goal</span>
-        <span class="c1">// l2: left boundary for sum &gt;= goal + 1</span>
-        <span class="c1">// r: right boundary for both windows</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">l1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">r</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Expand both windows by adding the current element</span>
-            <span class="n">sum1</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">r</span><span class="o">];</span>
-            <span class="n">sum2</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">r</span><span class="o">];</span>
-
-            <span class="c1">// First window: contract from left while sum1 &gt;= goal</span>
-            <span class="c1">// This window finds all subarrays with sum &gt;= goal</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">l1</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">sum1</span> <span class="o">&gt;=</span> <span class="n">goal</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">sum1</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">l1</span><span class="o">];</span>
-                <span class="n">l1</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Second window: contract from left while sum2 &gt;= goal + 1</span>
-            <span class="c1">// This window finds all subarrays with sum &gt;= goal + 1</span>
-            <span class="c1">// The purpose is to exclude subarrays with sum greater than goal</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">l2</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">sum2</span> <span class="o">&gt;=</span> <span class="n">goal</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">sum2</span> <span class="o">-=</span> <span class="n">nums</span><span class="o">[</span><span class="n">l2</span><span class="o">];</span>
-                <span class="n">l2</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// The difference (l1 - l2) gives us the count of subarrays</span>
-            <span class="c1">// with sum exactly equal to goal ending at current right pointer 'r'</span>
-            <span class="c1">// Because:</span>
-            <span class="c1">// l1 represents: how many positions we can place left boundary to get sum &gt;= goal</span>
-            <span class="c1">// l2 represents: how many positions we can place left boundary to get sum &gt;= goal+1</span>
-            <span class="c1">// Their difference is exactly the count of subarrays with sum == goal</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">l1</span> <span class="o">-</span> <span class="n">l2</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Regular case with mixed 0s and 1s</span>
-        <span class="c1">// Expected subarrays with sum=2: [1,0,1], [1,0,1], [0,1,0,1], [1,0,1]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">goal1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numSubarraysWithSum</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">goal1</span><span class="o">));</span> <span class="c1">// Output: 4</span>
-
-        <span class="c1">// Test Case 2: Array with all zeros</span>
-        <span class="c1">// Every subarray has sum=0, total number of subarrays = n*(n+1)/2 where n=5</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">goal2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numSubarraysWithSum</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">goal2</span><span class="o">));</span> <span class="c1">// Output: 15</span>
-
-        <span class="c1">// Test Case 3: Array with all ones</span>
-        <span class="c1">// Subarrays with sum=3: [1,1,1], [1,1,1], [1,1,1]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">goal3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numSubarraysWithSum</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">goal3</span><span class="o">));</span> <span class="c1">// Output: 3</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowCountExact"/><category term="Medium"/><category term="SlideWindow"/><summary type="html"><![CDATA[Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum goal. A subarray is a contiguous part of the array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[Design an algorithm that accepts a stream of integers and retrieves (vt. 重新得到；恢复；检索 vi. 找回猎物) the product of the last k integers of the stream. Implement the ProductOfNumbers class: ProductOfNumbers() Initializes the object with an empty stream. void add(int num) Appends the integer num to the stream. int getProduct(int k) Returns the product of the last k numbers in the current list. You can assume that always the current list has at least k numbers. The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing.]]></summary></entry></feed>
