@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-22T04:09:59+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">633. Sum of Square Numbers</title><link href="https://zhengstar94.github.io//blog/2025/SumOfSquareNumbers/" rel="alternate" type="text/html" title="633. Sum of Square Numbers"/><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SumOfSquareNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SumOfSquareNumbers/"><![CDATA[<ul> <li>Given a non-negative integer <code class="language-plaintext highlighter-rouge">c</code>, decide whether there’re two integers <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> such that <code class="language-plaintext highlighter-rouge">a^2 + b^2 = c</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: c = 5
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-22T04:32:12+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2824. Count Pairs Whose Sum is Less than Target</title><link href="https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget/" rel="alternate" type="text/html" title="2824. Count Pairs Whose Sum is Less than Target"/><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>where</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code> <em>and</em> <code class="language-plaintext highlighter-rouge">nums[i] + nums[j] &lt; target</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,1,2,3,1], target = 2
+Output: 3
+Explanation: There are 3 pairs of indices that satisfy the conditions in the statement:
+- (0, 1) since 0 &lt; 1 and nums[0] + nums[1] = 0 &lt; target
+- (0, 2) since 0 &lt; 2 and nums[0] + nums[2] = 1 &lt; target 
+- (0, 4) since 0 &lt; 4 and nums[0] + nums[4] = 0 &lt; target
+Note that (0, 3) is not counted since nums[0] + nums[3] is not strictly less than the target.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-6,2,5,-2,-7,-1,3], target = -2
+Output: 10
+Explanation: There are 10 pairs of indices that satisfy the conditions in the statement:
+- (0, 1) since 0 &lt; 1 and nums[0] + nums[1] = -4 &lt; target
+- (0, 3) since 0 &lt; 3 and nums[0] + nums[3] = -8 &lt; target
+- (0, 4) since 0 &lt; 4 and nums[0] + nums[4] = -13 &lt; target
+- (0, 5) since 0 &lt; 5 and nums[0] + nums[5] = -7 &lt; target
+- (0, 6) since 0 &lt; 6 and nums[0] + nums[6] = -3 &lt; target
+- (1, 4) since 1 &lt; 4 and nums[1] + nums[4] = -5 &lt; target
+- (3, 4) since 3 &lt; 4 and nums[3] + nums[4] = -9 &lt; target
+- (3, 5) since 3 &lt; 5 and nums[3] + nums[5] = -3 &lt; target
+- (4, 5) since 4 &lt; 5 and nums[4] + nums[5] = -8 &lt; target
+- (4, 6) since 4 &lt; 6 and nums[4] + nums[6] = -4 &lt; target
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/22
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountPairsWhoseSumIsLessThanTarget</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countPairs</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the list to enable two pointer approach</span>
+        <span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Counter for valid pairs</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// Left pointer starting from beginning</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Right pointer starting from end</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate current sum of elements at left and right pointers</span>
+            <span class="kt">int</span> <span class="n">currentSum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">left</span><span class="o">)</span> <span class="o">+</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">right</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">currentSum</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If current sum is less than target:</span>
+                <span class="c1">// All pairs between left and right will also be valid</span>
+                <span class="c1">// Because array is sorted, nums[left] + nums[right-1] will be even smaller</span>
+                <span class="c1">// We add (right - left) pairs to our count</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">;</span>
+                <span class="c1">// Move left pointer to find more pairs</span>
+                <span class="n">left</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If current sum is &gt;= target:</span>
+                <span class="c1">// Need to decrease sum, so move right pointer left</span>
+                <span class="n">right</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal case with positive and negative numbers</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countPairs</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test Case 2: Case with more negative numbers</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(-</span><span class="mi">6</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">7</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countPairs</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span> <span class="c1">// Expected output: 10</span>
+
+        <span class="c1">// Test Case 3: Edge case - empty list</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countPairs</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test Case 4: Edge case - single element list</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+        <span class="kt">int</span> <span class="n">target4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countPairs</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">target4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Easy"/><summary type="html"><![CDATA[Given a 0-indexed integer array nums of length n and an integer target, return the number of pairs (i, j) where 0 &lt;= i &lt; j &lt; n and nums[i] + nums[j] &lt; target.]]></summary></entry><entry><title type="html">633. Sum of Square Numbers</title><link href="https://zhengstar94.github.io//blog/2025/SumOfSquareNumbers/" rel="alternate" type="text/html" title="633. Sum of Square Numbers"/><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SumOfSquareNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SumOfSquareNumbers/"><![CDATA[<ul> <li>Given a non-negative integer <code class="language-plaintext highlighter-rouge">c</code>, decide whether there’re two integers <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> such that <code class="language-plaintext highlighter-rouge">a^2 + b^2 = c</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: c = 5
 Output: true
 Explanation: 1 * 1 + 2 * 2 = 5
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: c = 3
@@ -599,112 +686,4 @@ Output: 1
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.]]></summary></entry><entry><title type="html">(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</title><link href="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/" rel="alternate" type="text/html" title="(Review)1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"/><published>2025-02-16T00:00:00+00:00</published><updated>2025-02-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code class="language-plaintext highlighter-rouge">limit</code><em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [8,2,4,7], limit = 4
-Output: 2 
-Explanation: All subarrays are: 
-[8] with maximum absolute diff |8-8| = 0 &lt;= 4.
-[8,2] with maximum absolute diff |8-2| = 6 &gt; 4. 
-[8,2,4] with maximum absolute diff |8-2| = 6 &gt; 4.
-[8,2,4,7] with maximum absolute diff |8-2| = 6 &gt; 4.
-[2] with maximum absolute diff |2-2| = 0 &lt;= 4.
-[2,4] with maximum absolute diff |2-4| = 2 &lt;= 4.
-[2,4,7] with maximum absolute diff |2-7| = 5 &gt; 4.
-[4] with maximum absolute diff |4-4| = 0 &lt;= 4.
-[4,7] with maximum absolute diff |4-7| = 3 &lt;= 4.
-[7] with maximum absolute diff |7-7| = 0 &lt;= 4. 
-Therefore, the size of the longest subarray is 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [10,1,2,4,7,2], limit = 5
-Output: 4 
-Explanation: The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 &lt;= 5.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,2,2,4,4,2,2], limit = 0
-Output: 3
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow.DynamicSlidingWindow</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">longestSubarray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Monotonic decreasing deque to maintain window maximum</span>
-        <span class="c1">// Elements are stored in decreasing order, so first element is always the maximum</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">maxDeque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Monotonic increasing deque to maintain window minimum</span>
-        <span class="c1">// Elements are stored in increasing order, so first element is always the minimum</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minDeque</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Left pointer of the sliding window</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Length of the longest valid subarray found so far</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Right pointer iterates through the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">right</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Maintain the monotonic decreasing property of maxDeque</span>
-            <span class="c1">// Remove all elements smaller than the current element from the back</span>
-            <span class="c1">// This ensures that maxDeque.peekFirst() always gives the maximum element</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">maxDeque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">maxDeque</span><span class="o">.</span><span class="na">peekLast</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">maxDeque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
-            <span class="o">}</span>
-            <span class="n">maxDeque</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]);</span>
-
-            <span class="c1">// Maintain the monotonic increasing property of minDeque</span>
-            <span class="c1">// Remove all elements larger than the current element from the back</span>
-            <span class="c1">// This ensures that minDeque.peekFirst() always gives the minimum element</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">minDeque</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">minDeque</span><span class="o">.</span><span class="na">peekLast</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">minDeque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span>
-            <span class="o">}</span>
-            <span class="n">minDeque</span><span class="o">.</span><span class="na">offerLast</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]);</span>
-
-            <span class="c1">// Shrink the window if the difference between max and min exceeds limit</span>
-            <span class="c1">// Keep shrinking until the window becomes valid or empty</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">maxDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">()</span> <span class="o">-</span> <span class="n">minDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If the leftmost element is the current maximum, remove it from maxDeque</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">==</span> <span class="n">maxDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">())</span> <span class="o">{</span>
-                    <span class="n">maxDeque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">();</span>
-                <span class="o">}</span>
-                <span class="c1">// If the leftmost element is the current minimum, remove it from minDeque</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">==</span> <span class="n">minDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">())</span> <span class="o">{</span>
-                    <span class="n">minDeque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">();</span>
-                <span class="o">}</span>
-                <span class="c1">// Move the left pointer to shrink the window</span>
-                <span class="n">left</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Update the maximum length if current window is valid</span>
-            <span class="c1">// Current window size is (right - left + 1)</span>
-            <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Expected output: 2</span>
-        <span class="c1">// Valid subarrays are [2,4] and [4,7] with max diff &lt;= 4</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">limit1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">limit1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Expected output: 4</span>
-        <span class="c1">// Longest valid subarray is [2,4,7,2] with max diff &lt;= 5</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">limit2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">limit2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Expected output: 3</span>
-        <span class="c1">// Longest valid subarray contains equal elements (either [2,2,2] or [4,4,4])</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">limit3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">limit3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DynamicSlidingWindowMax"/><category term="Medium"/><category term="SlideWindow"/><category term="Review"/><summary type="html"><![CDATA[Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray such that the absolute difference between any two elements of this subarray is less than or equal to limit.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.]]></summary></entry></feed>
