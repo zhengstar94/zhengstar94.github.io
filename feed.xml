@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-22T04:32:12+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2824. Count Pairs Whose Sum is Less than Target</title><link href="https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget/" rel="alternate" type="text/html" title="2824. Count Pairs Whose Sum is Less than Target"/><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>where</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code> <em>and</em> <code class="language-plaintext highlighter-rouge">nums[i] + nums[j] &lt; target</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,1,2,3,1], target = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-02-23T05:14:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">LCP 28. Procurement Plan</title><link href="https://zhengstar94.github.io//blog/2025/ProcurementPlan/" rel="alternate" type="text/html" title="LCP 28. Procurement Plan"/><published>2025-02-23T00:00:00+00:00</published><updated>2025-02-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ProcurementPlan</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ProcurementPlan/"><![CDATA[<ul> <li>Xiao Li stores the quotations of N parts in the array nums. Xiao Li’s budget is target. Assuming Xiao Li only purchases two parts, and the cost of purchasing parts must not exceed the budget, how many procurement plans does he have?</li> <li>Note: The answer needs to be modulo <code class="language-plaintext highlighter-rouge">1e9 + 7 (1000000007)</code>. For example: if the initial result is <code class="language-plaintext highlighter-rouge">1000000008</code>, please return <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,5,3,5], target = 6
+Output: 1
+Explanation: Within the budget, only nums[0] and nums[2] can be purchased.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,1,9], target = 10
+Output: 4
+Explanation: The procurement plans within budget are as follows:
+nums[0] + nums[1] = 4
+nums[0] + nums[2] = 3
+nums[1] + nums[2] = 3
+nums[2] + nums[3] = 10
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/02/23
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProcurementPlan</span> <span class="o">{</span>
+    <span class="c1">// Constant for modulo operation to handle large numbers</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">purchasePlans</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort array to use two-pointer technique effectively</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="c1">// Initialize two pointers and result counter</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                      <span class="c1">// Left pointer starts from beginning</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>       <span class="c1">// Right pointer starts from end</span>
+        <span class="kt">long</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                    <span class="c1">// Use long to prevent overflow during calculation</span>
+
+        <span class="c1">// Continue until pointers meet</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If current combination is within budget</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Add number of valid combinations with current left pointer</span>
+                <span class="c1">// (right - left) represents all possible combinations with current left value</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="o">(</span><span class="n">count</span> <span class="o">+</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
+                <span class="n">left</span><span class="o">++;</span>    <span class="c1">// Move left pointer right to try next combination</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">right</span><span class="o">--;</span>   <span class="c1">// Sum too large, decrease right pointer to reduce sum</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case with small numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [2,5,3,5], target = 6"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">purchasePlans</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Multiple valid combinations</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [2,2,1,9], target = 10"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">purchasePlans</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 4"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Large dataset to test performance and overflow handling</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100000</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums3</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">nums3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Large Dataset Test):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">purchasePlans</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Easy"/><summary type="html"><![CDATA[Xiao Li stores the quotations of N parts in the array nums. Xiao Li’s budget is target. Assuming Xiao Li only purchases two parts, and the cost of purchasing parts must not exceed the budget, how many procurement plans does he have? Note: The answer needs to be modulo 1e9 + 7 (1000000007). For example: if the initial result is 1000000008, please return 1.]]></summary></entry><entry><title type="html">2824. Count Pairs Whose Sum is Less than Target</title><link href="https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget/" rel="alternate" type="text/html" title="2824. Count Pairs Whose Sum is Less than Target"/><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountPairsWhoseSumIsLessThanTarget/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>, return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>where</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code> <em>and</em> <code class="language-plaintext highlighter-rouge">nums[i] + nums[j] &lt; target</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,1,2,3,1], target = 2
 Output: 3
 Explanation: There are 3 pairs of indices that satisfy the conditions in the statement:
 - (0, 1) since 0 &lt; 1 and nums[0] + nums[1] = 0 &lt; target
@@ -629,61 +707,4 @@ Output: ["h","a","n","n","a","H"]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Easy"/><summary type="html"><![CDATA[Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.]]></summary></entry><entry><title type="html">1287. Element Appearing More Than 25% In Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/" rel="alternate" type="text/html" title="1287. Element Appearing More Than 25% In Sorted Array"/><published>2025-02-17T00:00:00+00:00</published><updated>2025-02-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ElementAppearingMoreThan25PercentInSortedArray/"><![CDATA[<ul> <li>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,2,6,6,6,6,7,10]
-Output: 6
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,1]
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElementAppearingMoreThan25PercentInSortedArray</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findSpecialInteger</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of input array</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Calculate quarter of array length</span>
-        <span class="c1">// This is our window size as element must appear more than 25%</span>
-        <span class="kt">int</span> <span class="n">quarter</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through array until (n - quarter)</span>
-        <span class="c1">// This ensures we don't get ArrayIndexOutOfBounds when checking arr[i + quarter]</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">quarter</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If current element equals element at quarter distance ahead</span>
-            <span class="c1">// We found our answer as it spans more than 25% of array</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">quarter</span><span class="o">])</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return last element for special cases:</span>
-        <span class="c1">// 1. When array length is very small (≤ 4)</span>
-        <span class="c1">// 2. When all elements are the same</span>
-        <span class="c1">// This works because array is sorted and answer must exist</span>
-        <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Element appears in middle of array</span>
-        <span class="c1">// Expected output: 6 (appears 4 times, which is more than 25% of 9)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">input1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findSpecialInteger</span><span class="o">(</span><span class="n">input1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Minimal array with two same elements</span>
-        <span class="c1">// Expected output: 1 (appears 2 times, which is 100% of array)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">input2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findSpecialInteger</span><span class="o">(</span><span class="n">input2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: Element appears at the beginning</span>
-        <span class="c1">// Expected output: 2 (appears 4 times, which is more than 25% of 7)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">input3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findSpecialInteger</span><span class="o">(</span><span class="n">input3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Easy"/><summary type="html"><![CDATA[Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.]]></summary></entry></feed>
