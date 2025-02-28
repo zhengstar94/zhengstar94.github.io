@@ -3,13 +3,13 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "977.Squares of a Sorted Array"
+title: "977. Squares of a Sorted Array"
 date: "2024-02-12"
+tags: Easy TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
-# LeetCode 977. Squares of a Sorted Array [Easy]
 
 - Given an integer array `nums` sorted in **non-decreasing** order, return *an array of **the squares of each number** sorted in non-decreasing order*.
 

@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "948. Bag of Tokens"
 date: "2025-02-25"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers" 
+  - "LeetCode SingleSeqTwoPointersInward" 
 ---
 
 

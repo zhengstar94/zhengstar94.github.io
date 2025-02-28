@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "633. Sum of Square Numbers"
 date: "2025-02-22"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 

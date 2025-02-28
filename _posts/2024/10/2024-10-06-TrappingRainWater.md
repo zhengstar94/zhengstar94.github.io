@@ -5,8 +5,9 @@ giscus_comments: true
 layout: post
 title: "42.Trapping Rain Water"
 date: "2024-10-06"
+tags: Hard TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 

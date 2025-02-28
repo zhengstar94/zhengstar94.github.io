@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "1616. Split Two Strings to Make Palindrome"
 date: "2025-02-26"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers" 
+  - "LeetCode SingleSeqTwoPointersInward" 
 ---
 
 

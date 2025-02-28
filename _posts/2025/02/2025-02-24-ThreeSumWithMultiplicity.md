@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "923. 3Sum With Multiplicity"
 date: "2025-02-24"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 - Given an integer array `arr`, and an integer `target`, return the number of tuples `i, j, k` such that `i < j < k` and `arr[i] + arr[j] + arr[k] == target`.
