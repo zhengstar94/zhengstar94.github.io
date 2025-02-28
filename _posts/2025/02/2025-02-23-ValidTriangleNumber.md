@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "611. Valid Triangle Number"
 date: "2025-02-23"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 - Given an integer array `nums`, return *the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle*.

@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "1471. The k Strongest Values in an Array"
 date: "2025-02-21"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 

@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "LCP 28. Procurement Plan"
 date: "2025-02-23"
-tags: Easy
+tags: Easy TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 - Xiao Li stores the quotations of N parts in the array nums. Xiao Li's budget is target. Assuming Xiao Li only purchases two parts, and the cost of purchasing parts must not exceed the budget, how many procurement plans does he have?

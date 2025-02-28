@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "344. Reverse String"
 date: "2025-02-18"
-tags: Easy
+tags: Easy TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 - Write a function that reverses a string. The input string is given as an array of characters `s`.

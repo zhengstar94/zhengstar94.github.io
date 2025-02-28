@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "658. Find K Closest Elements"
 date: "2024-12-15"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 - Given a **sorted** integer array `arr`, two integers `k` and `x`, return the `k` closest integers to `x` in the array. The result should also be sorted in ascending order.

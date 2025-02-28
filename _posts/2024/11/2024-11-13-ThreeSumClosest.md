@@ -5,8 +5,9 @@ giscus_comments: true
 layout: post
 title: "16. 3Sum Closest"
 date: "2024-11-13"
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 - Given an integer array `nums` of length `n` and an integer `target`, find three integers in `nums` such that the sum is closest to `target`.

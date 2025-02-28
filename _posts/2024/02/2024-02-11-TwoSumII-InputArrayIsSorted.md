@@ -3,10 +3,11 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "167.Two Sum II - Input Array Is Sorted"
+title: "167. Two Sum II - Input Array Is Sorted"
 date: "2024-02-11"
+tags: Easy TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 # LeetCode 167. Two Sum II - Input Array Is Sorted [Easy]

@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "1750. Minimum Length of String After Deleting Similar Ends"
 date: "2025-02-18"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 

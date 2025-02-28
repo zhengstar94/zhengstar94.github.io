@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "2824. Count Pairs Whose Sum is Less than Target"
 date: "2025-02-22"
-tags: Easy
+tags: Easy TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqTwoPointersInward"
 ---
 
 

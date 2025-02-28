@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "1498. Number of Subsequences That Satisfy the Given Sum Condition"
 date: "2025-02-27"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode TwoPointers" 
+  - "LeetCode SingleSeqTwoPointersInward" 
 ---
 
 
