@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "131. Palindrome Partitioning"
-date: "2024-07-09"
+date: "2025-03-01"
 tags: Medium
 categories:
   - "LeetCode Backtracking"
