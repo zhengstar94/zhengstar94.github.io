@@ -1,4 +1,173 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-01T04:46:35+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1498. Number of Subsequences That Satisfy the Given Sum Condition</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfSubsequencesThatSatisfyTheGivenSumCondition/" rel="alternate" type="text/html" title="1498. Number of Subsequences That Satisfy the Given Sum Condition"/><published>2025-02-27T00:00:00+00:00</published><updated>2025-02-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfSubsequencesThatSatisfyTheGivenSumCondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfSubsequencesThatSatisfyTheGivenSumCondition/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>Return <em>the number of <strong>non-empty</strong> subsequences of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the sum of the minimum and maximum element on it is less or equal to</em> <code class="language-plaintext highlighter-rouge">target</code>. Since the answer may be too large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,5,6,7], target = 9
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-01T05:24:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2460. Apply Operations to an Array</title><link href="https://zhengstar94.github.io//blog/2025/ApplyOperationsToAnArray/" rel="alternate" type="text/html" title="2460. Apply Operations to an Array"/><published>2025-03-01T00:00:00+00:00</published><updated>2025-03-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ApplyOperationsToAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ApplyOperationsToAnArray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> consisting of <strong>non-negative</strong> integers.</li> <li>You need to apply <code class="language-plaintext highlighter-rouge">n - 1</code> operations to this array where, in the <code class="language-plaintext highlighter-rouge">ith</code> operation (<strong>0-indexed</strong>), you will apply the following on the <code class="language-plaintext highlighter-rouge">ith</code> element of <code class="language-plaintext highlighter-rouge">nums</code>: <ul> <li>If <code class="language-plaintext highlighter-rouge">nums[i] == nums[i + 1]</code>, then multiply <code class="language-plaintext highlighter-rouge">nums[i]</code> by <code class="language-plaintext highlighter-rouge">2</code> and set <code class="language-plaintext highlighter-rouge">nums[i + 1]</code> to <code class="language-plaintext highlighter-rouge">0</code>. Otherwise, you skip this operation.</li> </ul> </li> <li>After performing <strong>all</strong> the operations, <strong>shift</strong> all the <code class="language-plaintext highlighter-rouge">0</code>’s to the <strong>end</strong> of the array. <ul> <li>For example, the array <code class="language-plaintext highlighter-rouge">[1,0,2,0,0,1]</code> after shifting all its <code class="language-plaintext highlighter-rouge">0</code>’s to the end, is <code class="language-plaintext highlighter-rouge">[1,2,1,0,0,0]</code>.</li> </ul> </li> <li>Return <em>the resulting array</em>.</li> <li><strong>Note</strong> that the operations are applied <strong>sequentially</strong>, not all at once.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,2,1,1,0]
+Output: [1,4,2,0,0,0]
+Explanation: We do the following operations:
+- i = 0: nums[0] and nums[1] are not equal, so we skip this operation.
+- i = 1: nums[1] and nums[2] are equal, we multiply nums[1] by 2 and change nums[2] to 0. The array becomes [1,4,0,1,1,0].
+- i = 2: nums[2] and nums[3] are not equal, so we skip this operation.
+- i = 3: nums[3] and nums[4] are equal, we multiply nums[3] by 2 and change nums[4] to 0. The array becomes [1,4,0,2,0,0].
+- i = 4: nums[4] and nums[5] are equal, we multiply nums[4] by 2 and change nums[5] to 0. The array becomes [1,4,0,2,0,0].
+After that, we shift the 0's to the end, which gives the array [1,4,2,0,0,0].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1]
+Output: [1,0]
+Explanation: No operation can be applied, we just shift the 0 to the end.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplyOperationsToAnArray</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">applyOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Step 1: Apply multiplication operations</span>
+        <span class="c1">// If adjacent elements are equal, multiply first by 2 and set second to 0</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">;</span>          <span class="c1">// Double the current element</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>       <span class="c1">// Set next element to zero</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 2: Move all non-zero elements to front using two-pointer technique</span>
+        <span class="c1">// nonZero pointer keeps track of where next non-zero element should go</span>
+        <span class="kt">int</span> <span class="n">nonZero</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Swap current element with element at nonZero position</span>
+                <span class="c1">// When i equals nonZero, element swaps with itself (no effect)</span>
+                <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">nonZero</span><span class="o">];</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">nonZero</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+                <span class="n">nonZero</span><span class="o">++;</span>    <span class="c1">// Move nonZero pointer to next position</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">nums</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with duplicates and zero</span>
+        <span class="c1">// Expected: [1,4,2,0,0,0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">applyOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 2: Minimal array with zero</span>
+        <span class="c1">// Expected: [1,0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">applyOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">)));</span>
+
+        <span class="c1">// Test Case 3: Array with all same elements</span>
+        <span class="c1">// Expected: [2,2,0,0]</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">applyOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">)));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed array nums of size n consisting of non-negative integers. You need to apply n - 1 operations to this array where, in the ith operation (0-indexed), you will apply the following on the ith element of nums: If nums[i] == nums[i + 1], then multiply nums[i] by 2 and set nums[i + 1] to 0. Otherwise, you skip this operation. After performing all the operations, shift all the 0’s to the end of the array. For example, the array [1,0,2,0,0,1] after shifting all its 0’s to the end, is [1,2,1,0,0,0]. Return the resulting array. Note that the operations are applied sequentially, not all at once.]]></summary></entry><entry><title type="html">131. Palindrome Partitioning</title><link href="https://zhengstar94.github.io//blog/2025/PalindromePartitioning/" rel="alternate" type="text/html" title="131. Palindrome Partitioning"/><published>2025-03-01T00:00:00+00:00</published><updated>2025-03-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PalindromePartitioning</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PalindromePartitioning/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, partition <code class="language-plaintext highlighter-rouge">s</code> such that every substring of the partition is a <strong>palindrome</strong>. Return <em>all possible palindrome partitioning of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aab"
+Output: [ [ "a","a","b"],["aa","b" ] ]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a"
+Output: [ [ "a" ] ]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * 2<span class="p">^</span>n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PalindromePartitioning</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="nf">partition</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>  <span class="c1">// Store all valid partitioning results</span>
+        <span class="n">backtrack</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(),</span> <span class="n">s</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>     <span class="c1">// Start backtracking from index 0</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Backtracking method to find all possible palindrome partitions
+     *
+     * @param result   List to store all valid partitioning results
+     * @param tempList Current list storing the palindrome substrings in this path
+     * @param s        Original input string
+     * @param start    Current starting position for partitioning
+     *
+     * Example for string "aaba":
+     * 1st recursion (start=0): considers "a", "aa", "aab", "aaba"
+     * 2nd recursion (start=1): considers "a", "ab", "aba"
+     * 3rd recursion (start=2): considers "b", "ba"
+     * 4th recursion (start=3): considers "a"
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrack</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">tempList</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Base case: if we've reached the end of the string</span>
+        <span class="c1">// This means we've found a valid partition (all substrings are palindromes)</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">&gt;=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">tempList</span><span class="o">));</span>  <span class="c1">// Add a deep copy of current partition to result</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Try all possible substrings starting from 'start' position</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if substring from start to i is palindrome</span>
+            <span class="c1">// Example: for "aaba", when start=0, i=1</span>
+            <span class="c1">// First checks "a", then "aa", then "aab", then "aaba"</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">isPalindrome</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Add current palindrome substring to tempList</span>
+                <span class="c1">// Example: if "aa" is palindrome, tempList = ["aa"]</span>
+                <span class="n">tempList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+
+                <span class="c1">// Recursively process the rest of the string</span>
+                <span class="c1">// Example: after adding "aa", next recursion starts at position 2</span>
+                <span class="c1">// This means we'll now look for palindromes in "ba"</span>
+                <span class="n">backtrack</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">tempList</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+
+                <span class="c1">// Backtrack: remove the last added substring to try other possibilities</span>
+                <span class="c1">// Example: after trying "aa" + "b" + "a", remove "a" to try other combinations</span>
+                <span class="c1">// This is crucial for exploring all possible partitions</span>
+                <span class="n">tempList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">tempList</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">start</span><span class="o">)</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">end</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">start</span><span class="o">++;</span>
+            <span class="n">end</span><span class="o">--;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: "aab" -&gt; [ [ "a","a","b"], ["aa","b" ] ]</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aab"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 input: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 output: "</span> <span class="o">+</span> <span class="n">partition</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: "a" -&gt; [ [ "a" ] ]</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 input: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 output: "</span> <span class="o">+</span> <span class="n">partition</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.]]></summary></entry><entry><title type="html">1498. Number of Subsequences That Satisfy the Given Sum Condition</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfSubsequencesThatSatisfyTheGivenSumCondition/" rel="alternate" type="text/html" title="1498. Number of Subsequences That Satisfy the Given Sum Condition"/><published>2025-02-27T00:00:00+00:00</published><updated>2025-02-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfSubsequencesThatSatisfyTheGivenSumCondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfSubsequencesThatSatisfyTheGivenSumCondition/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">target</code>.</li> <li>Return <em>the number of <strong>non-empty</strong> subsequences of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the sum of the minimum and maximum element on it is less or equal to</em> <code class="language-plaintext highlighter-rouge">target</code>. Since the answer may be too large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,5,6,7], target = 9
 Output: 4
 Explanation: There are 4 subsequences that satisfy the condition.
 [3] -&gt; Min value + max value &lt;= target (3 + 3 &lt;= 9)
@@ -793,155 +962,4 @@ Output: [ [ 2,2,2,2 ] ]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersInward"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that: 0 &lt;= a, b, c, d &lt; n a, b, c, and d are distinct. nums[a] + nums[b] + nums[c] + nums[d] == target You may return the answer in any order.]]></summary></entry><entry><title type="html">LCP 28. Procurement Plan</title><link href="https://zhengstar94.github.io//blog/2025/ProcurementPlan/" rel="alternate" type="text/html" title="LCP 28. Procurement Plan"/><published>2025-02-23T00:00:00+00:00</published><updated>2025-02-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ProcurementPlan</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ProcurementPlan/"><![CDATA[<ul> <li>Xiao Li stores the quotations of N parts in the array nums. Xiao Li’s budget is target. Assuming Xiao Li only purchases two parts, and the cost of purchasing parts must not exceed the budget, how many procurement plans does he have?</li> <li>Note: The answer needs to be modulo <code class="language-plaintext highlighter-rouge">1e9 + 7 (1000000007)</code>. For example: if the initial result is <code class="language-plaintext highlighter-rouge">1000000008</code>, please return <code class="language-plaintext highlighter-rouge">1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,5,3,5], target = 6
-Output: 1
-Explanation: Within the budget, only nums[0] and nums[2] can be purchased.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,1,9], target = 10
-Output: 4
-Explanation: The procurement plans within budget are as follows:
-nums[0] + nums[1] = 4
-nums[0] + nums[2] = 3
-nums[1] + nums[2] = 3
-nums[2] + nums[3] = 10
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProcurementPlan</span> <span class="o">{</span>
-    <span class="c1">// Constant for modulo operation to handle large numbers</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">purchasePlans</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort array to use two-pointer technique effectively</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-
-        <span class="c1">// Initialize two pointers and result counter</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                      <span class="c1">// Left pointer starts from beginning</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>       <span class="c1">// Right pointer starts from end</span>
-        <span class="kt">long</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                    <span class="c1">// Use long to prevent overflow during calculation</span>
-
-        <span class="c1">// Continue until pointers meet</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If current combination is within budget</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Add number of valid combinations with current left pointer</span>
-                <span class="c1">// (right - left) represents all possible combinations with current left value</span>
-                <span class="n">count</span> <span class="o">=</span> <span class="o">(</span><span class="n">count</span> <span class="o">+</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
-                <span class="n">left</span><span class="o">++;</span>    <span class="c1">// Move left pointer right to try next combination</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">right</span><span class="o">--;</span>   <span class="c1">// Sum too large, decrease right pointer to reduce sum</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">count</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with small numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [2,5,3,5], target = 6"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">purchasePlans</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Multiple valid combinations</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [2,2,1,9], target = 10"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">purchasePlans</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 4"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Large dataset to test performance and overflow handling</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100000</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums3</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">nums3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Large Dataset Test):"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">purchasePlans</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersInward"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Xiao Li stores the quotations of N parts in the array nums. Xiao Li’s budget is target. Assuming Xiao Li only purchases two parts, and the cost of purchasing parts must not exceed the budget, how many procurement plans does he have? Note: The answer needs to be modulo 1e9 + 7 (1000000007). For example: if the initial result is 1000000008, please return 1.]]></summary></entry><entry><title type="html">611. Valid Triangle Number</title><link href="https://zhengstar94.github.io//blog/2025/ValidTriangleNumber/" rel="alternate" type="text/html" title="611. Valid Triangle Number"/><published>2025-02-23T00:00:00+00:00</published><updated>2025-02-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ValidTriangleNumber</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ValidTriangleNumber/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,3,4]
-Output: 3
-Explanation: Valid combinations are: 
-2,3,4 (using the first 2)
-2,3,4 (using the second 2)
-2,2,3
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,3,4]
-Output: 4
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n²) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValidTriangleNumber</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">triangleNumber</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Handle edge cases - null array or insufficient elements</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Sort array to optimize the search process</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Iterate from largest possible side (right to left)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-            <span class="c1">// Initialize two pointers for remaining two sides</span>
-            <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Pointer for smallest side</span>
-            <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>     <span class="c1">// Pointer for middle side</span>
-
-            <span class="c1">// Use two pointer technique to find valid combinations</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Check if current combination forms valid triangle</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                    <span class="c1">// All numbers between left and right will also form valid triangles</span>
-                    <span class="c1">// Because array is sorted and we're starting from largest side</span>
-                    <span class="n">count</span> <span class="o">+=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">;</span>
-                    <span class="c1">// Decrease right pointer to try smaller middle side</span>
-                    <span class="n">right</span><span class="o">--;</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="c1">// Sum is too small, need to increase left pointer</span>
-                    <span class="n">left</span><span class="o">++;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with duplicate elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [2,2,3,4]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">triangleNumber</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>  <span class="c1">// Valid combinations: (2,2,3), (2,3,4), (2,3,4)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Array with duplicate maximum values</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [4,2,3,4]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">triangleNumber</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 4"</span><span class="o">);</span>  <span class="c1">// Valid combinations: (2,3,4), (2,4,4), (3,4,4)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersInward"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an integer array nums, return the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersInward"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that: 0 &lt;= a, b, c, d &lt; n a, b, c, and d are distinct. nums[a] + nums[b] + nums[c] + nums[d] == target You may return the answer in any order.]]></summary></entry></feed>
