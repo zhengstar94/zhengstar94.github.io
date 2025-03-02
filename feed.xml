@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-02T04:13:27+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">132. Palindrome Partitioning II</title><link href="https://zhengstar94.github.io//blog/2025/PalindromePartitioningII/" rel="alternate" type="text/html" title="132. Palindrome Partitioning II"/><published>2025-03-02T00:00:00+00:00</published><updated>2025-03-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PalindromePartitioningII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PalindromePartitioningII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, partition <code class="language-plaintext highlighter-rouge">s</code> such that every substring of the partition is a palindrome.</li> <li>Return <em>the <strong>minimum</strong> cuts needed for a palindrome partitioning of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aab"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-02T04:52:34+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2570. Merge Two 2D Arrays by Summing Values</title><link href="https://zhengstar94.github.io//blog/2025/MergeTwo2DArraysBySummingValues/" rel="alternate" type="text/html" title="2570. Merge Two 2D Arrays by Summing Values"/><published>2025-03-02T00:00:00+00:00</published><updated>2025-03-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MergeTwo2DArraysBySummingValues</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MergeTwo2DArraysBySummingValues/"><![CDATA[<ul> <li>You are given two <strong>2D</strong> integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2.</code> <ul> <li><code class="language-plaintext highlighter-rouge">nums1[i] = [idi, vali]</code> indicate that the number with the id <code class="language-plaintext highlighter-rouge">idi</code> has a value equal to <code class="language-plaintext highlighter-rouge">vali</code>.</li> <li><code class="language-plaintext highlighter-rouge">nums2[i] = [idi, vali]</code> indicate that the number with the id <code class="language-plaintext highlighter-rouge">idi</code> has a value equal to <code class="language-plaintext highlighter-rouge">vali</code>.</li> </ul> </li> <li>Each array contains <strong>unique</strong> ids and is sorted in <strong>ascending</strong> order by id.</li> <li>Merge the two arrays into one array that is sorted in ascending order by id, respecting the following conditions: <ul> <li>Only ids that appear in at least one of the two arrays should be included in the resulting array.</li> <li>Each id should be included <strong>only once</strong> and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays, then assume its value in that array to be <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> </li> <li>Return <em>the resulting array</em>. The returned array must be sorted in ascending order by id.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [ [1,2],[2,3],[4,5 ] ], nums2 = [ [1,4],[3,2],[4,1 ] ]
+Output: [ [ 1,6],[2,3],[3,2],[4,6 ] ]
+Explanation: The resulting array contains the following:
+- id = 1, the value of this id is 2 + 4 = 6.
+- id = 2, the value of this id is 3.
+- id = 3, the value of this id is 2.
+- id = 4, the value of this id is 5 + 1 = 6.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [ [ 2,4],[3,6],[5,5 ] ], nums2 = [ [ 1,3],[4,3 ] ]
+Output: [ [ 1,3],[2,4],[3,6],[4,3],[5,5 ] ]
+Explanation: There are no common ids, so we just include each id with its value in the resulting list.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(n + m) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MergeTwo2DArraysBySummingValues</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">mergeArrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// List to store merged results</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Initialize pointers for both arrays</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// pointer for nums1</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// pointer for nums2</span>
+
+        <span class="c1">// Process both arrays until we reach the end of either</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Case 1: ID in nums1 is smaller</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span> <span class="c1">// Add element from nums1</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// Case 2: ID in nums2 is smaller</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span> <span class="c1">// Add element from nums2</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// Case 3: IDs are equal - sum the values</span>
+            <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Create new array with same ID and summed values</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span> <span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">1</span><span class="o">]});</span>
+                <span class="n">i</span><span class="o">++;</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Add remaining elements from nums1 if any</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Add remaining elements from nums2 if any</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+            <span class="n">j</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert ArrayList to 2D array and return</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">()][]);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method with test cases
+     * @param args Command line arguments (not used)
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Arrays with overlapping IDs</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">},{</span><span class="mi">4</span><span class="o">,</span><span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">mergeArrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Arrays with non-overlapping IDs</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">},{</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">mergeArrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">nums4</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Helper method to print 2D array in readable format
+     * @param arr 2D array to be printed
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given two 2D integer arrays nums1 and nums2. nums1[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali. nums2[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali. Each array contains unique ids and is sorted in ascending order by id. Merge the two arrays into one array that is sorted in ascending order by id, respecting the following conditions: Only ids that appear in at least one of the two arrays should be included in the resulting array. Each id should be included only once and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays, then assume its value in that array to be 0. Return the resulting array. The returned array must be sorted in ascending order by id.]]></summary></entry><entry><title type="html">132. Palindrome Partitioning II</title><link href="https://zhengstar94.github.io//blog/2025/PalindromePartitioningII/" rel="alternate" type="text/html" title="132. Palindrome Partitioning II"/><published>2025-03-02T00:00:00+00:00</published><updated>2025-03-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PalindromePartitioningII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PalindromePartitioningII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, partition <code class="language-plaintext highlighter-rouge">s</code> such that every substring of the partition is a palindrome.</li> <li>Return <em>the <strong>minimum</strong> cuts needed for a palindrome partitioning of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aab"
 Output: 1
 Explanation: The palindrome partitioning ["aa","b"] could be produced using 1 cut.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a"
@@ -840,85 +942,4 @@ The maximum score achievable is 2.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersInward"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You start with an initial power of power, an initial score of 0, and a bag of tokens given as an integer array tokens, where each tokens[i] denotes the value of tokeni. Your goal is to maximize the total score by strategically playing these tokens. In one move, you can play an unplayed token in one of the two ways (but not both for the same token): Face-up: If your current power is at least tokens[i], you may play tokeni, losing tokens[i] power and gaining 1 score. Face-down: If your current score is at least 1, you may play tokeni, gaining tokens[i] power and losing 1 score. Return the maximum possible score you can achieve after playing any number of tokens.]]></summary></entry><entry><title type="html">1524. Number of Sub-arrays With Odd Sum</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfSubArraysWithOddSum/" rel="alternate" type="text/html" title="1524. Number of Sub-arrays With Odd Sum"/><published>2025-02-25T00:00:00+00:00</published><updated>2025-02-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfSubArraysWithOddSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfSubArraysWithOddSum/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">arr</code>, return <em>the number of subarrays with an <strong>odd</strong> sum</em>.</li> <li>Since the answer can be very large, return it modulo <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,3,5]
-Output: 4
-Explanation: All subarrays are [ [ 1],[1,3],[1,3,5],[3],[3,5],[5 ] ]
-All sub-arrays sum are [1,4,9,3,8,5].
-Odd sums are [1,9,3,5] so the answer is 4.
-
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,4,6]
-Output: 0
-Explanation: All subarrays are [ [ 2],[2,4],[2,4,6],[4],[4,6],[6 ] ]
-All sub-arrays sum are [2,6,12,4,10,6].
-All sub-arrays have even sum and the answer is 0.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,3,4,5,6,7]
-Output: 16
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/02/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfSubArraysWithOddSum</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numOfSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Define the modulo constant to handle large numbers</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="no">MODULO</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
-
-        <span class="c1">// odd: count of prefix sums that are odd</span>
-        <span class="c1">// even: count of prefix sums that are even, initialized to 1 (empty array sum is 0, which is even)</span>
-        <span class="kt">int</span> <span class="n">odd</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">even</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Variable to store the total count of subarrays with odd sum</span>
-        <span class="kt">int</span> <span class="n">subarrays</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Variable to store the running prefix sum</span>
-        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each element in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Add current element to prefix sum</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-            <span class="cm">/* Key Logic:
-             * 1. If current prefix sum is even:
-             *    - To get odd sum subarray, we need previous odd prefix sums
-             *    - Because even - odd = odd
-             * 2. If current prefix sum is odd:
-             *    - To get odd sum subarray, we need previous even prefix sums
-             *    - Because odd - even = odd
-             */</span>
-            <span class="n">subarrays</span> <span class="o">=</span> <span class="o">(</span><span class="n">subarrays</span> <span class="o">+</span> <span class="o">(</span><span class="n">sum</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">odd</span> <span class="o">:</span> <span class="n">even</span><span class="o">))</span> <span class="o">%</span> <span class="no">MODULO</span><span class="o">;</span>
-
-            <span class="c1">// Update the counts of odd and even prefix sums</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If current prefix sum is even, increment even count</span>
-                <span class="n">even</span><span class="o">++;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If current prefix sum is odd, increment odd count</span>
-                <span class="n">odd</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">subarrays</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Expected output is 4</span>
-        <span class="c1">// Subarrays with odd sum: [1], [1,3,5], [3], [5]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Expected output is 0</span>
-        <span class="c1">// All subarrays have even sum</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Expected output is 16</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numOfSubarrays</span><span class="o">(</span><span class="n">arr3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[Given an array of integers arr, return the number of subarrays with an odd sum. Since the answer can be very large, return it modulo 10^9 + 7.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersInward"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You start with an initial power of power, an initial score of 0, and a bag of tokens given as an integer array tokens, where each tokens[i] denotes the value of tokeni. Your goal is to maximize the total score by strategically playing these tokens. In one move, you can play an unplayed token in one of the two ways (but not both for the same token): Face-up: If your current power is at least tokens[i], you may play tokeni, losing tokens[i] power and gaining 1 score. Face-down: If your current score is at least 1, you may play tokeni, gaining tokens[i] power and losing 1 score. Return the maximum possible score you can achieve after playing any number of tokens.]]></summary></entry></feed>
