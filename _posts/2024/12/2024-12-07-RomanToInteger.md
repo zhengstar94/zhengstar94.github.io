@@ -77,7 +77,7 @@ import java.util.Map;
 public class RomanToInteger {
     public static int romanToInt(String s) {
         // Create a hash map to store Roman numeral character values
-        Map<Character, Integer> romanValues = new HashMap() {{
+        Map<Character, Integer> romanValues = new HashMap() { {
             put('I', 1);     // Single unit
             put('V', 5);     // Five units
             put('X', 10);    // Ten units
@@ -85,7 +85,7 @@ public class RomanToInteger {
             put('C', 100);   // Hundred units
             put('D', 500);   // Five hundred units
             put('M', 1000);  // Thousand units
-        }};
+        } };
 
         int result = 0;
 
