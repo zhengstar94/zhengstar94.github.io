@@ -3,87 +3,89 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "1328. Break a Palindrome"
+title: "2579. Count Total Number of Colored Cells"
 date: "2025-03-05"
 tags: Medium
 categories:
-  - "LeetCode Greedy" 
+  - "LeetCode Math" 
 ---
 
 
-- Given a palindromic string of lowercase English letters `palindrome`, replace **exactly one** character with any lowercase English letter so that the resulting string is **not** a palindrome and that it is the **lexicographically smallest** one possible.
-- Return *the resulting string. If there is no way to replace a character to make it not a palindrome, return an **empty string**.*
-- A string `a` is lexicographically smaller than a string `b` (of the same length) if in the first position where `a` and `b` differ, `a` has a character strictly smaller than the corresponding character in `b`. For example, `"abcc"` is lexicographically smaller than `"abcd"` because the first position they differ is at the fourth character, and `'c'` is smaller than `'d'`.
+- There exists an infinitely large two-dimensional grid of uncolored unit cells. You are given a positive integer `n`, indicating that you must do the following routine for `n` minutes:
+  - At the first minute, color **any** arbitrary unit cell blue.
+  - Every minute thereafter, color blue **every** uncolored cell that touches a blue cell.
+- Return *the number of **colored cells** at the end of* `n` *minutes*.
 
 **Example 1**
 
 ```
-Input: palindrome = "abccba"
-Output: "aaccba"
-Explanation: There are many ways to make "abccba" not a palindrome, such as "zbccba", "aaccba", and "abacba".
-Of all the ways, "aaccba" is the lexicographically smallest.
+Input: n = 1
+Output: 1
+Explanation: After 1 minute, there is only 1 blue cell, so we return 1.
 ```
 
 **Example 2**
 
 ```
-Input: palindrome = "a"
-Output: ""
-Explanation: There is no way to replace a single character to make "a" not a palindrome, so return an empty string.
+Input: n = 2
+Output: 5
+Explanation: After 2 minutes, there are 4 colored cells on the boundary and 1 in the center, so we return 5. 
 ```
 
 ## Method 1
 
 ```tex
-【O(n) time | O(n) space】
+【O(1) time | O(1) space】
 ```
 
 ```java
-package Leetcode.Greedy;
+package Leetcode.Math;
 
 /**
  * @author zhengxingxing
  * @date 2025/03/05
  */
-public class BreakAPalindrome {
-    public static String breakPalindrome(String palindrome) {
-        // If string length is 1, impossible to break palindrome
-        if (palindrome.length() <= 1){
-            return "";
-        }
+public class CountTotalNumberOfColoredCells {
+    public static long coloredCells(int n) {
+        // Mathematical formula breakdown:
+        // 1. At minute 1: we have 1 cell
+        // 2. For each subsequent minute i (i>1): we add 4*(i-1) new cells
+        // 3. Total new cells = 4 * (1 + 2 + ... + (n-1))
+        // 4. Using arithmetic sequence sum formula: 4 * (n-1)*n/2
+        // 5. Simplifying: 2*n*(n-1)
+        // 6. Final formula: 1 + 2*n*(n-1)
+        // Note: Using 'L' suffix to prevent integer overflow for large n
 
-        char[] chars = palindrome.toCharArray();
-        int n = chars.length;
+        return n == 1 ? 1L : 1L + 2L * n * (n - 1);
 
-        // Check first half of string only due to palindrome property
-        for (int i = 0; i < n / 2; i++) {
-            // If character is not 'a', replace with 'a' for lexicographically smallest result
-            if (chars[i] != 'a'){
-                chars[i] = 'a';
-                return new String(chars);
-            }
-        }
-
-        // If all characters in first half are 'a', replace last character with 'b'
-        chars[n - 1] = 'b';
-        return new String(chars);
+        // Detailed calculation example for n=3:
+        // Minute 1: 1 cell
+        // Minute 2: adds 4*(2-1) = 4 cells
+        // Minute 3: adds 4*(3-1) = 8 cells
+        // Total = 1 + 4 + 8 = 13 cells
+        // Using formula: 1 + 2*3*(3-1) = 1 + 2*3*2 = 1 + 12 = 13
     }
 
     public static void main(String[] args) {
-        // Test case 1: Regular palindrome
-        String test1 = "abccba";
-        System.out.println("Test case 1 input: " + test1);
-        System.out.println("Test case 1 output: " + breakPalindrome(test1));
+        // Test case 1: Minimum input
+        int n1 = 1;
+        System.out.println("Test case 1 - Input: n = " + n1);
+        System.out.println("Output: " + coloredCells(n1));
 
-        // Test case 2: Single character
-        String test2 = "a";
-        System.out.println("Test case 2 input: " + test2);
-        System.out.println("Test case 2 output: " + breakPalindrome(test2));
+        // Test case 2: Basic example
+        int n2 = 2;
+        System.out.println("\nTest case 2 - Input: n = " + n2);
+        System.out.println("Output: " + coloredCells(n2));
 
-        // Test case 3: All 'a' characters
-        String test3 = "aaaa";
-        System.out.println("Test case 3 input: " + test3);
-        System.out.println("Test case 3 output: " + breakPalindrome(test3));
+        // Test case 3: Verify pattern
+        int n3 = 3;
+        System.out.println("\nTest case 3 - Input: n = " + n3);
+        System.out.println("Output: " + coloredCells(n3));
+
+        // Test case 4: Large number to verify no integer overflow
+        int n4 = 1000;
+        System.out.println("\nTest case 4 - Input: n = " + n4);
+        System.out.println("Output: " + coloredCells(n4));
     }
 }
 
