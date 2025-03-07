@@ -1,4 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-06T03:33:01+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1328. Break a Palindrome</title><link href="https://zhengstar94.github.io//blog/2025/BreakAPalindrome/" rel="alternate" type="text/html" title="1328. Break a Palindrome"/><published>2025-03-05T00:00:00+00:00</published><updated>2025-03-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BreakAPalindrome</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BreakAPalindrome/"><![CDATA[<ul> <li>Given a palindromic string of lowercase English letters <code class="language-plaintext highlighter-rouge">palindrome</code>, replace <strong>exactly one</strong> character with any lowercase English letter so that the resulting string is <strong>not</strong> a palindrome and that it is the <strong>lexicographically smallest</strong> one possible.</li> <li>Return <em>the resulting string. If there is no way to replace a character to make it not a palindrome, return an <strong>empty string</strong>.</em></li> <li>A string <code class="language-plaintext highlighter-rouge">a</code> is lexicographically smaller than a string <code class="language-plaintext highlighter-rouge">b</code> (of the same length) if in the first position where <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> differ, <code class="language-plaintext highlighter-rouge">a</code> has a character strictly smaller than the corresponding character in <code class="language-plaintext highlighter-rouge">b</code>. For example, <code class="language-plaintext highlighter-rouge">"abcc"</code> is lexicographically smaller than <code class="language-plaintext highlighter-rouge">"abcd"</code> because the first position they differ is at the fourth character, and <code class="language-plaintext highlighter-rouge">'c'</code> is smaller than <code class="language-plaintext highlighter-rouge">'d'</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: palindrome = "abccba"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-07T02:25:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">27. Remove Element</title><link href="https://zhengstar94.github.io//blog/2025/RemoveElement/" rel="alternate" type="text/html" title="27. Remove Element"/><published>2025-03-07T00:00:00+00:00</published><updated>2025-03-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveElement</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveElement/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">val</code>, remove all occurrences of <code class="language-plaintext highlighter-rouge">val</code> in <code class="language-plaintext highlighter-rouge">nums</code> <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>. The order of the elements may be changed. Then return <em>the number of elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>which are not equal to</em> <code class="language-plaintext highlighter-rouge">val</code>.</p> </li> <li> <p>Consider the number of elements in <code class="language-plaintext highlighter-rouge">nums</code> which are not equal to <code class="language-plaintext highlighter-rouge">val</code> be <code class="language-plaintext highlighter-rouge">k</code>, to get accepted, you need to do the following things:</p> <ul> <li>Change the array <code class="language-plaintext highlighter-rouge">nums</code> such that the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> contain the elements which are not equal to <code class="language-plaintext highlighter-rouge">val</code>. The remaining elements of <code class="language-plaintext highlighter-rouge">nums</code> are not important as well as the size of <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li> <p><strong>Custom Judge:</strong></p> </li> <li> <p>The judge will test your solution with the following code:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
+int val = ...; // Value to remove
+int[] expectedNums = [...]; // The expected answer with correct length.
+                            // It is sorted with no values equaling val.
+  
+int k = removeElement(nums, val); // Calls your implementation
+  
+assert k == expectedNums.length;
+sort(nums, 0, k); // Sort the first k elements of nums
+for (int i = 0; i &lt; actualLength; i++) {
+    assert nums[i] == expectedNums[i];
+}
+</code></pre></div> </div> </li> <li> <p>If all assertions pass, then your solution will be <strong>accepted</strong>.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,2,3], val = 3
+Output: 2, nums = [2,2,_,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+Note that the five elements can be returned in any order.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.SingleSeqInPlacePointers</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/07
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveElement</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">removeElement</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize two pointers</span>
+        <span class="c1">// slowIndex: points to the position where next valid element should be placed</span>
+        <span class="c1">// fastIndex: scans through the array to find valid elements</span>
+        <span class="kt">int</span> <span class="n">slowIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">fastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through the array using fast pointer</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">fastIndex</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If current element is not equal to val</span>
+            <span class="c1">// Copy it to the position indicated by slow pointer</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">fastIndex</span><span class="o">]</span> <span class="o">!=</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">slowIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">fastIndex</span><span class="o">];</span>
+                <span class="c1">// Move slow pointer to next position</span>
+                <span class="n">slowIndex</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// Always move fast pointer to scan next element</span>
+            <span class="n">fastIndex</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the length of new array (indicated by slow pointer)</span>
+        <span class="k">return</span> <span class="n">slowIndex</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">length</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Regular case with repeated elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">val1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Original Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">removeElement</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">val1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Result Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"New Length: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Larger array with multiple instances of target value</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">val2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Original Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">nums2</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">removeElement</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">val2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Result Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"New Length: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Edge case - empty array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="kt">int</span> <span class="n">val3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Original Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">nums3</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">removeElement</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">val3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Result Array: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">result3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"New Length: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.]]></summary></entry><entry><title type="html">1328. Break a Palindrome</title><link href="https://zhengstar94.github.io//blog/2025/BreakAPalindrome/" rel="alternate" type="text/html" title="1328. Break a Palindrome"/><published>2025-03-05T00:00:00+00:00</published><updated>2025-03-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BreakAPalindrome</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BreakAPalindrome/"><![CDATA[<ul> <li>Given a palindromic string of lowercase English letters <code class="language-plaintext highlighter-rouge">palindrome</code>, replace <strong>exactly one</strong> character with any lowercase English letter so that the resulting string is <strong>not</strong> a palindrome and that it is the <strong>lexicographically smallest</strong> one possible.</li> <li>Return <em>the resulting string. If there is no way to replace a character to make it not a palindrome, return an <strong>empty string</strong>.</em></li> <li>A string <code class="language-plaintext highlighter-rouge">a</code> is lexicographically smaller than a string <code class="language-plaintext highlighter-rouge">b</code> (of the same length) if in the first position where <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> differ, <code class="language-plaintext highlighter-rouge">a</code> has a character strictly smaller than the corresponding character in <code class="language-plaintext highlighter-rouge">b</code>. For example, <code class="language-plaintext highlighter-rouge">"abcc"</code> is lexicographically smaller than <code class="language-plaintext highlighter-rouge">"abcd"</code> because the first position they differ is at the fourth character, and <code class="language-plaintext highlighter-rouge">'c'</code> is smaller than <code class="language-plaintext highlighter-rouge">'d'</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: palindrome = "abccba"
 Output: "aaccba"
 Explanation: There are many ways to make "abccba" not a palindrome, such as "zbccba", "aaccba", and "abacba".
 Of all the ways, "aaccba" is the lexicographically smallest.
@@ -657,97 +760,4 @@ Explanation: No operation can be applied, we just shift the 0 to the end.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed array nums of size n consisting of non-negative integers. You need to apply n - 1 operations to this array where, in the ith operation (0-indexed), you will apply the following on the ith element of nums: If nums[i] == nums[i + 1], then multiply nums[i] by 2 and set nums[i + 1] to 0. Otherwise, you skip this operation. After performing all the operations, shift all the 0’s to the end of the array. For example, the array [1,0,2,0,0,1] after shifting all its 0’s to the end, is [1,2,1,0,0,0]. Return the resulting array. Note that the operations are applied sequentially, not all at once.]]></summary></entry><entry><title type="html">131. Palindrome Partitioning</title><link href="https://zhengstar94.github.io//blog/2025/PalindromePartitioning/" rel="alternate" type="text/html" title="131. Palindrome Partitioning"/><published>2025-03-01T00:00:00+00:00</published><updated>2025-03-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PalindromePartitioning</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PalindromePartitioning/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, partition <code class="language-plaintext highlighter-rouge">s</code> such that every substring of the partition is a <strong>palindrome</strong>. Return <em>all possible palindrome partitioning of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aab"
-Output: [ [ "a","a","b"],["aa","b" ] ]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a"
-Output: [ [ "a" ] ]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * 2<span class="p">^</span>n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Backtracking</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PalindromePartitioning</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="nf">partition</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>  <span class="c1">// Store all valid partitioning results</span>
-        <span class="n">backtrack</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(),</span> <span class="n">s</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>     <span class="c1">// Start backtracking from index 0</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Backtracking method to find all possible palindrome partitions
-     *
-     * @param result   List to store all valid partitioning results
-     * @param tempList Current list storing the palindrome substrings in this path
-     * @param s        Original input string
-     * @param start    Current starting position for partitioning
-     *
-     * Example for string "aaba":
-     * 1st recursion (start=0): considers "a", "aa", "aab", "aaba"
-     * 2nd recursion (start=1): considers "a", "ab", "aba"
-     * 3rd recursion (start=2): considers "b", "ba"
-     * 4th recursion (start=3): considers "a"
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">backtrack</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">tempList</span><span class="o">,</span> <span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Base case: if we've reached the end of the string</span>
-        <span class="c1">// This means we've found a valid partition (all substrings are palindromes)</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">&gt;=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">tempList</span><span class="o">));</span>  <span class="c1">// Add a deep copy of current partition to result</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Try all possible substrings starting from 'start' position</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if substring from start to i is palindrome</span>
-            <span class="c1">// Example: for "aaba", when start=0, i=1</span>
-            <span class="c1">// First checks "a", then "aa", then "aab", then "aaba"</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">isPalindrome</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">i</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// Add current palindrome substring to tempList</span>
-                <span class="c1">// Example: if "aa" is palindrome, tempList = ["aa"]</span>
-                <span class="n">tempList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
-
-                <span class="c1">// Recursively process the rest of the string</span>
-                <span class="c1">// Example: after adding "aa", next recursion starts at position 2</span>
-                <span class="c1">// This means we'll now look for palindromes in "ba"</span>
-                <span class="n">backtrack</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">tempList</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-
-                <span class="c1">// Backtrack: remove the last added substring to try other possibilities</span>
-                <span class="c1">// Example: after trying "aa" + "b" + "a", remove "a" to try other combinations</span>
-                <span class="c1">// This is crucial for exploring all possible partitions</span>
-                <span class="n">tempList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">tempList</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPalindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">start</span><span class="o">)</span> <span class="o">!=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">end</span><span class="o">))</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="n">start</span><span class="o">++;</span>
-            <span class="n">end</span><span class="o">--;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: "aab" -&gt; [ [ "a","a","b"], ["aa","b" ] ]</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aab"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 input: "</span> <span class="o">+</span> <span class="n">s1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 output: "</span> <span class="o">+</span> <span class="n">partition</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: "a" -&gt; [ [ "a" ] ]</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 input: "</span> <span class="o">+</span> <span class="n">s2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 output: "</span> <span class="o">+</span> <span class="n">partition</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Backtracking"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed array nums of size n consisting of non-negative integers. You need to apply n - 1 operations to this array where, in the ith operation (0-indexed), you will apply the following on the ith element of nums: If nums[i] == nums[i + 1], then multiply nums[i] by 2 and set nums[i + 1] to 0. Otherwise, you skip this operation. After performing all the operations, shift all the 0’s to the end of the array. For example, the array [1,0,2,0,0,1] after shifting all its 0’s to the end, is [1,2,1,0,0,0]. Return the resulting array. Note that the operations are applied sequentially, not all at once.]]></summary></entry></feed>
