@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "80. Remove Duplicates from Sorted Array II"
 date: "2025-02-09"
-tags: Medium
+tags: Medium TwoPointers
 categories:
-  - "LeetCode Array"
+  - "LeetCode SingleSeqInPlacePointers"
 ---
 
 - Given an integer array `nums` sorted in **non-decreasing order**, remove some duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each unique element appears **at most twice**. The **relative order** of the elements should be kept the **same**.

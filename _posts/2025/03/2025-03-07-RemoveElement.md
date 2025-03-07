@@ -5,7 +5,7 @@ giscus_comments: true
 layout: post
 title: "27. Remove Element"
 date: "2025-03-07"
-tags: Medium TwoPointers
+tags: Easy TwoPointers
 categories:
   - "LeetCode SingleSeqInPlacePointers" 
 ---

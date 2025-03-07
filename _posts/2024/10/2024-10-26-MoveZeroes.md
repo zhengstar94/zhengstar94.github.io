@@ -5,8 +5,9 @@ giscus_comments: true
 layout: post
 title: "283.Move Zeroes"
 date: "2024-10-26"
+tags: Easy TwoPointers
 categories:
-  - "LeetCode TwoPointers"
+  - "LeetCode SingleSeqInPlacePointers"
 ---
 
 - Given an integer array `nums`, move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.
