@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "2570. Merge Two 2D Arrays by Summing Values"
 date: "2025-03-02"
-tags: Easy
+tags: Easy TwoPointers
 categories:
-  - "LeetCode Array" 
+  - "LeetCode DoubleSeqTwoPointers" 
 ---
 
 - You are given two **2D** integer arrays `nums1` and `nums2.`
