@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "2460. Apply Operations to an Array"
 date: "2025-03-01"
-tags: Easy
+tags: Easy TwoPointers
 categories:
-  - "LeetCode Array"
+  - "LeetCode SingleSeqInPlacePointers"
 ---
 
 

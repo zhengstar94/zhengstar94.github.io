@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "922. Sort Array By Parity II"
 date: "2025-02-04"
-tags: Easy
+tags: Easy TwoPointers
 categories:
-  - "LeetCode Array"
+  - "LeetCode SingleSeqInPlacePointers"
 ---
 
 
