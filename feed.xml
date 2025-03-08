@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-08T11:24:52+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">27. Remove Element</title><link href="https://zhengstar94.github.io//blog/2025/RemoveElement/" rel="alternate" type="text/html" title="27. Remove Element"/><published>2025-03-07T00:00:00+00:00</published><updated>2025-03-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveElement</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveElement/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">val</code>, remove all occurrences of <code class="language-plaintext highlighter-rouge">val</code> in <code class="language-plaintext highlighter-rouge">nums</code> <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>. The order of the elements may be changed. Then return <em>the number of elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>which are not equal to</em> <code class="language-plaintext highlighter-rouge">val</code>.</p> </li> <li> <p>Consider the number of elements in <code class="language-plaintext highlighter-rouge">nums</code> which are not equal to <code class="language-plaintext highlighter-rouge">val</code> be <code class="language-plaintext highlighter-rouge">k</code>, to get accepted, you need to do the following things:</p> <ul> <li>Change the array <code class="language-plaintext highlighter-rouge">nums</code> such that the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> contain the elements which are not equal to <code class="language-plaintext highlighter-rouge">val</code>. The remaining elements of <code class="language-plaintext highlighter-rouge">nums</code> are not important as well as the size of <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li> <p><strong>Custom Judge:</strong></p> </li> <li> <p>The judge will test your solution with the following code:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-08T11:46:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1089. Duplicate Zeros</title><link href="https://zhengstar94.github.io//blog/2025/DuplicateZeros/" rel="alternate" type="text/html" title="1089. Duplicate Zeros"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DuplicateZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DuplicateZeros/"><![CDATA[<ul> <li>Given a fixed-length integer array <code class="language-plaintext highlighter-rouge">arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</li> <li><strong>Note</strong> that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,0,2,3,0,4,5,0]
+Output: [1,0,0,2,3,0,0,4]
+Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,3]
+Output: [1,2,3]
+Explanation: After calling your function, the input array is modified to: [1,2,3]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.SingleSeqInPlacePointers</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DuplicateZeros</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">duplicateZeros</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize array length and two pointers</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>  <span class="c1">// Length of input array</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Pointer for reading original array</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Pointer for tracking final positions after duplication</span>
+
+        <span class="c1">// First phase: Calculate final positions</span>
+        <span class="c1">// This loop simulates the duplication process to determine final positions</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">++;</span>    <span class="c1">// When we find a zero, increment j an extra time (as zero will take two positions)</span>
+            <span class="o">}</span>
+            <span class="n">i</span><span class="o">++;</span>       <span class="c1">// Move reading pointer forward</span>
+            <span class="n">j</span><span class="o">++;</span>       <span class="c1">// Move position tracker forward</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Adjust pointers to last valid positions</span>
+        <span class="n">i</span><span class="o">--;</span>    <span class="c1">// Move back to last element we need to copy from</span>
+        <span class="n">j</span><span class="o">--;</span>    <span class="c1">// Move back to last position we need to copy to</span>
+
+        <span class="c1">// Second phase: Actually copy elements from back to front</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If j is within array bounds, copy element from position i to position j</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If current element is zero and we have space for duplication</span>
+            <span class="c1">// --j first decrements j then checks if it's &gt;= 0</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">--</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Place the duplicated zero</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Move both pointers backwards</span>
+            <span class="n">i</span><span class="o">--;</span>    <span class="c1">// Move reading pointer back</span>
+            <span class="n">j</span><span class="o">--;</span>    <span class="c1">// Move writing pointer back</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Array with zeros</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 1 before: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
+        <span class="n">duplicateZeros</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 1 after: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
+
+        <span class="c1">// Test case 2: Array without zeros</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 2 before: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
+        <span class="n">duplicateZeros</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 2 after: "</span><span class="o">);</span>
+        <span class="n">printArray</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right. Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.]]></summary></entry><entry><title type="html">27. Remove Element</title><link href="https://zhengstar94.github.io//blog/2025/RemoveElement/" rel="alternate" type="text/html" title="27. Remove Element"/><published>2025-03-07T00:00:00+00:00</published><updated>2025-03-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveElement</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveElement/"><![CDATA[<ul> <li> <p>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">val</code>, remove all occurrences of <code class="language-plaintext highlighter-rouge">val</code> in <code class="language-plaintext highlighter-rouge">nums</code> <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>. The order of the elements may be changed. Then return <em>the number of elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>which are not equal to</em> <code class="language-plaintext highlighter-rouge">val</code>.</p> </li> <li> <p>Consider the number of elements in <code class="language-plaintext highlighter-rouge">nums</code> which are not equal to <code class="language-plaintext highlighter-rouge">val</code> be <code class="language-plaintext highlighter-rouge">k</code>, to get accepted, you need to do the following things:</p> <ul> <li>Change the array <code class="language-plaintext highlighter-rouge">nums</code> such that the first <code class="language-plaintext highlighter-rouge">k</code> elements of <code class="language-plaintext highlighter-rouge">nums</code> contain the elements which are not equal to <code class="language-plaintext highlighter-rouge">val</code>. The remaining elements of <code class="language-plaintext highlighter-rouge">nums</code> are not important as well as the size of <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li> <p><strong>Custom Judge:</strong></p> </li> <li> <p>The judge will test your solution with the following code:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int[] nums = [...]; // Input array
 int val = ...; // Value to remove
 int[] expectedNums = [...]; // The expected answer with correct length.
                             // It is sorted with no values equaling val.
@@ -686,96 +770,4 @@ Explanation: There are no common ids, so we just include each id with its value 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given two 2D integer arrays nums1 and nums2. nums1[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali. nums2[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali. Each array contains unique ids and is sorted in ascending order by id. Merge the two arrays into one array that is sorted in ascending order by id, respecting the following conditions: Only ids that appear in at least one of the two arrays should be included in the resulting array. Each id should be included only once and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays, then assume its value in that array to be 0. Return the resulting array. The returned array must be sorted in ascending order by id.]]></summary></entry><entry><title type="html">132. Palindrome Partitioning II</title><link href="https://zhengstar94.github.io//blog/2025/PalindromePartitioningII/" rel="alternate" type="text/html" title="132. Palindrome Partitioning II"/><published>2025-03-02T00:00:00+00:00</published><updated>2025-03-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PalindromePartitioningII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PalindromePartitioningII/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, partition <code class="language-plaintext highlighter-rouge">s</code> such that every substring of the partition is a palindrome.</li> <li>Return <em>the <strong>minimum</strong> cuts needed for a palindrome partitioning of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aab"
-Output: 1
-Explanation: The palindrome partitioning ["aa","b"] could be produced using 1 cut.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "a"
-Output: 0
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ab"
-Output: 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n²) time | O(n²) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.DynamicProgramming</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/02
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PalindromePartitioningII</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minCut</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Base case: empty string or single character string needs 0 cuts</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-        <span class="c1">// dp[i] represents the minimum cuts needed for substring(0,i)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">len</span><span class="o">];</span>
-
-        <span class="c1">// isPalindrome[i][j] represents whether substring from index i to j is palindrome</span>
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">isPalindrome</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">len</span><span class="o">][</span><span class="n">len</span><span class="o">];</span>
-
-        <span class="c1">// Initialize dp array with worst case scenario</span>
-        <span class="c1">// For string length i, worst case needs i cuts (cutting after each character)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="c1">// For example: "abcd" worst case is "a|b|c|d" (3 cuts)</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Main loop: j is the right boundary of the substring we're examining</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// i is the left boundary, checking all possible left boundaries up to j</span>
-            <span class="c1">// For example, when j=2 (checking "abc"):</span>
-            <span class="c1">// i=0: check "abc"</span>
-            <span class="c1">// i=1: check "bc"</span>
-            <span class="c1">// i=2: check "c"</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// Check if substring from i to j is palindrome:</span>
-                <span class="c1">// 1. First and last characters must be same</span>
-                <span class="c1">// 2. Either the substring length &lt;= 3 (like "a", "aa", "aba")</span>
-                <span class="c1">// 3. Or the inner substring (i+1 to j-1) must be palindrome</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">isPalindrome</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]))</span> <span class="o">{</span>
-                    <span class="c1">// Mark this substring as palindrome</span>
-                    <span class="n">isPalindrome</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-
-                    <span class="c1">// Case 1: If substring starts from index 0</span>
-                    <span class="c1">// No cuts needed as the whole substring is palindrome</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-                    <span class="o">}</span>
-                    <span class="c1">// Case 2: If substring starts after index 0</span>
-                    <span class="c1">// Need to decide: either keep current minimum cuts</span>
-                    <span class="c1">// or use (minimum cuts for substring(0,i-1) + 1 cut at position i)</span>
-                    <span class="k">else</span> <span class="o">{</span>
-                        <span class="c1">// dp[i-1] represents minimum cuts needed for substring(0,i-1)</span>
-                        <span class="c1">// +1 represents one additional cut at position i</span>
-                        <span class="c1">// Example: for "aab", when i=2,j=2:</span>
-                        <span class="c1">// dp[1]("aa") = 0, so dp[2] = min(dp[2], 0+1) = 1</span>
-                        <span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">],</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return minimum cuts needed for the entire string</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: "aab" -&gt; "aa|b" (1 cut)</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"aab"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minCut</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
-
-        <span class="c1">// Test Case 2: "a" -&gt; "a" (0 cuts)</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minCut</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
-
-        <span class="c1">// Test Case 3: "ab" -&gt; "a|b" (1 cut)</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"ab"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minCut</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
-
-        <span class="c1">// Test Case 4: "aaaa" -&gt; "aaaa" (0 cuts as it's already palindrome)</span>
-        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"aaaa"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">minCut</span><span class="o">(</span><span class="n">s4</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Dynamic Programming"/><category term="Hard"/><summary type="html"><![CDATA[Given a string s, partition s such that every substring of the partition is a palindrome. Return the minimum cuts needed for a palindrome partitioning of s.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given two 2D integer arrays nums1 and nums2. nums1[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali. nums2[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali. Each array contains unique ids and is sorted in ascending order by id. Merge the two arrays into one array that is sorted in ascending order by id, respecting the following conditions: Only ids that appear in at least one of the two arrays should be included in the resulting array. Each id should be included only once and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays, then assume its value in that array to be 0. Return the resulting array. The returned array must be sorted in ascending order by id.]]></summary></entry></feed>
