@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-08T12:17:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1089. Duplicate Zeros</title><link href="https://zhengstar94.github.io//blog/2025/DuplicateZeros/" rel="alternate" type="text/html" title="1089. Duplicate Zeros"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DuplicateZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DuplicateZeros/"><![CDATA[<ul> <li>Given a fixed-length integer array <code class="language-plaintext highlighter-rouge">arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</li> <li><strong>Note</strong> that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,0,2,3,0,4,5,0]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-08T12:43:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">LCP 18. Breakfast Combination</title><link href="https://zhengstar94.github.io//blog/2025/BreakfastCombination/" rel="alternate" type="text/html" title="LCP 18. Breakfast Combination"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BreakfastCombination</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BreakfastCombination/"><![CDATA[<ul> <li>At an autumn market fair, Xiaokei chooses a breakfast stall. A one-dimensional integer array <code class="language-plaintext highlighter-rouge">staple</code> records the price of each main food, and a one-dimensional integer array <code class="language-plaintext highlighter-rouge">drinks</code> records the price of each beverage. Xiaokei plans to choose one main food and one drink, with a total cost not exceeding <code class="language-plaintext highlighter-rouge">x</code> yuan. Please return how many different purchasing combinations Xiaokei has.</li> <li>Note: The answer needs to be modulo 1e9 + 7 (1000000007). For example, if the initial result is 1000000008, please return 1.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: staple = [10,20,5], drinks = [5,5,2], x = 15
+Output: 6
+Explanation: Xiaokei has 6 different purchasing combinations, with the corresponding indices of selected main food and drink in the arrays being:
+1st combination: staple[0] + drinks[0] = 10 + 5 = 15
+2nd combination: staple[0] + drinks[1] = 10 + 5 = 15
+3rd combination: staple[0] + drinks[2] = 10 + 2 = 12
+4th combination: staple[2] + drinks[0] = 5 + 5 = 10
+5th combination: staple[2] + drinks[1] = 5 + 5 = 10
+6th combination: staple[2] + drinks[2] = 5 + 2 = 7
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: staple = [2,1,1], drinks = [8,9,5,1], x = 9
+Output: 8
+Explanation: Xiaokei has 8 different purchasing combinations, with the corresponding indices of selected main food and drink in the arrays being:
+1st combination: staple[0] + drinks[2] = 2 + 5 = 7
+2nd combination: staple[0] + drinks[3] = 2 + 1 = 3
+3rd combination: staple[1] + drinks[0] = 1 + 8 = 9
+4th combination: staple[1] + drinks[2] = 1 + 5 = 6
+5th combination: staple[1] + drinks[3] = 1 + 1 = 2
+6th combination: staple[2] + drinks[0] = 1 + 8 = 9
+7th combination: staple[2] + drinks[2] = 1 + 5 = 6
+8th combination: staple[2] + drinks[3] = 1 + 1 = 2
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn + mlogm) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqTwoPointers</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BreakfastCombination</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">breakfastNumber</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">staple</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">drinks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort both arrays to enable two pointer approach</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">staple</span><span class="o">);</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">drinks</span><span class="o">);</span>
+
+        <span class="c1">// Initialize result as long to prevent overflow during calculations</span>
+        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="mi">1000000007</span><span class="o">;</span>
+
+        <span class="c1">// Initialize two pointers</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                    <span class="c1">// Pointer for staple array starting from left</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">drinks</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>    <span class="c1">// Pointer for drinks array starting from right</span>
+
+        <span class="c1">// Traverse arrays using two pointers</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">staple</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If current combination exceeds budget, move drinks pointer left</span>
+            <span class="c1">// to try a cheaper drink</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">staple</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">drinks</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">--;</span>
+            <span class="o">}</span>
+            <span class="c1">// If combination is within budget</span>
+            <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Since arrays are sorted, current staple can combine with all drinks</span>
+                <span class="c1">// from index 0 to j (inclusive), so add (j+1) combinations</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">result</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">mod</span><span class="o">;</span>
+                <span class="c1">// Move to next staple food</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Regular case with multiple valid combinations</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">staple1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">drinks1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Staple prices: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">staple1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Drink prices: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">drinks1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Budget: "</span> <span class="o">+</span> <span class="n">x1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of combinations: "</span> <span class="o">+</span> <span class="n">breakfastNumber</span><span class="o">(</span><span class="n">staple1</span><span class="o">,</span> <span class="n">drinks1</span><span class="o">,</span> <span class="n">x1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Case with repeated values</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">staple2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">drinks2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="mi">9</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Staple prices: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">staple2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Drink prices: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">drinks2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Budget: "</span> <span class="o">+</span> <span class="n">x2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of combinations: "</span> <span class="o">+</span> <span class="n">breakfastNumber</span><span class="o">(</span><span class="n">staple2</span><span class="o">,</span> <span class="n">drinks2</span><span class="o">,</span> <span class="n">x2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Edge case with minimum array size</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">staple3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">drinks3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">x3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3 (Edge Case):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Staple prices: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">staple3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Drink prices: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">drinks3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Budget: "</span> <span class="o">+</span> <span class="n">x3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number of combinations: "</span> <span class="o">+</span> <span class="n">breakfastNumber</span><span class="o">(</span><span class="n">staple3</span><span class="o">,</span> <span class="n">drinks3</span><span class="o">,</span> <span class="n">x3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[At an autumn market fair, Xiaokei chooses a breakfast stall. A one-dimensional integer array staple records the price of each main food, and a one-dimensional integer array drinks records the price of each beverage. Xiaokei plans to choose one main food and one drink, with a total cost not exceeding x yuan. Please return how many different purchasing combinations Xiaokei has. Note: The answer needs to be modulo 1e9 + 7 (1000000007). For example, if the initial result is 1000000008, please return 1.]]></summary></entry><entry><title type="html">1089. Duplicate Zeros</title><link href="https://zhengstar94.github.io//blog/2025/DuplicateZeros/" rel="alternate" type="text/html" title="1089. Duplicate Zeros"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DuplicateZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DuplicateZeros/"><![CDATA[<ul> <li>Given a fixed-length integer array <code class="language-plaintext highlighter-rouge">arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</li> <li><strong>Note</strong> that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,0,2,3,0,4,5,0]
 Output: [1,0,0,2,3,0,0,4]
 Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,3]
@@ -82,7 +179,88 @@ Explanation: After calling your function, the input array is modified to: [1,2,3
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right. Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.]]></summary></entry><entry><title type="html">2540. Minimum Common Value</title><link href="https://zhengstar94.github.io//blog/2025/MinimumCommonValue/" rel="alternate" type="text/html" title="2540. Minimum Common Value"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumCommonValue</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumCommonValue/"><![CDATA[<ul> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, sorted in non-decreasing order, return <em>the <strong>minimum integer common</strong> to both arrays</em>. If there is no common integer amongst <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>Note that an integer is said to be <strong>common</strong> to <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> if both arrays have <strong>at least one</strong> occurrence of that integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,3], nums2 = [2,4]
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right. Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.]]></summary></entry><entry><title type="html">1855. Maximum Distance Between a Pair of Values</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDistanceBetweenAPairOfValues/" rel="alternate" type="text/html" title="1855. Maximum Distance Between a Pair of Values"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDistanceBetweenAPairOfValues</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDistanceBetweenAPairOfValues/"><![CDATA[<ul> <li>You are given two <strong>non-increasing 0-indexed</strong> integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>.</li> <li>A pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code>, where <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; nums1.length</code> and <code class="language-plaintext highlighter-rouge">0 &lt;= j &lt; nums2.length</code>, is <strong>valid</strong> if both <code class="language-plaintext highlighter-rouge">i &lt;= j</code> and <code class="language-plaintext highlighter-rouge">nums1[i] &lt;= nums2[j]</code>. The <strong>distance</strong> of the pair is <code class="language-plaintext highlighter-rouge">j - i</code>.</li> <li>Return <em>the <strong>maximum distance</strong> of any <strong>valid</strong> pair</em> <code class="language-plaintext highlighter-rouge">(i, j)</code><em>. If there are no valid pairs, return</em> <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>An array <code class="language-plaintext highlighter-rouge">arr</code> is <strong>non-increasing</strong> if <code class="language-plaintext highlighter-rouge">arr[i-1] &gt;= arr[i]</code> for every <code class="language-plaintext highlighter-rouge">1 &lt;= i &lt; arr.length</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [55,30,5,4,2], nums2 = [100,20,10,10,5]
+Output: 2
+Explanation: The valid pairs are (0,0), (2,2), (2,3), (2,4), (3,3), (3,4), and (4,4).
+The maximum distance is 2 with pair (2,4).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [2,2,2], nums2 = [10,10,1]
+Output: 1
+Explanation: The valid pairs are (0,0), (0,1), and (1,1).
+The maximum distance is 1 with pair (0,1).
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [30,29,19,5], nums2 = [25,25,25,25,25]
+Output: 2
+Explanation: The valid pairs are (2,2), (2,3), (2,4), (3,3), and (3,4).
+The maximum distance is 2 with pair (2,4).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqTwoPointers</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumDistanceBetweenAPairOfValues</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxDistance</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the maximum distance and two pointers</span>
+        <span class="kt">int</span> <span class="n">maxDist</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Pointer for nums1</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Pointer for nums2</span>
+
+        <span class="c1">// Continue until either array is fully traversed</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Ensure i &lt;= j condition is maintained</span>
+            <span class="c1">// If i &gt; j, advance j to catch up with i</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">++;</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Check if current pair is valid (nums1[i] &lt;= nums2[j])</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Update maximum distance if current distance is larger</span>
+                <span class="n">maxDist</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxDist</span><span class="o">,</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="o">);</span>
+                <span class="c1">// Move j pointer to try finding a larger distance</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If current pair is invalid, move i pointer</span>
+                <span class="c1">// Since arrays are non-increasing, moving i might find a smaller value</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxDist</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Standard case with multiple valid pairs</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">55</span><span class="o">,</span><span class="mi">30</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">100</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"nums1: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"nums2: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Maximum distance: "</span> <span class="o">+</span> <span class="n">maxDistance</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Short arrays with multiple valid pairs</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"nums1: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"nums2: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Maximum distance: "</span> <span class="o">+</span> <span class="n">maxDistance</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">nums4</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Arrays with limited valid pairs</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">30</span><span class="o">,</span><span class="mi">29</span><span class="o">,</span><span class="mi">19</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums6</span> <span class="o">=</span> <span class="o">{</span><span class="mi">25</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">25</span><span class="o">,</span><span class="mi">25</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"nums1: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"nums2: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums6</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Maximum distance: "</span> <span class="o">+</span> <span class="n">maxDistance</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">nums6</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given two non-increasing 0-indexed integer arrays nums1 and nums2. A pair of indices (i, j), where 0 &lt;= i &lt; nums1.length and 0 &lt;= j &lt; nums2.length, is valid if both i &lt;= j and nums1[i] &lt;= nums2[j]. The distance of the pair is j - i. Return the maximum distance of any valid pair (i, j). If there are no valid pairs, return 0. An array arr is non-increasing if arr[i-1] &gt;= arr[i] for every 1 &lt;= i &lt; arr.length.]]></summary></entry><entry><title type="html">2540. Minimum Common Value</title><link href="https://zhengstar94.github.io//blog/2025/MinimumCommonValue/" rel="alternate" type="text/html" title="2540. Minimum Common Value"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumCommonValue</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumCommonValue/"><![CDATA[<ul> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, sorted in non-decreasing order, return <em>the <strong>minimum integer common</strong> to both arrays</em>. If there is no common integer amongst <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>Note that an integer is said to be <strong>common</strong> to <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> if both arrays have <strong>at least one</strong> occurrence of that integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,3], nums2 = [2,4]
 Output: 2
 Explanation: The smallest element common to both arrays is 2, so we return 2.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,2,3,6], nums2 = [2,3,4,5]
@@ -614,125 +792,4 @@ Explanation: Number 9 is repeated and number 5 is missing so the answer is [9,5]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed 2D integer matrix grid of size n * n with values in the range [1, n^2]. Each integer appears exactly once except a which appears twice and b which is missing. The task is to find the repeating and missing numbers a and b. Return a 0-indexed integer array ans of size 2 where ans[0] equals to a and ans[1] equals to b.]]></summary></entry><entry><title type="html">1780. Check if Number is a Sum of Powers of Three</title><link href="https://zhengstar94.github.io//blog/2025/CheckIfNumberIsASumOfPowersOfThree/" rel="alternate" type="text/html" title="1780. Check if Number is a Sum of Powers of Three"/><published>2025-03-04T00:00:00+00:00</published><updated>2025-03-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CheckIfNumberIsASumOfPowersOfThree</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CheckIfNumberIsASumOfPowersOfThree/"><![CDATA[<ul> <li>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to represent</em> <code class="language-plaintext highlighter-rouge">n</code> <em>as the sum of distinct powers of three.</em> Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> <li>An integer <code class="language-plaintext highlighter-rouge">y</code> is a power of three if there exists an integer <code class="language-plaintext highlighter-rouge">x</code> such that <code class="language-plaintext highlighter-rouge">y == 3x</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 12
-Output: true
-Explanation: 12 = 3^1 + 3^2
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 91
-Output: true
-Explanation: 91 = 3^0 + 3^2 + 3^4
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 21
-Output: false
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log₃n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckIfNumberIsASumOfPowersOfThree</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkPowersOfThree</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If any digit in base 3 representation is 2, return false</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// Continue dividing by 3 to check next digit</span>
-            <span class="n">n</span> <span class="o">/=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: n = 12, should return true (12 = 3¹ + 3²)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 (n = 12): "</span> <span class="o">+</span> <span class="n">checkPowersOfThree</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test case 2: n = 91, should return true (91 = 3⁰ + 3² + 3⁴)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 (n = 91): "</span> <span class="o">+</span> <span class="n">checkPowersOfThree</span><span class="o">(</span><span class="mi">91</span><span class="o">));</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test case 3: n = 21, should return false (contains 2 in base 3)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 (n = 21): "</span> <span class="o">+</span> <span class="n">checkPowersOfThree</span><span class="o">(</span><span class="mi">21</span><span class="o">));</span> <span class="c1">// Expected: false</span>
-
-        <span class="c1">// Additional test cases for better coverage</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 (n = 45): "</span> <span class="o">+</span> <span class="n">checkPowersOfThree</span><span class="o">(</span><span class="mi">45</span><span class="o">));</span> <span class="c1">// Expected: false</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 5 (n = 9): "</span> <span class="o">+</span> <span class="n">checkPowersOfThree</span><span class="o">(</span><span class="mi">9</span><span class="o">));</span>   <span class="c1">// Expected: true</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer n, return true if it is possible to represent n as the sum of distinct powers of three. Otherwise, return false. An integer y is a power of three if there exists an integer x such that y== 3x.]]></summary></entry><entry><title type="html">2161. Partition Array According to Given Pivot</title><link href="https://zhengstar94.github.io//blog/2025/PartitionArrayAccordingToGivenPivot/" rel="alternate" type="text/html" title="2161. Partition Array According to Given Pivot"/><published>2025-03-03T00:00:00+00:00</published><updated>2025-03-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionArrayAccordingToGivenPivot</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionArrayAccordingToGivenPivot/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">pivot</code>. Rearrange <code class="language-plaintext highlighter-rouge">nums</code> such that the following conditions are satisfied: <ul> <li>Every element less than <code class="language-plaintext highlighter-rouge">pivot</code> appears <strong>before</strong> every element greater than <code class="language-plaintext highlighter-rouge">pivot</code>.</li> <li>Every element equal to <code class="language-plaintext highlighter-rouge">pivot</code> appears <strong>in between</strong> the elements less than and greater than <code class="language-plaintext highlighter-rouge">pivot</code>.</li> <li>The <strong>relative order</strong> of the elements less than <code class="language-plaintext highlighter-rouge">pivot</code> and the elements greater than <code class="language-plaintext highlighter-rouge">pivot</code> is maintained. <ul> <li>More formally, consider every <code class="language-plaintext highlighter-rouge">pi</code>, <code class="language-plaintext highlighter-rouge">pj</code> where <code class="language-plaintext highlighter-rouge">pi</code> is the new position of the <code class="language-plaintext highlighter-rouge">ith</code> element and <code class="language-plaintext highlighter-rouge">pj</code> is the new position of the <code class="language-plaintext highlighter-rouge">jth</code> element. If <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <strong>both</strong> elements are smaller (<em>or larger</em>) than <code class="language-plaintext highlighter-rouge">pivot</code>, then <code class="language-plaintext highlighter-rouge">pi &lt; pj</code>.</li> </ul> </li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">nums</code> <em>after the rearrangement.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9,12,5,10,14,3,10], pivot = 10
-Output: [9,5,3,10,10,12,14]
-Explanation: 
-The elements 9, 5, and 3 are less than the pivot so they are on the left side of the array.
-The elements 12 and 14 are greater than the pivot so they are on the right side of the array.
-The relative ordering of the elements less than and greater than pivot is also maintained. [9, 5, 3] and [12, 14] are the respective orderings.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-3,4,3,2], pivot = 2
-Output: [-3,2,4,3]
-Explanation: 
-The element -3 is less than the pivot so it is on the left side of the array.
-The elements 4 and 3 are greater than the pivot so they are on the right side of the array.
-The relative ordering of the elements less than and greater than pivot is also maintained. [-3] and [4, 3] are the respective orderings.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/03
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PartitionArrayAccordingToGivenPivot</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">pivotArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pivot</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of input array</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Create result array to store the partitioned elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Pointer for placing elements in result array</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Counter for elements equal to pivot</span>
-        <span class="kt">int</span> <span class="n">equal</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// First pass: Handle elements less than pivot</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Place smaller elements at the beginning of result array</span>
-                <span class="n">result</span><span class="o">[</span><span class="n">left</span><span class="o">++]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">pivot</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Count elements equal to pivot</span>
-                <span class="n">equal</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Place all elements equal to pivot</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">equal</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">[</span><span class="n">left</span><span class="o">++]</span> <span class="o">=</span> <span class="n">pivot</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Second pass: Handle elements greater than pivot</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Place larger elements at the end of result array</span>
-                <span class="n">result</span><span class="o">[</span><span class="n">left</span><span class="o">++]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">pivot1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">pivotArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">pivot1</span><span class="o">)));</span>
-        <span class="c1">// Expected output: [9,5,3,10,10,12,14]</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">pivot2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">pivotArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">pivot2</span><span class="o">)));</span>
-        <span class="c1">// Expected output: [-3,2,4,3]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer pivot. Rearrange nums such that the following conditions are satisfied: Every element less than pivot appears before every element greater than pivot. Every element equal to pivot appears in between the elements less than and greater than pivot. The relative order of the elements less than pivot and the elements greater than pivot is maintained. More formally, consider every pi, pj where pi is the new position of the ith element and pj is the new position of the jth element. If i &lt; j and both elements are smaller (or larger) than pivot, then pi &lt; pj. Return nums after the rearrangement.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed 2D integer matrix grid of size n * n with values in the range [1, n^2]. Each integer appears exactly once except a which appears twice and b which is missing. The task is to find the repeating and missing numbers a and b. Return a 0-indexed integer array ans of size 2 where ans[0] equals to a and ans[1] equals to b.]]></summary></entry></feed>
