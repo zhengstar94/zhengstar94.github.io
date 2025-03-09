@@ -1,4 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-09T07:04:51+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2070. Most Beautiful Item for Each Query</title><link href="https://zhengstar94.github.io//blog/2025/MostBeautifulItemForEachQuery/" rel="alternate" type="text/html" title="2070. Most Beautiful Item for Each Query"/><published>2025-03-09T00:00:00+00:00</published><updated>2025-03-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MostBeautifulItemForEachQuery</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MostBeautifulItemForEachQuery/"><![CDATA[<ul> <li>You are given a 2D integer array <code class="language-plaintext highlighter-rouge">items</code> where <code class="language-plaintext highlighter-rouge">items[i] = [pricei, beautyi]</code> denotes the <strong>price</strong> and <strong>beauty</strong> of an item respectively.</li> <li>You are also given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">queries</code>. For each <code class="language-plaintext highlighter-rouge">queries[j]</code>, you want to determine the <strong>maximum beauty</strong> of an item whose <strong>price</strong> is <strong>less than or equal</strong> to <code class="language-plaintext highlighter-rouge">queries[j]</code>. If no such item exists, then the answer to this query is <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of the same length as</em> <code class="language-plaintext highlighter-rouge">queries</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>is the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: items = [ [ 1,2],[3,2],[2,4],[5,6],[3,5 ] ], queries = [1,2,3,4,5,6]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-09T07:33:46+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1385. Find the Distance Value Between Two Arrays</title><link href="https://zhengstar94.github.io//blog/2025/FindTheDistanceValueBetweenTwoArrays/" rel="alternate" type="text/html" title="1385. Find the Distance Value Between Two Arrays"/><published>2025-03-09T00:00:00+00:00</published><updated>2025-03-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheDistanceValueBetweenTwoArrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheDistanceValueBetweenTwoArrays/"><![CDATA[<ul> <li>Given two integer arrays <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code>, and the integer <code class="language-plaintext highlighter-rouge">d</code>, <em>return the distance value between the two arrays</em>.</li> <li>The distance value is defined as the number of elements <code class="language-plaintext highlighter-rouge">arr1[i]</code> such that there is not any element <code class="language-plaintext highlighter-rouge">arr2[j]</code> where <code class="language-plaintext highlighter-rouge">|arr1[i]-arr2[j]| &lt;= d</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr1 = [4,5,8], arr2 = [10,9,1,8], d = 2
+Output: 2
+Explanation: 
+For arr1[0]=4 we have: 
+|4-10|=6 &gt; d=2 
+|4-9|=5 &gt; d=2 
+|4-1|=3 &gt; d=2 
+|4-8|=4 &gt; d=2 
+For arr1[1]=5 we have: 
+|5-10|=5 &gt; d=2 
+|5-9|=4 &gt; d=2 
+|5-1|=4 &gt; d=2 
+|5-8|=3 &gt; d=2
+For arr1[2]=8 we have:
+|8-10|=2 &lt;= d=2
+|8-9|=1 &lt;= d=2
+|8-1|=7 &gt; d=2
+|8-8|=0 &lt;= d=2
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr1 = [1,4,2,3], arr2 = [-4,-3,6,10,20,30], d = 3
+Output: 2
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr1 = [2,1,100,3], arr2 = [-5,-2,10,-3,7], d = 6
+Output: 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn + mlogm) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqTwoPointers</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheDistanceValueBetweenTwoArrays</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findTheDistanceValue</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort both arrays to enable efficient two-pointer traversal</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Counter for valid elements</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Pointer for arr2</span>
+
+        <span class="c1">// Iterate through each element in arr1</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">arr1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Move pointer j until we find first element in arr2 that could be within range</span>
+            <span class="c1">// Skip all elements that are definitely too small (less than x-d)</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">arr2</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">arr2</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">-</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If we've either:</span>
+            <span class="c1">// 1. Reached the end of arr2, or</span>
+            <span class="c1">// 2. The current element in arr2 is too large (greater than x+d)</span>
+            <span class="c1">// Then x satisfies the distance condition</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">arr2</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">arr2</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ans</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case with small arrays</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">8</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span>
+                <span class="n">findTheDistanceValue</span><span class="o">(</span><span class="n">arr1_1</span><span class="o">,</span> <span class="n">arr2_1</span><span class="o">,</span> <span class="n">d1</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test Case 2: Arrays with negative numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2_2</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">4</span><span class="o">,-</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">20</span><span class="o">,</span><span class="mi">30</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span>
+                <span class="n">findTheDistanceValue</span><span class="o">(</span><span class="n">arr1_2</span><span class="o">,</span> <span class="n">arr2_2</span><span class="o">,</span> <span class="n">d2</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test Case 3: Array with large difference in values</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2_3</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">5</span><span class="o">,-</span><span class="mi">2</span><span class="o">,</span><span class="mi">10</span><span class="o">,-</span><span class="mi">3</span><span class="o">,</span><span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">d3</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span>
+                <span class="n">findTheDistanceValue</span><span class="o">(</span><span class="n">arr1_3</span><span class="o">,</span> <span class="n">arr2_3</span><span class="o">,</span> <span class="n">d3</span><span class="o">));</span>  <span class="c1">// Expected output: 1</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given two integer arrays arr1 and arr2, and the integer d, return the distance value between the two arrays. The distance value is defined as the number of elements arr1[i] such that there is not any element arr2[j] where |arr1[i]-arr2[j]| &lt;= d.]]></summary></entry><entry><title type="html">925. Long Pressed Name</title><link href="https://zhengstar94.github.io//blog/2025/LongPressedName/" rel="alternate" type="text/html" title="925. Long Pressed Name"/><published>2025-03-09T00:00:00+00:00</published><updated>2025-03-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongPressedName</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongPressedName/"><![CDATA[<ul> <li>Your friend is typing his <code class="language-plaintext highlighter-rouge">name</code> into a keyboard. Sometimes, when typing a character <code class="language-plaintext highlighter-rouge">c</code>, the key might get <em>long pressed</em>, and the character will be typed 1 or more times.</li> <li>You examine the <code class="language-plaintext highlighter-rouge">typed</code> characters of the keyboard. Return <code class="language-plaintext highlighter-rouge">True</code> if it is possible that it was your friends name, with some characters (possibly none) being long pressed.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: name = "alex", typed = "aaleex"
+Output: true
+Explanation: 'a' and 'e' in 'alex' were long pressed.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: name = "saeed", typed = "ssaaedd"
+Output: false
+Explanation: 'e' must have been pressed twice, but it was not in the typed output.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqTwoPointers</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongPressedName</span> <span class="o">{</span>
+   
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isLongPressedName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">typed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize two pointers: i for name string, j for typed string</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for name string</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for typed string</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">typed</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// Case 1: Characters match - advance both pointers</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">typed</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">i</span><span class="o">++;</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// Case 2: Long-pressed character - check if current char matches previous char</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">typed</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">==</span> <span class="n">typed</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// Case 3: Neither matches nor long-pressed - invalid input</span>
+            <span class="k">else</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Final check: ensure we've matched all characters in name</span>
+        <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal long-press scenario</span>
+        <span class="nc">String</span> <span class="n">name1</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">typed1</span> <span class="o">=</span> <span class="s">"aaleex"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span>
+                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name1</span><span class="o">,</span> <span class="n">typed1</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test Case 2: Invalid long-press scenario</span>
+        <span class="nc">String</span> <span class="n">name2</span> <span class="o">=</span> <span class="s">"saeed"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">typed2</span> <span class="o">=</span> <span class="s">"ssaaedd"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span>
+                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name2</span><span class="o">,</span> <span class="n">typed2</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test Case 3: Exact match scenario</span>
+        <span class="nc">String</span> <span class="n">name3</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">typed3</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span>
+                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name3</span><span class="o">,</span> <span class="n">typed3</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test Case 4: Typed string shorter than name</span>
+        <span class="nc">String</span> <span class="n">name4</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">typed4</span> <span class="o">=</span> <span class="s">"ale"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span>
+                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name4</span><span class="o">,</span> <span class="n">typed4</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test Case 5: Completely different strings</span>
+        <span class="nc">String</span> <span class="n">name5</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">typed5</span> <span class="o">=</span> <span class="s">"bbbb"</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span>
+                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name5</span><span class="o">,</span> <span class="n">typed5</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Your friend is typing his name into a keyboard. Sometimes, when typing a character c, the key might get long pressed, and the character will be typed 1 or more times. You examine the typed characters of the keyboard. Return True if it is possible that it was your friends name, with some characters (possibly none) being long pressed.]]></summary></entry><entry><title type="html">2070. Most Beautiful Item for Each Query</title><link href="https://zhengstar94.github.io//blog/2025/MostBeautifulItemForEachQuery/" rel="alternate" type="text/html" title="2070. Most Beautiful Item for Each Query"/><published>2025-03-09T00:00:00+00:00</published><updated>2025-03-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MostBeautifulItemForEachQuery</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MostBeautifulItemForEachQuery/"><![CDATA[<ul> <li>You are given a 2D integer array <code class="language-plaintext highlighter-rouge">items</code> where <code class="language-plaintext highlighter-rouge">items[i] = [pricei, beautyi]</code> denotes the <strong>price</strong> and <strong>beauty</strong> of an item respectively.</li> <li>You are also given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">queries</code>. For each <code class="language-plaintext highlighter-rouge">queries[j]</code>, you want to determine the <strong>maximum beauty</strong> of an item whose <strong>price</strong> is <strong>less than or equal</strong> to <code class="language-plaintext highlighter-rouge">queries[j]</code>. If no such item exists, then the answer to this query is <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of the same length as</em> <code class="language-plaintext highlighter-rouge">queries</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[j]</code> <em>is the answer to the</em> <code class="language-plaintext highlighter-rouge">jth</code> <em>query</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: items = [ [ 1,2],[3,2],[2,4],[5,6],[3,5 ] ], queries = [1,2,3,4,5,6]
 Output: [2,4,5,5,6,6]
 Explanation:
 - For queries[0]=1, [1,2] is the only item which has price &lt;= 1. Hence, the answer for this query is 2.
@@ -672,146 +831,4 @@ Explanation: There is no way to replace a single character to make "a" not a pal
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[Given a palindromic string of lowercase English letters palindrome, replace exactly one character with any lowercase English letter so that the resulting string is not a palindrome and that it is the lexicographically smallest one possible. Return the resulting string. If there is no way to replace a character to make it not a palindrome, return an empty string. A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, a has a character strictly smaller than the corresponding character in b. For example, "abcc" is lexicographically smaller than "abcd" because the first position they differ is at the fourth character, and 'c' is smaller than 'd'.]]></summary></entry><entry><title type="html">2579. Count Total Number of Colored Cells</title><link href="https://zhengstar94.github.io//blog/2025/CountTotalNumberOfColoredCells/" rel="alternate" type="text/html" title="2579. Count Total Number of Colored Cells"/><published>2025-03-05T00:00:00+00:00</published><updated>2025-03-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTotalNumberOfColoredCells</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTotalNumberOfColoredCells/"><![CDATA[<ul> <li>There exists an infinitely large two-dimensional grid of uncolored unit cells. You are given a positive integer <code class="language-plaintext highlighter-rouge">n</code>, indicating that you must do the following routine for <code class="language-plaintext highlighter-rouge">n</code> minutes: <ul> <li>At the first minute, color <strong>any</strong> arbitrary unit cell blue.</li> <li>Every minute thereafter, color blue <strong>every</strong> uncolored cell that touches a blue cell.</li> </ul> </li> <li>Return <em>the number of <strong>colored cells</strong> at the end of</em> <code class="language-plaintext highlighter-rouge">n</code> <em>minutes</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1
-Output: 1
-Explanation: After 1 minute, there is only 1 blue cell, so we return 1.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 2
-Output: 5
-Explanation: After 2 minutes, there are 4 colored cells on the boundary and 1 in the center, so we return 5. 
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/05
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountTotalNumberOfColoredCells</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">coloredCells</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Mathematical formula breakdown:</span>
-        <span class="c1">// 1. At minute 1: we have 1 cell</span>
-        <span class="c1">// 2. For each subsequent minute i (i&gt;1): we add 4*(i-1) new cells</span>
-        <span class="c1">// 3. Total new cells = 4 * (1 + 2 + ... + (n-1))</span>
-        <span class="c1">// 4. Using arithmetic sequence sum formula: 4 * (n-1)*n/2</span>
-        <span class="c1">// 5. Simplifying: 2*n*(n-1)</span>
-        <span class="c1">// 6. Final formula: 1 + 2*n*(n-1)</span>
-        <span class="c1">// Note: Using 'L' suffix to prevent integer overflow for large n</span>
-
-        <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1L</span> <span class="o">:</span> <span class="mi">1L</span> <span class="o">+</span> <span class="mi">2L</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-
-        <span class="c1">// Detailed calculation example for n=3:</span>
-        <span class="c1">// Minute 1: 1 cell</span>
-        <span class="c1">// Minute 2: adds 4*(2-1) = 4 cells</span>
-        <span class="c1">// Minute 3: adds 4*(3-1) = 8 cells</span>
-        <span class="c1">// Total = 1 + 4 + 8 = 13 cells</span>
-        <span class="c1">// Using formula: 1 + 2*3*(3-1) = 1 + 2*3*2 = 1 + 12 = 13</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Minimum input</span>
-        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 - Input: n = "</span> <span class="o">+</span> <span class="n">n1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">coloredCells</span><span class="o">(</span><span class="n">n1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Basic example</span>
-        <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2 - Input: n = "</span> <span class="o">+</span> <span class="n">n2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">coloredCells</span><span class="o">(</span><span class="n">n2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: Verify pattern</span>
-        <span class="kt">int</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 3 - Input: n = "</span> <span class="o">+</span> <span class="n">n3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">coloredCells</span><span class="o">(</span><span class="n">n3</span><span class="o">));</span>
-
-        <span class="c1">// Test case 4: Large number to verify no integer overflow</span>
-        <span class="kt">int</span> <span class="n">n4</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 4 - Input: n = "</span> <span class="o">+</span> <span class="n">n4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">coloredCells</span><span class="o">(</span><span class="n">n4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[There exists an infinitely large two-dimensional grid of uncolored unit cells. You are given a positive integer n, indicating that you must do the following routine for n minutes: At the first minute, color any arbitrary unit cell blue. Every minute thereafter, color blue every uncolored cell that touches a blue cell. Return the number of colored cells at the end of n minutes.]]></summary></entry><entry><title type="html">581. Shortest Unsorted Continuous Subarray</title><link href="https://zhengstar94.github.io//blog/2025/ShortestUnsortedContinuousSubarray/" rel="alternate" type="text/html" title="581. Shortest Unsorted Continuous Subarray"/><published>2025-03-05T00:00:00+00:00</published><updated>2025-03-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestUnsortedContinuousSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestUnsortedContinuousSubarray/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, you need to find one <strong>continuous subarray</strong> such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order.</li> <li>Return <em>the shortest such subarray and output its length</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,6,4,8,10,9,15]
-Output: 5
-Explanation: You need to sort [6, 4, 8, 10, 9] in ascending order to make the whole array sorted in ascending order.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4]
-Output: 0
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1]
-Output: 0
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.SingleSeqTwoPointersForward</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/05
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShortestUnsortedContinuousSubarray</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findUnsortedSubarray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Handle base cases of empty array or single element</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Find left boundary - first element that breaks ascending order</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
-            <span class="n">left</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If array is already sorted, return 0</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Find right boundary - first element from right that breaks descending order</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
-            <span class="n">right</span><span class="o">--;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Find min and max values in the unsorted subarray</span>
-        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">min</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Expand left boundary - ensure all elements to the left are &lt;= min</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">min</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">left</span><span class="o">--;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Expand right boundary - ensure all elements to the right are &gt;= max</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">max</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">right</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return length of unsorted subarray</span>
-        <span class="k">return</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with unsorted middle portion</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">15</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Input: [2,6,4,8,10,9,15]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findUnsortedSubarray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Already sorted array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2 Input: [1,2,3,4]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findUnsortedSubarray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Single element array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3 Input: [1]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findUnsortedSubarray</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Array with duplicate elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 4 Input: [1,3,2,2,2]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findUnsortedSubarray</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqTwoPointersForward"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an integer array nums, you need to find one continuous subarray such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order. Return the shortest such subarray and output its length.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[Given a palindromic string of lowercase English letters palindrome, replace exactly one character with any lowercase English letter so that the resulting string is not a palindrome and that it is the lexicographically smallest one possible. Return the resulting string. If there is no way to replace a character to make it not a palindrome, return an empty string. A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, a has a character strictly smaller than the corresponding character in b. For example, "abcc" is lexicographically smaller than "abcd" because the first position they differ is at the fourth character, and 'c' is smaller than 'd'.]]></summary></entry></feed>
