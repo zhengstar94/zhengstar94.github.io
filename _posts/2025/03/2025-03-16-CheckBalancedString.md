@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "3340. Check Balanced String"
-date: "2025-03-09"
+date: "2025-03-16"
 tags: Easy
 categories:
   - "LeetCode Math"
