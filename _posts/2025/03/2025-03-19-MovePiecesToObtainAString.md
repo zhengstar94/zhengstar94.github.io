@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "2337. Move Pieces to Obtain a String"
-date: "2025-03-09"
+date: "2025-03-19"
 tags: Medium TwoPointers
 categories:
   - "LeetCode DoubleSeqTwoPointers"
