@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-20T03:01:51+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2337. Move Pieces to Obtain a String</title><link href="https://zhengstar94.github.io//blog/2025/MovePiecesToObtainAString/" rel="alternate" type="text/html" title="2337. Move Pieces to Obtain a String"/><published>2025-03-19T00:00:00+00:00</published><updated>2025-03-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MovePiecesToObtainAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MovePiecesToObtainAString/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">target</code>, both of length <code class="language-plaintext highlighter-rouge">n</code>. Each string consists <strong>only</strong> of the characters <code class="language-plaintext highlighter-rouge">'L'</code>, <code class="language-plaintext highlighter-rouge">'R'</code>, and <code class="language-plaintext highlighter-rouge">'_'</code> where: <ul> <li>The characters <code class="language-plaintext highlighter-rouge">'L'</code> and <code class="language-plaintext highlighter-rouge">'R'</code> represent pieces, where a piece <code class="language-plaintext highlighter-rouge">'L'</code> can move to the <strong>left</strong> only if there is a <strong>blank</strong> space directly to its left, and a piece <code class="language-plaintext highlighter-rouge">'R'</code> can move to the <strong>right</strong> only if there is a <strong>blank</strong> space directly to its right.</li> <li>The character <code class="language-plaintext highlighter-rouge">'_'</code> represents a blank space that can be occupied by <strong>any</strong> of the <code class="language-plaintext highlighter-rouge">'L'</code> or <code class="language-plaintext highlighter-rouge">'R'</code> pieces.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to obtain the string</em> <code class="language-plaintext highlighter-rouge">target</code> <em>by moving the pieces of the string</em> <code class="language-plaintext highlighter-rouge">start</code> <em><strong>any</strong> number of times</em>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = "_L__R__R_", target = "L______RR"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-21T04:53:24+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">Interview Question 16.06. Smallest Difference</title><link href="https://zhengstar94.github.io//blog/2025/SmallestDifference/" rel="alternate" type="text/html" title="Interview Question 16.06. Smallest Difference"/><published>2025-03-21T00:00:00+00:00</published><updated>2025-03-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SmallestDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SmallestDifference/"><![CDATA[<ul> <li>Given two arrays of integers a and b, compute the pair of values (one value in each array) with the smallest non-negative difference. Return the difference.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: a = {1, 3, 15, 11, 2}, b = {23, 127, 235, 19, 8} 
+Output: 3 Explanation: The pair (11, 8) has the smallest difference of 3.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn + mlogm) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqTwoPointers</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SmallestDifference</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">smallestDifference</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort both arrays to enable two-pointer approach</span>
+        <span class="c1">// Time complexity: O(nlogn + mlogm)</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+
+        <span class="c1">// Initialize two pointers, one for each array</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for array a</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for array b</span>
+
+        <span class="c1">// Use long to prevent integer overflow when calculating differences</span>
+        <span class="kt">long</span> <span class="n">minDiff</span> <span class="o">=</span> <span class="nc">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+
+        <span class="c1">// Continue until we reach the end of either array</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate absolute difference between current elements</span>
+            <span class="c1">// Cast to long to prevent overflow during subtraction</span>
+            <span class="kt">long</span> <span class="n">diff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">((</span><span class="kt">long</span><span class="o">)</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span><span class="n">b</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+
+            <span class="c1">// Update minimum difference if current difference is smaller</span>
+            <span class="n">minDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minDiff</span><span class="o">,</span> <span class="n">diff</span><span class="o">);</span>
+
+            <span class="c1">// Move pointers based on comparison of current elements</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// If current element in a is smaller, move pointer i</span>
+                <span class="c1">// to try to get closer to b[j]</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// If current element in b is smaller, move pointer j</span>
+                <span class="c1">// to try to get closer to a[i]</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If elements are equal, we found the minimum possible difference (0)</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Cast the result back to int as per problem requirement</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">minDiff</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Normal case with positive numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">a1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">b1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">23</span><span class="o">,</span> <span class="mi">127</span><span class="o">,</span> <span class="mi">235</span><span class="o">,</span> <span class="mi">19</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">smallestDifference</span><span class="o">(</span><span class="n">a1</span><span class="o">,</span> <span class="n">b1</span><span class="o">));</span>  <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Test Case 2: Arrays containing same number</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">a2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">b2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">smallestDifference</span><span class="o">(</span><span class="n">a2</span><span class="o">,</span> <span class="n">b2</span><span class="o">));</span>  <span class="c1">// Expected: 0</span>
+
+        <span class="c1">// Test Case 3: Edge case with maximum integer values</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">a3</span> <span class="o">=</span> <span class="o">{</span><span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">b3</span> <span class="o">=</span> <span class="o">{</span><span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">smallestDifference</span><span class="o">(</span><span class="n">a3</span><span class="o">,</span> <span class="n">b3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Edge case with empty array</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">a4</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">b4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">smallestDifference</span><span class="o">(</span><span class="n">a4</span><span class="o">,</span> <span class="n">b4</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given two arrays of integers a and b, compute the pair of values (one value in each array) with the smallest non-negative difference. Return the difference.]]></summary></entry><entry><title type="html">2337. Move Pieces to Obtain a String</title><link href="https://zhengstar94.github.io//blog/2025/MovePiecesToObtainAString/" rel="alternate" type="text/html" title="2337. Move Pieces to Obtain a String"/><published>2025-03-19T00:00:00+00:00</published><updated>2025-03-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MovePiecesToObtainAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MovePiecesToObtainAString/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">target</code>, both of length <code class="language-plaintext highlighter-rouge">n</code>. Each string consists <strong>only</strong> of the characters <code class="language-plaintext highlighter-rouge">'L'</code>, <code class="language-plaintext highlighter-rouge">'R'</code>, and <code class="language-plaintext highlighter-rouge">'_'</code> where: <ul> <li>The characters <code class="language-plaintext highlighter-rouge">'L'</code> and <code class="language-plaintext highlighter-rouge">'R'</code> represent pieces, where a piece <code class="language-plaintext highlighter-rouge">'L'</code> can move to the <strong>left</strong> only if there is a <strong>blank</strong> space directly to its left, and a piece <code class="language-plaintext highlighter-rouge">'R'</code> can move to the <strong>right</strong> only if there is a <strong>blank</strong> space directly to its right.</li> <li>The character <code class="language-plaintext highlighter-rouge">'_'</code> represents a blank space that can be occupied by <strong>any</strong> of the <code class="language-plaintext highlighter-rouge">'L'</code> or <code class="language-plaintext highlighter-rouge">'R'</code> pieces.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to obtain the string</em> <code class="language-plaintext highlighter-rouge">target</code> <em>by moving the pieces of the string</em> <code class="language-plaintext highlighter-rouge">start</code> <em><strong>any</strong> number of times</em>. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = "_L__R__R_", target = "L______RR"
 Output: true
 Explanation: We can obtain the string target from start by doing the following moves:
 - Move the first piece one step to the left, start becomes equal to "L___R__R_".
@@ -688,88 +765,4 @@ Explanation: Xiaokei has 8 different purchasing combinations, with the correspon
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[At an autumn market fair, Xiaokei chooses a breakfast stall. A one-dimensional integer array staple records the price of each main food, and a one-dimensional integer array drinks records the price of each beverage. Xiaokei plans to choose one main food and one drink, with a total cost not exceeding x yuan. Please return how many different purchasing combinations Xiaokei has. Note: The answer needs to be modulo 1e9 + 7 (1000000007). For example, if the initial result is 1000000008, please return 1.]]></summary></entry><entry><title type="html">1089. Duplicate Zeros</title><link href="https://zhengstar94.github.io//blog/2025/DuplicateZeros/" rel="alternate" type="text/html" title="1089. Duplicate Zeros"/><published>2025-03-08T00:00:00+00:00</published><updated>2025-03-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DuplicateZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DuplicateZeros/"><![CDATA[<ul> <li>Given a fixed-length integer array <code class="language-plaintext highlighter-rouge">arr</code>, duplicate each occurrence of zero, shifting the remaining elements to the right.</li> <li><strong>Note</strong> that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,0,2,3,0,4,5,0]
-Output: [1,0,0,2,3,0,0,4]
-Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,3]
-Output: [1,2,3]
-Explanation: After calling your function, the input array is modified to: [1,2,3]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.SingleSeqInPlacePointers</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/08
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DuplicateZeros</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">duplicateZeros</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize array length and two pointers</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>  <span class="c1">// Length of input array</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Pointer for reading original array</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Pointer for tracking final positions after duplication</span>
-
-        <span class="c1">// First phase: Calculate final positions</span>
-        <span class="c1">// This loop simulates the duplication process to determine final positions</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">j</span><span class="o">++;</span>    <span class="c1">// When we find a zero, increment j an extra time (as zero will take two positions)</span>
-            <span class="o">}</span>
-            <span class="n">i</span><span class="o">++;</span>       <span class="c1">// Move reading pointer forward</span>
-            <span class="n">j</span><span class="o">++;</span>       <span class="c1">// Move position tracker forward</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Adjust pointers to last valid positions</span>
-        <span class="n">i</span><span class="o">--;</span>    <span class="c1">// Move back to last element we need to copy from</span>
-        <span class="n">j</span><span class="o">--;</span>    <span class="c1">// Move back to last position we need to copy to</span>
-
-        <span class="c1">// Second phase: Actually copy elements from back to front</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If j is within array bounds, copy element from position i to position j</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-
-            <span class="c1">// If current element is zero and we have space for duplication</span>
-            <span class="c1">// --j first decrements j then checks if it's &gt;= 0</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">--</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Place the duplicated zero</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Move both pointers backwards</span>
-            <span class="n">i</span><span class="o">--;</span>    <span class="c1">// Move reading pointer back</span>
-            <span class="n">j</span><span class="o">--;</span>    <span class="c1">// Move writing pointer back</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Array with zeros</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 1 before: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
-        <span class="n">duplicateZeros</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 1 after: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
-
-        <span class="c1">// Test case 2: Array without zeros</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 2 before: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
-        <span class="n">duplicateZeros</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test case 2 after: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right. Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[At an autumn market fair, Xiaokei chooses a breakfast stall. A one-dimensional integer array staple records the price of each main food, and a one-dimensional integer array drinks records the price of each beverage. Xiaokei plans to choose one main food and one drink, with a total cost not exceeding x yuan. Please return how many different purchasing combinations Xiaokei has. Note: The answer needs to be modulo 1e9 + 7 (1000000007). For example, if the initial result is 1000000008, please return 1.]]></summary></entry></feed>
