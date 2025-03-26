@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-23T05:02:52+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">392. Is Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/IsSubsequence/" rel="alternate" type="text/html" title="392. Is Subsequence"/><published>2025-03-23T00:00:00+00:00</published><updated>2025-03-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IsSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IsSubsequence/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if</em> <code class="language-plaintext highlighter-rouge">s</code> <em>is a <strong>subsequence</strong> of</em> <code class="language-plaintext highlighter-rouge">t</code><em>, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> <li>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code class="language-plaintext highlighter-rouge">"ace"</code> is a subsequence of <code class="language-plaintext highlighter-rouge">"abcde"</code> while <code class="language-plaintext highlighter-rouge">"aec"</code> is not).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc", t = "ahbgdc"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-26T07:43:26+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2486. Append Characters to String to Make Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/AppendCharactersToStringToMakeSubsequence/" rel="alternate" type="text/html" title="2486. Append Characters to String to Make Subsequence"/><published>2025-03-26T00:00:00+00:00</published><updated>2025-03-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/AppendCharactersToStringToMakeSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/AppendCharactersToStringToMakeSubsequence/"><![CDATA[<ul> <li>You are given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> consisting of only lowercase English letters.</li> <li>Return <em>the minimum number of characters that need to be appended to the end of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>so that</em> <code class="language-plaintext highlighter-rouge">t</code> <em>becomes a <strong>subsequence</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>A <strong>subsequence</strong> is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "coaching", t = "coding"
+Output: 4
+Explanation: Append the characters "ding" to the end of s so that s = "coachingding".
+Now, t is a subsequence of s ("coachingding").
+It can be shown that appending any 3 characters to the end of s will never make t a subsequence.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcde", t = "a"
+Output: 0
+Explanation: t is already a subsequence of s ("abcde").
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "z", t = "abcde"
+Output: 5
+Explanation: Append the characters "abcde" to the end of s so that s = "zabcde".
+Now, t is a subsequence of s ("zabcde").
+It can be shown that appending any 4 characters to the end of s will never make t a subsequence.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqSubsequencePointers</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/26
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AppendCharactersToStringToMakeSubsequence</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">appendCharacters</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize two pointers, i for string s and j for string t</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Loop until we reach the end of either string s or string t</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// If the current characters of s and t match</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// Move the pointer j to the next character in t</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="c1">// Always move the pointer i to the next character in s</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// The number of characters that need to be appended is the remaining characters in t</span>
+        <span class="c1">// that have not been matched, which is t.length() - j</span>
+        <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">j</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"coaching"</span><span class="o">;</span> <span class="c1">// Original string</span>
+        <span class="nc">String</span> <span class="n">t1</span> <span class="o">=</span> <span class="s">"coding"</span><span class="o">;</span>   <span class="c1">// Target string</span>
+        <span class="c1">// Output the result of the appendCharacters method</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 1 Output: "</span> <span class="o">+</span> <span class="n">appendCharacters</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">t1</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span> <span class="c1">// Original string</span>
+        <span class="nc">String</span> <span class="n">t2</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>     <span class="c1">// Target string</span>
+        <span class="c1">// Output the result of the appendCharacters method</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 2 Output: "</span> <span class="o">+</span> <span class="n">appendCharacters</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">t2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"z"</span><span class="o">;</span>     <span class="c1">// Original string</span>
+        <span class="nc">String</span> <span class="n">t3</span> <span class="o">=</span> <span class="s">"abcde"</span><span class="o">;</span> <span class="c1">// Target string</span>
+        <span class="c1">// Output the result of the appendCharacters method</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 3 Output: "</span> <span class="o">+</span> <span class="n">appendCharacters</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">t3</span><span class="o">));</span> <span class="c1">// Expected output: 5</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqSubsequencePointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given two strings s and t consisting of only lowercase English letters. Return the minimum number of characters that need to be appended to the end of s so that t becomes a subsequence of s. A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.]]></summary></entry><entry><title type="html">392. Is Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/IsSubsequence/" rel="alternate" type="text/html" title="392. Is Subsequence"/><published>2025-03-23T00:00:00+00:00</published><updated>2025-03-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IsSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IsSubsequence/"><![CDATA[<ul> <li>Given two strings <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if</em> <code class="language-plaintext highlighter-rouge">s</code> <em>is a <strong>subsequence</strong> of</em> <code class="language-plaintext highlighter-rouge">t</code><em>, or</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> <li>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code class="language-plaintext highlighter-rouge">"ace"</code> is a subsequence of <code class="language-plaintext highlighter-rouge">"abcde"</code> while <code class="language-plaintext highlighter-rouge">"aec"</code> is not).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abc", t = "ahbgdc"
 Output: true
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "axc", t = "ahbgdc"
 Output: false
@@ -643,77 +705,4 @@ Output: 1
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given two integer arrays arr1 and arr2, and the integer d, return the distance value between the two arrays. The distance value is defined as the number of elements arr1[i] such that there is not any element arr2[j] where |arr1[i]-arr2[j]| &lt;= d.]]></summary></entry><entry><title type="html">925. Long Pressed Name</title><link href="https://zhengstar94.github.io//blog/2025/LongPressedName/" rel="alternate" type="text/html" title="925. Long Pressed Name"/><published>2025-03-09T00:00:00+00:00</published><updated>2025-03-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongPressedName</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongPressedName/"><![CDATA[<ul> <li>Your friend is typing his <code class="language-plaintext highlighter-rouge">name</code> into a keyboard. Sometimes, when typing a character <code class="language-plaintext highlighter-rouge">c</code>, the key might get <em>long pressed</em>, and the character will be typed 1 or more times.</li> <li>You examine the <code class="language-plaintext highlighter-rouge">typed</code> characters of the keyboard. Return <code class="language-plaintext highlighter-rouge">True</code> if it is possible that it was your friends name, with some characters (possibly none) being long pressed.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: name = "alex", typed = "aaleex"
-Output: true
-Explanation: 'a' and 'e' in 'alex' were long pressed.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: name = "saeed", typed = "ssaaedd"
-Output: false
-Explanation: 'e' must have been pressed twice, but it was not in the typed output.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqTwoPointers</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongPressedName</span> <span class="o">{</span>
-   
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isLongPressedName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">typed</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize two pointers: i for name string, j for typed string</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for name string</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// pointer for typed string</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">typed</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Case 1: Characters match - advance both pointers</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">typed</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">i</span><span class="o">++;</span>
-                <span class="n">j</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="c1">// Case 2: Long-pressed character - check if current char matches previous char</span>
-            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">typed</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">==</span> <span class="n">typed</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">j</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="c1">// Case 3: Neither matches nor long-pressed - invalid input</span>
-            <span class="k">else</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Final check: ensure we've matched all characters in name</span>
-        <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Normal long-press scenario</span>
-        <span class="nc">String</span> <span class="n">name1</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">typed1</span> <span class="o">=</span> <span class="s">"aaleex"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span>
-                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name1</span><span class="o">,</span> <span class="n">typed1</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test Case 2: Invalid long-press scenario</span>
-        <span class="nc">String</span> <span class="n">name2</span> <span class="o">=</span> <span class="s">"saeed"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">typed2</span> <span class="o">=</span> <span class="s">"ssaaedd"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span>
-                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name2</span><span class="o">,</span> <span class="n">typed2</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
-
-        <span class="c1">// Test Case 3: Exact match scenario</span>
-        <span class="nc">String</span> <span class="n">name3</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">typed3</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span>
-                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name3</span><span class="o">,</span> <span class="n">typed3</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test Case 4: Typed string shorter than name</span>
-        <span class="nc">String</span> <span class="n">name4</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">typed4</span> <span class="o">=</span> <span class="s">"ale"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span>
-                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name4</span><span class="o">,</span> <span class="n">typed4</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
-
-        <span class="c1">// Test Case 5: Completely different strings</span>
-        <span class="nc">String</span> <span class="n">name5</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
-        <span class="nc">String</span> <span class="n">typed5</span> <span class="o">=</span> <span class="s">"bbbb"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span>
-                <span class="n">isLongPressedName</span><span class="o">(</span><span class="n">name5</span><span class="o">,</span> <span class="n">typed5</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Your friend is typing his name into a keyboard. Sometimes, when typing a character c, the key might get long pressed, and the character will be typed 1 or more times. You examine the typed characters of the keyboard. Return True if it is possible that it was your friends name, with some characters (possibly none) being long pressed.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given two integer arrays arr1 and arr2, and the integer d, return the distance value between the two arrays. The distance value is defined as the number of elements arr1[i] such that there is not any element arr2[j] where |arr1[i]-arr2[j]| &lt;= d.]]></summary></entry></feed>
