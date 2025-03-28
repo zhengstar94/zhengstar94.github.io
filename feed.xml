@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-27T02:13:03+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2825. Make String a Subsequence Using Cyclic Increments</title><link href="https://zhengstar94.github.io//blog/2025/MakeStringASubsequenceUsingCyclicIncrements/" rel="alternate" type="text/html" title="2825. Make String a Subsequence Using Cyclic Increments"/><published>2025-03-27T00:00:00+00:00</published><updated>2025-03-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MakeStringASubsequenceUsingCyclicIncrements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MakeStringASubsequenceUsingCyclicIncrements/"><![CDATA[<ul> <li>You are given two <strong>0-indexed</strong> strings <code class="language-plaintext highlighter-rouge">str1</code> and <code class="language-plaintext highlighter-rouge">str2</code>.</li> <li>In an operation, you select a <strong>set</strong> of indices in <code class="language-plaintext highlighter-rouge">str1</code>, and for each index <code class="language-plaintext highlighter-rouge">i</code> in the set, increment <code class="language-plaintext highlighter-rouge">str1[i]</code> to the next character <strong>cyclically</strong>. That is <code class="language-plaintext highlighter-rouge">'a'</code> becomes <code class="language-plaintext highlighter-rouge">'b'</code>, <code class="language-plaintext highlighter-rouge">'b'</code> becomes <code class="language-plaintext highlighter-rouge">'c'</code>, and so on, and <code class="language-plaintext highlighter-rouge">'z'</code> becomes <code class="language-plaintext highlighter-rouge">'a'</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to make</em> <code class="language-plaintext highlighter-rouge">str2</code> <em>a subsequence of</em> <code class="language-plaintext highlighter-rouge">str1</code> <em>by performing the operation <strong>at most once</strong></em>, <em>and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> <li><strong>Note:</strong> A subsequence of a string is a new string that is formed from the original string by deleting some (possibly none) of the characters without disturbing the relative positions of the remaining characters.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: str1 = "abc", str2 = "ad"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-28T14:48:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1023. Camelcase Matching</title><link href="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/" rel="alternate" type="text/html" title="1023. Camelcase Matching"/><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CamelcaseMatching</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/"><![CDATA[<ul> <li>Given an array of strings <code class="language-plaintext highlighter-rouge">queries</code> and a string <code class="language-plaintext highlighter-rouge">pattern</code>, return a boolean array <code class="language-plaintext highlighter-rouge">answer</code> where <code class="language-plaintext highlighter-rouge">answer[i]</code> is <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code>, and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>A query word <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code> if you can insert lowercase English letters into the pattern so that it equals the query. You may insert a character at any position in pattern or you may choose not to insert any characters <strong>at all</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FB"
+Output: [true,false,true,true,false]
+Explanation: "FooBar" can be generated like this "F" + "oo" + "B" + "ar".
+"FootBall" can be generated like this "F" + "oot" + "B" + "all".
+"FrameBuffer" can be generated like this "F" + "rame" + "B" + "uffer".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FoBa"
+Output: [true,false,true,false,false]
+Explanation: "FooBar" can be generated like this "Fo" + "o" + "Ba" + "r".
+"FootBall" can be generated like this "Fo" + "ot" + "Ba" + "ll".
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FoBaT"
+Output: [false,true,false,false,false]
+Explanation: "FooBarTest" can be generated like this "Fo" + "o" + "Ba" + "r" + "T" + "est".
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqSubsequencePointers</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CamelcaseMatching</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="nf">camelMatch</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">queries</span><span class="o">,</span> <span class="nc">String</span> <span class="n">pattern</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize result list to store matching results</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Check each query string against the pattern</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="nl">query:</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">isMatch</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">pattern</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isMatch</span><span class="o">(</span><span class="nc">String</span> <span class="n">query</span><span class="o">,</span> <span class="nc">String</span> <span class="n">pattern</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize pattern pointer</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each character in query</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">query</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Case 1: Current characters match</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">j</span><span class="o">++;</span> <span class="c1">// Move pattern pointer forward</span>
+            <span class="o">}</span>
+            <span class="c1">// Case 2: Current query character is uppercase but doesn't match</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isUpperCase</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Uppercase must match pattern</span>
+            <span class="o">}</span>
+            <span class="c1">// Case 3: Current query character is lowercase and doesn't match</span>
+            <span class="c1">// Simply continue to next character (implicit)</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return true only if we've matched all characters in pattern</span>
+        <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Pattern "FB"</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span><span class="s">"FooBar"</span><span class="o">,</span><span class="s">"FooBarTest"</span><span class="o">,</span><span class="s">"FootBall"</span><span class="o">,</span><span class="s">"FrameBuffer"</span><span class="o">,</span><span class="s">"ForceFeedBack"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">pattern1</span> <span class="o">=</span> <span class="s">"FB"</span><span class="o">;</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">camelMatch</span><span class="o">(</span><span class="n">queries1</span><span class="o">,</span> <span class="n">pattern1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+
+        <span class="c1">// Test case 2: Pattern "FoBa"</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span><span class="s">"FooBar"</span><span class="o">,</span><span class="s">"FooBarTest"</span><span class="o">,</span><span class="s">"FootBall"</span><span class="o">,</span><span class="s">"FrameBuffer"</span><span class="o">,</span><span class="s">"ForceFeedBack"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">pattern2</span> <span class="o">=</span> <span class="s">"FoBa"</span><span class="o">;</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">camelMatch</span><span class="o">(</span><span class="n">queries2</span><span class="o">,</span> <span class="n">pattern2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+
+        <span class="c1">// Test case 3: Pattern "FoBaT"</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">queries3</span> <span class="o">=</span> <span class="o">{</span><span class="s">"FooBar"</span><span class="o">,</span><span class="s">"FooBarTest"</span><span class="o">,</span><span class="s">"FootBall"</span><span class="o">,</span><span class="s">"FrameBuffer"</span><span class="o">,</span><span class="s">"ForceFeedBack"</span><span class="o">};</span>
+        <span class="nc">String</span> <span class="n">pattern3</span> <span class="o">=</span> <span class="s">"FoBaT"</span><span class="o">;</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">camelMatch</span><span class="o">(</span><span class="n">queries3</span><span class="o">,</span> <span class="n">pattern3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqSubsequencePointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an array of strings queries and a string pattern, return a boolean array answer where answer[i] is true if queries[i] matches pattern, and false otherwise. A query word queries[i] matches pattern if you can insert lowercase English letters into the pattern so that it equals the query. You may insert a character at any position in pattern or you may choose not to insert any characters at all.]]></summary></entry><entry><title type="html">2825. Make String a Subsequence Using Cyclic Increments</title><link href="https://zhengstar94.github.io//blog/2025/MakeStringASubsequenceUsingCyclicIncrements/" rel="alternate" type="text/html" title="2825. Make String a Subsequence Using Cyclic Increments"/><published>2025-03-27T00:00:00+00:00</published><updated>2025-03-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MakeStringASubsequenceUsingCyclicIncrements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MakeStringASubsequenceUsingCyclicIncrements/"><![CDATA[<ul> <li>You are given two <strong>0-indexed</strong> strings <code class="language-plaintext highlighter-rouge">str1</code> and <code class="language-plaintext highlighter-rouge">str2</code>.</li> <li>In an operation, you select a <strong>set</strong> of indices in <code class="language-plaintext highlighter-rouge">str1</code>, and for each index <code class="language-plaintext highlighter-rouge">i</code> in the set, increment <code class="language-plaintext highlighter-rouge">str1[i]</code> to the next character <strong>cyclically</strong>. That is <code class="language-plaintext highlighter-rouge">'a'</code> becomes <code class="language-plaintext highlighter-rouge">'b'</code>, <code class="language-plaintext highlighter-rouge">'b'</code> becomes <code class="language-plaintext highlighter-rouge">'c'</code>, and so on, and <code class="language-plaintext highlighter-rouge">'z'</code> becomes <code class="language-plaintext highlighter-rouge">'a'</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if it is possible to make</em> <code class="language-plaintext highlighter-rouge">str2</code> <em>a subsequence of</em> <code class="language-plaintext highlighter-rouge">str1</code> <em>by performing the operation <strong>at most once</strong></em>, <em>and</em> <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>.</li> <li><strong>Note:</strong> A subsequence of a string is a new string that is formed from the original string by deleting some (possibly none) of the characters without disturbing the relative positions of the remaining characters.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: str1 = "abc", str2 = "ad"
 Output: true
 Explanation: Select index 2 in str1.
 Increment str1[2] to become 'd'. 
@@ -616,82 +695,4 @@ After sorting nums in non-descending order, nums = [0, 0, 1, 1, 1].
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given an integer array nums. Transform nums by performing the following operations in the exact order specified: Replace each even number with 0. Replace each odd numbers with 1. Sort the modified array in non-decreasing order. Return the resulting array after performing these operations.]]></summary></entry><entry><title type="html">3340. Check Balanced String</title><link href="https://zhengstar94.github.io//blog/2025/CheckBalancedString/" rel="alternate" type="text/html" title="3340. Check Balanced String"/><published>2025-03-16T00:00:00+00:00</published><updated>2025-03-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CheckBalancedString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CheckBalancedString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">num</code> consisting of only digits. A string of digits is called <strong>balanced</strong> if the sum of the digits at even indices is equal to the sum of digits at odd indices.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">num</code> is <strong>balanced</strong>, otherwise return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = "1234"
-
-Output: false
-
-Explanation:
-
-The sum of digits at even indices is 1 + 3 == 4, and the sum of digits at odd indices is 2 + 4 == 6.
-Since 4 is not equal to 6, num is not balanced.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = "24123"
-
-Output: true
-
-Explanation:
-
-The sum of digits at even indices is 2 + 1 + 3 == 6, and the sum of digits at odd indices is 4 + 2 == 6.
-Since both are equal the num is balanced.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckBalancedString</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isBalanced</span><span class="o">(</span><span class="nc">String</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Variable to store sum of digits at even indices (0,2,4...)</span>
-        <span class="kt">int</span> <span class="n">evenSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Variable to store sum of digits at odd indices (1,3,5...)</span>
-        <span class="kt">int</span> <span class="n">oddSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each character in the string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// For even indices, add digit to evenSum</span>
-                <span class="c1">// Subtract '0' to convert char to corresponding integer</span>
-                <span class="n">evenSum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// For odd indices, add digit to oddSum</span>
-                <span class="n">oddSum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return true if sums are equal, false otherwise</span>
-        <span class="k">return</span> <span class="n">evenSum</span> <span class="o">==</span> <span class="n">oddSum</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method containing test cases
-     * Tests the isBalanced method with various inputs
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Regular case where string is not balanced</span>
-        <span class="nc">String</span> <span class="n">num1</span> <span class="o">=</span> <span class="s">"1234"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span> <span class="n">num1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">num1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Regular case where string is balanced</span>
-        <span class="nc">String</span> <span class="n">num2</span> <span class="o">=</span> <span class="s">"24123"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2: "</span> <span class="o">+</span> <span class="n">num2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">num2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Edge case - empty string</span>
-        <span class="nc">String</span> <span class="n">num3</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3: "</span> <span class="o">+</span> <span class="n">num3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">num3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Edge case - single digit</span>
-        <span class="nc">String</span> <span class="n">num4</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 4: "</span> <span class="o">+</span> <span class="n">num4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Result: "</span> <span class="o">+</span> <span class="n">isBalanced</span><span class="o">(</span><span class="n">num4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given a string num consisting of only digits. A string of digits is called balanced if the sum of the digits at even indices is equal to the sum of digits at odd indices. Return true if num is balanced, otherwise return false.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given an integer array nums. Transform nums by performing the following operations in the exact order specified: Replace each even number with 0. Replace each odd numbers with 1. Sort the modified array in non-decreasing order. Return the resulting array after performing these operations.]]></summary></entry></feed>
