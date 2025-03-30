@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-28T14:48:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1023. Camelcase Matching</title><link href="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/" rel="alternate" type="text/html" title="1023. Camelcase Matching"/><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CamelcaseMatching</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/"><![CDATA[<ul> <li>Given an array of strings <code class="language-plaintext highlighter-rouge">queries</code> and a string <code class="language-plaintext highlighter-rouge">pattern</code>, return a boolean array <code class="language-plaintext highlighter-rouge">answer</code> where <code class="language-plaintext highlighter-rouge">answer[i]</code> is <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code>, and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>A query word <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code> if you can insert lowercase English letters into the pattern so that it equals the query. You may insert a character at any position in pattern or you may choose not to insert any characters <strong>at all</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FB"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-30T01:00:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2109. Adding Spaces to a String</title><link href="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/" rel="alternate" type="text/html" title="2109. Adding Spaces to a String"/><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/AddingSpacesToAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">s</code> and a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index. <ul> <li>For example, given <code class="language-plaintext highlighter-rouge">s = "EnjoyYourCoffee"</code> and <code class="language-plaintext highlighter-rouge">spaces = [5, 9]</code>, we place spaces before <code class="language-plaintext highlighter-rouge">'Y'</code> and <code class="language-plaintext highlighter-rouge">'C'</code>, which are at indices <code class="language-plaintext highlighter-rouge">5</code> and <code class="language-plaintext highlighter-rouge">9</code> respectively. Thus, we obtain <code class="language-plaintext highlighter-rouge">"Enjoy **Y**our **C**offee"</code>.</li> </ul> </li> <li>Return <em>the modified string <strong>after</strong> the spaces have been added.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
+Output: "Leetcode Helps Me Learn"
+Explanation: 
+The indices 8, 13, and 15 correspond to the underlined characters in "LeetcodeHelpsMeLearn".
+We then place spaces before those characters.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "icodeinpython", spaces = [1,5,7,9]
+Output: "i code in py thon"
+Explanation:
+The indices 1, 5, 7, and 9 correspond to the underlined characters in "icodeinpython".
+We then place spaces before those characters.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "spacing", spaces = [0,1,2,3,4,5,6]
+Output: " s p a c i n g"
+Explanation:
+We are also able to place spaces before the first character of the string.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddingSpacesToAString</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">addSpaces</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize StringBuilder with optimal capacity to avoid resizing</span>
+        <span class="nc">StringBuilder</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">spaces</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+
+        <span class="c1">// Counter for tracking the current position in spaces array</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each character in the input string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if we need to add a space at current position</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">spaces</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">spaces</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ans</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">' '</span><span class="o">);</span>
+                <span class="n">j</span><span class="o">++;</span> <span class="c1">// Move to next space position</span>
+            <span class="o">}</span>
+            <span class="c1">// Append the current character from input string</span>
+            <span class="n">ans</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert StringBuilder to String and return</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Adding spaces in a camel case string</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"LeetcodeHelpsMeLearn"</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span><span class="mi">13</span><span class="o">,</span><span class="mi">15</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">addSpaces</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">spaces1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Adding spaces in a lowercase string</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"icodeinpython"</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">9</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">addSpaces</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">spaces2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Adding spaces between every character</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"spacing"</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">addSpaces</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">spaces3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the indices in the original string where spaces will be added. Each space should be inserted before the character at the given index. For example, given s="EnjoyYourCoffee" and spaces=[5, 9], we place spaces before 'Y' and 'C', which are at indices 5 and 9 respectively. Thus, we obtain "Enjoy **Y**our **C**offee". Return the modified string after the spaces have been added.]]></summary></entry><entry><title type="html">1023. Camelcase Matching</title><link href="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/" rel="alternate" type="text/html" title="1023. Camelcase Matching"/><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CamelcaseMatching</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/"><![CDATA[<ul> <li>Given an array of strings <code class="language-plaintext highlighter-rouge">queries</code> and a string <code class="language-plaintext highlighter-rouge">pattern</code>, return a boolean array <code class="language-plaintext highlighter-rouge">answer</code> where <code class="language-plaintext highlighter-rouge">answer[i]</code> is <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code>, and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>A query word <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code> if you can insert lowercase English letters into the pattern so that it equals the query. You may insert a character at any position in pattern or you may choose not to insert any characters <strong>at all</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FB"
 Output: [true,false,true,true,false]
 Explanation: "FooBar" can be generated like this "F" + "oo" + "B" + "ar".
 "FootBall" can be generated like this "F" + "oot" + "B" + "all".
@@ -617,82 +681,4 @@ Explanation: The string is already balanced.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed string s of even length n. The string consists of exactly n / 2 opening brackets '[' and n / 2 closing brackets ']'. A string is called balanced if and only if: It is the empty string, or It can be written as AB, where both A and B are balanced strings, or It can be written as [C], where C is a balanced string. You may swap the brackets at any two indices any number of times. Return the minimum number of swaps to make s balanced.]]></summary></entry><entry><title type="html">3467. Transform Array by Parity</title><link href="https://zhengstar94.github.io//blog/2025/TransformArrayByParity/" rel="alternate" type="text/html" title="3467. Transform Array by Parity"/><published>2025-03-17T00:00:00+00:00</published><updated>2025-03-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TransformArrayByParity</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TransformArrayByParity/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. Transform <code class="language-plaintext highlighter-rouge">nums</code> by performing the following operations in the <strong>exact</strong> order specified: <ol> <li>Replace each even number with 0.</li> <li>Replace each odd numbers with 1.</li> <li>Sort the modified array in <strong>non-decreasing</strong> order.</li> </ol> </li> <li>Return the resulting array after performing these operations.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,3,2,1]
-
-Output: [0,0,1,1]
-
-Explanation:
-
-Replace the even numbers (4 and 2) with 0 and the odd numbers (3 and 1) with 1. Now, nums = [0, 1, 0, 1].
-After sorting nums in non-descending order, nums = [0, 0, 1, 1].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,5,1,4,2]
-
-Output: [0,0,1,1,1]
-
-Explanation:
-
-Replace the even numbers (4 and 2) with 0 and the odd numbers (1, 5 and 1) with 1. Now, nums = [1, 1, 1, 0, 0].
-After sorting nums in non-descending order, nums = [0, 0, 1, 1, 1].
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.SingleSeqInPlacePointers</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TransformArrayByParity</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">transformArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Count numbers that will become 0 (even numbers)</span>
-        <span class="kt">int</span> <span class="n">countZeros</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">countZeros</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Create and populate result array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="c1">// Fill with 0s for even count</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">countZeros</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// Fill with 1s for remaining positions</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">countZeros</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with even and odd numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input array: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Output array: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">transformArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Array with multiple odd numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input array: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Output array: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">transformArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SingleSeqInPlacePointers"/><category term="Easy"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given an integer array nums. Transform nums by performing the following operations in the exact order specified: Replace each even number with 0. Replace each odd numbers with 1. Sort the modified array in non-decreasing order. Return the resulting array after performing these operations.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed string s of even length n. The string consists of exactly n / 2 opening brackets '[' and n / 2 closing brackets ']'. A string is called balanced if and only if: It is the empty string, or It can be written as AB, where both A and B are balanced strings, or It can be written as [C], where C is a balanced string. You may swap the brackets at any two indices any number of times. Return the minimum number of swaps to make s balanced.]]></summary></entry></feed>
