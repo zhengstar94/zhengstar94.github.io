@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-30T01:24:18+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2109. Adding Spaces to a String</title><link href="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/" rel="alternate" type="text/html" title="2109. Adding Spaces to a String"/><published>2025-03-30T00:00:00+00:00</published><updated>2025-03-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/AddingSpacesToAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">s</code> and a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index. <ul> <li>For example, given <code class="language-plaintext highlighter-rouge">s = "EnjoyYourCoffee"</code> and <code class="language-plaintext highlighter-rouge">spaces = [5, 9]</code>, we place spaces before <code class="language-plaintext highlighter-rouge">'Y'</code> and <code class="language-plaintext highlighter-rouge">'C'</code>, which are at indices <code class="language-plaintext highlighter-rouge">5</code> and <code class="language-plaintext highlighter-rouge">9</code> respectively. Thus, we obtain <code class="language-plaintext highlighter-rouge">"Enjoy **Y**our **C**offee"</code>.</li> </ul> </li> <li>Return <em>the modified string <strong>after</strong> the spaces have been added.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-03-31T01:58:03+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2278. Percentage of Letter in String</title><link href="https://zhengstar94.github.io//blog/2025/PercentageOfLetterInString/" rel="alternate" type="text/html" title="2278. Percentage of Letter in String"/><published>2025-03-31T00:00:00+00:00</published><updated>2025-03-31T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PercentageOfLetterInString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PercentageOfLetterInString/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code> and a character <code class="language-plaintext highlighter-rouge">letter</code>, return <em>the <strong>percentage</strong> of characters in</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that equal</em> <code class="language-plaintext highlighter-rouge">letter</code> <em><strong>rounded down</strong> to the nearest whole percent.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "foobar", letter = "o"
+Output: 33
+Explanation:
+The percentage of characters in s that equal the letter 'o' is 2 / 6 * 100% = 33% when rounded down, so we return 33.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "jjjj", letter = "k"
+Output: 0
+Explanation:
+The percentage of characters in s that equal the letter 'k' is 0%, so we return 0.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/03/31
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PercentageOfLetterInString</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">percentageLetter</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">char</span> <span class="n">letter</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize counter to track letter occurrences</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each character in the string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// Increment counter when matching letter is found</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">letter</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Calculate and return the percentage rounded down</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">count</span> <span class="o">*</span> <span class="mi">100</span><span class="o">)</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: String with multiple occurrences of target letter</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"foobar"</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">letter1</span> <span class="o">=</span> <span class="sc">'o'</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">percentageLetter</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">letter1</span><span class="o">));</span> <span class="c1">// Expected output: 33</span>
+
+        <span class="c1">// Test Case 2: String without any occurrence of target letter</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"jjjj"</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">letter2</span> <span class="o">=</span> <span class="sc">'k'</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">percentageLetter</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">letter2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test Case 3: Additional test case with target letter 'e'</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"percentage"</span><span class="o">;</span>
+        <span class="kt">char</span> <span class="n">letter3</span> <span class="o">=</span> <span class="sc">'e'</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">percentageLetter</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">letter3</span><span class="o">));</span> <span class="c1">// Expected output: 30</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s and a character letter, return the percentage of characters in s that equal letter rounded down to the nearest whole percent.]]></summary></entry><entry><title type="html">2109. Adding Spaces to a String</title><link href="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/" rel="alternate" type="text/html" title="2109. Adding Spaces to a String"/><published>2025-03-30T00:00:00+00:00</published><updated>2025-03-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/AddingSpacesToAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">s</code> and a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index. <ul> <li>For example, given <code class="language-plaintext highlighter-rouge">s = "EnjoyYourCoffee"</code> and <code class="language-plaintext highlighter-rouge">spaces = [5, 9]</code>, we place spaces before <code class="language-plaintext highlighter-rouge">'Y'</code> and <code class="language-plaintext highlighter-rouge">'C'</code>, which are at indices <code class="language-plaintext highlighter-rouge">5</code> and <code class="language-plaintext highlighter-rouge">9</code> respectively. Thus, we obtain <code class="language-plaintext highlighter-rouge">"Enjoy **Y**our **C**offee"</code>.</li> </ul> </li> <li>Return <em>the modified string <strong>after</strong> the spaces have been added.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
 Output: "Leetcode Helps Me Learn"
 Explanation: 
 The indices 8, 13, and 15 correspond to the underlined characters in "LeetcodeHelpsMeLearn".
@@ -636,71 +687,4 @@ Explanation: The piece in the string start can move only to the right, so it is 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given two strings start and target, both of length n. Each string consists only of the characters 'L', 'R', and '_' where: The characters 'L' and 'R' represent pieces, where a piece 'L' can move to the left only if there is a blank space directly to its left, and a piece 'R' can move to the right only if there is a blank space directly to its right. The character '_' represents a blank space that can be occupied by any of the 'L' or 'R' pieces. Return true if it is possible to obtain the string target by moving the pieces of the string start any number of times. Otherwise, return false.]]></summary></entry><entry><title type="html">2206. Divide Array Into Equal Pairs</title><link href="https://zhengstar94.github.io//blog/2025/DivideArrayIntoEqualPairs/" rel="alternate" type="text/html" title="2206. Divide Array Into Equal Pairs"/><published>2025-03-17T00:00:00+00:00</published><updated>2025-03-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideArrayIntoEqualPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideArrayIntoEqualPairs/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> consisting of <code class="language-plaintext highlighter-rouge">2 * n</code> integers.</li> <li>You need to divide <code class="language-plaintext highlighter-rouge">nums</code> into <code class="language-plaintext highlighter-rouge">n</code> pairs such that: <ul> <li>Each element belongs to <strong>exactly one</strong> pair.</li> <li>The elements present in a pair are <strong>equal</strong>.</li> </ul> </li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> <em>if nums can be divided into</em> <code class="language-plaintext highlighter-rouge">n</code> <em>pairs, otherwise return</em> <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,3,2,2,2]
-Output: true
-Explanation: 
-There are 6 elements in nums, so they should be divided into 6 / 2 = 3 pairs.
-If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy all the conditions.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4]
-Output: false
-Explanation: 
-There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy every condition.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DivideArrayIntoEqualPairs</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">divideArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create counting array (constraint: nums[i] &lt;= 500)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">501</span><span class="o">];</span>
-
-        <span class="c1">// Count frequency of each number</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">num</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Check if each number appears even number of times</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">:</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>  <span class="c1">// Found a number with odd frequency</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// All numbers appear even number of times</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Should return true</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input array: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">divideArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Should return false</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2: "</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Input array: "</span><span class="o">);</span>
-        <span class="n">printArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">divideArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums consisting of 2 * n integers. You need to divide nums into n pairs such that: Each element belongs to exactly one pair. The elements present in a pair are equal. Return true if nums can be divided into n pairs, otherwise return false.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqTwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given two strings start and target, both of length n. Each string consists only of the characters 'L', 'R', and '_' where: The characters 'L' and 'R' represent pieces, where a piece 'L' can move to the left only if there is a blank space directly to its left, and a piece 'R' can move to the right only if there is a blank space directly to its right. The character '_' represents a blank space that can be occupied by any of the 'L' or 'R' pieces. Return true if it is possible to obtain the string target by moving the pieces of the string start any number of times. Otherwise, return false.]]></summary></entry></feed>
