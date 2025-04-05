@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-04T03:51:51+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1123. Lowest Common Ancestor of Deepest Leaves</title><link href="https://zhengstar94.github.io//blog/2025/LowestCommonAncestorOfDeepestLeaves/" rel="alternate" type="text/html" title="1123. Lowest Common Ancestor of Deepest Leaves"/><published>2025-04-04T00:00:00+00:00</published><updated>2025-04-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LowestCommonAncestorOfDeepestLeaves</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LowestCommonAncestorOfDeepestLeaves/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree, return <em>the lowest common ancestor of its deepest leaves</em>.</li> <li>Recall that: <ul> <li>The node of a binary tree is a leaf if and only if it has no children</li> <li>The depth of the root of the tree is <code class="language-plaintext highlighter-rouge">0</code>. if the depth of a node is <code class="language-plaintext highlighter-rouge">d</code>, the depth of each of its children is <code class="language-plaintext highlighter-rouge">d + 1</code>.</li> <li>The lowest common ancestor of a set <code class="language-plaintext highlighter-rouge">S</code> of nodes, is the node <code class="language-plaintext highlighter-rouge">A</code> with the largest depth such that every node in <code class="language-plaintext highlighter-rouge">S</code> is in the subtree with root <code class="language-plaintext highlighter-rouge">A</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [3,5,1,6,2,0,8,null,null,7,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-05T15:52:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review)2563. Count the Number of Fair Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs/" rel="alternate" type="text/html" title="(Review)2563. Count the Number of Fair Pairs"/><published>2025-04-04T00:00:00+00:00</published><updated>2025-04-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> and two integers <code class="language-plaintext highlighter-rouge">lower</code> and <code class="language-plaintext highlighter-rouge">upper</code>, return <em>the number of fair pairs</em>.</li> <li>A pair <code class="language-plaintext highlighter-rouge">(i, j)</code> is <strong>fair</strong> if: <ul> <li><code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code>, and</li> <li><code class="language-plaintext highlighter-rouge">lower &lt;= nums[i] + nums[j] &lt;= upper</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,7,4,4,5], lower = 3, upper = 6
+Output: 6
+Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,7,9,2,5], lower = 11, upper = 11
+Output: 1
+Explanation: There is a single fair pair: (2,3).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.ThreePointer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/04
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountTheNumberOfFairPairs</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countFairPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">lower</span><span class="o">,</span> <span class="kt">int</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort array to handle pairs in order</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Initialize pointers to end of array</span>
+        <span class="c1">// left: tracks the leftmost position where nums[j] + nums[i] &gt;= lower</span>
+        <span class="c1">// right: tracks the leftmost position where nums[j] + nums[i] &gt; upper</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// For each number as the second element of the pair</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Move right pointer left while sum is too large</span>
+            <span class="c1">// Find rightmost position where nums[right-1] + nums[i] &lt;= upper</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">right</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">right</span><span class="o">--;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Move left pointer left while sum is large enough</span>
+            <span class="c1">// Find rightmost position where nums[left-1] + nums[i] &gt;= lower</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">lower</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">left</span><span class="o">--;</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * Calculate valid pairs for current nums[i]:
+             *
+             * Math.min(right, i) - Math.min(left, i) counts pairs where:
+             * 1. The first number (nums[j]) must be to the left of nums[i] (j &lt; i)
+             * 2. The sum must be &lt;= upper (controlled by right pointer)
+             * 3. The sum must be &gt;= lower (controlled by left pointer)
+             *
+             * Example: for i = 2 (nums[2] = 5):
+             * - If right = 3 and left = 0:
+             * - Math.min(3, 2) = 2 (can only use positions up to i)
+             * - Math.min(0, 2) = 0 (start from position 0)
+             * - 2 - 0 = 2 pairs possible (using positions 0 and 1)
+             *
+             * We use Math.min because:
+             * - We can't use positions beyond i (need j &lt; i)
+             * - right gives upper bound of valid positions
+             * - left gives lower bound of valid positions
+             * - The difference gives count of valid positions
+             */</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">right</span><span class="o">,</span> <span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Multiple fair pairs</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">lower1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">upper1</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [0,1,7,4,4,5], lower = 3, upper = 6"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 6"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">countFairPairs</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">lower1</span><span class="o">,</span> <span class="n">upper1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 2: Single fair pair</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">lower2</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">upper2</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [1,7,9,2,5], lower = 11, upper = 11"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">countFairPairs</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">lower2</span><span class="o">,</span> <span class="n">upper2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode ThreePointers"/><category term="Medium"/><category term="TwoPointers"/><category term="Review"/><summary type="html"><![CDATA[Given a 0-indexed integer array nums of size n and two integers lower and upper, return the number of fair pairs. A pair (i, j) is fair if: 0 &lt;= i &lt; j &lt; n, and lower &lt;= nums[i] + nums[j] &lt;= upper]]></summary></entry><entry><title type="html">1123. Lowest Common Ancestor of Deepest Leaves</title><link href="https://zhengstar94.github.io//blog/2025/LowestCommonAncestorOfDeepestLeaves/" rel="alternate" type="text/html" title="1123. Lowest Common Ancestor of Deepest Leaves"/><published>2025-04-04T00:00:00+00:00</published><updated>2025-04-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LowestCommonAncestorOfDeepestLeaves</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LowestCommonAncestorOfDeepestLeaves/"><![CDATA[<ul> <li>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary tree, return <em>the lowest common ancestor of its deepest leaves</em>.</li> <li>Recall that: <ul> <li>The node of a binary tree is a leaf if and only if it has no children</li> <li>The depth of the root of the tree is <code class="language-plaintext highlighter-rouge">0</code>. if the depth of a node is <code class="language-plaintext highlighter-rouge">d</code>, the depth of each of its children is <code class="language-plaintext highlighter-rouge">d + 1</code>.</li> <li>The lowest common ancestor of a set <code class="language-plaintext highlighter-rouge">S</code> of nodes, is the node <code class="language-plaintext highlighter-rouge">A</code> with the largest depth such that every node in <code class="language-plaintext highlighter-rouge">S</code> is in the subtree with root <code class="language-plaintext highlighter-rouge">A</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: root = [3,5,1,6,2,0,8,null,null,7,4]
 Output: [2,7,4]
 Explanation: We return the node with value 2, colored in yellow in the diagram.
 The nodes coloured in blue are the deepest leaf-nodes of the tree.
@@ -637,83 +726,4 @@ Output: [10]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part. For example, the string "ababcc" can be partitioned into ["abab", "cc"], but partitions such as ["aba", "bcc"] or ["ab", "ab", "cc"] are invalid. Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s. Return a list of integers representing the size of these parts.]]></summary></entry><entry><title type="html">1023. Camelcase Matching</title><link href="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/" rel="alternate" type="text/html" title="1023. Camelcase Matching"/><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CamelcaseMatching</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CamelcaseMatching/"><![CDATA[<ul> <li>Given an array of strings <code class="language-plaintext highlighter-rouge">queries</code> and a string <code class="language-plaintext highlighter-rouge">pattern</code>, return a boolean array <code class="language-plaintext highlighter-rouge">answer</code> where <code class="language-plaintext highlighter-rouge">answer[i]</code> is <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code>, and <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li> <li>A query word <code class="language-plaintext highlighter-rouge">queries[i]</code> matches <code class="language-plaintext highlighter-rouge">pattern</code> if you can insert lowercase English letters into the pattern so that it equals the query. You may insert a character at any position in pattern or you may choose not to insert any characters <strong>at all</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FB"
-Output: [true,false,true,true,false]
-Explanation: "FooBar" can be generated like this "F" + "oo" + "B" + "ar".
-"FootBall" can be generated like this "F" + "oot" + "B" + "all".
-"FrameBuffer" can be generated like this "F" + "rame" + "B" + "uffer".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FoBa"
-Output: [true,false,true,false,false]
-Explanation: "FooBar" can be generated like this "Fo" + "o" + "Ba" + "r".
-"FootBall" can be generated like this "Fo" + "ot" + "Ba" + "ll".
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: queries = ["FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"], pattern = "FoBaT"
-Output: [false,true,false,false,false]
-Explanation: "FooBarTest" can be generated like this "Fo" + "o" + "Ba" + "r" + "T" + "est".
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * m) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.DoubleSeqSubsequencePointers</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CamelcaseMatching</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="nf">camelMatch</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">queries</span><span class="o">,</span> <span class="nc">String</span> <span class="n">pattern</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize result list to store matching results</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Check each query string against the pattern</span>
-        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="nl">query:</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">isMatch</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">pattern</span><span class="o">));</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isMatch</span><span class="o">(</span><span class="nc">String</span> <span class="n">query</span><span class="o">,</span> <span class="nc">String</span> <span class="n">pattern</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize pattern pointer</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each character in query</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">query</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Case 1: Current characters match</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">j</span><span class="o">++;</span> <span class="c1">// Move pattern pointer forward</span>
-            <span class="o">}</span>
-            <span class="c1">// Case 2: Current query character is uppercase but doesn't match</span>
-            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isUpperCase</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Uppercase must match pattern</span>
-            <span class="o">}</span>
-            <span class="c1">// Case 3: Current query character is lowercase and doesn't match</span>
-            <span class="c1">// Simply continue to next character (implicit)</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return true only if we've matched all characters in pattern</span>
-        <span class="k">return</span> <span class="n">j</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Pattern "FB"</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span><span class="s">"FooBar"</span><span class="o">,</span><span class="s">"FooBarTest"</span><span class="o">,</span><span class="s">"FootBall"</span><span class="o">,</span><span class="s">"FrameBuffer"</span><span class="o">,</span><span class="s">"ForceFeedBack"</span><span class="o">};</span>
-        <span class="nc">String</span> <span class="n">pattern1</span> <span class="o">=</span> <span class="s">"FB"</span><span class="o">;</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">camelMatch</span><span class="o">(</span><span class="n">queries1</span><span class="o">,</span> <span class="n">pattern1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-
-        <span class="c1">// Test case 2: Pattern "FoBa"</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span><span class="s">"FooBar"</span><span class="o">,</span><span class="s">"FooBarTest"</span><span class="o">,</span><span class="s">"FootBall"</span><span class="o">,</span><span class="s">"FrameBuffer"</span><span class="o">,</span><span class="s">"ForceFeedBack"</span><span class="o">};</span>
-        <span class="nc">String</span> <span class="n">pattern2</span> <span class="o">=</span> <span class="s">"FoBa"</span><span class="o">;</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">camelMatch</span><span class="o">(</span><span class="n">queries2</span><span class="o">,</span> <span class="n">pattern2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-
-        <span class="c1">// Test case 3: Pattern "FoBaT"</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">queries3</span> <span class="o">=</span> <span class="o">{</span><span class="s">"FooBar"</span><span class="o">,</span><span class="s">"FooBarTest"</span><span class="o">,</span><span class="s">"FootBall"</span><span class="o">,</span><span class="s">"FrameBuffer"</span><span class="o">,</span><span class="s">"ForceFeedBack"</span><span class="o">};</span>
-        <span class="nc">String</span> <span class="n">pattern3</span> <span class="o">=</span> <span class="s">"FoBaT"</span><span class="o">;</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Boolean</span><span class="o">&gt;</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">camelMatch</span><span class="o">(</span><span class="n">queries3</span><span class="o">,</span> <span class="n">pattern3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode DoubleSeqSubsequencePointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an array of strings queries and a string pattern, return a boolean array answer where answer[i] is true if queries[i] matches pattern, and false otherwise. A query word queries[i] matches pattern if you can insert lowercase English letters into the pattern so that it equals the query. You may insert a character at any position in pattern or you may choose not to insert any characters at all.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part. For example, the string "ababcc" can be partitioned into ["abab", "cc"], but partitions such as ["aba", "bcc"] or ["ab", "ab", "cc"] are invalid. Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s. Return a list of integers representing the size of these parts.]]></summary></entry></feed>
