@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-06T03:45:25+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">795. Number of Subarrays with Bounded Maximum</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum/" rel="alternate" type="text/html" title="795. Number of Subarrays with Bounded Maximum"/><published>2025-04-06T00:00:00+00:00</published><updated>2025-04-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">left</code> and <code class="language-plaintext highlighter-rouge">right</code>, return <em>the number of contiguous non-empty <strong>subarrays</strong> such that the value of the maximum array element in that subarray is in the range</em> <code class="language-plaintext highlighter-rouge">[left, right]</code>.</li> <li>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4,3], left = 2, right = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-06T04:30:40+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2444. Count Subarrays With Fixed Bounds</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysWithFixedBounds/" rel="alternate" type="text/html" title="2444. Count Subarrays With Fixed Bounds"/><published>2025-04-06T00:00:00+00:00</published><updated>2025-04-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysWithFixedBounds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysWithFixedBounds/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">minK</code> and <code class="language-plaintext highlighter-rouge">maxK</code>.</li> <li>A <strong>fixed-bound subarray</strong> of <code class="language-plaintext highlighter-rouge">nums</code> is a subarray that satisfies the following conditions: <ul> <li>Return <em>the <strong>number</strong> of fixed-bound subarrays</em>.</li> <li>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</li> </ul> </li> <li>Return <em>the <strong>number</strong> of fixed-bound subarrays</em>.</li> <li>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,5,2,7,5], minK = 1, maxK = 5
+Output: 2
+Explanation: The fixed-bound subarrays are [1,3,5] and [1,3,5,2].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1], minK = 1, maxK = 1
+Output: 10
+Explanation: Every subarray of nums is a fixed-bound subarray. There are 10 possible subarrays.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.ThreePointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysWithFixedBounds</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">minK</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxK</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Store the final count of valid subarrays</span>
+        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// lastOutOfBound: Index of the last element that was out of bounds [minK, maxK]</span>
+        <span class="c1">// Initially -1 indicating no out-of-bounds element found yet</span>
+        <span class="kt">int</span> <span class="n">lastOutOfBound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// lastMin: Index of the last occurrence of minK</span>
+        <span class="c1">// lastMax: Index of the last occurrence of maxK</span>
+        <span class="c1">// Initially -1 indicating no valid minK or maxK found yet</span>
+        <span class="kt">int</span> <span class="n">lastMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">lastMax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each element in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if current element is within bounds [minK, maxK]</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">minK</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">maxK</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Update lastMin if we find minK</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">minK</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">lastMin</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Update lastMax if we find maxK</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">maxK</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">lastMax</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="c1">// If we have found both minK and maxK</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">lastMin</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">lastMax</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Calculate new valid subarrays:</span>
+                    <span class="c1">// Take the minimum of lastMin and lastMax (earliest position we must include)</span>
+                    <span class="c1">// Subtract lastOutOfBound (position we can't include)</span>
+                    <span class="c1">// Use Math.max to ensure we don't add negative values</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">lastMin</span><span class="o">,</span> <span class="n">lastMax</span><span class="o">)</span> <span class="o">-</span> <span class="n">lastOutOfBound</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If current element is out of bounds:</span>
+                <span class="c1">// 1. Update lastOutOfBound to current position</span>
+                <span class="c1">// 2. Reset lastMin and lastMax as we need to find new occurrences</span>
+                <span class="n">lastOutOfBound</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="n">lastMin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                <span class="n">lastMax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with multiple valid subarrays</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">minK1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxK1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">minK1</span><span class="o">,</span> <span class="n">maxK1</span><span class="o">));</span> <span class="c1">// Expected: 2</span>
+        <span class="c1">// Valid subarrays: [1,3,5], [1,3,5,2]</span>
+
+        <span class="c1">// Test Case 2: Array with all elements equal</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">minK2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maxK2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">minK2</span><span class="o">,</span> <span class="n">maxK2</span><span class="o">));</span> <span class="c1">// Expected: 10</span>
+        <span class="c1">// All possible subarrays are valid</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode ThreePointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given an integer array nums and two integers minK and maxK. A fixed-bound subarray of nums is a subarray that satisfies the following conditions: Return the number of fixed-bound subarrays. A subarray is a contiguous part of an array. Return the number of fixed-bound subarrays. A subarray is a contiguous part of an array.]]></summary></entry><entry><title type="html">795. Number of Subarrays with Bounded Maximum</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum/" rel="alternate" type="text/html" title="795. Number of Subarrays with Bounded Maximum"/><published>2025-04-06T00:00:00+00:00</published><updated>2025-04-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">left</code> and <code class="language-plaintext highlighter-rouge">right</code>, return <em>the number of contiguous non-empty <strong>subarrays</strong> such that the value of the maximum array element in that subarray is in the range</em> <code class="language-plaintext highlighter-rouge">[left, right]</code>.</li> <li>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4,3], left = 2, right = 3
 Output: 3
 Explanation: There are three subarrays that meet the requirements: [2], [2, 1], [3].
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,9,2,5,6], left = 2, right = 8
@@ -650,68 +729,4 @@ The percentage of characters in s that equal the letter 'k' is 0%, so we return 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s and a character letter, return the percentage of characters in s that equal letter rounded down to the nearest whole percent.]]></summary></entry><entry><title type="html">2109. Adding Spaces to a String</title><link href="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/" rel="alternate" type="text/html" title="2109. Adding Spaces to a String"/><published>2025-03-30T00:00:00+00:00</published><updated>2025-03-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/AddingSpacesToAString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/AddingSpacesToAString/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> string <code class="language-plaintext highlighter-rouge">s</code> and a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index. <ul> <li>For example, given <code class="language-plaintext highlighter-rouge">s = "EnjoyYourCoffee"</code> and <code class="language-plaintext highlighter-rouge">spaces = [5, 9]</code>, we place spaces before <code class="language-plaintext highlighter-rouge">'Y'</code> and <code class="language-plaintext highlighter-rouge">'C'</code>, which are at indices <code class="language-plaintext highlighter-rouge">5</code> and <code class="language-plaintext highlighter-rouge">9</code> respectively. Thus, we obtain <code class="language-plaintext highlighter-rouge">"Enjoy **Y**our **C**offee"</code>.</li> </ul> </li> <li>Return <em>the modified string <strong>after</strong> the spaces have been added.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
-Output: "Leetcode Helps Me Learn"
-Explanation: 
-The indices 8, 13, and 15 correspond to the underlined characters in "LeetcodeHelpsMeLearn".
-We then place spaces before those characters.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "icodeinpython", spaces = [1,5,7,9]
-Output: "i code in py thon"
-Explanation:
-The indices 1, 5, 7, and 9 correspond to the underlined characters in "icodeinpython".
-We then place spaces before those characters.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "spacing", spaces = [0,1,2,3,4,5,6]
-Output: " s p a c i n g"
-Explanation:
-We are also able to place spaces before the first character of the string.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/30
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AddingSpacesToAString</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">addSpaces</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize StringBuilder with optimal capacity to avoid resizing</span>
-        <span class="nc">StringBuilder</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">+</span> <span class="n">spaces</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
-
-        <span class="c1">// Counter for tracking the current position in spaces array</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each character in the input string</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if we need to add a space at current position</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">spaces</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">spaces</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">ans</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">' '</span><span class="o">);</span>
-                <span class="n">j</span><span class="o">++;</span> <span class="c1">// Move to next space position</span>
-            <span class="o">}</span>
-            <span class="c1">// Append the current character from input string</span>
-            <span class="n">ans</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert StringBuilder to String and return</span>
-        <span class="k">return</span> <span class="n">ans</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Adding spaces in a camel case string</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"LeetcodeHelpsMeLearn"</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span><span class="mi">13</span><span class="o">,</span><span class="mi">15</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">addSpaces</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">spaces1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Adding spaces in a lowercase string</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"icodeinpython"</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">9</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">addSpaces</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">spaces2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Adding spaces between every character</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"spacing"</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">spaces3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">addSpaces</span><span class="o">(</span><span class="n">s3</span><span class="o">,</span> <span class="n">spaces3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the indices in the original string where spaces will be added. Each space should be inserted before the character at the given index. For example, given s="EnjoyYourCoffee" and spaces=[5, 9], we place spaces before 'Y' and 'C', which are at indices 5 and 9 respectively. Thus, we obtain "Enjoy **Y**our **C**offee". Return the modified string after the spaces have been added.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Given a string s and a character letter, return the percentage of characters in s that equal letter rounded down to the nearest whole percent.]]></summary></entry></feed>
