@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-05T15:52:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">(Review)2563. Count the Number of Fair Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs/" rel="alternate" type="text/html" title="(Review)2563. Count the Number of Fair Pairs"/><published>2025-04-04T00:00:00+00:00</published><updated>2025-04-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> and two integers <code class="language-plaintext highlighter-rouge">lower</code> and <code class="language-plaintext highlighter-rouge">upper</code>, return <em>the number of fair pairs</em>.</li> <li>A pair <code class="language-plaintext highlighter-rouge">(i, j)</code> is <strong>fair</strong> if: <ul> <li><code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code>, and</li> <li><code class="language-plaintext highlighter-rouge">lower &lt;= nums[i] + nums[j] &lt;= upper</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,7,4,4,5], lower = 3, upper = 6
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-06T03:45:25+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">795. Number of Subarrays with Bounded Maximum</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum/" rel="alternate" type="text/html" title="795. Number of Subarrays with Bounded Maximum"/><published>2025-04-06T00:00:00+00:00</published><updated>2025-04-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfSubarraysWithBoundedMaximum/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">left</code> and <code class="language-plaintext highlighter-rouge">right</code>, return <em>the number of contiguous non-empty <strong>subarrays</strong> such that the value of the maximum array element in that subarray is in the range</em> <code class="language-plaintext highlighter-rouge">[left, right]</code>.</li> <li>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,4,3], left = 2, right = 3
+Output: 3
+Explanation: There are three subarrays that meet the requirements: [2], [2, 1], [3].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,9,2,5,6], left = 2, right = 8
+Output: 7
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.TwoPointer.ThreePointer</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfSubarraysWithBoundedMaximum</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numSubarrayBoundedMax</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// stores final count of valid subarrays</span>
+        <span class="kt">int</span> <span class="n">lastInvalidPos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>  <span class="c1">// position of last element &gt; right</span>
+        <span class="kt">int</span> <span class="n">lastValid</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>  <span class="c1">// position of last element &gt;= left</span>
+
+        <span class="c1">// Iterate through array once</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If current element exceeds right boundary</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">right</span><span class="o">){</span>
+                <span class="n">lastInvalidPos</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If current element is within or above left boundary</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">left</span><span class="o">){</span>
+                <span class="n">lastValid</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add count of valid subarrays ending at current position</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">lastValid</span> <span class="o">-</span> <span class="n">lastInvalidPos</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">left1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span>
+                <span class="n">numSubarrayBoundedMax</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">left1</span><span class="o">,</span> <span class="n">right1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">left2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right2</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span>
+                <span class="n">numSubarrayBoundedMax</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">left2</span><span class="o">,</span> <span class="n">right2</span><span class="o">));</span> <span class="c1">// Expected output: 7</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode ThreePointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[Given an integer array nums and two integers left and right, return the number of contiguous non-empty subarrays such that the value of the maximum array element in that subarray is in the range [left, right]. The test cases are generated so that the answer will fit in a 32-bit integer.]]></summary></entry><entry><title type="html">(Review)2563. Count the Number of Fair Pairs</title><link href="https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs/" rel="alternate" type="text/html" title="(Review)2563. Count the Number of Fair Pairs"/><published>2025-04-04T00:00:00+00:00</published><updated>2025-04-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTheNumberOfFairPairs/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> and two integers <code class="language-plaintext highlighter-rouge">lower</code> and <code class="language-plaintext highlighter-rouge">upper</code>, return <em>the number of fair pairs</em>.</li> <li>A pair <code class="language-plaintext highlighter-rouge">(i, j)</code> is <strong>fair</strong> if: <ul> <li><code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code>, and</li> <li><code class="language-plaintext highlighter-rouge">lower &lt;= nums[i] + nums[j] &lt;= upper</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,7,4,4,5], lower = 3, upper = 6
 Output: 6
 Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5).
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,7,9,2,5], lower = 11, upper = 11
@@ -657,73 +714,4 @@ We are also able to place spaces before the first character of the string.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the indices in the original string where spaces will be added. Each space should be inserted before the character at the given index. For example, given s="EnjoyYourCoffee" and spaces=[5, 9], we place spaces before 'Y' and 'C', which are at indices 5 and 9 respectively. Thus, we obtain "Enjoy **Y**our **C**offee". Return the modified string after the spaces have been added.]]></summary></entry><entry><title type="html">763. Partition Labels</title><link href="https://zhengstar94.github.io//blog/2025/PartitionLabels/" rel="alternate" type="text/html" title="763. Partition Labels"/><published>2025-03-30T00:00:00+00:00</published><updated>2025-03-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionLabels</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionLabels/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code>. We want to partition the string into as many parts as possible so that each letter appears in at most one part. For example, the string <code class="language-plaintext highlighter-rouge">"ababcc"</code> can be partitioned into <code class="language-plaintext highlighter-rouge">["abab", "cc"]</code>, but partitions such as <code class="language-plaintext highlighter-rouge">["aba", "bcc"]</code> or <code class="language-plaintext highlighter-rouge">["ab", "ab", "cc"]</code> are invalid.</li> <li>Note that the partition is done so that after concatenating all the parts in order, the resultant string should be <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Return <em>a list of integers representing the size of these parts</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "ababcbacadefegdehijhklij"
-Output: [9,7,8]
-Explanation:
-The partition is "ababcbaca", "defegde", "hijhklij".
-This is a partition so that each letter appears in at most one part.
-A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits s into less parts.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "eccbbbbdec"
-Output: [10]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/03/30
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PartitionLabels</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">partitionLabels</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Array to store the last position of each character (a-z)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">lastPos</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
-
-        <span class="c1">// First pass: Record the last occurrence of each character</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">lastPos</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// List to store the sizes of partitions</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Variables to track partition boundaries</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Start index of current partition</span>
-        <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// End index of current partition</span>
-
-        <span class="c1">// Second pass: Determine partition boundaries</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Update the end position of current partition</span>
-            <span class="c1">// by taking the maximum of current end and last occurrence of current character</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">end</span><span class="o">,</span> <span class="n">lastPos</span><span class="o">[</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]);</span>
-
-            <span class="c1">// If we've reached the end of current partition</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Calculate partition size and add to result</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-                <span class="c1">// Update start position for next partition</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: String with multiple partitions</span>
-        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"ababcbacadefegdehijhklij"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">partitionLabels</span><span class="o">(</span><span class="n">s1</span><span class="o">));</span> <span class="c1">// Expected output: [9,7,8]</span>
-
-        <span class="c1">// Test Case 2: String with single partition</span>
-        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"eccbbbbdec"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">partitionLabels</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span> <span class="c1">// Expected output: [10]</span>
-
-        <span class="c1">// Test Case 3: String where each character forms its own partition</span>
-        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">partitionLabels</span><span class="o">(</span><span class="n">s3</span><span class="o">));</span> <span class="c1">// Expected output: [1,1,1]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part. For example, the string "ababcc" can be partitioned into ["abab", "cc"], but partitions such as ["aba", "bcc"] or ["ab", "ab", "cc"] are invalid. Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s. Return a list of integers representing the size of these parts.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode TwoPointers"/><category term="Medium"/><category term="TwoPointers"/><summary type="html"><![CDATA[You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the indices in the original string where spaces will be added. Each space should be inserted before the character at the given index. For example, given s="EnjoyYourCoffee" and spaces=[5, 9], we place spaces before 'Y' and 'C', which are at indices 5 and 9 respectively. Thus, we obtain "Enjoy **Y**our **C**offee". Return the modified string after the spaces have been added.]]></summary></entry></feed>
