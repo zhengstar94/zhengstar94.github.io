@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-08T08:25:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3396. Minimum Number of Operations to Make Elements in Array Distinct</title><link href="https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeElementsInArrayDistinct/" rel="alternate" type="text/html" title="3396. Minimum Number of Operations to Make Elements in Array Distinct"/><published>2025-04-08T00:00:00+00:00</published><updated>2025-04-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeElementsInArrayDistinct</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeElementsInArrayDistinct/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. You need to ensure that the elements in the array are <strong>distinct</strong>. To achieve this, you can perform the following operation any number of times: <ul> <li>Remove 3 elements from the beginning of the array. If the array has fewer than 3 elements, remove all remaining elements.</li> </ul> </li> <li><strong>Note</strong> that an empty array is considered to have distinct elements. Return the <strong>minimum</strong> number of operations needed to make the elements in the array distinct.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,2,3,3,5,7]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-08T09:05:48+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1446. Consecutive Characters</title><link href="https://zhengstar94.github.io//blog/2025/ConsecutiveCharacters/" rel="alternate" type="text/html" title="1446. Consecutive Characters"/><published>2025-04-08T00:00:00+00:00</published><updated>2025-04-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ConsecutiveCharacters</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ConsecutiveCharacters/"><![CDATA[<ul> <li>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.</li> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the <strong>power</strong> of</em> <code class="language-plaintext highlighter-rouge">s</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "leetcode"
+Output: 2
+Explanation: The substring "ee" is of length 2 with the character 'e' only.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abbcccddddeeeeedcba"
+Output: 5
+Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/08
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConsecutiveCharacters</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxPower</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get string length</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="c1">// Track maximum consecutive count found</span>
+        <span class="kt">int</span> <span class="n">maxCount</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Current position in string</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Process string using group cycle pattern</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Mark start of current group</span>
+            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="c1">// Get character for current group</span>
+            <span class="kt">char</span> <span class="n">currentChar</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">start</span><span class="o">);</span>
+
+            <span class="c1">// Extend group while same character continues</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">currentChar</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Calculate length of current group</span>
+            <span class="kt">int</span> <span class="n">groupLength</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
+            <span class="c1">// Update maximum count if current group is longer</span>
+            <span class="n">maxCount</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxCount</span><span class="o">,</span> <span class="n">groupLength</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">maxCount</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: String with two consecutive 'e's</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">maxPower</span><span class="o">(</span><span class="s">"leetcode"</span><span class="o">));</span>  <span class="c1">// Expected: 2 (ee)</span>
+
+        <span class="c1">// Test case 2: String with multiple groups of increasing length</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">maxPower</span><span class="o">(</span><span class="s">"abbcccddddeeeee"</span><span class="o">));</span>  <span class="c1">// Expected: 5 (eeeee)</span>
+
+        <span class="c1">// Test case 3: Edge case - single character</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">maxPower</span><span class="o">(</span><span class="s">"a"</span><span class="o">));</span>  <span class="c1">// Expected: 1</span>
+
+        <span class="c1">// Test case 4: Edge case - no consecutive characters</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">maxPower</span><span class="o">(</span><span class="s">"abc"</span><span class="o">));</span>  <span class="c1">// Expected: 1</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Easy"/><summary type="html"><![CDATA[The power of the string is the maximum length of a non-empty substring that contains only one unique character. Given a string s, return the power of s.]]></summary></entry><entry><title type="html">3396. Minimum Number of Operations to Make Elements in Array Distinct</title><link href="https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeElementsInArrayDistinct/" rel="alternate" type="text/html" title="3396. Minimum Number of Operations to Make Elements in Array Distinct"/><published>2025-04-08T00:00:00+00:00</published><updated>2025-04-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeElementsInArrayDistinct</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumNumberOfOperationsToMakeElementsInArrayDistinct/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. You need to ensure that the elements in the array are <strong>distinct</strong>. To achieve this, you can perform the following operation any number of times: <ul> <li>Remove 3 elements from the beginning of the array. If the array has fewer than 3 elements, remove all remaining elements.</li> </ul> </li> <li><strong>Note</strong> that an empty array is considered to have distinct elements. Return the <strong>minimum</strong> number of operations needed to make the elements in the array distinct.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,2,3,3,5,7]
 Output: 2
 
 Explanation:
@@ -654,62 +713,4 @@ Explanation: The only ordered triplet of indices (0, 1, 2) has a negative value 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. Return the maximum value over all triplets of indices (i, j, k) such that i &lt; j &lt; k. If all such triplets have a negative value, return 0. The value of a triplet of indices (i, j, k) is equal to (nums[i] - nums[j]) * nums[k].]]></summary></entry><entry><title type="html">2873. Maximum Value of an Ordered Triplet I</title><link href="https://zhengstar94.github.io//blog/2025/MaximumValueOfAnOrderedTripletI/" rel="alternate" type="text/html" title="2873. Maximum Value of an Ordered Triplet I"/><published>2025-04-02T00:00:00+00:00</published><updated>2025-04-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumValueOfAnOrderedTripletI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumValueOfAnOrderedTripletI/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return <strong><em>the maximum value over all triplets of indices</em></strong> <code class="language-plaintext highlighter-rouge">(i, j, k)</code> <em>such that</em> <code class="language-plaintext highlighter-rouge">i &lt; j &lt; k</code>. If all such triplets have a negative value, return <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>The <strong>value of a triplet of indices</strong> <code class="language-plaintext highlighter-rouge">(i, j, k)</code> is equal to <code class="language-plaintext highlighter-rouge">(nums[i] - nums[j ] ) * nums[k]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [12,6,1,2,7]
-Output: 77
-Explanation: The value of the triplet (0, 2, 4) is (nums[0] - nums[2 ] ) * nums[4] = 77.
-It can be shown that there are no ordered triplets of indices with a value greater than 77. 
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,10,3,4,19]
-Output: 133
-Explanation: The value of the triplet (1, 2, 4) is (nums[1] - nums[2 ] ) * nums[4] = 133.
-It can be shown that there are no ordered triplets of indices with a value greater than 133.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3]
-Output: 0
-Explanation: The only ordered triplet of indices (0, 1, 2) has a negative value of (nums[0] - nums[1 ] ) * nums[2] = -3. Hence, the answer would be 0.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/02
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumValueOfAnOrderedTripletI</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">maximumTripletValue</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the answer to store the maximum triplet value</span>
-        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Store the maximum difference (nums[i] - nums[j]) encountered so far</span>
-        <span class="kt">int</span> <span class="n">maxDiff</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Store the maximum value encountered so far (potential nums[i])</span>
-        <span class="kt">int</span> <span class="n">preMax</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each number in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate potential answer using current number as nums[k]</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span><span class="n">maxDiff</span> <span class="o">*</span> <span class="n">x</span><span class="o">);</span>
-            <span class="c1">// Update maxDiff: current number could be nums[j]</span>
-            <span class="n">maxDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxDiff</span><span class="o">,</span> <span class="n">preMax</span> <span class="o">-</span> <span class="n">x</span><span class="o">);</span>
-            <span class="c1">// Update preMax: current number could be nums[i]</span>
-            <span class="n">preMax</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">preMax</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases array with example inputs</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">7</span><span class="o">},</span>    <span class="c1">// Expected output: 77  ( ( 12-1)*7)</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">19</span><span class="o">},</span>   <span class="c1">// Expected output: 133 ( ( 10-3)*19)</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">}</span>            <span class="c1">// Expected output: 0   (no valid positive value possible)</span>
-        <span class="o">};</span>
-
-        <span class="c1">// Run all test cases and print results</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">testCases</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="n">maximumTripletValue</span><span class="o">(</span><span class="n">testCases</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case "</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">" result: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. Return the maximum value over all triplets of indices (i, j, k) such that i &lt; j &lt; k. If all such triplets have a negative value, return 0. The value of a triplet of indices (i, j, k) is equal to (nums[i] - nums[j ] ) * nums[k].]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. Return the maximum value over all triplets of indices (i, j, k) such that i &lt; j &lt; k. If all such triplets have a negative value, return 0. The value of a triplet of indices (i, j, k) is equal to (nums[i] - nums[j]) * nums[k].]]></summary></entry></feed>
