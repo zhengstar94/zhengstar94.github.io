@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-13T06:08:50+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">228. Summary Ranges</title><link href="https://zhengstar94.github.io//blog/2025/SummaryRanges/" rel="alternate" type="text/html" title="228. Summary Ranges"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SummaryRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SummaryRanges/"><![CDATA[<ul> <li>You are given a <strong>sorted unique</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A <strong>range</strong> <code class="language-plaintext highlighter-rouge">[a,b]</code> is the set of all integers from <code class="language-plaintext highlighter-rouge">a</code> to <code class="language-plaintext highlighter-rouge">b</code> (inclusive).</li> <li>Return <em>the <strong>smallest sorted</strong> list of ranges that <strong>cover all the numbers in the array exactly</strong></em>. That is, each element of <code class="language-plaintext highlighter-rouge">nums</code> is covered by exactly one of the ranges, and there is no integer <code class="language-plaintext highlighter-rouge">x</code> such that <code class="language-plaintext highlighter-rouge">x</code> is in one of the ranges but not in <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Each range <code class="language-plaintext highlighter-rouge">[a,b]</code> in the list should be output as: <ul> <li><code class="language-plaintext highlighter-rouge">"a-&gt;b"</code> if <code class="language-plaintext highlighter-rouge">a != b</code></li> <li><code class="language-plaintext highlighter-rouge">"a"</code> if <code class="language-plaintext highlighter-rouge">a == b</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,2,4,5,7]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-13T06:34:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1887. Reduction Operations to Make the Array Elements Equal</title><link href="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/" rel="alternate" type="text/html" title="1887. Reduction Operations to Make the Array Elements Equal"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, your goal is to make all elements in <code class="language-plaintext highlighter-rouge">nums</code> equal. To complete one operation, follow these steps: <ol> <li>Find the <strong>largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code>. Let its index be <code class="language-plaintext highlighter-rouge">i</code> (<strong>0-indexed</strong>) and its value be <code class="language-plaintext highlighter-rouge">largest</code>. If there are multiple elements with the largest value, pick the smallest <code class="language-plaintext highlighter-rouge">i</code>.</li> <li>Find the <strong>next largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code> <strong>strictly smaller</strong> than <code class="language-plaintext highlighter-rouge">largest</code>. Let its value be <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> <li>Reduce <code class="language-plaintext highlighter-rouge">nums[i]</code> to <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> </ol> </li> <li>Return <em>the number of operations to make all elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>equal</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,1,3]
+Output: 3
+Explanation: It takes 3 operations to make all elements in nums equal:
+1. largest = 5 at index 0. nextLargest = 3. Reduce nums[0] to 3. nums = [3,1,3].
+2. largest = 3 at index 0. nextLargest = 1. Reduce nums[0] to 1. nums = [1,1,3].
+3. largest = 3 at index 2. nextLargest = 1. Reduce nums[2] to 1. nums = [1,1,1].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
+Output: 0
+Explanation: All elements in nums are already equal.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,2,3]
+Output: 4
+Explanation: It takes 4 operations to make all elements in nums equal:
+1. largest = 3 at index 4. nextLargest = 2. Reduce nums[4] to 2. nums = [1,1,2,2,2].
+2. largest = 2 at index 2. nextLargest = 1. Reduce nums[2] to 1. nums = [1,1,1,2,2].
+3. largest = 2 at index 3. nextLargest = 1. Reduce nums[3] to 1. nums = [1,1,1,1,2].
+4. largest = 2 at index 4. nextLargest = 1. Reduce nums[4] to 1. nums = [1,1,1,1,1].
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReductionOperationsToMakeTheArrayElementsEqual</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reductionOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the array to group identical elements together</span>
+        <span class="c1">// This makes it easier to process elements from largest to smallest</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="c1">// Initialize variables</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>              <span class="c1">// Length of the array</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>                    <span class="c1">// Start from the last element (largest value)</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                   <span class="c1">// Counter for total operations needed</span>
+
+        <span class="c1">// Main loop continues while we have elements to process</span>
+        <span class="c1">// We need at least two different values to perform operations</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="c1">// Store the starting index of current group</span>
+            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+
+            <span class="c1">// Inner loop: Find all elements with the same value</span>
+            <span class="c1">// This loop groups identical elements together</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]){</span>
+                <span class="c1">// Move backward while we find same values</span>
+                <span class="c1">// This helps us identify the size of current group</span>
+                <span class="n">i</span><span class="o">--;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Process current group if it's not the smallest value group</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+                <span class="c1">// Calculate operations needed for current group</span>
+                <span class="c1">// n - i represents the number of elements that need to be reduced</span>
+                <span class="c1">// For each element larger than the next distinct value,</span>
+                <span class="c1">// we need one operation to reduce it</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Move to the next group</span>
+            <span class="c1">// We decrement i here because the current position has been processed</span>
+            <span class="n">i</span><span class="o">--;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with distinct elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">reductionOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="c1">// Expected output: 3 (requires 3 operations to make all elements equal)</span>
+
+        <span class="c1">// Test Case 2: Array with all equal elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">reductionOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="c1">// Expected output: 0 (no operations needed as elements are already equal)</span>
+
+        <span class="c1">// Test Case 3: Array with mixed repeated elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">reductionOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="c1">// Expected output: 4 (requires 4 operations to make all elements equal)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums, your goal is to make all elements in nums equal. To complete one operation, follow these steps: Find the largest value in nums. Let its index be i (0-indexed) and its value be largest. If there are multiple elements with the largest value, pick the smallest i. Find the next largest value in nums strictly smaller than largest. Let its value be nextLargest. Reduce nums[i] to nextLargest. Return the number of operations to make all elements in nums equal.]]></summary></entry><entry><title type="html">228. Summary Ranges</title><link href="https://zhengstar94.github.io//blog/2025/SummaryRanges/" rel="alternate" type="text/html" title="228. Summary Ranges"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SummaryRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SummaryRanges/"><![CDATA[<ul> <li>You are given a <strong>sorted unique</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A <strong>range</strong> <code class="language-plaintext highlighter-rouge">[a,b]</code> is the set of all integers from <code class="language-plaintext highlighter-rouge">a</code> to <code class="language-plaintext highlighter-rouge">b</code> (inclusive).</li> <li>Return <em>the <strong>smallest sorted</strong> list of ranges that <strong>cover all the numbers in the array exactly</strong></em>. That is, each element of <code class="language-plaintext highlighter-rouge">nums</code> is covered by exactly one of the ranges, and there is no integer <code class="language-plaintext highlighter-rouge">x</code> such that <code class="language-plaintext highlighter-rouge">x</code> is in one of the ranges but not in <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Each range <code class="language-plaintext highlighter-rouge">[a,b]</code> in the list should be output as: <ul> <li><code class="language-plaintext highlighter-rouge">"a-&gt;b"</code> if <code class="language-plaintext highlighter-rouge">a != b</code></li> <li><code class="language-plaintext highlighter-rouge">"a"</code> if <code class="language-plaintext highlighter-rouge">a == b</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,2,4,5,7]
 Output: ["0-&gt;2","4-&gt;5","7"]
 Explanation: The ranges are:
 [0,2] --&gt; "0-&gt;2"
@@ -794,88 +879,4 @@ The segment of 1s is not longer, so return false.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Easy"/><summary type="html"><![CDATA[Given a binary string s, return true if the longest contiguous segment of 1‘s is strictly longer than the longest contiguous segment of 0‘s in s, or return false otherwise. For example, in s="110100010" the longest continuous segment of 1s has length 2, and the longest continuous segment of 0s has length 3. Note that if there are no 0’s, then the longest continuous segment of 0’s is considered to have a length 0. The same applies if there is no 1’s.]]></summary></entry><entry><title type="html">3375. Minimum Operations to Make Array Values Equal to K</title><link href="https://zhengstar94.github.io//blog/2025/MinimumOperationsToMakeArrayValuesEqualToK/" rel="alternate" type="text/html" title="3375. Minimum Operations to Make Array Values Equal to K"/><published>2025-04-09T00:00:00+00:00</published><updated>2025-04-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumOperationsToMakeArrayValuesEqualToK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumOperationsToMakeArrayValuesEqualToK/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>An integer <code class="language-plaintext highlighter-rouge">h</code> is called <strong>valid</strong> if all values in the array that are <strong>strictly greater</strong> than <code class="language-plaintext highlighter-rouge">h</code> are <em>identical</em>.</li> <li>For example, if <code class="language-plaintext highlighter-rouge">nums = [10, 8, 10, 8]</code>, a <strong>valid</strong> integer is <code class="language-plaintext highlighter-rouge">h = 9</code> because all <code class="language-plaintext highlighter-rouge">nums[i] &gt; 9</code> are equal to 10, but 5 is not a <strong>valid</strong> integer.</li> <li>You are allowed to perform the following operation on <code class="language-plaintext highlighter-rouge">nums</code>: <ul> <li>Select an integer <code class="language-plaintext highlighter-rouge">h</code> that is <em>valid</em> for the <strong>current</strong> values in <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>For each index <code class="language-plaintext highlighter-rouge">i</code> where <code class="language-plaintext highlighter-rouge">nums[i] &gt; h</code>, set <code class="language-plaintext highlighter-rouge">nums[i]</code> to <code class="language-plaintext highlighter-rouge">h</code>.</li> </ul> </li> <li>Return the <strong>minimum</strong> number of operations required to make every element in <code class="language-plaintext highlighter-rouge">nums</code> <strong>equal</strong> to <code class="language-plaintext highlighter-rouge">k</code>. If it is impossible to make all elements equal to <code class="language-plaintext highlighter-rouge">k</code>, return -1.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,2,5,4,5], k = 2
-
-Output: 2
-
-Explanation:
-
-The operations can be performed in order using valid integers 4 and then 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,2], k = 2
-
-Output: -1
-
-Explanation:
-
-It is impossible to make all the values equal to 2.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9,7,5,3], k = 1
-
-Output: 4
-
-Explanation:
-
-The operations can be performed using valid integers in the order 7, 5, 3, and 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumOperationsToMakeArrayValuesEqualToK</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Find the minimum value in the array</span>
-        <span class="kt">int</span> <span class="n">min</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">nums</span><span class="o">).</span><span class="na">min</span><span class="o">().</span><span class="na">getAsInt</span><span class="o">();</span>
-
-        <span class="c1">// If k is greater than the minimum value, it's impossible to make all elements equal to k</span>
-        <span class="c1">// because we can only decrease values, never increase them</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="n">min</span><span class="o">){</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Count the number of distinct elements in the array</span>
-        <span class="c1">// This represents the base number of operations needed</span>
-        <span class="kt">int</span> <span class="n">distinctCount</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">nums</span><span class="o">).</span><span class="na">distinct</span><span class="o">().</span><span class="na">count</span><span class="o">();</span>
-
-        <span class="c1">// If k equals the minimum value, we need one less operation</span>
-        <span class="c1">// because the minimum value is already at the target</span>
-        <span class="k">return</span> <span class="n">distinctCount</span> <span class="o">-</span> <span class="o">(</span><span class="n">k</span> <span class="o">==</span> <span class="n">min</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Multiple operations needed</span>
-        <span class="c1">// Expected: 2 operations to make all elements equal to 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test Case 2: Impossible case (contains element smaller than k)</span>
-        <span class="c1">// Expected: -1 as we can't increase 1 to become 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Expected output: -1</span>
-
-        <span class="c1">// Test Case 3: Multiple distinct values</span>
-        <span class="c1">// Expected: 4 operations to make all elements equal to 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Expected output: 4</span>
-
-        <span class="c1">// Test Case 4: All elements already equal</span>
-        <span class="c1">// Expected: 0 operations as all elements are already equal to k</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test Case 5: Single element</span>
-        <span class="c1">// Expected: 1 operation to reduce 10 to 5</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. An integer h is called valid if all values in the array that are strictly greater than h are identical. For example, if nums=[10, 8, 10, 8], a valid integer is h=9 because all nums[i] &gt; 9 are equal to 10, but 5 is not a valid integer. You are allowed to perform the following operation on nums: Select an integer h that is valid for the current values in nums. For each index i where nums[i] &gt; h, set nums[i] to h. Return the minimum number of operations required to make every element in nums equal to k. If it is impossible to make all elements equal to k, return -1.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Easy"/><summary type="html"><![CDATA[Given a binary string s, return true if the longest contiguous segment of 1‘s is strictly longer than the longest contiguous segment of 0‘s in s, or return false otherwise. For example, in s="110100010" the longest continuous segment of 1s has length 2, and the longest continuous segment of 0s has length 3. Note that if there are no 0’s, then the longest continuous segment of 0’s is considered to have a length 0. The same applies if there is no 1’s.]]></summary></entry></feed>
