@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-13T23:57:38+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1887. Reduction Operations to Make the Array Elements Equal</title><link href="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/" rel="alternate" type="text/html" title="1887. Reduction Operations to Make the Array Elements Equal"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, your goal is to make all elements in <code class="language-plaintext highlighter-rouge">nums</code> equal. To complete one operation, follow these steps: <ol> <li>Find the <strong>largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code>. Let its index be <code class="language-plaintext highlighter-rouge">i</code> (<strong>0-indexed</strong>) and its value be <code class="language-plaintext highlighter-rouge">largest</code>. If there are multiple elements with the largest value, pick the smallest <code class="language-plaintext highlighter-rouge">i</code>.</li> <li>Find the <strong>next largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code> <strong>strictly smaller</strong> than <code class="language-plaintext highlighter-rouge">largest</code>. Let its value be <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> <li>Reduce <code class="language-plaintext highlighter-rouge">nums[i]</code> to <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> </ol> </li> <li>Return <em>the number of operations to make all elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>equal</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,1,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-14T00:44:42+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1534. Count Good Triplets</title><link href="https://zhengstar94.github.io//blog/2025/CountGoodTriplets/" rel="alternate" type="text/html" title="1534. Count Good Triplets"/><published>2025-04-14T00:00:00+00:00</published><updated>2025-04-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountGoodTriplets</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountGoodTriplets/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">arr</code>, and three integers <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">b</code> and <code class="language-plaintext highlighter-rouge">c</code>. You need to find the number of good triplets.</li> <li>A triplet <code class="language-plaintext highlighter-rouge">(arr[i], arr[j], arr[k ] )</code> is <strong>good</strong> if the following conditions are true: <ul> <li><code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; k &lt; arr.length</code></li> <li><code class="language-plaintext highlighter-rouge">|arr[i] - arr[j ] | &lt;= a</code></li> <li><code class="language-plaintext highlighter-rouge">|arr[j] - arr[k ] | &lt;= b</code></li> <li><code class="language-plaintext highlighter-rouge">|arr[i] - arr[k ] | &lt;= c</code></li> </ul> </li> <li>Where <code class="language-plaintext highlighter-rouge">|x|</code> denotes the absolute value of <code class="language-plaintext highlighter-rouge">x</code>.</li> <li>Return <em>the number of good triplets</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [3,0,1,1,9,7], a = 7, b = 2, c = 3
+Output: 4
+Explanation: There are 4 good triplets: [ ( 3,0,1), (3,0,1), (3,1,1), (0,1,1 ) ].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,1,2,2,3], a = 0, b = 0, c = 1
+Output: 0
+Explanation: No triplet satisfies all conditions.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>3) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BruteForce</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountGoodTriplets</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countGoodTriplets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Counter to keep track of valid triplets</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Length of input array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// First loop for index i</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Second loop for index j, starting after i</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// Early check for first condition to avoid unnecessary iterations</span>
+                <span class="k">if</span> <span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">&gt;</span> <span class="n">a</span><span class="o">){</span>
+                    <span class="k">continue</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Third loop for index k, starting after j</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="c1">// Check if triplet satisfies all remaining conditions</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">-</span> <span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">])</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">])</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="o">){</span>
+                        <span class="n">count</span><span class="o">++;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Expected output is 4</span>
+        <span class="c1">// Example where multiple good triplets exist</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">a1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">c1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countGoodTriplets</span><span class="o">(</span><span class="n">arr1</span><span class="o">,</span> <span class="n">a1</span><span class="o">,</span> <span class="n">b1</span><span class="o">,</span> <span class="n">c1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Expected output is 0</span>
+        <span class="c1">// Example where no good triplets exist</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">a2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countGoodTriplets</span><span class="o">(</span><span class="n">arr2</span><span class="o">,</span> <span class="n">a2</span><span class="o">,</span> <span class="n">b2</span><span class="o">,</span> <span class="n">c2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BruteForce"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of integers arr, and three integers a, b and c. You need to find the number of good triplets. A triplet (arr[i], arr[j], arr[k ] ) is good if the following conditions are true: 0 &lt;= i &lt; j &lt; k &lt; arr.length |arr[i] - arr[j ] | &lt;= a |arr[j] - arr[k ] | &lt;= b |arr[i] - arr[k ] | &lt;= c Where |x| denotes the absolute value of x. Return the number of good triplets.]]></summary></entry><entry><title type="html">1887. Reduction Operations to Make the Array Elements Equal</title><link href="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/" rel="alternate" type="text/html" title="1887. Reduction Operations to Make the Array Elements Equal"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, your goal is to make all elements in <code class="language-plaintext highlighter-rouge">nums</code> equal. To complete one operation, follow these steps: <ol> <li>Find the <strong>largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code>. Let its index be <code class="language-plaintext highlighter-rouge">i</code> (<strong>0-indexed</strong>) and its value be <code class="language-plaintext highlighter-rouge">largest</code>. If there are multiple elements with the largest value, pick the smallest <code class="language-plaintext highlighter-rouge">i</code>.</li> <li>Find the <strong>next largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code> <strong>strictly smaller</strong> than <code class="language-plaintext highlighter-rouge">largest</code>. Let its value be <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> <li>Reduce <code class="language-plaintext highlighter-rouge">nums[i]</code> to <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> </ol> </li> <li>Return <em>the number of operations to make all elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>equal</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,1,3]
 Output: 3
 Explanation: It takes 3 operations to make all elements in nums equal:
 1. largest = 5 at index 0. nextLargest = 3. Reduce nums[0] to 3. nums = [3,1,3].
@@ -775,108 +834,4 @@ Explanation: "abcde" is the longest continuous substring.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[An alphabetical continuous string is a string consisting of consecutive letters in the alphabet. In other words, it is any substring of the string "abcdefghijklmnopqrstuvwxyz". For example, "abc" is an alphabetical continuous string, while "acb" and "za" are not. Given a string s consisting of lowercase letters only, return the length of the longest alphabetical continuous substring.]]></summary></entry><entry><title type="html">1869. Longer Contiguous Segments of Ones than Zeros</title><link href="https://zhengstar94.github.io//blog/2025/LongerContiguousSegmentsOfOnesThanZeros/" rel="alternate" type="text/html" title="1869. Longer Contiguous Segments of Ones than Zeros"/><published>2025-04-09T00:00:00+00:00</published><updated>2025-04-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongerContiguousSegmentsOfOnesThanZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongerContiguousSegmentsOfOnesThanZeros/"><![CDATA[<ul> <li>Given a binary string <code class="language-plaintext highlighter-rouge">s</code>, return <code class="language-plaintext highlighter-rouge">true</code> <em>if the <strong>longest</strong> contiguous segment of</em> <code class="language-plaintext highlighter-rouge">1</code>‘<em>s is <strong>strictly longer</strong> than the <strong>longest</strong> contiguous segment of</em> <code class="language-plaintext highlighter-rouge">0</code>‘<em>s in</em> <code class="language-plaintext highlighter-rouge">s</code>, or return <code class="language-plaintext highlighter-rouge">false</code> <em>otherwise</em>. <ul> <li>For example, in <code class="language-plaintext highlighter-rouge">s = "110100010"</code> the longest continuous segment of <code class="language-plaintext highlighter-rouge">1</code>s has length <code class="language-plaintext highlighter-rouge">2</code>, and the longest continuous segment of <code class="language-plaintext highlighter-rouge">0</code>s has length <code class="language-plaintext highlighter-rouge">3</code>.</li> </ul> </li> <li>Note that if there are no <code class="language-plaintext highlighter-rouge">0</code>’s, then the longest continuous segment of <code class="language-plaintext highlighter-rouge">0</code>’s is considered to have a length <code class="language-plaintext highlighter-rouge">0</code>. The same applies if there is no <code class="language-plaintext highlighter-rouge">1</code>’s.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "1101"
-Output: true
-Explanation:
-The longest contiguous segment of 1s has length 2: "1101"
-The longest contiguous segment of 0s has length 1: "1101"
-The segment of 1s is longer, so return true.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "111000"
-Output: false
-Explanation:
-The longest contiguous segment of 1s has length 3: "111000"
-The longest contiguous segment of 0s has length 3: "111000"
-The segment of 1s is not longer, so return false.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "110100010"
-Output: false
-Explanation:
-The longest contiguous segment of 1s has length 2: "110100010"
-The longest contiguous segment of 0s has length 3: "110100010"
-The segment of 1s is not longer, so return false.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/09
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongerContiguousSegmentsOfOnesThanZeros</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkZeroOnes</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of input string</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-
-        <span class="c1">// Variables to track the maximum consecutive counts of 1's and 0's</span>
-        <span class="kt">int</span> <span class="n">maxOnes</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">maxZeros</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Index for traversing the string</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Process the string using grouped loop pattern</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Mark the start position of current group</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Get the character that defines current group (either '0' or '1')</span>
-            <span class="kt">char</span> <span class="n">currentChar</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">start</span><span class="o">);</span>
-
-            <span class="c1">// Continue while we see the same character</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">currentChar</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">i</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate the length of current continuous group</span>
-            <span class="kt">int</span> <span class="n">groupLength</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
-
-            <span class="c1">// Update the appropriate maximum count based on current character</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">currentChar</span> <span class="o">==</span> <span class="sc">'1'</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">maxOnes</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxOnes</span><span class="o">,</span> <span class="n">groupLength</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">maxZeros</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxZeros</span><span class="o">,</span> <span class="n">groupLength</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return true if longest segment of 1's is strictly longer than 0's</span>
-        <span class="k">return</span> <span class="n">maxOnes</span> <span class="o">&gt;</span> <span class="n">maxZeros</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with mixed 1's and 0's</span>
-        <span class="nc">String</span> <span class="n">test1</span> <span class="o">=</span> <span class="s">"1101"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 1: "</span> <span class="o">+</span> <span class="n">test1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">checkZeroOnes</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Equal length segments</span>
-        <span class="nc">String</span> <span class="n">test2</span> <span class="o">=</span> <span class="s">"11000"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 2: "</span> <span class="o">+</span> <span class="n">test2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">checkZeroOnes</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 3: Single character</span>
-        <span class="nc">String</span> <span class="n">test3</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 3: "</span> <span class="o">+</span> <span class="n">test3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">checkZeroOnes</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 4: Alternating pattern</span>
-        <span class="nc">String</span> <span class="n">test4</span> <span class="o">=</span> <span class="s">"101010"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 4: "</span> <span class="o">+</span> <span class="n">test4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: false"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">checkZeroOnes</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 5: Long continuous sequence</span>
-        <span class="nc">String</span> <span class="n">test5</span> <span class="o">=</span> <span class="s">"111000111111"</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test 5: "</span> <span class="o">+</span> <span class="n">test5</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: true"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual result: "</span> <span class="o">+</span> <span class="n">checkZeroOnes</span><span class="o">(</span><span class="n">test5</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Easy"/><summary type="html"><![CDATA[Given a binary string s, return true if the longest contiguous segment of 1‘s is strictly longer than the longest contiguous segment of 0‘s in s, or return false otherwise. For example, in s="110100010" the longest continuous segment of 1s has length 2, and the longest continuous segment of 0s has length 3. Note that if there are no 0’s, then the longest continuous segment of 0’s is considered to have a length 0. The same applies if there is no 1’s.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[An alphabetical continuous string is a string consisting of consecutive letters in the alphabet. In other words, it is any substring of the string "abcdefghijklmnopqrstuvwxyz". For example, "abc" is an alphabetical continuous string, while "acb" and "za" are not. Given a string s consisting of lowercase letters only, return the length of the longest alphabetical continuous substring.]]></summary></entry></feed>
