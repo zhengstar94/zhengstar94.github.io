@@ -105,17 +105,17 @@ public class LongestMountainInArray {
         // Test Case 1: Standard mountain array
         // Expected output: 5 (subarray [1,4,7,3,2] forms a mountain)
         int[] arr1 = {2,1,4,7,3,2,5};
-        System.out.println("Test Case 1 Result: " + longestMountain(arr1));
+        System.out.println("Test Case 1 Result: " + longestMountain(arr1) );
 
         // Test Case 2: No mountain exists
         // Expected output: 0 (no increasing then decreasing sequence)
         int[] arr2 = {2,2,2};
-        System.out.println("Test Case 2 Result: " + longestMountain(arr2));
+        System.out.println("Test Case 2 Result: " + longestMountain(arr2) );
 
         // Test Case 3: Multiple mountains
         // Expected output: 5 (largest mountain length among multiple mountains)
         int[] arr3 = {1,2,3,2,1,4,5,2,1};
-        System.out.println("Test Case 3 Result: " + longestMountain(arr3));
+        System.out.println("Test Case 3 Result: " + longestMountain(arr3) );
     }
 }
 
