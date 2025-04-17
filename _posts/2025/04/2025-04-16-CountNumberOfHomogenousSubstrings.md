@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "1759. Count Number of Homogenous Substrings"
-date: "2025-04-14"
+date: "2025-04-16"
 tags: Medium
 categories:
   - "LeetCode GroupedLoop"
