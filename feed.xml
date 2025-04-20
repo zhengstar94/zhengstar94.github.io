@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-20T09:21:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">781. Rabbits in Forest</title><link href="https://zhengstar94.github.io//blog/2025/RabbitsInForest/" rel="alternate" type="text/html" title="781. Rabbits in Forest"/><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RabbitsInForest</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RabbitsInForest/"><![CDATA[<ul> <li>There is a forest with an unknown number of rabbits. We asked n rabbits <strong>“How many rabbits have the same color as you?”</strong> and collected the answers in an integer array <code class="language-plaintext highlighter-rouge">answers</code> where <code class="language-plaintext highlighter-rouge">answers[i]</code> is the answer of the <code class="language-plaintext highlighter-rouge">ith</code> rabbit.</li> <li>Given the array <code class="language-plaintext highlighter-rouge">answers</code>, return <em>the minimum number of rabbits that could be in the forest</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: answers = [1,1,2]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-20T09:46:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3255. Find the Power of K-Size Subarrays II</title><link href="https://zhengstar94.github.io//blog/2025/FindThePowerOfKSizeSubarraysII/" rel="alternate" type="text/html" title="3255. Find the Power of K-Size Subarrays II"/><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindThePowerOfKSizeSubarraysII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindThePowerOfKSizeSubarraysII/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and a <em>positive</em> integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>The <strong>power</strong> of an array is defined as: <ul> <li>Its <strong>maximum</strong> element if <em>all</em> of its elements are <strong>consecutive</strong> and <strong>sorted</strong> in <strong>ascending</strong> order.</li> <li>-1 otherwise.</li> </ul> </li> <li>You need to find the <strong>power</strong> of all subarrays of <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return an integer array <code class="language-plaintext highlighter-rouge">results</code> of size <code class="language-plaintext highlighter-rouge">n - k + 1</code>, where <code class="language-plaintext highlighter-rouge">results[i]</code> is the <em>power</em> of <code class="language-plaintext highlighter-rouge">nums[i..(i + k - 1)]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,3,2,5], k = 3
+
+Output: [3,4,-1,-1,-1]
+
+Explanation:
+
+There are 5 subarrays of nums of size 3:
+	[1, 2, 3] with the maximum element 3.
+	[2, 3, 4] with the maximum element 4.
+	[3, 4, 3] whose elements are not consecutive.
+	[4, 3, 2] whose elements are not sorted.
+	[3, 2, 5] whose elements are not consecutive.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,2,2,2], k = 4
+
+Output: [-1,-1]
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,3,2,3,2], k = 2
+
+Output: [-1,3,-1,3,-1]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n - k + 1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindThePowerOfKSizeSubarraysII</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">resultsArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the length of input array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// Initialize result array with length n-k+1 (total possible subarrays of size k)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+        <span class="c1">// Fill result array with -1 as default value (indicating invalid subarrays)</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+
+        <span class="c1">// Index to traverse through the array</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Main loop to process the entire array</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Mark the start of a potential consecutive sequence</span>
+            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+
+            <span class="c1">// Find the longest consecutive increasing sequence starting from index i</span>
+            <span class="c1">// For example: in [1,2,3,4,3], starting from 1, this will find [1,2,3,4]</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">i</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Calculate length of current consecutive sequence</span>
+            <span class="c1">// len = end position (i) - start position + 1</span>
+            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+            <span class="c1">// If the consecutive sequence length is &gt;= k, process all valid k-sized subarrays</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">len</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Process each possible k-sized subarray within the consecutive sequence</span>
+                <span class="c1">// For example: if sequence is [1,2,3,4] and k=3:</span>
+                <span class="c1">// First iteration (j=0): processes [1,2,3]</span>
+                <span class="c1">// Second iteration (j=1): processes [2,3,4]</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">j</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="c1">// j is the start of current k-sized subarray</span>
+                    <span class="c1">// j + k - 1 is the end of current k-sized subarray</span>
+                    <span class="c1">// Store the last element of the k-sized subarray as its energy value</span>
+                    <span class="c1">// For [1,2,3], store 3 at ans[0]</span>
+                    <span class="c1">// For [2,3,4], store 4 at ans[1]</span>
+                    <span class="n">ans</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Move to next position to start checking for new consecutive sequence</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with consecutive increasing sequence</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">)</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">resultsArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">)));</span>
+        <span class="c1">// Expected output: [3, 4, -1, -1, -1]</span>
+
+        <span class="c1">// Test Case 2: Array with all same elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">)</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">resultsArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">)));</span>
+        <span class="c1">// Expected output: [-1, -1]</span>
+
+        <span class="c1">// Test Case 3: Array with alternating numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">)</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">resultsArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">)));</span>
+        <span class="c1">// Expected output: [-1, -1, -1, -1, -1]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array of integers nums of length n and a positive integer k. The power of an array is defined as: Its maximum element if all of its elements are consecutive and sorted in ascending order. -1 otherwise. You need to find the power of all subarrays of nums of size k. Return an integer array results of size n - k + 1, where results[i] is the power of nums[i..(i + k - 1)].]]></summary></entry><entry><title type="html">781. Rabbits in Forest</title><link href="https://zhengstar94.github.io//blog/2025/RabbitsInForest/" rel="alternate" type="text/html" title="781. Rabbits in Forest"/><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RabbitsInForest</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RabbitsInForest/"><![CDATA[<ul> <li>There is a forest with an unknown number of rabbits. We asked n rabbits <strong>“How many rabbits have the same color as you?”</strong> and collected the answers in an integer array <code class="language-plaintext highlighter-rouge">answers</code> where <code class="language-plaintext highlighter-rouge">answers[i]</code> is the answer of the <code class="language-plaintext highlighter-rouge">ith</code> rabbit.</li> <li>Given the array <code class="language-plaintext highlighter-rouge">answers</code>, return <em>the minimum number of rabbits that could be in the forest</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: answers = [1,1,2]
 Output: 5
 Explanation:
 The two rabbits that answered "1" could both be the same color, say red.
@@ -752,89 +857,4 @@ Thus, Bob wins, so return false.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[There are n pieces arranged in a line, and each piece is colored either by 'A' or by 'B'. You are given a string colors of length n where colors[i] is the color of the ith piece. Alice and Bob are playing a game where they take alternating turns removing pieces from the line. In this game, Alice moves first. Alice is only allowed to remove a piece colored 'A' if both its neighbors are also colored 'A'. She is not allowed to remove pieces that are colored 'B'. Bob is only allowed to remove a piece colored 'B' if both its neighbors are also colored 'B'. He is not allowed to remove pieces that are colored 'A'. Alice and Bob cannot remove pieces from the edge of the line. If a player cannot make a move on their turn, that player loses and the other player wins. Assuming Alice and Bob play optimally, return true if Alice wins, or return false if Bob wins.]]></summary></entry><entry><title type="html">1887. Reduction Operations to Make the Array Elements Equal</title><link href="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/" rel="alternate" type="text/html" title="1887. Reduction Operations to Make the Array Elements Equal"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ReductionOperationsToMakeTheArrayElementsEqual/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, your goal is to make all elements in <code class="language-plaintext highlighter-rouge">nums</code> equal. To complete one operation, follow these steps: <ol> <li>Find the <strong>largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code>. Let its index be <code class="language-plaintext highlighter-rouge">i</code> (<strong>0-indexed</strong>) and its value be <code class="language-plaintext highlighter-rouge">largest</code>. If there are multiple elements with the largest value, pick the smallest <code class="language-plaintext highlighter-rouge">i</code>.</li> <li>Find the <strong>next largest</strong> value in <code class="language-plaintext highlighter-rouge">nums</code> <strong>strictly smaller</strong> than <code class="language-plaintext highlighter-rouge">largest</code>. Let its value be <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> <li>Reduce <code class="language-plaintext highlighter-rouge">nums[i]</code> to <code class="language-plaintext highlighter-rouge">nextLargest</code>.</li> </ol> </li> <li>Return <em>the number of operations to make all elements in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>equal</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,1,3]
-Output: 3
-Explanation: It takes 3 operations to make all elements in nums equal:
-1. largest = 5 at index 0. nextLargest = 3. Reduce nums[0] to 3. nums = [3,1,3].
-2. largest = 3 at index 0. nextLargest = 1. Reduce nums[0] to 1. nums = [1,1,3].
-3. largest = 3 at index 2. nextLargest = 1. Reduce nums[2] to 1. nums = [1,1,1].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
-Output: 0
-Explanation: All elements in nums are already equal.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,2,3]
-Output: 4
-Explanation: It takes 4 operations to make all elements in nums equal:
-1. largest = 3 at index 4. nextLargest = 2. Reduce nums[4] to 2. nums = [1,1,2,2,2].
-2. largest = 2 at index 2. nextLargest = 1. Reduce nums[2] to 1. nums = [1,1,1,2,2].
-3. largest = 2 at index 3. nextLargest = 1. Reduce nums[3] to 1. nums = [1,1,1,1,2].
-4. largest = 2 at index 4. nextLargest = 1. Reduce nums[4] to 1. nums = [1,1,1,1,1].
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReductionOperationsToMakeTheArrayElementsEqual</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">reductionOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort the array to group identical elements together</span>
-        <span class="c1">// This makes it easier to process elements from largest to smallest</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-
-        <span class="c1">// Initialize variables</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>              <span class="c1">// Length of the array</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>                    <span class="c1">// Start from the last element (largest value)</span>
-        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                   <span class="c1">// Counter for total operations needed</span>
-
-        <span class="c1">// Main loop continues while we have elements to process</span>
-        <span class="c1">// We need at least two different values to perform operations</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="c1">// Store the starting index of current group</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Inner loop: Find all elements with the same value</span>
-            <span class="c1">// This loop groups identical elements together</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]){</span>
-                <span class="c1">// Move backward while we find same values</span>
-                <span class="c1">// This helps us identify the size of current group</span>
-                <span class="n">i</span><span class="o">--;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Process current group if it's not the smallest value group</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-                <span class="c1">// Calculate operations needed for current group</span>
-                <span class="c1">// n - i represents the number of elements that need to be reduced</span>
-                <span class="c1">// For each element larger than the next distinct value,</span>
-                <span class="c1">// we need one operation to reduce it</span>
-                <span class="n">result</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Move to the next group</span>
-            <span class="c1">// We decrement i here because the current position has been processed</span>
-            <span class="n">i</span><span class="o">--;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with distinct elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">reductionOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="c1">// Expected output: 3 (requires 3 operations to make all elements equal)</span>
-
-        <span class="c1">// Test Case 2: Array with all equal elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">reductionOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="c1">// Expected output: 0 (no operations needed as elements are already equal)</span>
-
-        <span class="c1">// Test Case 3: Array with mixed repeated elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">reductionOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-        <span class="c1">// Expected output: 4 (requires 4 operations to make all elements equal)</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums, your goal is to make all elements in nums equal. To complete one operation, follow these steps: Find the largest value in nums. Let its index be i (0-indexed) and its value be largest. If there are multiple elements with the largest value, pick the smallest i. Find the next largest value in nums strictly smaller than largest. Let its value be nextLargest. Reduce nums[i] to nextLargest. Return the number of operations to make all elements in nums equal.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[There are n pieces arranged in a line, and each piece is colored either by 'A' or by 'B'. You are given a string colors of length n where colors[i] is the color of the ith piece. Alice and Bob are playing a game where they take alternating turns removing pieces from the line. In this game, Alice moves first. Alice is only allowed to remove a piece colored 'A' if both its neighbors are also colored 'A'. She is not allowed to remove pieces that are colored 'B'. Bob is only allowed to remove a piece colored 'B' if both its neighbors are also colored 'B'. He is not allowed to remove pieces that are colored 'A'. Alice and Bob cannot remove pieces from the edge of the line. If a player cannot make a move on their turn, that player loses and the other player wins. Assuming Alice and Bob play optimally, return true if Alice wins, or return false if Bob wins.]]></summary></entry></feed>
