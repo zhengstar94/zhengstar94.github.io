@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-19T07:20:16+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2765. Longest Alternating Subarray</title><link href="https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray/" rel="alternate" type="text/html" title="2765. Longest Alternating Subarray"/><published>2025-04-19T00:00:00+00:00</published><updated>2025-04-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A subarray <code class="language-plaintext highlighter-rouge">s</code> of length <code class="language-plaintext highlighter-rouge">m</code> is called <strong>alternating</strong> if: <ul> <li><code class="language-plaintext highlighter-rouge">m</code> is greater than <code class="language-plaintext highlighter-rouge">1</code>.</li> <li><code class="language-plaintext highlighter-rouge">s1 = s0 + 1</code>.</li> <li>The <strong>0-indexed</strong> subarray <code class="language-plaintext highlighter-rouge">s</code> looks like <code class="language-plaintext highlighter-rouge">[s0, s1, s0, s1,...,s(m-1) % 2]</code>. In other words, <code class="language-plaintext highlighter-rouge">s1 - s0 = 1</code>, <code class="language-plaintext highlighter-rouge">s2 - s1 = -1</code>, <code class="language-plaintext highlighter-rouge">s3 - s2 = 1</code>, <code class="language-plaintext highlighter-rouge">s4 - s3 = -1</code>, and so on up to <code class="language-plaintext highlighter-rouge">s[m - 1] - s[m - 2] = (-1)m</code>.</li> </ul> </li> <li>Return <em>the maximum length of all <strong>alternating</strong> subarrays present in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no such subarray exists**.</em></li> <li>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,4,3,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-20T09:21:55+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">781. Rabbits in Forest</title><link href="https://zhengstar94.github.io//blog/2025/RabbitsInForest/" rel="alternate" type="text/html" title="781. Rabbits in Forest"/><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RabbitsInForest</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RabbitsInForest/"><![CDATA[<ul> <li>There is a forest with an unknown number of rabbits. We asked n rabbits <strong>“How many rabbits have the same color as you?”</strong> and collected the answers in an integer array <code class="language-plaintext highlighter-rouge">answers</code> where <code class="language-plaintext highlighter-rouge">answers[i]</code> is the answer of the <code class="language-plaintext highlighter-rouge">ith</code> rabbit.</li> <li>Given the array <code class="language-plaintext highlighter-rouge">answers</code>, return <em>the minimum number of rabbits that could be in the forest</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: answers = [1,1,2]
+Output: 5
+Explanation:
+The two rabbits that answered "1" could both be the same color, say red.
+The rabbit that answered "2" can't be red or the answers would be inconsistent.
+Say the rabbit that answered "2" was blue.
+Then there should be 2 other blue rabbits in the forest that didn't answer into the array.
+The smallest possible number of rabbits in the forest is therefore 5: 3 that answered plus 2 that didn't.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: answers = [10,10,10]
+Output: 11
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RabbitsInForest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numRabbits</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">answers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create an array to count responses (size 1000 due to constraint: answers[i] &lt; 1000)</span>
+        <span class="c1">// This array stores how many rabbits gave each specific answer</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1000</span><span class="o">];</span>
+        <span class="c1">// Variable to store the minimum total number of rabbits</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each rabbit's answer</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">answer</span> <span class="o">:</span> <span class="n">answers</span><span class="o">)</span> <span class="o">{</span>
+            <span class="cm">/* Key Logic for grouping rabbits:
+             * answer + 1 = size of each color group (including the rabbit itself)
+             * count[answer] = number of rabbits processed so far who gave this answer
+             *
+             * The modulo operation (%) helps determine if we need a new group:
+             * - When count[answer] % (answer + 1) == 0, it means all previous groups are full
+             * - For example, if answer = 2:
+             *   - Each group should have 3 rabbits
+             *   - When count[2] = 0, 3, 6, etc., we need a new group
+             */</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">answer</span><span class="o">]</span> <span class="o">%</span> <span class="o">(</span><span class="n">answer</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Add a new complete group of rabbits</span>
+                <span class="c1">// answer + 1 represents the total number of rabbits in this color group</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">answer</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Increment the count for this answer</span>
+            <span class="c1">// This tracks how many rabbits have given this specific answer</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">answer</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Mixed answers</span>
+        <span class="c1">// Expected output: 5 (2 red rabbits + 3 blue rabbits)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">numRabbits</span><span class="o">(</span><span class="n">test1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Same answers</span>
+        <span class="c1">// Expected output: 11 (one group of 11 rabbits)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">numRabbits</span><span class="o">(</span><span class="n">test2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Empty array</span>
+        <span class="c1">// Expected output: 0 (no rabbits)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test3</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">numRabbits</span><span class="o">(</span><span class="n">test3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Single answer</span>
+        <span class="c1">// Expected output: 3 (one rabbit answered 2, so total 3 rabbits of same color)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">test4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">numRabbits</span><span class="o">(</span><span class="n">test4</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[There is a forest with an unknown number of rabbits. We asked n rabbits “How many rabbits have the same color as you?” and collected the answers in an integer array answers where answers[i] is the answer of the ith rabbit. Given the array answers, return the minimum number of rabbits that could be in the forest.]]></summary></entry><entry><title type="html">2765. Longest Alternating Subarray</title><link href="https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray/" rel="alternate" type="text/html" title="2765. Longest Alternating Subarray"/><published>2025-04-19T00:00:00+00:00</published><updated>2025-04-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A subarray <code class="language-plaintext highlighter-rouge">s</code> of length <code class="language-plaintext highlighter-rouge">m</code> is called <strong>alternating</strong> if: <ul> <li><code class="language-plaintext highlighter-rouge">m</code> is greater than <code class="language-plaintext highlighter-rouge">1</code>.</li> <li><code class="language-plaintext highlighter-rouge">s1 = s0 + 1</code>.</li> <li>The <strong>0-indexed</strong> subarray <code class="language-plaintext highlighter-rouge">s</code> looks like <code class="language-plaintext highlighter-rouge">[s0, s1, s0, s1,...,s(m-1) % 2]</code>. In other words, <code class="language-plaintext highlighter-rouge">s1 - s0 = 1</code>, <code class="language-plaintext highlighter-rouge">s2 - s1 = -1</code>, <code class="language-plaintext highlighter-rouge">s3 - s2 = 1</code>, <code class="language-plaintext highlighter-rouge">s4 - s3 = -1</code>, and so on up to <code class="language-plaintext highlighter-rouge">s[m - 1] - s[m - 2] = (-1)m</code>.</li> </ul> </li> <li>Return <em>the maximum length of all <strong>alternating</strong> subarrays present in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no such subarray exists**.</em></li> <li>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,4,3,4]
 
 Output: 4
 
@@ -763,94 +837,4 @@ Explanation: It takes 4 operations to make all elements in nums equal:
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums, your goal is to make all elements in nums equal. To complete one operation, follow these steps: Find the largest value in nums. Let its index be i (0-indexed) and its value be largest. If there are multiple elements with the largest value, pick the smallest i. Find the next largest value in nums strictly smaller than largest. Let its value be nextLargest. Reduce nums[i] to nextLargest. Return the number of operations to make all elements in nums equal.]]></summary></entry><entry><title type="html">228. Summary Ranges</title><link href="https://zhengstar94.github.io//blog/2025/SummaryRanges/" rel="alternate" type="text/html" title="228. Summary Ranges"/><published>2025-04-13T00:00:00+00:00</published><updated>2025-04-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SummaryRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SummaryRanges/"><![CDATA[<ul> <li>You are given a <strong>sorted unique</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>A <strong>range</strong> <code class="language-plaintext highlighter-rouge">[a,b]</code> is the set of all integers from <code class="language-plaintext highlighter-rouge">a</code> to <code class="language-plaintext highlighter-rouge">b</code> (inclusive).</li> <li>Return <em>the <strong>smallest sorted</strong> list of ranges that <strong>cover all the numbers in the array exactly</strong></em>. That is, each element of <code class="language-plaintext highlighter-rouge">nums</code> is covered by exactly one of the ranges, and there is no integer <code class="language-plaintext highlighter-rouge">x</code> such that <code class="language-plaintext highlighter-rouge">x</code> is in one of the ranges but not in <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Each range <code class="language-plaintext highlighter-rouge">[a,b]</code> in the list should be output as: <ul> <li><code class="language-plaintext highlighter-rouge">"a-&gt;b"</code> if <code class="language-plaintext highlighter-rouge">a != b</code></li> <li><code class="language-plaintext highlighter-rouge">"a"</code> if <code class="language-plaintext highlighter-rouge">a == b</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,1,2,4,5,7]
-Output: ["0-&gt;2","4-&gt;5","7"]
-Explanation: The ranges are:
-[0,2] --&gt; "0-&gt;2"
-[4,5] --&gt; "4-&gt;5"
-[7,7] --&gt; "7"
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,2,3,4,6,8,9]
-Output: ["0","2-&gt;4","6","8-&gt;9"]
-Explanation: The ranges are:
-[0,0] --&gt; "0"
-[2,4] --&gt; "2-&gt;4"
-[6,6] --&gt; "6"
-[8,9] --&gt; "8-&gt;9"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/13
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SummaryRanges</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">summaryRanges</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize result list to store range strings</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Handle edge cases: null array or empty array</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Get array length for iteration</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Initialize index for traversal</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Main loop to process the entire array</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">){</span>
-            <span class="c1">// Mark the start of current group/range</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Inner loop to find the end of current continuous sequence</span>
-            <span class="c1">// Continue while next number is consecutive</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">){</span>
-                <span class="n">i</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Process the found range</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">i</span><span class="o">){</span>
-                <span class="c1">// Case 1: Single number range (start equals end)</span>
-                <span class="c1">// Format: "number"</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">]));</span>
-            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-                <span class="c1">// Case 2: Multiple number range (start to end)</span>
-                <span class="c1">// Format: "start-&gt;end"</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">+</span> <span class="s">"-&gt;"</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="o">}</span>
-            <span class="c1">// Move to the start of next potential range</span>
-            <span class="n">i</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Regular case with multiple ranges</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">summaryRanges</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="c1">// Expected output: ["0-&gt;2","4-&gt;5","7"]</span>
-
-        <span class="c1">// Test Case 2: Mixed single numbers and ranges</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">summaryRanges</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="c1">// Expected output: ["0","2-&gt;4","6","8-&gt;9"]</span>
-
-        <span class="c1">// Test Case 3: Empty array edge case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">summaryRanges</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-        <span class="c1">// Expected output: []</span>
-
-        <span class="c1">// Test Case 4: Single element array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">summaryRanges</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
-        <span class="c1">// Expected output: ["1"]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Easy"/><summary type="html"><![CDATA[You are given a sorted unique integer array nums. A range [a,b] is the set of all integers from a to b (inclusive). Return the smallest sorted list of ranges that cover all the numbers in the array exactly. That is, each element of nums is covered by exactly one of the ranges, and there is no integer x such that x is in one of the ranges but not in nums. Each range [a,b] in the list should be output as: "a-&gt;b" if a != b "a" if a== b]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums, your goal is to make all elements in nums equal. To complete one operation, follow these steps: Find the largest value in nums. Let its index be i (0-indexed) and its value be largest. If there are multiple elements with the largest value, pick the smallest i. Find the next largest value in nums strictly smaller than largest. Let its value be nextLargest. Reduce nums[i] to nextLargest. Return the number of operations to make all elements in nums equal.]]></summary></entry></feed>
