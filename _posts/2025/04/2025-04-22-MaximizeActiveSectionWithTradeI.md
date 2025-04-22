@@ -77,7 +77,7 @@ The final string without augmentation is "11110". The maximum number of active s
 ## Method 1
 
 ```tex
-【O(n) time | O(1) space】
+【O(n) time | O(n) space】
 ```
 
 ```java
