@@ -1,4 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-25T03:34:52+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2389. Longest Subsequence With Limited Sum</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/" rel="alternate" type="text/html" title="2389. Longest Subsequence With Limited Sum"/><published>2025-04-25T00:00:00+00:00</published><updated>2025-04-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>, and an integer array <code class="language-plaintext highlighter-rouge">queries</code> of length <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">m</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the <strong>maximum</strong> size of a <strong>subsequence</strong> that you can take from</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the <strong>sum</strong> of its elements is less than or equal to</em> <code class="language-plaintext highlighter-rouge">queries[i]</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,5,2,1], queries = [3,10,21]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-26T12:57:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">981. Time Based Key-Value Store</title><link href="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/" rel="alternate" type="text/html" title="981. Time Based Key-Value Store"/><published>2025-04-26T00:00:00+00:00</published><updated>2025-04-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/"><![CDATA[<ul> <li>Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">TimeMap</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">TimeMap()</code> Initializes the object of the data structure.</li> <li><code class="language-plaintext highlighter-rouge">void set(String key, String value, int timestamp)</code> Stores the key <code class="language-plaintext highlighter-rouge">key</code> with the value <code class="language-plaintext highlighter-rouge">value</code> at the given time <code class="language-plaintext highlighter-rouge">timestamp</code>.</li> <li><code class="language-plaintext highlighter-rouge">String get(String key, int timestamp)</code> Returns a value such that <code class="language-plaintext highlighter-rouge">set</code> was called previously, with <code class="language-plaintext highlighter-rouge">timestamp_prev &lt;= timestamp</code>. If there are multiple such values, it returns the value associated with the largest <code class="language-plaintext highlighter-rouge">timestamp_prev</code>. If there are no values, it returns <code class="language-plaintext highlighter-rouge">""</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["TimeMap", "set", "get", "get", "set", "get", "get"]
+[ [], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5] ]
+Output
+[null, null, "bar", "bar", null, "bar2", "bar2"]
+
+Explanation
+TimeMap timeMap = new TimeMap();
+timeMap.set("foo", "bar", 1);  // store the key "foo" and value "bar" along with timestamp = 1.
+timeMap.get("foo", 1);         // return "bar"
+timeMap.get("foo", 3);         // return "bar", since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 is "bar".
+timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along with timestamp = 4.
+timeMap.get("foo", 4);         // return "bar2"
+timeMap.get("foo", 5);         // return "bar2"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(set O(1), get O(logn)) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/26
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimeMap</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Custom Pair class to store timestamp-value pairs
+     * @param &lt;K&gt; Type of key (timestamp)
+     * @param &lt;V&gt; Type of value (string)
+     */</span>
+    <span class="kd">class</span> <span class="nc">Pair</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="no">K</span> <span class="n">key</span><span class="o">;</span>
+        <span class="kd">private</span> <span class="no">V</span> <span class="n">value</span><span class="o">;</span>
+
+        <span class="cm">/**
+         * Constructor to create a new Pair
+         * @param key The timestamp
+         * @param value The value associated with the timestamp
+         */</span>
+        <span class="kd">public</span> <span class="nf">Pair</span><span class="o">(</span><span class="no">K</span> <span class="n">key</span><span class="o">,</span> <span class="no">V</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="no">K</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="no">V</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// HashMap to store key to timestamp-value pairs mapping</span>
+    <span class="kd">private</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;&gt;</span> <span class="n">map</span><span class="o">;</span>
+
+    <span class="cm">/**
+     * Initialize TimeMap data structure
+     */</span>
+    <span class="kd">public</span> <span class="nf">TimeMap</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Stores the key, value pair at the given timestamp
+     * @param key The key to store
+     * @param value The value to store
+     * @param timestamp The timestamp at which to store the key-value pair
+     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="nc">String</span> <span class="n">key</span><span class="o">,</span> <span class="nc">String</span> <span class="n">value</span><span class="o">,</span> <span class="kt">int</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">computeIfAbsent</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">k</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;())</span>
+                <span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Pair</span><span class="o">&lt;&gt;(</span><span class="n">timestamp</span><span class="o">,</span> <span class="n">value</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Gets the value associated with the key at the maximum timestamp less than or equal to the given timestamp
+     * @param key The key to look up
+     * @param timestamp The timestamp to search for
+     * @return The value associated with the key at the greatest timestamp &lt;= given timestamp, or "" if not found
+     */</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">get</span><span class="o">(</span><span class="nc">String</span> <span class="n">key</span><span class="o">,</span> <span class="kt">int</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">key</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">timestamp</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Binary search to find the value at the greatest timestamp &lt;= target timestamp
+     * @param list List of timestamp-value pairs
+     * @param timestamp Target timestamp
+     * @return Value at the greatest timestamp &lt;= target timestamp, or "" if not found
+     */</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// If smallest timestamp is greater than target, return empty string</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">left</span><span class="o">).</span><span class="na">getKey</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Binary search to find the largest timestamp &lt;= target</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">getKey</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">left</span><span class="o">).</span><span class="na">getValue</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Basic operations</span>
+        <span class="nc">TimeMap</span> <span class="n">timeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TimeMap</span><span class="o">();</span>
+        <span class="n">timeMap</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="s">"bar"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>  <span class="c1">// Returns "bar"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span>  <span class="c1">// Returns "bar"</span>
+        <span class="n">timeMap</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="s">"bar2"</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">4</span><span class="o">));</span>  <span class="c1">// Returns "bar2"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>  <span class="c1">// Returns "bar2"</span>
+
+        <span class="c1">// Test case 2: Multiple timestamps for same key</span>
+        <span class="nc">TimeMap</span> <span class="n">timeMap2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TimeMap</span><span class="o">();</span>
+        <span class="n">timeMap2</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="s">"high"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">timeMap2</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="s">"low"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>   <span class="c1">// Returns ""</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>  <span class="c1">// Returns "high"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">15</span><span class="o">));</span>  <span class="c1">// Returns "high"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">20</span><span class="o">));</span>  <span class="c1">// Returns "low"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">25</span><span class="o">));</span>  <span class="c1">// Returns "low"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp. Implement the TimeMap class: TimeMap() Initializes the object of the data structure. void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp. String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev &lt;= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".]]></summary></entry><entry><title type="html">2389. Longest Subsequence With Limited Sum</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/" rel="alternate" type="text/html" title="2389. Longest Subsequence With Limited Sum"/><published>2025-04-25T00:00:00+00:00</published><updated>2025-04-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>, and an integer array <code class="language-plaintext highlighter-rouge">queries</code> of length <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">m</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the <strong>maximum</strong> size of a <strong>subsequence</strong> that you can take from</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the <strong>sum</strong> of its elements is less than or equal to</em> <code class="language-plaintext highlighter-rouge">queries[i]</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,5,2,1], queries = [3,10,21]
 Output: [2,3,4]
 Explanation: We answer the queries as follows:
 - The subsequence [2,1] has a sum less than or equal to 3. It can be proven that 2 is the maximum size of such a subsequence, so answer[0] = 2.
@@ -848,111 +989,4 @@ Output: 11
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[There is a forest with an unknown number of rabbits. We asked n rabbits “How many rabbits have the same color as you?” and collected the answers in an integer array answers where answers[i] is the answer of the ith rabbit. Given the array answers, return the minimum number of rabbits that could be in the forest.]]></summary></entry><entry><title type="html">2765. Longest Alternating Subarray</title><link href="https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray/" rel="alternate" type="text/html" title="2765. Longest Alternating Subarray"/><published>2025-04-19T00:00:00+00:00</published><updated>2025-04-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestAlternatingSubarray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. A subarray <code class="language-plaintext highlighter-rouge">s</code> of length <code class="language-plaintext highlighter-rouge">m</code> is called <strong>alternating</strong> if: <ul> <li><code class="language-plaintext highlighter-rouge">m</code> is greater than <code class="language-plaintext highlighter-rouge">1</code>.</li> <li><code class="language-plaintext highlighter-rouge">s1 = s0 + 1</code>.</li> <li>The <strong>0-indexed</strong> subarray <code class="language-plaintext highlighter-rouge">s</code> looks like <code class="language-plaintext highlighter-rouge">[s0, s1, s0, s1,...,s(m-1) % 2]</code>. In other words, <code class="language-plaintext highlighter-rouge">s1 - s0 = 1</code>, <code class="language-plaintext highlighter-rouge">s2 - s1 = -1</code>, <code class="language-plaintext highlighter-rouge">s3 - s2 = 1</code>, <code class="language-plaintext highlighter-rouge">s4 - s3 = -1</code>, and so on up to <code class="language-plaintext highlighter-rouge">s[m - 1] - s[m - 2] = (-1)m</code>.</li> </ul> </li> <li>Return <em>the maximum length of all <strong>alternating</strong> subarrays present in</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if no such subarray exists**.</em></li> <li>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,4,3,4]
-
-Output: 4
-
-Explanation:
-
-The alternating subarrays are [2, 3], [3,4], [3,4,3], and [3,4,3,4]. The longest of these is [3,4,3,4], which is of length 4.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,5,6]
-
-Output: 2
-
-Explanation:
-
-[4,5] and [5,6] are the only two alternating subarrays. They are both of length 2.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestAlternatingSubarray</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">alternatingSubarray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// An alternating subarray needs at least 2 elements</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Track the maximum length of any valid alternating subarray found</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="c1">// Current position in the array</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Outer loop: Find potential starting points for alternating subarrays</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Check if current pair can start an alternating sequence</span>
-            <span class="c1">// The first two numbers must differ by exactly 1 (increasing)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">i</span><span class="o">++;</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Mark the start of a potential alternating sequence</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-            <span class="n">i</span><span class="o">++;</span>
-
-            <span class="c1">// Inner loop: Extend the current alternating sequence as far as possible</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Calculate the distance from the start of current sequence</span>
-                <span class="c1">// This distance determines whether we expect an increase or decrease</span>
-                <span class="kt">int</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span><span class="o">;</span>
-
-                <span class="c1">// Determine if the next number should be larger or smaller</span>
-                <span class="c1">// If distance is even (0,2,4...), expect increase (+1)</span>
-                <span class="c1">// If distance is odd (1,3,5...), expect decrease (-1)</span>
-                <span class="c1">// Example for [3,4,3,4]:</span>
-                <span class="c1">// distance=0: 3-&gt;4 (+1)</span>
-                <span class="c1">// distance=1: 4-&gt;3 (-1)</span>
-                <span class="c1">// distance=2: 3-&gt;4 (+1)</span>
-                <span class="kt">int</span> <span class="n">expectedDiff</span> <span class="o">=</span> <span class="o">(</span><span class="n">distance</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-
-                <span class="c1">// Calculate what the next number should be based on the pattern</span>
-                <span class="kt">int</span> <span class="n">expectedNext</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">expectedDiff</span><span class="o">;</span>
-
-                <span class="c1">// If the next number doesn't match our expectation,</span>
-                <span class="c1">// we've reached the end of this alternating sequence</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">!=</span> <span class="n">expectedNext</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-
-                <span class="n">i</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// After the sequence ends, update the maximum length if necessary</span>
-            <span class="c1">// Add 1 to (i - start) because i points to the last valid position</span>
-            <span class="c1">// Example: If start=1 and i=4, length is 4-1+1=4 elements</span>
-            <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Main method with test cases demonstrating various scenarios
-     * Each test case shows different aspects of alternating subarrays
-     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Contains the alternating sequence [3,4,3,4]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1: "</span> <span class="o">+</span> <span class="n">alternatingSubarray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>  <span class="c1">// Expected: 4</span>
-
-        <span class="c1">// Test Case 2: Contains two alternating sequences of length 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2: "</span> <span class="o">+</span> <span class="n">alternatingSubarray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>  <span class="c1">// Expected: 2</span>
-
-        <span class="c1">// Test Case 3: No valid alternating sequence (no consecutive +1)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3: "</span> <span class="o">+</span> <span class="n">alternatingSubarray</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>  <span class="c1">// Expected: -1</span>
-
-        <span class="c1">// Test Case 4: Multiple alternating sequences, returns longest</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4: "</span> <span class="o">+</span> <span class="n">alternatingSubarray</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>  <span class="c1">// Expected: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums. A subarray s of length m is called alternating if: m is greater than 1. s1=s0 + 1. The 0-indexed subarray s looks like [s0, s1, s0, s1,...,s(m-1) % 2]. In other words, s1 - s0=1, s2 - s1=-1, s3 - s2=1, s4 - s3=-1, and so on up to s[m - 1] - s[m - 2] = (-1)m. Return the maximum length of all alternating subarrays present in nums or -1 if no such subarray exists**. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[There is a forest with an unknown number of rabbits. We asked n rabbits “How many rabbits have the same color as you?” and collected the answers in an integer array answers where answers[i] is the answer of the ith rabbit. Given the array answers, return the minimum number of rabbits that could be in the forest.]]></summary></entry></feed>
