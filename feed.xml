@@ -1,4 +1,184 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-27T04:40:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">981. Time Based Key-Value Store</title><link href="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/" rel="alternate" type="text/html" title="981. Time Based Key-Value Store"/><published>2025-04-26T00:00:00+00:00</published><updated>2025-04-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/"><![CDATA[<ul> <li>Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">TimeMap</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">TimeMap()</code> Initializes the object of the data structure.</li> <li><code class="language-plaintext highlighter-rouge">void set(String key, String value, int timestamp)</code> Stores the key <code class="language-plaintext highlighter-rouge">key</code> with the value <code class="language-plaintext highlighter-rouge">value</code> at the given time <code class="language-plaintext highlighter-rouge">timestamp</code>.</li> <li><code class="language-plaintext highlighter-rouge">String get(String key, int timestamp)</code> Returns a value such that <code class="language-plaintext highlighter-rouge">set</code> was called previously, with <code class="language-plaintext highlighter-rouge">timestamp_prev &lt;= timestamp</code>. If there are multiple such values, it returns the value associated with the largest <code class="language-plaintext highlighter-rouge">timestamp_prev</code>. If there are no values, it returns <code class="language-plaintext highlighter-rouge">""</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-27T05:32:28+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3392. Count Subarrays of Length Three With a Condition</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/" rel="alternate" type="text/html" title="3392. Count Subarrays of Length Three With a Condition"/><published>2025-04-27T00:00:00+00:00</published><updated>2025-04-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the number of subarrays of length 3 such that the sum of the first and third numbers equals <em>exactly</em> half of the second number.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1,4,1]
+
+Output: 1
+
+Explanation:
+
+Only the subarray [1,4,1] contains exactly 3 elements where the sum of the first and third numbers equals half the middle number.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
+
+Output: 0
+
+Explanation:
+
+[1,1,1] is the only subarray of length 3. However, its first and third numbers do not add to half the middle number.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/27
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysOfLengthThreeWithACondition</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countSubArrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Return 0 if array length is less than 3 as we need at least 3 elements</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Use sliding window of size 3 to check each subarray</span>
+        <span class="c1">// Loop runs from first element to last possible position for a size-3 window</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Check if sum of first and third number equals half of middle number</span>
+            <span class="c1">// nums[i]: first number</span>
+            <span class="c1">// nums[i + 1]: middle number</span>
+            <span class="c1">// nums[i + 2]: third number</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">*</span> <span class="mf">0.5</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with valid subarray</span>
+        <span class="c1">// Expected output: 1 (subarray [1,4,1] satisfies the condition)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Array with no valid subarray</span>
+        <span class="c1">// Expected output: 0 (no subarray satisfies the condition)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Empty array</span>
+        <span class="c1">// Expected output: 0 (array length less than 3)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Array with length less than 3</span>
+        <span class="c1">// Expected output: 0 (array length less than 3)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums, return the number of subarrays of length 3 such that the sum of the first and third numbers equals exactly half of the second number.]]></summary></entry><entry><title type="html">1818. Minimum Absolute Sum Difference</title><link href="https://zhengstar94.github.io//blog/2025/MinimumAbsoluteSumDifference/" rel="alternate" type="text/html" title="1818. Minimum Absolute Sum Difference"/><published>2025-04-27T00:00:00+00:00</published><updated>2025-04-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumAbsoluteSumDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumAbsoluteSumDifference/"><![CDATA[<ul> <li>You are given two positive integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, both of length <code class="language-plaintext highlighter-rouge">n</code>.</li> <li>The <strong>absolute sum difference</strong> of arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> is defined as the <strong>sum</strong> of <code class="language-plaintext highlighter-rouge">|nums1[i] - nums2[i]|</code> for each <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; n</code> (<strong>0-indexed</strong>).</li> <li>You can replace <strong>at most one</strong> element of <code class="language-plaintext highlighter-rouge">nums1</code> with <strong>any</strong> other element in <code class="language-plaintext highlighter-rouge">nums1</code> to <strong>minimize</strong> the absolute sum difference.</li> <li>Return the <em>minimum absolute sum difference <strong>after</strong> replacing at most one element in the array <code class="language-plaintext highlighter-rouge">nums1</code>.</em> Since the answer may be large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> <li><code class="language-plaintext highlighter-rouge">|x|</code> is defined as: <ul> <li><code class="language-plaintext highlighter-rouge">x</code> if <code class="language-plaintext highlighter-rouge">x &gt;= 0</code>, or</li> <li><code class="language-plaintext highlighter-rouge">-x</code> if <code class="language-plaintext highlighter-rouge">x &lt; 0</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,7,5], nums2 = [2,3,5]
+Output: 3
+Explanation: There are two possible optimal solutions:
+- Replace the second element with the first: [1,7,5] =&gt; [1,1,5], or
+- Replace the second element with the third: [1,7,5] =&gt; [1,5,5].
+Both will yield an absolute sum difference of |1-2| + (|1-3| or |5-3|) + |5-5| = 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [2,4,6,8,10], nums2 = [2,4,6,8,10]
+Output: 0
+Explanation: nums1 is equal to nums2 so no replacement is needed. This will result in an 
+absolute sum difference of 0.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,10,4,4,2,7], nums2 = [9,3,5,1,7,4]
+Output: 20
+Explanation: Replace the first element with the second: [1,10,4,4,2,7] =&gt; [10,10,4,4,2,7].
+This yields an absolute sum difference of |10-9| + |10-3| + |4-5| + |4-1| + |2-7| + |7-4| = 20
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/27
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumAbsoluteSumDifference</span> <span class="o">{</span>
+    <span class="c1">// Modulo constant to handle large numbers</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1_000_000_007</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minAbsoluteSumDiff</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// Create a sorted copy of nums1 for binary search</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">sortedNums1</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">sortedNums1</span><span class="o">);</span>
+
+        <span class="c1">// Calculate the initial total absolute difference</span>
+        <span class="kt">long</span> <span class="n">totalDiff</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">totalDiff</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Find the maximum improvement possible by replacing one element</span>
+        <span class="kt">long</span> <span class="n">maxImprovement</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate current absolute difference at position i</span>
+            <span class="kt">int</span> <span class="n">originalDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+
+            <span class="c1">// Find the closest value in sorted nums1 to nums2[i]</span>
+            <span class="kt">int</span> <span class="n">closest</span> <span class="o">=</span> <span class="n">findClosest</span><span class="o">(</span><span class="n">sortedNums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="c1">// Calculate new difference if we replace with the closest value</span>
+            <span class="kt">int</span> <span class="n">newDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">closest</span> <span class="o">-</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+
+            <span class="c1">// Update maximum improvement if current replacement gives better result</span>
+            <span class="n">maxImprovement</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxImprovement</span><span class="o">,</span> <span class="n">originalDiff</span> <span class="o">-</span> <span class="n">newDiff</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return final result: (original sum - maximum improvement) % MOD</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)((</span><span class="n">totalDiff</span> <span class="o">-</span> <span class="n">maxImprovement</span><span class="o">)</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findClosest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Handle edge cases where target is outside array bounds</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">])</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>  <span class="c1">// Target is smaller than or equal to smallest element</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">])</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">];</span> <span class="c1">// Target is larger than or equal to largest element</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Binary search process</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span> <span class="c1">// Avoid potential overflow</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">];</span> <span class="c1">// Exact match found</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Search in right half</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Search in left half</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Compare the two closest values and return the one with smaller absolute difference</span>
+        <span class="c1">// left and right have crossed, so arr[right] &lt; target &lt; arr[left]</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="n">target</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">-</span> <span class="n">target</span><span class="o">)</span> <span class="o">?</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">:</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic case with replacement needed</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minAbsoluteSumDiff</span><span class="o">(</span><span class="n">nums1_1</span><span class="o">,</span> <span class="n">nums2_1</span><span class="o">));</span>
+        <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test Case 2: Arrays are identical, no replacement needed</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minAbsoluteSumDiff</span><span class="o">(</span><span class="n">nums1_2</span><span class="o">,</span> <span class="n">nums2_2</span><span class="o">));</span>
+        <span class="c1">// Expected output: 0</span>
+
+        <span class="c1">// Test Case 3: Complex case with larger numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minAbsoluteSumDiff</span><span class="o">(</span><span class="n">nums1_3</span><span class="o">,</span> <span class="n">nums2_3</span><span class="o">));</span>
+        <span class="c1">// Expected output: 20</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integer arrays nums1 and nums2, both of length n. The absolute sum difference of arrays nums1 and nums2 is defined as the sum of |nums1[i] - nums2[i]| for each 0 &lt;= i &lt; n (0-indexed). You can replace at most one element of nums1 with any other element in nums1 to minimize the absolute sum difference. Return the minimum absolute sum difference after replacing at most one element in the array nums1. Since the answer may be large, return it modulo 10^9 + 7. |x| is defined as: x if x &gt;= 0, or -x if x &lt; 0.]]></summary></entry><entry><title type="html">981. Time Based Key-Value Store</title><link href="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/" rel="alternate" type="text/html" title="981. Time Based Key-Value Store"/><published>2025-04-26T00:00:00+00:00</published><updated>2025-04-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/"><![CDATA[<ul> <li>Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">TimeMap</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">TimeMap()</code> Initializes the object of the data structure.</li> <li><code class="language-plaintext highlighter-rouge">void set(String key, String value, int timestamp)</code> Stores the key <code class="language-plaintext highlighter-rouge">key</code> with the value <code class="language-plaintext highlighter-rouge">value</code> at the given time <code class="language-plaintext highlighter-rouge">timestamp</code>.</li> <li><code class="language-plaintext highlighter-rouge">String get(String key, int timestamp)</code> Returns a value such that <code class="language-plaintext highlighter-rouge">set</code> was called previously, with <code class="language-plaintext highlighter-rouge">timestamp_prev &lt;= timestamp</code>. If there are multiple such values, it returns the value associated with the largest <code class="language-plaintext highlighter-rouge">timestamp_prev</code>. If there are no values, it returns <code class="language-plaintext highlighter-rouge">""</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
 ["TimeMap", "set", "get", "get", "set", "get", "get"]
 [ [], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5] ]
 Output
@@ -139,77 +319,7 @@ timeMap.get("foo", 5);         // return "bar2"
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp. Implement the TimeMap class: TimeMap() Initializes the object of the data structure. void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp. String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev &lt;= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".]]></summary></entry><entry><title type="html">3392. Count Subarrays of Length Three With a Condition</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/" rel="alternate" type="text/html" title="3392. Count Subarrays of Length Three With a Condition"/><published>2025-04-26T00:00:00+00:00</published><updated>2025-04-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the number of subarrays of length 3 such that the sum of the first and third numbers equals <em>exactly</em> half of the second number.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1,4,1]
-
-Output: 1
-
-Explanation:
-
-Only the subarray [1,4,1] contains exactly 3 elements where the sum of the first and third numbers equals half the middle number.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
-
-Output: 0
-
-Explanation:
-
-[1,1,1] is the only subarray of length 3. However, its first and third numbers do not add to half the middle number.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/27
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysOfLengthThreeWithACondition</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countSubArrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Return 0 if array length is less than 3 as we need at least 3 elements</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Use sliding window of size 3 to check each subarray</span>
-        <span class="c1">// Loop runs from first element to last possible position for a size-3 window</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if sum of first and third number equals half of middle number</span>
-            <span class="c1">// nums[i]: first number</span>
-            <span class="c1">// nums[i + 1]: middle number</span>
-            <span class="c1">// nums[i + 2]: third number</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">*</span> <span class="mf">0.5</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with valid subarray</span>
-        <span class="c1">// Expected output: 1 (subarray [1,4,1] satisfies the condition)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Array with no valid subarray</span>
-        <span class="c1">// Expected output: 0 (no subarray satisfies the condition)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Empty array</span>
-        <span class="c1">// Expected output: 0 (array length less than 3)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Array with length less than 3</span>
-        <span class="c1">// Expected output: 0 (array length less than 3)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums, return the number of subarrays of length 3 such that the sum of the first and third numbers equals exactly half of the second number.]]></summary></entry><entry><title type="html">2389. Longest Subsequence With Limited Sum</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/" rel="alternate" type="text/html" title="2389. Longest Subsequence With Limited Sum"/><published>2025-04-25T00:00:00+00:00</published><updated>2025-04-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>, and an integer array <code class="language-plaintext highlighter-rouge">queries</code> of length <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">m</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the <strong>maximum</strong> size of a <strong>subsequence</strong> that you can take from</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the <strong>sum</strong> of its elements is less than or equal to</em> <code class="language-plaintext highlighter-rouge">queries[i]</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,5,2,1], queries = [3,10,21]
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp. Implement the TimeMap class: TimeMap() Initializes the object of the data structure. void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp. String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev &lt;= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".]]></summary></entry><entry><title type="html">2389. Longest Subsequence With Limited Sum</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/" rel="alternate" type="text/html" title="2389. Longest Subsequence With Limited Sum"/><published>2025-04-25T00:00:00+00:00</published><updated>2025-04-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>, and an integer array <code class="language-plaintext highlighter-rouge">queries</code> of length <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">m</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the <strong>maximum</strong> size of a <strong>subsequence</strong> that you can take from</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the <strong>sum</strong> of its elements is less than or equal to</em> <code class="language-plaintext highlighter-rouge">queries[i]</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,5,2,1], queries = [3,10,21]
 Output: [2,3,4]
 Explanation: We answer the queries as follows:
 - The subsequence [2,1] has a sum less than or equal to 3. It can be proven that 2 is the maximum size of such a subsequence, so answer[0] = 2.
@@ -880,109 +990,4 @@ These two subarrays are adjacent, and 2 is the maximum possible value of k for w
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an array nums of n integers, your task is to find the maximum value of k for which there exist two adjacent subarrays of length k each, such that both subarrays are strictly increasing. Specifically, check if there are two subarrays of length k starting at indices a and b (a &lt; b), where: Both subarrays nums[a..a + k - 1] and nums[b..b + k - 1] are strictly increasing. The subarrays must be adjacent, meaning b=a + k. Return the maximum possible value of k. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry><entry><title type="html">3255. Find the Power of K-Size Subarrays II</title><link href="https://zhengstar94.github.io//blog/2025/FindThePowerOfKSizeSubarraysII/" rel="alternate" type="text/html" title="3255. Find the Power of K-Size Subarrays II"/><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindThePowerOfKSizeSubarraysII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindThePowerOfKSizeSubarraysII/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and a <em>positive</em> integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>The <strong>power</strong> of an array is defined as: <ul> <li>Its <strong>maximum</strong> element if <em>all</em> of its elements are <strong>consecutive</strong> and <strong>sorted</strong> in <strong>ascending</strong> order.</li> <li>-1 otherwise.</li> </ul> </li> <li>You need to find the <strong>power</strong> of all subarrays of <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Return an integer array <code class="language-plaintext highlighter-rouge">results</code> of size <code class="language-plaintext highlighter-rouge">n - k + 1</code>, where <code class="language-plaintext highlighter-rouge">results[i]</code> is the <em>power</em> of <code class="language-plaintext highlighter-rouge">nums[i..(i + k - 1)]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,3,2,5], k = 3
-
-Output: [3,4,-1,-1,-1]
-
-Explanation:
-
-There are 5 subarrays of nums of size 3:
-	[1, 2, 3] with the maximum element 3.
-	[2, 3, 4] with the maximum element 4.
-	[3, 4, 3] whose elements are not consecutive.
-	[4, 3, 2] whose elements are not sorted.
-	[3, 2, 5] whose elements are not consecutive.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,2,2,2], k = 4
-
-Output: [-1,-1]
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,2,3,2,3,2], k = 2
-
-Output: [-1,3,-1,3,-1]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n - k + 1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindThePowerOfKSizeSubarraysII</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">resultsArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the length of input array</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Initialize result array with length n-k+1 (total possible subarrays of size k)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
-        <span class="c1">// Fill result array with -1 as default value (indicating invalid subarrays)</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-
-        <span class="c1">// Index to traverse through the array</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Main loop to process the entire array</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Mark the start of a potential consecutive sequence</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Find the longest consecutive increasing sequence starting from index i</span>
-            <span class="c1">// For example: in [1,2,3,4,3], starting from 1, this will find [1,2,3,4]</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">i</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate length of current consecutive sequence</span>
-            <span class="c1">// len = end position (i) - start position + 1</span>
-            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// If the consecutive sequence length is &gt;= k, process all valid k-sized subarrays</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">len</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Process each possible k-sized subarray within the consecutive sequence</span>
-                <span class="c1">// For example: if sequence is [1,2,3,4] and k=3:</span>
-                <span class="c1">// First iteration (j=0): processes [1,2,3]</span>
-                <span class="c1">// Second iteration (j=1): processes [2,3,4]</span>
-                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">j</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                    <span class="c1">// j is the start of current k-sized subarray</span>
-                    <span class="c1">// j + k - 1 is the end of current k-sized subarray</span>
-                    <span class="c1">// Store the last element of the k-sized subarray as its energy value</span>
-                    <span class="c1">// For [1,2,3], store 3 at ans[0]</span>
-                    <span class="c1">// For [2,3,4], store 4 at ans[1]</span>
-                    <span class="n">ans</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Move to next position to start checking for new consecutive sequence</span>
-            <span class="n">i</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with consecutive increasing sequence</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">)</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">resultsArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">)));</span>
-        <span class="c1">// Expected output: [3, 4, -1, -1, -1]</span>
-
-        <span class="c1">// Test Case 2: Array with all same elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">)</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">resultsArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">)));</span>
-        <span class="c1">// Expected output: [-1, -1]</span>
-
-        <span class="c1">// Test Case 3: Array with alternating numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">)</span> <span class="o">+</span> <span class="s">", k = "</span> <span class="o">+</span> <span class="n">k3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">resultsArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">)));</span>
-        <span class="c1">// Expected output: [-1, -1, -1, -1, -1]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array of integers nums of length n and a positive integer k. The power of an array is defined as: Its maximum element if all of its elements are consecutive and sorted in ascending order. -1 otherwise. You need to find the power of all subarrays of nums of size k. Return an integer array results of size n - k + 1, where results[i] is the power of nums[i..(i + k - 1)].]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an array nums of n integers, your task is to find the maximum value of k for which there exist two adjacent subarrays of length k each, such that both subarrays are strictly increasing. Specifically, check if there are two subarrays of length k starting at indices a and b (a &lt; b), where: Both subarrays nums[a..a + k - 1] and nums[b..b + k - 1] are strictly increasing. The subarrays must be adjacent, meaning b=a + k. Return the maximum possible value of k. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
