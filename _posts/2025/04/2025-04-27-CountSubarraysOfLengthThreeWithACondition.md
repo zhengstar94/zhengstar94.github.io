@@ -4,7 +4,7 @@ toc:
 giscus_comments: true
 layout: post
 title: "3392. Count Subarrays of Length Three With a Condition"
-date: "2025-04-26"
+date: "2025-04-27"
 tags: Easy
 categories:
   - "LeetCode SlideWindow"
