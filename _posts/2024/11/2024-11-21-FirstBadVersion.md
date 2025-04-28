@@ -6,7 +6,7 @@ layout: post
 title: "278. First Bad Version"
 date: "2024-11-21"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

@@ -7,7 +7,7 @@ title: "2389. Longest Subsequence With Limited Sum"
 date: "2025-04-25"
 tags: Easy
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

@@ -6,7 +6,7 @@ layout: post
 title: "704.Binary Search"
 date: "2024-01-02"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 704. Binary Search [Easy]

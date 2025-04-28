@@ -6,7 +6,7 @@ layout: post
 title: "4. Median of Two Sorted Arrays"
 date: "2024-01-16"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 4. Median of Two Sorted Arrays [Hard]

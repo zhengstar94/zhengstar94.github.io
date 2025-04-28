@@ -6,7 +6,7 @@ layout: post
 title: "74. Search a 2D Matrix"
 date: "2024-01-12"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 74. Search a 2D Matrix [Medium]

@@ -6,7 +6,7 @@ layout: post
 title: "287. Find the Duplicate Number"
 date: "2024-01-21"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 287. Find the Duplicate Number [Hard]

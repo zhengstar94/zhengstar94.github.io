@@ -7,7 +7,7 @@ title: "981. Time Based Key-Value Store"
 date: "2025-04-26"
 tags: Medium
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

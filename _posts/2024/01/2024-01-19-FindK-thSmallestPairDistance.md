@@ -6,7 +6,7 @@ layout: post
 title: "719. Find K-th Smallest Pair Distance"
 date: "2024-01-19"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 719. Find K-th Smallest Pair Distance [Hard]
