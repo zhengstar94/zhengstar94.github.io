@@ -6,7 +6,7 @@ layout: post
 title: "378. Kth Smallest Element in a Sorted Matrix"
 date: "2024-01-17"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 378. Kth Smallest Element in a Sorted Matrix [Hard]

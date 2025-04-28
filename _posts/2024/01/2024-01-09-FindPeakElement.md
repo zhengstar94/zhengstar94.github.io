@@ -6,7 +6,7 @@ layout: post
 title: "162.Find Peak Element"
 date: "2024-01-09"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 162. Find Peak Element [Medium]

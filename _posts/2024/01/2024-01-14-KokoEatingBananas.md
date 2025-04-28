@@ -6,7 +6,7 @@ layout: post
 title: "875. Koko Eating Bananas"
 date: "2024-01-14"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 875. Koko Eating Bananas [Medium]

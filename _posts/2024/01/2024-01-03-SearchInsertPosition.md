@@ -6,7 +6,7 @@ layout: post
 title: "34.Search Insert Position"
 date: "2024-01-03"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 34. Search Insert Position [Easy]

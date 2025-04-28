@@ -6,7 +6,7 @@ layout: post
 title: "668. Kth Smallest Number in Multiplication Table"
 date: "2024-01-18"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 668. Kth Smallest Number in Multiplication Table [Hard]

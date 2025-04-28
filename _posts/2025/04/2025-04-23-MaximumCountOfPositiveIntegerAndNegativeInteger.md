@@ -7,7 +7,7 @@ title: "2529. Maximum Count of Positive Integer and Negative Integer"
 date: "2025-04-23"
 tags: Easy
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

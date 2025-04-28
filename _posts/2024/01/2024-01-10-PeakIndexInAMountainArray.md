@@ -6,7 +6,7 @@ layout: post
 title: "852. Peak Index in a Mountain Array"
 date: "2024-01-10"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 852. Peak Index in a Mountain Array [Medium]

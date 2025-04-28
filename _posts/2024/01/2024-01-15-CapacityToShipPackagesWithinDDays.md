@@ -6,7 +6,7 @@ layout: post
 title: "1011. Capacity To Ship Packages Within D Days"
 date: "2024-01-15"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 1011. Capacity To Ship Packages Within D Days [Medium]

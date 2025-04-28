@@ -6,7 +6,7 @@ layout: post
 title: "240. Search a 2D Matrix II"
 date: "2024-01-13"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 240. Search a 2D Matrix II [Medium]

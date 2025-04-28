@@ -6,7 +6,7 @@ layout: post
 title: "786. K-th Smallest Prime Fraction"
 date: "2024-01-20"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 786. K-th Smallest Prime Fraction [Hard]

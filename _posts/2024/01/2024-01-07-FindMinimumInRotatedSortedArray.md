@@ -6,7 +6,7 @@ layout: post
 title: "153.Find Minimum in Rotated Sorted Array"
 date: "2024-01-07"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 153.Find Minimum in Rotated Sorted Array [Medium]

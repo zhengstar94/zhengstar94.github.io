@@ -7,7 +7,7 @@ title: "2070. Most Beautiful Item for Each Query"
 date: "2025-03-09"
 tags: Medium
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

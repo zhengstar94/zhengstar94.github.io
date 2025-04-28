@@ -5,9 +5,9 @@ giscus_comments: true
 layout: post
 title: "911. Online Election"
 date: "2025-04-28"
-tags: Medium
+tags: Medium BinarySearch
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

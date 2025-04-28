@@ -6,7 +6,7 @@ layout: post
 title: "981.Time Based Key-Value Store"
 date: "2024-01-04"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 981. Time Based Key-Value Store [Easy]

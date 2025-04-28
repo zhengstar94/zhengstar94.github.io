@@ -7,7 +7,7 @@ title: "1818. Minimum Absolute Sum Difference"
 date: "2025-04-27"
 tags: Medium
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

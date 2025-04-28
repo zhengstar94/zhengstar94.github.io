@@ -7,7 +7,7 @@ title: "81. Search in Rotated Sorted Array II"
 date: "2025-02-01"
 tags: Medium
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

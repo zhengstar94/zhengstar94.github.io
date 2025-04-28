@@ -7,7 +7,7 @@ title: "2300. Successful Pairs of Spells and Potions"
 date: "2025-04-23"
 tags: Medium
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 

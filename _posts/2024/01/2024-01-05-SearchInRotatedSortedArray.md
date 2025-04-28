@@ -6,7 +6,7 @@ layout: post
 title: "33.Search in Rotated Sorted Array"
 date: "2024-01-05"
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 # LeetCode 33. Search in Rotated Sorted Array [Medium]

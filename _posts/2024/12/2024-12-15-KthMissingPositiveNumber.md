@@ -7,7 +7,7 @@ title: "1539. Kth Missing Positive Number"
 date: "2024-12-15"
 tags: Easy
 categories:
-  - "LeetCode Binary Search"
+  - "LeetCode BinarySearch"
 ---
 
 
