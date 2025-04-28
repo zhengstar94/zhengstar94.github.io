@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-27T05:32:28+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3392. Count Subarrays of Length Three With a Condition</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/" rel="alternate" type="text/html" title="3392. Count Subarrays of Length Three With a Condition"/><published>2025-04-27T00:00:00+00:00</published><updated>2025-04-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the number of subarrays of length 3 such that the sum of the first and third numbers equals <em>exactly</em> half of the second number.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1,4,1]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-28T07:29:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">911. Online Election</title><link href="https://zhengstar94.github.io//blog/2025/TopVotedCandidate/" rel="alternate" type="text/html" title="911. Online Election"/><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TopVotedCandidate</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TopVotedCandidate/"><![CDATA[<ul> <li>You are given two integer arrays <code class="language-plaintext highlighter-rouge">persons</code> and <code class="language-plaintext highlighter-rouge">times</code>. In an election, the <code class="language-plaintext highlighter-rouge">ith</code> vote was cast for <code class="language-plaintext highlighter-rouge">persons[i]</code> at time <code class="language-plaintext highlighter-rouge">times[i]</code>.</li> <li>For each query at a time <code class="language-plaintext highlighter-rouge">t</code>, find the person that was leading the election at time <code class="language-plaintext highlighter-rouge">t</code>. Votes cast at time <code class="language-plaintext highlighter-rouge">t</code> will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">TopVotedCandidate</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">TopVotedCandidate(int[] persons, int[] times)</code> Initializes the object with the <code class="language-plaintext highlighter-rouge">persons</code> and <code class="language-plaintext highlighter-rouge">times</code> arrays.</li> <li><code class="language-plaintext highlighter-rouge">int q(int t)</code> Returns the number of the person that was leading the election at time <code class="language-plaintext highlighter-rouge">t</code> according to the mentioned rules.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
+["TopVotedCandidate", "q", "q", "q", "q", "q", "q"]
+[[[0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]], [3], [12], [25], [15], [24], [8]]
+Output
+[null, 0, 1, 1, 0, 0, 1]
+
+Explanation
+TopVotedCandidate topVotedCandidate = new TopVotedCandidate([0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]);
+topVotedCandidate.q(3); // return 0, At time 3, the votes are [0], and 0 is leading.
+topVotedCandidate.q(12); // return 1, At time 12, the votes are [0,1,1], and 1 is leading.
+topVotedCandidate.q(25); // return 1, At time 25, the votes are [0,1,1,0,0,1], and 1 is leading (as ties go to the most recent vote.)
+topVotedCandidate.q(15); // return 0
+topVotedCandidate.q(24); // return 0
+topVotedCandidate.q(8); // return 1
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(N) build, O(logN) query time | O(N) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TopVotedCandidate</span> <span class="o">{</span>
+    <span class="c1">// Stores the leading candidate at each time point</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">tops</span><span class="o">;</span>
+    <span class="c1">// Maps each candidate to their current vote count</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">voteCounts</span><span class="o">;</span>
+    <span class="c1">// Array of timestamps when votes were cast</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">times</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">TopVotedCandidate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">persons</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">times</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">tops</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+        <span class="n">voteCounts</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;();</span>
+        <span class="c1">// Initialize with -1 as baseline for comparison</span>
+        <span class="n">voteCounts</span><span class="o">.</span><span class="na">put</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>  <span class="c1">// Current leading candidate</span>
+
+        <span class="c1">// Process each vote</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">persons</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">persons</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="c1">// Update vote count for current candidate</span>
+            <span class="n">voteCounts</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="n">voteCounts</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="c1">// Update leader if current candidate has equal or more votes</span>
+            <span class="c1">// This handles tie-breaking by favoring the most recent vote</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">voteCounts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">p</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="n">voteCounts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">top</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">top</span> <span class="o">=</span> <span class="n">p</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">tops</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">top</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">times</span> <span class="o">=</span> <span class="n">times</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">q</span><span class="o">(</span><span class="kt">int</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="c1">// Binary search to find largest time point &lt;= t</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="o">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">times</span><span class="o">[</span><span class="n">m</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">tops</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">l</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case initialization</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">persons</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">times</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">25</span><span class="o">,</span> <span class="mi">30</span><span class="o">};</span>
+
+        <span class="nc">TopVotedCandidate</span> <span class="n">tvc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TopVotedCandidate</span><span class="o">(</span><span class="n">persons</span><span class="o">,</span> <span class="n">times</span><span class="o">);</span>
+
+        <span class="c1">// Test cases</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>   <span class="c1">// Expected output: 0</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>  <span class="c1">// Expected output: 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">25</span><span class="o">));</span>  <span class="c1">// Expected output: 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">15</span><span class="o">));</span>  <span class="c1">// Expected output: 0</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">24</span><span class="o">));</span>  <span class="c1">// Expected output: 0</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">8</span><span class="o">));</span>   <span class="c1">// Expected output: 1</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Binary Search"/><category term="Medium"/><summary type="html"><![CDATA[You are given two integer arrays persons and times. In an election, the ith vote was cast for persons[i] at time times[i]. For each query at a time t, find the person that was leading the election at time t. Votes cast at time t will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins. Implement the TopVotedCandidate class: TopVotedCandidate(int[] persons, int[] times) Initializes the object with the persons and times arrays. int q(int t) Returns the number of the person that was leading the election at time t according to the mentioned rules.]]></summary></entry><entry><title type="html">3392. Count Subarrays of Length Three With a Condition</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/" rel="alternate" type="text/html" title="3392. Count Subarrays of Length Three With a Condition"/><published>2025-04-27T00:00:00+00:00</published><updated>2025-04-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the number of subarrays of length 3 such that the sum of the first and third numbers equals <em>exactly</em> half of the second number.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1,4,1]
 
 Output: 1
 
@@ -870,124 +956,4 @@ Explanation: There are six substrings ("z", "a", "b", "za", "ab", and "zab") of 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[We define the string base to be the infinite wraparound string of "abcdefghijklmnopqrstuvwxyz", so base will look like this: "...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....". Given a string s, return the number of unique non-empty substrings of s are present in base.]]></summary></entry><entry><title type="html">3350. Adjacent Increasing Subarrays Detection II</title><link href="https://zhengstar94.github.io//blog/2025/AdjacentIncreasingSubarraysDetectionII/" rel="alternate" type="text/html" title="3350. Adjacent Increasing Subarrays Detection II"/><published>2025-04-20T00:00:00+00:00</published><updated>2025-04-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/AdjacentIncreasingSubarraysDetectionII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/AdjacentIncreasingSubarraysDetectionII/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> of <code class="language-plaintext highlighter-rouge">n</code> integers, your task is to find the <strong>maximum</strong> value of <code class="language-plaintext highlighter-rouge">k</code> for which there exist <strong>two</strong> adjacent subarrays of length <code class="language-plaintext highlighter-rouge">k</code> each, such that both subarrays are <strong>strictly</strong> <strong>increasing</strong>. Specifically, check if there are <strong>two</strong> subarrays of length <code class="language-plaintext highlighter-rouge">k</code> starting at indices <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> (<code class="language-plaintext highlighter-rouge">a &lt; b</code>), where: <ul> <li>Both subarrays <code class="language-plaintext highlighter-rouge">nums[a..a + k - 1]</code> and <code class="language-plaintext highlighter-rouge">nums[b..b + k - 1]</code> are <strong>strictly increasing</strong>.</li> <li>The subarrays must be <strong>adjacent</strong>, meaning <code class="language-plaintext highlighter-rouge">b = a + k</code>.</li> </ul> </li> <li>Return the <strong>maximum</strong> <em>possible</em> value of <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>subarray</strong> is a contiguous <strong>non-empty</strong> sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,5,7,8,9,2,3,4,3,1]
-
-Output: 3
-
-Explanation:
-
-The subarray starting at index 2 is [7, 8, 9], which is strictly increasing.
-The subarray starting at index 5 is [2, 3, 4], which is also strictly increasing.
-These two subarrays are adjacent, and 3 is the maximum possible value of k for which two such adjacent strictly increasing subarrays exist.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,4,4,4,5,6,7]
-
-Output: 2
-
-Explanation:
-
-The subarray starting at index 0 is [1, 2], which is strictly increasing.
-The subarray starting at index 2 is [3, 4], which is also strictly increasing.
-These two subarrays are adjacent, and 2 is the maximum possible value of k for which two such adjacent strictly increasing subarrays exist.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.GroupedLoop</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AdjacentIncreasingSubarraysDetectionII</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxIncreasingSubarrays</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize variables to track maximum length found so far</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Length of previous strictly increasing sequence</span>
-        <span class="kt">int</span> <span class="n">preCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Current position in array</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-
-        <span class="c1">// Process array using grouped loop approach</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">){</span>
-            <span class="c1">// Mark start of current increasing sequence</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-
-            <span class="c1">// Find end of current strictly increasing sequence</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)){</span>
-                <span class="n">i</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Calculate length of current increasing sequence</span>
-            <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// Case 1: Split current sequence into two equal parts</span>
-            <span class="kt">int</span> <span class="n">splitLen</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="c1">// Case 2: Use adjacent sequences (current and previous)</span>
-            <span class="kt">int</span> <span class="n">adjacentLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">preCnt</span><span class="o">,</span> <span class="n">cnt</span><span class="o">);</span>
-            <span class="c1">// Take maximum of the two cases</span>
-            <span class="kt">int</span> <span class="n">currentMax</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">splitLen</span><span class="o">,</span> <span class="n">adjacentLen</span><span class="o">);</span>
-            <span class="c1">// Update global maximum if necessary</span>
-            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">currentMax</span><span class="o">);</span>
-
-            <span class="c1">// Current sequence becomes previous sequence for next iteration</span>
-            <span class="n">preCnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">;</span>
-            <span class="n">i</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Sequence with multiple increasing subarrays</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">test1</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Processing demonstration:"</span><span class="o">);</span>
-        <span class="n">printProcess</span><span class="o">(</span><span class="n">test1</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 2: Sequence with one long increasing subarray</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">test2</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nProcessing demonstration:"</span><span class="o">);</span>
-        <span class="n">printProcess</span><span class="o">(</span><span class="n">test2</span><span class="o">);</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printProcess</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">preCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Find current increasing sequence</span>
-            <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">i</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-            <span class="c1">// Print current sequence being processed</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nCurrent sequence: "</span> <span class="o">+</span> <span class="n">nums</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Current sequence length (cnt): "</span> <span class="o">+</span> <span class="n">cnt</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Previous sequence length (preCnt): "</span> <span class="o">+</span> <span class="n">preCnt</span><span class="o">);</span>
-
-            <span class="c1">// Print calculations for both cases</span>
-            <span class="kt">int</span> <span class="n">splitLen</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Case 1 (Split current sequence) = "</span> <span class="o">+</span> <span class="n">splitLen</span><span class="o">);</span>
-
-            <span class="kt">int</span> <span class="n">adjacentLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">preCnt</span><span class="o">,</span> <span class="n">cnt</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Case 2 (Use adjacent sequences) = "</span> <span class="o">+</span> <span class="n">adjacentLen</span><span class="o">);</span>
-
-            <span class="kt">int</span> <span class="n">currentMax</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">splitLen</span><span class="o">,</span> <span class="n">adjacentLen</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Current maximum = "</span> <span class="o">+</span> <span class="n">currentMax</span><span class="o">);</span>
-
-            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">currentMax</span><span class="o">);</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Updated global maximum = "</span> <span class="o">+</span> <span class="n">ans</span><span class="o">);</span>
-
-            <span class="c1">// Update for next iteration</span>
-            <span class="n">preCnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">;</span>
-            <span class="n">i</span><span class="o">++;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[Given an array nums of n integers, your task is to find the maximum value of k for which there exist two adjacent subarrays of length k each, such that both subarrays are strictly increasing. Specifically, check if there are two subarrays of length k starting at indices a and b (a &lt; b), where: Both subarrays nums[a..a + k - 1] and nums[b..b + k - 1] are strictly increasing. The subarrays must be adjacent, meaning b=a + k. Return the maximum possible value of k. A subarray is a contiguous non-empty sequence of elements within an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[We define the string base to be the infinite wraparound string of "abcdefghijklmnopqrstuvwxyz", so base will look like this: "...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....". Given a string s, return the number of unique non-empty substrings of s are present in base.]]></summary></entry></feed>
