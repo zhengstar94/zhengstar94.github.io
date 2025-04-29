@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-28T08:23:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1283. Find the Smallest Divisor Given a Threshold</title><link href="https://zhengstar94.github.io//blog/2025/FindTheSmallestDivisorGivenAThreshold/" rel="alternate" type="text/html" title="1283. Find the Smallest Divisor Given a Threshold"/><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheSmallestDivisorGivenAThreshold</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheSmallestDivisorGivenAThreshold/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">threshold</code>, we will choose a positive integer <code class="language-plaintext highlighter-rouge">divisor</code>, divide all the array by it, and sum the division’s result. Find the <strong>smallest</strong> <code class="language-plaintext highlighter-rouge">divisor</code> such that the result mentioned above is less than or equal to <code class="language-plaintext highlighter-rouge">threshold</code>.</li> <li>Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: <code class="language-plaintext highlighter-rouge">7/3 = 3</code> and <code class="language-plaintext highlighter-rouge">10/2 = 5</code>).</li> <li>The test cases are generated so that there will be an answer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,5,9], threshold = 6
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-29T05:02:17+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2187. Minimum Time to Complete Trips</title><link href="https://zhengstar94.github.io//blog/2025/MinimumTimeToCompleteTrips/" rel="alternate" type="text/html" title="2187. Minimum Time to Complete Trips"/><published>2025-04-29T00:00:00+00:00</published><updated>2025-04-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumTimeToCompleteTrips</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumTimeToCompleteTrips/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">time</code> where <code class="language-plaintext highlighter-rouge">time[i]</code> denotes the time taken by the <code class="language-plaintext highlighter-rouge">ith</code> bus to complete <strong>one trip</strong>.</li> <li>Each bus can make multiple trips <strong>successively</strong>; that is, the next trip can start <strong>immediately after</strong> completing the current trip. Also, each bus operates <strong>independently</strong>; that is, the trips of one bus do not influence the trips of any other bus.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">totalTrips</code>, which denotes the number of trips all buses should make <strong>in total</strong>. Return <em>the <strong>minimum time</strong> required for all buses to complete <strong>at least</strong></em> <code class="language-plaintext highlighter-rouge">totalTrips</code> <em>trips</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: time = [1,2,3], totalTrips = 5
+Output: 3
+Explanation:
+- At time t = 1, the number of trips completed by each bus are [1,0,0]. 
+  The total number of trips completed is 1 + 0 + 0 = 1.
+- At time t = 2, the number of trips completed by each bus are [2,1,0]. 
+  The total number of trips completed is 2 + 1 + 0 = 3.
+- At time t = 3, the number of trips completed by each bus are [3,1,1]. 
+  The total number of trips completed is 3 + 1 + 1 = 5.
+So the minimum time needed for all buses to complete at least 5 trips is 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: time = [2], totalTrips = 1
+Output: 2
+Explanation:
+There is only one bus, and it will complete its first trip at t = 2.
+So the minimum time needed to complete 1 trip is 2.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(min(time) * totalTrips)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.FindMinimum</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/29
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumTimeToCompleteTrips</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">minimumTime</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">time</span><span class="o">,</span> <span class="kt">int</span> <span class="n">totalTrips</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize left pointer to minimum possible time</span>
+        <span class="kt">long</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="c1">// Initialize right pointer to maximum possible time</span>
+        <span class="c1">// right = minimum time among all buses * total trips required</span>
+        <span class="kt">long</span> <span class="n">right</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">time</span><span class="o">).</span><span class="na">min</span><span class="o">().</span><span class="na">getAsInt</span><span class="o">()</span> <span class="o">*</span> <span class="n">totalTrips</span><span class="o">;</span>
+
+        <span class="c1">// Binary search to find the minimum time</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">){</span>
+            <span class="c1">// Calculate mid point to avoid overflow</span>
+            <span class="kt">long</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+            <span class="c1">// If we can complete required trips in mid time, try to minimize the time</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">canComplete</span><span class="o">(</span><span class="n">time</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">totalTrips</span><span class="o">)){</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If we cannot complete in mid time, we need more time</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the minimum time found</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canComplete</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">time</span><span class="o">,</span> <span class="kt">long</span> <span class="n">givenTime</span><span class="o">,</span> <span class="kt">int</span> <span class="n">totalTrips</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Count total trips possible in given time</span>
+        <span class="kt">long</span> <span class="n">trip</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Calculate trips for each bus</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">t:</span> <span class="n">time</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Add number of trips this bus can complete</span>
+            <span class="n">trip</span> <span class="o">+=</span> <span class="n">givenTime</span> <span class="o">/</span> <span class="n">t</span><span class="o">;</span>
+            <span class="c1">// Early return if we already reached required trips</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">trip</span> <span class="o">&gt;=</span> <span class="n">totalTrips</span><span class="o">){</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// Return false if total trips possible is less than required</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Multiple buses with different times</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">time1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">totalTrips1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minimumTime</span><span class="o">(</span><span class="n">time1</span><span class="o">,</span> <span class="n">totalTrips1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+
+        <span class="c1">// Test Case 2: Single bus case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">time2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">totalTrips2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minimumTime</span><span class="o">(</span><span class="n">time2</span><span class="o">,</span> <span class="n">totalTrips2</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an array time where time[i] denotes the time taken by the ith bus to complete one trip. Each bus can make multiple trips successively; that is, the next trip can start immediately after completing the current trip. Also, each bus operates independently; that is, the trips of one bus do not influence the trips of any other bus. You are also given an integer totalTrips, which denotes the number of trips all buses should make in total. Return the minimum time required for all buses to complete at least totalTrips trips.]]></summary></entry><entry><title type="html">1283. Find the Smallest Divisor Given a Threshold</title><link href="https://zhengstar94.github.io//blog/2025/FindTheSmallestDivisorGivenAThreshold/" rel="alternate" type="text/html" title="1283. Find the Smallest Divisor Given a Threshold"/><published>2025-04-28T00:00:00+00:00</published><updated>2025-04-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheSmallestDivisorGivenAThreshold</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheSmallestDivisorGivenAThreshold/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">threshold</code>, we will choose a positive integer <code class="language-plaintext highlighter-rouge">divisor</code>, divide all the array by it, and sum the division’s result. Find the <strong>smallest</strong> <code class="language-plaintext highlighter-rouge">divisor</code> such that the result mentioned above is less than or equal to <code class="language-plaintext highlighter-rouge">threshold</code>.</li> <li>Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: <code class="language-plaintext highlighter-rouge">7/3 = 3</code> and <code class="language-plaintext highlighter-rouge">10/2 = 5</code>).</li> <li>The test cases are generated so that there will be an answer.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,5,9], threshold = 6
 Output: 5
 Explanation: We can get a sum to 17 (1+2+5+9) if the divisor is 1. 
 If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the sum will be 5 (1+1+1+2). 
@@ -862,80 +940,4 @@ The final string without augmentation is "11110". The maximum number of active s
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[You are given a binary string s of length n, where: '1' represents an active section. '0' represents an inactive section. You can perform at most one trade to maximize the number of active sections in s. In a trade, you: Convert a contiguous block of '1's that is surrounded by '0's to all '0's. Afterward, convert a contiguous block of '0's that is surrounded by '1's to all '1's. Return the maximum number of active sections in s after making the optimal trade. Note: Treat s as if it is augmented with a '1' at both ends, forming t='1' + s + '1'. The augmented '1's do not contribute to the final count.]]></summary></entry><entry><title type="html">2145. Count the Hidden Sequences</title><link href="https://zhengstar94.github.io//blog/2025/CountTheHiddenSequences/" rel="alternate" type="text/html" title="2145. Count the Hidden Sequences"/><published>2025-04-21T00:00:00+00:00</published><updated>2025-04-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountTheHiddenSequences</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountTheHiddenSequences/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of <code class="language-plaintext highlighter-rouge">n</code> integers <code class="language-plaintext highlighter-rouge">differences</code>, which describes the <strong>differences</strong> between each pair of <strong>consecutive</strong> integers of a <strong>hidden</strong> sequence of length <code class="language-plaintext highlighter-rouge">(n + 1)</code>. More formally, call the hidden sequence <code class="language-plaintext highlighter-rouge">hidden</code>, then we have that <code class="language-plaintext highlighter-rouge">differences[i] = hidden[i + 1] - hidden[i]</code>.</li> <li>You are further given two integers <code class="language-plaintext highlighter-rouge">lower</code> and <code class="language-plaintext highlighter-rouge">upper</code> that describe the <strong>inclusive</strong> range of values <code class="language-plaintext highlighter-rouge">[lower, upper]</code> that the hidden sequence can contain. <ul> <li>For example, given <code class="language-plaintext highlighter-rouge">differences = [1, -3, 4]</code>, <code class="language-plaintext highlighter-rouge">lower = 1</code>, <code class="language-plaintext highlighter-rouge">upper = 6</code>, the hidden sequence is a sequence of length <code class="language-plaintext highlighter-rouge">4</code> whose elements are in between <code class="language-plaintext highlighter-rouge">1</code> and <code class="language-plaintext highlighter-rouge">6</code> (<strong>inclusive</strong>). <ul> <li><code class="language-plaintext highlighter-rouge">[3, 4, 1, 5]</code> and <code class="language-plaintext highlighter-rouge">[4, 5, 2, 6]</code> are possible hidden sequences.</li> <li><code class="language-plaintext highlighter-rouge">[5, 6, 3, 7]</code> is not possible since it contains an element greater than <code class="language-plaintext highlighter-rouge">6</code>.</li> <li><code class="language-plaintext highlighter-rouge">[1, 2, 3, 4]</code> is not possible since the differences are not correct.</li> </ul> </li> </ul> </li> <li>Return <em>the number of <strong>possible</strong> hidden sequences there are.</em> If there are no possible sequences, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: differences = [1,-3,4], lower = 1, upper = 6
-Output: 2
-Explanation: The possible hidden sequences are:
-- [3, 4, 1, 5]
-- [4, 5, 2, 6]
-Thus, we return 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: differences = [3,-4,5,1,-2], lower = -4, upper = 5
-Output: 4
-Explanation: The possible hidden sequences are:
-- [-3, 0, -4, 1, 2, 0]
-- [-2, 1, -3, 2, 3, 1]
-- [-1, 2, -2, 3, 4, 2]
-- [0, 3, -1, 4, 5, 3]
-Thus, we return 4.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: differences = [4,-7,2], lower = 3, upper = 6
-Output: 0
-Explanation: There are no possible hidden sequences. Thus, we return 0.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/21
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountTheHiddenSequences</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">differences</span><span class="o">,</span> <span class="kt">int</span> <span class="n">lower</span><span class="o">,</span> <span class="kt">int</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize tracking variables</span>
-        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Minimum cumulative difference</span>
-        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Maximum cumulative difference</span>
-        <span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Current cumulative difference</span>
-
-        <span class="c1">// Iterate through the differences array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">d:</span> <span class="n">differences</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Update current cumulative difference</span>
-            <span class="n">cur</span> <span class="o">+=</span> <span class="n">d</span><span class="o">;</span>
-
-            <span class="c1">// Update minimum and maximum cumulative differences</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">cur</span><span class="o">);</span>  <span class="c1">// Track how far below start we go</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">y</span><span class="o">,</span> <span class="n">cur</span><span class="o">);</span>  <span class="c1">// Track how far above start we go</span>
-
-            <span class="c1">// If the required range (y-x) exceeds the allowed range (upper-lower),</span>
-            <span class="c1">// it's impossible to construct a valid array</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span><span class="o">){</span>
-                <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Calculate the number of possible starting values that would create valid arrays</span>
-        <span class="c1">// (upper - lower): total allowed range</span>
-        <span class="c1">// (y - x): minimum required range</span>
-        <span class="c1">// +1: account for inclusive bounds</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span><span class="o">)</span> <span class="o">-</span> <span class="o">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Example with possible solutions</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">differences1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">lower1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">upper1</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countArray</span><span class="o">(</span><span class="n">differences1</span><span class="o">,</span> <span class="n">lower1</span><span class="o">,</span> <span class="n">upper1</span><span class="o">));</span> <span class="c1">// Expected: 2</span>
-
-        <span class="c1">// Test Case 2: Example with more possible solutions</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">differences2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="o">-</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">lower2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">upper2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countArray</span><span class="o">(</span><span class="n">differences2</span><span class="o">,</span> <span class="n">lower2</span><span class="o">,</span> <span class="n">upper2</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
-
-        <span class="c1">// Test Case 3: Example with no possible solutions</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">differences3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="o">-</span><span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">lower3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">upper3</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countArray</span><span class="o">(</span><span class="n">differences3</span><span class="o">,</span> <span class="n">lower3</span><span class="o">,</span> <span class="n">upper3</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed array of n integers differences, which describes the differences between each pair of consecutive integers of a hidden sequence of length (n + 1). More formally, call the hidden sequence hidden, then we have that differences[i] = hidden[i + 1] - hidden[i]. You are further given two integers lower and upper that describe the inclusive range of values [lower, upper] that the hidden sequence can contain. For example, given differences=[1, -3, 4], lower=1, upper=6, the hidden sequence is a sequence of length 4 whose elements are in between 1 and 6 (inclusive). [3, 4, 1, 5] and [4, 5, 2, 6] are possible hidden sequences. [5, 6, 3, 7] is not possible since it contains an element greater than 6. [1, 2, 3, 4] is not possible since the differences are not correct. Return the number of possible hidden sequences there are. If there are no possible sequences, return 0.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode GroupedLoop"/><category term="Medium"/><summary type="html"><![CDATA[You are given a binary string s of length n, where: '1' represents an active section. '0' represents an inactive section. You can perform at most one trade to maximize the number of active sections in s. In a trade, you: Convert a contiguous block of '1's that is surrounded by '0's to all '0's. Afterward, convert a contiguous block of '0's that is surrounded by '1's to all '1's. Return the maximum number of active sections in s after making the optimal trade. Note: Treat s as if it is augmented with a '1' at both ends, forming t='1' + s + '1'. The augmented '1's do not contribute to the final count.]]></summary></entry></feed>
