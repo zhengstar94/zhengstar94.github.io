@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-29T06:58:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1011. Capacity To Ship Packages Within D Days</title><link href="https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays/" rel="alternate" type="text/html" title="1011. Capacity To Ship Packages Within D Days"/><published>2025-04-29T00:00:00+00:00</published><updated>2025-04-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays/"><![CDATA[<ul> <li>A conveyor belt has packages that must be shipped from one port to another within <code class="language-plaintext highlighter-rouge">days</code> days.</li> <li>The <code class="language-plaintext highlighter-rouge">ith</code> package on the conveyor belt has a weight of <code class="language-plaintext highlighter-rouge">weights[i]</code>. Each day, we load the ship with packages on the conveyor belt (in the order given by <code class="language-plaintext highlighter-rouge">weights</code>). We may not load more weight than the maximum weight capacity of the ship.</li> <li>Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within <code class="language-plaintext highlighter-rouge">days</code> days.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: weights = [1,2,3,4,5,6,7,8,9,10], days = 5
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-30T08:35:34+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1295. Find Numbers with Even Number of Digits</title><link href="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/" rel="alternate" type="text/html" title="1295. Find Numbers with Even Number of Digits"/><published>2025-04-30T00:00:00+00:00</published><updated>2025-04-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> of integers, return how many of them contain an <strong>even number</strong> of digits.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [12,345,2,6,7896]
+Output: 2
+Explanation: 
+12 contains 2 digits (even number of digits). 
+345 contains 3 digits (odd number of digits). 
+2 contains 1 digit (odd number of digits). 
+6 contains 1 digit (odd number of digits). 
+7896 contains 4 digits (even number of digits). 
+Therefore only 12 and 7896 contain an even number of digits.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [555,901,482,1771]
+Output: 1 
+Explanation: 
+Only 1771 contains an even number of digits.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/04/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindNumbersWithEvenNumberOfDigits</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findNumbers</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Counter to keep track of numbers with even digits</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each number in array</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Convert number to string and check if length is even</span>
+            <span class="c1">// If even, increment counter</span>
+            <span class="k">if</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">num</span><span class="o">).</span><span class="na">length</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1 demonstration</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span><span class="mi">345</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7896</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">findNumbers</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Test Case 2 demonstration</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">555</span><span class="o">,</span><span class="mi">901</span><span class="o">,</span><span class="mi">482</span><span class="o">,</span><span class="mi">1771</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">findNumbers</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums of integers, return how many of them contain an even number of digits.]]></summary></entry><entry><title type="html">1011. Capacity To Ship Packages Within D Days</title><link href="https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays/" rel="alternate" type="text/html" title="1011. Capacity To Ship Packages Within D Days"/><published>2025-04-29T00:00:00+00:00</published><updated>2025-04-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays/"><![CDATA[<ul> <li>A conveyor belt has packages that must be shipped from one port to another within <code class="language-plaintext highlighter-rouge">days</code> days.</li> <li>The <code class="language-plaintext highlighter-rouge">ith</code> package on the conveyor belt has a weight of <code class="language-plaintext highlighter-rouge">weights[i]</code>. Each day, we load the ship with packages on the conveyor belt (in the order given by <code class="language-plaintext highlighter-rouge">weights</code>). We may not load more weight than the maximum weight capacity of the ship.</li> <li>Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within <code class="language-plaintext highlighter-rouge">days</code> days.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: weights = [1,2,3,4,5,6,7,8,9,10], days = 5
 Output: 15
 Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
 1st day: 1, 2, 3, 4, 5
@@ -833,116 +881,4 @@ Explanation: There are 4 positive integers and 0 negative integers. The maximum 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers. In other words, if the number of positive integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg. Note that 0 is neither positive nor negative.]]></summary></entry><entry><title type="html">2300. Successful Pairs of Spells and Potions</title><link href="https://zhengstar94.github.io//blog/2025/SuccessfulPairsOfSpellsAndPotions/" rel="alternate" type="text/html" title="2300. Successful Pairs of Spells and Potions"/><published>2025-04-23T00:00:00+00:00</published><updated>2025-04-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SuccessfulPairsOfSpellsAndPotions</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SuccessfulPairsOfSpellsAndPotions/"><![CDATA[<ul> <li>You are given two positive integer arrays <code class="language-plaintext highlighter-rouge">spells</code> and <code class="language-plaintext highlighter-rouge">potions</code>, of length <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">m</code> respectively, where <code class="language-plaintext highlighter-rouge">spells[i]</code> represents the strength of the <code class="language-plaintext highlighter-rouge">ith</code> spell and <code class="language-plaintext highlighter-rouge">potions[j]</code> represents the strength of the <code class="language-plaintext highlighter-rouge">jth</code> potion.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">success</code>. A spell and potion pair is considered <strong>successful</strong> if the <strong>product</strong> of their strengths is <strong>at least</strong> <code class="language-plaintext highlighter-rouge">success</code>.</li> <li>Return <em>an integer array</em> <code class="language-plaintext highlighter-rouge">pairs</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">n</code> <em>where</em> <code class="language-plaintext highlighter-rouge">pairs[i]</code> <em>is the number of <strong>potions</strong> that will form a successful pair with the</em> <code class="language-plaintext highlighter-rouge">ith</code> <em>spell.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: spells = [5,1,3], potions = [1,2,3,4,5], success = 7
-Output: [4,0,3]
-Explanation:
-- 0th spell: 5 * [1,2,3,4,5] = [5,10,15,20,25]. 4 pairs are successful.
-- 1st spell: 1 * [1,2,3,4,5] = [1,2,3,4,5]. 0 pairs are successful.
-- 2nd spell: 3 * [1,2,3,4,5] = [3,6,9,12,15]. 3 pairs are successful.
-Thus, [4,0,3] is returned.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: spells = [3,1,2], potions = [8,5,8], success = 16
-Output: [2,0,2]
-Explanation:
-- 0th spell: 3 * [8,5,8] = [24,15,24]. 2 pairs are successful.
-- 1st spell: 1 * [8,5,8] = [8,5,8]. 0 pairs are successful. 
-- 2nd spell: 2 * [8,5,8] = [16,10,16]. 2 pairs are successful. 
-Thus, [2,0,2] is returned.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,20,66,1314]
-Output: 4
-Explanation: There are 4 positive integers and 0 negative integers. The maximum count among them is 4.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O((n + m) log m) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/23
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuccessfulPairsOfSpellsAndPotions</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">successfulPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">spells</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">potions</span><span class="o">,</span> <span class="kt">long</span> <span class="n">success</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort potions array in ascending order to enable binary search</span>
-        <span class="c1">// Time complexity: O(mlogm)</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">potions</span><span class="o">);</span>
-
-        <span class="c1">// Initialize variables for array lengths and result array</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">spells</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>  <span class="c1">// number of spells</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">potions</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="c1">// number of potions</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Process each spell to find successful combinations</span>
-        <span class="c1">// Time complexity: O(nlogm)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Calculate minimum potion value needed for current spell</span>
-            <span class="c1">// Formula: ceil(success/spell) = (success + spell - 1) / spell</span>
-            <span class="c1">// This ensures we get ceiling value without using Math.ceil()</span>
-            <span class="kt">long</span> <span class="n">minPotion</span> <span class="o">=</span> <span class="o">(</span><span class="n">success</span> <span class="o">+</span> <span class="n">spells</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="n">spells</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-
-            <span class="c1">// Use binary search to find the first potion that when combined</span>
-            <span class="c1">// with current spell produces value &gt;= success</span>
-            <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="o">(</span><span class="n">potions</span><span class="o">,</span> <span class="n">minPotion</span><span class="o">);</span>
-
-            <span class="c1">// Calculate number of successful combinations:</span>
-            <span class="c1">// Total potions - index of first valid potion</span>
-            <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="n">index</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">long</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize search boundaries</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                <span class="c1">// Start of search range</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>      <span class="c1">// End of search range (exclusive)</span>
-
-        <span class="c1">// Continue searching while boundaries haven't crossed</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate middle point</span>
-            <span class="c1">// Use (right-left)/2 to avoid integer overflow</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// If middle element is less than target</span>
-            <span class="c1">// Search in right half: [mid+1, right]</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// If middle element is &gt;= target</span>
-            <span class="c1">// Search in left half including mid: [left, mid]</span>
-            <span class="k">else</span> <span class="o">{</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return position where element should be inserted</span>
-        <span class="c1">// This is either the index of first element &gt;= target</span>
-        <span class="c1">// or arr.length if no such element exists</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Mixed positive numbers with multiple successful combinations</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">spells1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">potions1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">success1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: "</span> <span class="o">+</span>
-                <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">successfulPairs</span><span class="o">(</span><span class="n">spells1</span><span class="o">,</span> <span class="n">potions1</span><span class="o">,</span> <span class="n">success1</span><span class="o">)));</span> <span class="c1">// Expected: [4,0,3]</span>
-
-        <span class="c1">// Test Case 2: Larger numbers testing overflow handling</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">spells2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">potions2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">8</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">success2</span> <span class="o">=</span> <span class="mi">16</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: "</span> <span class="o">+</span>
-                <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">successfulPairs</span><span class="o">(</span><span class="n">spells2</span><span class="o">,</span> <span class="n">potions2</span><span class="o">,</span> <span class="n">success2</span><span class="o">)));</span> <span class="c1">// Expected: [2,0,2]</span>
-
-        <span class="c1">// Test Case 3: Sequential numbers testing boundary conditions</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">spells3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">potions3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">long</span> <span class="n">success3</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: "</span> <span class="o">+</span>
-                <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">successfulPairs</span><span class="o">(</span><span class="n">spells3</span><span class="o">,</span> <span class="n">potions3</span><span class="o">,</span> <span class="n">success3</span><span class="o">)));</span> <span class="c1">// Expected: [0,0,1,2,3]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integer arrays spells and potions, of length n and m respectively, where spells[i] represents the strength of the ith spell and potions[j] represents the strength of the jth potion. You are also given an integer success. A spell and potion pair is considered successful if the product of their strengths is at least success. Return an integer array pairs of length n where pairs[i] is the number of potions that will form a successful pair with the ith spell.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers. In other words, if the number of positive integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg. Note that 0 is neither positive nor negative.]]></summary></entry></feed>
