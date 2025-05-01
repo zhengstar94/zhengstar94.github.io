@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-04-30T09:17:44+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1295. Find Numbers with Even Number of Digits</title><link href="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/" rel="alternate" type="text/html" title="1295. Find Numbers with Even Number of Digits"/><published>2025-04-30T00:00:00+00:00</published><updated>2025-04-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> of integers, return how many of them contain an <strong>even number</strong> of digits.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [12,345,2,6,7896]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-01T14:16:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2594. Minimum Time to Repair Cars</title><link href="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/" rel="alternate" type="text/html" title="2594. Minimum Time to Repair Cars"/><published>2025-05-01T00:00:00+00:00</published><updated>2025-05-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">ranks</code> representing the <strong>ranks</strong> of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank <code class="language-plaintext highlighter-rouge">r</code> can repair n cars in <code class="language-plaintext highlighter-rouge">r * n2</code> minutes.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">cars</code> representing the total number of cars waiting in the garage to be repaired.</li> <li>Return <em>the <strong>minimum</strong> time taken to repair all the cars.</em>**</li> <li><strong>Note:</strong> All the mechanics can repair the cars simultaneously.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ranks = [4,2,3,1], cars = 10
+Output: 16
+Explanation: 
+- The first mechanic will repair two cars. The time required is 4 * 2 * 2 = 16 minutes.
+- The second mechanic will repair two cars. The time required is 2 * 2 * 2 = 8 minutes.
+- The third mechanic will repair two cars. The time required is 3 * 2 * 2 = 12 minutes.
+- The fourth mechanic will repair four cars. The time required is 1 * 4 * 4 = 16 minutes.
+It can be proved that the cars cannot be repaired in less than 16 minutes.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ranks = [5,1,8], cars = 6
+Output: 16
+Explanation: 
+- The first mechanic will repair one car. The time required is 5 * 1 * 1 = 5 minutes.
+- The second mechanic will repair four cars. The time required is 1 * 4 * 4 = 16 minutes.
+- The third mechanic will repair one car. The time required is 8 * 1 * 1 = 8 minutes.
+It can be proved that the cars cannot be repaired in less than 16 minutes.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(R * C²)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.FindMinimum</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumTimeToRepairCars</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">repairCars</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">ranks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cars</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the lower bound of our search range to 1</span>
+        <span class="c1">// The minimum possible time cannot be less than 1</span>
+        <span class="kt">long</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Initialize the upper bound of our search range</span>
+        <span class="c1">// We calculate an upper bound that is guaranteed to be larger than the answer</span>
+        <span class="c1">// Formula: rank * cars^2 represents the time needed if one mechanic repairs all cars</span>
+        <span class="c1">// Using ranks[0] gives us a sufficient upper bound, even if it's not the maximum rank</span>
+        <span class="c1">// This is a key optimization: we only need a value that's larger than the actual answer</span>
+        <span class="kt">long</span> <span class="n">right</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">ranks</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">*</span> <span class="n">cars</span> <span class="o">*</span> <span class="n">cars</span><span class="o">;</span>
+
+        <span class="c1">// Perform binary search to find the minimum possible time</span>
+        <span class="c1">// The search continues until left and right pointers converge</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the middle point, avoiding potential overflow with this formula</span>
+            <span class="kt">long</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Check if all cars can be repaired within 'mid' time</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">canRepairAll</span><span class="o">(</span><span class="n">ranks</span><span class="o">,</span> <span class="n">cars</span><span class="o">,</span> <span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// If possible to repair within 'mid' time, try a smaller time</span>
+                <span class="c1">// We don't exclude 'mid' because it might be the answer</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If not possible to repair within 'mid' time, we need more time</span>
+                <span class="c1">// Exclude 'mid' as it's definitely not enough time</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When left == right, we've found our answer</span>
+        <span class="c1">// This is the minimum time needed to repair all cars</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canRepairAll</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">ranks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cars</span><span class="o">,</span> <span class="kt">long</span> <span class="n">time</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Track the total number of cars that can be repaired within the time limit</span>
+        <span class="kt">long</span> <span class="n">totalCars</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each mechanic's rank to calculate their contribution</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">rank</span> <span class="o">:</span> <span class="n">ranks</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// For each mechanic with efficiency rank 'rank':</span>
+            <span class="c1">// The time to repair n cars is: time = rank * n^2</span>
+            <span class="c1">// Solving for n: n = sqrt(time/rank)</span>
+            <span class="c1">// This gives us the maximum number of cars this mechanic can repair in the given time</span>
+
+            <span class="c1">// Calculate how many cars this mechanic can repair</span>
+            <span class="c1">// The cast to long ensures we don't lose precision in the square root calculation</span>
+            <span class="kt">long</span> <span class="n">carsPerMechanic</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">time</span> <span class="o">/</span> <span class="n">rank</span><span class="o">);</span>
+
+            <span class="c1">// Add this mechanic's contribution to the total</span>
+            <span class="n">totalCars</span> <span class="o">+=</span> <span class="n">carsPerMechanic</span><span class="o">;</span>
+
+            <span class="c1">// Early termination optimization:</span>
+            <span class="c1">// If we've already found that enough cars can be repaired, return immediately</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">totalCars</span> <span class="o">&gt;=</span> <span class="n">cars</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Final check: can all mechanics combined repair enough cars?</span>
+        <span class="c1">// This will only be reached if the early termination condition above wasn't triggered</span>
+        <span class="k">return</span> <span class="n">totalCars</span> <span class="o">&gt;=</span> <span class="n">cars</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: 4 mechanics with ranks [4,2,3,1], need to repair 10 cars</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ranks1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">cars1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">repairCars</span><span class="o">(</span><span class="n">ranks1</span><span class="o">,</span> <span class="n">cars1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 16"</span><span class="o">);</span>
+
+        <span class="c1">// Test case 2: 3 mechanics with ranks [5,1,8], need to repair 6 cars</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">ranks2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">cars2</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">repairCars</span><span class="o">(</span><span class="n">ranks2</span><span class="o">,</span> <span class="n">cars2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 16"</span><span class="o">);</span>
+
+        <span class="c1">// Explanation for test case 2 - showing the optimal distribution of cars</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2 explanation:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"- The first mechanic (rank 5) repairs 1 car, taking 5 * 1 * 1 = 5 minutes."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"- The second mechanic (rank 1) repairs 4 cars, taking 1 * 4 * 4 = 16 minutes."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"- The third mechanic (rank 8) repairs 1 car, taking 8 * 1 * 1 = 8 minutes."</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"16 minutes is the minimum time needed to repair all cars."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array ranks representing the ranks of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank r can repair n cars in r * n2 minutes. You are also given an integer cars representing the total number of cars waiting in the garage to be repaired. Return the minimum time taken to repair all the cars.** Note: All the mechanics can repair the cars simultaneously.]]></summary></entry><entry><title type="html">1295. Find Numbers with Even Number of Digits</title><link href="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/" rel="alternate" type="text/html" title="1295. Find Numbers with Even Number of Digits"/><published>2025-04-30T00:00:00+00:00</published><updated>2025-04-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> of integers, return how many of them contain an <strong>even number</strong> of digits.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [12,345,2,6,7896]
 Output: 2
 Explanation: 
 12 contains 2 digits (even number of digits). 
@@ -792,86 +904,4 @@ timeMap.get("foo", 5);         // return "bar2"
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp. Implement the TimeMap class: TimeMap() Initializes the object of the data structure. void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp. String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev &lt;= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".]]></summary></entry><entry><title type="html">2389. Longest Subsequence With Limited Sum</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/" rel="alternate" type="text/html" title="2389. Longest Subsequence With Limited Sum"/><published>2025-04-25T00:00:00+00:00</published><updated>2025-04-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubsequenceWithLimitedSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code>, and an integer array <code class="language-plaintext highlighter-rouge">queries</code> of length <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">m</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the <strong>maximum</strong> size of a <strong>subsequence</strong> that you can take from</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>such that the <strong>sum</strong> of its elements is less than or equal to</em> <code class="language-plaintext highlighter-rouge">queries[i]</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,5,2,1], queries = [3,10,21]
-Output: [2,3,4]
-Explanation: We answer the queries as follows:
-- The subsequence [2,1] has a sum less than or equal to 3. It can be proven that 2 is the maximum size of such a subsequence, so answer[0] = 2.
-- The subsequence [4,5,1] has a sum less than or equal to 10. It can be proven that 3 is the maximum size of such a subsequence, so answer[1] = 3.
-- The subsequence [4,5,2,1] has a sum less than or equal to 21. It can be proven that 4 is the maximum size of such a subsequence, so answer[2] = 4.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,4,5], queries = [1]
-Output: [0]
-Explanation: The empty subsequence is the only subsequence that has a sum less than or equal to 1, so answer[0] = 0.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/25
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestSubsequenceWithLimitedSum</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">answerQueries</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort array first since we only care about sum, not order</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Create prefix sum array to store cumulative sums</span>
-        <span class="c1">// preSum[i] represents sum of first (i+1) smallest numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">preSum</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        <span class="n">preSum</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>  <span class="c1">// First element is same as nums[0]</span>
-
-        <span class="c1">// Calculate prefix sum for rest of the array</span>
-        <span class="c1">// preSum[i] = sum of all elements from index 0 to i</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">preSum</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">preSum</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Process each query using binary search</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// For each query, find the longest subsequence with sum &lt;= query value</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="o">(</span><span class="n">preSum</span><span class="o">,</span> <span class="n">queries</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">preSum</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">preSum</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate middle point avoiding overflow</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="n">preSum</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If current sum is too large, look in left half</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If current sum is &lt;= target, look in right half</span>
-                <span class="c1">// We add 1 to left because we know mid is valid</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// 'left' will be the position of first element &gt; target</span>
-        <span class="c1">// This means we can use 'left' numbers in our subsequence</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Expected output [2,3,4]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">21</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">answerQueries</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">queries1</span><span class="o">)));</span>
-
-        <span class="c1">// Test case 2: Expected output [0]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">answerQueries</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">queries2</span><span class="o">)));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums of length n, and an integer array queries of length m. Return an array answer of length m where answer[i] is the maximum size of a subsequence that you can take from nums such that the sum of its elements is less than or equal to queries[i]. A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp. Implement the TimeMap class: TimeMap() Initializes the object of the data structure. void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp. String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev &lt;= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".]]></summary></entry></feed>
