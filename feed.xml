@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-01T14:16:20+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2594. Minimum Time to Repair Cars</title><link href="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/" rel="alternate" type="text/html" title="2594. Minimum Time to Repair Cars"/><published>2025-05-01T00:00:00+00:00</published><updated>2025-05-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">ranks</code> representing the <strong>ranks</strong> of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank <code class="language-plaintext highlighter-rouge">r</code> can repair n cars in <code class="language-plaintext highlighter-rouge">r * n2</code> minutes.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">cars</code> representing the total number of cars waiting in the garage to be repaired.</li> <li>Return <em>the <strong>minimum</strong> time taken to repair all the cars.</em>**</li> <li><strong>Note:</strong> All the mechanics can repair the cars simultaneously.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ranks = [4,2,3,1], cars = 10
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-03T10:59:34+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1007. Minimum Domino Rotations For Equal Row</title><link href="https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow/" rel="alternate" type="text/html" title="1007. Minimum Domino Rotations For Equal Row"/><published>2025-05-03T00:00:00+00:00</published><updated>2025-05-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow/"><![CDATA[<ul> <li>In a row of dominoes, <code class="language-plaintext highlighter-rouge">tops[i]</code> and <code class="language-plaintext highlighter-rouge">bottoms[i]</code> represent the top and bottom halves of the <code class="language-plaintext highlighter-rouge">ith</code> domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)</li> <li>We may rotate the <code class="language-plaintext highlighter-rouge">ith</code> domino, so that <code class="language-plaintext highlighter-rouge">tops[i]</code> and <code class="language-plaintext highlighter-rouge">bottoms[i]</code> swap values.</li> <li>Return the minimum number of rotations so that all the values in <code class="language-plaintext highlighter-rouge">tops</code> are the same, or all the values in <code class="language-plaintext highlighter-rouge">bottoms</code> are the same.</li> <li>If it cannot be done, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2]
+Output: 2
+Explanation: 
+The first figure represents the dominoes as given by tops and bottoms: before we do any rotations.
+If we rotate the second and fourth dominoes, we can make every value in the top row equal to 2, as indicated by the second figure.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tops = [3,5,1,2,3], bottoms = [3,6,3,3,4]
+Output: -1
+Explanation: 
+In this case, it is not possible to rotate the dominoes to make one row of values equal.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/03
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumDominoRotationsForEqualRow</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minDominoRotations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">tops</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">bottoms</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// We only need to check two potential target values: tops[0] and bottoms[0]</span>
+        <span class="c1">// This is because if a solution exists, the target value must appear in the first domino</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span>
+                <span class="n">minRot</span><span class="o">(</span><span class="n">tops</span><span class="o">,</span> <span class="n">bottoms</span><span class="o">,</span> <span class="n">tops</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span>     <span class="c1">// Try to make all tops or bottoms equal to tops[0]</span>
+                <span class="n">minRot</span><span class="o">(</span><span class="n">tops</span><span class="o">,</span> <span class="n">bottoms</span><span class="o">,</span> <span class="n">bottoms</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span>   <span class="c1">// Try to make all tops or bottoms equal to bottoms[0]</span>
+        <span class="o">);</span>
+
+        <span class="c1">// If both attempts returned Integer.MAX_VALUE, it means no solution exists</span>
+        <span class="k">return</span> <span class="n">ans</span> <span class="o">==</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minRot</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">tops</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">bottoms</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">toTop</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>    <span class="c1">// Count of rotations needed to make all tops equal to target</span>
+        <span class="kt">int</span> <span class="n">toBottom</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Count of rotations needed to make all bottoms equal to target</span>
+
+        <span class="c1">// Iterate through each domino</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tops</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">tops</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>    <span class="c1">// Current top value</span>
+            <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">bottoms</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> <span class="c1">// Current bottom value</span>
+
+            <span class="c1">// If neither the top nor bottom is the target value, it's impossible to achieve our goal</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">target</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// If top is not the target value, we need one rotation to make tops[i] = target</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">toTop</span><span class="o">++;</span>    <span class="c1">// Increment the count for making all tops the target</span>
+            <span class="o">}</span>
+            <span class="c1">// If bottom is not the target value, we need one rotation to make bottoms[i] = target</span>
+            <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">toBottom</span><span class="o">++;</span> <span class="c1">// Increment the count for making all bottoms the target</span>
+            <span class="o">}</span>
+            <span class="c1">// If both are the target value, no rotation is needed for this domino</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the minimum of the two approaches:</span>
+        <span class="c1">// 1. Make all tops the target value</span>
+        <span class="c1">// 2. Make all bottoms the target value</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">toTop</span><span class="o">,</span> <span class="n">toBottom</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">tops1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bottoms1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">minDominoRotations</span><span class="o">(</span><span class="n">tops1</span><span class="o">,</span> <span class="n">bottoms1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">tops2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bottoms2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: tops = [3,5,1,2,3], bottoms = [3,6,3,3,4]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: -1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">minDominoRotations</span><span class="o">(</span><span class="n">tops2</span><span class="o">,</span> <span class="n">bottoms2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">tops3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bottoms3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: tops = [1,2,1,1,1,2,2,2], bottoms = [2,1,2,2,2,2,2,2]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Output: 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">minDominoRotations</span><span class="o">(</span><span class="n">tops3</span><span class="o">,</span> <span class="n">bottoms3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[In a row of dominoes, tops[i] and bottoms[i] represent the top and bottom halves of the ith domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.) We may rotate the ith domino, so that tops[i] and bottoms[i] swap values. Return the minimum number of rotations so that all the values in tops are the same, or all the values in bottoms are the same. If it cannot be done, return -1.]]></summary></entry><entry><title type="html">2594. Minimum Time to Repair Cars</title><link href="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/" rel="alternate" type="text/html" title="2594. Minimum Time to Repair Cars"/><published>2025-05-01T00:00:00+00:00</published><updated>2025-05-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">ranks</code> representing the <strong>ranks</strong> of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank <code class="language-plaintext highlighter-rouge">r</code> can repair n cars in <code class="language-plaintext highlighter-rouge">r * n2</code> minutes.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">cars</code> representing the total number of cars waiting in the garage to be repaired.</li> <li>Return <em>the <strong>minimum</strong> time taken to repair all the cars.</em>**</li> <li><strong>Note:</strong> All the mechanics can repair the cars simultaneously.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ranks = [4,2,3,1], cars = 10
 Output: 16
 Explanation: 
 - The first mechanic will repair two cars. The time required is 4 * 2 * 2 = 16 minutes.
@@ -763,145 +851,4 @@ This yields an absolute sum difference of |10-9| + |10-3| + |4-5| + |4-1| + |2-7
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integer arrays nums1 and nums2, both of length n. The absolute sum difference of arrays nums1 and nums2 is defined as the sum of |nums1[i] - nums2[i]| for each 0 &lt;= i &lt; n (0-indexed). You can replace at most one element of nums1 with any other element in nums1 to minimize the absolute sum difference. Return the minimum absolute sum difference after replacing at most one element in the array nums1. Since the answer may be large, return it modulo 10^9 + 7. |x| is defined as: x if x &gt;= 0, or -x if x &lt; 0.]]></summary></entry><entry><title type="html">981. Time Based Key-Value Store</title><link href="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/" rel="alternate" type="text/html" title="981. Time Based Key-Value Store"/><published>2025-04-26T00:00:00+00:00</published><updated>2025-04-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TimeBasedKeyValueStore/"><![CDATA[<ul> <li>Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp.</li> <li>Implement the <code class="language-plaintext highlighter-rouge">TimeMap</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">TimeMap()</code> Initializes the object of the data structure.</li> <li><code class="language-plaintext highlighter-rouge">void set(String key, String value, int timestamp)</code> Stores the key <code class="language-plaintext highlighter-rouge">key</code> with the value <code class="language-plaintext highlighter-rouge">value</code> at the given time <code class="language-plaintext highlighter-rouge">timestamp</code>.</li> <li><code class="language-plaintext highlighter-rouge">String get(String key, int timestamp)</code> Returns a value such that <code class="language-plaintext highlighter-rouge">set</code> was called previously, with <code class="language-plaintext highlighter-rouge">timestamp_prev &lt;= timestamp</code>. If there are multiple such values, it returns the value associated with the largest <code class="language-plaintext highlighter-rouge">timestamp_prev</code>. If there are no values, it returns <code class="language-plaintext highlighter-rouge">""</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
-["TimeMap", "set", "get", "get", "set", "get", "get"]
-[ [], ["foo", "bar", 1], ["foo", 1], ["foo", 3], ["foo", "bar2", 4], ["foo", 4], ["foo", 5] ]
-Output
-[null, null, "bar", "bar", null, "bar2", "bar2"]
-
-Explanation
-TimeMap timeMap = new TimeMap();
-timeMap.set("foo", "bar", 1);  // store the key "foo" and value "bar" along with timestamp = 1.
-timeMap.get("foo", 1);         // return "bar"
-timeMap.get("foo", 3);         // return "bar", since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 is "bar".
-timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along with timestamp = 4.
-timeMap.get("foo", 4);         // return "bar2"
-timeMap.get("foo", 5);         // return "bar2"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(set O(1), get O(logn)) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/26
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimeMap</span> <span class="o">{</span>
-    <span class="cm">/**
-     * Custom Pair class to store timestamp-value pairs
-     * @param &lt;K&gt; Type of key (timestamp)
-     * @param &lt;V&gt; Type of value (string)
-     */</span>
-    <span class="kd">class</span> <span class="nc">Pair</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
-        <span class="kd">private</span> <span class="no">K</span> <span class="n">key</span><span class="o">;</span>
-        <span class="kd">private</span> <span class="no">V</span> <span class="n">value</span><span class="o">;</span>
-
-        <span class="cm">/**
-         * Constructor to create a new Pair
-         * @param key The timestamp
-         * @param value The value associated with the timestamp
-         */</span>
-        <span class="kd">public</span> <span class="nf">Pair</span><span class="o">(</span><span class="no">K</span> <span class="n">key</span><span class="o">,</span> <span class="no">V</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="no">K</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="no">V</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="c1">// HashMap to store key to timestamp-value pairs mapping</span>
-    <span class="kd">private</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;&gt;</span> <span class="n">map</span><span class="o">;</span>
-
-    <span class="cm">/**
-     * Initialize TimeMap data structure
-     */</span>
-    <span class="kd">public</span> <span class="nf">TimeMap</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Stores the key, value pair at the given timestamp
-     * @param key The key to store
-     * @param value The value to store
-     * @param timestamp The timestamp at which to store the key-value pair
-     */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="nc">String</span> <span class="n">key</span><span class="o">,</span> <span class="nc">String</span> <span class="n">value</span><span class="o">,</span> <span class="kt">int</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">map</span><span class="o">.</span><span class="na">computeIfAbsent</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">k</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;())</span>
-                <span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Pair</span><span class="o">&lt;&gt;(</span><span class="n">timestamp</span><span class="o">,</span> <span class="n">value</span><span class="o">));</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Gets the value associated with the key at the maximum timestamp less than or equal to the given timestamp
-     * @param key The key to look up
-     * @param timestamp The timestamp to search for
-     * @return The value associated with the key at the greatest timestamp &lt;= given timestamp, or "" if not found
-     */</span>
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">get</span><span class="o">(</span><span class="nc">String</span> <span class="n">key</span><span class="o">,</span> <span class="kt">int</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(!</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">key</span><span class="o">))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
-        <span class="k">return</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">timestamp</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Binary search to find the value at the greatest timestamp &lt;= target timestamp
-     * @param list List of timestamp-value pairs
-     * @param timestamp Target timestamp
-     * @return Value at the greatest timestamp &lt;= target timestamp, or "" if not found
-     */</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// If smallest timestamp is greater than target, return empty string</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">left</span><span class="o">).</span><span class="na">getKey</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Binary search to find the largest timestamp &lt;= target</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">getKey</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">left</span><span class="o">).</span><span class="na">getValue</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Basic operations</span>
-        <span class="nc">TimeMap</span> <span class="n">timeMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TimeMap</span><span class="o">();</span>
-        <span class="n">timeMap</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="s">"bar"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>  <span class="c1">// Returns "bar"</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span>  <span class="c1">// Returns "bar"</span>
-        <span class="n">timeMap</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="s">"bar2"</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">4</span><span class="o">));</span>  <span class="c1">// Returns "bar2"</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"foo"</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>  <span class="c1">// Returns "bar2"</span>
-
-        <span class="c1">// Test case 2: Multiple timestamps for same key</span>
-        <span class="nc">TimeMap</span> <span class="n">timeMap2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TimeMap</span><span class="o">();</span>
-        <span class="n">timeMap2</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="s">"high"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
-        <span class="n">timeMap2</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="s">"low"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>   <span class="c1">// Returns ""</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>  <span class="c1">// Returns "high"</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">15</span><span class="o">));</span>  <span class="c1">// Returns "high"</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">20</span><span class="o">));</span>  <span class="c1">// Returns "low"</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">timeMap2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"love"</span><span class="o">,</span> <span class="mi">25</span><span class="o">));</span>  <span class="c1">// Returns "low"</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key’s value at a certain timestamp. Implement the TimeMap class: TimeMap() Initializes the object of the data structure. void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp. String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev &lt;= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integer arrays nums1 and nums2, both of length n. The absolute sum difference of arrays nums1 and nums2 is defined as the sum of |nums1[i] - nums2[i]| for each 0 &lt;= i &lt; n (0-indexed). You can replace at most one element of nums1 with any other element in nums1 to minimize the absolute sum difference. Return the minimum absolute sum difference after replacing at most one element in the array nums1. Since the answer may be large, return it modulo 10^9 + 7. |x| is defined as: x if x &gt;= 0, or -x if x &lt; 0.]]></summary></entry></feed>
