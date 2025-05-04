@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-03T10:59:34+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1007. Minimum Domino Rotations For Equal Row</title><link href="https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow/" rel="alternate" type="text/html" title="1007. Minimum Domino Rotations For Equal Row"/><published>2025-05-03T00:00:00+00:00</published><updated>2025-05-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow/"><![CDATA[<ul> <li>In a row of dominoes, <code class="language-plaintext highlighter-rouge">tops[i]</code> and <code class="language-plaintext highlighter-rouge">bottoms[i]</code> represent the top and bottom halves of the <code class="language-plaintext highlighter-rouge">ith</code> domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)</li> <li>We may rotate the <code class="language-plaintext highlighter-rouge">ith</code> domino, so that <code class="language-plaintext highlighter-rouge">tops[i]</code> and <code class="language-plaintext highlighter-rouge">bottoms[i]</code> swap values.</li> <li>Return the minimum number of rotations so that all the values in <code class="language-plaintext highlighter-rouge">tops</code> are the same, or all the values in <code class="language-plaintext highlighter-rouge">bottoms</code> are the same.</li> <li>If it cannot be done, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-04T01:25:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1128. Number of Equivalent Domino Pairs</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/" rel="alternate" type="text/html" title="1128. Number of Equivalent Domino Pairs"/><published>2025-05-04T00:00:00+00:00</published><updated>2025-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/"><![CDATA[<ul> <li>Given a list of <code class="language-plaintext highlighter-rouge">dominoes</code>, <code class="language-plaintext highlighter-rouge">dominoes[i] = [a, b]</code> is <strong>equivalent to</strong> <code class="language-plaintext highlighter-rouge">dominoes[j] = [c, d]</code> if and only if either (<code class="language-plaintext highlighter-rouge">a == c</code> and <code class="language-plaintext highlighter-rouge">b == d</code>), or (<code class="language-plaintext highlighter-rouge">a == d</code> and <code class="language-plaintext highlighter-rouge">b == c</code>) - that is, one domino can be rotated to be equal to another domino.</li> <li>Return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>for which</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; dominoes.length</code><em>, and</em> <code class="language-plaintext highlighter-rouge">dominoes[i]</code> <em>is <strong>equivalent to</strong></em> <code class="language-plaintext highlighter-rouge">dominoes[j]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[2,1],[3,4],[5,6 ] ]
+Output: 1
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[1,2],[1,1],[1,2],[2,2 ] ]
+Output: 3
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/04
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfEquivalentDominoPairs</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numEquivDominoPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// HashMap to store the count of each unique domino type</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// Counter for the total number of equivalent pairs</span>
+        <span class="kt">int</span> <span class="n">pairs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each domino in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">domino</span> <span class="o">:</span> <span class="n">dominoes</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Create a unique hash value for each domino, ensuring equivalent dominoes have the same hash</span>
+            <span class="c1">// We use min*10 + max to ensure [a,b] and [b,a] get the same hash value</span>
+            <span class="c1">// This works because in this problem, domino values are between 1-9</span>
+            <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">domino</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">domino</span><span class="o">[</span><span class="mi">1</span><span class="o">])</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">domino</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">domino</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+
+            <span class="c1">// Get the current count of dominoes with the same hash value (same type)</span>
+            <span class="c1">// If this is the first time we see this type, getOrDefault returns 0</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+
+            <span class="c1">// The current domino can form a pair with each previously seen domino of the same type</span>
+            <span class="c1">// So we add the current count to our running total of pairs</span>
+            <span class="n">pairs</span> <span class="o">+=</span> <span class="n">count</span><span class="o">;</span>
+
+            <span class="c1">// Update the count of this domino type in our map</span>
+            <span class="c1">// We increment by 1 to account for the current domino</span>
+            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total number of equivalent domino pairs found</span>
+        <span class="k">return</span> <span class="n">pairs</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Should return 1 pair</span>
+        <span class="c1">// [1,2] and [2,1] are equivalent</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">numEquivDominoPairs</span><span class="o">(</span><span class="n">dominoes1</span><span class="o">));</span> <span class="c1">// Should output 1</span>
+
+        <span class="c1">// Test case 2: Should return 3 pairs</span>
+        <span class="c1">// The pairs are: ( [ 1,2], [1,2]), ([1,2], [1,2]), ([1,2], [1,2 ] )</span>
+        <span class="c1">// Note: These are the pairs at indices (0,1), (0,3), and (1,3)</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">numEquivDominoPairs</span><span class="o">(</span><span class="n">dominoes2</span><span class="o">));</span> <span class="c1">// Should output 3</span>
+
+        <span class="c1">// Additional test case: Should return 4 pairs</span>
+        <span class="c1">// The pairs are:</span>
+        <span class="c1">// ( [ 1,1], [1,1]), ([1,1], [1,1]), ([1,1], [1,1]), ([1,2], [1,2 ] )</span>
+        <span class="c1">// These are the pairs at indices (0,2), (0,5), (2,5), and (3,4)</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">numEquivDominoPairs</span><span class="o">(</span><span class="n">dominoes3</span><span class="o">));</span> <span class="c1">// Should output 4</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given a list of dominoes, dominoes[i] = [a, b] is equivalent to dominoes[j] = [c, d] if and only if either (a == c and b== d), or (a == d and b== c) - that is, one domino can be rotated to be equal to another domino. Return the number of pairs (i, j) for which 0 &lt;= i &lt; j &lt; dominoes.length, and dominoes[i] is equivalent to dominoes[j].]]></summary></entry><entry><title type="html">1007. Minimum Domino Rotations For Equal Row</title><link href="https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow/" rel="alternate" type="text/html" title="1007. Minimum Domino Rotations For Equal Row"/><published>2025-05-03T00:00:00+00:00</published><updated>2025-05-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumDominoRotationsForEqualRow/"><![CDATA[<ul> <li>In a row of dominoes, <code class="language-plaintext highlighter-rouge">tops[i]</code> and <code class="language-plaintext highlighter-rouge">bottoms[i]</code> represent the top and bottom halves of the <code class="language-plaintext highlighter-rouge">ith</code> domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)</li> <li>We may rotate the <code class="language-plaintext highlighter-rouge">ith</code> domino, so that <code class="language-plaintext highlighter-rouge">tops[i]</code> and <code class="language-plaintext highlighter-rouge">bottoms[i]</code> swap values.</li> <li>Return the minimum number of rotations so that all the values in <code class="language-plaintext highlighter-rouge">tops</code> are the same, or all the values in <code class="language-plaintext highlighter-rouge">bottoms</code> are the same.</li> <li>If it cannot be done, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2]
 Output: 2
 Explanation: 
 The first figure represents the dominoes as given by tops and bottoms: before we do any rotations.
@@ -741,114 +807,4 @@ Explanation:
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums, return the number of subarrays of length 3 such that the sum of the first and third numbers equals exactly half of the second number.]]></summary></entry><entry><title type="html">1818. Minimum Absolute Sum Difference</title><link href="https://zhengstar94.github.io//blog/2025/MinimumAbsoluteSumDifference/" rel="alternate" type="text/html" title="1818. Minimum Absolute Sum Difference"/><published>2025-04-27T00:00:00+00:00</published><updated>2025-04-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumAbsoluteSumDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumAbsoluteSumDifference/"><![CDATA[<ul> <li>You are given two positive integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>, both of length <code class="language-plaintext highlighter-rouge">n</code>.</li> <li>The <strong>absolute sum difference</strong> of arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> is defined as the <strong>sum</strong> of <code class="language-plaintext highlighter-rouge">|nums1[i] - nums2[i]|</code> for each <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; n</code> (<strong>0-indexed</strong>).</li> <li>You can replace <strong>at most one</strong> element of <code class="language-plaintext highlighter-rouge">nums1</code> with <strong>any</strong> other element in <code class="language-plaintext highlighter-rouge">nums1</code> to <strong>minimize</strong> the absolute sum difference.</li> <li>Return the <em>minimum absolute sum difference <strong>after</strong> replacing at most one element in the array <code class="language-plaintext highlighter-rouge">nums1</code>.</em> Since the answer may be large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> <li><code class="language-plaintext highlighter-rouge">|x|</code> is defined as: <ul> <li><code class="language-plaintext highlighter-rouge">x</code> if <code class="language-plaintext highlighter-rouge">x &gt;= 0</code>, or</li> <li><code class="language-plaintext highlighter-rouge">-x</code> if <code class="language-plaintext highlighter-rouge">x &lt; 0</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,7,5], nums2 = [2,3,5]
-Output: 3
-Explanation: There are two possible optimal solutions:
-- Replace the second element with the first: [1,7,5] =&gt; [1,1,5], or
-- Replace the second element with the third: [1,7,5] =&gt; [1,5,5].
-Both will yield an absolute sum difference of |1-2| + (|1-3| or |5-3|) + |5-5| = 3.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [2,4,6,8,10], nums2 = [2,4,6,8,10]
-Output: 0
-Explanation: nums1 is equal to nums2 so no replacement is needed. This will result in an 
-absolute sum difference of 0.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [1,10,4,4,2,7], nums2 = [9,3,5,1,7,4]
-Output: 20
-Explanation: Replace the first element with the second: [1,10,4,4,2,7] =&gt; [10,10,4,4,2,7].
-This yields an absolute sum difference of |10-9| + |10-3| + |4-5| + |4-1| + |2-7| + |7-4| = 20
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/27
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumAbsoluteSumDifference</span> <span class="o">{</span>
-    <span class="c1">// Modulo constant to handle large numbers</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1_000_000_007</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minAbsoluteSumDiff</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Create a sorted copy of nums1 for binary search</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">sortedNums1</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">sortedNums1</span><span class="o">);</span>
-
-        <span class="c1">// Calculate the initial total absolute difference</span>
-        <span class="kt">long</span> <span class="n">totalDiff</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">totalDiff</span> <span class="o">+=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Find the maximum improvement possible by replacing one element</span>
-        <span class="kt">long</span> <span class="n">maxImprovement</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Calculate current absolute difference at position i</span>
-            <span class="kt">int</span> <span class="n">originalDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-
-            <span class="c1">// Find the closest value in sorted nums1 to nums2[i]</span>
-            <span class="kt">int</span> <span class="n">closest</span> <span class="o">=</span> <span class="n">findClosest</span><span class="o">(</span><span class="n">sortedNums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="c1">// Calculate new difference if we replace with the closest value</span>
-            <span class="kt">int</span> <span class="n">newDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">closest</span> <span class="o">-</span> <span class="n">nums2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-
-            <span class="c1">// Update maximum improvement if current replacement gives better result</span>
-            <span class="n">maxImprovement</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxImprovement</span><span class="o">,</span> <span class="n">originalDiff</span> <span class="o">-</span> <span class="n">newDiff</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return final result: (original sum - maximum improvement) % MOD</span>
-        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)((</span><span class="n">totalDiff</span> <span class="o">-</span> <span class="n">maxImprovement</span><span class="o">)</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findClosest</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Handle edge cases where target is outside array bounds</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>  <span class="c1">// Target is smaller than or equal to smallest element</span>
-        <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">];</span> <span class="c1">// Target is larger than or equal to largest element</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Binary search process</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span> <span class="c1">// Avoid potential overflow</span>
-
-            <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">];</span> <span class="c1">// Exact match found</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Search in right half</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Search in left half</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Compare the two closest values and return the one with smaller absolute difference</span>
-        <span class="c1">// left and right have crossed, so arr[right] &lt; target &lt; arr[left]</span>
-        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">-</span> <span class="n">target</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">-</span> <span class="n">target</span><span class="o">)</span> <span class="o">?</span>
-                <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span> <span class="o">:</span> <span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic case with replacement needed</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2_1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">minAbsoluteSumDiff</span><span class="o">(</span><span class="n">nums1_1</span><span class="o">,</span> <span class="n">nums2_1</span><span class="o">));</span>
-        <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test Case 2: Arrays are identical, no replacement needed</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2_2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">minAbsoluteSumDiff</span><span class="o">(</span><span class="n">nums1_2</span><span class="o">,</span> <span class="n">nums2_2</span><span class="o">));</span>
-        <span class="c1">// Expected output: 0</span>
-
-        <span class="c1">// Test Case 3: Complex case with larger numbers</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">7</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2_3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">minAbsoluteSumDiff</span><span class="o">(</span><span class="n">nums1_3</span><span class="o">,</span> <span class="n">nums2_3</span><span class="o">));</span>
-        <span class="c1">// Expected output: 20</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integer arrays nums1 and nums2, both of length n. The absolute sum difference of arrays nums1 and nums2 is defined as the sum of |nums1[i] - nums2[i]| for each 0 &lt;= i &lt; n (0-indexed). You can replace at most one element of nums1 with any other element in nums1 to minimize the absolute sum difference. Return the minimum absolute sum difference after replacing at most one element in the array nums1. Since the answer may be large, return it modulo 10^9 + 7. |x| is defined as: x if x &gt;= 0, or -x if x &lt; 0.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums, return the number of subarrays of length 3 such that the sum of the first and third numbers equals exactly half of the second number.]]></summary></entry></feed>
