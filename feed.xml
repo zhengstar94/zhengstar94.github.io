@@ -1,4 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-04T01:25:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1128. Number of Equivalent Domino Pairs</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/" rel="alternate" type="text/html" title="1128. Number of Equivalent Domino Pairs"/><published>2025-05-04T00:00:00+00:00</published><updated>2025-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/"><![CDATA[<ul> <li>Given a list of <code class="language-plaintext highlighter-rouge">dominoes</code>, <code class="language-plaintext highlighter-rouge">dominoes[i] = [a, b]</code> is <strong>equivalent to</strong> <code class="language-plaintext highlighter-rouge">dominoes[j] = [c, d]</code> if and only if either (<code class="language-plaintext highlighter-rouge">a == c</code> and <code class="language-plaintext highlighter-rouge">b == d</code>), or (<code class="language-plaintext highlighter-rouge">a == d</code> and <code class="language-plaintext highlighter-rouge">b == c</code>) - that is, one domino can be rotated to be equal to another domino.</li> <li>Return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>for which</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; dominoes.length</code><em>, and</em> <code class="language-plaintext highlighter-rouge">dominoes[i]</code> <em>is <strong>equivalent to</strong></em> <code class="language-plaintext highlighter-rouge">dominoes[j]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[2,1],[3,4],[5,6 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-04T02:34:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1482. Minimum Number of Days to Make m Bouquets</title><link href="https://zhengstar94.github.io//blog/2025/MinimumNumberOfDaysToMakeMBouquets/" rel="alternate" type="text/html" title="1482. Minimum Number of Days to Make m Bouquets"/><published>2025-05-04T00:00:00+00:00</published><updated>2025-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumNumberOfDaysToMakeMBouquets</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumNumberOfDaysToMakeMBouquets/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">bloomDay</code>, an integer <code class="language-plaintext highlighter-rouge">m</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>You want to make <code class="language-plaintext highlighter-rouge">m</code> bouquets. To make a bouquet, you need to use <code class="language-plaintext highlighter-rouge">k</code> <strong>adjacent flowers</strong> from the garden.</li> <li>The garden consists of <code class="language-plaintext highlighter-rouge">n</code> flowers, the <code class="language-plaintext highlighter-rouge">ith</code> flower will bloom in the <code class="language-plaintext highlighter-rouge">bloomDay[i]</code> and then can be used in <strong>exactly one</strong> bouquet.</li> <li>Return <em>the minimum number of days you need to wait to be able to make</em> <code class="language-plaintext highlighter-rouge">m</code> <em>bouquets from the garden</em>. If it is impossible to make m bouquets return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: bloomDay = [1,10,3,10,2], m = 3, k = 1
+Output: 3
+Explanation: Let us see what happened in the first three days. x means flower bloomed and _ means flower did not bloom in the garden.
+We need 3 bouquets each should contain 1 flower.
+After day 1: [x, _, _, _, _]   // we can only make one bouquet.
+After day 2: [x, _, _, _, x]   // we can only make two bouquets.
+After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: bloomDay = [1,10,3,10,2], m = 3, k = 2
+Output: -1
+Explanation: We need 3 bouquets each has 2 flowers, that means we need 6 flowers. We only have 5 flowers so it is impossible to get the needed bouquets and we return -1.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3
+Output: 12
+Explanation: We need 2 bouquets each should have 3 flowers.
+Here is the garden after the 7 and 12 days:
+After day 7: [x, x, x, x, _, x, x]
+We can make one bouquet of the first three flowers that bloomed. We cannot make another bouquet from the last three flowers that bloomed because they are not adjacent.
+After day 12: [x, x, x, x, x, x, x]
+It is obvious that we can make two bouquets in different ways.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(max-min) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.FindMinimum</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/04
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumNumberOfDaysToMakeMBouquets</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minDays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay</span><span class="o">,</span> <span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">bloomDay</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Check if there are enough flowers to make m bouquets</span>
+        <span class="c1">// Each bouquet needs k flowers, so we need m*k flowers in total</span>
+        <span class="c1">// Using long to prevent integer overflow for large m and k values</span>
+        <span class="k">if</span> <span class="o">((</span><span class="kt">long</span><span class="o">)</span> <span class="n">m</span> <span class="o">*</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="o">){</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Initialize binary search boundaries</span>
+        <span class="c1">// left: earliest possible day (minimum bloom day)</span>
+        <span class="c1">// right: latest possible day (maximum bloom day)</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+
+        <span class="c1">// Find the minimum and maximum bloom days from the array</span>
+        <span class="c1">// These values will serve as our binary search range</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">day:</span> <span class="n">bloomDay</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">day</span><span class="o">);</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">right</span><span class="o">,</span> <span class="n">day</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Perform binary search to find the minimum number of days</span>
+        <span class="c1">// The search space is between the earliest and latest bloom days</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">){</span>
+            <span class="c1">// Calculate the middle day to test</span>
+            <span class="c1">// Using (right-left)/2 to avoid integer overflow</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Check if we can make m bouquets by waiting 'mid' days</span>
+            <span class="c1">// If possible, try to minimize by searching in the lower half</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">canMakeBouquets</span><span class="o">(</span><span class="n">bloomDay</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">k</span><span class="o">,</span> <span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Otherwise, we need more days, search in the upper half</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// At this point, 'left' contains the minimum number of days needed</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canMakeBouquets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay</span><span class="o">,</span> <span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="kt">int</span> <span class="n">days</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Counter for the number of bouquets we can make</span>
+        <span class="kt">int</span> <span class="n">bouquets</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Counter for the current sequence of adjacent bloomed flowers</span>
+        <span class="kt">int</span> <span class="n">flowers</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each flower in the garden</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">bloomDay</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If this flower has bloomed by 'days' day</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">bloomDay</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">days</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Increment the count of consecutive bloomed flowers</span>
+                <span class="n">flowers</span><span class="o">++;</span>
+
+                <span class="c1">// If we have k adjacent bloomed flowers, we can make a bouquet</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">flowers</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Make a bouquet and reset the flower counter to start a new bouquet</span>
+                    <span class="n">bouquets</span><span class="o">++;</span>
+                    <span class="n">flowers</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If this flower hasn't bloomed, we break the consecutive sequence</span>
+                <span class="c1">// Reset the flower counter since we need k adjacent bloomed flowers</span>
+                <span class="n">flowers</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Early termination: if we've made enough bouquets, return true</span>
+            <span class="c1">// This optimization saves computation when we've already found the answer</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">bouquets</span> <span class="o">&gt;=</span> <span class="n">m</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Check if we've made at least m bouquets</span>
+        <span class="k">return</span> <span class="n">bouquets</span> <span class="o">&gt;=</span> <span class="n">m</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Example 1: bloomDay = [1,10,3,10,2], m = 3, k = 1, Expected output: 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">m1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: bloomDay = [1,10,3,10,2], m = 3, k = 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDays</span><span class="o">(</span><span class="n">bloomDay1</span><span class="o">,</span> <span class="n">m1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Example 2: bloomDay = [1,10,3,10,2], m = 3, k = 2, Expected output: -1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">m2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: bloomDay = [1,10,3,10,2], m = 3, k = 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDays</span><span class="o">(</span><span class="n">bloomDay2</span><span class="o">,</span> <span class="n">m2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: -1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Example 3: bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3, Expected output: 12</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">m3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDays</span><span class="o">(</span><span class="n">bloomDay3</span><span class="o">,</span> <span class="n">m3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 12"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Example 4: bloomDay = [1000000000,1000000000], m = 1, k = 1, Expected output: 1000000000</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1000000000</span><span class="o">,</span> <span class="mi">1000000000</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">m4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k4</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 4:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: bloomDay = [1000000000,1000000000], m = 1, k = 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDays</span><span class="o">(</span><span class="n">bloomDay4</span><span class="o">,</span> <span class="n">m4</span><span class="o">,</span> <span class="n">k4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1000000000"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Example 5: bloomDay = [1,10,2,9,3,8,4,7,5,6], m = 4, k = 2, Expected output: 9</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">bloomDay5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">m5</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k5</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 5:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: bloomDay = [1,10,2,9,3,8,4,7,5,6], m = 4, k = 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minDays</span><span class="o">(</span><span class="n">bloomDay5</span><span class="o">,</span> <span class="n">m5</span><span class="o">,</span> <span class="n">k5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 9"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array bloomDay, an integer m and an integer k. You want to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden. The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one bouquet. Return the minimum number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.]]></summary></entry><entry><title type="html">1128. Number of Equivalent Domino Pairs</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/" rel="alternate" type="text/html" title="1128. Number of Equivalent Domino Pairs"/><published>2025-05-04T00:00:00+00:00</published><updated>2025-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/"><![CDATA[<ul> <li>Given a list of <code class="language-plaintext highlighter-rouge">dominoes</code>, <code class="language-plaintext highlighter-rouge">dominoes[i] = [a, b]</code> is <strong>equivalent to</strong> <code class="language-plaintext highlighter-rouge">dominoes[j] = [c, d]</code> if and only if either (<code class="language-plaintext highlighter-rouge">a == c</code> and <code class="language-plaintext highlighter-rouge">b == d</code>), or (<code class="language-plaintext highlighter-rouge">a == d</code> and <code class="language-plaintext highlighter-rouge">b == c</code>) - that is, one domino can be rotated to be equal to another domino.</li> <li>Return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>for which</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; dominoes.length</code><em>, and</em> <code class="language-plaintext highlighter-rouge">dominoes[i]</code> <em>is <strong>equivalent to</strong></em> <code class="language-plaintext highlighter-rouge">dominoes[j]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[2,1],[3,4],[5,6 ] ]
 Output: 1
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[1,2],[1,1],[1,2],[2,2 ] ]
 Output: 3
@@ -737,74 +896,4 @@ topVotedCandidate.q(8); // return 1
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tvc</span><span class="o">.</span><span class="na">q</span><span class="o">(</span><span class="mi">8</span><span class="o">));</span>   <span class="c1">// Expected output: 1</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given two integer arrays persons and times. In an election, the ith vote was cast for persons[i] at time times[i]. For each query at a time t, find the person that was leading the election at time t. Votes cast at time t will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins. Implement the TopVotedCandidate class: TopVotedCandidate(int[] persons, int[] times) Initializes the object with the persons and times arrays. int q(int t) Returns the number of the person that was leading the election at time t according to the mentioned rules.]]></summary></entry><entry><title type="html">3392. Count Subarrays of Length Three With a Condition</title><link href="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/" rel="alternate" type="text/html" title="3392. Count Subarrays of Length Three With a Condition"/><published>2025-04-27T00:00:00+00:00</published><updated>2025-04-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSubarraysOfLengthThreeWithACondition/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the number of subarrays of length 3 such that the sum of the first and third numbers equals <em>exactly</em> half of the second number.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1,4,1]
-
-Output: 1
-
-Explanation:
-
-Only the subarray [1,4,1] contains exactly 3 elements where the sum of the first and third numbers equals half the middle number.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1]
-
-Output: 0
-
-Explanation:
-
-[1,1,1] is the only subarray of length 3. However, its first and third numbers do not add to half the middle number.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/27
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSubarraysOfLengthThreeWithACondition</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countSubArrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Return 0 if array length is less than 3 as we need at least 3 elements</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Use sliding window of size 3 to check each subarray</span>
-        <span class="c1">// Loop runs from first element to last possible position for a size-3 window</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Check if sum of first and third number equals half of middle number</span>
-            <span class="c1">// nums[i]: first number</span>
-            <span class="c1">// nums[i + 1]: middle number</span>
-            <span class="c1">// nums[i + 2]: third number</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">*</span> <span class="mf">0.5</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with valid subarray</span>
-        <span class="c1">// Expected output: 1 (subarray [1,4,1] satisfies the condition)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Array with no valid subarray</span>
-        <span class="c1">// Expected output: 0 (no subarray satisfies the condition)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Empty array</span>
-        <span class="c1">// Expected output: 0 (array length less than 3)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Array with length less than 3</span>
-        <span class="c1">// Expected output: 0 (array length less than 3)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">countSubArrays</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums, return the number of subarrays of length 3 such that the sum of the first and third numbers equals exactly half of the second number.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given two integer arrays persons and times. In an election, the ith vote was cast for persons[i] at time times[i]. For each query at a time t, find the person that was leading the election at time t. Votes cast at time t will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins. Implement the TopVotedCandidate class: TopVotedCandidate(int[] persons, int[] times) Initializes the object with the persons and times arrays. int q(int t) Returns the number of the person that was leading the election at time t according to the mentioned rules.]]></summary></entry></feed>
