@@ -88,4 +88,5 @@ The purpose of the review is to acknowledge issues and extract lessons—not sim
 The team should maintain a proactive attitude, learn from mistakes, and avoid repeating them. And if worst comes to worst and the issue proves unsolvable—well, sometimes you have to "grab your bucket and leave" (just kidding!).
 
 
-![Best Practices for Incident Response](https://raw.githubusercontent.com/zhengstar94/zhengstar94.github.io/main/_posts/2025/05/images/FaultResponse.png)
+
+{% include figure.liquid loading="eager" path="assets/img/2025/05/FaultResponse.png" class="img-fluid rounded z-depth-1" zoomable=true width="50%"%}
