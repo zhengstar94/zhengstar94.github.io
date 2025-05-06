@@ -1,6 +1,6 @@
 ---
 toc:
-  beginning: true
+  sidebar: left
 giscus_comments: true
 layout: post
 title: "Best Practices for Incident Response"
