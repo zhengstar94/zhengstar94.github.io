@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-06T02:58:29+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1920. Build Array from Permutation</title><link href="https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation/" rel="alternate" type="text/html" title="1920. Build Array from Permutation"/><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation/"><![CDATA[<ul> <li>Given a <strong>zero-based permutation</strong> <code class="language-plaintext highlighter-rouge">nums</code> (<strong>0-indexed</strong>), build an array <code class="language-plaintext highlighter-rouge">ans</code> of the <strong>same length</strong> where <code class="language-plaintext highlighter-rouge">ans[i] = nums[nums[i]]</code> for each <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; nums.length</code> and return it.</li> <li>A <strong>zero-based permutation</strong> <code class="language-plaintext highlighter-rouge">nums</code> is an array of <strong>distinct</strong> integers from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">nums.length - 1</code> (<strong>inclusive</strong>).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,2,1,5,3,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-10T04:41:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2918. Minimum Equal Sum of Two Arrays After Replacing Zeros</title><link href="https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros/" rel="alternate" type="text/html" title="2918. Minimum Equal Sum of Two Arrays After Replacing Zeros"/><published>2025-05-10T00:00:00+00:00</published><updated>2025-05-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros/"><![CDATA[<ul> <li>You are given two arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> consisting of positive integers.</li> <li>You have to replace <strong>all</strong> the <code class="language-plaintext highlighter-rouge">0</code>’s in both arrays with <strong>strictly</strong> positive integers such that the sum of elements of both arrays becomes <strong>equal</strong>.</li> <li>Return <em>the <strong>minimum</strong> equal sum you can obtain, or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if it is impossible</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [3,2,0,1,0], nums2 = [6,5,0]
+Output: 12
+Explanation: We can replace 0's in the following way:
+- Replace the two 0's in nums1 with the values 2 and 4. The resulting array is nums1 = [3,2,2,1,4].
+- Replace the 0 in nums2 with the value 1. The resulting array is nums2 = [6,5,1].
+Both arrays have an equal sum of 12. It can be shown that it is the minimum sum we can obtain.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [2,0,2,0], nums2 = [1,4]
+Output: -1
+Explanation: It is impossible to make the sum of both arrays equal.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + m) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Author: zhengxingxing
+ * Date: 2025/05/10
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumEqualSumOfTwoArraysAfterReplacingZeros</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">minimumEqualSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">long</span> <span class="n">sum1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">sum2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">zero1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">zero2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Calculate the sum and count the number of zeros in nums1</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum1</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">zero1</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Calculate the sum and count the number of zeros in nums2</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum2</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">zero2</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// The minimum possible sum after replacing all zeros with 1</span>
+        <span class="kt">long</span> <span class="n">minSum1</span> <span class="o">=</span> <span class="n">sum1</span> <span class="o">+</span> <span class="n">zero1</span><span class="o">;</span> <span class="c1">// Each zero in nums1 is replaced by 1</span>
+        <span class="kt">long</span> <span class="n">minSum2</span> <span class="o">=</span> <span class="n">sum2</span> <span class="o">+</span> <span class="n">zero2</span><span class="o">;</span> <span class="c1">// Each zero in nums2 is replaced by 1</span>
+
+        <span class="cm">/**
+         * Case 1:
+         * If both arrays already have the same sum AND there are no zeros,
+         * it means the arrays are naturally equal without needing any replacements.
+         * We can directly return the sum as the result.
+         *
+         * Example:
+         * nums1 = {1, 2, 3}
+         * nums2 = {3, 2, 1}
+         * Both have sum = 6 and no zeros -&gt; return 6.
+         */</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">sum1</span> <span class="o">==</span> <span class="n">sum2</span> <span class="o">&amp;&amp;</span> <span class="n">zero1</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">zero2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">sum1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="cm">/**
+         * Case 2:
+         * If the minimum possible sum of nums1 is greater than that of nums2,
+         * and nums2 has zeros, we can potentially increase nums2's sum by
+         * replacing its zeros with larger numbers to match nums1's sum.
+         * We return the minSum1 as the minimum target.
+         */</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">minSum1</span> <span class="o">&gt;</span> <span class="n">minSum2</span> <span class="o">&amp;&amp;</span> <span class="n">zero2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">minSum1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="cm">/**
+         * Case 3:
+         * Similarly, if the minimum possible sum of nums2 is greater than that of nums1,
+         * and nums1 has zeros, we can potentially increase nums1's sum by
+         * replacing its zeros with larger numbers to match nums2's sum.
+         * We return the minSum2 as the minimum target.
+         */</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">minSum2</span> <span class="o">&gt;</span> <span class="n">minSum1</span> <span class="o">&amp;&amp;</span> <span class="n">zero1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">minSum2</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="cm">/**
+         * Case 4:
+         * This is a subtle and important case:
+         * If both arrays' minimum possible sums (after replacing all zeros with 1)
+         * are already equal, it means they can be balanced by just replacing all
+         * zeros with 1 and nothing more needs to be done.
+         *
+         * Example:
+         * nums1 = {0, 2, 3}  -&gt; sum1 = 5, zero1 = 1, minSum1 = 6
+         * nums2 = {1, 0, 4}  -&gt; sum2 = 5, zero2 = 1, minSum2 = 6
+         * Both minSum1 and minSum2 == 6 -&gt; return 6.
+         */</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">minSum1</span> <span class="o">==</span> <span class="n">minSum2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">minSum1</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="cm">/**
+         * If none of the above cases apply, it's impossible to make the arrays equal,
+         * even after replacing zeros.
+         */</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">minimumEqualSum</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected: 12</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1Case2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2Case2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">minimumEqualSum</span><span class="o">(</span><span class="n">nums1Case2</span><span class="o">,</span> <span class="n">nums2Case2</span><span class="o">));</span> <span class="c1">// Expected: -1</span>
+
+        <span class="c1">// Additional test case 3</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1Case3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2Case3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">minimumEqualSum</span><span class="o">(</span><span class="n">nums1Case3</span><span class="o">,</span> <span class="n">nums2Case3</span><span class="o">));</span> <span class="c1">// Expected: 3</span>
+
+        <span class="c1">// Additional test case 4</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1Case4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2Case4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">minimumEqualSum</span><span class="o">(</span><span class="n">nums1Case4</span><span class="o">,</span> <span class="n">nums2Case4</span><span class="o">));</span> <span class="c1">// Expected: 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given two arrays nums1 and nums2 consisting of positive integers. You have to replace all the 0’s in both arrays with strictly positive integers such that the sum of elements of both arrays becomes equal. Return the minimum equal sum you can obtain, or -1 if it is impossible.]]></summary></entry><entry><title type="html">1920. Build Array from Permutation</title><link href="https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation/" rel="alternate" type="text/html" title="1920. Build Array from Permutation"/><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation/"><![CDATA[<ul> <li>Given a <strong>zero-based permutation</strong> <code class="language-plaintext highlighter-rouge">nums</code> (<strong>0-indexed</strong>), build an array <code class="language-plaintext highlighter-rouge">ans</code> of the <strong>same length</strong> where <code class="language-plaintext highlighter-rouge">ans[i] = nums[nums[i]]</code> for each <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; nums.length</code> and return it.</li> <li>A <strong>zero-based permutation</strong> <code class="language-plaintext highlighter-rouge">nums</code> is an array of <strong>distinct</strong> integers from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">nums.length - 1</code> (<strong>inclusive</strong>).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,2,1,5,3,4]
 Output: [0,1,2,4,5,3]
 Explanation: The array ans is built as follows: 
 ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]
@@ -745,120 +872,4 @@ Only 1771 contains an even number of digits.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums of integers, return how many of them contain an even number of digits.]]></summary></entry><entry><title type="html">1011. Capacity To Ship Packages Within D Days</title><link href="https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays/" rel="alternate" type="text/html" title="1011. Capacity To Ship Packages Within D Days"/><published>2025-04-29T00:00:00+00:00</published><updated>2025-04-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CapacityToShipPackagesWithinDDays/"><![CDATA[<ul> <li>A conveyor belt has packages that must be shipped from one port to another within <code class="language-plaintext highlighter-rouge">days</code> days.</li> <li>The <code class="language-plaintext highlighter-rouge">ith</code> package on the conveyor belt has a weight of <code class="language-plaintext highlighter-rouge">weights[i]</code>. Each day, we load the ship with packages on the conveyor belt (in the order given by <code class="language-plaintext highlighter-rouge">weights</code>). We may not load more weight than the maximum weight capacity of the ship.</li> <li>Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within <code class="language-plaintext highlighter-rouge">days</code> days.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: weights = [1,2,3,4,5,6,7,8,9,10], days = 5
-Output: 15
-Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
-1st day: 1, 2, 3, 4, 5
-2nd day: 6, 7
-3rd day: 8
-4th day: 9
-5th day: 10
-
-Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: weights = [3,2,2,4,1,4], days = 3
-Output: 6
-Explanation: A ship capacity of 6 is the minimum to ship all the packages in 3 days like this:
-1st day: 3, 2
-2nd day: 2, 4
-3rd day: 1, 4
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: weights = [1,2,3,1,1], days = 4
-Output: 3
-Explanation:
-1st day: 1
-2nd day: 2
-3rd day: 3
-4th day: 1, 1
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(sum-max)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.FindMinimum</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/29
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CapacityToShipPackagesWithinDDays</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">shipWithinDays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">weights</span><span class="o">,</span> <span class="kt">int</span> <span class="n">days</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize binary search boundaries</span>
-        <span class="c1">// left = maximum single package weight (minimum possible capacity)</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">weights</span><span class="o">).</span><span class="na">max</span><span class="o">().</span><span class="na">getAsInt</span><span class="o">();</span>
-        <span class="c1">// right = sum of all weights (maximum possible capacity)</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">weights</span><span class="o">).</span><span class="na">sum</span><span class="o">();</span>
-
-        <span class="c1">// Binary search to find minimum capacity</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">){</span>
-            <span class="c1">// Calculate middle point avoiding overflow</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// If current capacity is feasible, try lower capacity</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">canShipWithinDays</span><span class="o">(</span><span class="n">weights</span><span class="o">,</span> <span class="n">days</span><span class="o">,</span> <span class="n">mid</span><span class="o">)){</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If current capacity is not enough, need higher capacity</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Return the minimum feasible capacity</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canShipWithinDays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">weights</span><span class="o">,</span> <span class="kt">int</span> <span class="n">days</span><span class="o">,</span> <span class="kt">int</span> <span class="n">capacity</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Start with day 1</span>
-        <span class="kt">int</span> <span class="n">currentDays</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="c1">// Track current day's load</span>
-        <span class="kt">int</span> <span class="n">currentLoad</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Process each package</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">weight:</span> <span class="n">weights</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If adding current package exceeds capacity</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">currentLoad</span> <span class="o">+</span> <span class="n">weight</span> <span class="o">&gt;</span> <span class="n">capacity</span><span class="o">){</span>
-                <span class="c1">// Move to next day</span>
-                <span class="n">currentDays</span><span class="o">++;</span>
-                <span class="c1">// Start new day with current package</span>
-                <span class="n">currentLoad</span> <span class="o">=</span> <span class="n">weight</span><span class="o">;</span>
-
-                <span class="c1">// If exceeded allowed days, return false</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">currentDays</span> <span class="o">&gt;</span> <span class="n">days</span><span class="o">){</span>
-                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-                <span class="c1">// Add package to current day's load</span>
-                <span class="n">currentLoad</span> <span class="o">+=</span> <span class="n">weight</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return true if all packages processed within allowed days</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Multiple packages with sequential weights</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">weights1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">10</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">days1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span>
-                <span class="n">shipWithinDays</span><span class="o">(</span><span class="n">weights1</span><span class="o">,</span> <span class="n">days1</span><span class="o">));</span>  <span class="c1">// Expected output: 15</span>
-
-        <span class="c1">// Test Case 2: Mixed weights with shorter duration</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">weights2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">days2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span>
-                <span class="n">shipWithinDays</span><span class="o">(</span><span class="n">weights2</span><span class="o">,</span> <span class="n">days2</span><span class="o">));</span>  <span class="c1">// Expected output: 6</span>
-
-        <span class="c1">// Test Case 3: Small weights with more days</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">weights3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">days3</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span>
-                <span class="n">shipWithinDays</span><span class="o">(</span><span class="n">weights3</span><span class="o">,</span> <span class="n">days3</span><span class="o">));</span>  <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Detailed explanation of Test Case 1</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nShipping plan for Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"With capacity 15:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Day 1: 1,2,3,4,5 (total=15)"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Day 2: 6,7 (total=13)"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Day 3: 8 (total=8)"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Day 4: 9 (total=9)"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Day 5: 10 (total=10)"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[A conveyor belt has packages that must be shipped from one port to another within days days. The ith package on the conveyor belt has a weight of weights[i]. Each day, we load the ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the maximum weight capacity of the ship. Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within days days.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums of integers, return how many of them contain an even number of digits.]]></summary></entry></feed>
