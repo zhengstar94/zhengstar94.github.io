@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-10T04:41:54+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2918. Minimum Equal Sum of Two Arrays After Replacing Zeros</title><link href="https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros/" rel="alternate" type="text/html" title="2918. Minimum Equal Sum of Two Arrays After Replacing Zeros"/><published>2025-05-10T00:00:00+00:00</published><updated>2025-05-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros/"><![CDATA[<ul> <li>You are given two arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> consisting of positive integers.</li> <li>You have to replace <strong>all</strong> the <code class="language-plaintext highlighter-rouge">0</code>’s in both arrays with <strong>strictly</strong> positive integers such that the sum of elements of both arrays becomes <strong>equal</strong>.</li> <li>Return <em>the <strong>minimum</strong> equal sum you can obtain, or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if it is impossible</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [3,2,0,1,0], nums2 = [6,5,0]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-11T03:14:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1550. Three Consecutive Odds</title><link href="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/" rel="alternate" type="text/html" title="1550. Three Consecutive Odds"/><published>2025-05-11T00:00:00+00:00</published><updated>2025-05-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">arr</code>, return <code class="language-plaintext highlighter-rouge">true</code> if there are three consecutive odd numbers in the array. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,6,4,1]
+Output: false
+Explanation: There are no three consecutive odds.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,34,3,4,5,7,23,12]
+Output: true
+Explanation: [5,7,23] are three consecutive odds.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/11
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeConsecutiveOdds</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">threeConsecutiveOdds</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Edge case: If array length is less than 3, it's impossible to have three consecutive elements</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Counter to track the number of consecutive odd integers encountered</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each element in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Check if the current number is odd (remainder when divided by 2 is 1)</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+                <span class="c1">// Increment the counter for consecutive odd numbers</span>
+                <span class="n">count</span><span class="o">++;</span>
+                <span class="c1">// If we've found three consecutive odd numbers, return true</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="o">){</span>
+                    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If we encounter an even number, reset the counter</span>
+                <span class="c1">// as it breaks the consecutive sequence of odd numbers</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If we've traversed the entire array without finding three consecutive odd numbers, return false</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Array with no three consecutive odd numbers</span>
+        <span class="c1">// Expected output: false</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr1</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
+
+        <span class="c1">// Test Case 2: Array with three consecutive odd numbers (5, 7, 23)</span>
+        <span class="c1">// Expected output: true</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">34</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">23</span><span class="o">,</span> <span class="mi">12</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr2</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test Case 3: Array with exactly three elements, all odd</span>
+        <span class="c1">// Expected output: true</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr3</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test Case 4: Array with consecutive odd numbers scattered throughout</span>
+        <span class="c1">// Expected output: true (could be because of 7, 3, 1 or 3, 1, 9 or 1, 9, 5)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr4</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
+
+        <span class="c1">// Test Case 5: Array with only even numbers</span>
+        <span class="c1">// Expected output: false</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr5</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.]]></summary></entry><entry><title type="html">2918. Minimum Equal Sum of Two Arrays After Replacing Zeros</title><link href="https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros/" rel="alternate" type="text/html" title="2918. Minimum Equal Sum of Two Arrays After Replacing Zeros"/><published>2025-05-10T00:00:00+00:00</published><updated>2025-05-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumEqualSumOfTwoArraysAfterReplacingZeros/"><![CDATA[<ul> <li>You are given two arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code> consisting of positive integers.</li> <li>You have to replace <strong>all</strong> the <code class="language-plaintext highlighter-rouge">0</code>’s in both arrays with <strong>strictly</strong> positive integers such that the sum of elements of both arrays becomes <strong>equal</strong>.</li> <li>Return <em>the <strong>minimum</strong> equal sum you can obtain, or</em> <code class="language-plaintext highlighter-rouge">-1</code> <em>if it is impossible</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums1 = [3,2,0,1,0], nums2 = [6,5,0]
 Output: 12
 Explanation: We can replace 0's in the following way:
 - Replace the two 0's in nums1 with the values 2 and 4. The resulting array is nums1 = [3,2,2,1,4].
@@ -824,52 +896,4 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"16 minutes is the minimum time needed to repair all cars."</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array ranks representing the ranks of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank r can repair n cars in r * n2 minutes. You are also given an integer cars representing the total number of cars waiting in the garage to be repaired. Return the minimum time taken to repair all the cars.** Note: All the mechanics can repair the cars simultaneously.]]></summary></entry><entry><title type="html">1295. Find Numbers with Even Number of Digits</title><link href="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/" rel="alternate" type="text/html" title="1295. Find Numbers with Even Number of Digits"/><published>2025-04-30T00:00:00+00:00</published><updated>2025-04-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindNumbersWithEvenNumberOfDigits/"><![CDATA[<ul> <li>Given an array <code class="language-plaintext highlighter-rouge">nums</code> of integers, return how many of them contain an <strong>even number</strong> of digits.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [12,345,2,6,7896]
-Output: 2
-Explanation: 
-12 contains 2 digits (even number of digits). 
-345 contains 3 digits (odd number of digits). 
-2 contains 1 digit (odd number of digits). 
-6 contains 1 digit (odd number of digits). 
-7896 contains 4 digits (even number of digits). 
-Therefore only 12 and 7896 contain an even number of digits.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [555,901,482,1771]
-Output: 1 
-Explanation: 
-Only 1771 contains an even number of digits.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/04/30
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindNumbersWithEvenNumberOfDigits</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findNumbers</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Counter to keep track of numbers with even digits</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each number in array</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Convert number to string and check if length is even</span>
-            <span class="c1">// If even, increment counter</span>
-            <span class="k">if</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">num</span><span class="o">).</span><span class="na">length</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1 demonstration</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span><span class="mi">345</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7896</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">findNumbers</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Test Case 2 demonstration</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">555</span><span class="o">,</span><span class="mi">901</span><span class="o">,</span><span class="mi">482</span><span class="o">,</span><span class="mi">1771</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">findNumbers</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected output: 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given an array nums of integers, return how many of them contain an even number of digits.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array ranks representing the ranks of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank r can repair n cars in r * n2 minutes. You are also given an integer cars representing the total number of cars waiting in the garage to be repaired. Return the minimum time taken to repair all the cars.** Note: All the mechanics can repair the cars simultaneously.]]></summary></entry></feed>
