@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-11T03:14:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1550. Three Consecutive Odds</title><link href="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/" rel="alternate" type="text/html" title="1550. Three Consecutive Odds"/><published>2025-05-11T00:00:00+00:00</published><updated>2025-05-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">arr</code>, return <code class="language-plaintext highlighter-rouge">true</code> if there are three consecutive odd numbers in the array. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,6,4,1]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-12T01:48:14+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2094. Finding 3-Digit Even Numbers</title><link href="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/" rel="alternate" type="text/html" title="2094. Finding 3-Digit Even Numbers"/><published>2025-05-12T00:00:00+00:00</published><updated>2025-05-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">digits</code>, where each element is a digit. The array may contain duplicates.</p> </li> <li> <p>You need to find <strong>all</strong> the <strong>unique</strong> integers that follow the given requirements:</p> <ul> <li>The integer consists of the <strong>concatenation</strong> of <strong>three</strong> elements from <code class="language-plaintext highlighter-rouge">digits</code> in <strong>any</strong> arbitrary order.</li> <li>The integer does not have <strong>leading zeros</strong>.</li> <li>The integer is <strong>even</strong>.</li> </ul> </li> <li> <p>For example, if the given <code class="language-plaintext highlighter-rouge">digits</code> were <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>, integers <code class="language-plaintext highlighter-rouge">132</code> and <code class="language-plaintext highlighter-rouge">312</code> follow the requirements.</p> <p>Return <em>a <strong>sorted</strong> array of the unique integers.</em></p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [2,1,3,0]
+Output: [102,120,130,132,210,230,302,310,312,320]
+Explanation: All the possible integers that follow the requirements are in the output array. 
+Notice that there are no odd integers or integers with leading zeros.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [2,2,8,8,2]
+Output: [222,228,282,288,822,828,882]
+Explanation: The same digit can be used as many times as it appears in digits. 
+In this example, the digit 8 is used twice each time in 288, 828, and 882. 
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [3,7,5]
+Output: []
+Explanation: No even integers can be formed using the given digits.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/12
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Finding3DigitEvenNumbers</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findEvenNumbers</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create an array to count the frequency of each digit (0-9) in the input array</span>
+        <span class="c1">// This allows us to track how many times each digit appears in the input</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">digit</span> <span class="o">:</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">digit</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// List to store the valid 3-digit even numbers we find</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate through all possible 3-digit even numbers</span>
+        <span class="c1">// Start from 100 (smallest 3-digit number)</span>
+        <span class="c1">// End at 998 (largest 3-digit even number)</span>
+        <span class="c1">// Increment by 2 to only check even numbers (numbers ending with 0,2,4,6,8)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">998</span><span class="o">;</span> <span class="n">num</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Extract each digit from the current number</span>
+            <span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">100</span><span class="o">;</span>         <span class="c1">// Hundreds place (first digit)</span>
+            <span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="o">(</span><span class="n">num</span> <span class="o">/</span> <span class="mi">10</span><span class="o">)</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>   <span class="c1">// Tens place (second digit)</span>
+            <span class="kt">int</span> <span class="n">d3</span> <span class="o">=</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>          <span class="c1">// Ones place (third digit)</span>
+
+            <span class="c1">// Temporarily decrement the count for each digit we want to use</span>
+            <span class="c1">// This simulates "using" these digits to form our number</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">d1</span><span class="o">]--;</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">d2</span><span class="o">]--;</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">d3</span><span class="o">]--;</span>
+
+            <span class="c1">// Check if we can form this number with the available digits</span>
+            <span class="c1">// For each digit, if count &gt;= 0 after decrementing, it means:</span>
+            <span class="c1">// 1. If count = 0: We've used exactly all occurrences of this digit</span>
+            <span class="c1">// 2. If count &gt; 0: We still have more occurrences of this digit available</span>
+            <span class="c1">// </span>
+            <span class="c1">// If any count &lt; 0, it means we tried to use more occurrences of a digit</span>
+            <span class="c1">// than what's available in the original array, which is invalid</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">d1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">d2</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">d3</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If all counts are valid (&gt;= 0), we can form this number</span>
+                <span class="c1">// so add it to our result list</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Restore the counts for the next iteration</span>
+            <span class="c1">// This is critical because we're only "simulating" using these digits</span>
+            <span class="c1">// and need to reset for checking the next number</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">d1</span><span class="o">]++;</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">d2</span><span class="o">]++;</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">d3</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert the ArrayList to a primitive int array and return</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Mixed digits with an even digit and zero</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">digits1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findEvenNumbers</span><span class="o">(</span><span class="n">digits1</span><span class="o">)));</span>
+
+        <span class="c1">// Test case 2: Repeated digits</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">digits2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findEvenNumbers</span><span class="o">(</span><span class="n">digits2</span><span class="o">)));</span>
+
+        <span class="c1">// Test case 3: Only odd digits, no even numbers possible</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">digits3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findEvenNumbers</span><span class="o">(</span><span class="n">digits3</span><span class="o">)));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array digits, where each element is a digit. The array may contain duplicates.]]></summary></entry><entry><title type="html">1550. Three Consecutive Odds</title><link href="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/" rel="alternate" type="text/html" title="1550. Three Consecutive Odds"/><published>2025-05-11T00:00:00+00:00</published><updated>2025-05-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">arr</code>, return <code class="language-plaintext highlighter-rouge">true</code> if there are three consecutive odd numbers in the array. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,6,4,1]
 Output: false
 Explanation: There are no three consecutive odds.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,34,3,4,5,7,23,12]
@@ -784,116 +873,4 @@ In this case, it is not possible to rotate the dominoes to make one row of value
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Actual Output: "</span> <span class="o">+</span> <span class="n">minDominoRotations</span><span class="o">(</span><span class="n">tops3</span><span class="o">,</span> <span class="n">bottoms3</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[In a row of dominoes, tops[i] and bottoms[i] represent the top and bottom halves of the ith domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.) We may rotate the ith domino, so that tops[i] and bottoms[i] swap values. Return the minimum number of rotations so that all the values in tops are the same, or all the values in bottoms are the same. If it cannot be done, return -1.]]></summary></entry><entry><title type="html">2594. Minimum Time to Repair Cars</title><link href="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/" rel="alternate" type="text/html" title="2594. Minimum Time to Repair Cars"/><published>2025-05-01T00:00:00+00:00</published><updated>2025-05-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumTimeToRepairCars/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">ranks</code> representing the <strong>ranks</strong> of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank <code class="language-plaintext highlighter-rouge">r</code> can repair n cars in <code class="language-plaintext highlighter-rouge">r * n2</code> minutes.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">cars</code> representing the total number of cars waiting in the garage to be repaired.</li> <li>Return <em>the <strong>minimum</strong> time taken to repair all the cars.</em>**</li> <li><strong>Note:</strong> All the mechanics can repair the cars simultaneously.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ranks = [4,2,3,1], cars = 10
-Output: 16
-Explanation: 
-- The first mechanic will repair two cars. The time required is 4 * 2 * 2 = 16 minutes.
-- The second mechanic will repair two cars. The time required is 2 * 2 * 2 = 8 minutes.
-- The third mechanic will repair two cars. The time required is 3 * 2 * 2 = 12 minutes.
-- The fourth mechanic will repair four cars. The time required is 1 * 4 * 4 = 16 minutes.
-It can be proved that the cars cannot be repaired in less than 16 minutes.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: ranks = [5,1,8], cars = 6
-Output: 16
-Explanation: 
-- The first mechanic will repair one car. The time required is 5 * 1 * 1 = 5 minutes.
-- The second mechanic will repair four cars. The time required is 1 * 4 * 4 = 16 minutes.
-- The third mechanic will repair one car. The time required is 8 * 1 * 1 = 8 minutes.
-It can be proved that the cars cannot be repaired in less than 16 minutes.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(R * C²)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.FindMinimum</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumTimeToRepairCars</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">repairCars</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">ranks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cars</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the lower bound of our search range to 1</span>
-        <span class="c1">// The minimum possible time cannot be less than 1</span>
-        <span class="kt">long</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Initialize the upper bound of our search range</span>
-        <span class="c1">// We calculate an upper bound that is guaranteed to be larger than the answer</span>
-        <span class="c1">// Formula: rank * cars^2 represents the time needed if one mechanic repairs all cars</span>
-        <span class="c1">// Using ranks[0] gives us a sufficient upper bound, even if it's not the maximum rank</span>
-        <span class="c1">// This is a key optimization: we only need a value that's larger than the actual answer</span>
-        <span class="kt">long</span> <span class="n">right</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">ranks</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">*</span> <span class="n">cars</span> <span class="o">*</span> <span class="n">cars</span><span class="o">;</span>
-
-        <span class="c1">// Perform binary search to find the minimum possible time</span>
-        <span class="c1">// The search continues until left and right pointers converge</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the middle point, avoiding potential overflow with this formula</span>
-            <span class="kt">long</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// Check if all cars can be repaired within 'mid' time</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">canRepairAll</span><span class="o">(</span><span class="n">ranks</span><span class="o">,</span> <span class="n">cars</span><span class="o">,</span> <span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If possible to repair within 'mid' time, try a smaller time</span>
-                <span class="c1">// We don't exclude 'mid' because it might be the answer</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If not possible to repair within 'mid' time, we need more time</span>
-                <span class="c1">// Exclude 'mid' as it's definitely not enough time</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// When left == right, we've found our answer</span>
-        <span class="c1">// This is the minimum time needed to repair all cars</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canRepairAll</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">ranks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cars</span><span class="o">,</span> <span class="kt">long</span> <span class="n">time</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Track the total number of cars that can be repaired within the time limit</span>
-        <span class="kt">long</span> <span class="n">totalCars</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each mechanic's rank to calculate their contribution</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">rank</span> <span class="o">:</span> <span class="n">ranks</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// For each mechanic with efficiency rank 'rank':</span>
-            <span class="c1">// The time to repair n cars is: time = rank * n^2</span>
-            <span class="c1">// Solving for n: n = sqrt(time/rank)</span>
-            <span class="c1">// This gives us the maximum number of cars this mechanic can repair in the given time</span>
-
-            <span class="c1">// Calculate how many cars this mechanic can repair</span>
-            <span class="c1">// The cast to long ensures we don't lose precision in the square root calculation</span>
-            <span class="kt">long</span> <span class="n">carsPerMechanic</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">time</span> <span class="o">/</span> <span class="n">rank</span><span class="o">);</span>
-
-            <span class="c1">// Add this mechanic's contribution to the total</span>
-            <span class="n">totalCars</span> <span class="o">+=</span> <span class="n">carsPerMechanic</span><span class="o">;</span>
-
-            <span class="c1">// Early termination optimization:</span>
-            <span class="c1">// If we've already found that enough cars can be repaired, return immediately</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">totalCars</span> <span class="o">&gt;=</span> <span class="n">cars</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Final check: can all mechanics combined repair enough cars?</span>
-        <span class="c1">// This will only be reached if the early termination condition above wasn't triggered</span>
-        <span class="k">return</span> <span class="n">totalCars</span> <span class="o">&gt;=</span> <span class="n">cars</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: 4 mechanics with ranks [4,2,3,1], need to repair 10 cars</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">ranks1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">cars1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-        <span class="kt">long</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">repairCars</span><span class="o">(</span><span class="n">ranks1</span><span class="o">,</span> <span class="n">cars1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 16"</span><span class="o">);</span>
-
-        <span class="c1">// Test case 2: 3 mechanics with ranks [5,1,8], need to repair 6 cars</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">ranks2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">cars2</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="kt">long</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">repairCars</span><span class="o">(</span><span class="n">ranks2</span><span class="o">,</span> <span class="n">cars2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected result: 16"</span><span class="o">);</span>
-
-        <span class="c1">// Explanation for test case 2 - showing the optimal distribution of cars</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest case 2 explanation:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"- The first mechanic (rank 5) repairs 1 car, taking 5 * 1 * 1 = 5 minutes."</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"- The second mechanic (rank 1) repairs 4 cars, taking 1 * 4 * 4 = 16 minutes."</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"- The third mechanic (rank 8) repairs 1 car, taking 8 * 1 * 1 = 8 minutes."</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"16 minutes is the minimum time needed to repair all cars."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array ranks representing the ranks of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank r can repair n cars in r * n2 minutes. You are also given an integer cars representing the total number of cars waiting in the garage to be repaired. Return the minimum time taken to repair all the cars.** Note: All the mechanics can repair the cars simultaneously.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[In a row of dominoes, tops[i] and bottoms[i] represent the top and bottom halves of the ith domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.) We may rotate the ith domino, so that tops[i] and bottoms[i] swap values. Return the minimum number of rotations so that all the values in tops are the same, or all the values in bottoms are the same. If it cannot be done, return -1.]]></summary></entry></feed>
