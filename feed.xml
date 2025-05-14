@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-12T02:52:49+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2094. Finding 3-Digit Even Numbers</title><link href="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/" rel="alternate" type="text/html" title="2094. Finding 3-Digit Even Numbers"/><published>2025-05-12T00:00:00+00:00</published><updated>2025-05-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">digits</code>, where each element is a digit. The array may contain duplicates.</p> </li> <li> <p>You need to find <strong>all</strong> the <strong>unique</strong> integers that follow the given requirements:</p> <ul> <li>The integer consists of the <strong>concatenation</strong> of <strong>three</strong> elements from <code class="language-plaintext highlighter-rouge">digits</code> in <strong>any</strong> arbitrary order.</li> <li>The integer does not have <strong>leading zeros</strong>.</li> <li>The integer is <strong>even</strong>.</li> </ul> </li> <li> <p>For example, if the given <code class="language-plaintext highlighter-rouge">digits</code> were <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>, integers <code class="language-plaintext highlighter-rouge">132</code> and <code class="language-plaintext highlighter-rouge">312</code> follow the requirements.</p> <p>Return <em>a <strong>sorted</strong> array of the unique integers.</em></p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [2,1,3,0]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-14T03:03:07+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2560. House Robber IV</title><link href="https://zhengstar94.github.io//blog/2025/HouseRobberIV/" rel="alternate" type="text/html" title="2560. House Robber IV"/><published>2025-05-14T00:00:00+00:00</published><updated>2025-05-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/HouseRobberIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/HouseRobberIV/"><![CDATA[<ul> <li>There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he <strong>refuses to steal from adjacent homes</strong>.</li> <li>The <strong>capability</strong> of the robber is the maximum amount of money he steals from one house of all the houses he robbed.</li> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing how much money is stashed in each house. More formally, the <code class="language-plaintext highlighter-rouge">ith</code> house from the left has <code class="language-plaintext highlighter-rouge">nums[i]</code> dollars.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">k</code>, representing the <strong>minimum</strong> number of houses the robber will steal from. It is always possible to steal at least <code class="language-plaintext highlighter-rouge">k</code> houses.</li> <li>Return <em>the <strong>minimum</strong> capability of the robber out of all the possible ways to steal at least</em> <code class="language-plaintext highlighter-rouge">k</code> <em>houses</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,5,9], k = 2
+Output: 5
+Explanation: 
+There are three ways to rob at least 2 houses:
+- Rob the houses at indices 0 and 2. Capability is max(nums[0], nums[2]) = 5.
+- Rob the houses at indices 0 and 3. Capability is max(nums[0], nums[3]) = 9.
+- Rob the houses at indices 1 and 3. Capability is max(nums[1], nums[3]) = 9.
+Therefore, we return min(5, 9, 9) = 5.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,7,9,3,1], k = 2
+Output: 2
+Explanation: There are 7 ways to rob the houses. The way which leads to minimum capability is to rob the house at index 0 and 4. Return max(nums[0], nums[4]) = 2.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(max(nums) - min(nums))) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.MinimizeMaximum</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/14
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HouseRobberIV</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minCapability</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the binary search boundaries</span>
+        <span class="c1">// Left boundary is the minimum value in the array (minimum possible capability)</span>
+        <span class="c1">// Right boundary is the maximum value in the array (maximum possible capability)</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Find the minimum and maximum values in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">right</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Binary search process to find the minimum capability</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the middle point to check</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Check if with capability 'mid', the robber can steal at least k houses</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">canRob</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">k</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// If it's possible to rob k houses with current capability,</span>
+                <span class="c1">// try to lower the capability to find the minimum</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If it's not possible to rob k houses with current capability,</span>
+                <span class="c1">// we need to increase the capability</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// After binary search, 'left' will be the minimum capability required</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canRob</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">capability</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Count of houses that have been robbed</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>      <span class="c1">// Current index in the array</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the money in the current house is less than or equal to the capability,</span>
+            <span class="c1">// the robber can steal from this house</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">capability</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>  <span class="c1">// Increment the count of robbed houses</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">;</span>   <span class="c1">// Skip the next house (can't rob adjacent houses)</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">i</span><span class="o">++;</span>      <span class="c1">// Can't rob this house, move to the next one</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Check if the robber has stolen from at least k houses</span>
+        <span class="k">return</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">minCapability</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>  <span class="c1">// Expected output: 5</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">minCapability</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
+
+        <span class="c1">// Additional test case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">minCapability</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>  <span class="c1">// Expected output: 7</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he refuses to steal from adjacent homes. The capability of the robber is the maximum amount of money he steals from one house of all the houses he robbed. You are given an integer array nums representing how much money is stashed in each house. More formally, the ith house from the left has nums[i] dollars. You are also given an integer k, representing the minimum number of houses the robber will steal from. It is always possible to steal at least k houses. Return the minimum capability of the robber out of all the possible ways to steal at least k houses.]]></summary></entry><entry><title type="html">2094. Finding 3-Digit Even Numbers</title><link href="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/" rel="alternate" type="text/html" title="2094. Finding 3-Digit Even Numbers"/><published>2025-05-12T00:00:00+00:00</published><updated>2025-05-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">digits</code>, where each element is a digit. The array may contain duplicates.</p> </li> <li> <p>You need to find <strong>all</strong> the <strong>unique</strong> integers that follow the given requirements:</p> <ul> <li>The integer consists of the <strong>concatenation</strong> of <strong>three</strong> elements from <code class="language-plaintext highlighter-rouge">digits</code> in <strong>any</strong> arbitrary order.</li> <li>The integer does not have <strong>leading zeros</strong>.</li> <li>The integer is <strong>even</strong>.</li> </ul> </li> <li> <p>For example, if the given <code class="language-plaintext highlighter-rouge">digits</code> were <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>, integers <code class="language-plaintext highlighter-rouge">132</code> and <code class="language-plaintext highlighter-rouge">312</code> follow the requirements.</p> <p>Return <em>a <strong>sorted</strong> array of the unique integers.</em></p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [2,1,3,0]
 Output: [102,120,130,132,210,230,302,310,312,320]
 Explanation: All the possible integers that follow the requirements are in the output array. 
 Notice that there are no odd integers or integers with leading zeros.
@@ -813,70 +903,4 @@ It is obvious that we can make two bouquets in different ways.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array bloomDay, an integer m and an integer k. You want to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden. The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one bouquet. Return the minimum number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.]]></summary></entry><entry><title type="html">1128. Number of Equivalent Domino Pairs</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/" rel="alternate" type="text/html" title="1128. Number of Equivalent Domino Pairs"/><published>2025-05-04T00:00:00+00:00</published><updated>2025-05-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfEquivalentDominoPairs/"><![CDATA[<ul> <li>Given a list of <code class="language-plaintext highlighter-rouge">dominoes</code>, <code class="language-plaintext highlighter-rouge">dominoes[i] = [a, b]</code> is <strong>equivalent to</strong> <code class="language-plaintext highlighter-rouge">dominoes[j] = [c, d]</code> if and only if either (<code class="language-plaintext highlighter-rouge">a == c</code> and <code class="language-plaintext highlighter-rouge">b == d</code>), or (<code class="language-plaintext highlighter-rouge">a == d</code> and <code class="language-plaintext highlighter-rouge">b == c</code>) - that is, one domino can be rotated to be equal to another domino.</li> <li>Return <em>the number of pairs</em> <code class="language-plaintext highlighter-rouge">(i, j)</code> <em>for which</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; dominoes.length</code><em>, and</em> <code class="language-plaintext highlighter-rouge">dominoes[i]</code> <em>is <strong>equivalent to</strong></em> <code class="language-plaintext highlighter-rouge">dominoes[j]</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[2,1],[3,4],[5,6 ] ]
-Output: 1
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: dominoes = [ [ 1,2],[1,2],[1,1],[1,2],[2,2 ] ]
-Output: 3
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/04
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfEquivalentDominoPairs</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">numEquivDominoPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// HashMap to store the count of each unique domino type</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Counter for the total number of equivalent pairs</span>
-        <span class="kt">int</span> <span class="n">pairs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each domino in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">domino</span> <span class="o">:</span> <span class="n">dominoes</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Create a unique hash value for each domino, ensuring equivalent dominoes have the same hash</span>
-            <span class="c1">// We use min*10 + max to ensure [a,b] and [b,a] get the same hash value</span>
-            <span class="c1">// This works because in this problem, domino values are between 1-9</span>
-            <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">domino</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">domino</span><span class="o">[</span><span class="mi">1</span><span class="o">])</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">domino</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">domino</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
-
-            <span class="c1">// Get the current count of dominoes with the same hash value (same type)</span>
-            <span class="c1">// If this is the first time we see this type, getOrDefault returns 0</span>
-            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-
-            <span class="c1">// The current domino can form a pair with each previously seen domino of the same type</span>
-            <span class="c1">// So we add the current count to our running total of pairs</span>
-            <span class="n">pairs</span> <span class="o">+=</span> <span class="n">count</span><span class="o">;</span>
-
-            <span class="c1">// Update the count of this domino type in our map</span>
-            <span class="c1">// We increment by 1 to account for the current domino</span>
-            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the total number of equivalent domino pairs found</span>
-        <span class="k">return</span> <span class="n">pairs</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Should return 1 pair</span>
-        <span class="c1">// [1,2] and [2,1] are equivalent</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">numEquivDominoPairs</span><span class="o">(</span><span class="n">dominoes1</span><span class="o">));</span> <span class="c1">// Should output 1</span>
-
-        <span class="c1">// Test case 2: Should return 3 pairs</span>
-        <span class="c1">// The pairs are: ( [ 1,2], [1,2]), ([1,2], [1,2]), ([1,2], [1,2 ] )</span>
-        <span class="c1">// Note: These are the pairs at indices (0,1), (0,3), and (1,3)</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">numEquivDominoPairs</span><span class="o">(</span><span class="n">dominoes2</span><span class="o">));</span> <span class="c1">// Should output 3</span>
-
-        <span class="c1">// Additional test case: Should return 4 pairs</span>
-        <span class="c1">// The pairs are:</span>
-        <span class="c1">// ( [ 1,1], [1,1]), ([1,1], [1,1]), ([1,1], [1,1]), ([1,2], [1,2 ] )</span>
-        <span class="c1">// These are the pairs at indices (0,2), (0,5), (2,5), and (3,4)</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dominoes3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">numEquivDominoPairs</span><span class="o">(</span><span class="n">dominoes3</span><span class="o">));</span> <span class="c1">// Should output 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given a list of dominoes, dominoes[i] = [a, b] is equivalent to dominoes[j] = [c, d] if and only if either (a == c and b== d), or (a == d and b== c) - that is, one domino can be rotated to be equal to another domino. Return the number of pairs (i, j) for which 0 &lt;= i &lt; j &lt; dominoes.length, and dominoes[i] is equivalent to dominoes[j].]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.FindMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer array bloomDay, an integer m and an integer k. You want to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden. The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one bouquet. Return the minimum number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.]]></summary></entry></feed>
