@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-17T04:38:23+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2513. Minimize the Maximum of Two Arrays</title><link href="https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays/" rel="alternate" type="text/html" title="2513. Minimize the Maximum of Two Arrays"/><published>2025-05-17T00:00:00+00:00</published><updated>2025-05-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays/"><![CDATA[<ul> <li>We have two arrays <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code> which are initially empty. You need to add positive integers to them such that they satisfy all the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">arr1</code> contains <code class="language-plaintext highlighter-rouge">uniqueCnt1</code> <strong>distinct</strong> positive integers, each of which is <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">divisor1</code>.</li> <li><code class="language-plaintext highlighter-rouge">arr2</code> contains <code class="language-plaintext highlighter-rouge">uniqueCnt2</code> <strong>distinct</strong> positive integers, each of which is <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">divisor2</code>.</li> <li><strong>No</strong> integer is present in both <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code>.</li> </ul> </li> <li>Given <code class="language-plaintext highlighter-rouge">divisor1</code>, <code class="language-plaintext highlighter-rouge">divisor2</code>, <code class="language-plaintext highlighter-rouge">uniqueCnt1</code>, and <code class="language-plaintext highlighter-rouge">uniqueCnt2</code>, return <em>the <strong>minimum possible maximum</strong> integer that can be present in either array</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: divisor1 = 2, divisor2 = 7, uniqueCnt1 = 1, uniqueCnt2 = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-18T06:14:50+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3281. Maximize Score of Numbers in Ranges</title><link href="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/" rel="alternate" type="text/html" title="3281. Maximize Score of Numbers in Ranges"/><published>2025-05-18T00:00:00+00:00</published><updated>2025-05-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">start</code> and an integer <code class="language-plaintext highlighter-rouge">d</code>, representing <code class="language-plaintext highlighter-rouge">n</code> intervals <code class="language-plaintext highlighter-rouge">[start[i], start[i] + d]</code>.</li> <li>You are asked to choose <code class="language-plaintext highlighter-rouge">n</code> integers where the <code class="language-plaintext highlighter-rouge">ith</code> integer must belong to the <code class="language-plaintext highlighter-rouge">ith</code> interval. The <strong>score</strong> of the chosen integers is defined as the <strong>minimum</strong> absolute difference between any two integers that have been chosen.</li> <li>Return the <strong>maximum</strong> <em>possible score</em> of the chosen integers.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = [6,0,3], d = 2
+
+Output: 4
+
+Explanation:
+
+The maximum possible score can be obtained by choosing integers: 8, 0, and 4. The score of these chosen integers is min(|8 - 0|, |8 - 4|, |0 - 4|) which equals 4.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = [2,6,13,13], d = 5
+
+Output: 5
+
+Explanation:
+
+The maximum possible score can be obtained by choosing integers: 2, 7, 13, and 18. The score of these chosen integers is min(|2 - 7|, |2 - 13|, |2 - 18|, |7 - 13|, |7 - 18|, |13 - 18|) which equals 5.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)+nlog(A)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.MaximizeMinimum</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/18
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximizeScoreOfNumbersInRanges</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxPossibleScore</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the start array to ensure order for greedy assignment</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">start</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="cm">/*
+         * Calculate the upper bound for binary search 'right':
+         * Explanation:
+         * - The maximum possible difference between any two assigned numbers
+         *   can be no more than the total length of the entire range divided evenly.
+         * - The total range length is from the smallest start to the largest possible end:
+         *   (start[n-1] + d) - start[0].
+         * - Divide by (n-1) because there are (n-1) gaps between n numbers.
+         * - Adding 1 ensures the upper bound is strictly greater,
+         *   so the binary search range is safe.
+         */</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="o">(</span><span class="n">start</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">d</span> <span class="o">-</span> <span class="n">start</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> <span class="o">/</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Binary search loop to find the maximum minimum difference</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="o">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// mid = (left + right) / 2 without overflow</span>
+
+            <span class="cm">/*
+             * Check if it is possible to assign numbers with at least 'mid' difference
+             * between adjacent assigned values while keeping each within allowed intervals.
+             */</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">check</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>   <span class="c1">// If feasible, try a larger minimum difference</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>  <span class="c1">// Otherwise, try smaller differences</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 'left' holds the largest minimum difference found</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">long</span> <span class="n">prevPlacedValue</span> <span class="o">=</span> <span class="nc">Long</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>  <span class="c1">// Initialize to very small to place first number freely</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">baseValue</span> <span class="o">:</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the assigned value for current interval:</span>
+            <span class="c1">// It must be at least 'score' away from the previously assigned value,</span>
+            <span class="c1">// and also no less than the interval's start value.</span>
+            <span class="n">prevPlacedValue</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">prevPlacedValue</span> <span class="o">+</span> <span class="n">score</span><span class="o">,</span> <span class="n">baseValue</span><span class="o">);</span>
+
+            <span class="c1">// If assigned value goes beyond the interval's max allowed value, fail</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">prevPlacedValue</span> <span class="o">&gt;</span> <span class="n">baseValue</span> <span class="o">+</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// All intervals assigned successfully with at least 'score' difference</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Example 1:</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">start1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">maxPossibleScore</span><span class="o">(</span><span class="n">start1</span><span class="o">,</span> <span class="n">d1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 1 output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span> <span class="c1">// Expected 4</span>
+
+        <span class="c1">// Example 2:</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">start2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">13</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">maxPossibleScore</span><span class="o">(</span><span class="n">start2</span><span class="o">,</span> <span class="n">d2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 2 output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span> <span class="c1">// Expected 5</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MaximizeMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an array of integers start and an integer d, representing n intervals [start[i], start[i] + d]. You are asked to choose n integers where the ith integer must belong to the ith interval. The score of the chosen integers is defined as the minimum absolute difference between any two integers that have been chosen. Return the maximum possible score of the chosen integers.]]></summary></entry><entry><title type="html">2513. Minimize the Maximum of Two Arrays</title><link href="https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays/" rel="alternate" type="text/html" title="2513. Minimize the Maximum of Two Arrays"/><published>2025-05-17T00:00:00+00:00</published><updated>2025-05-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays/"><![CDATA[<ul> <li>We have two arrays <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code> which are initially empty. You need to add positive integers to them such that they satisfy all the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">arr1</code> contains <code class="language-plaintext highlighter-rouge">uniqueCnt1</code> <strong>distinct</strong> positive integers, each of which is <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">divisor1</code>.</li> <li><code class="language-plaintext highlighter-rouge">arr2</code> contains <code class="language-plaintext highlighter-rouge">uniqueCnt2</code> <strong>distinct</strong> positive integers, each of which is <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">divisor2</code>.</li> <li><strong>No</strong> integer is present in both <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code>.</li> </ul> </li> <li>Given <code class="language-plaintext highlighter-rouge">divisor1</code>, <code class="language-plaintext highlighter-rouge">divisor2</code>, <code class="language-plaintext highlighter-rouge">uniqueCnt1</code>, and <code class="language-plaintext highlighter-rouge">uniqueCnt2</code>, return <em>the <strong>minimum possible maximum</strong> integer that can be present in either array</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: divisor1 = 2, divisor2 = 7, uniqueCnt1 = 1, uniqueCnt2 = 3
 Output: 4
 Explanation: 
 We can distribute the first 4 natural numbers into arr1 and arr2.
@@ -876,59 +973,4 @@ Explanation: It is impossible to make the sum of both arrays equal.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 4 result: "</span> <span class="o">+</span> <span class="n">minimumEqualSum</span><span class="o">(</span><span class="n">nums1Case4</span><span class="o">,</span> <span class="n">nums2Case4</span><span class="o">));</span> <span class="c1">// Expected: 6</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given two arrays nums1 and nums2 consisting of positive integers. You have to replace all the 0’s in both arrays with strictly positive integers such that the sum of elements of both arrays becomes equal. Return the minimum equal sum you can obtain, or -1 if it is impossible.]]></summary></entry><entry><title type="html">1920. Build Array from Permutation</title><link href="https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation/" rel="alternate" type="text/html" title="1920. Build Array from Permutation"/><published>2025-05-06T00:00:00+00:00</published><updated>2025-05-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/BuildArrayFromPermutation/"><![CDATA[<ul> <li>Given a <strong>zero-based permutation</strong> <code class="language-plaintext highlighter-rouge">nums</code> (<strong>0-indexed</strong>), build an array <code class="language-plaintext highlighter-rouge">ans</code> of the <strong>same length</strong> where <code class="language-plaintext highlighter-rouge">ans[i] = nums[nums[i]]</code> for each <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; nums.length</code> and return it.</li> <li>A <strong>zero-based permutation</strong> <code class="language-plaintext highlighter-rouge">nums</code> is an array of <strong>distinct</strong> integers from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">nums.length - 1</code> (<strong>inclusive</strong>).</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,2,1,5,3,4]
-Output: [0,1,2,4,5,3]
-Explanation: The array ans is built as follows: 
-ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]
-    = [nums[0], nums[2], nums[1], nums[5], nums[3], nums[4]]
-    = [0,1,2,4,5,3]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,0,1,2,3,4]
-Output: [4,5,0,1,2,3]
-Explanation: The array ans is built as follows:
-ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]
-    = [nums[5], nums[0], nums[1], nums[2], nums[3], nums[4]]
-    = [4,5,0,1,2,3]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/06
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BuildArrayFromPermutation</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">buildArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Create result array with same length as input array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Iterate through array and build result</span>
-        <span class="c1">// For each position i, ans[i] = nums[nums[i]]</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]];</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Expected output [0,1,2,4,5,3]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">buildArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span><span class="o">);</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">result1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Expected output [4,5,0,1,2,3]</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">buildArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span><span class="o">);</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">result2</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given a zero-based permutation nums (0-indexed), build an array ans of the same length where ans[i] = nums[nums[i]] for each 0 &lt;= i &lt; nums.length and return it. A zero-based permutation nums is an array of distinct integers from 0 to nums.length - 1 (inclusive).]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given two arrays nums1 and nums2 consisting of positive integers. You have to replace all the 0’s in both arrays with strictly positive integers such that the sum of elements of both arrays becomes equal. Return the minimum equal sum you can obtain, or -1 if it is impossible.]]></summary></entry></feed>
