@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-18T06:53:53+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3281. Maximize Score of Numbers in Ranges</title><link href="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/" rel="alternate" type="text/html" title="3281. Maximize Score of Numbers in Ranges"/><published>2025-05-18T00:00:00+00:00</published><updated>2025-05-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">start</code> and an integer <code class="language-plaintext highlighter-rouge">d</code>, representing <code class="language-plaintext highlighter-rouge">n</code> intervals <code class="language-plaintext highlighter-rouge">[start[i], start[i] + d]</code>.</li> <li>You are asked to choose <code class="language-plaintext highlighter-rouge">n</code> integers where the <code class="language-plaintext highlighter-rouge">ith</code> integer must belong to the <code class="language-plaintext highlighter-rouge">ith</code> interval. The <strong>score</strong> of the chosen integers is defined as the <strong>minimum</strong> absolute difference between any two integers that have been chosen.</li> <li>Return the <strong>maximum</strong> <em>possible score</em> of the chosen integers.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = [6,0,3], d = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-19T01:54:59+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3024. Type of Triangle</title><link href="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/" rel="alternate" type="text/html" title="3024. Type of Triangle"/><published>2025-05-19T00:00:00+00:00</published><updated>2025-05-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TypeOfTriangle</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">3</code> which can form the sides of a triangle. <ul> <li>A triangle is called <strong>equilateral</strong> if it has all sides of equal length.</li> <li>A triangle is called <strong>isosceles</strong> if it has exactly two sides of equal length.</li> <li>A triangle is called <strong>scalene</strong> if all its sides are of different lengths.</li> </ul> </li> <li>Return <em>a string representing</em> <em>the type of triangle that can be formed</em> <em>or</em> <code class="language-plaintext highlighter-rouge">"none"</code> <em>if it <strong>cannot</strong> form a triangle.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,3]
+Output: "equilateral"
+Explanation: Since all the sides are of equal length, therefore, it will form an equilateral triangle.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,4,5]
+Output: "scalene"
+Explanation: 
+nums[0] + nums[1] = 3 + 4 = 7, which is greater than nums[2] = 5.
+nums[0] + nums[2] = 3 + 5 = 8, which is greater than nums[1] = 4.
+nums[1] + nums[2] = 4 + 5 = 9, which is greater than nums[0] = 3. 
+Since the sum of the two sides is greater than the third side for all three cases, therefore, it can form a triangle.
+As all the sides are of different lengths, it will form a scalene triangle.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TypeOfTriangle</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">triangleType</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Check if the sides can form a valid triangle</span>
+        <span class="c1">// Triangle inequality theorem: The sum of the lengths of any two sides must be greater than the length of the remaining side</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">||</span>
+                <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span>
+                <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"none"</span><span class="o">;</span>  <span class="c1">// Cannot form a valid triangle</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Determine the type of triangle based on the equality of sides</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">])</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"equilateral"</span><span class="o">;</span>  <span class="c1">// All three sides are equal -&gt; Equilateral triangle</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">||</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">])</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"isosceles"</span><span class="o">;</span>    <span class="c1">// Exactly two sides are equal -&gt; Isosceles triangle</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"scalene"</span><span class="o">;</span>      <span class="c1">// All three sides have different lengths -&gt; Scalene triangle</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Equilateral triangle (all sides equal)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: [3,3,3] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 2: Scalene triangle (all sides different)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: [3,4,5] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 3: Isosceles triangle (exactly two sides equal)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: [3,3,2] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+
+        <span class="c1">// Test Case 4: Not a valid triangle (fails triangle inequality theorem)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: [1,1,3] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle. A triangle is called equilateral if it has all sides of equal length. A triangle is called isosceles if it has exactly two sides of equal length. A triangle is called scalene if all its sides are of different lengths. Return a string representing the type of triangle that can be formed or "none" if it cannot form a triangle.]]></summary></entry><entry><title type="html">3281. Maximize Score of Numbers in Ranges</title><link href="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/" rel="alternate" type="text/html" title="3281. Maximize Score of Numbers in Ranges"/><published>2025-05-18T00:00:00+00:00</published><updated>2025-05-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">start</code> and an integer <code class="language-plaintext highlighter-rouge">d</code>, representing <code class="language-plaintext highlighter-rouge">n</code> intervals <code class="language-plaintext highlighter-rouge">[start[i], start[i] + d]</code>.</li> <li>You are asked to choose <code class="language-plaintext highlighter-rouge">n</code> integers where the <code class="language-plaintext highlighter-rouge">ith</code> integer must belong to the <code class="language-plaintext highlighter-rouge">ith</code> interval. The <strong>score</strong> of the chosen integers is defined as the <strong>minimum</strong> absolute difference between any two integers that have been chosen.</li> <li>Return the <strong>maximum</strong> <em>possible score</em> of the chosen integers.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = [6,0,3], d = 2
 
 Output: 4
 
@@ -868,76 +925,4 @@ The maximum number of products given to any store is max(100000) = 100000.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer n indicating there are n specialty retail stores. There are m product types of varying amounts, which are given as a 0-indexed integer array quantities, where quantities[i] represents the number of products of the ith product type. You need to distribute all products to the retail stores following these rules: A store can only be given at most one product type but can be given any amount of it. After distribution, each store will have been given some number of products (possibly 0). Let x represent the maximum number of products given to any store. You want x to be as small as possible, i.e., you want to minimize the maximum number of products that are given to any store. Return the minimum possible x.]]></summary></entry><entry><title type="html">1550. Three Consecutive Odds</title><link href="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/" rel="alternate" type="text/html" title="1550. Three Consecutive Odds"/><published>2025-05-11T00:00:00+00:00</published><updated>2025-05-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ThreeConsecutiveOdds/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">arr</code>, return <code class="language-plaintext highlighter-rouge">true</code> if there are three consecutive odd numbers in the array. Otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,6,4,1]
-Output: false
-Explanation: There are no three consecutive odds.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,34,3,4,5,7,23,12]
-Output: true
-Explanation: [5,7,23] are three consecutive odds.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/11
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeConsecutiveOdds</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">threeConsecutiveOdds</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Edge case: If array length is less than 3, it's impossible to have three consecutive elements</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">){</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Counter to track the number of consecutive odd integers encountered</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each element in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Check if the current number is odd (remainder when divided by 2 is 1)</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
-                <span class="c1">// Increment the counter for consecutive odd numbers</span>
-                <span class="n">count</span><span class="o">++;</span>
-                <span class="c1">// If we've found three consecutive odd numbers, return true</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="o">){</span>
-                    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If we encounter an even number, reset the counter</span>
-                <span class="c1">// as it breaks the consecutive sequence of odd numbers</span>
-                <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we've traversed the entire array without finding three consecutive odd numbers, return false</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Array with no three consecutive odd numbers</span>
-        <span class="c1">// Expected output: false</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr1</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
-
-        <span class="c1">// Test Case 2: Array with three consecutive odd numbers (5, 7, 23)</span>
-        <span class="c1">// Expected output: true</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">34</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">23</span><span class="o">,</span> <span class="mi">12</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr2</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test Case 3: Array with exactly three elements, all odd</span>
-        <span class="c1">// Expected output: true</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr3</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test Case 4: Array with consecutive odd numbers scattered throughout</span>
-        <span class="c1">// Expected output: true (could be because of 7, 3, 1 or 3, 1, 9 or 1, 9, 5)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr4</span><span class="o">));</span>  <span class="c1">// Expected output: true</span>
-
-        <span class="c1">// Test Case 5: Array with only even numbers</span>
-        <span class="c1">// Expected output: false</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 Result: "</span> <span class="o">+</span> <span class="n">threeConsecutiveOdds</span><span class="o">(</span><span class="n">arr5</span><span class="o">));</span>  <span class="c1">// Expected output: false</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer n indicating there are n specialty retail stores. There are m product types of varying amounts, which are given as a 0-indexed integer array quantities, where quantities[i] represents the number of products of the ith product type. You need to distribute all products to the retail stores following these rules: A store can only be given at most one product type but can be given any amount of it. After distribution, each store will have been given some number of products (possibly 0). Let x represent the maximum number of products given to any store. You want x to be as small as possible, i.e., you want to minimize the maximum number of products that are given to any store. Return the minimum possible x.]]></summary></entry></feed>
