@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-21T03:53:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">378. Kth Smallest Element in a Sorted Matrix</title><link href="https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix/" rel="alternate" type="text/html" title="378. Kth Smallest Element in a Sorted Matrix"/><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">n x n</code> <code class="language-plaintext highlighter-rouge">matrix</code> where each of the rows and columns is sorted in ascending order, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>smallest element in the matrix</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> smallest element <strong>in the sorted order</strong>, not the <code class="language-plaintext highlighter-rouge">kth</code> <strong>distinct</strong> element.</li> <li>You must find a solution with a memory complexity better than <code class="language-plaintext highlighter-rouge">O(n^2)</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [ [ 1,5,9],[10,11,13],[12,13,15 ] ], k = 8
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-21T07:27:27+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">719. Find K-th Smallest Pair Distance</title><link href="https://zhengstar94.github.io//blog/2025/FindKthSmallestPairDistance/" rel="alternate" type="text/html" title="719. Find K-th Smallest Pair Distance"/><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindKthSmallestPairDistance</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindKthSmallestPairDistance/"><![CDATA[<ul> <li>The <strong>distance of a pair</strong> of integers <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> is defined as the absolute difference between <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>smallest <strong>distance among all the pairs</strong></em> <code class="language-plaintext highlighter-rouge">nums[i]</code> <em>and</em> <code class="language-plaintext highlighter-rouge">nums[j]</code> <em>where</em> <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; nums.length</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,1], k = 1
+Output: 0
+Explanation: Here are all the pairs:
+(1,3) -&gt; 2
+(1,1) -&gt; 0
+(3,1) -&gt; 2
+Then the 1st smallest distance pair is (1,1), and its distance is 0.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1], k = 2
+Output: 0
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,6,1], k = 3
+Output: 5
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n×(logn+logD)) time | O(log(n)) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.KthElement</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/05/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindKthSmallestPairDistance</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">smallestDistancePair</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the input array to allow efficient counting of pairs with two pointers</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// The smallest possible distance is 0 (duplicates), largest possible is max - min</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+
+        <span class="c1">// Binary search over the distance range</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="o">){</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// count of pairs with distance &lt;= mid</span>
+
+            <span class="c1">// Use two pointers to count pairs with distance &lt;= mid efficiently</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// For each position j in the array, we want to find how many elements nums[i]</span>
+                <span class="c1">// (with i &lt; j) satisfy the condition: nums[j] - nums[i] &lt;= mid</span>
+                <span class="c1">// Here mid is our current guess for the maximum allowed pair distance.</span>
+
+                <span class="c1">// Move the left pointer i forward until the distance between nums[j] and nums[i]</span>
+                <span class="c1">// is not greater than mid.</span>
+                <span class="c1">// This means if the difference is too big (nums[j] - nums[i] &gt; mid),</span>
+                <span class="c1">// we need to increase i to reduce the distance.</span>
+                <span class="k">while</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">i</span><span class="o">++;</span>  <span class="c1">// Shift i rightward to find smaller difference</span>
+                <span class="o">}</span>
+
+                <span class="c1">// Now, all elements from nums[i] up to nums[j-1] form pairs with nums[j] whose distances</span>
+                <span class="c1">// are less than or equal to mid.</span>
+                <span class="c1">// Since the array is sorted, nums[i], nums[i+1], ..., nums[j-1] all satisfy</span>
+                <span class="c1">// nums[j] - nums[x] &lt;= mid (for x from i to j-1).</span>
+                <span class="c1">//</span>
+                <span class="c1">// The number of such pairs with nums[j] as one element is (j - i).</span>
+                <span class="c1">// Add this count to the total count of pairs with distance &lt;= mid.</span>
+                <span class="n">cnt</span> <span class="o">+=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+
+
+            <span class="c1">// If count of pairs with distance &lt;= mid is &gt;= k, try to find smaller or equal distance</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">cnt</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">){</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Otherwise, increase distance range to find larger distances</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When the loop finishes, left is the smallest distance with at least k pairs</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">FindKthSmallestPairDistance</span> <span class="n">solver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FindKthSmallestPairDistance</span><span class="o">();</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [1,3,1], k = 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">solver</span><span class="o">.</span><span class="na">smallestDistancePair</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 0\n"</span><span class="o">);</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [1,1,1], k = 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">solver</span><span class="o">.</span><span class="na">smallestDistancePair</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 0\n"</span><span class="o">);</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: nums = [1,6,1], k = 3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">solver</span><span class="o">.</span><span class="na">smallestDistancePair</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 5\n"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.KthElement"/><category term="Hard"/><category term="BinarySearch"/><summary type="html"><![CDATA[The distance of a pair of integers a and b is defined as the absolute difference between a and b. Given an integer array nums and an integer k, return the kth smallest distance among all the pairs nums[i] and nums[j] where 0 &lt;= i &lt; j &lt; nums.length.]]></summary></entry><entry><title type="html">378. Kth Smallest Element in a Sorted Matrix</title><link href="https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix/" rel="alternate" type="text/html" title="378. Kth Smallest Element in a Sorted Matrix"/><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">n x n</code> <code class="language-plaintext highlighter-rouge">matrix</code> where each of the rows and columns is sorted in ascending order, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>smallest element in the matrix</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> smallest element <strong>in the sorted order</strong>, not the <code class="language-plaintext highlighter-rouge">kth</code> <strong>distinct</strong> element.</li> <li>You must find a solution with a memory complexity better than <code class="language-plaintext highlighter-rouge">O(n^2)</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [ [ 1,5,9],[10,11,13],[12,13,15 ] ], k = 8
 Output: 13
 Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [ [ -5 ] ], k = 1
@@ -838,84 +938,4 @@ Explanation: Let the indices 1 and 3 form a pair. The difference of that pair is
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer p. Find p pairs of indices of nums such that the maximum difference amongst all the pairs is minimized. Also, ensure no index appears more than once amongst the p pairs. Note that for a pair of elements at the index i and j, the difference of this pair is |nums[i] - nums[j]|, where |x| represents the absolute value of x. Return the minimum maximum difference among all p pairs. We define the maximum of an empty set to be zero.]]></summary></entry><entry><title type="html">2900. Longest Unequal Adjacent Groups Subsequence I</title><link href="https://zhengstar94.github.io//blog/2025/LongestUnequalAdjacentGroupsSubsequenceI/" rel="alternate" type="text/html" title="2900. Longest Unequal Adjacent Groups Subsequence I"/><published>2025-05-15T00:00:00+00:00</published><updated>2025-05-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestUnequalAdjacentGroupsSubsequenceI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestUnequalAdjacentGroupsSubsequenceI/"><![CDATA[<ul> <li>You are given a string array <code class="language-plaintext highlighter-rouge">words</code> and a <strong>binary</strong> array <code class="language-plaintext highlighter-rouge">groups</code> both of length <code class="language-plaintext highlighter-rouge">n</code>, where <code class="language-plaintext highlighter-rouge">words[i]</code> is associated with <code class="language-plaintext highlighter-rouge">groups[i]</code>.</li> <li>Your task is to select the <strong>longest alternating</strong> subsequence from <code class="language-plaintext highlighter-rouge">words</code>. A subsequence of <code class="language-plaintext highlighter-rouge">words</code> is alternating if for any two consecutive strings in the sequence, their corresponding elements in the binary array <code class="language-plaintext highlighter-rouge">groups</code> differ. Essentially, you are to choose strings such that adjacent elements have non-matching corresponding bits in the <code class="language-plaintext highlighter-rouge">groups</code> array.</li> <li>Formally, you need to find the longest subsequence of an array of indices <code class="language-plaintext highlighter-rouge">[0, 1, ..., n - 1]</code> denoted as <code class="language-plaintext highlighter-rouge">[i0, i1, ..., ik-1]</code>, such that <code class="language-plaintext highlighter-rouge">groups[ij] != groups[ij+1]</code> for each <code class="language-plaintext highlighter-rouge">0 &lt;= j &lt; k - 1</code> and then find the words corresponding to these indices.</li> <li>Return <em>the selected subsequence. If there are multiple answers, return <strong>any</strong> of them.</em>**</li> <li><strong>Note:</strong> The elements in <code class="language-plaintext highlighter-rouge">words</code> are distinct.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = ["e","a","b"], groups = [0,0,1]
-
-Output: ["e","b"]
-
-Explanation: A subsequence that can be selected is ["e","b"] because groups[0] != groups[2]. Another subsequence that can be selected is ["a","b"] because groups[1] != groups[2]. It can be demonstrated that the length of the longest subsequence of indices that satisfies the condition is 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: words = ["a","b","c","d"], groups = [1,0,1,1]
-
-Output: ["a","b","c"]
-
-Explanation: A subsequence that can be selected is ["a","b","c"] because groups[0] != groups[1] and groups[1] != groups[2]. Another subsequence that can be selected is ["a","b","d"] because groups[0] != groups[1] and groups[1] != groups[3]. It can be shown that the length of the longest subsequence of indices that satisfies the condition is 3.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(max(nums) - min(nums))) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/15
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestUnequalAdjacentGroupsSubsequenceI</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getLongestSubsequence</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">words</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">groups</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the result list to store our subsequence</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Add the first element to the result</span>
-        <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
-
-        <span class="c1">// Remember the group value of the last added element</span>
-        <span class="kt">int</span> <span class="n">lastGroup</span> <span class="o">=</span> <span class="n">groups</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-
-        <span class="c1">// Iterate through the remaining elements</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If the current element's group is different from the last added element's group</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">groups</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">lastGroup</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Add the current element to our result</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-
-                <span class="c1">// Update the last group value</span>
-                <span class="n">lastGroup</span> <span class="o">=</span> <span class="n">groups</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the longest subsequence</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">words1</span> <span class="o">=</span> <span class="o">{</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">,</span> <span class="s">"d"</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">groups1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">getLongestSubsequence</span><span class="o">(</span><span class="n">words1</span><span class="o">,</span> <span class="n">groups1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: words = "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">words1</span><span class="o">)</span> <span class="o">+</span> <span class="s">", groups = "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">groups1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [a, b, c] or [a, b, d]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">words2</span> <span class="o">=</span> <span class="o">{</span><span class="s">"e"</span><span class="o">,</span> <span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">groups2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">getLongestSubsequence</span><span class="o">(</span><span class="n">words2</span><span class="o">,</span> <span class="n">groups2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: words = "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">words2</span><span class="o">)</span> <span class="o">+</span> <span class="s">", groups = "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">groups2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [e, b] or [a, b]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Additional Test Case 3</span>
-        <span class="nc">String</span><span class="o">[]</span> <span class="n">words3</span> <span class="o">=</span> <span class="o">{</span><span class="s">"red"</span><span class="o">,</span> <span class="s">"green"</span><span class="o">,</span> <span class="s">"blue"</span><span class="o">,</span> <span class="s">"yellow"</span><span class="o">,</span> <span class="s">"purple"</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">groups3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">getLongestSubsequence</span><span class="o">(</span><span class="n">words3</span><span class="o">,</span> <span class="n">groups3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: words = "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">words3</span><span class="o">)</span> <span class="o">+</span> <span class="s">", groups = "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">groups3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [red, green, blue, purple]"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a string array words and a binary array groups both of length n, where words[i] is associated with groups[i]. Your task is to select the longest alternating subsequence from words. A subsequence of words is alternating if for any two consecutive strings in the sequence, their corresponding elements in the binary array groups differ. Essentially, you are to choose strings such that adjacent elements have non-matching corresponding bits in the groups array. Formally, you need to find the longest subsequence of an array of indices [0, 1, ..., n - 1] denoted as [i0, i1, ..., ik-1], such that groups[ij] != groups[ij+1] for each 0 &lt;= j &lt; k - 1 and then find the words corresponding to these indices. Return the selected subsequence. If there are multiple answers, return any of them.** Note: The elements in words are distinct.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums and an integer p. Find p pairs of indices of nums such that the maximum difference amongst all the pairs is minimized. Also, ensure no index appears more than once amongst the p pairs. Note that for a pair of elements at the index i and j, the difference of this pair is |nums[i] - nums[j]|, where |x| represents the absolute value of x. Return the minimum maximum difference among all p pairs. We define the maximum of an empty set to be zero.]]></summary></entry></feed>
