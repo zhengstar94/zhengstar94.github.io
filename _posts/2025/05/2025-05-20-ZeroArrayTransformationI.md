@@ -21,7 +21,7 @@ categories:
 **Example 1**
 
 ```
-Input: nums = [1,0,1], queries = [[0,2]]
+Input: nums = [1,0,1], queries = [ [0,2] ]
 
 Output: true
 
@@ -35,7 +35,7 @@ The array will become [0, 0, 0], which is a Zero Array.
 **Example 2**
 
 ```
-Input: nums = [4,3,2,1], queries = [[1,3],[0,2]]
+Input: nums = [4,3,2,1], queries = [ [1,3],[0,2] ]
 
 Output: false
 
@@ -96,19 +96,19 @@ public class ZeroArrayTransformationI {
     public static void main(String[] args) {
         // Test case 1
         int[] nums1 = {1, 0, 1};
-        int[][] queries1 = {{0, 2}};
+        int[][] queries1 = { {0, 2} };
         boolean result1 = isZeroArray(nums1, queries1);
         System.out.println("Test case 1 result: " + result1); // Expected: true
 
         // Test case 2
         int[] nums2 = {4, 3, 2, 1};
-        int[][] queries2 = {{1, 3}, {0, 2}};
+        int[][] queries2 = { {1, 3}, {0, 2} };
         boolean result2 = isZeroArray(nums2, queries2);
         System.out.println("Test case 2 result: " + result2); // Expected: false
 
         // Additional test case
         int[] nums3 = {2, 3, 1, 4};
-        int[][] queries3 = {{0, 1}, {1, 3}, {0, 2}};
+        int[][] queries3 = { {0, 1}, {1, 3}, {0, 2} };
         boolean result3 = isZeroArray(nums3, queries3);
         System.out.println("Test case 3 result: " + result3);
     }
