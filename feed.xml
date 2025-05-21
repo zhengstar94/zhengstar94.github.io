@@ -1,4 +1,270 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-19T01:54:59+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3024. Type of Triangle</title><link href="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/" rel="alternate" type="text/html" title="3024. Type of Triangle"/><published>2025-05-19T00:00:00+00:00</published><updated>2025-05-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TypeOfTriangle</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">3</code> which can form the sides of a triangle. <ul> <li>A triangle is called <strong>equilateral</strong> if it has all sides of equal length.</li> <li>A triangle is called <strong>isosceles</strong> if it has exactly two sides of equal length.</li> <li>A triangle is called <strong>scalene</strong> if all its sides are of different lengths.</li> </ul> </li> <li>Return <em>a string representing</em> <em>the type of triangle that can be formed</em> <em>or</em> <code class="language-plaintext highlighter-rouge">"none"</code> <em>if it <strong>cannot</strong> form a triangle.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-21T03:53:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">378. Kth Smallest Element in a Sorted Matrix</title><link href="https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix/" rel="alternate" type="text/html" title="378. Kth Smallest Element in a Sorted Matrix"/><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/KthSmallestElementInASortedMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">n x n</code> <code class="language-plaintext highlighter-rouge">matrix</code> where each of the rows and columns is sorted in ascending order, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>smallest element in the matrix</em>.</li> <li>Note that it is the <code class="language-plaintext highlighter-rouge">kth</code> smallest element <strong>in the sorted order</strong>, not the <code class="language-plaintext highlighter-rouge">kth</code> <strong>distinct</strong> element.</li> <li>You must find a solution with a memory complexity better than <code class="language-plaintext highlighter-rouge">O(n^2)</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [ [ 1,5,9],[10,11,13],[12,13,15 ] ], k = 8
+Output: 13
+Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: matrix = [ [ -5 ] ], k = 1
+Output: -5
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n × log(max-min)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.KthElement</span><span class="o">;</span>
+
+<span class="cm">/**
+ * author: zhengxingxing
+ * date: 2025/05/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KthSmallestElementInASortedMatrix</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">kthSmallest</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>         <span class="c1">// The smallest possible value in the matrix</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span> <span class="c1">// The largest possible value in the matrix</span>
+
+        <span class="c1">// Binary search on value range</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>  <span class="c1">// Prevents potential overflow</span>
+
+            <span class="c1">// Count how many elements in the matrix are ≤ mid</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">countLessOrEqual</span><span class="o">(</span><span class="n">matrix</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If there are fewer than k elements ≤ mid, then the target must be in the right half</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Otherwise, mid is large enough (maybe too large), move left</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When left == right, we've found the smallest number such that at least k elements are ≤ it</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Counts the number of elements in the matrix that are less than or equal to the given target.
+     *
+     * We take advantage of the sorted property:
+     * - Start from the bottom-left corner.
+     * - If the current number is ≤ target, then all numbers above it in that column are also ≤ target.
+     * - If it's &gt; target, move upward to smaller numbers.
+     *
+     * Example: For matrix[i][j]
+     * - If matrix[i][j] ≤ target → count += i + 1, move right
+     * - Else → move up
+     *
+     * Time Complexity: O(n), where n is number of rows/columns
+     *
+     * @param matrix the input sorted matrix
+     * @param target the value to compare against
+     * @return count of elements ≤ target
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countLessOrEqual</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Start from the bottom-left corner</span>
+        <span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Traverse while staying within matrix boundaries</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">row</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Since matrix[row][col] ≤ target, all elements above in this column (from row 0 to current row)</span>
+                <span class="c1">// are also ≤ target due to sorted column. So we can add (row + 1) elements in one go.</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+                <span class="c1">// Move to next column (right)</span>
+                <span class="n">col</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If current element is &gt; target, move up to smaller elements</span>
+                <span class="n">row</span><span class="o">--;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Test cases to validate the solution.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">13</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">15</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: matrix = [ [ 1,5,9],[10,11,13],[12,13,15 ] ], k = 8"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">kthSmallest</span><span class="o">(</span><span class="n">matrix1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 13\n"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 2</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="mi">5</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: matrix = [ [ -5 ] ], k = 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">kthSmallest</span><span class="o">(</span><span class="n">matrix2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: -5"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.KthElement"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix. Note that it is the kth smallest element in the sorted order, not the kth distinct element. You must find a solution with a memory complexity better than O(n^2).]]></summary></entry><entry><title type="html">668. Kth Smallest Number in Multiplication Table</title><link href="https://zhengstar94.github.io//blog/2025/KthSmallestNumberInMultiplicationTable/" rel="alternate" type="text/html" title="668. Kth Smallest Number in Multiplication Table"/><published>2025-05-21T00:00:00+00:00</published><updated>2025-05-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/KthSmallestNumberInMultiplicationTable</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/KthSmallestNumberInMultiplicationTable/"><![CDATA[<ul> <li>Nearly everyone has used the <a href="https://en.wikipedia.org/wiki/Multiplication_table">Multiplication Table</a>. The multiplication table of size <code class="language-plaintext highlighter-rouge">m x n</code> is an integer matrix <code class="language-plaintext highlighter-rouge">mat</code> where <code class="language-plaintext highlighter-rouge">mat[i][j] == i * j</code> (<strong>1-indexed</strong>).</li> <li>Given three integers <code class="language-plaintext highlighter-rouge">m</code>, <code class="language-plaintext highlighter-rouge">n</code>, and <code class="language-plaintext highlighter-rouge">k</code>, return <em>the</em> <code class="language-plaintext highlighter-rouge">kth</code> <em>smallest element in the</em> <code class="language-plaintext highlighter-rouge">m x n</code> <em>multiplication table</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 3, n = 3, k = 5
+Output: 3
+Explanation: The 5th smallest number is 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: m = 2, n = 3, k = 6
+Output: 6
+Explanation: The 6th smallest number is 6.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(mlog(mn)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.KthElement</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/21
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KthSmallestNumberInMultiplicationTable</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findKthNumber</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the binary search boundaries:</span>
+        <span class="c1">// - left: smallest possible value in the table (always 1)</span>
+        <span class="c1">// - right: largest possible value in the table (m*n)</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="o">;</span>
+
+        <span class="c1">// Binary search loop</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the middle value to test</span>
+            <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Count elements less than or equal to x in the multiplication table</span>
+            <span class="c1">// First, handle complete rows (rows where all elements are &lt;= x)</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="o">;</span>  <span class="c1">// (x/n) complete rows, each contributing n elements</span>
+
+            <span class="c1">// Then, handle partial rows (rows where only some elements are &lt;= x)</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// In row i, elements less than or equal to x are: i, 2i, 3i, ..., up to x/i multiples</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">i</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Adjust search boundaries</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If we have at least k elements &lt;= x, the kth smallest could be x or smaller</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If we have fewer than k elements &lt;= x, the kth smallest must be larger than x</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When left == right, we've found the kth smallest number</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Main method with test cases
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: m=3, n=3, k=5 (Expected output: 3)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: m=3, n=3, k=5"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findKthNumber</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: m=2, n=3, k=6 (Expected output: 6)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: m=2, n=3, k=6"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findKthNumber</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 6"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: m=5, n=6, k=10 (Expected output: 5)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: m=5, n=6, k=10"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">findKthNumber</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 5"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.KthElement"/><category term="Hard"/><category term="BinarySearch"/><summary type="html"><![CDATA[Nearly everyone has used the Multiplication Table. The multiplication table of size m x n is an integer matrix mat where mat[i][j] == i * j (1-indexed). Given three integers m, n, and k, return the kth smallest element in the m x n multiplication table.]]></summary></entry><entry><title type="html">3355. Zero Array Transformation I</title><link href="https://zhengstar94.github.io//blog/2025/ZeroArrayTransformationI/" rel="alternate" type="text/html" title="3355. Zero Array Transformation I"/><published>2025-05-20T00:00:00+00:00</published><updated>2025-05-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ZeroArrayTransformationI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ZeroArrayTransformationI/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and a 2D array <code class="language-plaintext highlighter-rouge">queries</code>, where <code class="language-plaintext highlighter-rouge">queries[i] = [li, ri]</code>.</li> <li>For each <code class="language-plaintext highlighter-rouge">queries[i]</code>: <ul> <li>Select a subset of indices within the range <code class="language-plaintext highlighter-rouge">[li, ri]</code> in <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Decrement the values at the selected indices by 1.</li> </ul> </li> <li>A <strong>Zero Array</strong> is an array where all elements are equal to 0.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if it is <em>possible</em> to transform <code class="language-plaintext highlighter-rouge">nums</code> into a <strong>Zero Array</strong> after processing all the queries sequentially, otherwise return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1], queries = [ [0,2] ]
+
+Output: true
+
+Explanation:
+
+For i = 0:
+Select the subset of indices as [0, 2] and decrement the values at these indices by 1.
+The array will become [0, 0, 0], which is a Zero Array.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,3,2,1], queries = [ [1,3],[0,2] ]
+
+Output: false
+
+Explanation:
+
+For i = 0:
+Select the subset of indices as [1, 2, 3] and decrement the values at these indices by 1.
+The array will become [4, 2, 1, 0].
+For i = 1:
+Select the subset of indices as [0, 1, 2] and decrement the values at these indices by 1.
+The array will become [3, 1, 0, 0], which is not a Zero Array.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + q) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhengxingxing
+ * @date 2025/05/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ZeroArrayTransformationI</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isZeroArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span> <span class="c1">// Difference array to simulate range updates efficiently</span>
+
+        <span class="c1">// Apply each query as a range update: increment elements in the range [l, r] by 1</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">q</span> <span class="o">:</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">q</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">r</span> <span class="o">=</span> <span class="n">q</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+            <span class="n">diff</span><span class="o">[</span><span class="n">l</span><span class="o">]++;</span>         <span class="c1">// Start increment at index l</span>
+            <span class="n">diff</span><span class="o">[</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]--;</span>     <span class="c1">// Cancel the increment after index r</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">sumD</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Accumulator for the effective increments at each position</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">sumD</span> <span class="o">+=</span> <span class="n">diff</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> <span class="c1">// sumD represents how many times nums[i] is incremented</span>
+
+            <span class="c1">// Since each increment operation is effectively a -1 to nums[i],</span>
+            <span class="c1">// sumD also represents how much we are allowed to reduce nums[i] by.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">sumD</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If nums[i] is still greater than the total reduction allowed,</span>
+                <span class="c1">// it is impossible to reduce it to 0.</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If we never encountered a value that can't be zeroed out, return true</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">boolean</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">isZeroArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">queries1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span> <span class="c1">// Expected: true</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">boolean</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">isZeroArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">queries2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span> <span class="c1">// Expected: false</span>
+
+        <span class="c1">// Additional test case</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
+        <span class="kt">boolean</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">isZeroArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">queries3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of length n and a 2D array queries, where queries[i] = [li, ri]. For each queries[i]: Select a subset of indices within the range [li, ri] in nums. Decrement the values at the selected indices by 1. A Zero Array is an array where all elements are equal to 0. Return true if it is possible to transform nums into a Zero Array after processing all the queries sequentially, otherwise return false.]]></summary></entry><entry><title type="html">3024. Type of Triangle</title><link href="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/" rel="alternate" type="text/html" title="3024. Type of Triangle"/><published>2025-05-19T00:00:00+00:00</published><updated>2025-05-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TypeOfTriangle</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">3</code> which can form the sides of a triangle. <ul> <li>A triangle is called <strong>equilateral</strong> if it has all sides of equal length.</li> <li>A triangle is called <strong>isosceles</strong> if it has exactly two sides of equal length.</li> <li>A triangle is called <strong>scalene</strong> if all its sides are of different lengths.</li> </ul> </li> <li>Return <em>a string representing</em> <em>the type of triangle that can be formed</em> <em>or</em> <code class="language-plaintext highlighter-rouge">"none"</code> <em>if it <strong>cannot</strong> form a triangle.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,3]
 Output: "equilateral"
 Explanation: Since all the sides are of equal length, therefore, it will form an equilateral triangle.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,4,5]
@@ -652,277 +918,4 @@ Explanation: A subsequence that can be selected is ["a","b","c"] because groups[
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a string array words and a binary array groups both of length n, where words[i] is associated with groups[i]. Your task is to select the longest alternating subsequence from words. A subsequence of words is alternating if for any two consecutive strings in the sequence, their corresponding elements in the binary array groups differ. Essentially, you are to choose strings such that adjacent elements have non-matching corresponding bits in the groups array. Formally, you need to find the longest subsequence of an array of indices [0, 1, ..., n - 1] denoted as [i0, i1, ..., ik-1], such that groups[ij] != groups[ij+1] for each 0 &lt;= j &lt; k - 1 and then find the words corresponding to these indices. Return the selected subsequence. If there are multiple answers, return any of them.** Note: The elements in words are distinct.]]></summary></entry><entry><title type="html">2560. House Robber IV</title><link href="https://zhengstar94.github.io//blog/2025/HouseRobberIV/" rel="alternate" type="text/html" title="2560. House Robber IV"/><published>2025-05-14T00:00:00+00:00</published><updated>2025-05-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/HouseRobberIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/HouseRobberIV/"><![CDATA[<ul> <li>There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he <strong>refuses to steal from adjacent homes</strong>.</li> <li>The <strong>capability</strong> of the robber is the maximum amount of money he steals from one house of all the houses he robbed.</li> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> representing how much money is stashed in each house. More formally, the <code class="language-plaintext highlighter-rouge">ith</code> house from the left has <code class="language-plaintext highlighter-rouge">nums[i]</code> dollars.</li> <li>You are also given an integer <code class="language-plaintext highlighter-rouge">k</code>, representing the <strong>minimum</strong> number of houses the robber will steal from. It is always possible to steal at least <code class="language-plaintext highlighter-rouge">k</code> houses.</li> <li>Return <em>the <strong>minimum</strong> capability of the robber out of all the possible ways to steal at least</em> <code class="language-plaintext highlighter-rouge">k</code> <em>houses</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,5,9], k = 2
-Output: 5
-Explanation: 
-There are three ways to rob at least 2 houses:
-- Rob the houses at indices 0 and 2. Capability is max(nums[0], nums[2]) = 5.
-- Rob the houses at indices 0 and 3. Capability is max(nums[0], nums[3]) = 9.
-- Rob the houses at indices 1 and 3. Capability is max(nums[1], nums[3]) = 9.
-Therefore, we return min(5, 9, 9) = 5.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,7,9,3,1], k = 2
-Output: 2
-Explanation: There are 7 ways to rob the houses. The way which leads to minimum capability is to rob the house at index 0 and 4. Return max(nums[0], nums[4]) = 2.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * log(max(nums) - min(nums))) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.MinimizeMaximum</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/14
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HouseRobberIV</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minCapability</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the binary search boundaries</span>
-        <span class="c1">// Left boundary is the minimum value in the array (minimum possible capability)</span>
-        <span class="c1">// Right boundary is the maximum value in the array (maximum possible capability)</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Find the minimum and maximum values in the array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">left</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
-            <span class="n">right</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">right</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Binary search process to find the minimum capability</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the middle point to check</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// Check if with capability 'mid', the robber can steal at least k houses</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">canRob</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">mid</span><span class="o">,</span> <span class="n">k</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If it's possible to rob k houses with current capability,</span>
-                <span class="c1">// try to lower the capability to find the minimum</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If it's not possible to rob k houses with current capability,</span>
-                <span class="c1">// we need to increase the capability</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// After binary search, 'left' will be the minimum capability required</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canRob</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">capability</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Count of houses that have been robbed</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>      <span class="c1">// Current index in the array</span>
-
-        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If the money in the current house is less than or equal to the capability,</span>
-            <span class="c1">// the robber can steal from this house</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">capability</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">++;</span>  <span class="c1">// Increment the count of robbed houses</span>
-                <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">;</span>   <span class="c1">// Skip the next house (can't rob adjacent houses)</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">i</span><span class="o">++;</span>      <span class="c1">// Can't rob this house, move to the next one</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Check if the robber has stolen from at least k houses</span>
-        <span class="k">return</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">minCapability</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>  <span class="c1">// Expected output: 5</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">minCapability</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>  <span class="c1">// Expected output: 2</span>
-
-        <span class="c1">// Additional test case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">minCapability</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>  <span class="c1">// Expected output: 7</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he refuses to steal from adjacent homes. The capability of the robber is the maximum amount of money he steals from one house of all the houses he robbed. You are given an integer array nums representing how much money is stashed in each house. More formally, the ith house from the left has nums[i] dollars. You are also given an integer k, representing the minimum number of houses the robber will steal from. It is always possible to steal at least k houses. Return the minimum capability of the robber out of all the possible ways to steal at least k houses.]]></summary></entry><entry><title type="html">2094. Finding 3-Digit Even Numbers</title><link href="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/" rel="alternate" type="text/html" title="2094. Finding 3-Digit Even Numbers"/><published>2025-05-12T00:00:00+00:00</published><updated>2025-05-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/Finding3DigitEvenNumbers/"><![CDATA[<ul> <li> <p>You are given an integer array <code class="language-plaintext highlighter-rouge">digits</code>, where each element is a digit. The array may contain duplicates.</p> </li> <li> <p>You need to find <strong>all</strong> the <strong>unique</strong> integers that follow the given requirements:</p> <ul> <li>The integer consists of the <strong>concatenation</strong> of <strong>three</strong> elements from <code class="language-plaintext highlighter-rouge">digits</code> in <strong>any</strong> arbitrary order.</li> <li>The integer does not have <strong>leading zeros</strong>.</li> <li>The integer is <strong>even</strong>.</li> </ul> </li> <li> <p>For example, if the given <code class="language-plaintext highlighter-rouge">digits</code> were <code class="language-plaintext highlighter-rouge">[1, 2, 3]</code>, integers <code class="language-plaintext highlighter-rouge">132</code> and <code class="language-plaintext highlighter-rouge">312</code> follow the requirements.</p> <p>Return <em>a <strong>sorted</strong> array of the unique integers.</em></p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [2,1,3,0]
-Output: [102,120,130,132,210,230,302,310,312,320]
-Explanation: All the possible integers that follow the requirements are in the output array. 
-Notice that there are no odd integers or integers with leading zeros.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [2,2,8,8,2]
-Output: [222,228,282,288,822,828,882]
-Explanation: The same digit can be used as many times as it appears in digits. 
-In this example, the digit 8 is used twice each time in 288, 828, and 882. 
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: digits = [3,7,5]
-Output: []
-Explanation: No even integers can be formed using the given digits.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Finding3DigitEvenNumbers</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findEvenNumbers</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create an array to count the frequency of each digit (0-9) in the input array</span>
-        <span class="c1">// This allows us to track how many times each digit appears in the input</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">digit</span> <span class="o">:</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">digit</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// List to store the valid 3-digit even numbers we find</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Iterate through all possible 3-digit even numbers</span>
-        <span class="c1">// Start from 100 (smallest 3-digit number)</span>
-        <span class="c1">// End at 998 (largest 3-digit even number)</span>
-        <span class="c1">// Increment by 2 to only check even numbers (numbers ending with 0,2,4,6,8)</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">998</span><span class="o">;</span> <span class="n">num</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Extract each digit from the current number</span>
-            <span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">100</span><span class="o">;</span>         <span class="c1">// Hundreds place (first digit)</span>
-            <span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="o">(</span><span class="n">num</span> <span class="o">/</span> <span class="mi">10</span><span class="o">)</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>   <span class="c1">// Tens place (second digit)</span>
-            <span class="kt">int</span> <span class="n">d3</span> <span class="o">=</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span>          <span class="c1">// Ones place (third digit)</span>
-
-            <span class="c1">// Temporarily decrement the count for each digit we want to use</span>
-            <span class="c1">// This simulates "using" these digits to form our number</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">d1</span><span class="o">]--;</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">d2</span><span class="o">]--;</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">d3</span><span class="o">]--;</span>
-
-            <span class="c1">// Check if we can form this number with the available digits</span>
-            <span class="c1">// For each digit, if count &gt;= 0 after decrementing, it means:</span>
-            <span class="c1">// 1. If count = 0: We've used exactly all occurrences of this digit</span>
-            <span class="c1">// 2. If count &gt; 0: We still have more occurrences of this digit available</span>
-            <span class="c1">// </span>
-            <span class="c1">// If any count &lt; 0, it means we tried to use more occurrences of a digit</span>
-            <span class="c1">// than what's available in the original array, which is invalid</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">count</span><span class="o">[</span><span class="n">d1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">d2</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">d3</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If all counts are valid (&gt;= 0), we can form this number</span>
-                <span class="c1">// so add it to our result list</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Restore the counts for the next iteration</span>
-            <span class="c1">// This is critical because we're only "simulating" using these digits</span>
-            <span class="c1">// and need to reset for checking the next number</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">d1</span><span class="o">]++;</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">d2</span><span class="o">]++;</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">d3</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Convert the ArrayList to a primitive int array and return</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Mixed digits with an even digit and zero</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">digits1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findEvenNumbers</span><span class="o">(</span><span class="n">digits1</span><span class="o">)));</span>
-
-        <span class="c1">// Test case 2: Repeated digits</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">digits2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findEvenNumbers</span><span class="o">(</span><span class="n">digits2</span><span class="o">)));</span>
-
-        <span class="c1">// Test case 3: Only odd digits, no even numbers possible</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">digits3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">findEvenNumbers</span><span class="o">(</span><span class="n">digits3</span><span class="o">)));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array digits, where each element is a digit. The array may contain duplicates.]]></summary></entry><entry><title type="html">2064. Minimized Maximum of Products Distributed to Any Store</title><link href="https://zhengstar94.github.io//blog/2025/MinimizedMaximumOfProductsDistributedToAnyStore/" rel="alternate" type="text/html" title="2064. Minimized Maximum of Products Distributed to Any Store"/><published>2025-05-12T00:00:00+00:00</published><updated>2025-05-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimizedMaximumOfProductsDistributedToAnyStore</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimizedMaximumOfProductsDistributedToAnyStore/"><![CDATA[<ul> <li>You are given an integer <code class="language-plaintext highlighter-rouge">n</code> indicating there are <code class="language-plaintext highlighter-rouge">n</code> specialty retail stores. There are <code class="language-plaintext highlighter-rouge">m</code> product types of varying amounts, which are given as a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">quantities</code>, where <code class="language-plaintext highlighter-rouge">quantities[i]</code> represents the number of products of the <code class="language-plaintext highlighter-rouge">ith</code> product type.</li> <li>You need to distribute <strong>all products</strong> to the retail stores following these rules: <ul> <li>A store can only be given <strong>at most one product type</strong> but can be given <strong>any</strong> amount of it.</li> <li>After distribution, each store will have been given some number of products (possibly <code class="language-plaintext highlighter-rouge">0</code>). Let <code class="language-plaintext highlighter-rouge">x</code> represent the maximum number of products given to any store. You want <code class="language-plaintext highlighter-rouge">x</code> to be as small as possible, i.e., you want to <strong>minimize</strong> the <strong>maximum</strong> number of products that are given to any store.</li> </ul> </li> <li>Return <em>the minimum possible</em> <code class="language-plaintext highlighter-rouge">x</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 6, quantities = [11,6]
-Output: 3
-Explanation: One optimal way is:
-- The 11 products of type 0 are distributed to the first four stores in these amounts: 2, 3, 3, 3
-- The 6 products of type 1 are distributed to the other two stores in these amounts: 3, 3
-The maximum number of products given to any store is max(2, 3, 3, 3, 3, 3) = 3.
-
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 7, quantities = [15,10,10]
-Output: 5
-Explanation: One optimal way is:
-- The 15 products of type 0 are distributed to the first three stores in these amounts: 5, 5, 5
-- The 10 products of type 1 are distributed to the next two stores in these amounts: 5, 5
-- The 10 products of type 2 are distributed to the last two stores in these amounts: 5, 5
-The maximum number of products given to any store is max(5, 5, 5, 5, 5, 5, 5) = 5.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 1, quantities = [100000]
-Output: 100000
-Explanation: The only optimal way is:
-- The 100000 products of type 0 are distributed to the only store.
-The maximum number of products given to any store is max(100000) = 100000.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(k * log(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.MinimizeMaximum</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/12
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimizedMaximumOfProductsDistributedToAnyStore</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimizedMaximum</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">quantities</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// The minimum possible maxProducts is 1 (each store gets at least 1 product)</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Will hold the maximum of all quantities to initialize upper bound</span>
-
-        <span class="c1">// Find the maximum product quantity among all types to set the upper bound</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">quantity</span> <span class="o">:</span> <span class="n">quantities</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">right</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">right</span><span class="o">,</span> <span class="n">quantity</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Binary search for the smallest feasible maxProducts value</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span> <span class="c1">// Avoids overflow</span>
-
-            <span class="c1">// Check if it's possible to distribute all products with maxProducts = mid</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">canDistribute</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">quantities</span><span class="o">,</span> <span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If it's possible, try a smaller max value to minimize the maximum</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If not possible, we need to increase the allowed max per store</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// After the loop, left == right and it's the smallest feasible maxProducts value</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">canDistribute</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">quantities</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxProducts</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">storesNeeded</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Total number of stores needed under current maxProducts constraint</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">quantity</span> <span class="o">:</span> <span class="n">quantities</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// For each product type, calculate how many stores are needed</span>
-            <span class="c1">// Formula: ceil(quantity / maxProducts)</span>
-            <span class="n">storesNeeded</span> <span class="o">+=</span> <span class="o">(</span><span class="n">quantity</span> <span class="o">+</span> <span class="n">maxProducts</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="n">maxProducts</span><span class="o">;</span>
-
-            <span class="c1">// If more stores are needed than we have, the distribution fails</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">storesNeeded</span> <span class="o">&gt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we can serve all products within n stores, return true</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1</span>
-        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">quantities1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">11</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1 Output: "</span> <span class="o">+</span> <span class="n">minimizedMaximum</span><span class="o">(</span><span class="n">n1</span><span class="o">,</span> <span class="n">quantities1</span><span class="o">));</span>
-        <span class="c1">// Expected output: 3</span>
-
-        <span class="c1">// Test Case 2</span>
-        <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">7</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">quantities2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">15</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2 Output: "</span> <span class="o">+</span> <span class="n">minimizedMaximum</span><span class="o">(</span><span class="n">n2</span><span class="o">,</span> <span class="n">quantities2</span><span class="o">));</span>
-        <span class="c1">// Expected output: 5</span>
-
-        <span class="c1">// Test Case 3</span>
-        <span class="kt">int</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">quantities3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">100000</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 Output: "</span> <span class="o">+</span> <span class="n">minimizedMaximum</span><span class="o">(</span><span class="n">n3</span><span class="o">,</span> <span class="n">quantities3</span><span class="o">));</span>
-        <span class="c1">// Expected output: 100000</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an integer n indicating there are n specialty retail stores. There are m product types of varying amounts, which are given as a 0-indexed integer array quantities, where quantities[i] represents the number of products of the ith product type. You need to distribute all products to the retail stores following these rules: A store can only be given at most one product type but can be given any amount of it. After distribution, each store will have been given some number of products (possibly 0). Let x represent the maximum number of products given to any store. You want x to be as small as possible, i.e., you want to minimize the maximum number of products that are given to any store. Return the minimum possible x.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a string array words and a binary array groups both of length n, where words[i] is associated with groups[i]. Your task is to select the longest alternating subsequence from words. A subsequence of words is alternating if for any two consecutive strings in the sequence, their corresponding elements in the binary array groups differ. Essentially, you are to choose strings such that adjacent elements have non-matching corresponding bits in the groups array. Formally, you need to find the longest subsequence of an array of indices [0, 1, ..., n - 1] denoted as [i0, i1, ..., ik-1], such that groups[ij] != groups[ij+1] for each 0 &lt;= j &lt; k - 1 and then find the words corresponding to these indices. Return the selected subsequence. If there are multiple answers, return any of them.** Note: The elements in words are distinct.]]></summary></entry></feed>
