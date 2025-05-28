@@ -1,4 +1,136 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-27T01:24:48+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2894. Divisible and Non-divisible Sums Differencer</title><link href="https://zhengstar94.github.io//blog/2025/DivisibleAndNonDivisibleSumsDifference/" rel="alternate" type="text/html" title="2894. Divisible and Non-divisible Sums Differencer"/><published>2025-05-27T00:00:00+00:00</published><updated>2025-05-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivisibleAndNonDivisibleSumsDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivisibleAndNonDivisibleSumsDifference/"><![CDATA[<ul> <li>You are given positive integers <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Define two integers as follows: <ul> <li><code class="language-plaintext highlighter-rouge">num1</code>: The sum of all integers in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> (both <strong>inclusive</strong>) that are <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">m</code>.</li> <li><code class="language-plaintext highlighter-rouge">num2</code>: The sum of all integers in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> (both <strong>inclusive</strong>) that are <strong>divisible</strong> by <code class="language-plaintext highlighter-rouge">m</code>.</li> </ul> </li> <li>Return <em>the integer</em> <code class="language-plaintext highlighter-rouge">num1 - num2</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 10, m = 3
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-05-28T03:41:51+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1901. Find a Peak Element II</title><link href="https://zhengstar94.github.io//blog/2025/FindAPeakElementII/" rel="alternate" type="text/html" title="1901. Find a Peak Element II"/><published>2025-05-28T00:00:00+00:00</published><updated>2025-05-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindAPeakElementII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindAPeakElementII/"><![CDATA[<ul> <li>A <strong>peak</strong> element in a 2D grid is an element that is <strong>strictly greater</strong> than all of its <strong>adjacent</strong> neighbors to the left, right, top, and bottom.</li> <li>Given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">mat</code> where <strong>no two adjacent cells are equal</strong>, find <strong>any</strong> peak element <code class="language-plaintext highlighter-rouge">mat[i][j]</code> and return <em>the length 2 array</em> <code class="language-plaintext highlighter-rouge">[i,j]</code>.</li> <li>You may assume that the entire matrix is surrounded by an <strong>outer perimeter</strong> with the value <code class="language-plaintext highlighter-rouge">-1</code> in each cell.</li> <li>You must write an algorithm that runs in <code class="language-plaintext highlighter-rouge">O(m log(n))</code> or <code class="language-plaintext highlighter-rouge">O(n log(m))</code> time.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [ 1,4],[3,2 ] ]
+Output: [0,1]
+Explanation: Both 3 and 4 are peak elements so [1,0] and [0,1] are both acceptable answers.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [ 10,20,15],[21,30,14],[7,16,32 ] ]
+Output: [1,1]
+Explanation: Both 30 and 32 are peak elements so [1,1] and [2,2] are both acceptable answers.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogm) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/05/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindAPeakElementII</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findPeakGrid</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize binary search boundaries for rows</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                    <span class="c1">// Start from first row</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>      <span class="c1">// End at last row</span>
+
+        <span class="c1">// Perform binary search on rows</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Find middle row to avoid integer overflow</span>
+            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="c1">// Find the column index of maximum element in current row i</span>
+            <span class="c1">// This is crucial: the max element in a row is already a peak</span>
+            <span class="c1">// in horizontal direction (left-right), we only need to check vertical</span>
+            <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">indexOfMax</span><span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+
+            <span class="c1">// Compare current max element with the element directly below it</span>
+            <span class="c1">// This comparison determines which direction to search next</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Current element is greater than element below</span>
+                <span class="c1">// This means:</span>
+                <span class="c1">// 1. If current element is also &gt; element above, it's a peak</span>
+                <span class="c1">// 2. If current element &lt;= element above, peak exists above</span>
+                <span class="c1">// In both cases, peak exists in current row or above</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>  <span class="c1">// Search in upper half (including current row)</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Current element &lt;= element below</span>
+                <span class="c1">// This means there's a larger element below, so peak must be below</span>
+                <span class="c1">// We can safely exclude current row and search below</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Search in lower half (excluding current row)</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When left == right, we've found the row containing a peak</span>
+        <span class="c1">// Return the coordinates: [row_index, column_index_of_max_in_that_row]</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">left</span><span class="o">,</span> <span class="n">indexOfMax</span><span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">left</span><span class="o">])};</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">indexOfMax</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Initialize with first element's index</span>
+
+        <span class="c1">// Iterate through the array to find maximum element's index</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If current element is greater than previously found max</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">a</span><span class="o">[</span><span class="n">idx</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>  <span class="c1">// Update max element's index</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">idx</span><span class="o">;</span>  <span class="c1">// Return index of maximum element</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== LeetCode 1901: Find a Peak Element II ===\n"</span><span class="o">);</span>
+
+        <span class="c1">// Test Case 1: Example from LeetCode</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input matrix:"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">mat1</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">findPeakGrid</span><span class="o">(</span><span class="n">mat1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak found at: ["</span> <span class="o">+</span> <span class="n">result1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak value: "</span> <span class="o">+</span> <span class="n">mat1</span><span class="o">[</span><span class="n">result1</span><span class="o">[</span><span class="mi">0</span><span class="o">]][</span><span class="n">result1</span><span class="o">[</span><span class="mi">1</span><span class="o">]]);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Verification: "</span> <span class="o">+</span> <span class="n">verifyPeak</span><span class="o">(</span><span class="n">mat1</span><span class="o">,</span> <span class="n">result1</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">result1</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Example from LeetCode</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">15</span><span class="o">},</span> <span class="o">{</span><span class="mi">21</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">14</span><span class="o">},</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="mi">32</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input matrix:"</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">mat2</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">findPeakGrid</span><span class="o">(</span><span class="n">mat2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak found at: ["</span> <span class="o">+</span> <span class="n">result2</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak value: "</span> <span class="o">+</span> <span class="n">mat2</span><span class="o">[</span><span class="n">result2</span><span class="o">[</span><span class="mi">0</span><span class="o">]][</span><span class="n">result2</span><span class="o">[</span><span class="mi">1</span><span class="o">]]);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Verification: "</span> <span class="o">+</span> <span class="n">verifyPeak</span><span class="o">(</span><span class="n">mat2</span><span class="o">,</span> <span class="n">result2</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">result2</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%3d"</span><span class="o">,</span> <span class="n">row</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">verifyPeak</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">current</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
+
+        <span class="c1">// Check all four directions</span>
+        <span class="c1">// Up</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// Down</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// Left</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">col</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// Right</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">col</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// All adjacent elements are smaller</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[A peak element in a 2D grid is an element that is strictly greater than all of its adjacent neighbors to the left, right, top, and bottom. Given a 0-indexed m x n matrix mat where no two adjacent cells are equal, find any peak element mat[i][j] and return the length 2 array [i,j]. You may assume that the entire matrix is surrounded by an outer perimeter with the value -1 in each cell. You must write an algorithm that runs in O(m log(n)) or O(n log(m)) time.]]></summary></entry><entry><title type="html">2894. Divisible and Non-divisible Sums Differencer</title><link href="https://zhengstar94.github.io//blog/2025/DivisibleAndNonDivisibleSumsDifference/" rel="alternate" type="text/html" title="2894. Divisible and Non-divisible Sums Differencer"/><published>2025-05-27T00:00:00+00:00</published><updated>2025-05-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivisibleAndNonDivisibleSumsDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivisibleAndNonDivisibleSumsDifference/"><![CDATA[<ul> <li>You are given positive integers <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">m</code>.</li> <li>Define two integers as follows: <ul> <li><code class="language-plaintext highlighter-rouge">num1</code>: The sum of all integers in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> (both <strong>inclusive</strong>) that are <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">m</code>.</li> <li><code class="language-plaintext highlighter-rouge">num2</code>: The sum of all integers in the range <code class="language-plaintext highlighter-rouge">[1, n]</code> (both <strong>inclusive</strong>) that are <strong>divisible</strong> by <code class="language-plaintext highlighter-rouge">m</code>.</li> </ul> </li> <li>Return <em>the integer</em> <code class="language-plaintext highlighter-rouge">num1 - num2</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 10, m = 3
 Output: 19
 Explanation: In the given example:
 - Integers in the range [1, 10] that are not divisible by 3 are [1,2,4,5,7,8,10], num1 is the sum of those integers = 37.
@@ -776,155 +908,4 @@ Explanation: Choosing any two distinct candies from the candies we have will res
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MaximizeMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an array of positive integers price where price[i] denotes the price of the ith candy and a positive integer k. The store sells baskets of k distinct candies. The tastiness of a candy basket is the smallest absolute difference of the prices of any two candies in the basket. Return the maximum tastiness of a candy basket.]]></summary></entry><entry><title type="html">2513. Minimize the Maximum of Two Arrays</title><link href="https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays/" rel="alternate" type="text/html" title="2513. Minimize the Maximum of Two Arrays"/><published>2025-05-17T00:00:00+00:00</published><updated>2025-05-17T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimizeTheMaximumOfTwoArrays/"><![CDATA[<ul> <li>We have two arrays <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code> which are initially empty. You need to add positive integers to them such that they satisfy all the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">arr1</code> contains <code class="language-plaintext highlighter-rouge">uniqueCnt1</code> <strong>distinct</strong> positive integers, each of which is <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">divisor1</code>.</li> <li><code class="language-plaintext highlighter-rouge">arr2</code> contains <code class="language-plaintext highlighter-rouge">uniqueCnt2</code> <strong>distinct</strong> positive integers, each of which is <strong>not divisible</strong> by <code class="language-plaintext highlighter-rouge">divisor2</code>.</li> <li><strong>No</strong> integer is present in both <code class="language-plaintext highlighter-rouge">arr1</code> and <code class="language-plaintext highlighter-rouge">arr2</code>.</li> </ul> </li> <li>Given <code class="language-plaintext highlighter-rouge">divisor1</code>, <code class="language-plaintext highlighter-rouge">divisor2</code>, <code class="language-plaintext highlighter-rouge">uniqueCnt1</code>, and <code class="language-plaintext highlighter-rouge">uniqueCnt2</code>, return <em>the <strong>minimum possible maximum</strong> integer that can be present in either array</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: divisor1 = 2, divisor2 = 7, uniqueCnt1 = 1, uniqueCnt2 = 3
-Output: 4
-Explanation: 
-We can distribute the first 4 natural numbers into arr1 and arr2.
-arr1 = [1] and arr2 = [2,3,4].
-We can see that both arrays satisfy all the conditions.
-Since the maximum value is 4, we return it.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: divisor1 = 3, divisor2 = 5, uniqueCnt1 = 2, uniqueCnt2 = 1
-Output: 3
-Explanation: 
-Here arr1 = [1,2], and arr2 = [3] satisfy all conditions.
-Since the maximum value is 3, we return it.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: divisor1 = 2, divisor2 = 4, uniqueCnt1 = 8, uniqueCnt2 = 2
-Output: 15
-Explanation: 
-Here, the final possible arrays can be arr1 = [1,3,5,7,9,11,13,15], and arr2 = [2,6].
-It can be shown that it is not possible to obtain a lower maximum satisfying all conditions. 
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log(divisor1+divisor2)+log(uniqueCnt1+uniqueCnt2)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.MinimizeMaximum</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/17
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimizeTheMaximumOfTwoArrays</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minimizeSet</span><span class="o">(</span><span class="kt">int</span> <span class="n">divisor1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">divisor2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">uniqueCnt1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">uniqueCnt2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Calculate the Least Common Multiple (LCM) of divisor1 and divisor2,</span>
-        <span class="c1">// used for applying the inclusion-exclusion principle later.</span>
-        <span class="kt">long</span> <span class="n">lcm</span> <span class="o">=</span> <span class="n">lcm</span><span class="o">(</span><span class="n">divisor1</span><span class="o">,</span> <span class="n">divisor2</span><span class="o">);</span>
-
-        <span class="c1">// Initialize binary search boundaries:</span>
-        <span class="c1">// left starts at 1 (smallest positive integer),</span>
-        <span class="c1">// right is a safe upper bound (twice the total count of unique elements needed).</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="o">(</span><span class="n">uniqueCnt1</span> <span class="o">+</span> <span class="n">uniqueCnt2</span><span class="o">);</span>
-
-        <span class="c1">// Perform binary search to find the minimal maximum integer x</span>
-        <span class="c1">// such that it's possible to form arr1 and arr2 under constraints.</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="c1">// Use the check function to verify if mid can satisfy the constraints.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">check</span><span class="o">(</span><span class="n">mid</span><span class="o">,</span> <span class="n">divisor1</span><span class="o">,</span> <span class="n">divisor2</span><span class="o">,</span> <span class="n">uniqueCnt1</span><span class="o">,</span> <span class="n">uniqueCnt2</span><span class="o">,</span> <span class="n">lcm</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If possible, try smaller values to minimize the maximum integer.</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Otherwise, increase the lower bound to look for a larger feasible value.</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// At the end of binary search, left == right and represents the minimal maximum integer.</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">uniqueCnt1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">uniqueCnt2</span><span class="o">,</span> <span class="kt">long</span> <span class="n">lcm</span><span class="o">)</span> <span class="o">{</span>
-        <span class="cm">/*
-         * Calculate how many integers arr1 still needs to pick after excluding
-         * numbers that arr2 will take (numbers divisible by d2, except those divisible by lcm).
-         * uniqueCnt1 - (x / d2) + (x / lcm) calculates the "remaining needed" count for arr1.
-         *
-         * Math.max(..., 0) ensures we don't get negative values when arr2 doesn't take enough to affect arr1.
-         */</span>
-        <span class="kt">long</span> <span class="n">left1</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">uniqueCnt1</span> <span class="o">-</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">d2</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">lcm</span><span class="o">),</span> <span class="mi">0</span><span class="o">);</span>
-
-        <span class="cm">/*
-         * Similarly, calculate how many integers arr2 still needs to pick after excluding
-         * numbers that arr1 will take (numbers divisible by d1, except those divisible by lcm).
-         */</span>
-        <span class="kt">long</span> <span class="n">left2</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">uniqueCnt2</span> <span class="o">-</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">d1</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">lcm</span><span class="o">),</span> <span class="mi">0</span><span class="o">);</span>
-
-        <span class="cm">/*
-         * Calculate how many numbers in [1, x] are not divisible by either d1 or d2.
-         * This uses the inclusion-exclusion principle:
-         * - total numbers in [1,x]: x
-         * - subtract numbers divisible by d1: x/d1
-         * - subtract numbers divisible by d2: x/d2
-         * - add back numbers divisible by both (lcm): x/lcm
-         *
-         * This 'common' count represents the pool of numbers that neither arr1 nor arr2
-         * is restricted from using, and hence can be distributed between them.
-         */</span>
-        <span class="kt">long</span> <span class="n">common</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">d1</span><span class="o">)</span> <span class="o">-</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">d2</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">lcm</span><span class="o">);</span>
-
-        <span class="cm">/*
-         * Return true if the common pool has enough numbers to satisfy the leftover
-         * needs of both arrays without conflicts.
-         */</span>
-        <span class="k">return</span> <span class="n">common</span> <span class="o">&gt;=</span> <span class="n">left1</span> <span class="o">+</span> <span class="n">left2</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Calculate the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm.
-     *
-     * @param a First number.
-     * @param b Second number.
-     * @return The GCD of a and b.
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">gcd</span><span class="o">(</span><span class="kt">long</span> <span class="n">a</span><span class="o">,</span> <span class="kt">long</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// If b is zero, gcd is a; otherwise, recurse with (b, a % b).</span>
-        <span class="k">return</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="n">gcd</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-     * Calculate the Least Common Multiple (LCM) of two numbers.
-     * Formula: lcm(a, b) = (a * b) / gcd(a, b)
-     *
-     * @param a First number.
-     * @param b Second number.
-     * @return The LCM of a and b.
-     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">lcm</span><span class="o">(</span><span class="kt">long</span> <span class="n">a</span><span class="o">,</span> <span class="kt">long</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">gcd</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span> <span class="n">divisor1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">divisor2</span> <span class="o">=</span> <span class="mi">7</span><span class="o">,</span> <span class="n">uniqueCnt1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">uniqueCnt2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: divisor1 = "</span> <span class="o">+</span> <span class="n">divisor1</span> <span class="o">+</span> <span class="s">", divisor2 = "</span> <span class="o">+</span> <span class="n">divisor2</span> <span class="o">+</span>
-                <span class="s">", uniqueCnt1 = "</span> <span class="o">+</span> <span class="n">uniqueCnt1</span> <span class="o">+</span> <span class="s">", uniqueCnt2 = "</span> <span class="o">+</span> <span class="n">uniqueCnt2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minimizeSet</span><span class="o">(</span><span class="n">divisor1</span><span class="o">,</span> <span class="n">divisor2</span><span class="o">,</span> <span class="n">uniqueCnt1</span><span class="o">,</span> <span class="n">uniqueCnt2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 4"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="n">divisor1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="n">divisor2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="n">uniqueCnt1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="n">uniqueCnt2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: divisor1 = "</span> <span class="o">+</span> <span class="n">divisor1</span> <span class="o">+</span> <span class="s">", divisor2 = "</span> <span class="o">+</span> <span class="n">divisor2</span> <span class="o">+</span>
-                <span class="s">", uniqueCnt1 = "</span> <span class="o">+</span> <span class="n">uniqueCnt1</span> <span class="o">+</span> <span class="s">", uniqueCnt2 = "</span> <span class="o">+</span> <span class="n">uniqueCnt2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minimizeSet</span><span class="o">(</span><span class="n">divisor1</span><span class="o">,</span> <span class="n">divisor2</span><span class="o">,</span> <span class="n">uniqueCnt1</span><span class="o">,</span> <span class="n">uniqueCnt2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 3</span>
-        <span class="n">divisor1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="n">divisor2</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="n">uniqueCnt1</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
-        <span class="n">uniqueCnt2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: divisor1 = "</span> <span class="o">+</span> <span class="n">divisor1</span> <span class="o">+</span> <span class="s">", divisor2 = "</span> <span class="o">+</span> <span class="n">divisor2</span> <span class="o">+</span>
-                <span class="s">", uniqueCnt1 = "</span> <span class="o">+</span> <span class="n">uniqueCnt1</span> <span class="o">+</span> <span class="s">", uniqueCnt2 = "</span> <span class="o">+</span> <span class="n">uniqueCnt2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minimizeSet</span><span class="o">(</span><span class="n">divisor1</span><span class="o">,</span> <span class="n">divisor2</span><span class="o">,</span> <span class="n">uniqueCnt1</span><span class="o">,</span> <span class="n">uniqueCnt2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 15"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MinimizeMaximum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[We have two arrays arr1 and arr2 which are initially empty. You need to add positive integers to them such that they satisfy all the following conditions: arr1 contains uniqueCnt1 distinct positive integers, each of which is not divisible by divisor1. arr2 contains uniqueCnt2 distinct positive integers, each of which is not divisible by divisor2. No integer is present in both arr1 and arr2. Given divisor1, divisor2, uniqueCnt1, and uniqueCnt2, return the minimum possible maximum integer that can be present in either array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MaximizeMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an array of positive integers price where price[i] denotes the price of the ith candy and a positive integer k. The store sells baskets of k distinct candies. The tastiness of a candy basket is the smallest absolute difference of the prices of any two candies in the basket. Return the maximum tastiness of a candy basket.]]></summary></entry></feed>
