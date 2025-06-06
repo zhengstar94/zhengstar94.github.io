@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-06T02:28:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">540. Single Element in a Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray/" rel="alternate" type="text/html" title="540. Single Element in a Sorted Array"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray/"><![CDATA[<ul> <li>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.</li> <li>Return <em>the single element that appears only once</em>.</li> <li>Your solution must run in <code class="language-plaintext highlighter-rouge">O(log n)</code> time and <code class="language-plaintext highlighter-rouge">O(1)</code> space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,3,3,4,4,8,8]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-06T04:07:13+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">503. Next Greater Element II</title><link href="https://zhengstar94.github.io//blog/2025/NextGreaterElementII/" rel="alternate" type="text/html" title="503. Next Greater Element II"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NextGreaterElementII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NextGreaterElementII/"><![CDATA[<ul> <li>Given a circular integer array <code class="language-plaintext highlighter-rouge">nums</code> (i.e., the next element of <code class="language-plaintext highlighter-rouge">nums[nums.length - 1]</code> is <code class="language-plaintext highlighter-rouge">nums[0]</code>), return <em>the <strong>next greater number</strong> for every element in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>The <strong>next greater number</strong> of a number <code class="language-plaintext highlighter-rouge">x</code> is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn’t exist, return <code class="language-plaintext highlighter-rouge">-1</code> for this number.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1]
+Output: [2,-1,2]
+Explanation: The first 1's next greater number is 2; 
+The number 2 can't find next greater number. 
+The second 1's next greater number needs to search circularly, which is also 2.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,3]
+Output: [2,3,4,-1,4]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NextGreaterElementII</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">nextGreaterElements</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the length of input array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Initialize result array with -1 (default value when no greater element found)</span>
+        <span class="c1">// This handles the case where some elements don't have a next greater element</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>  <span class="c1">// Fill all positions with -1 initially</span>
+
+        <span class="c1">// Monotonic decreasing stack to store array indices</span>
+        <span class="c1">// Stack property: elements corresponding to indices in stack are in decreasing order</span>
+        <span class="c1">// from bottom to top. This allows us to efficiently find next greater elements.</span>
+        <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// CORE ALGORITHM: Traverse the array twice to simulate circular array behavior</span>
+        <span class="c1">// First traversal (i = 0 to n-1): Handle normal cases and build the stack</span>
+        <span class="c1">// Second traversal (i = n to 2n-1): Handle circular cases using the built stack</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate actual array index using modulo operation</span>
+            <span class="c1">// This maps: 0,1,2,3,4,5,6,7,8,9 -&gt; 0,1,2,3,4,0,1,2,3,4 for n=5</span>
+            <span class="kt">int</span> <span class="n">currentIndex</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">n</span><span class="o">;</span>
+
+            <span class="c1">// CRITICAL SECTION: Process stack while current element is greater than stack top</span>
+            <span class="c1">// This is where we find the "next greater element" for previously seen smaller elements</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">currentIndex</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()])</span> <span class="o">{</span>
+                <span class="c1">// Pop the index from stack - this element has found its next greater element</span>
+                <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+
+                <span class="c1">// Set the result: nums[currentIndex] is the next greater element for nums[index]</span>
+                <span class="c1">// This works because:</span>
+                <span class="c1">// 1. All elements between index and currentIndex in the original traversal were smaller</span>
+                <span class="c1">// 2. nums[currentIndex] is the first element greater than nums[index]</span>
+                <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">currentIndex</span><span class="o">];</span>
+            <span class="o">}</span>
+
+            <span class="c1">// STACK BUILDING PHASE: Only push indices during first traversal</span>
+            <span class="c1">// Second traversal is purely for finding answers, not for building stack</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Push current index to stack</span>
+                <span class="c1">// This element is waiting to find its next greater element</span>
+                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">currentIndex</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// Note: During second traversal (i &gt;= n), we don't push to stack</span>
+            <span class="c1">// We only use existing stack elements to find circular next greater elements</span>
+        <span class="o">}</span>
+
+        <span class="c1">// After both traversals, elements still in stack don't have next greater elements</span>
+        <span class="c1">// Their result remains -1 (initialized value)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic circular case</span>
+        <span class="c1">// nums[2] = 1 needs to look circularly to find next greater element nums[1] = 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">nextGreaterElements</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [2, -1, 2]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Mixed case with circular element</span>
+        <span class="c1">// nums[4] = 3 finds next greater element nums[3] = 4 by going circularly</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">nextGreaterElements</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [2, 3, 4, -1, 4]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: All elements are equal</span>
+        <span class="c1">// No element has a next greater element</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">nextGreaterElements</span><span class="o">(</span><span class="n">nums3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [-1, -1, -1]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: Single element</span>
+        <span class="c1">// Single element cannot have next greater element</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">nextGreaterElements</span><span class="o">(</span><span class="n">nums4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [-1]"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 5: Strictly decreasing array</span>
+        <span class="c1">// Each element (except first) finds next greater element by going circularly to the first element</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result5</span> <span class="o">=</span> <span class="n">nextGreaterElements</span><span class="o">(</span><span class="n">nums5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [-1, 5, 5, 5, 5]"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given a circular integer array nums (i.e., the next element of nums[nums.length - 1] is nums[0]), return the next greater number for every element in nums. The next greater number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn’t exist, return -1 for this number.]]></summary></entry><entry><title type="html">540. Single Element in a Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray/" rel="alternate" type="text/html" title="540. Single Element in a Sorted Array"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray/"><![CDATA[<ul> <li>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.</li> <li>Return <em>the single element that appears only once</em>.</li> <li>Your solution must run in <code class="language-plaintext highlighter-rouge">O(log n)</code> time and <code class="language-plaintext highlighter-rouge">O(1)</code> space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,3,3,4,4,8,8]
 Output: 2
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,7,7,10,11,11]
 Output: 10
@@ -908,84 +1029,4 @@ Explanation: The 6th smallest number is 6.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.KthElement"/><category term="Hard"/><category term="BinarySearch"/><summary type="html"><![CDATA[Nearly everyone has used the Multiplication Table. The multiplication table of size m x n is an integer matrix mat where mat[i][j] == i * j (1-indexed). Given three integers m, n, and k, return the kth smallest element in the m x n multiplication table.]]></summary></entry><entry><title type="html">3355. Zero Array Transformation I</title><link href="https://zhengstar94.github.io//blog/2025/ZeroArrayTransformationI/" rel="alternate" type="text/html" title="3355. Zero Array Transformation I"/><published>2025-05-20T00:00:00+00:00</published><updated>2025-05-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ZeroArrayTransformationI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ZeroArrayTransformationI/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">n</code> and a 2D array <code class="language-plaintext highlighter-rouge">queries</code>, where <code class="language-plaintext highlighter-rouge">queries[i] = [li, ri]</code>.</li> <li>For each <code class="language-plaintext highlighter-rouge">queries[i]</code>: <ul> <li>Select a subset of indices within the range <code class="language-plaintext highlighter-rouge">[li, ri]</code> in <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Decrement the values at the selected indices by 1.</li> </ul> </li> <li>A <strong>Zero Array</strong> is an array where all elements are equal to 0.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if it is <em>possible</em> to transform <code class="language-plaintext highlighter-rouge">nums</code> into a <strong>Zero Array</strong> after processing all the queries sequentially, otherwise return <code class="language-plaintext highlighter-rouge">false</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,0,1], queries = [ [0,2] ]
-
-Output: true
-
-Explanation:
-
-For i = 0:
-Select the subset of indices as [0, 2] and decrement the values at these indices by 1.
-The array will become [0, 0, 0], which is a Zero Array.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,3,2,1], queries = [ [1,3],[0,2] ]
-
-Output: false
-
-Explanation:
-
-For i = 0:
-Select the subset of indices as [1, 2, 3] and decrement the values at these indices by 1.
-The array will become [4, 2, 1, 0].
-For i = 1:
-Select the subset of indices as [0, 1, 2] and decrement the values at these indices by 1.
-The array will become [3, 1, 0, 0], which is not a Zero Array.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n + q) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/20
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ZeroArrayTransformationI</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isZeroArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span> <span class="c1">// Difference array to simulate range updates efficiently</span>
-
-        <span class="c1">// Apply each query as a range update: increment elements in the range [l, r] by 1</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">q</span> <span class="o">:</span> <span class="n">queries</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="n">q</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">r</span> <span class="o">=</span> <span class="n">q</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-            <span class="n">diff</span><span class="o">[</span><span class="n">l</span><span class="o">]++;</span>         <span class="c1">// Start increment at index l</span>
-            <span class="n">diff</span><span class="o">[</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]--;</span>     <span class="c1">// Cancel the increment after index r</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">sumD</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Accumulator for the effective increments at each position</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">sumD</span> <span class="o">+=</span> <span class="n">diff</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> <span class="c1">// sumD represents how many times nums[i] is incremented</span>
-
-            <span class="c1">// Since each increment operation is effectively a -1 to nums[i],</span>
-            <span class="c1">// sumD also represents how much we are allowed to reduce nums[i] by.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">sumD</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If nums[i] is still greater than the total reduction allowed,</span>
-                <span class="c1">// it is impossible to reduce it to 0.</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we never encountered a value that can't be zeroed out, return true</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">boolean</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">isZeroArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">queries1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span> <span class="c1">// Expected: true</span>
-
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">boolean</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">isZeroArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">queries2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span> <span class="c1">// Expected: false</span>
-
-        <span class="c1">// Additional test case</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">queries3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">},</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">}</span> <span class="o">};</span>
-        <span class="kt">boolean</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">isZeroArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">queries3</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of length n and a 2D array queries, where queries[i] = [li, ri]. For each queries[i]: Select a subset of indices within the range [li, ri] in nums. Decrement the values at the selected indices by 1. A Zero Array is an array where all elements are equal to 0. Return true if it is possible to transform nums into a Zero Array after processing all the queries sequentially, otherwise return false.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.KthElement"/><category term="Hard"/><category term="BinarySearch"/><summary type="html"><![CDATA[Nearly everyone has used the Multiplication Table. The multiplication table of size m x n is an integer matrix mat where mat[i][j] == i * j (1-indexed). Given three integers m, n, and k, return the kth smallest element in the m x n multiplication table.]]></summary></entry></feed>
