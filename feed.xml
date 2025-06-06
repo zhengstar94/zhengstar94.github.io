@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-01T11:50:46+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2929. Distribute Candies Among Children II</title><link href="https://zhengstar94.github.io//blog/2025/DistributeCandiesAmongChildrenII/" rel="alternate" type="text/html" title="2929. Distribute Candies Among Children II"/><published>2025-06-01T00:00:00+00:00</published><updated>2025-06-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DistributeCandiesAmongChildrenII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DistributeCandiesAmongChildrenII/"><![CDATA[<ul> <li>You are given two positive integers <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">limit</code>.</li> <li>Return <em>the <strong>total number</strong> of ways to distribute</em> <code class="language-plaintext highlighter-rouge">n</code> <em>candies among</em> <code class="language-plaintext highlighter-rouge">3</code> <em>children such that no child gets more than</em> <code class="language-plaintext highlighter-rouge">limit</code> <em>candies.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, limit = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-06T01:44:46+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2434. Using a Robot to Print the Lexicographically Smallest String</title><link href="https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString/" rel="alternate" type="text/html" title="2434. Using a Robot to Print the Lexicographically Smallest String"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> and a robot that currently holds an empty string <code class="language-plaintext highlighter-rouge">t</code>. Apply one of the following operations until <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> <strong>are both empty</strong>: <ul> <li>Remove the <strong>first</strong> character of a string <code class="language-plaintext highlighter-rouge">s</code> and give it to the robot. The robot will append this character to the string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>Remove the <strong>last</strong> character of a string <code class="language-plaintext highlighter-rouge">t</code> and give it to the robot. The robot will write this character on paper.</li> </ul> </li> <li>Return <em>the lexicographically smallest string that can be written on the paper.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "zza"
+Output: "azz"
+Explanation: Let p denote the written string.
+Initially p="", s="zza", t="".
+Perform first operation three times p="", s="", t="zza".
+Perform second operation three times p="azz", s="", t="".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bac"
+Output: "abc"
+Explanation: Let p denote the written string.
+Perform first operation twice p="", s="c", t="ba". 
+Perform second operation twice p="ab", s="c", t="". 
+Perform first operation p="ab", s="", t="c". 
+Perform second operation p="abc", s="", t="".
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bdda"
+Output: "addb"
+Explanation: Let p denote the written string.
+Initially p="", s="bdda", t="".
+Perform first operation four times p="", s="", t="bdda".
+Perform second operation four times p="addb", s="", t="".
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsingARobotToPrintTheLexicographicallySmallestString</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">robotWithString</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+
+        <span class="c1">// Step 1: Preprocessing - Build suffix minimum array</span>
+        <span class="c1">// sufMin[i] represents the minimum character from position i to the end of string</span>
+        <span class="c1">// This helps us decide whether to wait for a smaller character or output current one</span>
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">sufMin</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+
+        <span class="c1">// Set sentinel value to avoid boundary checking</span>
+        <span class="c1">// When we reach the end, any character is &lt;= MAX_VALUE, so we can output everything</span>
+        <span class="n">sufMin</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Character</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+
+        <span class="c1">// Build sufMin array from right to left</span>
+        <span class="c1">// For each position i, sufMin[i] = min(current_char, min_of_remaining_suffix)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="n">sufMin</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">sufMin</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">],</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 2: Main algorithm execution</span>
+        <span class="c1">// Initialize result builder with initial capacity for better performance</span>
+        <span class="nc">StringBuilder</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+
+        <span class="c1">// Use ArrayDeque instead of Stack for better performance</span>
+        <span class="c1">// This stack simulates the temporary string 't' in the problem</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Process each character in the input string</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Operation 1: Take character from string s and put it into stack t</span>
+            <span class="c1">// Always push the current character first</span>
+            <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+
+            <span class="c1">// Operation 2: Decide when to pop characters from stack and write to paper</span>
+            <span class="c1">// Key insight: Pop character if it's &lt;= minimum character in remaining suffix</span>
+            <span class="c1">// This ensures we output smaller characters as early as possible</span>
+
+            <span class="c1">// sufMin[i + 1] represents minimum character from next position to end</span>
+            <span class="c1">// If current stack top &lt;= sufMin[i + 1], it means:</span>
+            <span class="c1">// 1. Either no more characters left (sufMin[i+1] = MAX_VALUE), so output everything</span>
+            <span class="c1">// 2. Or current character is not larger than any future character, safe to output</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">st</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">sufMin</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Pop from stack and append to result (write to paper)</span>
+                <span class="n">ans</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Convert StringBuilder to String and return</span>
+        <span class="c1">// At this point, both s and stack t should be empty</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Test case 1: Example from problem statement</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"zza"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">robotWithString</span><span class="o">(</span><span class="n">s1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: azz"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 2: Another example from problem statement</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"bac"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">robotWithString</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: abc"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 3: Third example from problem statement</span>
+        <span class="nc">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">"bdda"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">robotWithString</span><span class="o">(</span><span class="n">s3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: addb"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 4: Edge case - single character</span>
+        <span class="nc">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">robotWithString</span><span class="o">(</span><span class="n">s4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: a"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 5: Already sorted string</span>
+        <span class="nc">String</span> <span class="n">s5</span> <span class="o">=</span> <span class="s">"abc"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result5</span> <span class="o">=</span> <span class="n">robotWithString</span><span class="o">(</span><span class="n">s5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result5</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: abc"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test case 6: Reverse sorted string</span>
+        <span class="nc">String</span> <span class="n">s6</span> <span class="o">=</span> <span class="s">"cba"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">result6</span> <span class="o">=</span> <span class="n">robotWithString</span><span class="o">(</span><span class="n">s6</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">result6</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: abc"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s and a robot that currently holds an empty string t. Apply one of the following operations until s and t are both empty: Remove the first character of a string s and give it to the robot. The robot will append this character to the string t. Remove the last character of a string t and give it to the robot. The robot will write this character on paper.]]></summary></entry><entry><title type="html">2929. Distribute Candies Among Children II</title><link href="https://zhengstar94.github.io//blog/2025/DistributeCandiesAmongChildrenII/" rel="alternate" type="text/html" title="2929. Distribute Candies Among Children II"/><published>2025-06-01T00:00:00+00:00</published><updated>2025-06-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DistributeCandiesAmongChildrenII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DistributeCandiesAmongChildrenII/"><![CDATA[<ul> <li>You are given two positive integers <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">limit</code>.</li> <li>Return <em>the <strong>total number</strong> of ways to distribute</em> <code class="language-plaintext highlighter-rouge">n</code> <em>candies among</em> <code class="language-plaintext highlighter-rouge">3</code> <em>children such that no child gets more than</em> <code class="language-plaintext highlighter-rouge">limit</code> <em>candies.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 5, limit = 2
 Output: 3
 Explanation: There are 3 ways to distribute 5 candies such that no child gets more than 2 candies: (1, 2, 2), (2, 1, 2) and (2, 2, 1).
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n = 3, limit = 3
@@ -799,101 +925,4 @@ As all the sides are of different lengths, it will form a scalene triangle.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: [1,1,3] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle. A triangle is called equilateral if it has all sides of equal length. A triangle is called isosceles if it has exactly two sides of equal length. A triangle is called scalene if all its sides are of different lengths. Return a string representing the type of triangle that can be formed or "none" if it cannot form a triangle.]]></summary></entry><entry><title type="html">3281. Maximize Score of Numbers in Ranges</title><link href="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/" rel="alternate" type="text/html" title="3281. Maximize Score of Numbers in Ranges"/><published>2025-05-18T00:00:00+00:00</published><updated>2025-05-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximizeScoreOfNumbersInRanges/"><![CDATA[<ul> <li>You are given an array of integers <code class="language-plaintext highlighter-rouge">start</code> and an integer <code class="language-plaintext highlighter-rouge">d</code>, representing <code class="language-plaintext highlighter-rouge">n</code> intervals <code class="language-plaintext highlighter-rouge">[start[i], start[i] + d]</code>.</li> <li>You are asked to choose <code class="language-plaintext highlighter-rouge">n</code> integers where the <code class="language-plaintext highlighter-rouge">ith</code> integer must belong to the <code class="language-plaintext highlighter-rouge">ith</code> interval. The <strong>score</strong> of the chosen integers is defined as the <strong>minimum</strong> absolute difference between any two integers that have been chosen.</li> <li>Return the <strong>maximum</strong> <em>possible score</em> of the chosen integers.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = [6,0,3], d = 2
-
-Output: 4
-
-Explanation:
-
-The maximum possible score can be obtained by choosing integers: 8, 0, and 4. The score of these chosen integers is min(|8 - 0|, |8 - 4|, |0 - 4|) which equals 4.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: start = [2,6,13,13], d = 5
-
-Output: 5
-
-Explanation:
-
-The maximum possible score can be obtained by choosing integers: 2, 7, 13, and 18. The score of these chosen integers is min(|2 - 7|, |2 - 13|, |2 - 18|, |7 - 13|, |7 - 18|, |13 - 18|) which equals 5.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)+nlog(A)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch.MaximizeMinimum</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/18
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximizeScoreOfNumbersInRanges</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxPossibleScore</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort the start array to ensure order for greedy assignment</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">start</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="cm">/*
-         * Calculate the upper bound for binary search 'right':
-         * Explanation:
-         * - The maximum possible difference between any two assigned numbers
-         *   can be no more than the total length of the entire range divided evenly.
-         * - The total range length is from the smallest start to the largest possible end:
-         *   (start[n-1] + d) - start[0].
-         * - Divide by (n-1) because there are (n-1) gaps between n numbers.
-         * - Adding 1 ensures the upper bound is strictly greater,
-         *   so the binary search range is safe.
-         */</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="o">(</span><span class="n">start</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">d</span> <span class="o">-</span> <span class="n">start</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> <span class="o">/</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Binary search loop to find the maximum minimum difference</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="o">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// mid = (left + right) / 2 without overflow</span>
-
-            <span class="cm">/*
-             * Check if it is possible to assign numbers with at least 'mid' difference
-             * between adjacent assigned values while keeping each within allowed intervals.
-             */</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">check</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">d</span><span class="o">,</span> <span class="n">mid</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>   <span class="c1">// If feasible, try a larger minimum difference</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>  <span class="c1">// Otherwise, try smaller differences</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// 'left' holds the largest minimum difference found</span>
-        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">score</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">long</span> <span class="n">prevPlacedValue</span> <span class="o">=</span> <span class="nc">Long</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>  <span class="c1">// Initialize to very small to place first number freely</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">baseValue</span> <span class="o">:</span> <span class="n">start</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the assigned value for current interval:</span>
-            <span class="c1">// It must be at least 'score' away from the previously assigned value,</span>
-            <span class="c1">// and also no less than the interval's start value.</span>
-            <span class="n">prevPlacedValue</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">prevPlacedValue</span> <span class="o">+</span> <span class="n">score</span><span class="o">,</span> <span class="n">baseValue</span><span class="o">);</span>
-
-            <span class="c1">// If assigned value goes beyond the interval's max allowed value, fail</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">prevPlacedValue</span> <span class="o">&gt;</span> <span class="n">baseValue</span> <span class="o">+</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// All intervals assigned successfully with at least 'score' difference</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1:</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">start1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">maxPossibleScore</span><span class="o">(</span><span class="n">start1</span><span class="o">,</span> <span class="n">d1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 1 output: "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">);</span> <span class="c1">// Expected 4</span>
-
-        <span class="c1">// Example 2:</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">start2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">13</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">maxPossibleScore</span><span class="o">(</span><span class="n">start2</span><span class="o">,</span> <span class="n">d2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Example 2 output: "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">);</span> <span class="c1">// Expected 5</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch.MaximizeMinimum"/><category term="Medium"/><category term="BinarySearch"/><summary type="html"><![CDATA[You are given an array of integers start and an integer d, representing n intervals [start[i], start[i] + d]. You are asked to choose n integers where the ith integer must belong to the ith interval. The score of the chosen integers is defined as the minimum absolute difference between any two integers that have been chosen. Return the maximum possible score of the chosen integers.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle. A triangle is called equilateral if it has all sides of equal length. A triangle is called isosceles if it has exactly two sides of equal length. A triangle is called scalene if all its sides are of different lengths. Return a string representing the type of triangle that can be formed or "none" if it cannot form a triangle.]]></summary></entry></feed>
