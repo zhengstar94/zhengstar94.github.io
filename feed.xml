@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-06T01:44:46+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2434. Using a Robot to Print the Lexicographically Smallest String</title><link href="https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString/" rel="alternate" type="text/html" title="2434. Using a Robot to Print the Lexicographically Smallest String"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> and a robot that currently holds an empty string <code class="language-plaintext highlighter-rouge">t</code>. Apply one of the following operations until <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> <strong>are both empty</strong>: <ul> <li>Remove the <strong>first</strong> character of a string <code class="language-plaintext highlighter-rouge">s</code> and give it to the robot. The robot will append this character to the string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>Remove the <strong>last</strong> character of a string <code class="language-plaintext highlighter-rouge">t</code> and give it to the robot. The robot will write this character on paper.</li> </ul> </li> <li>Return <em>the lexicographically smallest string that can be written on the paper.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "zza"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-06T02:28:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">540. Single Element in a Sorted Array</title><link href="https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray/" rel="alternate" type="text/html" title="540. Single Element in a Sorted Array"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SingleElementInASortedArray/"><![CDATA[<ul> <li>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.</li> <li>Return <em>the single element that appears only once</em>.</li> <li>Your solution must run in <code class="language-plaintext highlighter-rouge">O(log n)</code> time and <code class="language-plaintext highlighter-rouge">O(1)</code> space.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,2,3,3,4,4,8,8]
+Output: 2
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,7,7,10,11,11]
+Output: 10
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(log(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/06
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SingleElementInASortedArray</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">singleNonDuplicate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize binary search boundaries</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                    <span class="c1">// Start of search range</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>     <span class="c1">// End of search range</span>
+
+        <span class="c1">// Continue binary search until we narrow down to a single element</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate middle index, avoiding integer overflow</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+            <span class="cm">/**
+             * CRITICAL STEP: Ensure mid is at an even index
+             *
+             * Why this matters:
+             * - In the portion before the single element, pairs start at even indices: (0,1), (2,3), (4,5)...
+             * - In the portion after the single element, pairs start at odd indices due to shift
+             *
+             * By always checking from an even index, we can reliably determine:
+             * - If nums[even] == nums[even+1]: we're in the "before single element" portion
+             * - If nums[even] != nums[even+1]: we're in the "after single element" portion or at the single element
+             */</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">mid</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">mid</span><span class="o">--;</span>  <span class="c1">// Move to the previous even index</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * Decision Logic:
+             *
+             * Case 1: nums[mid] == nums[mid + 1]
+             * - This means we found a proper pair starting at an even index
+             * - This indicates we're in the "before single element" portion
+             * - The single element must be to the RIGHT of this pair
+             * - Move left boundary to mid + 2 (skip this pair entirely)
+             *
+             * Case 2: nums[mid] != nums[mid + 1]
+             * - This means the pair pattern is broken
+             * - Either mid is the single element, or we're in the "after single element" portion
+             * - The single element must be at mid or to the LEFT of mid
+             * - Move right boundary to mid (include mid in next search)
+             */</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Single element is in the right half</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span>  <span class="c1">// Skip the current pair and search right</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Single element is in the left half (including current position)</span>
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>     <span class="c1">// Include current position in next search</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// When left == right, we've found the single element</span>
+        <span class="k">return</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">];</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Single element in the middle</span>
+        <span class="c1">// Array structure: [1,1] [2] [3,3] [4,4] [8,8]</span>
+        <span class="c1">// Expected: 2 (breaks the pair pattern)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">singleNonDuplicate</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: Single element towards the end</span>
+        <span class="c1">// Array structure: [3,3] [7,7] [10] [11,11]</span>
+        <span class="c1">// Expected: 10</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">11</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">singleNonDuplicate</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 10"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 3: Single element at the beginning</span>
+        <span class="c1">// Array structure: [1] [2,2] [3,3] [4,4] [8,8]</span>
+        <span class="c1">// Expected: 1 (all subsequent pairs shift to odd start indices)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3 (Single element at beginning):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">singleNonDuplicate</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 4: Single element at the end</span>
+        <span class="c1">// Array structure: [1,1] [2,2] [3,3] [4,4] [8]</span>
+        <span class="c1">// Expected: 8 (last element has no pair)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4 (Single element at end):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">singleNonDuplicate</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 8"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 5: Edge case - single element array</span>
+        <span class="c1">// Array structure: [1]</span>
+        <span class="c1">// Expected: 1 (only one element exists)</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 5 (Single element array):"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">singleNonDuplicate</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 1"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once. Return the single element that appears only once. Your solution must run in O(log n) time and O(1) space.]]></summary></entry><entry><title type="html">2434. Using a Robot to Print the Lexicographically Smallest String</title><link href="https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString/" rel="alternate" type="text/html" title="2434. Using a Robot to Print the Lexicographically Smallest String"/><published>2025-06-06T00:00:00+00:00</published><updated>2025-06-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/UsingARobotToPrintTheLexicographicallySmallestString/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> and a robot that currently holds an empty string <code class="language-plaintext highlighter-rouge">t</code>. Apply one of the following operations until <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> <strong>are both empty</strong>: <ul> <li>Remove the <strong>first</strong> character of a string <code class="language-plaintext highlighter-rouge">s</code> and give it to the robot. The robot will append this character to the string <code class="language-plaintext highlighter-rouge">t</code>.</li> <li>Remove the <strong>last</strong> character of a string <code class="language-plaintext highlighter-rouge">t</code> and give it to the robot. The robot will write this character on paper.</li> </ul> </li> <li>Return <em>the lexicographically smallest string that can be written on the paper.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "zza"
 Output: "azz"
 Explanation: Let p denote the written string.
 Initially p="", s="zza", t="".
@@ -868,61 +988,4 @@ The array will become [3, 1, 0, 0], which is not a Zero Array.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of length n and a 2D array queries, where queries[i] = [li, ri]. For each queries[i]: Select a subset of indices within the range [li, ri] in nums. Decrement the values at the selected indices by 1. A Zero Array is an array where all elements are equal to 0. Return true if it is possible to transform nums into a Zero Array after processing all the queries sequentially, otherwise return false.]]></summary></entry><entry><title type="html">3024. Type of Triangle</title><link href="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/" rel="alternate" type="text/html" title="3024. Type of Triangle"/><published>2025-05-19T00:00:00+00:00</published><updated>2025-05-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/TypeOfTriangle</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/TypeOfTriangle/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">3</code> which can form the sides of a triangle. <ul> <li>A triangle is called <strong>equilateral</strong> if it has all sides of equal length.</li> <li>A triangle is called <strong>isosceles</strong> if it has exactly two sides of equal length.</li> <li>A triangle is called <strong>scalene</strong> if all its sides are of different lengths.</li> </ul> </li> <li>Return <em>a string representing</em> <em>the type of triangle that can be formed</em> <em>or</em> <code class="language-plaintext highlighter-rouge">"none"</code> <em>if it <strong>cannot</strong> form a triangle.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,3]
-Output: "equilateral"
-Explanation: Since all the sides are of equal length, therefore, it will form an equilateral triangle.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,4,5]
-Output: "scalene"
-Explanation: 
-nums[0] + nums[1] = 3 + 4 = 7, which is greater than nums[2] = 5.
-nums[0] + nums[2] = 3 + 5 = 8, which is greater than nums[1] = 4.
-nums[1] + nums[2] = 4 + 5 = 9, which is greater than nums[0] = 3. 
-Since the sum of the two sides is greater than the third side for all three cases, therefore, it can form a triangle.
-As all the sides are of different lengths, it will form a scalene triangle.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(1) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @author zhengxingxing
- * @date 2025/05/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TypeOfTriangle</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">triangleType</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Check if the sides can form a valid triangle</span>
-        <span class="c1">// Triangle inequality theorem: The sum of the lengths of any two sides must be greater than the length of the remaining side</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">||</span>
-                <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span>
-                <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">"none"</span><span class="o">;</span>  <span class="c1">// Cannot form a valid triangle</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Determine the type of triangle based on the equality of sides</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">"equilateral"</span><span class="o">;</span>  <span class="c1">// All three sides are equal -&gt; Equilateral triangle</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">||</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="mi">2</span><span class="o">])</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">"isosceles"</span><span class="o">;</span>    <span class="c1">// Exactly two sides are equal -&gt; Isosceles triangle</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="s">"scalene"</span><span class="o">;</span>      <span class="c1">// All three sides have different lengths -&gt; Scalene triangle</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Equilateral triangle (all sides equal)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1: [3,3,3] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 2: Scalene triangle (all sides different)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2: [3,4,5] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 3: Isosceles triangle (exactly two sides equal)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 3: [3,3,2] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-
-        <span class="c1">// Test Case 4: Not a valid triangle (fails triangle inequality theorem)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 4: [1,1,3] -&gt; "</span> <span class="o">+</span> <span class="n">triangleType</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle. A triangle is called equilateral if it has all sides of equal length. A triangle is called isosceles if it has exactly two sides of equal length. A triangle is called scalene if all its sides are of different lengths. Return a string representing the type of triangle that can be formed or "none" if it cannot form a triangle.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of length n and a 2D array queries, where queries[i] = [li, ri]. For each queries[i]: Select a subset of indices within the range [li, ri] in nums. Decrement the values at the selected indices by 1. A Zero Array is an array where all elements are equal to 0. Return true if it is possible to transform nums into a Zero Array after processing all the queries sequentially, otherwise return false.]]></summary></entry></feed>
