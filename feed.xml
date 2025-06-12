@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-11T04:20:57+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3442. Maximum Difference Between Even and Odd Frequency I</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenEvenAndOddFrequencyI/" rel="alternate" type="text/html" title="3442. Maximum Difference Between Even and Odd Frequency I"/><published>2025-06-10T00:00:00+00:00</published><updated>2025-06-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenEvenAndOddFrequencyI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenEvenAndOddFrequencyI/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of lowercase English letters.</li> <li>Your task is to find the <strong>maximum</strong> difference <code class="language-plaintext highlighter-rouge">diff = a1 - a2</code> between the frequency of characters <code class="language-plaintext highlighter-rouge">a1</code> and <code class="language-plaintext highlighter-rouge">a2</code> in the string such that: <ul> <li><code class="language-plaintext highlighter-rouge">a1</code> has an <strong>odd frequency</strong> in the string.</li> <li><code class="language-plaintext highlighter-rouge">a2</code> has an <strong>even frequency</strong> in the string.</li> </ul> </li> <li>Return this <strong>maximum</strong> difference.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aaaaabbc"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-12T13:43:45+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3423. Maximum Difference Between Adjacent Elements in a Circular Array</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenAdjacentElementsInACircularArray/" rel="alternate" type="text/html" title="3423. Maximum Difference Between Adjacent Elements in a Circular Array"/><published>2025-06-12T00:00:00+00:00</published><updated>2025-06-12T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenAdjacentElementsInACircularArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenAdjacentElementsInACircularArray/"><![CDATA[<ul> <li>Given a <strong>circular</strong> array <code class="language-plaintext highlighter-rouge">nums</code>, find the <strong>maximum</strong> absolute difference between adjacent elements.</li> <li><strong>Note</strong>: In a circular array, the first and last elements are adjacent.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,4]
+
+Output: 3
+
+Explanation:
+
+Because nums is circular, nums[0] and nums[2] are adjacent. They have the maximum absolute difference of |4 - 1| = 3.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-5,-10,-5]
+
+Output: 5
+
+Explanation:
+
+The adjacent elements nums[0] and nums[1] have the maximum absolute difference of |-5 - (-10)| = 5.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/12
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumDifferenceBetweenAdjacentElementsInACircularArray</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxAdjacentDistance</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the length of the array</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Initialize the answer with the absolute difference between the first and last elements</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]);</span>
+
+        <span class="c1">// Loop through the array starting from the second element</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update the answer with the maximum of the current answer and the absolute difference</span>
+            <span class="c1">// between the current element and the previous element</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the maximum absolute difference found</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: An array with three elements</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="c1">// Print the maximum adjacent distance for the first test case</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxAdjacentDistance</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: An array with negative numbers</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{-</span><span class="mi">5</span><span class="o">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">};</span>
+        <span class="c1">// Print the maximum adjacent distance for the second test case</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxAdjacentDistance</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given a circular array nums, find the maximum absolute difference between adjacent elements. Note: In a circular array, the first and last elements are adjacent.]]></summary></entry><entry><title type="html">3442. Maximum Difference Between Even and Odd Frequency I</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenEvenAndOddFrequencyI/" rel="alternate" type="text/html" title="3442. Maximum Difference Between Even and Odd Frequency I"/><published>2025-06-10T00:00:00+00:00</published><updated>2025-06-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenEvenAndOddFrequencyI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenEvenAndOddFrequencyI/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of lowercase English letters.</li> <li>Your task is to find the <strong>maximum</strong> difference <code class="language-plaintext highlighter-rouge">diff = a1 - a2</code> between the frequency of characters <code class="language-plaintext highlighter-rouge">a1</code> and <code class="language-plaintext highlighter-rouge">a2</code> in the string such that: <ul> <li><code class="language-plaintext highlighter-rouge">a1</code> has an <strong>odd frequency</strong> in the string.</li> <li><code class="language-plaintext highlighter-rouge">a2</code> has an <strong>even frequency</strong> in the string.</li> </ul> </li> <li>Return this <strong>maximum</strong> difference.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "aaaaabbc"
 
 Output: 3
 
@@ -1090,136 +1145,4 @@ Explanation: There are 10 ways to distribute 3 candies such that no child gets m
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"n=3, limit=3: "</span> <span class="o">+</span> <span class="n">distributeCandies</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Expected: 10</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integers n and limit. Return the total number of ways to distribute n candies among 3 children such that no child gets more than limit candies.]]></summary></entry><entry><title type="html">1901. Find a Peak Element II</title><link href="https://zhengstar94.github.io//blog/2025/FindAPeakElementII/" rel="alternate" type="text/html" title="1901. Find a Peak Element II"/><published>2025-05-28T00:00:00+00:00</published><updated>2025-05-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindAPeakElementII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindAPeakElementII/"><![CDATA[<ul> <li>A <strong>peak</strong> element in a 2D grid is an element that is <strong>strictly greater</strong> than all of its <strong>adjacent</strong> neighbors to the left, right, top, and bottom.</li> <li>Given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">mat</code> where <strong>no two adjacent cells are equal</strong>, find <strong>any</strong> peak element <code class="language-plaintext highlighter-rouge">mat[i][j]</code> and return <em>the length 2 array</em> <code class="language-plaintext highlighter-rouge">[i,j]</code>.</li> <li>You may assume that the entire matrix is surrounded by an <strong>outer perimeter</strong> with the value <code class="language-plaintext highlighter-rouge">-1</code> in each cell.</li> <li>You must write an algorithm that runs in <code class="language-plaintext highlighter-rouge">O(m log(n))</code> or <code class="language-plaintext highlighter-rouge">O(n log(m))</code> time.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [ 1,4],[3,2 ] ]
-Output: [0,1]
-Explanation: Both 3 and 4 are peak elements so [1,0] and [0,1] are both acceptable answers.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: mat = [ [ 10,20,15],[21,30,14],[7,16,32 ] ]
-Output: [1,1]
-Explanation: Both 30 and 32 are peak elements so [1,1] and [2,2] are both acceptable answers.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogm) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.BinarySearch</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/05/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindAPeakElementII</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">findPeakGrid</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize binary search boundaries for rows</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>                    <span class="c1">// Start from first row</span>
-        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>      <span class="c1">// End at last row</span>
-
-        <span class="c1">// Perform binary search on rows</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Find middle row to avoid integer overflow</span>
-            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-            <span class="c1">// Find the column index of maximum element in current row i</span>
-            <span class="c1">// This is crucial: the max element in a row is already a peak</span>
-            <span class="c1">// in horizontal direction (left-right), we only need to check vertical</span>
-            <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">indexOfMax</span><span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-
-            <span class="c1">// Compare current max element with the element directly below it</span>
-            <span class="c1">// This comparison determines which direction to search next</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">mat</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Current element is greater than element below</span>
-                <span class="c1">// This means:</span>
-                <span class="c1">// 1. If current element is also &gt; element above, it's a peak</span>
-                <span class="c1">// 2. If current element &lt;= element above, peak exists above</span>
-                <span class="c1">// In both cases, peak exists in current row or above</span>
-                <span class="n">right</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>  <span class="c1">// Search in upper half (including current row)</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Current element &lt;= element below</span>
-                <span class="c1">// This means there's a larger element below, so peak must be below</span>
-                <span class="c1">// We can safely exclude current row and search below</span>
-                <span class="n">left</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>  <span class="c1">// Search in lower half (excluding current row)</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// When left == right, we've found the row containing a peak</span>
-        <span class="c1">// Return the coordinates: [row_index, column_index_of_max_in_that_row]</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">left</span><span class="o">,</span> <span class="n">indexOfMax</span><span class="o">(</span><span class="n">mat</span><span class="o">[</span><span class="n">left</span><span class="o">])};</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">indexOfMax</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Initialize with first element's index</span>
-
-        <span class="c1">// Iterate through the array to find maximum element's index</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If current element is greater than previously found max</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">a</span><span class="o">[</span><span class="n">idx</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">idx</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>  <span class="c1">// Update max element's index</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">idx</span><span class="o">;</span>  <span class="c1">// Return index of maximum element</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== LeetCode 1901: Find a Peak Element II ===\n"</span><span class="o">);</span>
-
-        <span class="c1">// Test Case 1: Example from LeetCode</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input matrix:"</span><span class="o">);</span>
-        <span class="n">printMatrix</span><span class="o">(</span><span class="n">mat1</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">findPeakGrid</span><span class="o">(</span><span class="n">mat1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak found at: ["</span> <span class="o">+</span> <span class="n">result1</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">result1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak value: "</span> <span class="o">+</span> <span class="n">mat1</span><span class="o">[</span><span class="n">result1</span><span class="o">[</span><span class="mi">0</span><span class="o">]][</span><span class="n">result1</span><span class="o">[</span><span class="mi">1</span><span class="o">]]);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Verification: "</span> <span class="o">+</span> <span class="n">verifyPeak</span><span class="o">(</span><span class="n">mat1</span><span class="o">,</span> <span class="n">result1</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">result1</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Example from LeetCode</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">mat2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">15</span><span class="o">},</span> <span class="o">{</span><span class="mi">21</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">14</span><span class="o">},</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="mi">32</span> <span class="o">}</span> <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input matrix:"</span><span class="o">);</span>
-        <span class="n">printMatrix</span><span class="o">(</span><span class="n">mat2</span><span class="o">);</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">findPeakGrid</span><span class="o">(</span><span class="n">mat2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak found at: ["</span> <span class="o">+</span> <span class="n">result2</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">result2</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Peak value: "</span> <span class="o">+</span> <span class="n">mat2</span><span class="o">[</span><span class="n">result2</span><span class="o">[</span><span class="mi">0</span><span class="o">]][</span><span class="n">result2</span><span class="o">[</span><span class="mi">1</span><span class="o">]]);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Verification: "</span> <span class="o">+</span> <span class="n">verifyPeak</span><span class="o">(</span><span class="n">mat2</span><span class="o">,</span> <span class="n">result2</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">result2</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">mat</span><span class="o">)</span> <span class="o">{</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"["</span><span class="o">);</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%3d"</span><span class="o">,</span> <span class="n">row</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"]"</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">verifyPeak</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">current</span> <span class="o">=</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
-
-        <span class="c1">// Check all four directions</span>
-        <span class="c1">// Up</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// Down</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// Left</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">col</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// Right</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">col</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>  <span class="c1">// All adjacent elements are smaller</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode BinarySearch"/><category term="Medium"/><summary type="html"><![CDATA[A peak element in a 2D grid is an element that is strictly greater than all of its adjacent neighbors to the left, right, top, and bottom. Given a 0-indexed m x n matrix mat where no two adjacent cells are equal, find any peak element mat[i][j] and return the length 2 array [i,j]. You may assume that the entire matrix is surrounded by an outer perimeter with the value -1 in each cell. You must write an algorithm that runs in O(m log(n)) or O(n log(m)) time.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given two positive integers n and limit. Return the total number of ways to distribute n candies among 3 children such that no child gets more than limit candies.]]></summary></entry></feed>
