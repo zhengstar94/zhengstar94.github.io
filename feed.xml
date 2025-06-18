@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-16T03:25:38+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2016. Maximum Difference Between Increasing Elements</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements/" rel="alternate" type="text/html" title="2016. Maximum Difference Between Increasing Elements"/><published>2025-06-16T00:00:00+00:00</published><updated>2025-06-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, find the <strong>maximum difference</strong> between <code class="language-plaintext highlighter-rouge">nums[i]</code> and <code class="language-plaintext highlighter-rouge">nums[j]</code> (i.e., <code class="language-plaintext highlighter-rouge">nums[j] - nums[i]</code>), such that <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code> and <code class="language-plaintext highlighter-rouge">nums[i] &lt; nums[j]</code>.</li> <li>Return <em>the <strong>maximum difference</strong>.</em> If no such <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> exists, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [7,1,5,4]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-18T07:28:13+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2966. Divide Array Into Arrays With Max Difference</title><link href="https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference/" rel="alternate" type="text/html" title="2966. Divide Array Into Arrays With Max Difference"/><published>2025-06-18T00:00:00+00:00</published><updated>2025-06-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> where <code class="language-plaintext highlighter-rouge">n</code> is a multiple of 3 and a positive integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Divide the array <code class="language-plaintext highlighter-rouge">nums</code> into <code class="language-plaintext highlighter-rouge">n / 3</code> arrays of size <strong>3</strong> satisfying the following condition: <ul> <li>The difference between <strong>any</strong> two elements in one array is <strong>less than or equal</strong> to <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li>Return a <strong>2D</strong> array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return <strong>any</strong> of them.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,4,8,7,9,3,5,1], k = 2
+
+Output: [[1,1,3],[3,4,5],[7,8,9]]
+
+Explanation:
+
+The difference between any two elements in each array is less than or equal to 2.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,4,2,2,5,2], k = 2
+
+Output: []
+
+Explanation:
+
+Different ways to divide nums into 2 arrays of size 3 are:
+
+[[2,2,2],[2,4,5]] (and its permutations)
+[[2,2,4],[2,2,5]] (and its permutations)
+Because there are four 2s there will be an array with the elements 2 and 5 no matter how we divide it. since 5 - 2 = 3 &gt; k, the condition is not satisfied and so there is no valid division.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11], k = 14
+
+Output: [[2,2,12],[4,8,5],[5,9,7],[7,8,5],[5,9,10],[11,12,2]]
+
+Explanation:
+
+The difference between any two elements in each array is less than or equal to 14.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/18
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DivideArrayIntoArraysWithMaxDifference</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">divideArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Step 1: Sort the array so that close values are adjacent</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="c1">// Step 2: Prepare the result array of size n / 3</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">/</span> <span class="mi">3</span><span class="o">][];</span>
+
+        <span class="c1">// Step 3: Iterate over the sorted array in chunks of 3 elements</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Step 4: Check if the current group of 3 elements satisfies the condition</span>
+            <span class="c1">// Since the array is sorted, nums[i] is the largest, nums[i - 2] is the smallest</span>
+            <span class="c1">// If the difference between them is greater than k, return an empty array</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]{};</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Step 5: Otherwise, construct a valid group of 3 elements</span>
+            <span class="c1">// and assign it to the answer array</span>
+            <span class="n">ans</span><span class="o">[</span><span class="n">i</span> <span class="o">/</span> <span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="o">],</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">],</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]};</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Step 6: Return the valid grouped array</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print2DArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[]"</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">row</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1:"</span><span class="o">);</span>
+        <span class="n">print2DArray</span><span class="o">(</span><span class="n">divideArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="c1">// Expected output: [[1,1,3], [3,4,5], [7,8,9]]</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2:"</span><span class="o">);</span>
+        <span class="n">print2DArray</span><span class="o">(</span><span class="n">divideArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+        <span class="c1">// Expected output: [] (no valid grouping possible)</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">11</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">14</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3:"</span><span class="o">);</span>
+        <span class="n">print2DArray</span><span class="o">(</span><span class="n">divideArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span>
+        <span class="c1">// Expected output: One of many valid groupings where all 3-element groups have max diff &lt;= 14</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of size n where n is a multiple of 3 and a positive integer k. Divide the array nums into n / 3 arrays of size 3 satisfying the following condition: The difference between any two elements in one array is less than or equal to k. Return a 2D array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return any of them.]]></summary></entry><entry><title type="html">2016. Maximum Difference Between Increasing Elements</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements/" rel="alternate" type="text/html" title="2016. Maximum Difference Between Increasing Elements"/><published>2025-06-16T00:00:00+00:00</published><updated>2025-06-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, find the <strong>maximum difference</strong> between <code class="language-plaintext highlighter-rouge">nums[i]</code> and <code class="language-plaintext highlighter-rouge">nums[j]</code> (i.e., <code class="language-plaintext highlighter-rouge">nums[j] - nums[i]</code>), such that <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code> and <code class="language-plaintext highlighter-rouge">nums[i] &lt; nums[j]</code>.</li> <li>Return <em>the <strong>maximum difference</strong>.</em> If no such <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> exists, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [7,1,5,4]
 Output: 4
 Explanation:
 The maximum difference occurs with i = 1 and j = 2, nums[j] - nums[i] = 5 - 1 = 4.
@@ -755,143 +848,4 @@ Output: [4,1,1,1,0]
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[There are n people standing in a queue, and they numbered from 0 to n - 1 in left to right order. You are given an array heights of distinct integers where heights[i] represents the height of the ith person. A person can see another person to their right in the queue if everybody in between is shorter than both of them. More formally, the ith person can see the jth person if i &lt; j and min(heights[i], heights[j]) &gt; max(heights[i+1], heights[i+2], ..., heights[j-1]). Return an array answer of length n where answer[i] is the number of people the ith person can see to their right in the queue.]]></summary></entry><entry><title type="html">3113. Find the Number of Subarrays Where Boundary Elements Are Maximum</title><link href="https://zhengstar94.github.io//blog/2025/FindTheNumberOfSubarraysWhereBoundaryElementsAreMaximum/" rel="alternate" type="text/html" title="3113. Find the Number of Subarrays Where Boundary Elements Are Maximum"/><published>2025-06-08T00:00:00+00:00</published><updated>2025-06-08T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheNumberOfSubarraysWhereBoundaryElementsAreMaximum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheNumberOfSubarraysWhereBoundaryElementsAreMaximum/"><![CDATA[<ul> <li>You are given an array of <strong>positive</strong> integers <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>Return the number of subarrays of <code class="language-plaintext highlighter-rouge">nums</code>, where the <strong>first</strong> and the <strong>last</strong> elements of the subarray are <em>equal</em> to the <strong>largest</strong> element in the subarray.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,4,3,3,2]
-
-Output: 6
-
-Explanation:
-
-There are 6 subarrays which have the first and the last elements equal to the largest element of the subarray:
-
-subarray [1,4,3,3,2], with its largest element 1. The first element is 1 and the last element is also 1.
-subarray [1,4,3,3,2], with its largest element 4. The first element is 4 and the last element is also 4.
-subarray [1,4,3,3,2], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [1,4,3,3,2], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [1,4,3,3,2], with its largest element 2. The first element is 2 and the last element is also 2.
-subarray [1,4,3,3,2], with its largest element 3. The first element is 3 and the last element is also 3.
-Hence, we return 6.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,3]
-
-Output: 6
-
-Explanation:
-
-There are 6 subarrays which have the first and the last elements equal to the largest element of the subarray:
-
-subarray [3,3,3], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [3,3,3], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [3,3,3], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [3,3,3], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [3,3,3], with its largest element 3. The first element is 3 and the last element is also 3.
-subarray [3,3,3], with its largest element 3. The first element is 3 and the last element is also 3.
-Hence, we return 6.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1]
-
-Output: 1
-
-Explanation:
-
-There is a single subarray of nums which is [1], with its largest element 1. The first element is 1 and the last element is also 1.
-
-Hence, we return 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/08
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheNumberOfSubarraysWhereBoundaryElementsAreMaximum</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">numberOfSubarrays</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Step 1: Initialize answer with array length</span>
-        <span class="c1">// Every single element forms a valid subarray (first == last == max)</span>
-        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Step 2: Initialize monotonic stack with sentinel value</span>
-        <span class="c1">// Each stack element stores [value, count_of_occurrences]</span>
-        <span class="c1">// Sentinel prevents empty stack checks and simplifies logic</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-        <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">,</span> <span class="mi">0</span><span class="o">});</span> <span class="c1">// Sentinel: [∞, 0]</span>
-
-        <span class="c1">// Step 3: Process each element as potential right boundary</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-
-            <span class="c1">// Phase 1: Maintain monotonic decreasing property</span>
-            <span class="c1">// Remove all elements smaller than current element from stack</span>
-            <span class="c1">// Why? Because if current element &gt; stack_top, then stack_top cannot</span>
-            <span class="c1">// be the maximum in any subarray that includes current element</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">st</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
-                <span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span> <span class="c1">// Remove smaller elements</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Phase 2: Handle current element</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">st</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Case 1: Current element equals stack top value</span>
-                <span class="c1">// This means we found matching left boundaries for current right boundary</span>
-                <span class="c1">// st.peek()[1] represents how many times this value appeared consecutively</span>
-
-                <span class="c1">// Add contribution: each previous occurrence can pair with current element</span>
-                <span class="c1">// to form a valid subarray (since all elements between them are &lt;= x)</span>
-                <span class="n">ans</span> <span class="o">+=</span> <span class="n">st</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">1</span><span class="o">];</span>
-
-                <span class="c1">// Increment count for this value (current element becomes another occurrence)</span>
-                <span class="n">st</span><span class="o">.</span><span class="na">peek</span><span class="o">()[</span><span class="mi">1</span><span class="o">]++;</span>
-
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// Case 2: Current element is smaller than stack top</span>
-                <span class="c1">// Push current element as new potential left boundary</span>
-                <span class="c1">// Start with count = 1 (this is the first occurrence at this "level")</span>
-                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">x</span><span class="o">,</span> <span class="mi">1</span><span class="o">});</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Mixed values</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Test Case 1: [1,4,3,3,2] ==="</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Algorithm Result: "</span> <span class="o">+</span> <span class="n">numberOfSubarrays</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: 6"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Valid subarrays: [1], [4], [3], [3], [2], [3,3]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 2: All same elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Test Case 2: [3,3,3] ==="</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Algorithm Result: "</span> <span class="o">+</span> <span class="n">numberOfSubarrays</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: 6"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Valid subarrays: [3], [3], [3], [3,3], [3,3], [3,3,3]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 3: Single element</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Test Case 3: [1] ==="</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Algorithm Result: "</span> <span class="o">+</span> <span class="n">numberOfSubarrays</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: 1"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Valid subarrays: [1]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 4: Strictly increasing array</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Test Case 4: [1,2,3,4,5] ==="</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Algorithm Result: "</span> <span class="o">+</span> <span class="n">numberOfSubarrays</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: 5"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Valid subarrays: Only single elements [1], [2], [3], [4], [5]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test case 5: All identical elements</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"=== Test Case 5: [2,2,2,2] ==="</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Algorithm Result: "</span> <span class="o">+</span> <span class="n">numberOfSubarrays</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected Result: 10"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Calculation: 4 single + 3 pairs + 2 triplets + 1 quadruple = 10"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[You are given an array of positive integers nums. Return the number of subarrays of nums, where the first and the last elements of the subarray are equal to the largest element in the subarray.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[There are n people standing in a queue, and they numbered from 0 to n - 1 in left to right order. You are given an array heights of distinct integers where heights[i] represents the height of the ith person. A person can see another person to their right in the queue if everybody in between is shorter than both of them. More formally, the ith person can see the jth person if i &lt; j and min(heights[i], heights[j]) &gt; max(heights[i+1], heights[i+2], ..., heights[j-1]). Return an array answer of length n where answer[i] is the number of people the ith person can see to their right in the queue.]]></summary></entry></feed>
