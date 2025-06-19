@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-18T07:28:13+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2966. Divide Array Into Arrays With Max Difference</title><link href="https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference/" rel="alternate" type="text/html" title="2966. Divide Array Into Arrays With Max Difference"/><published>2025-06-18T00:00:00+00:00</published><updated>2025-06-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> where <code class="language-plaintext highlighter-rouge">n</code> is a multiple of 3 and a positive integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Divide the array <code class="language-plaintext highlighter-rouge">nums</code> into <code class="language-plaintext highlighter-rouge">n / 3</code> arrays of size <strong>3</strong> satisfying the following condition: <ul> <li>The difference between <strong>any</strong> two elements in one array is <strong>less than or equal</strong> to <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li>Return a <strong>2D</strong> array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return <strong>any</strong> of them.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,4,8,7,9,3,5,1], k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-19T02:34:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2294. Partition Array Such That Maximum Difference Is K</title><link href="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/" rel="alternate" type="text/html" title="2294. Partition Array Such That Maximum Difference Is K"/><published>2025-06-19T00:00:00+00:00</published><updated>2025-06-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You may partition <code class="language-plaintext highlighter-rouge">nums</code> into one or more <strong>subsequences</strong> such that each element in <code class="language-plaintext highlighter-rouge">nums</code> appears in <strong>exactly</strong> one of the subsequences.</li> <li>Return <em>the <strong>minimum</strong> number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code><em>.</em></li> <li>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,6,1,2,5], k = 2
+Output: 2
+Explanation:
+We can partition nums into the two subsequences [3,1,2] and [6,5].
+The difference between the maximum and minimum value in the first subsequence is 3 - 1 = 2.
+The difference between the maximum and minimum value in the second subsequence is 6 - 5 = 1.
+Since two subsequences were created, we return 2. It can be shown that 2 is the minimum number of subsequences needed.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], k = 1
+Output: 2
+Explanation:
+We can partition nums into the two subsequences [1,2] and [3].
+The difference between the maximum and minimum value in the first subsequence is 2 - 1 = 1.
+The difference between the maximum and minimum value in the second subsequence is 3 - 3 = 0.
+Since two subsequences were created, we return 2. Note that another optimal solution is to partition nums into the two subsequences [1] and [2,3].
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,4,5], k = 0
+Output: 3
+Explanation:
+We can partition nums into the three subsequences [2,2], [4], and [5].
+The difference between the maximum and minimum value in the first subsequences is 2 - 2 = 0.
+The difference between the maximum and minimum value in the second subsequences is 4 - 4 = 0.
+The difference between the maximum and minimum value in the third subsequences is 5 - 5 = 0.
+Since three subsequences were created, we return 3. It can be shown that 3 is the minimum number of subsequences needed.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/19
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PartitionArraySuchThatMaximumDifferenceIsK</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">partitionArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the array so we can process elements in ascending order</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Counter for the number of required subsequences</span>
+
+        <span class="c1">// Initialize mn (the minimum value in the current group)</span>
+        <span class="c1">// to a very small number to ensure the first element always starts a new group.</span>
+        <span class="c1">// We use Integer.MIN_VALUE / 2 to avoid potential overflow in x - mn.</span>
+        <span class="kt">int</span> <span class="n">mn</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+
+        <span class="c1">// Traverse each number in the sorted array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the difference between the current number and the minimum value in</span>
+            <span class="c1">// the current group exceeds k, we must start a new group</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mn</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ans</span><span class="o">++;</span>   <span class="c1">// Start a new group, increment the group counter</span>
+                <span class="n">mn</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>  <span class="c1">// Set the current number as the new group's minimum</span>
+            <span class="o">}</span>
+            <span class="c1">// Else, this number can be included in the current group,</span>
+            <span class="c1">// and we do not update ans or mn.</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">partitionArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">partitionArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">partitionArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Output: 3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. You may partition nums into one or more subsequences such that each element in nums appears in exactly one of the subsequences. Return the minimum number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is at most k. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.]]></summary></entry><entry><title type="html">2966. Divide Array Into Arrays With Max Difference</title><link href="https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference/" rel="alternate" type="text/html" title="2966. Divide Array Into Arrays With Max Difference"/><published>2025-06-18T00:00:00+00:00</published><updated>2025-06-18T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideArrayIntoArraysWithMaxDifference/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code> where <code class="language-plaintext highlighter-rouge">n</code> is a multiple of 3 and a positive integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>Divide the array <code class="language-plaintext highlighter-rouge">nums</code> into <code class="language-plaintext highlighter-rouge">n / 3</code> arrays of size <strong>3</strong> satisfying the following condition: <ul> <li>The difference between <strong>any</strong> two elements in one array is <strong>less than or equal</strong> to <code class="language-plaintext highlighter-rouge">k</code>.</li> </ul> </li> <li>Return a <strong>2D</strong> array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return <strong>any</strong> of them.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,4,8,7,9,3,5,1], k = 2
 
 Output: [[1,1,3],[3,4,5],[7,8,9]]
 
@@ -731,121 +805,4 @@ We return [-1,-1] since neither integer has any integer greater than it.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed array of non-negative integers nums. For each integer in nums, you must find its respective second greater integer. The second greater integer of nums[i] is nums[j] such that: j &gt; i nums[j] &gt; nums[i] There exists exactly one index k such that nums[k] &gt; nums[i] and i &lt; k &lt; j. If there is no such nums[j], the second greater integer is considered to be -1. For example, in the array [1, 2, 4, 3], the second greater integer of 1 is 4, 2 is 3, and that of 3 and 4 is -1. Return an integer array answer, where answer[i] is the second greater integer of nums[i].]]></summary></entry><entry><title type="html">1944. Number of Visible People in a Queue</title><link href="https://zhengstar94.github.io//blog/2025/NumberOfVisiblePeopleInAQueue/" rel="alternate" type="text/html" title="1944. Number of Visible People in a Queue"/><published>2025-06-10T00:00:00+00:00</published><updated>2025-06-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NumberOfVisiblePeopleInAQueue</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NumberOfVisiblePeopleInAQueue/"><![CDATA[<ul> <li>There are <code class="language-plaintext highlighter-rouge">n</code> people standing in a queue, and they numbered from <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">n - 1</code> in <strong>left to right</strong> order. You are given an array <code class="language-plaintext highlighter-rouge">heights</code> of <strong>distinct</strong> integers where <code class="language-plaintext highlighter-rouge">heights[i]</code> represents the height of the <code class="language-plaintext highlighter-rouge">ith</code> person.</li> <li>A person can <strong>see</strong> another person to their right in the queue if everybody in between is <strong>shorter</strong> than both of them. More formally, the <code class="language-plaintext highlighter-rouge">ith</code> person can see the <code class="language-plaintext highlighter-rouge">jth</code> person if <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">min(heights[i], heights[j]) &gt; max(heights[i+1], heights[i+2], ..., heights[j-1])</code>.</li> <li>Return <em>an array</em> <code class="language-plaintext highlighter-rouge">answer</code> <em>of length</em> <code class="language-plaintext highlighter-rouge">n</code> <em>where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the <strong>number of people</strong> the</em> <code class="language-plaintext highlighter-rouge">ith</code> <em>person can <strong>see</strong> to their right in the queue</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [10,6,8,5,11,9]
-Output: [3,1,2,1,1,0]
-Explanation:
-Person 0 can see person 1, 2, and 4.
-Person 1 can see person 2.
-Person 2 can see person 3 and 4.
-Person 3 can see person 4.
-Person 4 can see person 5.
-Person 5 can see no one since nobody is to the right of them.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: heights = [5,1,2,3,10]
-Output: [4,1,1,1,0]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberOfVisiblePeopleInAQueue</span> <span class="o">{</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">canSeePersonsCount</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the total number of people in the queue</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-
-        <span class="c1">// Initialize result array to store the count for each person</span>
-        <span class="c1">// result[i] will contain the number of people person i can see</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Create a monotonic decreasing stack using ArrayDeque</span>
-        <span class="c1">// The stack stores INDICES (not heights) of people</span>
-        <span class="c1">// Stack property: heights[stack.bottom] &gt;= heights[stack.top]</span>
-        <span class="c1">// This means from bottom to top, the heights are in decreasing order</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// CRITICAL: Traverse from RIGHT to LEFT (i.e., from last person to first person)</span>
-        <span class="c1">// Why backwards? Because we need to know about people on the right side first</span>
-        <span class="c1">// before we can determine how many people the current person can see</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
-
-            <span class="c1">// Initialize count for current person at position i</span>
-            <span class="c1">// This will store how many people person i can see to their right</span>
-            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-            <span class="c1">// PHASE 1: Count people shorter than current person</span>
-            <span class="c1">// These shorter people will be "blocked" by the current person</span>
-            <span class="c1">// We need to remove them from stack because they become invisible</span>
-            <span class="c1">// to people on the left side of current person</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">heights</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()]</span> <span class="o">&lt;</span> <span class="n">heights</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Remove the shorter person from stack (they get blocked)</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-
-                <span class="c1">// Increment count because current person can see this shorter person</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// PHASE 2: Count the first person taller than or equal to current person</span>
-            <span class="c1">// After the while loop, if stack is not empty, the top element represents</span>
-            <span class="c1">// a person who is taller than or equal to the current person</span>
-            <span class="c1">// The current person can see this taller person, but cannot see beyond them</span>
-            <span class="c1">// because this taller person will block the view to anyone behind them</span>
-            <span class="k">if</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-                <span class="c1">// There's a taller person that current person can see</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Store the total count of people that person i can see</span>
-            <span class="n">result</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">;</span>
-
-            <span class="c1">// Add current person's index to the stack</span>
-            <span class="c1">// This person might be visible to people on their left side</span>
-            <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the result array containing counts for all people</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Mixed heights with multiple visibility scenarios</span>
-        <span class="c1">// Expected behavior:</span>
-        <span class="c1">// Person 0 (height 10): can see persons 1(6), 2(8), 4(11) = 3 people</span>
-        <span class="c1">// Person 1 (height 6): can see person 2(8) = 1 person</span>
-        <span class="c1">// Person 2 (height 8): can see persons 3(5), 4(11) = 2 people  </span>
-        <span class="c1">// Person 3 (height 5): can see person 4(11) = 1 person</span>
-        <span class="c1">// Person 4 (height 11): can see person 5(9) = 1 person</span>
-        <span class="c1">// Person 5 (height 9): no one to the right = 0 people</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">canSeePersonsCount</span><span class="o">(</span><span class="n">heights1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">heights1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [3, 1, 2, 1, 1, 0]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">result1</span><span class="o">,</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">})</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: Scenario where first person can see everyone</span>
-        <span class="c1">// Expected behavior:</span>
-        <span class="c1">// Person 0 (height 5): can see all 4 people to the right = 4 people</span>
-        <span class="c1">// Person 1 (height 1): can see person 2(2) = 1 person</span>
-        <span class="c1">// Person 2 (height 2): can see person 3(3) = 1 person</span>
-        <span class="c1">// Person 3 (height 3): can see person 4(10) = 1 person  </span>
-        <span class="c1">// Person 4 (height 10): no one to the right = 0 people</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">heights2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">canSeePersonsCount</span><span class="o">(</span><span class="n">heights2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">heights2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [4, 1, 1, 1, 0]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">result2</span><span class="o">,</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">})</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[There are n people standing in a queue, and they numbered from 0 to n - 1 in left to right order. You are given an array heights of distinct integers where heights[i] represents the height of the ith person. A person can see another person to their right in the queue if everybody in between is shorter than both of them. More formally, the ith person can see the jth person if i &lt; j and min(heights[i], heights[j]) &gt; max(heights[i+1], heights[i+2], ..., heights[j-1]). Return an array answer of length n where answer[i] is the number of people the ith person can see to their right in the queue.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed array of non-negative integers nums. For each integer in nums, you must find its respective second greater integer. The second greater integer of nums[i] is nums[j] such that: j &gt; i nums[j] &gt; nums[i] There exists exactly one index k such that nums[k] &gt; nums[i] and i &lt; k &lt; j. If there is no such nums[j], the second greater integer is considered to be -1. For example, in the array [1, 2, 4, 3], the second greater integer of 1 is 4, 2 is 3, and that of 3 and 4 is -1. Return an integer array answer, where answer[i] is the second greater integer of nums[i].]]></summary></entry></feed>
