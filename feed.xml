@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-19T02:34:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2294. Partition Array Such That Maximum Difference Is K</title><link href="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/" rel="alternate" type="text/html" title="2294. Partition Array Such That Maximum Difference Is K"/><published>2025-06-19T00:00:00+00:00</published><updated>2025-06-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You may partition <code class="language-plaintext highlighter-rouge">nums</code> into one or more <strong>subsequences</strong> such that each element in <code class="language-plaintext highlighter-rouge">nums</code> appears in <strong>exactly</strong> one of the subsequences.</li> <li>Return <em>the <strong>minimum</strong> number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code><em>.</em></li> <li>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,6,1,2,5], k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-20T02:47:00+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3443. Maximum Manhattan Distance After K Changes</title><link href="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/" rel="alternate" type="text/html" title="3443. Maximum Manhattan Distance After K Changes"/><published>2025-06-20T00:00:00+00:00</published><updated>2025-06-20T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">s</code> consisting of the characters <code class="language-plaintext highlighter-rouge">'N'</code>, <code class="language-plaintext highlighter-rouge">'S'</code>, <code class="language-plaintext highlighter-rouge">'E'</code>, and <code class="language-plaintext highlighter-rouge">'W'</code>, where <code class="language-plaintext highlighter-rouge">s[i]</code> indicates movements in an infinite grid: <ul> <li><code class="language-plaintext highlighter-rouge">'N'</code> : Move north by 1 unit.</li> <li><code class="language-plaintext highlighter-rouge">'S'</code> : Move south by 1 unit.</li> <li><code class="language-plaintext highlighter-rouge">'E'</code> : Move east by 1 unit.</li> <li><code class="language-plaintext highlighter-rouge">'W'</code> : Move west by 1 unit.</li> </ul> </li> <li>Initially, you are at the origin <code class="language-plaintext highlighter-rouge">(0, 0)</code>. You can change <strong>at most</strong> <code class="language-plaintext highlighter-rouge">k</code> characters to any of the four directions.</li> <li>Find the <strong>maximum</strong> <strong>Manhattan distance</strong> from the origin that can be achieved <strong>at any time</strong> while performing the movements <strong>in order</strong>.</li> <li>The <strong>Manhattan Distance</strong> between two cells <code class="language-plaintext highlighter-rouge">(xi, yi)</code> and <code class="language-plaintext highlighter-rouge">(xj, yj)</code> is <code class="language-plaintext highlighter-rouge">|xi - xj| + |yi - yj|</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "NWSE", k = 1
+
+Output: 3
+
+Explanation:
+
+Change s[2] from 'S' to 'N'. The string s becomes "NWNE".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "NSWWEW", k = 3
+
+Output: 6
+
+Explanation:
+
+Change s[1] from 'S' to 'N', and s[4] from 'E' to 'W'. The string s becomes "NNWWWW".
+
+The maximum Manhattan distance from the origin that can be achieved is 6. Hence, 6 is the output.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/20
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumManhattanDistanceAfterKChanges</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxDistance</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// ans: stores the maximum Manhattan distance found so far</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// x, y: current coordinates on the infinite grid (starting from origin 0,0)</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Simulate the movement step by step</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+
+            <span class="c1">// Update current position based on the movement character</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'N'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">y</span><span class="o">++;</span>  <span class="c1">// Move north: increase y-coordinate</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'S'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">y</span><span class="o">--;</span>  <span class="c1">// Move south: decrease y-coordinate  </span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'E'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">x</span><span class="o">++;</span>  <span class="c1">// Move east: increase x-coordinate</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>  <span class="c1">// c == 'W'</span>
+                <span class="n">x</span><span class="o">--;</span>  <span class="c1">// Move west: decrease x-coordinate</span>
+            <span class="o">}</span>
+
+            <span class="cm">/*
+             * CRITICAL FORMULA EXPLANATION:
+             *
+             * Math.abs(x) + Math.abs(y) + k * 2:
+             * - This represents the THEORETICAL maximum distance we could achieve at this step
+             * - Math.abs(x) + Math.abs(y): current actual Manhattan distance from origin
+             * - k * 2: maximum additional distance we can gain through k character changes
+             *   (each change can add up to 2 units of distance)
+             *
+             * i + 1:
+             * - This represents the PHYSICAL maximum distance possible
+             * - Since we've taken (i+1) steps total, we cannot be more than (i+1) units away from origin
+             * - This is a fundamental physical constraint in any grid movement
+             *
+             * Math.min(theoretical_max, physical_max):
+             * - We take the minimum because both constraints must be satisfied
+             * - Even if we could theoretically reach distance 100 with our changes,
+             *   if we've only taken 5 steps, we can't be more than 5 units away
+             *
+             * Example walkthrough:
+             * s = "NWSE", k = 1, at step 3 (after "NWS"):
+             * - Current position: (-1, 0), current distance = 1
+             * - Theoretical max: 1 + 1*2 = 3 (current distance + max improvement from 1 change)
+             * - Physical max: 3 (we've taken 3 steps)
+             * - Actual max at this step: min(3, 3) = 3
+             */</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">+</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">y</span><span class="o">)</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="mi">2</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test Case 1: Basic example showing the greedy approach</span>
+        <span class="nc">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">"NWSE"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = \""</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">"\", k = "</span> <span class="o">+</span> <span class="n">k1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">maxDistance</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Explanation: At step 2, current distance=2, 2+2*1=4, but only walked 2 steps, so min(4,2)=2"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"             At step 3, current distance=1, 1+2*1=3, walked 3 steps, so min(3,3)=3"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="c1">// Test Case 2: More complex example with multiple changes</span>
+        <span class="nc">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">"NSWWEW"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: s = \""</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="s">"\", k = "</span> <span class="o">+</span> <span class="n">k2</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">maxDistance</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: 6"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Explanation: With 3 changes, we can potentially add up to 6 units of distance"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of the characters 'N', 'S', 'E', and 'W', where s[i] indicates movements in an infinite grid: 'N' : Move north by 1 unit. 'S' : Move south by 1 unit. 'E' : Move east by 1 unit. 'W' : Move west by 1 unit. Initially, you are at the origin (0, 0). You can change at most k characters to any of the four directions. Find the maximum Manhattan distance from the origin that can be achieved at any time while performing the movements in order. The Manhattan Distance between two cells (xi, yi) and (xj, yj) is |xi - xj| + |yi - yj|.]]></summary></entry><entry><title type="html">2294. Partition Array Such That Maximum Difference Is K</title><link href="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/" rel="alternate" type="text/html" title="2294. Partition Array Such That Maximum Difference Is K"/><published>2025-06-19T00:00:00+00:00</published><updated>2025-06-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You may partition <code class="language-plaintext highlighter-rouge">nums</code> into one or more <strong>subsequences</strong> such that each element in <code class="language-plaintext highlighter-rouge">nums</code> appears in <strong>exactly</strong> one of the subsequences.</li> <li>Return <em>the <strong>minimum</strong> number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code><em>.</em></li> <li>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,6,1,2,5], k = 2
 Output: 2
 Explanation:
 We can partition nums into the two subsequences [3,1,2] and [6,5].
@@ -696,113 +798,4 @@ The maximum difference is 3 - 2 = 1.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of lowercase English letters. Your task is to find the maximum difference diff=a1 - a2 between the frequency of characters a1 and a2 in the string such that: a1 has an odd frequency in the string. a2 has an even frequency in the string. Return this maximum difference.]]></summary></entry><entry><title type="html">2454. Next Greater Element IV</title><link href="https://zhengstar94.github.io//blog/2025/NextGreaterElementIV/" rel="alternate" type="text/html" title="2454. Next Greater Element IV"/><published>2025-06-10T00:00:00+00:00</published><updated>2025-06-10T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/NextGreaterElementIV</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/NextGreaterElementIV/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> array of non-negative integers <code class="language-plaintext highlighter-rouge">nums</code>. For each integer in <code class="language-plaintext highlighter-rouge">nums</code>, you must find its respective <strong>second greater</strong> integer.</li> <li>The <strong>second greater</strong> integer of <code class="language-plaintext highlighter-rouge">nums[i]</code> is <code class="language-plaintext highlighter-rouge">nums[j]</code> such that: <ul> <li><code class="language-plaintext highlighter-rouge">j &gt; i</code></li> <li><code class="language-plaintext highlighter-rouge">nums[j] &gt; nums[i]</code></li> <li>There exists <strong>exactly one</strong> index <code class="language-plaintext highlighter-rouge">k</code> such that <code class="language-plaintext highlighter-rouge">nums[k] &gt; nums[i]</code> and <code class="language-plaintext highlighter-rouge">i &lt; k &lt; j</code>.</li> </ul> </li> <li>If there is no such <code class="language-plaintext highlighter-rouge">nums[j]</code>, the second greater integer is considered to be <code class="language-plaintext highlighter-rouge">-1</code>. <ul> <li>For example, in the array <code class="language-plaintext highlighter-rouge">[1, 2, 4, 3]</code>, the second greater integer of <code class="language-plaintext highlighter-rouge">1</code> is <code class="language-plaintext highlighter-rouge">4</code>, <code class="language-plaintext highlighter-rouge">2</code> is <code class="language-plaintext highlighter-rouge">3</code>, and that of <code class="language-plaintext highlighter-rouge">3</code> and <code class="language-plaintext highlighter-rouge">4</code> is <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> </li> <li>Return <em>an integer array</em> <code class="language-plaintext highlighter-rouge">answer</code><em>, where</em> <code class="language-plaintext highlighter-rouge">answer[i]</code> <em>is the second greater integer of</em> <code class="language-plaintext highlighter-rouge">nums[i]</code><em>.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,4,0,9,6]
-Output: [9,6,6,-1,-1]
-Explanation:
-0th index: 4 is the first integer greater than 2, and 9 is the second integer greater than 2, to the right of 2.
-1st index: 9 is the first, and 6 is the second integer greater than 4, to the right of 4.
-2nd index: 9 is the first, and 6 is the second integer greater than 0, to the right of 0.
-3rd index: There is no integer greater than 9 to its right, so the second greater integer is considered to be -1.
-4th index: There is no integer greater than 6 to its right, so the second greater integer is considered to be -1.
-Thus, we return [9,6,6,-1,-1].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3]
-Output: [-1,-1]
-Explanation:
-We return [-1,-1] since neither integer has any integer greater than it.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/10
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NextGreaterElementIV</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">secondGreaterElement</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-
-        <span class="c1">// Initialize all positions to -1 (meaning no second greater element found yet)</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-
-        <span class="c1">// stack1: stores indices of elements that are still waiting to find their FIRST greater element</span>
-        <span class="c1">// These elements haven't found any greater element yet</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// stack2: stores indices of elements that have already found their FIRST greater element</span>
-        <span class="c1">// and are now waiting to find their SECOND greater element</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Process each element in the array from left to right</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-
-            <span class="c1">// STEP 1: Process stack2 - try to find the SECOND greater element</span>
-            <span class="c1">// For elements in stack2, they have already found their first greater element</span>
-            <span class="c1">// Now we check if current element nums[i] can be their second greater element</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">stack2</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">stack2</span><span class="o">.</span><span class="na">peek</span><span class="o">()]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">stack2</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>  <span class="c1">// Get the index from stack2</span>
-                <span class="n">result</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>   <span class="c1">// Current element is the SECOND greater element for nums[index]</span>
-                <span class="c1">// This index is now complete - it has found both first and second greater elements</span>
-            <span class="o">}</span>
-
-            <span class="c1">// STEP 2: Collect elements from stack1 that found their FIRST greater element</span>
-            <span class="c1">// We use a temporary list to store indices that will transition from stack1 to stack2</span>
-            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-            <span class="c1">// Process stack1 - try to find the FIRST greater element</span>
-            <span class="c1">// For elements in stack1, they haven't found any greater element yet</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">stack1</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">stack1</span><span class="o">.</span><span class="na">peek</span><span class="o">()]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Current element nums[i] is the FIRST greater element for nums[stack1.peek()]</span>
-                <span class="n">temp</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">stack1</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>  <span class="c1">// Remove from stack1 and add to temp</span>
-                <span class="c1">// These indices will now start looking for their SECOND greater element</span>
-            <span class="o">}</span>
-
-            <span class="c1">// STEP 3: STATE TRANSITION - Move elements from "looking for first" to "looking for second"</span>
-            <span class="c1">// Transfer the indices that just found their first greater element to stack2</span>
-            <span class="c1">// CRITICAL: We insert in REVERSE ORDER to maintain monotonic property of stack2</span>
-            <span class="c1">//</span>
-            <span class="c1">// Why reverse order?</span>
-            <span class="c1">// - Elements in temp are stored in the order they were popped from stack1 (larger elements first)</span>
-            <span class="c1">// - To maintain monotonic increasing order in stack2 (from bottom to top)</span>
-            <span class="c1">// - We need to reverse the insertion order</span>
-            <span class="c1">//</span>
-            <span class="c1">// Example: if temp = [idx_of_3, idx_of_2, idx_of_1] (popped in this order)</span>
-            <span class="c1">// After reverse insertion: stack2 = [idx_of_1, idx_of_2, idx_of_3] (bottom to top)</span>
-            <span class="c1">// This ensures stack2 maintains monotonic increasing property</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span><span class="o">--)</span> <span class="o">{</span>
-                <span class="n">stack2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">temp</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">));</span>
-            <span class="o">}</span>
-
-            <span class="c1">// STEP 4: Add current index to stack1</span>
-            <span class="c1">// Current element starts its journey by looking for its FIRST greater element</span>
-            <span class="n">stack1</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test Case 1: Basic example with mixed values</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">secondGreaterElement</span><span class="o">(</span><span class="n">nums1</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result1</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [9, 6, 6, -1, -1]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">result1</span><span class="o">,</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">})</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-
-        <span class="c1">// Test Case 2: All elements are equal</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">secondGreaterElement</span><span class="o">(</span><span class="n">nums2</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">result2</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Expected: [-1, -1]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">result2</span><span class="o">,</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">})</span> <span class="o">?</span> <span class="s">"PASS"</span> <span class="o">:</span> <span class="s">"FAIL"</span><span class="o">));</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Hard"/><summary type="html"><![CDATA[You are given a 0-indexed array of non-negative integers nums. For each integer in nums, you must find its respective second greater integer. The second greater integer of nums[i] is nums[j] such that: j &gt; i nums[j] &gt; nums[i] There exists exactly one index k such that nums[k] &gt; nums[i] and i &lt; k &lt; j. If there is no such nums[j], the second greater integer is considered to be -1. For example, in the array [1, 2, 4, 3], the second greater integer of 1 is 4, 2 is 3, and that of 3 and 4 is -1. Return an integer array answer, where answer[i] is the second greater integer of nums[i].]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of lowercase English letters. Your task is to find the maximum difference diff=a1 - a2 between the frequency of characters a1 and a2 in the string such that: a1 has an odd frequency in the string. a2 has an even frequency in the string. Return this maximum difference.]]></summary></entry></feed>
