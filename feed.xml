@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-22T07:09:22+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2138. Divide a String Into Groups of Size k</title><link href="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/" rel="alternate" type="text/html" title="2138. Divide a String Into Groups of Size k"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/"><![CDATA[<ul> <li>A string <code class="language-plaintext highlighter-rouge">s</code> can be partitioned into groups of size <code class="language-plaintext highlighter-rouge">k</code> using the following procedure: <ul> <li>The first group consists of the first <code class="language-plaintext highlighter-rouge">k</code> characters of the string, the second group consists of the next <code class="language-plaintext highlighter-rouge">k</code> characters of the string, and so on. Each element can be a part of <strong>exactly one</strong> group.</li> <li>For the last group, if the string <strong>does not</strong> have <code class="language-plaintext highlighter-rouge">k</code> characters remaining, a character <code class="language-plaintext highlighter-rouge">fill</code> is used to complete the group.</li> </ul> </li> <li>Note that the partition is done so that after removing the <code class="language-plaintext highlighter-rouge">fill</code> character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Given the string <code class="language-plaintext highlighter-rouge">s</code>, the size of each group <code class="language-plaintext highlighter-rouge">k</code> and the character <code class="language-plaintext highlighter-rouge">fill</code>, return <em>a string array denoting the <strong>composition of every group</strong></em> <code class="language-plaintext highlighter-rouge">s</code> <em>has been divided into, using the above procedure</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefghi", k = 3, fill = "x"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-22T07:37:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2138. Divide a String Into Groups of Size k</title><link href="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/" rel="alternate" type="text/html" title="2138. Divide a String Into Groups of Size k"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/"><![CDATA[<ul> <li>A string <code class="language-plaintext highlighter-rouge">s</code> can be partitioned into groups of size <code class="language-plaintext highlighter-rouge">k</code> using the following procedure: <ul> <li>The first group consists of the first <code class="language-plaintext highlighter-rouge">k</code> characters of the string, the second group consists of the next <code class="language-plaintext highlighter-rouge">k</code> characters of the string, and so on. Each element can be a part of <strong>exactly one</strong> group.</li> <li>For the last group, if the string <strong>does not</strong> have <code class="language-plaintext highlighter-rouge">k</code> characters remaining, a character <code class="language-plaintext highlighter-rouge">fill</code> is used to complete the group.</li> </ul> </li> <li>Note that the partition is done so that after removing the <code class="language-plaintext highlighter-rouge">fill</code> character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Given the string <code class="language-plaintext highlighter-rouge">s</code>, the size of each group <code class="language-plaintext highlighter-rouge">k</code> and the character <code class="language-plaintext highlighter-rouge">fill</code>, return <em>a string array denoting the <strong>composition of every group</strong></em> <code class="language-plaintext highlighter-rouge">s</code> <em>has been divided into, using the above procedure</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefghi", k = 3, fill = "x"
 Output: ["abc","def","ghi"]
 Explanation:
 The first 3 characters "abc" form the first group.
@@ -131,7 +131,80 @@ Output: [2,3,3,4]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums and a positive integer k, return the most competitive subsequence of nums of size k. An array’s subsequence is a resulting sequence obtained by erasing some (possibly zero) elements from the array. We define that a subsequence a is more competitive than a subsequence b (of the same length) if in the first position where a and b differ, subsequence a has a number less than the corresponding number in b. For example, [1,3,4] is more competitive than [1,3,5] because the first position they differ is at the final number, and 4 is less than 5.]]></summary></entry><entry><title type="html">3085. Minimum Deletions to Make String K-Special</title><link href="https://zhengstar94.github.io//blog/2025/MinimumDeletionsToMakeStringKSpecial/" rel="alternate" type="text/html" title="3085. Minimum Deletions to Make String K-Special"/><published>2025-06-21T00:00:00+00:00</published><updated>2025-06-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumDeletionsToMakeStringKSpecial</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumDeletionsToMakeStringKSpecial/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">word</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>We consider <code class="language-plaintext highlighter-rouge">word</code> to be <strong>k-special</strong> if <code class="language-plaintext highlighter-rouge">|freq(word[i]) - freq(word[j])| &lt;= k</code> for all indices <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> in the string.</li> <li>Here, <code class="language-plaintext highlighter-rouge">freq(x)</code> denotes the frequency of the character <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">word</code>, and <code class="language-plaintext highlighter-rouge">|y|</code> denotes the absolute value of <code class="language-plaintext highlighter-rouge">y</code>.</li> <li>Return <em>the <strong>minimum</strong> number of characters you need to delete to make</em> <code class="language-plaintext highlighter-rouge">word</code> <strong>*k-special*</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "aabcaba", k = 0
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums and a positive integer k, return the most competitive subsequence of nums of size k. An array’s subsequence is a resulting sequence obtained by erasing some (possibly zero) elements from the array. We define that a subsequence a is more competitive than a subsequence b (of the same length) if in the first position where a and b differ, subsequence a has a number less than the corresponding number in b. For example, [1,3,4] is more competitive than [1,3,5] because the first position they differ is at the final number, and 4 is less than 5.]]></summary></entry><entry><title type="html">316. Remove Duplicate Letters</title><link href="https://zhengstar94.github.io//blog/2025/RemoveDuplicateLetters/" rel="alternate" type="text/html" title="316. Remove Duplicate Letters"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveDuplicateLetters</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveDuplicateLetters/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, remove duplicate letters so that every letter appears once and only once. You must make sure your result is <strong>the smallest in lexicographical order</strong> among all possible results.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bcabc"
+Output: "abc"
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbacdcbc"
+Output: "acdb"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/22
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveDuplicateLetters</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">removeDuplicateLetters</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span> <span class="c1">// Array to count the remaining occurrences of each character.</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">inStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span> <span class="c1">// Flags to indicate if a character is already in the stack.</span>
+
+        <span class="c1">// First pass: count the occurrences of each character in the string.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span> <span class="c1">// Monotonic stack to build the result.</span>
+
+        <span class="c1">// Iterate through each character in the string.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span> <span class="c1">// Decrement the count for this character, as it's now being processed.</span>
+
+            <span class="c1">// If the character is already in the stack, skip it to avoid duplicates.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">inStack</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="cm">/**
+             * While the stack is not empty, and the current character is lexicographically
+             * smaller than the character at the top of the stack, and the character at the
+             * top of the stack will appear again later (count &gt; 0):
+             *   - Pop the top character from the stack.
+             *   - Mark it as not in the stack.
+             * This ensures that:
+             *   1. The result remains lexicographically smallest by removing bigger letters
+             *      that can still be placed later.
+             *   2. Each letter appears only once in the result.
+             */</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span>
+                    <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">stack</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span>
+                    <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">char</span> <span class="n">removed</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">removeLast</span><span class="o">();</span> <span class="c1">// Remove the top character from the stack.</span>
+                <span class="n">inStack</span><span class="o">[</span><span class="n">removed</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>    <span class="c1">// Mark the removed character as not in the stack.</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add the current character to the stack and mark it as present.</span>
+            <span class="n">stack</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+            <span class="n">inStack</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Build the final result string from the characters in the stack.</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeDuplicateLetters</span><span class="o">(</span><span class="s">"bcabc"</span><span class="o">));</span>      <span class="c1">// Output: "abc"</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeDuplicateLetters</span><span class="o">(</span><span class="s">"cbacdcbc"</span><span class="o">));</span>   <span class="c1">// Output: "acdb"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.]]></summary></entry><entry><title type="html">3085. Minimum Deletions to Make String K-Special</title><link href="https://zhengstar94.github.io//blog/2025/MinimumDeletionsToMakeStringKSpecial/" rel="alternate" type="text/html" title="3085. Minimum Deletions to Make String K-Special"/><published>2025-06-21T00:00:00+00:00</published><updated>2025-06-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumDeletionsToMakeStringKSpecial</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumDeletionsToMakeStringKSpecial/"><![CDATA[<ul> <li>You are given a string <code class="language-plaintext highlighter-rouge">word</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>We consider <code class="language-plaintext highlighter-rouge">word</code> to be <strong>k-special</strong> if <code class="language-plaintext highlighter-rouge">|freq(word[i]) - freq(word[j])| &lt;= k</code> for all indices <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> in the string.</li> <li>Here, <code class="language-plaintext highlighter-rouge">freq(x)</code> denotes the frequency of the character <code class="language-plaintext highlighter-rouge">x</code> in <code class="language-plaintext highlighter-rouge">word</code>, and <code class="language-plaintext highlighter-rouge">|y|</code> denotes the absolute value of <code class="language-plaintext highlighter-rouge">y</code>.</li> <li>Return <em>the <strong>minimum</strong> number of characters you need to delete to make</em> <code class="language-plaintext highlighter-rouge">word</code> <strong>*k-special*</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "aabcaba", k = 0
 
 Output: 3
 
@@ -685,100 +758,4 @@ Thus, we return 99.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer num. You know that Bob will sneakily remap one of the 10 possible digits (0 to 9) to another digit. Return the difference between the maximum and minimum values Bob can make by remapping exactly one digit in num. Notes: When Bob remaps a digit d1 to another digit d2, Bob replaces all occurrences of d1 in num with d2. Bob can remap a digit to itself, in which case num does not change. Bob can remap different digits for obtaining minimum and maximum values respectively. The resulting number after remapping can contain leading zeroes.]]></summary></entry><entry><title type="html">3542. Minimum Operations to Convert All Elements to Zero</title><link href="https://zhengstar94.github.io//blog/2025/MinimumOperationsToConvertAllElementsToZero/" rel="alternate" type="text/html" title="3542. Minimum Operations to Convert All Elements to Zero"/><published>2025-06-14T00:00:00+00:00</published><updated>2025-06-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MinimumOperationsToConvertAllElementsToZero</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MinimumOperationsToConvertAllElementsToZero/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, consisting of <strong>non-negative</strong> integers. Your task is to apply some (possibly zero) operations on the array so that <strong>all</strong> elements become 0.</li> <li>In one operation, you can select a subarray <code class="language-plaintext highlighter-rouge">[i, j]</code> (where <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt;= j &lt; n</code>) and set all occurrences of the <strong>minimum</strong> <strong>non-negative</strong> integer in that subarray to 0.</li> <li>Return the <strong>minimum</strong> number of operations required to make all elements in the array 0.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,2]
-
-Output: 1
-
-Explanation:
-
-Select the subarray [1,1] (which is [2]), where the minimum non-negative integer is 2. Setting all occurrences of 2 to 0 results in [0,0].
-Thus, the minimum number of operations required is 1.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,1,2,1]
-
-Output: 3
-
-Explanation:
-
-Select subarray [1,3] (which is [1,2,1]), where the minimum non-negative integer is 1. Setting all occurrences of 1 to 0 results in [3,0,2,0].
-Select subarray [2,2] (which is [2]), where the minimum non-negative integer is 2. Setting all occurrences of 2 to 0 results in [3,0,0,0].
-Select subarray [0,0] (which is [3]), where the minimum non-negative integer is 3. Setting all occurrences of 3 to 0 results in [0,0,0,0].
-Thus, the minimum number of operations required is 3.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,1,2,1,2]
-
-Output: 4
-
-Explanation:
-
-Select subarray [0,5] (which is [1,2,1,2,1,2]), where the minimum non-negative integer is 1. Setting all occurrences of 1 to 0 results in [0,2,0,2,0,2].
-Select subarray [1,1] (which is [2]), where the minimum non-negative integer is 2. Setting all occurrences of 2 to 0 results in [0,0,0,2,0,2].
-Select subarray [3,3] (which is [2]), where the minimum non-negative integer is 2. Setting all occurrences of 2 to 0 results in [0,0,0,0,0,2].
-Select subarray [5,5] (which is [2]), where the minimum non-negative integer is 2. Setting all occurrences of 2 to 0 results in [0,0,0,0,0,0].
-Thus, the minimum number of operations required is 4.
-
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/14
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MinimumOperationsToConvertAllElementsToZero</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minOperations</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// This variable counts the minimum number of operations needed.</span>
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
-        <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">// Sentinel value to simplify boundary conditions.</span>
-
-        <span class="c1">// Iterate through each number in the input array.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If the current number is less than the top of the stack,</span>
-            <span class="c1">// pop elements from the stack until the top is less than or equal to the current number.</span>
-            <span class="c1">// This ensures the stack is always non-decreasing.</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-            <span class="o">}</span>
-            <span class="c1">// If the current number is greater than the top of the stack,</span>
-            <span class="c1">// it means we've found a new "increasing segment" (a new value that hasn't been zeroed yet).</span>
-            <span class="c1">// We need one more operation for this new segment.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">ans</span><span class="o">++;</span>         <span class="c1">// Increment the operation count.</span>
-                <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">num</span><span class="o">);</span> <span class="c1">// Push the current number onto the stack as a new segment.</span>
-            <span class="o">}</span>
-            <span class="c1">// If the current number is equal to the top of the stack,</span>
-            <span class="c1">// it means this value has already been considered, so we do nothing.</span>
-        <span class="o">}</span>
-        <span class="c1">// After processing all elements, 'ans' holds the minimum number of operations needed.</span>
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Simple case with a zero and a non-zero value.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: [0,2]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Expected: 1</span>
-
-        <span class="c1">// Test case 2: Array with multiple values and repeated minimums.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: [3,1,2,1]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Expected: 3</span>
-
-        <span class="c1">// Test case 3: Alternating values, requiring multiple operations.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: [1,2,1,2,1,2]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
-
-        <span class="c1">// Edge case: All elements are already zero.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: [0,0,0]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Expected: 0</span>
-
-        <span class="c1">// Edge case: Strictly increasing array.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums5</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: [1,2,3,4]"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minOperations</span><span class="o">(</span><span class="n">nums5</span><span class="o">));</span> <span class="c1">// Expected: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums of size n, consisting of non-negative integers. Your task is to apply some (possibly zero) operations on the array so that all elements become 0. In one operation, you can select a subarray [i, j] (where 0 &lt;= i &lt;= j &lt; n) and set all occurrences of the minimum non-negative integer in that subarray to 0. Return the minimum number of operations required to make all elements in the array 0.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer num. You know that Bob will sneakily remap one of the 10 possible digits (0 to 9) to another digit. Return the difference between the maximum and minimum values Bob can make by remapping exactly one digit in num. Notes: When Bob remaps a digit d1 to another digit d2, Bob replaces all occurrences of d1 in num with d2. Bob can remap a digit to itself, in which case num does not change. Bob can remap different digits for obtaining minimum and maximum values respectively. The resulting number after remapping can contain leading zeroes.]]></summary></entry></feed>
