@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-22T07:37:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2138. Divide a String Into Groups of Size k</title><link href="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/" rel="alternate" type="text/html" title="2138. Divide a String Into Groups of Size k"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/"><![CDATA[<ul> <li>A string <code class="language-plaintext highlighter-rouge">s</code> can be partitioned into groups of size <code class="language-plaintext highlighter-rouge">k</code> using the following procedure: <ul> <li>The first group consists of the first <code class="language-plaintext highlighter-rouge">k</code> characters of the string, the second group consists of the next <code class="language-plaintext highlighter-rouge">k</code> characters of the string, and so on. Each element can be a part of <strong>exactly one</strong> group.</li> <li>For the last group, if the string <strong>does not</strong> have <code class="language-plaintext highlighter-rouge">k</code> characters remaining, a character <code class="language-plaintext highlighter-rouge">fill</code> is used to complete the group.</li> </ul> </li> <li>Note that the partition is done so that after removing the <code class="language-plaintext highlighter-rouge">fill</code> character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Given the string <code class="language-plaintext highlighter-rouge">s</code>, the size of each group <code class="language-plaintext highlighter-rouge">k</code> and the character <code class="language-plaintext highlighter-rouge">fill</code>, return <em>a string array denoting the <strong>composition of every group</strong></em> <code class="language-plaintext highlighter-rouge">s</code> <em>has been divided into, using the above procedure</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefghi", k = 3, fill = "x"
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-23T02:49:29+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1081. Smallest Subsequence of Distinct Characters</title><link href="https://zhengstar94.github.io//blog/2025/SmallestSubsequenceOfDistinctCharacters/" rel="alternate" type="text/html" title="1081. Smallest Subsequence of Distinct Characters"/><published>2025-06-23T00:00:00+00:00</published><updated>2025-06-23T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/SmallestSubsequenceOfDistinctCharacters</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/SmallestSubsequenceOfDistinctCharacters/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, return <em>the</em> <em>lexicographically smallest</em> <em>subsequence</em> <em>of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>that contains all the distinct characters of</em> <code class="language-plaintext highlighter-rouge">s</code> <em>exactly once</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bcabc"
+Output: "abc"
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbacdcbc"
+Output: "acdb"
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/23
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SmallestSubsequenceOfDistinctCharacters</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">smallestSubsequence</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Array to count the remaining occurrences of each character in the string.</span>
+        <span class="c1">// We use 128 to cover all ASCII characters.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">128</span><span class="o">];</span>
+
+        <span class="c1">// Boolean array to record whether a character is already in the stack (result).</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">128</span><span class="o">];</span>
+
+        <span class="c1">// First pass: count the occurrences of each character in the string.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()){</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">c</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Stack to build the result subsequence.</span>
+        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Iterate through each character in the string.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// Decrement the count since we are now visiting this character.</span>
+            <span class="n">count</span><span class="o">[</span><span class="n">c</span><span class="o">]--;</span>
+
+            <span class="c1">// If the character is already in the stack, skip it to ensure uniqueness.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">visited</span><span class="o">[</span><span class="n">c</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// This loop ensures the lexicographical order is minimal:</span>
+            <span class="c1">// - While the stack is not empty,</span>
+            <span class="c1">// - and the current character is smaller than the character at the top of the stack,</span>
+            <span class="c1">// - and the character at the top of the stack will appear again later (count &gt; 0),</span>
+            <span class="c1">// we can safely remove the top character to get a smaller lexicographical order.</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">stack</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Mark the removed character as not visited so it can be added again later.</span>
+                <span class="n">visited</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">pollLast</span><span class="o">()]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Add the current character to the stack and mark it as visited.</span>
+            <span class="n">stack</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+            <span class="n">visited</span><span class="o">[</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Build the final result from the stack.</span>
+        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="o">{</span><span class="s">"bcabc"</span><span class="o">,</span> <span class="s">"cbacdcbc"</span><span class="o">};</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">testCases</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">smallestSubsequence</span><span class="o">(</span><span class="n">s</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, return the lexicographically smallest subsequence of s that contains all the distinct characters of s exactly once.]]></summary></entry><entry><title type="html">2138. Divide a String Into Groups of Size k</title><link href="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/" rel="alternate" type="text/html" title="2138. Divide a String Into Groups of Size k"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/DivideAStringIntoGroupsOfSizek/"><![CDATA[<ul> <li>A string <code class="language-plaintext highlighter-rouge">s</code> can be partitioned into groups of size <code class="language-plaintext highlighter-rouge">k</code> using the following procedure: <ul> <li>The first group consists of the first <code class="language-plaintext highlighter-rouge">k</code> characters of the string, the second group consists of the next <code class="language-plaintext highlighter-rouge">k</code> characters of the string, and so on. Each element can be a part of <strong>exactly one</strong> group.</li> <li>For the last group, if the string <strong>does not</strong> have <code class="language-plaintext highlighter-rouge">k</code> characters remaining, a character <code class="language-plaintext highlighter-rouge">fill</code> is used to complete the group.</li> </ul> </li> <li>Note that the partition is done so that after removing the <code class="language-plaintext highlighter-rouge">fill</code> character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be <code class="language-plaintext highlighter-rouge">s</code>.</li> <li>Given the string <code class="language-plaintext highlighter-rouge">s</code>, the size of each group <code class="language-plaintext highlighter-rouge">k</code> and the character <code class="language-plaintext highlighter-rouge">fill</code>, return <em>a string array denoting the <strong>composition of every group</strong></em> <code class="language-plaintext highlighter-rouge">s</code> <em>has been divided into, using the above procedure</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "abcdefghi", k = 3, fill = "x"
 Output: ["abc","def","ghi"]
 Explanation:
 The first 3 characters "abc" form the first group.
@@ -699,63 +773,4 @@ We have now a = 9 and b = 1 and max difference = 8
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer num. You will apply the following steps to num two separate times: Pick a digit x (0 &lt;= x &lt;= 9). Pick another digit y (0 &lt;= y &lt;= 9). Note y can be equal to x. Replace all the occurrences of x in the decimal representation of num by y. Let a and b be the two results from applying the operation to num independently. Return the max difference between a and b. Note that neither a nor b may have any leading zeros, and must not be 0.]]></summary></entry><entry><title type="html">2566. Maximum Difference by Remapping a Digit</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceByRemappingADigit/" rel="alternate" type="text/html" title="2566. Maximum Difference by Remapping a Digit"/><published>2025-06-14T00:00:00+00:00</published><updated>2025-06-14T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceByRemappingADigit</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceByRemappingADigit/"><![CDATA[<ul> <li>You are given an integer <code class="language-plaintext highlighter-rouge">num</code>. You know that Bob will sneakily <strong>remap</strong> one of the <code class="language-plaintext highlighter-rouge">10</code> possible digits (<code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">9</code>) to another digit.</li> <li>Return <em>the difference between the maximum and minimum values Bob can make by remapping <strong>exactly</strong> <strong>one</strong> digit in</em> <code class="language-plaintext highlighter-rouge">num</code>.</li> <li><strong>Notes:</strong> <ul> <li>When Bob remaps a digit d1 to another digit d2, Bob replaces all occurrences of <code class="language-plaintext highlighter-rouge">d1</code> in <code class="language-plaintext highlighter-rouge">num</code> with <code class="language-plaintext highlighter-rouge">d2</code>.</li> <li>Bob can remap a digit to itself, in which case <code class="language-plaintext highlighter-rouge">num</code> does not change.</li> <li>Bob can remap different digits for obtaining minimum and maximum values respectively.</li> <li>The resulting number after remapping can contain leading zeroes.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = 11891
-Output: 99009
-Explanation: 
-To achieve the maximum value, Bob can remap the digit 1 to the digit 9 to yield 99899.
-To achieve the minimum value, Bob can remap the digit 1 to the digit 0, yielding 890.
-The difference between these two numbers is 99009.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: num = 90
-Output: 99
-Explanation:
-The maximum value that can be returned by the function is 99 (if 0 is replaced by 9) and the minimum value that can be returned by the function is 0 (if 9 is replaced by 0).
-Thus, we return 99.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/14
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumDifferenceByRemappingADigit</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">minMaxDifference</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Convert the input number to a string for easier manipulation.</span>
-        <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-        <span class="c1">// Create a copy of the original string to manipulate for the minimum number.</span>
-        <span class="nc">String</span> <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
-
-        <span class="c1">// Initialize a position variable to find the first non-'9' digit.</span>
-        <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Loop through the string until we find a digit that is not '9'.</span>
-        <span class="k">while</span> <span class="o">(</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">pos</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'9'</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">pos</span><span class="o">++;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// If we found a non-'9' digit, replace it with '9' in the string 's'.</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">pos</span><span class="o">),</span> <span class="sc">'9'</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Replace the first character of 't' with '0' to form the minimum number.</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="sc">'0'</span><span class="o">);</span>
-
-        <span class="c1">// Parse the modified strings back to integers and return their difference.</span>
-        <span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">-</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases to validate the functionality of the minMaxDifference method.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test Case 1:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: 11891"</span><span class="o">);</span>
-        <span class="c1">// Expected output: 99009 (by replacing '1' with '9' for max and '1' with '0' for min)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minMaxDifference</span><span class="o">(</span><span class="mi">11891</span><span class="o">));</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nTest Case 2:"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Input: 90"</span><span class="o">);</span>
-        <span class="c1">// Expected output: 99 (by replacing '0' with '9' for max and '9' with '0' for min)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">minMaxDifference</span><span class="o">(</span><span class="mi">90</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer num. You know that Bob will sneakily remap one of the 10 possible digits (0 to 9) to another digit. Return the difference between the maximum and minimum values Bob can make by remapping exactly one digit in num. Notes: When Bob remaps a digit d1 to another digit d2, Bob replaces all occurrences of d1 in num with d2. Bob can remap a digit to itself, in which case num does not change. Bob can remap different digits for obtaining minimum and maximum values respectively. The resulting number after remapping can contain leading zeroes.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer num. You will apply the following steps to num two separate times: Pick a digit x (0 &lt;= x &lt;= 9). Pick another digit y (0 &lt;= y &lt;= 9). Note y can be equal to x. Replace all the occurrences of x in the decimal representation of num by y. Let a and b be the two results from applying the operation to num independently. Return the max difference between a and b. Note that neither a nor b may have any leading zeros, and must not be 0.]]></summary></entry></feed>
