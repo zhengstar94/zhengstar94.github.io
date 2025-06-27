@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-26T03:20:31+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">695. Max Area of Island</title><link href="https://zhengstar94.github.io//blog/2025/MaxAreaOfIsland/" rel="alternate" type="text/html" title="695. Max Area of Island"/><published>2025-06-26T00:00:00+00:00</published><updated>2025-06-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaxAreaOfIsland</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaxAreaOfIsland/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">m x n</code> binary matrix <code class="language-plaintext highlighter-rouge">grid</code>. An island is a group of <code class="language-plaintext highlighter-rouge">1</code>’s (representing land) connected <strong>4-directionally</strong> (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</li> <li>The <strong>area</strong> of an island is the number of cells with a value <code class="language-plaintext highlighter-rouge">1</code> in the island.</li> <li>Return <em>the maximum <strong>area</strong> of an island in</em> <code class="language-plaintext highlighter-rouge">grid</code>. If there is no island, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-27T04:46:39+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">463. Island Perimeter</title><link href="https://zhengstar94.github.io//blog/2025/IslandPerimeter/" rel="alternate" type="text/html" title="463. Island Perimeter"/><published>2025-06-27T00:00:00+00:00</published><updated>2025-06-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IslandPerimeter</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IslandPerimeter/"><![CDATA[<ul> <li>You are given <code class="language-plaintext highlighter-rouge">row x col</code> <code class="language-plaintext highlighter-rouge">grid</code> representing a map where <code class="language-plaintext highlighter-rouge">grid[i][j] = 1</code> represents land and <code class="language-plaintext highlighter-rouge">grid[i][j] = 0</code> represents water.</li> <li>Grid cells are connected <strong>horizontally/vertically</strong> (not diagonally). The <code class="language-plaintext highlighter-rouge">grid</code> is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).</li> <li>The island doesn’t have “lakes”, meaning the water inside isn’t connected to the water around the island. One cell is a square with side length 1. The grid is rectangular, width and height don’t exceed 100. Determine the perimeter of the island.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0 ] ]
+Output: 16
+Explanation: The perimeter is the 16 yellow stripes in the image above.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1 ] ]
+Output: 4
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0 ] ]
+Output: 4
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/27
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandPerimeter</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">islandPerimeter</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>        <span class="c1">// Number of rows in the grid</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>     <span class="c1">// Number of columns in the grid</span>
+        <span class="kt">int</span> <span class="n">perimeter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Variable to store the total perimeter</span>
+
+        <span class="c1">// Traverse each cell in the grid</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="c1">// If the current cell is land</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+                    <span class="c1">// Each land cell initially contributes 4 to the perimeter</span>
+                    <span class="n">perimeter</span> <span class="o">+=</span> <span class="mi">4</span><span class="o">;</span>
+
+                    <span class="c1">// If the cell above (i-1, j) is also land,</span>
+                    <span class="c1">// it means the current cell shares a border with the upper cell.</span>
+                    <span class="c1">// Each shared border should be subtracted twice (once for each cell),</span>
+                    <span class="c1">// so we subtract 2 from the perimeter.</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">grid</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+                        <span class="n">perimeter</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">;</span>
+                    <span class="o">}</span>
+
+                    <span class="c1">// If the cell to the left (i, j-1) is also land,</span>
+                    <span class="c1">// it means the current cell shares a border with the left cell.</span>
+                    <span class="c1">// Again, subtract 2 for the shared border.</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">perimeter</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total calculated perimeter</span>
+        <span class="k">return</span> <span class="n">perimeter</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Example from the problem description</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">islandPerimeter</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Output: 16</span>
+
+        <span class="c1">// Test case 2: Single land cell</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">islandPerimeter</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Output: 4</span>
+
+        <span class="c1">// Test case 3: Two land cells in a row</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">islandPerimeter</span><span class="o">(</span><span class="n">grid3</span><span class="o">));</span> <span class="c1">// Output: 4</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><category term="Easy"/><summary type="html"><![CDATA[You are given row x col grid representing a map where grid[i][j] = 1 represents land and grid[i][j] = 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn’t have “lakes”, meaning the water inside isn’t connected to the water around the island. One cell is a square with side length 1. The grid is rectangular, width and height don’t exceed 100. Determine the perimeter of the island.]]></summary></entry><entry><title type="html">695. Max Area of Island</title><link href="https://zhengstar94.github.io//blog/2025/MaxAreaOfIsland/" rel="alternate" type="text/html" title="695. Max Area of Island"/><published>2025-06-26T00:00:00+00:00</published><updated>2025-06-26T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaxAreaOfIsland</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaxAreaOfIsland/"><![CDATA[<ul> <li>You are given an <code class="language-plaintext highlighter-rouge">m x n</code> binary matrix <code class="language-plaintext highlighter-rouge">grid</code>. An island is a group of <code class="language-plaintext highlighter-rouge">1</code>’s (representing land) connected <strong>4-directionally</strong> (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</li> <li>The <strong>area</strong> of an island is the number of cells with a value <code class="language-plaintext highlighter-rouge">1</code> in the island.</li> <li>Return <em>the maximum <strong>area</strong> of an island in</em> <code class="language-plaintext highlighter-rouge">grid</code>. If there is no island, return <code class="language-plaintext highlighter-rouge">0</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0 ] ]
 Output: 6
 Explanation: The answer is not 11, because the island must be connected 4-directionally.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,0,0,0,0,0,0,0 ] ]
@@ -699,70 +774,4 @@ The difference between any two elements in each array is less than or equal to 1
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of size n where n is a multiple of 3 and a positive integer k. Divide the array nums into n / 3 arrays of size 3 satisfying the following condition: The difference between any two elements in one array is less than or equal to k. Return a 2D array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return any of them.]]></summary></entry><entry><title type="html">2016. Maximum Difference Between Increasing Elements</title><link href="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements/" rel="alternate" type="text/html" title="2016. Maximum Difference Between Increasing Elements"/><published>2025-06-16T00:00:00+00:00</published><updated>2025-06-16T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumDifferenceBetweenIncreasingElements/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>, find the <strong>maximum difference</strong> between <code class="language-plaintext highlighter-rouge">nums[i]</code> and <code class="language-plaintext highlighter-rouge">nums[j]</code> (i.e., <code class="language-plaintext highlighter-rouge">nums[j] - nums[i]</code>), such that <code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; n</code> and <code class="language-plaintext highlighter-rouge">nums[i] &lt; nums[j]</code>.</li> <li>Return <em>the <strong>maximum difference</strong>.</em> If no such <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> exists, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [7,1,5,4]
-Output: 4
-Explanation:
-The maximum difference occurs with i = 1 and j = 2, nums[j] - nums[i] = 5 - 1 = 4.
-Note that with i = 1 and j = 0, the difference nums[j] - nums[i] = 7 - 1 = 6, but i &gt; j, so it is not valid.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [9,4,3,2]
-Output: -1
-Explanation:
-There is no i and j such that i &lt; j and nums[i] &lt; nums[j].
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,5,2,10]
-Output: 9
-Explanation:
-The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 = 9.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/16
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumDifferenceBetweenIncreasingElements</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maximumDifference</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize minVal to the first element.</span>
-        <span class="c1">// This variable keeps track of the smallest value seen so far as we iterate.</span>
-        <span class="kt">int</span> <span class="n">minVal</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-
-        <span class="c1">// Initialize maxDiff to -1.</span>
-        <span class="c1">// This will store the maximum difference found that satisfies the condition.</span>
-        <span class="kt">int</span> <span class="n">maxDiff</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Start iterating from the second element (index 1) to the end of the array.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If the current element is greater than the minimum value seen so far,</span>
-            <span class="c1">// it means nums[i] can be nums[j] and minVal can be nums[i] for some i &lt; j.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">minVal</span><span class="o">){</span>
-                <span class="c1">// Calculate the difference and update maxDiff if this difference is larger.</span>
-                <span class="n">maxDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxDiff</span><span class="o">,</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">minVal</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If the current element is less than or equal to minVal,</span>
-                <span class="c1">// update minVal to the current element.</span>
-                <span class="c1">// This ensures minVal always holds the smallest value up to the current index.</span>
-                <span class="n">minVal</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// After the loop, return the maximum difference found.</span>
-        <span class="c1">// If no valid pair was found, maxDiff remains -1.</span>
-        <span class="k">return</span> <span class="n">maxDiff</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Expected output is 4</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 1 result: "</span> <span class="o">+</span> <span class="n">maximumDifference</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Expected output is -1 (no valid pair exists)</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 2 result: "</span> <span class="o">+</span> <span class="n">maximumDifference</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: Expected output is 9</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test case 3 result: "</span> <span class="o">+</span> <span class="n">maximumDifference</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[Given a 0-indexed integer array nums of size n, find the maximum difference between nums[i] and nums[j] (i.e., nums[j] - nums[i]), such that 0 &lt;= i &lt; j &lt; n and nums[i] &lt; nums[j]. Return the maximum difference. If no such i and j exists, return -1.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of size n where n is a multiple of 3 and a positive integer k. Divide the array nums into n / 3 arrays of size 3 satisfying the following condition: The difference between any two elements in one array is less than or equal to k. Return a 2D array containing the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return any of them.]]></summary></entry></feed>
