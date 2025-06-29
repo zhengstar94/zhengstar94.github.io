@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-28T07:01:48+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2099. Find Subsequence of Length K With the Largest Sum</title><link href="https://zhengstar94.github.io//blog/2025/FindSubsequenceOfLengthKWithTheLargestSum/" rel="alternate" type="text/html" title="2099. Find Subsequence of Length K With the Largest Sum"/><published>2025-06-28T00:00:00+00:00</published><updated>2025-06-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindSubsequenceOfLengthKWithTheLargestSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindSubsequenceOfLengthKWithTheLargestSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You want to find a <strong>subsequence</strong> of <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">k</code> that has the <strong>largest</strong> sum.</li> <li>Return <em><strong>any</strong> such subsequence as an integer array of length</em> <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,3,3], k = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-29T03:10:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2684. Maximum Number of Moves in a Grid</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/" rel="alternate" type="text/html" title="2684. Maximum Number of Moves in a Grid"/><published>2025-06-29T00:00:00+00:00</published><updated>2025-06-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">grid</code> consisting of <strong>positive</strong> integers.</li> <li>You can start at <strong>any</strong> cell in the first column of the matrix, and traverse the grid in the following way: <ul> <li>From a cell <code class="language-plaintext highlighter-rouge">(row, col)</code>, you can move to any of the cells: <code class="language-plaintext highlighter-rouge">(row - 1, col + 1)</code>, <code class="language-plaintext highlighter-rouge">(row, col + 1)</code> and <code class="language-plaintext highlighter-rouge">(row + 1, col + 1)</code> such that the value of the cell you move to, should be <strong>strictly</strong> bigger than the value of the current cell.</li> </ul> </li> <li>Return <em>the <strong>maximum</strong> number of <strong>moves</strong> that you can perform.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 2,4,3,5],[5,4,9,3],[3,4,2,11],[10,9,13,15 ] ]
+Output: 3
+Explanation: We can start at the cell (0, 0) and make the following moves:
+- (0, 0) -&gt; (0, 1).
+- (0, 1) -&gt; (1, 2).
+- (1, 2) -&gt; (2, 3).
+It can be shown that it is the maximum number of moves that can be made.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 3,2,4],[2,1,9],[1,1,7 ] ]
+Output: 0
+Explanation: Starting from any cell in the first column we cannot perform any moves.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/29
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfMovesInAGrid</span> <span class="o">{</span>
+   
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxMoves</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the number of rows (m) and columns (n) in the grid</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// Create a memoization array to store the maximum moves from each cell</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">memo</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+        <span class="c1">// Initialize the memo array with -1, meaning no cell has been computed yet</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">memo</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// Variable to keep track of the overall maximum moves</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Try starting from every cell in the first column</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">row</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Update the result with the maximum moves from this starting cell</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">res</span><span class="o">,</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">memo</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the maximum number of moves found</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">memo</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Get the grid dimensions</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// If we are already at the last column, no more moves can be made</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">col</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// If this cell's result has already been computed, return it directly</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">memo</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">memo</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="c1">// Initialize the maximum moves from this cell as 0</span>
+        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Define the three possible row directions: up, straight, down</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">directions</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="c1">// Try all three possible moves: right-up, right, right-down</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the next row and next column after the move</span>
+            <span class="kt">int</span> <span class="n">nextRow</span> <span class="o">=</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dir</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">nextCol</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="c1">// Check if the next cell is within the grid and its value is strictly greater</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nextRow</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nextRow</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">grid</span><span class="o">[</span><span class="n">nextRow</span><span class="o">][</span><span class="n">nextCol</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Recursively compute the moves from the next cell and add 1 for this move</span>
+                <span class="kt">int</span> <span class="n">steps</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">memo</span><span class="o">,</span> <span class="n">nextRow</span><span class="o">,</span> <span class="n">nextCol</span><span class="o">);</span>
+                <span class="c1">// Take the maximum among all possible moves from this cell</span>
+                <span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">steps</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// Store the computed result in the memo array for future reference</span>
+        <span class="n">memo</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">max</span><span class="o">;</span>
+        <span class="c1">// Return the maximum moves from this cell</span>
+        <span class="k">return</span> <span class="n">max</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">11</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">13</span><span class="o">,</span><span class="mi">15</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">9</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">}</span>
+        <span class="o">};</span>
+        <span class="c1">// Output the results for both test cases</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxMoves</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxMoves</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed m x n matrix grid consisting of positive integers. You can start at any cell in the first column of the matrix, and traverse the grid in the following way: From a cell (row, col), you can move to any of the cells: (row - 1, col + 1), (row, col + 1) and (row + 1, col + 1) such that the value of the cell you move to, should be strictly bigger than the value of the current cell. Return the maximum number of moves that you can perform.]]></summary></entry><entry><title type="html">2099. Find Subsequence of Length K With the Largest Sum</title><link href="https://zhengstar94.github.io//blog/2025/FindSubsequenceOfLengthKWithTheLargestSum/" rel="alternate" type="text/html" title="2099. Find Subsequence of Length K With the Largest Sum"/><published>2025-06-28T00:00:00+00:00</published><updated>2025-06-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindSubsequenceOfLengthKWithTheLargestSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindSubsequenceOfLengthKWithTheLargestSum/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You want to find a <strong>subsequence</strong> of <code class="language-plaintext highlighter-rouge">nums</code> of length <code class="language-plaintext highlighter-rouge">k</code> that has the <strong>largest</strong> sum.</li> <li>Return <em><strong>any</strong> such subsequence as an integer array of length</em> <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,3,3], k = 2
 Output: [3,3]
 Explanation:
 The subsequence has the largest sum of 3 + 3 = 6.
@@ -688,78 +783,4 @@ The maximum Manhattan distance from the origin that can be achieved is 6. Hence,
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of the characters 'N', 'S', 'E', and 'W', where s[i] indicates movements in an infinite grid: 'N' : Move north by 1 unit. 'S' : Move south by 1 unit. 'E' : Move east by 1 unit. 'W' : Move west by 1 unit. Initially, you are at the origin (0, 0). You can change at most k characters to any of the four directions. Find the maximum Manhattan distance from the origin that can be achieved at any time while performing the movements in order. The Manhattan Distance between two cells (xi, yi) and (xj, yj) is |xi - xj| + |yi - yj|.]]></summary></entry><entry><title type="html">2294. Partition Array Such That Maximum Difference Is K</title><link href="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/" rel="alternate" type="text/html" title="2294. Partition Array Such That Maximum Difference Is K"/><published>2025-06-19T00:00:00+00:00</published><updated>2025-06-19T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PartitionArraySuchThatMaximumDifferenceIsK/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and an integer <code class="language-plaintext highlighter-rouge">k</code>. You may partition <code class="language-plaintext highlighter-rouge">nums</code> into one or more <strong>subsequences</strong> such that each element in <code class="language-plaintext highlighter-rouge">nums</code> appears in <strong>exactly</strong> one of the subsequences.</li> <li>Return <em>the <strong>minimum</strong> number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is <strong>at most</strong></em> <code class="language-plaintext highlighter-rouge">k</code><em>.</em></li> <li>A <strong>subsequence</strong> is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,6,1,2,5], k = 2
-Output: 2
-Explanation:
-We can partition nums into the two subsequences [3,1,2] and [6,5].
-The difference between the maximum and minimum value in the first subsequence is 3 - 1 = 2.
-The difference between the maximum and minimum value in the second subsequence is 6 - 5 = 1.
-Since two subsequences were created, we return 2. It can be shown that 2 is the minimum number of subsequences needed.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3], k = 1
-Output: 2
-Explanation:
-We can partition nums into the two subsequences [1,2] and [3].
-The difference between the maximum and minimum value in the first subsequence is 2 - 1 = 1.
-The difference between the maximum and minimum value in the second subsequence is 3 - 3 = 0.
-Since two subsequences were created, we return 2. Note that another optimal solution is to partition nums into the two subsequences [1] and [2,3].
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,2,4,5], k = 0
-Output: 3
-Explanation:
-We can partition nums into the three subsequences [2,2], [4], and [5].
-The difference between the maximum and minimum value in the first subsequences is 2 - 2 = 0.
-The difference between the maximum and minimum value in the second subsequences is 4 - 4 = 0.
-The difference between the maximum and minimum value in the third subsequences is 5 - 5 = 0.
-Since three subsequences were created, we return 3. It can be shown that 3 is the minimum number of subsequences needed.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlog(n)) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/19
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PartitionArraySuchThatMaximumDifferenceIsK</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">partitionArray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Sort the array so we can process elements in ascending order</span>
-        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Counter for the number of required subsequences</span>
-
-        <span class="c1">// Initialize mn (the minimum value in the current group)</span>
-        <span class="c1">// to a very small number to ensure the first element always starts a new group.</span>
-        <span class="c1">// We use Integer.MIN_VALUE / 2 to avoid potential overflow in x - mn.</span>
-        <span class="kt">int</span> <span class="n">mn</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-
-        <span class="c1">// Traverse each number in the sorted array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// If the difference between the current number and the minimum value in</span>
-            <span class="c1">// the current group exceeds k, we must start a new group</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mn</span> <span class="o">&gt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">ans</span><span class="o">++;</span>   <span class="c1">// Start a new group, increment the group counter</span>
-                <span class="n">mn</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>  <span class="c1">// Set the current number as the new group's minimum</span>
-            <span class="o">}</span>
-            <span class="c1">// Else, this number can be included in the current group,</span>
-            <span class="c1">// and we do not update ans or mn.</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">partitionArray</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">k1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">partitionArray</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">k2</span><span class="o">));</span> <span class="c1">// Output: 2</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">k3</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Output: "</span> <span class="o">+</span> <span class="n">partitionArray</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">k3</span><span class="o">));</span> <span class="c1">// Output: 3</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. You may partition nums into one or more subsequences such that each element in nums appears in exactly one of the subsequences. Return the minimum number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is at most k. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a string s consisting of the characters 'N', 'S', 'E', and 'W', where s[i] indicates movements in an infinite grid: 'N' : Move north by 1 unit. 'S' : Move south by 1 unit. 'E' : Move east by 1 unit. 'W' : Move west by 1 unit. Initially, you are at the origin (0, 0). You can change at most k characters to any of the four directions. Find the maximum Manhattan distance from the origin that can be achieved at any time while performing the movements in order. The Manhattan Distance between two cells (xi, yi) and (xj, yj) is |xi - xj| + |yi - yj|.]]></summary></entry></feed>
