@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-29T05:03:33+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2684. Maximum Number of Moves in a Grid</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/" rel="alternate" type="text/html" title="2684. Maximum Number of Moves in a Grid"/><published>2025-06-29T00:00:00+00:00</published><updated>2025-06-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">grid</code> consisting of <strong>positive</strong> integers.</li> <li>You can start at <strong>any</strong> cell in the first column of the matrix, and traverse the grid in the following way: <ul> <li>From a cell <code class="language-plaintext highlighter-rouge">(row, col)</code>, you can move to any of the cells: <code class="language-plaintext highlighter-rouge">(row - 1, col + 1)</code>, <code class="language-plaintext highlighter-rouge">(row, col + 1)</code> and <code class="language-plaintext highlighter-rouge">(row + 1, col + 1)</code> such that the value of the cell you move to, should be <strong>strictly</strong> bigger than the value of the current cell.</li> </ul> </li> <li>Return <em>the <strong>maximum</strong> number of <strong>moves</strong> that you can perform.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 2,4,3,5],[5,4,9,3],[3,4,2,11],[10,9,13,15 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-30T02:06:21+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">594. Longest Harmonious Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/" rel="alternate" type="text/html" title="594. Longest Harmonious Subsequence"/><published>2025-06-30T00:00:00+00:00</published><updated>2025-06-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/"><![CDATA[<ul> <li>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">1</code>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the length of its longest harmonious subsequence among all its possible subsequences.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,2,5,2,3,7]
+
+Output: 5
+
+Explanation:
+
+The longest harmonious subsequence is [3,2,2,2,3].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4]
+
+Output: 2
+
+Explanation:
+
+The longest harmonious subsequences are [1,2], [2,3], and [3,4], all of which have a length of 2.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1]
+
+Output: 0
+
+Explanation:
+
+No harmonic subsequence exists.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/06/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestHarmoniousSubsequence</span> <span class="o">{</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findLHS</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create a HashMap to store the frequency (count) of each number in the array.</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// Traverse the array and populate the countMap.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// For each number, increment its count in the map.</span>
+            <span class="c1">// If the number is not present, getOrDefault returns 0.</span>
+            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Variable to keep track of the maximum length found.</span>
+
+        <span class="c1">// Iterate through each unique number (key) in the map.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">key</span> <span class="o">:</span> <span class="n">countMap</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">// Check if the map contains the adjacent number (key + 1).</span>
+            <span class="c1">// Only pairs of numbers with a difference of exactly 1 can form a harmonious subsequence.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">countMap</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">key</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// If both key and key+1 exist, calculate the total count of these two numbers.</span>
+                <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">+</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+                <span class="c1">// Update maxLen if this pair forms a longer harmonious subsequence.</span>
+                <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the length of the longest harmonious subsequence found.</span>
+        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Example from the problem description.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
+        <span class="c1">// Expected output: 5 ([3,2,2,2,3])</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
+
+        <span class="c1">// Test case 2: Consecutive numbers.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="c1">// Expected output: 2 ([1,2], [2,3], or [3,4])</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
+
+        <span class="c1">// Test case 3: All numbers are the same.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="c1">// Expected output: 0 (no harmonious subsequence)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1. Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.]]></summary></entry><entry><title type="html">2684. Maximum Number of Moves in a Grid</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/" rel="alternate" type="text/html" title="2684. Maximum Number of Moves in a Grid"/><published>2025-06-29T00:00:00+00:00</published><updated>2025-06-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">grid</code> consisting of <strong>positive</strong> integers.</li> <li>You can start at <strong>any</strong> cell in the first column of the matrix, and traverse the grid in the following way: <ul> <li>From a cell <code class="language-plaintext highlighter-rouge">(row, col)</code>, you can move to any of the cells: <code class="language-plaintext highlighter-rouge">(row - 1, col + 1)</code>, <code class="language-plaintext highlighter-rouge">(row, col + 1)</code> and <code class="language-plaintext highlighter-rouge">(row + 1, col + 1)</code> such that the value of the cell you move to, should be <strong>strictly</strong> bigger than the value of the current cell.</li> </ul> </li> <li>Return <em>the <strong>maximum</strong> number of <strong>moves</strong> that you can perform.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 2,4,3,5],[5,4,9,3],[3,4,2,11],[10,9,13,15 ] ]
 Output: 3
 Explanation: We can start at the cell (0, 0) and make the following moves:
 - (0, 0) -&gt; (0, 1).
@@ -731,77 +808,4 @@ Output: [2,3,3,4]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums and a positive integer k, return the most competitive subsequence of nums of size k. An array’s subsequence is a resulting sequence obtained by erasing some (possibly zero) elements from the array. We define that a subsequence a is more competitive than a subsequence b (of the same length) if in the first position where a and b differ, subsequence a has a number less than the corresponding number in b. For example, [1,3,4] is more competitive than [1,3,5] because the first position they differ is at the final number, and 4 is less than 5.]]></summary></entry><entry><title type="html">316. Remove Duplicate Letters</title><link href="https://zhengstar94.github.io//blog/2025/RemoveDuplicateLetters/" rel="alternate" type="text/html" title="316. Remove Duplicate Letters"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RemoveDuplicateLetters</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RemoveDuplicateLetters/"><![CDATA[<ul> <li>Given a string <code class="language-plaintext highlighter-rouge">s</code>, remove duplicate letters so that every letter appears once and only once. You must make sure your result is <strong>the smallest in lexicographical order</strong> among all possible results.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "bcabc"
-Output: "abc"
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: s = "cbacdcbc"
-Output: "acdb"
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayDeque</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Deque</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/22
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveDuplicateLetters</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">removeDuplicateLetters</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span> <span class="c1">// Array to count the remaining occurrences of each character.</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">inStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span> <span class="c1">// Flags to indicate if a character is already in the stack.</span>
-
-        <span class="c1">// First pass: count the occurrences of each character in the string.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]++;</span>
-        <span class="o">}</span>
-
-        <span class="nc">Deque</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayDeque</span><span class="o">&lt;&gt;();</span> <span class="c1">// Monotonic stack to build the result.</span>
-
-        <span class="c1">// Iterate through each character in the string.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">count</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]--;</span> <span class="c1">// Decrement the count for this character, as it's now being processed.</span>
-
-            <span class="c1">// If the character is already in the stack, skip it to avoid duplicates.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">inStack</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">])</span> <span class="o">{</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-
-            <span class="cm">/**
-             * While the stack is not empty, and the current character is lexicographically
-             * smaller than the character at the top of the stack, and the character at the
-             * top of the stack will appear again later (count &gt; 0):
-             *   - Pop the top character from the stack.
-             *   - Mark it as not in the stack.
-             * This ensures that:
-             *   1. The result remains lexicographically smallest by removing bigger letters
-             *      that can still be placed later.
-             *   2. Each letter appears only once in the result.
-             */</span>
-            <span class="k">while</span> <span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span>
-                    <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">stack</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span>
-                    <span class="o">&amp;&amp;</span> <span class="n">count</span><span class="o">[</span><span class="n">stack</span><span class="o">.</span><span class="na">peekLast</span><span class="o">()</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="kt">char</span> <span class="n">removed</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">removeLast</span><span class="o">();</span> <span class="c1">// Remove the top character from the stack.</span>
-                <span class="n">inStack</span><span class="o">[</span><span class="n">removed</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>    <span class="c1">// Mark the removed character as not in the stack.</span>
-            <span class="o">}</span>
-
-            <span class="c1">// Add the current character to the stack and mark it as present.</span>
-            <span class="n">stack</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-            <span class="n">inStack</span><span class="o">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'a'</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Build the final result string from the characters in the stack.</span>
-        <span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeDuplicateLetters</span><span class="o">(</span><span class="s">"bcabc"</span><span class="o">));</span>      <span class="c1">// Output: "abc"</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">removeDuplicateLetters</span><span class="o">(</span><span class="s">"cbacdcbc"</span><span class="o">));</span>   <span class="c1">// Output: "acdb"</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums and a positive integer k, return the most competitive subsequence of nums of size k. An array’s subsequence is a resulting sequence obtained by erasing some (possibly zero) elements from the array. We define that a subsequence a is more competitive than a subsequence b (of the same length) if in the first position where a and b differ, subsequence a has a number less than the corresponding number in b. For example, [1,3,4] is more competitive than [1,3,5] because the first position they differ is at the final number, and 4 is less than 5.]]></summary></entry></feed>
