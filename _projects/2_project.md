@@ -6,7 +6,7 @@ title: Design Twitter
 date: "2024-11-19"
 description: How to design Twitter
 img: assets/img/2024/twitter/7.png
-importance: 1
+importance: 3
 category: SystemDesign
 giscus_comments: true
 ---
