@@ -6,7 +6,7 @@ title: Design a URL Shortener
 date: "2024-11-03"
 description: How to design a URL Shortener
 img: assets/img/2024/11/DesignaURLShortener.png
-importance: 1
+importance: 2
 category: SystemDesign
 giscus_comments: true
 ---
