@@ -364,9 +364,9 @@ for (int i = 0; i < 15; i++) {
 ### 5. Sliding Window Counter
 
 **Accessible Explanation**:  
-The sliding window counter is like a strategic registrar dividing time into small segments (e.g., 0.1 seconds) and counting requests per segment. For a new request, it estimates the total requests in the recent window by weighting segment counts, balancing efficiency and smoothness but sacrificing some precision.
+The sliding window counter is like a theme park queue manager tasked with limiting a roller coaster to 10 riders per minute. Instead of recording each rider’s exact arrival time, the manager divides time into 10-second sub-windows (6 sub-windows covering 60 seconds) and tracks the number of riders in each. When a new rider arrives, the manager estimates the total number of riders in the past 60 seconds by weighting each sub-window’s count based on how much of it remains in the time window: older sub-windows contribute less (“discounted”), while newer ones contribute fully. If the estimated total is below 10, the rider is allowed to join the queue, and the current sub-window’s count is updated; otherwise, they are denied. This approach is memory-efficient and smooths traffic peaks but may introduce slight inaccuracies due to estimation.
 
-**Principle**: Tracks request counts in small sub-windows and estimates the total within a sliding window.
+**Principle**: Divides the time window (e.g., 60 seconds) into smaller sub-windows (e.g., 10 seconds each) and records request counts per sub-window. For a new request, it calculates the total requests in the sliding window using weighted estimation (based on the sub-window’s remaining time proportion). If the total is below the limit, the request is allowed, and the current sub-window’s count is incremented; otherwise, it is rejected. The weighting mechanism simulates a sliding window, avoiding the boundary issues of fixed windows.
 
 **Mermaid Diagram**:
 
@@ -374,17 +374,56 @@ The sliding window counter is like a strategic registrar dividing time into smal
 
 **Advantages**:
 
-- **Memory Efficient**: Stores only sub-window counts, reducing memory compared to timestamp storage.
-- **Smooths Traffic Peaks**: Weighted estimation mitigates fixed window boundary overloads.
+- **Memory Efficient**: Stores only sub-window counts (e.g., 6 sub-windows), reducing memory usage compared to timestamp storage.
+
+- **Smooths Traffic Peaks**: Weighted estimation mitigates the boundary overload issues of fixed window counters.
+
 
 **Disadvantages**:
 
-- **Limited Precision**: Weighted estimation may introduce inaccuracies, allowing slightly more or fewer requests than intended. For example, partial counting of boundary requests may result in a count of 9 or 11 for a 10-request limit, affecting strict rate-limiting scenarios.
+- **Limited Precision**: Weighted estimation may introduce inaccuracies, leading to less strict rate limiting. For example, requests at sub-window boundaries may be partially counted, causing the actual traffic to slightly exceed or fall below the intended limit, impacting high-precision scenarios.
+
 
 **Use Cases**:
 
 - **E-commerce Promotions**: Limiting 2000 requests per second during JD 618 sales.
+
 - **Social Media Surges**: Restricting video uploads during TikTok trending events.
+
+
+**Example: Roller Coaster Queue Limiting**  
+Consider the current time as **12:01:01.000** (61 seconds into the event), with a 60-second window (12:00:01.000 to 12:01:01.000), limiting to 10 riders per minute, and sub-windows of 10 seconds (6 sub-windows). A new rider (Rider 10) arrives, and the manager decides whether to allow them to queue.  
+**Historical Records**:
+
+- 12:00:10.000-12:00:20.000: 2 riders.
+
+- 12:00:20.000-12:00:30.000: 1 rider.
+
+- 12:00:30.000-12:00:40.000: 2 riders.
+
+- 12:00:40.000-12:00:50.000: 1 rider.
+
+- 12:00:50.000-12:01:00.000: 0 riders.
+
+- Current Sub-Window (12:01:00.000-12:01:10.000): 1 rider (initial).
+
+
+**Estimation Process**:  
+The manager estimates the total riders in the past 60 seconds by weighting each sub-window’s count based on its remaining time proportion in the window:
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|Sub-Window Time|Riders|Window Proportion (Weight)|Weighted Riders (Riders × Weight)|Notes|
+|12:00:10.000-12:00:20.000|2|10/60 ≈ 0.167|2 × 0.167 ≈ 0.33|10 seconds remain in window, small weight, 2 riders contribute 0.33.|
+|12:00:20.000-12:00:30.000|1|20/60 ≈ 0.333|1 × 0.333 ≈ 0.33|20 seconds remain, moderate weight, 1 rider contributes 0.33.|
+|12:00:30.000-12:00:40.000|2|30/60 = 0.5|2 × 0.5 = 1.0|30 seconds remain, half weight, 2 riders contribute 1.0.|
+|12:00:40.000-12:00:50.000|1|40/60 ≈ 0.667|1 × 0.667 ≈ 0.67|40 seconds remain, larger weight, 1 rider contributes 0.67.|
+|12:00:50.000-12:01:00.000|0|50/60 ≈ 0.833|0 × 0.833 = 0|50 seconds remain, no riders, contributes 0.|
+|Current (12:01:00.000-10.000)|1|60/60 = 1.0|1 × 1.0 = 1.0|Fully in window, full weight, 1 rider contributes 1.0.|
+|**Total**|||**3.33 ≈ 3 riders**|Estimated 3 riders < 10, allow Rider 10 to queue.|
+
+**Role of Weights**:  
+The weight (remaining time proportion) simulates a sliding window: older sub-windows (e.g., 10-20 seconds) contribute less (0.167) as they are nearly out of the window, while newer sub-windows (current) contribute fully (1.0). This smooths traffic peaks, avoiding the abrupt resets of fixed window counters (e.g., 10 riders at 59s + 10 at 61s). The estimation may introduce slight inaccuracies (e.g., 3.33 vs. actual 3.5 riders), suitable for scenarios tolerating minor deviations.
 
 **Java Implementation**:
 
@@ -395,10 +434,10 @@ import java.util.Map;
 public class SlidingWindowCounter {
     private final long windowSize; // Window size in milliseconds
     private final long limit; // Maximum requests allowed in window
-    private final long subWindowSize; // Sub-window size
-    private final Map<Long, Long> windows; // Sub-window request counts
+    private final long subWindowSize; // Sub-window size in milliseconds
+    private final Map<Long, Long> windows; // Sub-window counts (timestamp -> count)
 
-    // Initialize window with size, limit, and granularity
+    // Initialize window with size, limit, and sub-window granularity
     public SlidingWindowCounter(long windowSizeSeconds, long limit, int granularity) {
         this.windowSize = windowSizeSeconds * 1000;
         this.limit = limit;
@@ -409,22 +448,26 @@ public class SlidingWindowCounter {
     // Check if request is allowed, thread-safe
     public synchronized boolean allowRequest() {
         long now = System.currentTimeMillis();
-        long currentSubWindow = now / subWindowSize;
+        // Align current time to sub-window start
+        long gridNumber = now / subWindowSize; // Sub-window index
+        long currentSubWindow = gridNumber * subWindowSize; // Sub-window start time
 
-        // Remove expired sub-windows
+        // Remove expired sub-windows (older than window size)
         windows.entrySet().removeIf(entry -> now - entry.getKey() * subWindowSize > windowSize);
 
         // Calculate total requests in sliding window (weighted estimation)
-        long total = 0;
+        double total = 0;
         for (Map.Entry<Long, Long> entry : windows.entrySet()) {
-            long subWindowStart = entry.getKey() * subWindowSize;
-            // Calculate weight based on time overlap
+            long subWindowStart = entry.getKey() * subWindowSize; // Sub-window start time
+            long count = entry.getValue(); // Sub-window request count
+            // Calculate weight: proportion of sub-window within the window
             double weight = Math.min(1.0, (double) (windowSize - (now - subWindowStart)) / windowSize);
-            total += entry.getValue() * weight; // Weighted count
+            total += count * weight; // Weighted count
         }
 
         if (total < limit) { // Within limit
-            windows.merge(currentSubWindow, 1L, Long::sum); // Increment current sub-window count
+            // Increment current sub-window count
+            windows.merge(currentSubWindow, 1L, Long::sum);
             return true; // Allow request
         }
         return false; // Exceeds limit, deny request
@@ -435,7 +478,7 @@ public class SlidingWindowCounter {
 **Usage Example**:
 
 ```java
-SlidingWindowCounter counter = new SlidingWindowCounter(1, 10, 10); // 1 second, 10 requests, 10 sub-windows
+SlidingWindowCounter counter = new SlidingWindowCounter(60, 10, 6); // 60 seconds, 10 requests, 6 sub-windows
 for (int i = 0; i < 15; i++) {
     if (counter.allowRequest()) {
         System.out.println("Request " + i + " allowed");
@@ -447,8 +490,11 @@ for (int i = 0; i < 15; i++) {
 
 **Parameter Tuning**:
 
-- **Window Size**: Typically 1–60 seconds.
-- **Granularity**: Smaller granularity (e.g., 10) improves precision.
+- **Window Size**: Typically 1–60 seconds, 60 seconds in the example.
+
+- **Granularity**: Smaller granularity (e.g., 6 or 10) improves precision, 6 in the example (10 seconds/sub-window).
+
+- **Limit**: Set based on business needs (e.g., 10 requests/minute).
 
 ## Summary
 
