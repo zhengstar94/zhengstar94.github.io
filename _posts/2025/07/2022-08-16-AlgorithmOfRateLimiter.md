@@ -3,8 +3,8 @@ toc:
   beginning: true
 giscus_comments: true
 layout: post
-title: "如何写一个并行调用模版"
-date: "2022-08-16"
+title: "Algorithm of Rate Limiter"
+date: "2025-07-01"
 categories: 
   - "System Design Other"
 ---
