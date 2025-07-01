@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-06-30T06:04:27+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">594. Longest Harmonious Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/" rel="alternate" type="text/html" title="594. Longest Harmonious Subsequence"/><published>2025-06-30T00:00:00+00:00</published><updated>2025-06-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/"><![CDATA[<ul> <li>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">1</code>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the length of its longest harmonious subsequence among all its possible subsequences.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,2,5,2,3,7]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-01T02:03:38+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3330. Find the Original Typed String I</title><link href="https://zhengstar94.github.io//blog/2025/FindTheOriginalTypedStringI/" rel="alternate" type="text/html" title="3330. Find the Original Typed String I"/><published>2025-07-01T00:00:00+00:00</published><updated>2025-07-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheOriginalTypedStringI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheOriginalTypedStringI/"><![CDATA[<ul> <li>Alice is attempting to type a specific string on her computer. However, she tends to be clumsy and <strong>may</strong> press a key for too long, resulting in a character being typed <strong>multiple</strong> times.</li> <li>Although Alice tried to focus on her typing, she is aware that she may still have done this <strong>at most</strong> <em>once</em>.</li> <li>You are given a string <code class="language-plaintext highlighter-rouge">word</code>, which represents the <strong>final</strong> output displayed on Alice’s screen.</li> <li>Return the total number of <em>possible</em> original strings that Alice <em>might</em> have intended to type.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "abbcccc"
+
+Output: 5
+
+Explanation:
+
+The possible strings are: "abbcccc", "abbccc", "abbcc", "abbc", and "abcccc".
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "abcd"
+
+Output: 1
+
+Explanation:
+
+The only possible string is "abcd".
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "aaaa"
+
+Output: 4
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/01
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheOriginalTypedStringI</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">possibleStringCount</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Initialize the count to 1.</span>
+        <span class="c1">// This is because the original string itself (with no long press at all) is always a valid possibility.</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="c1">// Start from the second character and iterate through the string.</span>
+        <span class="c1">// We are looking for all pairs of adjacent, identical characters.</span>
+        <span class="c1">// Each such pair represents a possible place where a "long press" could have occurred.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// If the current character is the same as the previous one,</span>
+            <span class="c1">// it means there is a sequence of repeated characters.</span>
+            <span class="c1">// Each such pair gives us one more possible original string,</span>
+            <span class="c1">// because we could "remove" one of these repeated characters (simulating that the long press happened here).</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total count.</span>
+        <span class="c1">// This includes:</span>
+        <span class="c1">//   - The original string itself (no long press)</span>
+        <span class="c1">//   - One for each possible pair of adjacent identical characters (where a long press could have happened)</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">possibleStringCount</span><span class="o">(</span><span class="s">"abbcccc"</span><span class="o">));</span> <span class="c1">// Output: 5</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">possibleStringCount</span><span class="o">(</span><span class="s">"abcd"</span><span class="o">));</span>    <span class="c1">// Output: 1</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">possibleStringCount</span><span class="o">(</span><span class="s">"aaaa"</span><span class="o">));</span>    <span class="c1">// Output: 4</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Alice is attempting to type a specific string on her computer. However, she tends to be clumsy and may press a key for too long, resulting in a character being typed multiple times. Although Alice tried to focus on her typing, she is aware that she may still have done this at most once. You are given a string word, which represents the final output displayed on Alice’s screen. Return the total number of possible original strings that Alice might have intended to type.]]></summary></entry><entry><title type="html">594. Longest Harmonious Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/" rel="alternate" type="text/html" title="594. Longest Harmonious Subsequence"/><published>2025-06-30T00:00:00+00:00</published><updated>2025-06-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/"><![CDATA[<ul> <li>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">1</code>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the length of its longest harmonious subsequence among all its possible subsequences.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,2,5,2,3,7]
 
 Output: 5
 
@@ -751,61 +811,4 @@ Thus, the 4 groups formed are "abc", "def", "ghi", and "jxx".
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">divideString</span><span class="o">(</span><span class="s">"abcdefghij"</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="sc">'x'</span><span class="o">)</span> <span class="o">)</span> <span class="o">);</span> <span class="c1">// Output: ["abc", "def", "ghi", "jxx"]</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[A string s can be partitioned into groups of size k using the following procedure: The first group consists of the first k characters of the string, the second group consists of the next k characters of the string, and so on. Each element can be a part of exactly one group. For the last group, if the string does not have k characters remaining, a character fill is used to complete the group. Note that the partition is done so that after removing the fill character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be s. Given the string s, the size of each group k and the character fill, return a string array denoting the composition of every group s has been divided into, using the above procedure.]]></summary></entry><entry><title type="html">1673. Find the Most Competitive Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/FindTheMostCompetitiveSubsequence/" rel="alternate" type="text/html" title="1673. Find the Most Competitive Subsequence"/><published>2025-06-22T00:00:00+00:00</published><updated>2025-06-22T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheMostCompetitiveSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheMostCompetitiveSubsequence/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and a positive integer <code class="language-plaintext highlighter-rouge">k</code>, return <em>the most <strong>competitive</strong> subsequence of</em> <code class="language-plaintext highlighter-rouge">nums</code> <em>of size</em> <code class="language-plaintext highlighter-rouge">k</code>.</li> <li>An array’s subsequence is a resulting sequence obtained by erasing some (possibly zero) elements from the array.</li> <li>We define that a subsequence <code class="language-plaintext highlighter-rouge">a</code> is more <strong>competitive</strong> than a subsequence <code class="language-plaintext highlighter-rouge">b</code> (of the same length) if in the first position where <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> differ, subsequence <code class="language-plaintext highlighter-rouge">a</code> has a number <strong>less</strong> than the corresponding number in <code class="language-plaintext highlighter-rouge">b</code>. For example, <code class="language-plaintext highlighter-rouge">[1,3,4]</code> is more competitive than <code class="language-plaintext highlighter-rouge">[1,3,5]</code> because the first position they differ is at the final number, and <code class="language-plaintext highlighter-rouge">4</code> is less than <code class="language-plaintext highlighter-rouge">5</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,5,2,6], k = 2
-Output: [2,6]
-Explanation: Among the set of every possible subsequence: {[3,5], [3,2], [3,6], [5,2], [5,6], [2,6]}, [2,6] is the most competitive.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,4,3,3,5,4,9,6], k = 4
-Output: [2,3,3,4]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(k) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Stack</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/22
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheMostCompetitiveSubsequence</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">mostCompetitive</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Use an array to simulate a stack, which will store the result subsequence.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">k</span><span class="o">];</span>
-        <span class="c1">// 'top' is the pointer to the next available position in the stack (also represents the current stack size).</span>
-        <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each element in the input array.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// While the stack is not empty,</span>
-            <span class="c1">// and the current element is smaller than the top element of the stack,</span>
-            <span class="c1">// and there are enough elements left in nums to fill the stack to size k after popping:</span>
-            <span class="c1">//    - Pop the stack (i.e., remove the last element from the current subsequence).</span>
-            <span class="c1">//    - This ensures that the subsequence remains as lexicographically small as possible.</span>
-            <span class="c1">//    - The condition (n - i) &gt; (k - top) is crucial:</span>
-            <span class="c1">//      It checks if, after popping, there are still enough elements left to fill the subsequence to length k.</span>
-            <span class="c1">//      If not, we must keep the current stack elements to avoid ending up with fewer than k elements.</span>
-            <span class="k">while</span> <span class="o">(</span><span class="n">top</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">stack</span><span class="o">[</span><span class="n">top</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="o">)</span> <span class="o">&gt;</span> <span class="o">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">top</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">top</span><span class="o">--;</span> <span class="c1">// Pop the top element from the stack.</span>
-            <span class="o">}</span>
-            <span class="c1">// If the stack is not yet full (less than k elements), push the current element onto the stack.</span>
-            <span class="c1">// This ensures we always build a subsequence of exactly length k.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">top</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">stack</span><span class="o">[</span><span class="n">top</span><span class="o">++]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// At the end, 'stack' contains the most competitive subsequence of length k.</span>
-        <span class="k">return</span> <span class="n">stack</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1: Input array [3,5,2,6], k = 2</span>
-        <span class="c1">// Expected output: [2,6]</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">mostCompetitive</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">6</span><span class="o">},</span> <span class="mi">2</span><span class="o">)));</span> <span class="c1">// [2,6]</span>
-
-        <span class="c1">// Example 2: Input array [2,4,3,3,5,4,9,6], k = 4</span>
-        <span class="c1">// Expected output: [2,3,3,4]</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">mostCompetitive</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">6</span><span class="o">},</span> <span class="mi">4</span><span class="o">)));</span> <span class="c1">// [2,3,3,4]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Stack"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums and a positive integer k, return the most competitive subsequence of nums of size k. An array’s subsequence is a resulting sequence obtained by erasing some (possibly zero) elements from the array. We define that a subsequence a is more competitive than a subsequence b (of the same length) if in the first position where a and b differ, subsequence a has a number less than the corresponding number in b. For example, [1,3,4] is more competitive than [1,3,5] because the first position they differ is at the final number, and 4 is less than 5.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[A string s can be partitioned into groups of size k using the following procedure: The first group consists of the first k characters of the string, the second group consists of the next k characters of the string, and so on. Each element can be a part of exactly one group. For the last group, if the string does not have k characters remaining, a character fill is used to complete the group. Note that the partition is done so that after removing the fill character from the last group (if it exists) and concatenating all the groups in order, the resultant string should be s. Given the string s, the size of each group k and the character fill, return a string array denoting the composition of every group s has been divided into, using the above procedure.]]></summary></entry></feed>
