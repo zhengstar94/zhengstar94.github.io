@@ -437,7 +437,7 @@ Given the need for high-concurrency request handling and flexible rule managemen
 
 ## 7. High-Level Design
 
-### 1. Rate Limiting Algorithms
+### 1. [Rate Limiting Algorithms](https://zhengxingxing.com/blog/2025/AlgorithmOfRateLimiter/)
 
 Designing a distributed rate limiter requires balancing precision, performance, memory usage, and consistency to meet the demands of 1 M QPS, low latency (<10 ms), and high availability (99.99%).
 
