@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-04T01:42:30+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1091. Shortest Path in Binary Matrix</title><link href="https://zhengstar94.github.io//blog/2025/ShortestPathInBinaryMatrix/" rel="alternate" type="text/html" title="1091. Shortest Path in Binary Matrix"/><published>2025-07-04T00:00:00+00:00</published><updated>2025-07-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestPathInBinaryMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestPathInBinaryMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">n x n</code> binary matrix <code class="language-plaintext highlighter-rouge">grid</code>, return <em>the length of the shortest <strong>clear path</strong> in the matrix</em>. If there is no clear path, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>A <strong>clear path</strong> in a binary matrix is a path from the <strong>top-left</strong> cell (i.e., <code class="language-plaintext highlighter-rouge">(0, 0)</code>) to the <strong>bottom-right</strong> cell (i.e., <code class="language-plaintext highlighter-rouge">(n - 1, n - 1)</code>) such that: <ul> <li>All the visited cells of the path are <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>All the adjacent cells of the path are <strong>8-directionally</strong> connected (i.e., they are different and they share an edge or a corner).</li> </ul> </li> <li>The <strong>length of a clear path</strong> is the number of visited cells of this path.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,1],[1,0 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-05T05:17:56+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1394. Find Lucky Integer in an Array</title><link href="https://zhengstar94.github.io//blog/2025/FindLuckyIntegerInAnArray/" rel="alternate" type="text/html" title="1394. Find Lucky Integer in an Array"/><published>2025-07-05T00:00:00+00:00</published><updated>2025-07-05T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindLuckyIntegerInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindLuckyIntegerInAnArray/"><![CDATA[<ul> <li>Given an array of integers <code class="language-plaintext highlighter-rouge">arr</code>, a <strong>lucky integer</strong> is an integer that has a frequency in the array equal to its value.</li> <li>Return <em>the largest <strong>lucky integer</strong> in the array</em>. If there is no <strong>lucky integer</strong> return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,2,3,4]
+Output: 2
+Explanation: The only lucky number in the array is 2 because frequency[2] == 2.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [1,2,2,3,3,3]
+Output: 3
+Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: arr = [2,2,2,3,3]
+Output: -1
+Explanation: There are no lucky numbers in the array.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/05
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindLuckyIntegerInAnArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findLucky</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Create a HashMap to store the frequency of each integer in the array</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">freq</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// Iterate through the array and count the occurrences of each number</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If num is already in the map, increment its count by 1; otherwise, set it to 1</span>
+            <span class="n">freq</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">freq</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// Initialize the result variable to -1 (default if no lucky integer is found)</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="c1">// Iterate through all entries in the frequency map</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">freq</span><span class="o">.</span><span class="na">entrySet</span><span class="o">())</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">();</span>    <span class="c1">// The integer value</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span> <span class="c1">// The frequency of this integer</span>
+            <span class="c1">// Check if the integer is a lucky integer (its value equals its frequency)</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Update the result if this lucky integer is larger than the current result</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">res</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the largest lucky integer found, or -1 if none exists</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr4</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLucky</span><span class="o">(</span><span class="n">arr1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLucky</span><span class="o">(</span><span class="n">arr2</span><span class="o">));</span> <span class="c1">// Output: 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLucky</span><span class="o">(</span><span class="n">arr3</span><span class="o">));</span> <span class="c1">// Output: -1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLucky</span><span class="o">(</span><span class="n">arr4</span><span class="o">));</span> <span class="c1">// Output: 5</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given an array of integers arr, a lucky integer is an integer that has a frequency in the array equal to its value. Return the largest lucky integer in the array. If there is no lucky integer return -1.]]></summary></entry><entry><title type="html">1091. Shortest Path in Binary Matrix</title><link href="https://zhengstar94.github.io//blog/2025/ShortestPathInBinaryMatrix/" rel="alternate" type="text/html" title="1091. Shortest Path in Binary Matrix"/><published>2025-07-04T00:00:00+00:00</published><updated>2025-07-04T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ShortestPathInBinaryMatrix</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ShortestPathInBinaryMatrix/"><![CDATA[<ul> <li>Given an <code class="language-plaintext highlighter-rouge">n x n</code> binary matrix <code class="language-plaintext highlighter-rouge">grid</code>, return <em>the length of the shortest <strong>clear path</strong> in the matrix</em>. If there is no clear path, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> <li>A <strong>clear path</strong> in a binary matrix is a path from the <strong>top-left</strong> cell (i.e., <code class="language-plaintext highlighter-rouge">(0, 0)</code>) to the <strong>bottom-right</strong> cell (i.e., <code class="language-plaintext highlighter-rouge">(n - 1, n - 1)</code>) such that: <ul> <li>All the visited cells of the path are <code class="language-plaintext highlighter-rouge">0</code>.</li> <li>All the adjacent cells of the path are <strong>8-directionally</strong> connected (i.e., they are different and they share an edge or a corner).</li> </ul> </li> <li>The <strong>length of a clear path</strong> is the number of visited cells of this path.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,1],[1,0 ] ]
 Output: 2
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,0,0],[1,1,0],[1,1,0 ] ]
 Output: 4
@@ -868,79 +924,4 @@ Another possible subsequence is [4, 3].
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. You want to find a subsequence of nums of length k that has the largest sum. Return any such subsequence as an integer array of length k. A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.]]></summary></entry><entry><title type="html">463. Island Perimeter</title><link href="https://zhengstar94.github.io//blog/2025/IslandPerimeter/" rel="alternate" type="text/html" title="463. Island Perimeter"/><published>2025-06-27T00:00:00+00:00</published><updated>2025-06-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IslandPerimeter</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IslandPerimeter/"><![CDATA[<ul> <li>You are given <code class="language-plaintext highlighter-rouge">row x col</code> <code class="language-plaintext highlighter-rouge">grid</code> representing a map where <code class="language-plaintext highlighter-rouge">grid[i][j] = 1</code> represents land and <code class="language-plaintext highlighter-rouge">grid[i][j] = 0</code> represents water.</li> <li>Grid cells are connected <strong>horizontally/vertically</strong> (not diagonally). The <code class="language-plaintext highlighter-rouge">grid</code> is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).</li> <li>The island doesn’t have “lakes”, meaning the water inside isn’t connected to the water around the island. One cell is a square with side length 1. The grid is rectangular, width and height don’t exceed 100. Determine the perimeter of the island.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0 ] ]
-Output: 16
-Explanation: The perimeter is the 16 yellow stripes in the image above.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1 ] ]
-Output: 4
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 1,0 ] ]
-Output: 4
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/27
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandPerimeter</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">islandPerimeter</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>        <span class="c1">// Number of rows in the grid</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>     <span class="c1">// Number of columns in the grid</span>
-        <span class="kt">int</span> <span class="n">perimeter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>          <span class="c1">// Variable to store the total perimeter</span>
-
-        <span class="c1">// Traverse each cell in the grid</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="c1">// If the current cell is land</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
-                    <span class="c1">// Each land cell initially contributes 4 to the perimeter</span>
-                    <span class="n">perimeter</span> <span class="o">+=</span> <span class="mi">4</span><span class="o">;</span>
-
-                    <span class="c1">// If the cell above (i-1, j) is also land,</span>
-                    <span class="c1">// it means the current cell shares a border with the upper cell.</span>
-                    <span class="c1">// Each shared border should be subtracted twice (once for each cell),</span>
-                    <span class="c1">// so we subtract 2 from the perimeter.</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">grid</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
-                        <span class="n">perimeter</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">;</span>
-                    <span class="o">}</span>
-
-                    <span class="c1">// If the cell to the left (i, j-1) is also land,</span>
-                    <span class="c1">// it means the current cell shares a border with the left cell.</span>
-                    <span class="c1">// Again, subtract 2 for the shared border.</span>
-                    <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">perimeter</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">;</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the total calculated perimeter</span>
-        <span class="k">return</span> <span class="n">perimeter</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Example from the problem description</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">islandPerimeter</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Output: 16</span>
-
-        <span class="c1">// Test case 2: Single land cell</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">islandPerimeter</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Output: 4</span>
-
-        <span class="c1">// Test case 3: Two land cells in a row</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid3</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">islandPerimeter</span><span class="o">(</span><span class="n">grid3</span><span class="o">));</span> <span class="c1">// Output: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><category term="Easy"/><summary type="html"><![CDATA[You are given row x col grid representing a map where grid[i][j] = 1 represents land and grid[i][j] = 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn’t have “lakes”, meaning the water inside isn’t connected to the water around the island. One cell is a square with side length 1. The grid is rectangular, width and height don’t exceed 100. Determine the perimeter of the island.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums and an integer k. You want to find a subsequence of nums of length k that has the largest sum. Return any such subsequence as an integer array of length k. A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.]]></summary></entry></feed>
