@@ -8,6 +8,7 @@ description: How to design a Rate Limiter
 img: assets/img/2025/06/rate_limiter_2.png
 importance: 1
 category: SystemDesign
+pretty_table: true
 giscus_comments: true
 ---
 
