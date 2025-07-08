@@ -272,9 +272,9 @@ We will use a NoSQL database like MongoDB for its high concurrency, flexible sch
 
 #### 3.2.1 `URLs` Collection Schema
 
-```markdown
+
 | Field Name        | Type     | Description                                    |
-| :----------------- | :-------- | :---------------------------------------------- |
+| ----------------- | -------- | ---------------------------------------------- |
 | `_id`             | ObjectId | Auto-generated primary key by MongoDB.         |
 | `short_code`      | String   | The 7-character unique short code.             |
 | `long_url`        | String   | The original long URL.                         |
@@ -283,7 +283,7 @@ We will use a NoSQL database like MongoDB for its high concurrency, flexible sch
 | `expiration_date` | Date     | Optional expiration timestamp.                 |
 | `click_count`     | Number   | A counter for tracking clicks (defaults to 0). |
 
-```
+
 
 **Optimizations**:
 - Create **unique indexes** on `short_code` and `custom_alias` to ensure uniqueness and fast lookups.
@@ -302,15 +302,15 @@ To minimize database load and reduce latency, we will use Redis to cache the map
 
 The following table outlines the core REST API endpoints.
 
-```markdown
+
 | API Name                 | Method | Path                         | Description                                  | Request Body                                     | Response                                        | Error Handling                          |
-| :------------------------ | :------: | :----------------------------: | :--------------------------------------------: | :------------------------------------------------: | :-----------------------------------------------: | ---------------------------------------: |
+| ------------------------ | ------   | ---------------------------- | -------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- | --------------------------------------- |
 | **Create Short Link**    | _POST_   | `/api/v1/urls`               | Submits a long URL to generate a short link. | `{ "long_url", "custom_alias"?, "expires_at"? }` | `{ "short_url" }`                               | 400: Invalid URL<br>409: Alias conflict |
 | **Redirect to Long URL** | _GET_    | `/{short_code}`              | Redirects to the original long URL.          | N/A                                              | HTTP 302 Redirect, `Location: long_url`         | 404: Not Found<br>410: Gone (Expired)   |
 | **Get Link Details**     | _GET_    | `/api/v 1/urls/{short_code}` | Retrieves detailed information about a link. | N/A                                              | `{ "long_url", "short_url", "created_at", ...}` | 404: Not Found                          |
 | **Update Short Link**    | _PUT_    | `/api/v 1/urls/{short_code}` | Updates the alias or expiration date.        | `{ "custom_alias"?, "expires_at"? }`             | `{ "short_url", "long_url", ...}`               | 404: Not Found                          |
 | **Delete Short Link**    | _DELETE_ | `/api/v 1/urls/{short_code}` | Deletes a short link.                        | N/A                                              | `{ "message": "Deleted successfully" }`         | 404: Not Found                          |
-```
+
 
 **Note**: The primary APIs are "Create Short Link" and "Redirect to Long URL." The others are supplementary. Error codes adhere to HTTP standards for clarity.
 
