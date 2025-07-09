@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-08T09:34:33+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1353. Maximum Number of Events That Can Be Attended</title><link href="https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum/" rel="alternate" type="text/html" title="1353. Maximum Number of Events That Can Be Attended"/><published>2025-07-07T00:00:00+00:00</published><updated>2025-07-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum/"><![CDATA[<ul> <li>You are given an array of <code class="language-plaintext highlighter-rouge">events</code> where <code class="language-plaintext highlighter-rouge">events[i] = [startDayi, endDayi]</code>. Every event <code class="language-plaintext highlighter-rouge">i</code> starts at <code class="language-plaintext highlighter-rouge">startDayi</code> and ends at <code class="language-plaintext highlighter-rouge">endDayi</code>.</li> <li>You can attend an event <code class="language-plaintext highlighter-rouge">i</code> at any day <code class="language-plaintext highlighter-rouge">d</code> where <code class="language-plaintext highlighter-rouge">startTimei &lt;= d &lt;= endTimei</code>. You can only attend one event at any time <code class="language-plaintext highlighter-rouge">d</code>.</li> <li>Return <em>the maximum number of events you can attend</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: events = [ [ 1,2],[2,3],[3,4 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-09T03:17:35+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3439. Reschedule Meetings for Maximum Free Time I</title><link href="https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI/" rel="alternate" type="text/html" title="3439. Reschedule Meetings for Maximum Free Time I"/><published>2025-07-09T00:00:00+00:00</published><updated>2025-07-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI/"><![CDATA[<ul> <li> <p>You are given an integer <code class="language-plaintext highlighter-rouge">eventTime</code> denoting the duration of an event, where the event occurs from time <code class="language-plaintext highlighter-rouge">t = 0</code> to time <code class="language-plaintext highlighter-rouge">t = eventTime</code>.</p> </li> <li> <p>You are also given two integer arrays <code class="language-plaintext highlighter-rouge">startTime</code> and <code class="language-plaintext highlighter-rouge">endTime</code>, each of length <code class="language-plaintext highlighter-rouge">n</code>. These represent the start and end time of <code class="language-plaintext highlighter-rouge">n</code> <strong>non-overlapping</strong> meetings, where the <code class="language-plaintext highlighter-rouge">ith</code> meeting occurs during the time <code class="language-plaintext highlighter-rouge">[startTime[i], endTime[i]]</code>.</p> </li> <li> <p>You can reschedule <strong>at most</strong> <code class="language-plaintext highlighter-rouge">k</code> meetings by moving their start time while maintaining the <strong>same duration</strong>, to <strong>maximize</strong> the <strong>longest</strong> <em>continuous period of free time</em> during the event.</p> </li> <li> <p>The <strong>relative</strong> order of all the meetings should stay the <em>same</em> and they should remain non-overlapping.</p> <p>Return the <strong>maximum</strong> amount of free time possible after rearranging the meetings.</p> <p><strong>Note</strong> that the meetings can <strong>not</strong> be rescheduled to a time outside the event.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: eventTime = 5, k = 1, startTime = [1,3], endTime = [2,5]
+Output: 2
+
+Explanation:
+
+Reschedule the meeting at [1, 2] to [2, 3], leaving no meetings during the time [0, 2].
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: eventTime = 10, k = 1, startTime = [0,2,9], endTime = [1,4,10]
+
+Output: 6
+
+Explanation:
+
+Reschedule the meeting at [2, 4] to [1, 3], leaving no meetings during the time [3, 9].
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: eventTime = 5, k = 2, startTime = [0,1,2,3,4], endTime = [1,2,3,4,5]
+
+Output: 0
+
+Explanation:
+
+There is no time during the event not occupied by meetings.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/09
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RescheduleMeetingsForMaximumFreeTimeI</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxFreeTime</span><span class="o">(</span><span class="kt">int</span> <span class="n">eventTime</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">startTime</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">endTime</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">startTime</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// The gaps array stores all free time intervals between meetings and at the boundaries.</span>
+        <span class="c1">// gaps[0]: Free time from the start of the event to the first meeting.</span>
+        <span class="c1">// gaps[i]: Free time between the end of meeting i-1 and the start of meeting i.</span>
+        <span class="c1">// gaps[n]: Free time from the end of the last meeting to the end of the event.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">gaps</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+        <span class="n">gaps</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">startTime</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// Free time before the first meeting.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">gaps</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">startTime</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">endTime</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span> <span class="c1">// Free time between consecutive meetings.</span>
+        <span class="o">}</span>
+        <span class="n">gaps</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">eventTime</span> <span class="o">-</span> <span class="n">endTime</span><span class="o">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span> <span class="c1">// Free time after the last meeting.</span>
+
+        <span class="c1">// Use a sliding window of size k+1 to merge k+1 consecutive free intervals.</span>
+        <span class="kt">int</span> <span class="n">windowSum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Calculate the sum of the first window.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">gaps</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">windowSum</span><span class="o">;</span>
+        <span class="c1">// Slide the window across the gaps array, updating the sum and tracking the maximum.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">gaps</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">windowSum</span> <span class="o">+=</span> <span class="n">gaps</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">gaps</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">windowSum</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">eventTime</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">startTime</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">endTime</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
+        <span class="c1">// Expected output: 6</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxFreeTime</span><span class="o">(</span><span class="n">eventTime</span><span class="o">,</span> <span class="n">k</span><span class="o">,</span> <span class="n">startTime</span><span class="o">,</span> <span class="n">endTime</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer eventTime denoting the duration of an event, where the event occurs from time t=0 to time t=eventTime.]]></summary></entry><entry><title type="html">1353. Maximum Number of Events That Can Be Attended</title><link href="https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum/" rel="alternate" type="text/html" title="1353. Maximum Number of Events That Can Be Attended"/><published>2025-07-07T00:00:00+00:00</published><updated>2025-07-07T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum/"><![CDATA[<ul> <li>You are given an array of <code class="language-plaintext highlighter-rouge">events</code> where <code class="language-plaintext highlighter-rouge">events[i] = [startDayi, endDayi]</code>. Every event <code class="language-plaintext highlighter-rouge">i</code> starts at <code class="language-plaintext highlighter-rouge">startDayi</code> and ends at <code class="language-plaintext highlighter-rouge">endDayi</code>.</li> <li>You can attend an event <code class="language-plaintext highlighter-rouge">i</code> at any day <code class="language-plaintext highlighter-rouge">d</code> where <code class="language-plaintext highlighter-rouge">startTimei &lt;= d &lt;= endTimei</code>. You can only attend one event at any time <code class="language-plaintext highlighter-rouge">d</code>.</li> <li>Return <em>the maximum number of events you can attend</em>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: events = [ [ 1,2],[2,3],[3,4 ] ]
 Output: 3
 Explanation: You can attend all the three events.
 One way to attend them all is as shown.
@@ -739,99 +802,4 @@ No harmonic subsequence exists.
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1. Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.]]></summary></entry><entry><title type="html">2684. Maximum Number of Moves in a Grid</title><link href="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/" rel="alternate" type="text/html" title="2684. Maximum Number of Moves in a Grid"/><published>2025-06-29T00:00:00+00:00</published><updated>2025-06-29T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumNumberOfMovesInAGrid/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> <code class="language-plaintext highlighter-rouge">m x n</code> matrix <code class="language-plaintext highlighter-rouge">grid</code> consisting of <strong>positive</strong> integers.</li> <li>You can start at <strong>any</strong> cell in the first column of the matrix, and traverse the grid in the following way: <ul> <li>From a cell <code class="language-plaintext highlighter-rouge">(row, col)</code>, you can move to any of the cells: <code class="language-plaintext highlighter-rouge">(row - 1, col + 1)</code>, <code class="language-plaintext highlighter-rouge">(row, col + 1)</code> and <code class="language-plaintext highlighter-rouge">(row + 1, col + 1)</code> such that the value of the cell you move to, should be <strong>strictly</strong> bigger than the value of the current cell.</li> </ul> </li> <li>Return <em>the <strong>maximum</strong> number of <strong>moves</strong> that you can perform.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 2,4,3,5],[5,4,9,3],[3,4,2,11],[10,9,13,15 ] ]
-Output: 3
-Explanation: We can start at the cell (0, 0) and make the following moves:
-- (0, 0) -&gt; (0, 1).
-- (0, 1) -&gt; (1, 2).
-- (1, 2) -&gt; (2, 3).
-It can be shown that it is the maximum number of moves that can be made.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: grid = [ [ 3,2,4],[2,1,9],[1,1,7 ] ]
-Output: 0
-Explanation: Starting from any cell in the first column we cannot perform any moves.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m * n) time | O(m * n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Graphs</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/29
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumNumberOfMovesInAGrid</span> <span class="o">{</span>
-   
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxMoves</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the number of rows (m) and columns (n) in the grid</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// Create a memoization array to store the maximum moves from each cell</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">memo</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-        <span class="c1">// Initialize the memo array with -1, meaning no cell has been computed yet</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="nc">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">memo</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="c1">// Variable to keep track of the overall maximum moves</span>
-        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Try starting from every cell in the first column</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">row</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// Update the result with the maximum moves from this starting cell</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">res</span><span class="o">,</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">memo</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
-        <span class="o">}</span>
-        <span class="c1">// Return the maximum number of moves found</span>
-        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">memo</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Get the grid dimensions</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
-        <span class="c1">// If we are already at the last column, no more moves can be made</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">col</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="c1">// If this cell's result has already been computed, return it directly</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">memo</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">memo</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
-        <span class="o">}</span>
-        <span class="c1">// Initialize the maximum moves from this cell as 0</span>
-        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Define the three possible row directions: up, straight, down</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">directions</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Try all three possible moves: right-up, right, right-down</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Calculate the next row and next column after the move</span>
-            <span class="kt">int</span> <span class="n">nextRow</span> <span class="o">=</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dir</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">nextCol</span> <span class="o">=</span> <span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="c1">// Check if the next cell is within the grid and its value is strictly greater</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">nextRow</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nextRow</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">grid</span><span class="o">[</span><span class="n">nextRow</span><span class="o">][</span><span class="n">nextCol</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">])</span> <span class="o">{</span>
-                <span class="c1">// Recursively compute the moves from the next cell and add 1 for this move</span>
-                <span class="kt">int</span> <span class="n">steps</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">dfs</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">memo</span><span class="o">,</span> <span class="n">nextRow</span><span class="o">,</span> <span class="n">nextCol</span><span class="o">);</span>
-                <span class="c1">// Take the maximum among all possible moves from this cell</span>
-                <span class="n">max</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">steps</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Store the computed result in the memo array for future reference</span>
-        <span class="n">memo</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">max</span><span class="o">;</span>
-        <span class="c1">// Return the maximum moves from this cell</span>
-        <span class="k">return</span> <span class="n">max</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid1</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">5</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">11</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">10</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">13</span><span class="o">,</span><span class="mi">15</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="c1">// Test case 2</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">grid2</span> <span class="o">=</span> <span class="o">{</span>
-                <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">9</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">7</span><span class="o">}</span>
-        <span class="o">};</span>
-        <span class="c1">// Output the results for both test cases</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxMoves</span><span class="o">(</span><span class="n">grid1</span><span class="o">));</span> <span class="c1">// Expected output: 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxMoves</span><span class="o">(</span><span class="n">grid2</span><span class="o">));</span> <span class="c1">// Expected output: 0</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Graphs"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed m x n matrix grid consisting of positive integers. You can start at any cell in the first column of the matrix, and traverse the grid in the following way: From a cell (row, col), you can move to any of the cells: (row - 1, col + 1), (row, col + 1) and (row + 1, col + 1) such that the value of the cell you move to, should be strictly bigger than the value of the current cell. Return the maximum number of moves that you can perform.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1. Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.]]></summary></entry></feed>
