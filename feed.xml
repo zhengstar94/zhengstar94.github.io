@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-09T03:17:35+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3439. Reschedule Meetings for Maximum Free Time I</title><link href="https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI/" rel="alternate" type="text/html" title="3439. Reschedule Meetings for Maximum Free Time I"/><published>2025-07-09T00:00:00+00:00</published><updated>2025-07-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI/"><![CDATA[<ul> <li> <p>You are given an integer <code class="language-plaintext highlighter-rouge">eventTime</code> denoting the duration of an event, where the event occurs from time <code class="language-plaintext highlighter-rouge">t = 0</code> to time <code class="language-plaintext highlighter-rouge">t = eventTime</code>.</p> </li> <li> <p>You are also given two integer arrays <code class="language-plaintext highlighter-rouge">startTime</code> and <code class="language-plaintext highlighter-rouge">endTime</code>, each of length <code class="language-plaintext highlighter-rouge">n</code>. These represent the start and end time of <code class="language-plaintext highlighter-rouge">n</code> <strong>non-overlapping</strong> meetings, where the <code class="language-plaintext highlighter-rouge">ith</code> meeting occurs during the time <code class="language-plaintext highlighter-rouge">[startTime[i], endTime[i]]</code>.</p> </li> <li> <p>You can reschedule <strong>at most</strong> <code class="language-plaintext highlighter-rouge">k</code> meetings by moving their start time while maintaining the <strong>same duration</strong>, to <strong>maximize</strong> the <strong>longest</strong> <em>continuous period of free time</em> during the event.</p> </li> <li> <p>The <strong>relative</strong> order of all the meetings should stay the <em>same</em> and they should remain non-overlapping.</p> <p>Return the <strong>maximum</strong> amount of free time possible after rearranging the meetings.</p> <p><strong>Note</strong> that the meetings can <strong>not</strong> be rescheduled to a time outside the event.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: eventTime = 5, k = 1, startTime = [1,3], endTime = [2,5]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-11T01:35:37+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3169. Count Days Without Meetings</title><link href="https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings/" rel="alternate" type="text/html" title="3169. Count Days Without Meetings"/><published>2025-07-11T00:00:00+00:00</published><updated>2025-07-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings/"><![CDATA[<ul> <li>You are given a positive integer <code class="language-plaintext highlighter-rouge">days</code> representing the total number of days an employee is available for work (starting from day 1). You are also given a 2D array <code class="language-plaintext highlighter-rouge">meetings</code> of size <code class="language-plaintext highlighter-rouge">n</code> where, <code class="language-plaintext highlighter-rouge">meetings[i] = [start_i, end_i]</code> represents the starting and ending days of meeting <code class="language-plaintext highlighter-rouge">i</code> (inclusive).</li> <li>Return the count of days when the employee is available for work but no meetings are scheduled.</li> <li><strong>Note:</strong> The meetings may overlap.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: days = 10, meetings = [ [ 5,7],[1,3],[9,10 ] ]
+
+Output: 2
+
+Explanation:
+
+There is no meeting scheduled on the 4th and 8th days.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: days = 5, meetings = [ [ 2,4],[1,3 ] ]
+
+Output: 1
+
+Explanation:
+
+There is no meeting scheduled on the 5th day.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: days = 6, meetings = [ [ 1,6 ] ]
+
+Output: 0
+
+Explanation:
+
+Meetings are scheduled for all working days.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/11
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountDaysWithoutMeetings</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countDays</span><span class="o">(</span><span class="kt">int</span> <span class="n">days</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">meetings</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort the meetings by their start day in ascending order.</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">meetings</span><span class="o">,</span> <span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="n">q</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="n">q</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+
+        <span class="c1">// 'start' and 'end' represent the current merged meeting interval.</span>
+        <span class="c1">// Initialize 'start' to 1 (the first day), and 'end' to 0 (no interval yet).</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// Iterate through each meeting interval.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">p</span> <span class="o">:</span> <span class="n">meetings</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the current meeting starts after the end of the last merged interval,</span>
+            <span class="c1">// it means there is a gap (no meeting) between intervals.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">p</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">end</span><span class="o">){</span>
+                <span class="c1">// Subtract the number of days covered by the previous merged interval from 'days'.</span>
+                <span class="c1">// (end - start + 1) is the length of the previous interval.</span>
+                <span class="n">days</span> <span class="o">-=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="c1">// Start a new merged interval from the current meeting's start day.</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">p</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+            <span class="o">}</span>
+            <span class="c1">// Extend the end of the current merged interval if needed.</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">end</span><span class="o">,</span> <span class="n">p</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="c1">// After the loop, subtract the days covered by the last merged interval.</span>
+        <span class="n">days</span> <span class="o">-=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="c1">// The remaining 'days' is the number of days without any meetings.</span>
+        <span class="k">return</span> <span class="n">days</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1</span>
+        <span class="kt">int</span> <span class="n">days1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">meetings1</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">5</span><span class="o">,</span><span class="mi">7</span><span class="o">},{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">},{</span><span class="mi">9</span><span class="o">,</span><span class="mi">10</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countDays</span><span class="o">(</span><span class="n">days1</span><span class="o">,</span> <span class="n">meetings1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+
+        <span class="c1">// Test case 2</span>
+        <span class="kt">int</span> <span class="n">days2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">meetings2</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">},{</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countDays</span><span class="o">(</span><span class="n">days2</span><span class="o">,</span> <span class="n">meetings2</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="c1">// Test case 3</span>
+        <span class="kt">int</span> <span class="n">days3</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">meetings3</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span><span class="mi">6</span> <span class="o">}</span> <span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countDays</span><span class="o">(</span><span class="n">days3</span><span class="o">,</span> <span class="n">meetings3</span><span class="o">));</span> <span class="c1">// Output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Medium"/><summary type="html"><![CDATA[You are given a positive integer days representing the total number of days an employee is available for work (starting from day 1). You are also given a 2D array meetings of size n where, meetings[i] = [start_i, end_i] represents the starting and ending days of meeting i (inclusive). Return the count of days when the employee is available for work but no meetings are scheduled. Note: The meetings may overlap.]]></summary></entry><entry><title type="html">3439. Reschedule Meetings for Maximum Free Time I</title><link href="https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI/" rel="alternate" type="text/html" title="3439. Reschedule Meetings for Maximum Free Time I"/><published>2025-07-09T00:00:00+00:00</published><updated>2025-07-09T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/RescheduleMeetingsForMaximumFreeTimeI/"><![CDATA[<ul> <li> <p>You are given an integer <code class="language-plaintext highlighter-rouge">eventTime</code> denoting the duration of an event, where the event occurs from time <code class="language-plaintext highlighter-rouge">t = 0</code> to time <code class="language-plaintext highlighter-rouge">t = eventTime</code>.</p> </li> <li> <p>You are also given two integer arrays <code class="language-plaintext highlighter-rouge">startTime</code> and <code class="language-plaintext highlighter-rouge">endTime</code>, each of length <code class="language-plaintext highlighter-rouge">n</code>. These represent the start and end time of <code class="language-plaintext highlighter-rouge">n</code> <strong>non-overlapping</strong> meetings, where the <code class="language-plaintext highlighter-rouge">ith</code> meeting occurs during the time <code class="language-plaintext highlighter-rouge">[startTime[i], endTime[i]]</code>.</p> </li> <li> <p>You can reschedule <strong>at most</strong> <code class="language-plaintext highlighter-rouge">k</code> meetings by moving their start time while maintaining the <strong>same duration</strong>, to <strong>maximize</strong> the <strong>longest</strong> <em>continuous period of free time</em> during the event.</p> </li> <li> <p>The <strong>relative</strong> order of all the meetings should stay the <em>same</em> and they should remain non-overlapping.</p> <p>Return the <strong>maximum</strong> amount of free time possible after rearranging the meetings.</p> <p><strong>Note</strong> that the meetings can <strong>not</strong> be rescheduled to a time outside the event.</p> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: eventTime = 5, k = 1, startTime = [1,3], endTime = [2,5]
 Output: 2
 
 Explanation:
@@ -725,81 +804,4 @@ Output: 4
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Alice is attempting to type a specific string on her computer. However, she tends to be clumsy and may press a key for too long, resulting in a character being typed multiple times. Although Alice tried to focus on her typing, she is aware that she may still have done this at most once. You are given a string word, which represents the final output displayed on Alice’s screen. Return the total number of possible original strings that Alice might have intended to type.]]></summary></entry><entry><title type="html">594. Longest Harmonious Subsequence</title><link href="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/" rel="alternate" type="text/html" title="594. Longest Harmonious Subsequence"/><published>2025-06-30T00:00:00+00:00</published><updated>2025-06-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestHarmoniousSubsequence/"><![CDATA[<ul> <li>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">1</code>.</li> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code>, return the length of its longest harmonious subsequence among all its possible subsequences.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,3,2,2,5,2,3,7]
-
-Output: 5
-
-Explanation:
-
-The longest harmonious subsequence is [3,2,2,2,3].
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4]
-
-Output: 2
-
-Explanation:
-
-The longest harmonious subsequences are [1,2], [2,3], and [3,4], all of which have a length of 2.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1]
-
-Output: 0
-
-Explanation:
-
-No harmonic subsequence exists.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/06/30
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestHarmoniousSubsequence</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findLHS</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a HashMap to store the frequency (count) of each number in the array.</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Traverse the array and populate the countMap.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// For each number, increment its count in the map.</span>
-            <span class="c1">// If the number is not present, getOrDefault returns 0.</span>
-            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Variable to keep track of the maximum length found.</span>
-
-        <span class="c1">// Iterate through each unique number (key) in the map.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">key</span> <span class="o">:</span> <span class="n">countMap</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Check if the map contains the adjacent number (key + 1).</span>
-            <span class="c1">// Only pairs of numbers with a difference of exactly 1 can form a harmonious subsequence.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">countMap</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">key</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If both key and key+1 exist, calculate the total count of these two numbers.</span>
-                <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">+</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-                <span class="c1">// Update maxLen if this pair forms a longer harmonious subsequence.</span>
-                <span class="n">maxLen</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxLen</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Return the length of the longest harmonious subsequence found.</span>
-        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test case 1: Example from the problem description.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">};</span>
-        <span class="c1">// Expected output: 5 ([3,2,2,2,3])</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span>
-
-        <span class="c1">// Test case 2: Consecutive numbers.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="c1">// Expected output: 2 ([1,2], [2,3], or [3,4])</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span>
-
-        <span class="c1">// Test case 3: All numbers are the same.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Expected output: 0 (no harmonious subsequence)</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findLHS</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1. Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Alice is attempting to type a specific string on her computer. However, she tends to be clumsy and may press a key for too long, resulting in a character being typed multiple times. Although Alice tried to focus on her typing, she is aware that she may still have done this at most once. You are given a string word, which represents the final output displayed on Alice’s screen. Return the total number of possible original strings that Alice might have intended to type.]]></summary></entry></feed>
