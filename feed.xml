@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-11T01:35:37+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3169. Count Days Without Meetings</title><link href="https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings/" rel="alternate" type="text/html" title="3169. Count Days Without Meetings"/><published>2025-07-11T00:00:00+00:00</published><updated>2025-07-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings/"><![CDATA[<ul> <li>You are given a positive integer <code class="language-plaintext highlighter-rouge">days</code> representing the total number of days an employee is available for work (starting from day 1). You are also given a 2D array <code class="language-plaintext highlighter-rouge">meetings</code> of size <code class="language-plaintext highlighter-rouge">n</code> where, <code class="language-plaintext highlighter-rouge">meetings[i] = [start_i, end_i]</code> represents the starting and ending days of meeting <code class="language-plaintext highlighter-rouge">i</code> (inclusive).</li> <li>Return the count of days when the employee is available for work but no meetings are scheduled.</li> <li><strong>Note:</strong> The meetings may overlap.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: days = 10, meetings = [ [ 5,7],[1,3],[9,10 ] ]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-13T04:39:44+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2410. Maximum Matching of Players With Trainers</title><link href="https://zhengstar94.github.io//blog/2025/MaximumMatchingOfPlayersWithTrainers/" rel="alternate" type="text/html" title="2410. Maximum Matching of Players With Trainers"/><published>2025-07-13T00:00:00+00:00</published><updated>2025-07-13T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumMatchingOfPlayersWithTrainers</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumMatchingOfPlayersWithTrainers/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">players</code>, where <code class="language-plaintext highlighter-rouge">players[i]</code> represents the <strong>ability</strong> of the <code class="language-plaintext highlighter-rouge">ith</code> player.</li> <li>You are also given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">trainers</code>, where <code class="language-plaintext highlighter-rouge">trainers[j]</code> represents the <strong>training capacity</strong> of the <code class="language-plaintext highlighter-rouge">jth</code> trainer.</li> <li>The <code class="language-plaintext highlighter-rouge">ith</code> player can <strong>match</strong> with the <code class="language-plaintext highlighter-rouge">jth</code> trainer if the player’s ability is <strong>less than or equal to</strong> the trainer’s training capacity. Additionally, the <code class="language-plaintext highlighter-rouge">ith</code> player can be matched with at most one trainer, and the <code class="language-plaintext highlighter-rouge">jth</code> trainer can be matched with at most one player.</li> <li>Return <em>the <strong>maximum</strong> number of matchings between</em> <code class="language-plaintext highlighter-rouge">players</code> <em>and</em> <code class="language-plaintext highlighter-rouge">trainers</code> <em>that satisfy these conditions.</em></li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: players = [4,7,9], trainers = [8,2,5,8]
+Output: 2
+Explanation:
+One of the ways we can form two matchings is as follows:
+- players[0] can be matched with trainers[0] since 4 &lt;= 8.
+- players[1] can be matched with trainers[3] since 7 &lt;= 8.
+It can be proven that 2 is the maximum number of matchings that can be formed.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: players = [1,1,1], trainers = [10]
+Output: 1
+Explanation:
+The trainer can be matched with any of the 3 players.
+Each player can only be matched with one trainer, so the maximum answer is 1.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(nlogn + mlogm) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/13
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumMatchingOfPlayersWithTrainers</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">matchPlayersAndTrainers</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">players</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">trainers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Sort both arrays in ascending order.</span>
+        <span class="c1">// This allows us to use the greedy strategy: always try to match the weakest available player</span>
+        <span class="c1">// with the weakest available trainer who can train them.</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">players</span><span class="o">);</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">trainers</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>      <span class="c1">// Pointer for players array</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>      <span class="c1">// Pointer for trainers array</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Counter for successful matchings</span>
+
+        <span class="c1">// Use two pointers to traverse both arrays</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">players</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">trainers</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// If the current player can be matched with the current trainer</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">players</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">trainers</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="c1">// Successful match: increment the count</span>
+                <span class="n">count</span><span class="o">++;</span>
+                <span class="c1">// Move to the next player and the next trainer</span>
+                <span class="n">i</span><span class="o">++;</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// If the current trainer is too weak for the current player,</span>
+                <span class="c1">// try the next trainer (since trainers are sorted, no later trainer will be weaker)</span>
+                <span class="n">j</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="c1">// Return the total number of successful matchings</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Test case 1: Expected output is 2</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">players1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">9</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">trainers1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">matchPlayersAndTrainers</span><span class="o">(</span><span class="n">players1</span><span class="o">,</span> <span class="n">trainers1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+
+        <span class="c1">// Test case 2: Expected output is 1</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">players2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">trainers2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">10</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">matchPlayersAndTrainers</span><span class="o">(</span><span class="n">players2</span><span class="o">,</span> <span class="n">trainers2</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given a 0-indexed integer array players, where players[i] represents the ability of the ith player. You are also given a 0-indexed integer array trainers, where trainers[j] represents the training capacity of the jth trainer. The ith player can match with the jth trainer if the player’s ability is less than or equal to the trainer’s training capacity. Additionally, the ith player can be matched with at most one trainer, and the jth trainer can be matched with at most one player. Return the maximum number of matchings between players and trainers that satisfy these conditions.]]></summary></entry><entry><title type="html">3169. Count Days Without Meetings</title><link href="https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings/" rel="alternate" type="text/html" title="3169. Count Days Without Meetings"/><published>2025-07-11T00:00:00+00:00</published><updated>2025-07-11T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountDaysWithoutMeetings/"><![CDATA[<ul> <li>You are given a positive integer <code class="language-plaintext highlighter-rouge">days</code> representing the total number of days an employee is available for work (starting from day 1). You are also given a 2D array <code class="language-plaintext highlighter-rouge">meetings</code> of size <code class="language-plaintext highlighter-rouge">n</code> where, <code class="language-plaintext highlighter-rouge">meetings[i] = [start_i, end_i]</code> represents the starting and ending days of meeting <code class="language-plaintext highlighter-rouge">i</code> (inclusive).</li> <li>Return the count of days when the employee is available for work but no meetings are scheduled.</li> <li><strong>Note:</strong> The meetings may overlap.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: days = 10, meetings = [ [ 5,7],[1,3],[9,10 ] ]
 
 Output: 2
 
@@ -744,64 +811,4 @@ Output: "c"
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Request "</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">" rejected"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div></div> <p><strong>Parameter Tuning</strong>:</p> <ul> <li> <p><strong>Window Size</strong>: Typically 1–60 seconds, 60 seconds in the example.</p> </li> <li> <p><strong>Granularity</strong>: Smaller granularity (e.g., 6 or 10) improves precision, 6 in the example (10 seconds/sub-window).</p> </li> <li> <p><strong>Limit</strong>: Set based on business needs (e.g., 10 requests/minute).</p> </li> </ul> <h2 id="summary">Summary</h2> <ul> <li><strong>Selection Guide</strong>: <ul> <li><strong>Bursty Traffic</strong>: Token Bucket (handles high concurrency), Sliding Window Counter (smooths peaks).</li> <li><strong>Stable Rates</strong>: Leaky Bucket (ensures consistent output).</li> <li><strong>High Precision</strong>: Sliding Window Log (strict limiting).</li> <li><strong>Simple Scenarios</strong>: Fixed Window Counter (quick implementation).</li> </ul> </li> <li><strong>Key Considerations</strong>: <ul> <li>Token Bucket: Balances burst support with tuning challenges.</li> <li>Leaky Bucket: Prioritizes stability but struggles with bursts and latency.</li> <li>Fixed Window Counter: Efficient but prone to boundary issues.</li> <li>Sliding Window Log: Precise yet resource-intensive, ideal for critical applications.</li> <li>Sliding Window Counter: Efficient with moderate precision, suitable for balanced needs.</li> </ul> </li> <li><strong>Practical Recommendations</strong>: <ul> <li>Use Redis for distributed environments (e.g., Token Bucket, Fixed Window).</li> <li>Test under high concurrency to validate rate-limiting effectiveness.</li> <li>Monitor request rates and adjust parameters dynamically.</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="System Design Other"/><summary type="html"><![CDATA[Introduction to Rate Limiting]]></summary></entry><entry><title type="html">3330. Find the Original Typed String I</title><link href="https://zhengstar94.github.io//blog/2025/FindTheOriginalTypedStringI/" rel="alternate" type="text/html" title="3330. Find the Original Typed String I"/><published>2025-07-01T00:00:00+00:00</published><updated>2025-07-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindTheOriginalTypedStringI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindTheOriginalTypedStringI/"><![CDATA[<ul> <li>Alice is attempting to type a specific string on her computer. However, she tends to be clumsy and <strong>may</strong> press a key for too long, resulting in a character being typed <strong>multiple</strong> times.</li> <li>Although Alice tried to focus on her typing, she is aware that she may still have done this <strong>at most</strong> <em>once</em>.</li> <li>You are given a string <code class="language-plaintext highlighter-rouge">word</code>, which represents the <strong>final</strong> output displayed on Alice’s screen.</li> <li>Return the total number of <em>possible</em> original strings that Alice <em>might</em> have intended to type.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "abbcccc"
-
-Output: 5
-
-Explanation:
-
-The possible strings are: "abbcccc", "abbccc", "abbcc", "abbc", and "abcccc".
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "abcd"
-
-Output: 1
-
-Explanation:
-
-The only possible string is "abcd".
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "aaaa"
-
-Output: 4
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.String</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/01
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindTheOriginalTypedStringI</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">possibleStringCount</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Initialize the count to 1.</span>
-        <span class="c1">// This is because the original string itself (with no long press at all) is always a valid possibility.</span>
-        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Start from the second character and iterate through the string.</span>
-        <span class="c1">// We are looking for all pairs of adjacent, identical characters.</span>
-        <span class="c1">// Each such pair represents a possible place where a "long press" could have occurred.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="c1">// If the current character is the same as the previous one,</span>
-            <span class="c1">// it means there is a sequence of repeated characters.</span>
-            <span class="c1">// Each such pair gives us one more possible original string,</span>
-            <span class="c1">// because we could "remove" one of these repeated characters (simulating that the long press happened here).</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">count</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Return the total count.</span>
-        <span class="c1">// This includes:</span>
-        <span class="c1">//   - The original string itself (no long press)</span>
-        <span class="c1">//   - One for each possible pair of adjacent identical characters (where a long press could have happened)</span>
-        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">possibleStringCount</span><span class="o">(</span><span class="s">"abbcccc"</span><span class="o">));</span> <span class="c1">// Output: 5</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">possibleStringCount</span><span class="o">(</span><span class="s">"abcd"</span><span class="o">));</span>    <span class="c1">// Output: 1</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">possibleStringCount</span><span class="o">(</span><span class="s">"aaaa"</span><span class="o">));</span>    <span class="c1">// Output: 4</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode String"/><category term="Easy"/><summary type="html"><![CDATA[Alice is attempting to type a specific string on her computer. However, she tends to be clumsy and may press a key for too long, resulting in a character being typed multiple times. Although Alice tried to focus on her typing, she is aware that she may still have done this at most once. You are given a string word, which represents the final output displayed on Alice’s screen. Return the total number of possible original strings that Alice might have intended to type.]]></summary></entry></feed>
+</code></pre></div></div> <p><strong>Parameter Tuning</strong>:</p> <ul> <li> <p><strong>Window Size</strong>: Typically 1–60 seconds, 60 seconds in the example.</p> </li> <li> <p><strong>Granularity</strong>: Smaller granularity (e.g., 6 or 10) improves precision, 6 in the example (10 seconds/sub-window).</p> </li> <li> <p><strong>Limit</strong>: Set based on business needs (e.g., 10 requests/minute).</p> </li> </ul> <h2 id="summary">Summary</h2> <ul> <li><strong>Selection Guide</strong>: <ul> <li><strong>Bursty Traffic</strong>: Token Bucket (handles high concurrency), Sliding Window Counter (smooths peaks).</li> <li><strong>Stable Rates</strong>: Leaky Bucket (ensures consistent output).</li> <li><strong>High Precision</strong>: Sliding Window Log (strict limiting).</li> <li><strong>Simple Scenarios</strong>: Fixed Window Counter (quick implementation).</li> </ul> </li> <li><strong>Key Considerations</strong>: <ul> <li>Token Bucket: Balances burst support with tuning challenges.</li> <li>Leaky Bucket: Prioritizes stability but struggles with bursts and latency.</li> <li>Fixed Window Counter: Efficient but prone to boundary issues.</li> <li>Sliding Window Log: Precise yet resource-intensive, ideal for critical applications.</li> <li>Sliding Window Counter: Efficient with moderate precision, suitable for balanced needs.</li> </ul> </li> <li><strong>Practical Recommendations</strong>: <ul> <li>Use Redis for distributed environments (e.g., Token Bucket, Fixed Window).</li> <li>Test under high concurrency to validate rate-limiting effectiveness.</li> <li>Monitor request rates and adjust parameters dynamically.</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="System Design Other"/><summary type="html"><![CDATA[Introduction to Rate Limiting]]></summary></entry></feed>
