@@ -93,17 +93,18 @@ Storage estimation addresses the long-term storage needs for short link records.
 2.  **Total Number of Records**:
   - **Assumption**: 100 million new links per month, stored for 10 years.
   - **Calculation**:
-    - Total records over 10 years = 100 million/month × 12 months/year × 10 years = **1.2 billion records**.
+    - Total records over 10 years = 100 million/month × 12 months/year × 10 years = **12 billion records**.
   - **Storage Requirement**:
-    - Total storage = 1.2 billion records × 500 bytes/record = 600 GB.
-    - Factoring in database indexes, logs, and redundancy (2-3 x buffer), the estimated requirement is **1.2 - 1.8 TB**.
-    - To be conservative and support future growth, we will provision **6 TB** of storage.
-  - **Conclusion**: The system requires approximately 6 TB of storage to support 10 years of data.
+    - Total storage = 12 billion records × 500 bytes/record = 6000 GB = 6TB.
+    - Factoring in database indexes, logs, and redundancy (2-3 x buffer), the estimated requirement is **12 - 18 TB**.
+    - To be conservative and support future growth, we will provision **30 TB** of storage.
+  - **Conclusion**: The system requires approximately 30 TB of storage to support 10 years of data.
 
 3.  **Growth Considerations**:
   - If link generation grows by 10% annually, the monthly rate after 10 years would be ~259 million (100 M × 1.1^10).
-  - The total number of records over 10 years would be ~1.86 billion, requiring ~9.3 TB of storage (including redundancy).
-  - 6 TB remains sufficient for many scenarios, but a scalable sharding strategy must be planned.
+  - Raw storage for these records would be approximately **8 TB** (excluding overhead).
+  - Including redundancy and indexes (2–3 times), actual storage requirement would be roughly **16–24 TB**.
+  - 30 TB remains sufficient for many scenarios, but a scalable sharding strategy must be planned.
 
 #### 4. Cache Estimation
 The cache is used to accelerate redirections for popular links, based on the 80/20 rule.
