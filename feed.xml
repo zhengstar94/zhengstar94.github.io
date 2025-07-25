@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-21T03:55:12+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2441. Largest Positive Integer That Exists With Its Negative</title><link href="https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative/" rel="alternate" type="text/html" title="2441. Largest Positive Integer That Exists With Its Negative"/><published>2025-07-21T00:00:00+00:00</published><updated>2025-07-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> that <strong>does not contain</strong> any zeros, find <strong>the largest positive</strong> integer <code class="language-plaintext highlighter-rouge">k</code> such that <code class="language-plaintext highlighter-rouge">-k</code> also exists in the array.</li> <li>Return <em>the positive integer</em> <code class="language-plaintext highlighter-rouge">k</code>. If there is no such integer, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,2,-3,3]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-25T02:39:40+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3487. Maximum Unique Subarray Sum After Deletion</title><link href="https://zhengstar94.github.io//blog/2025/MaximumUniqueSubarraySumAfterDeletion/" rel="alternate" type="text/html" title="3487. Maximum Unique Subarray Sum After Deletion"/><published>2025-07-25T00:00:00+00:00</published><updated>2025-07-25T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumUniqueSubarraySumAfterDeletion</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumUniqueSubarraySumAfterDeletion/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>.</li> <li>You are allowed to delete any number of elements from <code class="language-plaintext highlighter-rouge">nums</code> without making it <strong>empty</strong>. After performing the deletions, select a subarray of <code class="language-plaintext highlighter-rouge">nums</code> such that: <ul> <li>All elements in the subarray are <strong>unique</strong>.</li> <li>The sum of the elements in the subarray is <strong>maximized</strong>.</li> </ul> </li> <li>Return the <strong>maximum sum</strong> of such a subarray.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4,5]
+Output: 15
+
+Explanation:
+
+Select the entire array without deleting any element to obtain the maximum sum.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,0,1,1]
+Output: 1
+
+Explanation:
+
+Delete the element nums[0] == 1, nums[1] == 1, nums[2] == 0, and nums[3] == 1. Select the entire array [1] to obtain the maximum sum.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,-1,-2,1,0,-1]
+Output: 3
+
+Explanation:
+
+Delete the elements nums[2] == -1 and nums[3] == -2, and select the subarray [2, 1] from [1, 2, 1, 0, -1] to obtain the maximum sum.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Greedy</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/25
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumUniqueSubarraySumAfterDeletion</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// This set is used to store unique positive numbers encountered in the array.</span>
+        <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// This variable accumulates the sum of all unique positive numbers.</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// This variable keeps track of the largest negative number in the array.</span>
+        <span class="c1">// It is initialized to the smallest possible integer value.</span>
+        <span class="kt">int</span> <span class="n">maxNegative</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+
+        <span class="c1">// Traverse each element in the input array.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// If the current number is negative, update maxNegative if this number is larger.</span>
+                <span class="c1">// This is important for the case where all numbers are negative.</span>
+                <span class="n">maxNegative</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxNegative</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">))</span> <span class="o">{</span>
+                <span class="c1">// If the current number is non-negative and not already in the set (i.e., unique),</span>
+                <span class="c1">// add it to the set and add its value to the sum.</span>
+                <span class="c1">// Only the first occurrence of each positive number is counted.</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">x</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// If the number is non-negative but already in the set, it is skipped (no duplicate allowed).</span>
+        <span class="o">}</span>
+
+        <span class="c1">// If the set is empty, it means there were no non-negative numbers in the array.</span>
+        <span class="c1">// In this case, return the largest negative number found.</span>
+        <span class="c1">// Otherwise, return the sum of all unique positive numbers.</span>
+        <span class="k">return</span> <span class="n">set</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">?</span> <span class="n">maxNegative</span> <span class="o">:</span> <span class="n">sum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums4</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">3</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">};</span>
+
+        <span class="c1">// Test case 1: All unique positive numbers, should return 15 (1+2+3+4+5)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSum</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Output: 15</span>
+
+        <span class="c1">// Test case 2: Only one unique non-negative number (1), should return 1</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSum</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="c1">// Test case 3: Mixed numbers, unique non-negative numbers are 1, 2, 0, sum is 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSum</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Output: 3</span>
+
+        <span class="c1">// Test case 4: All negative numbers, should return the largest one (-2)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSum</span><span class="o">(</span><span class="n">nums4</span><span class="o">));</span> <span class="c1">// Output: -2</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums. You are allowed to delete any number of elements from nums without making it empty. After performing the deletions, select a subarray of nums such that: All elements in the subarray are unique. The sum of the elements in the subarray is maximized. Return the maximum sum of such a subarray.]]></summary></entry><entry><title type="html">2441. Largest Positive Integer That Exists With Its Negative</title><link href="https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative/" rel="alternate" type="text/html" title="2441. Largest Positive Integer That Exists With Its Negative"/><published>2025-07-21T00:00:00+00:00</published><updated>2025-07-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> that <strong>does not contain</strong> any zeros, find <strong>the largest positive</strong> integer <code class="language-plaintext highlighter-rouge">k</code> such that <code class="language-plaintext highlighter-rouge">-k</code> also exists in the array.</li> <li>Return <em>the positive integer</em> <code class="language-plaintext highlighter-rouge">k</code>. If there is no such integer, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,2,-3,3]
 Output: 3
 Explanation: 3 is the only valid k we can find in the array.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,10,6,7,-7,1]
@@ -584,102 +664,4 @@ Output: 4
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array of events where events[i] = [startDayi, endDayi]. Every event i starts at startDayi and ends at endDayi. You can attend an event i at any day d where startTimei &lt;= d &lt;= endTimei. You can only attend one event at any time d. Return the maximum number of events you can attend.]]></summary></entry><entry><title type="html">1865. Finding Pairs With a Certain Sum</title><link href="https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum/" rel="alternate" type="text/html" title="1865. Finding Pairs With a Certain Sum"/><published>2025-07-06T00:00:00+00:00</published><updated>2025-07-06T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindingPairsWithACertainSum/"><![CDATA[<ul> <li>You are given two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>. You are tasked to implement a data structure that supports queries of two types: <ul> <li><strong>Add</strong> a positive integer to an element of a given index in the array <code class="language-plaintext highlighter-rouge">nums2</code>.</li> <li><strong>Count</strong> the number of pairs <code class="language-plaintext highlighter-rouge">(i, j)</code> such that <code class="language-plaintext highlighter-rouge">nums1[i] + nums2[j]</code> equals a given value (<code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; nums1.length</code> and <code class="language-plaintext highlighter-rouge">0 &lt;= j &lt; nums2.length</code>).</li> </ul> </li> <li>Implement the <code class="language-plaintext highlighter-rouge">FindSumPairs</code> class: <ul> <li><code class="language-plaintext highlighter-rouge">FindSumPairs(int[] nums1, int[] nums2)</code> Initializes the <code class="language-plaintext highlighter-rouge">FindSumPairs</code> object with two integer arrays <code class="language-plaintext highlighter-rouge">nums1</code> and <code class="language-plaintext highlighter-rouge">nums2</code>.</li> <li><code class="language-plaintext highlighter-rouge">void add(int index, int val)</code> Adds <code class="language-plaintext highlighter-rouge">val</code> to <code class="language-plaintext highlighter-rouge">nums2[index]</code>, i.e., apply <code class="language-plaintext highlighter-rouge">nums2[index] += val</code>.</li> <li><code class="language-plaintext highlighter-rouge">int count(int tot)</code> Returns the number of pairs <code class="language-plaintext highlighter-rouge">(i, j)</code> such that <code class="language-plaintext highlighter-rouge">nums1[i] + nums2[j] == tot</code>.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input
-["FindSumPairs", "count", "add", "count", "count", "add", "add", "count"]
-[ [ [ 1, 1, 2, 2, 2, 3], [1, 4, 5, 2, 5, 4 ] ], [7], [3, 2], [8], [4], [0, 1], [1, 1], [7 ] ]
-Output
-[null, 8, null, 2, 1, null, null, 11]
-
-Explanation
-FindSumPairs findSumPairs = new FindSumPairs( [ 1, 1, 2, 2, 2, 3], [1, 4, 5, 2, 5, 4 ] );
-findSumPairs.count(7);  // return 8; pairs (2,2), (3,2), (4,2), (2,4), (3,4), (4,4) make 2 + 5 and pairs (5,1), (5,5) make 3 + 4
-findSumPairs.add(3, 2); // now nums2 = [1,4,5,4,5,4]
-findSumPairs.count(8);  // return 2; pairs (5,2), (5,4) make 3 + 5
-findSumPairs.count(4);  // return 1; pair (5,0) makes 3 + 1
-findSumPairs.add(0, 1); // now nums2 = [2,4,5,4,5,4]
-findSumPairs.add(1, 1); // now nums2 = [2,5,5,4,5,4]
-findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (3,4), (4,1), (4,2), (4,4) make 2 + 5 and pairs (5,3), (5,5) make 3 + 4
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(m) time | O(m + q) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/06
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FindingPairsWithACertainSum</span> <span class="o">{</span>
-    <span class="c1">// Store the first array as is, since it is not modified after initialization</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">;</span>
-    <span class="c1">// Store the second array, which can be modified by add operations</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">;</span>
-    <span class="c1">// HashMap to record the frequency of each number in nums2</span>
-    <span class="c1">// Key: number in nums2, Value: how many times it appears in nums2</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-    <span class="kd">public</span> <span class="nf">FindingPairsWithACertainSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">nums1</span> <span class="o">=</span> <span class="n">nums1</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">nums2</span> <span class="o">=</span> <span class="n">nums2</span><span class="o">;</span>
-        <span class="c1">// Build the frequency map for nums2</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// For each number x in nums2, increment its count in the map by 1.</span>
-            <span class="c1">// If x is not present, it will be added with value 1.</span>
-            <span class="c1">// If x is already present, its value will be increased by 1.</span>
-            <span class="n">cnt</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Step 1: Decrease the count of the old value at nums2[index] in the frequency map.</span>
-        <span class="c1">// This is because the value at this index is about to change.</span>
-        <span class="n">cnt</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">nums2</span><span class="o">[</span><span class="n">index</span><span class="o">],</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
-
-        <span class="c1">// Step 2: Update nums2[index] by adding val to it.</span>
-        <span class="n">nums2</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">+=</span> <span class="n">val</span><span class="o">;</span>
-
-        <span class="c1">// Step 3: Increase the count of the new value at nums2[index] in the frequency map.</span>
-        <span class="c1">// This ensures the map is always up-to-date with the current nums2.</span>
-        <span class="n">cnt</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">nums2</span><span class="o">[</span><span class="n">index</span><span class="o">],</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">count</span><span class="o">(</span><span class="kt">int</span> <span class="n">tot</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// For each element x in nums1, we want to find how many y in nums2 satisfy x + y == tot,</span>
-        <span class="c1">// which is equivalent to y == tot - x.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums1</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// cnt.getOrDefault(tot - x, 0) gives the number of times (tot - x) appears in nums2.</span>
-            <span class="c1">// Add this count to the answer.</span>
-            <span class="n">ans</span> <span class="o">+=</span> <span class="n">cnt</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">tot</span> <span class="o">-</span> <span class="n">x</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Initialize the object with the given nums1 and nums2 arrays.</span>
-        <span class="nc">FindingPairsWithACertainSum</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FindingPairsWithACertainSum</span><span class="o">(</span>
-                <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">},</span>
-                <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">}</span>
-        <span class="o">);</span>
-        <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// Constructor does not return a value.</span>
-
-        <span class="c1">// Perform count and add operations as per the example.</span>
-        <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">obj</span><span class="o">.</span><span class="na">count</span><span class="o">(</span><span class="mi">7</span><span class="o">));</span> <span class="c1">// Returns 8</span>
-        <span class="n">obj</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span> <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// No return value</span>
-        <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">obj</span><span class="o">.</span><span class="na">count</span><span class="o">(</span><span class="mi">8</span><span class="o">));</span> <span class="c1">// Returns 2</span>
-        <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">obj</span><span class="o">.</span><span class="na">count</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span> <span class="c1">// Returns 1</span>
-        <span class="n">obj</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// No return value</span>
-        <span class="n">obj</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// No return value</span>
-        <span class="n">output</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">obj</span><span class="o">.</span><span class="na">count</span><span class="o">(</span><span class="mi">7</span><span class="o">));</span> <span class="c1">// Returns 11</span>
-
-        <span class="c1">// Print the output list, which matches the expected output format.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">output</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given two integer arrays nums1 and nums2. You are tasked to implement a data structure that supports queries of two types: Add a positive integer to an element of a given index in the array nums2. Count the number of pairs (i, j) such that nums1[i] + nums2[j] equals a given value (0 &lt;= i &lt; nums1.length and 0 &lt;= j &lt; nums2.length). Implement the FindSumPairs class: FindSumPairs(int[] nums1, int[] nums2) Initializes the FindSumPairs object with two integer arrays nums1 and nums2. void add(int index, int val) Adds val to nums2[index], i.e., apply nums2[index] += val. int count(int tot) Returns the number of pairs (i, j) such that nums1[i] + nums2[j] == tot.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array of events where events[i] = [startDayi, endDayi]. Every event i starts at startDayi and ends at endDayi. You can attend an event i at any day d where startTimei &lt;= d &lt;= endTimei. You can only attend one event at any time d. Return the maximum number of events you can attend.]]></summary></entry></feed>
