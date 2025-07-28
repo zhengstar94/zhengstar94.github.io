@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-27T04:24:34+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2210. Count Hills and Valleys in an Array</title><link href="https://zhengstar94.github.io//blog/2025/CountHillsAndValleysInAnArray/" rel="alternate" type="text/html" title="2210. Count Hills and Valleys in an Array"/><published>2025-07-27T00:00:00+00:00</published><updated>2025-07-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountHillsAndValleysInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountHillsAndValleysInAnArray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. An index <code class="language-plaintext highlighter-rouge">i</code> is part of a <strong>hill</strong> in <code class="language-plaintext highlighter-rouge">nums</code> if the closest non-equal neighbors of <code class="language-plaintext highlighter-rouge">i</code> are smaller than <code class="language-plaintext highlighter-rouge">nums[i]</code>. Similarly, an index <code class="language-plaintext highlighter-rouge">i</code> is part of a <strong>valley</strong> in <code class="language-plaintext highlighter-rouge">nums</code> if the closest non-equal neighbors of <code class="language-plaintext highlighter-rouge">i</code> are larger than <code class="language-plaintext highlighter-rouge">nums[i]</code>. Adjacent indices <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> are part of the <strong>same</strong> hill or valley if <code class="language-plaintext highlighter-rouge">nums[i] == nums[j]</code>.</li> <li>Note that for an index to be part of a hill or valley, it must have a non-equal neighbor on <strong>both</strong> the left and right of the index.</li> <li>Return <em>the number of hills and valleys in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,4,1,1,6,5]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-28T01:49:30+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">16.24. Pairs With Sum LCCI</title><link href="https://zhengstar94.github.io//blog/2025/PairsWithSumLCCI/" rel="alternate" type="text/html" title="16.24. Pairs With Sum LCCI"/><published>2025-07-28T00:00:00+00:00</published><updated>2025-07-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PairsWithSumLCCI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PairsWithSumLCCI/"><![CDATA[<ul> <li>Design an algorithm to find all pairs of integers within an array which sum to a specified value.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,6,5], target = 11
+Output: [ [ 5,6 ] ]
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,6,5,6], target = 11
+Output: [ [ 5,6],[5,6 ] ]
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/28
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PairsWithSumLCCI</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">pairSums</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// This map records how many times each number appears in the array.</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Count the occurrences of each number in the array.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Iterate through the array to find valid pairs.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">complement</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span><span class="o">;</span> <span class="c1">// The number needed to form the target sum with 'num'.</span>
+
+            <span class="c1">// Check if both 'num' and its complement are still available (not used up in previous pairs).</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">complement</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// Special case: when num == complement, we need at least two of this number to form a pair.</span>
+                <span class="c1">// For example, if target=10 and num=5, we need two 5's to form [5,5].</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="n">complement</span> <span class="o">&amp;&amp;</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// If there is only one occurrence left, we cannot form a pair [num, num].</span>
+                    <span class="k">continue</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="c1">// Add the pair [num, complement] to the result list.</span>
+                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">complement</span><span class="o">));</span>
+                <span class="c1">// Decrement the count for both numbers, since they have been used in a pair.</span>
+                <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+                <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">complement</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">complement</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// If either number is not available, skip to the next.</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="c1">// Output: [ [5, 6] ]</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pairSums</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
+        <span class="c1">// Output: [ [5, 6], [5, 6] ]</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pairSums</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+        <span class="c1">// Output: [ [1, 5], [2, 4] ]</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pairSums</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[Design an algorithm to find all pairs of integers within an array which sum to a specified value.]]></summary></entry><entry><title type="html">2210. Count Hills and Valleys in an Array</title><link href="https://zhengstar94.github.io//blog/2025/CountHillsAndValleysInAnArray/" rel="alternate" type="text/html" title="2210. Count Hills and Valleys in an Array"/><published>2025-07-27T00:00:00+00:00</published><updated>2025-07-27T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountHillsAndValleysInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountHillsAndValleysInAnArray/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>. An index <code class="language-plaintext highlighter-rouge">i</code> is part of a <strong>hill</strong> in <code class="language-plaintext highlighter-rouge">nums</code> if the closest non-equal neighbors of <code class="language-plaintext highlighter-rouge">i</code> are smaller than <code class="language-plaintext highlighter-rouge">nums[i]</code>. Similarly, an index <code class="language-plaintext highlighter-rouge">i</code> is part of a <strong>valley</strong> in <code class="language-plaintext highlighter-rouge">nums</code> if the closest non-equal neighbors of <code class="language-plaintext highlighter-rouge">i</code> are larger than <code class="language-plaintext highlighter-rouge">nums[i]</code>. Adjacent indices <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> are part of the <strong>same</strong> hill or valley if <code class="language-plaintext highlighter-rouge">nums[i] == nums[j]</code>.</li> <li>Note that for an index to be part of a hill or valley, it must have a non-equal neighbor on <strong>both</strong> the left and right of the index.</li> <li>Return <em>the number of hills and valleys in</em> <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,4,1,1,6,5]
 Output: 3
 Explanation:
 At index 0: There is no non-equal neighbor of 2 on the left, so index 0 is neither a hill nor a valley.
@@ -622,78 +688,4 @@ Output: ["/a/b/c","/a/b/ca","/a/b/d"]
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[Given a list of folders folder, return the folders after removing all sub-folders in those folders. You may return the answer in any order. If a folder[i] is located within another folder[j], it is called a sub-folder of it. A sub-folder of folder[j] must start with folder[j], followed by a "/". For example, "/a/b" is a sub-folder of "/a", but "/b" is not a sub-folder of "/a/b/c". The format of a path is one or more concatenated strings of the form: '/' followed by one or more lowercase English letters. For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty string and "/" are not.]]></summary></entry><entry><title type="html">3136. Valid Word</title><link href="https://zhengstar94.github.io//blog/2025/ValidWord/" rel="alternate" type="text/html" title="3136. Valid Word"/><published>2025-07-15T00:00:00+00:00</published><updated>2025-07-15T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/ValidWord</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/ValidWord/"><![CDATA[<ul> <li>A word is considered <strong>valid</strong> if: <ul> <li>It contains a <strong>minimum</strong> of 3 characters.</li> <li>It contains only digits (0-9), and English letters (uppercase and lowercase).</li> <li>It includes <strong>at least</strong> one <strong>vowel</strong>.</li> <li>It includes <strong>at least</strong> one <strong>consonant</strong>.</li> </ul> </li> <li>You are given a string <code class="language-plaintext highlighter-rouge">word</code>.</li> <li>Return <code class="language-plaintext highlighter-rouge">true</code> if <code class="language-plaintext highlighter-rouge">word</code> is valid, otherwise, return <code class="language-plaintext highlighter-rouge">false</code>.</li> <li><strong>Notes:</strong> <ul> <li><code class="language-plaintext highlighter-rouge">'a'</code>, <code class="language-plaintext highlighter-rouge">'e'</code>, <code class="language-plaintext highlighter-rouge">'i'</code>, <code class="language-plaintext highlighter-rouge">'o'</code>, <code class="language-plaintext highlighter-rouge">'u'</code>, and their uppercases are <strong>vowels</strong>.</li> <li>A <strong>consonant</strong> is an English letter that is not a vowel.</li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "234Adas"
-
-Output: true
-
-Explanation:
-
-This word satisfies the conditions.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "b3"
-
-Output: false
-
-Explanation:
-
-The length of this word is fewer than 3, and does not have a vowel.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: word = "a3$e"
-
-Output: false
-
-Explanation:
-
-This word contains a '$' character and does not have a consonant.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Math</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/15
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ValidWord</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="nc">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// If the word has fewer than 3 characters, it is automatically invalid.</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Flags to track if at least one vowel and one consonant are present.</span>
-        <span class="kt">boolean</span> <span class="n">hasVowel</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="kt">boolean</span> <span class="n">hasConsonant</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-
-        <span class="c1">// String containing all vowels (both lowercase and uppercase).</span>
-        <span class="nc">String</span> <span class="n">vowels</span> <span class="o">=</span> <span class="s">"aeiouAEIOU"</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each character in the word.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="nl">c:</span> <span class="n">word</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span> <span class="o">{</span>
-            <span class="c1">// Check if the character is a letter.</span>
-            <span class="k">if</span> <span class="o">(</span><span class="nc">Character</span><span class="o">.</span><span class="na">isLetter</span><span class="o">(</span><span class="n">c</span><span class="o">)){</span>
-                <span class="c1">// If the character is a vowel, set hasVowel to true.</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">vowels</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">c</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">){</span>
-                    <span class="n">hasVowel</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                    <span class="c1">// If the character is a letter but not a vowel, it's a consonant.</span>
-                    <span class="n">hasConsonant</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(!</span><span class="nc">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="n">c</span><span class="o">)){</span>
-                <span class="c1">// If the character is neither a letter nor a digit, the word is invalid.</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">// If the character is a digit, do nothing (digits are allowed).</span>
-        <span class="o">}</span>
-
-        <span class="c1">// The word is valid only if it contains at least one vowel and one consonant.</span>
-        <span class="c1">// Note: Use logical AND (&amp;&amp;) to ensure both conditions are met.</span>
-        <span class="k">return</span> <span class="n">hasVowel</span> <span class="o">&amp;&amp;</span> <span class="n">hasConsonant</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Test cases to verify the implementation.</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="s">"234Adas"</span><span class="o">));</span> <span class="c1">// true: meets all conditions</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="s">"b3"</span><span class="o">));</span>      <span class="c1">// false: too short and no vowel</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">isValid</span><span class="o">(</span><span class="s">"a3$e"</span><span class="o">));</span>    <span class="c1">// false: contains invalid character '$'</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Math"/><category term="Easy"/><summary type="html"><![CDATA[A word is considered valid if: It contains a minimum of 3 characters. It contains only digits (0-9), and English letters (uppercase and lowercase). It includes at least one vowel. It includes at least one consonant. You are given a string word. Return true if word is valid, otherwise, return false. Notes: 'a', 'e', 'i', 'o', 'u', and their uppercases are vowels. A consonant is an English letter that is not a vowel.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Medium"/><summary type="html"><![CDATA[Given a list of folders folder, return the folders after removing all sub-folders in those folders. You may return the answer in any order. If a folder[i] is located within another folder[j], it is called a sub-folder of it. A sub-folder of folder[j] must start with folder[j], followed by a "/". For example, "/a/b" is a sub-folder of "/a", but "/b" is not a sub-folder of "/a/b/c". The format of a path is one or more concatenated strings of the form: '/' followed by one or more lowercase English letters. For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty string and "/" are not.]]></summary></entry></feed>
