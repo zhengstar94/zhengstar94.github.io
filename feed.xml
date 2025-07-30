@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-30T04:30:08+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3371. Identify the Largest Outlier in an Array</title><link href="https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray/" rel="alternate" type="text/html" title="3371. Identify the Largest Outlier in an Array"/><published>2025-07-30T00:00:00+00:00</published><updated>2025-07-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. This array contains <code class="language-plaintext highlighter-rouge">n</code> elements, where <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">n - 2</code> elements are <strong>special</strong> <strong>numbers</strong>. One of the remaining <strong>two</strong> elements is the <em>sum</em> of these <strong>special numbers</strong>, and the other is an <strong>outlier</strong>.</li> <li>An <strong>outlier</strong> is defined as a number that is <em>neither</em> one of the original special numbers <em>nor</em> the element representing the sum of those numbers.</li> <li><strong>Note</strong> that special numbers, the sum element, and the outlier must have <strong>distinct</strong> indices, but <em>may</em> share the <strong>same</strong> value.</li> <li>Return the <strong>largest</strong> potential <strong>outlier</strong> in <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,5,10]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-07-30T05:15:41+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1814. Count Nice Pairs in an Array</title><link href="https://zhengstar94.github.io//blog/2025/CountNicePairsInAnArray/" rel="alternate" type="text/html" title="1814. Count Nice Pairs in an Array"/><published>2025-07-30T00:00:00+00:00</published><updated>2025-07-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountNicePairsInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountNicePairsInAnArray/"><![CDATA[<ul> <li>You are given an array <code class="language-plaintext highlighter-rouge">nums</code> that consists of non-negative integers. Let us define <code class="language-plaintext highlighter-rouge">rev(x)</code> as the reverse of the non-negative integer <code class="language-plaintext highlighter-rouge">x</code>. For example, <code class="language-plaintext highlighter-rouge">rev(123) = 321</code>, and <code class="language-plaintext highlighter-rouge">rev(120) = 21</code>. A pair of indices <code class="language-plaintext highlighter-rouge">(i, j)</code> is <strong>nice</strong> if it satisfies all of the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">0 &lt;= i &lt; j &lt; nums.length</code></li> <li><code class="language-plaintext highlighter-rouge">nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])</code></li> </ul> </li> <li>Return <em>the number of nice pairs of indices</em>. Since that number can be too large, return it <strong>modulo</strong> <code class="language-plaintext highlighter-rouge">10^9 + 7</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [42,11,1,97]
+Output: 2
+Explanation: The two pairs are:
+ - (0,3) : 42 + rev(97) = 42 + 79 = 121, 97 + rev(42) = 97 + 24 = 121.
+ - (1,2) : 11 + rev(1) = 11 + 1 = 12, 1 + rev(11) = 1 + 11 = 12.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [13,10,35,24,76]
+Output: 4
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n * k) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/07/30
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountNicePairsInAnArray</span> <span class="o">{</span>
+    <span class="c1">// The modulo value as required by the problem to prevent integer overflow</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">MOD</span> <span class="o">=</span> <span class="mi">1_000_000_007</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countNicePairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// This map will store the frequency of each difference value (num - rev(num))</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// Use long to prevent overflow during summation</span>
+
+        <span class="c1">// Iterate through each number in the array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the difference between the number and its reversed value</span>
+            <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">rev</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+
+            <span class="c1">// Get the current count of this diff value in the map.</span>
+            <span class="c1">// If this diff has appeared before, it means for each previous occurrence,</span>
+            <span class="c1">// we can form a new nice pair with the current number.</span>
+            <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+
+            <span class="c1">// Add the count to the answer. Each previous same diff forms a nice pair with this num.</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="o">(</span><span class="n">ans</span> <span class="o">+</span> <span class="n">cnt</span><span class="o">)</span> <span class="o">%</span> <span class="no">MOD</span><span class="o">;</span>
+
+            <span class="c1">// Update the map: increment the count of this diff value by 1</span>
+            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Return the total number of nice pairs, cast to int as required</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * Helper function to reverse the digits of a non-negative integer.
+     * For example, rev(123) = 321, rev(120) = 21.
+     *
+     * @param x The integer to reverse.
+     * @return The reversed integer.
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">rev</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// Extract digits from right to left and build the reversed number</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// Add the last digit of x to res</span>
+            <span class="n">x</span> <span class="o">/=</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// Remove the last digit from x</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">42</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">97</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">13</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">35</span><span class="o">,</span> <span class="mi">24</span><span class="o">,</span> <span class="mi">76</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">100</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">1000</span><span class="o">};</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countNicePairs</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countNicePairs</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Output: 4</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countNicePairs</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Output: 0</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums that consists of non-negative integers. Let us define rev(x) as the reverse of the non-negative integer x. For example, rev(123) = 321, and rev(120) = 21. A pair of indices (i, j) is nice if it satisfies all of the following conditions: 0 &lt;= i &lt; j &lt; nums.length nums[i] + rev(nums[j]) == nums[j] + rev(nums[i]) Return the number of nice pairs of indices. Since that number can be too large, return it modulo 10^9 + 7.]]></summary></entry><entry><title type="html">3371. Identify the Largest Outlier in an Array</title><link href="https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray/" rel="alternate" type="text/html" title="3371. Identify the Largest Outlier in an Array"/><published>2025-07-30T00:00:00+00:00</published><updated>2025-07-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. This array contains <code class="language-plaintext highlighter-rouge">n</code> elements, where <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">n - 2</code> elements are <strong>special</strong> <strong>numbers</strong>. One of the remaining <strong>two</strong> elements is the <em>sum</em> of these <strong>special numbers</strong>, and the other is an <strong>outlier</strong>.</li> <li>An <strong>outlier</strong> is defined as a number that is <em>neither</em> one of the original special numbers <em>nor</em> the element representing the sum of those numbers.</li> <li><strong>Note</strong> that special numbers, the sum element, and the outlier must have <strong>distinct</strong> indices, but <em>may</em> share the <strong>same</strong> value.</li> <li>Return the <strong>largest</strong> potential <strong>outlier</strong> in <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,5,10]
 
 Output: 10
 
@@ -648,61 +723,4 @@ Delete the elements nums[2] == -1 and nums[3] == -2, and select the subarray [2,
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums. You are allowed to delete any number of elements from nums without making it empty. After performing the deletions, select a subarray of nums such that: All elements in the subarray are unique. The sum of the elements in the subarray is maximized. Return the maximum sum of such a subarray.]]></summary></entry><entry><title type="html">2441. Largest Positive Integer That Exists With Its Negative</title><link href="https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative/" rel="alternate" type="text/html" title="2441. Largest Positive Integer That Exists With Its Negative"/><published>2025-07-21T00:00:00+00:00</published><updated>2025-07-21T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LargestPositiveIntegerThatExistsWithItsNegative/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> that <strong>does not contain</strong> any zeros, find <strong>the largest positive</strong> integer <code class="language-plaintext highlighter-rouge">k</code> such that <code class="language-plaintext highlighter-rouge">-k</code> also exists in the array.</li> <li>Return <em>the positive integer</em> <code class="language-plaintext highlighter-rouge">k</code>. If there is no such integer, return <code class="language-plaintext highlighter-rouge">-1</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,2,-3,3]
-Output: 3
-Explanation: 3 is the only valid k we can find in the array.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-1,10,6,7,-7,1]
-Output: 7
-Explanation: Both 1 and 7 have their corresponding negative values in the array. 7 has a larger value.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-10,8,6,7,-2,-3]
-Output: -1
-Explanation: There is no a single valid k, we return -1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/21
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LargestPositiveIntegerThatExistsWithItsNegative</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findMaxK</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a HashSet to store all numbers seen so far for quick lookup</span>
-        <span class="nc">HashSet</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// Initialize maxK to -1, which will be returned if no valid k is found</span>
-        <span class="kt">int</span> <span class="n">maxK</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-
-        <span class="c1">// Iterate through each number in the input array</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// Check if the opposite number (-num) has already been seen</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">set</span><span class="o">.</span><span class="na">contains</span><span class="o">(-</span><span class="n">num</span><span class="o">))</span> <span class="o">{</span>
-                <span class="c1">// If so, update maxK to the larger value between current maxK and |num|</span>
-                <span class="c1">// Math.abs(num) ensures we always consider the positive value</span>
-                <span class="n">maxK</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxK</span><span class="o">,</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">num</span><span class="o">));</span>
-            <span class="o">}</span>
-            <span class="c1">// Add the current number to the set for future lookups</span>
-            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// After checking all numbers, return the result</span>
-        <span class="k">return</span> <span class="n">maxK</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1: Both 3 and -3 exist, so the answer is 3</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
-        <span class="c1">// Example 2: Both 7 and -7 exist, so the answer is 7</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="o">-</span><span class="mi">7</span><span class="o">,</span> <span class="mi">1</span><span class="o">};</span>
-        <span class="c1">// Example 3: No number has its negative, so the answer is -1</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">10</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">};</span>
-
-        <span class="c1">// Print the results of each test case</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findMaxK</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Output: 3</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findMaxK</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Output: 7</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findMaxK</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Output: -1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given an integer array nums that does not contain any zeros, find the largest positive integer k such that -k also exists in the array. Return the positive integer k. If there is no such integer, return -1.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Greedy"/><category term="Easy"/><summary type="html"><![CDATA[You are given an integer array nums. You are allowed to delete any number of elements from nums without making it empty. After performing the deletions, select a subarray of nums such that: All elements in the subarray are unique. The sum of the elements in the subarray is maximized. Return the maximum sum of such a subarray.]]></summary></entry></feed>
