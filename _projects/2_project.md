@@ -3,6 +3,10 @@ toc:
     sidebar: left
 layout: post
 title: Design Twitter
+pretty_table: true
+mermaid:
+    enabled: true
+    zoomable: true
 date: "2025-08-01"
 description: How to design Twitter
 img: assets/img/2024/twitter/7.png
