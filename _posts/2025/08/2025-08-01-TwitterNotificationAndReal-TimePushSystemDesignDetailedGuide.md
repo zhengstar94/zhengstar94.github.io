@@ -102,15 +102,15 @@ The following is a simplified architecture diagram of the recommended architectu
 
 ```mermaid
 graph TD
-    A[Interaction Event (Like/@)] --> B[Notification Service]
-    B --> C[Kafka: Asynchronous Queue]
-    C --> D[Consumer: Filter Active Users + Merge Notifications]
-    D --> E{Online?}
-    E -->|Yes| F[WebSocket: Real-Time Push]
-    E -->|No| G[FCM/APNS: Mobile Push]
-    H[Redis: Online Status + Rate Limiting] -.-> D
+    A["Interaction Event (Like/@)"] --> B["Notification Service"]
+    B --> C["Kafka: Asynchronous Queue"]
+    C --> D["Consumer: Filter Active Users + Merge Notifications"]
+    D --> E{"Online?"}
+    E -->|"Yes"| F["WebSocket: Real-time Push"]
+    E -->|"No"| G["FCM/APNS: Mobile Push"]
+    H["Redis: Online Status + Rate Limiting"] -.-> D
     H -.-> F
-    I[Prometheus: Monitor Delivery Rate] -.-> G
+    I["Prometheus: Monitoring Delivery Rate"] -.-> G
     I -.-> F
 ```
 
