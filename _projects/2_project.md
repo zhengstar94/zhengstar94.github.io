@@ -3,7 +3,7 @@ toc:
     sidebar: left
 layout: post
 title: Design Twitter
-date: "2024-11-19"
+date: "2025-08-01"
 description: How to design Twitter
 img: assets/img/2024/twitter/7.png
 importance: 3
