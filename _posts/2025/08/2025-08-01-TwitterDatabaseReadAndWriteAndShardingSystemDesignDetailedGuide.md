@@ -89,18 +89,18 @@ The following is a simplified architecture diagram of the recommended architectu
 
 ```mermaid
 graph TD
-    A[Client Request] --> B[API Gateway]
-    B --> C[Timeline/Tweet Service]
-    C --> D{Read/Write?}
-    D -->|Write| E[Master DB: Cassandra (QUORUM Consistency)]
-    D -->|Read| F[Slave DB: MySQL Replicas (ONE Consistency)]
-    E --> G[Kafka: Asynchronous Change Replication]
+    A["Client Request"] --> B["API Gateway"]
+    B --> C["Timeline/Tweet Service"]
+    C --> D{"Read/Write?"}
+    D -->|"Write"| E["Master DB: Cassandra (QUORUM Consistency)"]
+    D -->|"Read"| F["Slave DB: MySQL Replica (ONE Consistency)"]
+    E --> G["Kafka: Asynchronous Replication Changes"]
     G --> F
-    H[Vitess: Sharding Routing + Rebalancing] -.-> E
+    H["Vitess: Sharding Routing + Rebalancing"] -.-> E
     H -.-> F
-    I[S3: Media Storage] -.-> C
-    J[Neo4j: Relationship Graph] -.-> C
-    K[Prometheus: Monitor Load] -.-> H
+    I["S3: Media Storage"] -.-> C
+    J["Neo4j: Relationship Graph"] -.-> C
+    K["Prometheus: Monitoring Load"] -.-> H
 ```
 
 This diagram shows the overall process of read/write separation and sharding routing.
