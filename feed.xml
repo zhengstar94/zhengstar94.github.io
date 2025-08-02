@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-08-01T15:49:26+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">2905. Find Indices With Index and Value Difference II</title><link href="https://zhengstar94.github.io//blog/2025/FindIndicesWithIndexAndValueDifferenceII/" rel="alternate" type="text/html" title="2905. Find Indices With Index and Value Difference II"/><published>2025-08-01T00:00:00+00:00</published><updated>2025-08-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindIndicesWithIndexAndValueDifferenceII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindIndicesWithIndexAndValueDifferenceII/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> having length <code class="language-plaintext highlighter-rouge">n</code>, an integer <code class="language-plaintext highlighter-rouge">indexDifference</code>, and an integer <code class="language-plaintext highlighter-rouge">valueDifference</code>.</li> <li>Your task is to find <strong>two</strong> indices <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code>, both in the range <code class="language-plaintext highlighter-rouge">[0, n - 1]</code>, that satisfy the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">abs(i - j) &gt;= indexDifference</code>, and</li> <li><code class="language-plaintext highlighter-rouge">abs(nums[i] - nums[j]) &gt;= valueDifference</code></li> </ul> </li> <li>Return <em>an integer array</em> <code class="language-plaintext highlighter-rouge">answer</code>, <em>where</em> <code class="language-plaintext highlighter-rouge">answer = [i, j]</code> <em>if there are two such indices</em>, <em>and</em> <code class="language-plaintext highlighter-rouge">answer = [-1, -1]</code> <em>otherwise</em>. If there are multiple choices for the two indices, return <em>any of them</em>.</li> <li><strong>Note:</strong> <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> may be <strong>equal</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,1,4,1], indexDifference = 2, valueDifference = 4
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-08-02T01:24:23+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3185. Count Pairs That Form a Complete Day II</title><link href="https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII/" rel="alternate" type="text/html" title="3185. Count Pairs That Form a Complete Day II"/><published>2025-08-02T00:00:00+00:00</published><updated>2025-08-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">hours</code> representing times in <strong>hours</strong>, return an integer denoting the number of pairs <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">j</code> where <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">hours[i] + hours[j]</code> forms a <strong>complete day</strong>.</li> <li>A <strong>complete day</strong> is defined as a time duration that is an <strong>exact</strong> <strong>multiple</strong> of 24 hours.</li> <li>For example, 1 day is 24 hours, 2 days is 48 hours, 3 days is 72 hours, and so on.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: hours = [12,12,30,24,24]
+
+Output: 2
+
+Explanation: The pairs of indices that form a complete day are (0, 1) and (3, 4).
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: hours = [72,48,24,3]
+
+Output: 3
+
+Explanation: The pairs of indices that form a complete day are (0, 1), (0, 2), and (1, 2).
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/08/02
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountPairsThatFormACompleteDayII</span> <span class="o">{</span>
+    <span class="cm">/**
+     * Counts the number of index pairs (i, j) such that i &lt; j and hours[i] + hours[j] is a multiple of 24.
+     *
+     * @param hours An array where each element represents a duration in hours.
+     * @return The number of valid index pairs forming a complete day.
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">countCompleteDayPairs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">hours</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="no">H</span> <span class="o">=</span> <span class="mi">24</span><span class="o">;</span> <span class="c1">// The number of hours in a complete day</span>
+        <span class="kt">long</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>     <span class="c1">// To store the final count of valid pairs</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">H</span><span class="o">];</span> <span class="c1">// cnt[r] stores how many times remainder r has appeared so far</span>
+
+        <span class="c1">// Iterate through each hour in the input array</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">t</span> <span class="o">:</span> <span class="n">hours</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Step 1: Calculate the remainder of the current hour when divided by 24</span>
+            <span class="kt">int</span> <span class="n">rem</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="no">H</span><span class="o">;</span>
+
+            <span class="c1">// Step 2: Calculate the required remainder for a valid pair</span>
+            <span class="c1">// If rem + pairRem == 24 or rem + pairRem == 0 (i.e., divisible by 24)</span>
+            <span class="c1">// For rem == 0, pairRem should also be 0</span>
+            <span class="kt">int</span> <span class="n">pairRem</span> <span class="o">=</span> <span class="o">(</span><span class="no">H</span> <span class="o">-</span> <span class="n">rem</span><span class="o">)</span> <span class="o">%</span> <span class="no">H</span><span class="o">;</span>
+
+            <span class="c1">// Step 3: Add the number of previously seen elements with the required remainder</span>
+            <span class="c1">// This counts all valid pairs where the previous element's remainder is pairRem</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">cnt</span><span class="o">[</span><span class="n">pairRem</span><span class="o">];</span>
+
+            <span class="c1">// Step 4: Increment the count for the current remainder</span>
+            <span class="c1">// This is done after counting to ensure i &lt; j (current element only pairs with previous ones)</span>
+            <span class="n">cnt</span><span class="o">[</span><span class="n">rem</span><span class="o">]++;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">hours1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">24</span><span class="o">,</span> <span class="mi">24</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">hours2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">72</span><span class="o">,</span> <span class="mi">48</span><span class="o">,</span> <span class="mi">24</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="c1">// Expected output: 2</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countCompleteDayPairs</span><span class="o">(</span><span class="n">hours1</span><span class="o">));</span>
+        <span class="c1">// Expected output: 3</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countCompleteDayPairs</span><span class="o">(</span><span class="n">hours2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array hours representing times in hours, return an integer denoting the number of pairs i, j where i &lt; j and hours[i] + hours[j] forms a complete day. A complete day is defined as a time duration that is an exact multiple of 24 hours. For example, 1 day is 24 hours, 2 days is 48 hours, 3 days is 72 hours, and so on.]]></summary></entry><entry><title type="html">2905. Find Indices With Index and Value Difference II</title><link href="https://zhengstar94.github.io//blog/2025/FindIndicesWithIndexAndValueDifferenceII/" rel="alternate" type="text/html" title="2905. Find Indices With Index and Value Difference II"/><published>2025-08-01T00:00:00+00:00</published><updated>2025-08-01T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/FindIndicesWithIndexAndValueDifferenceII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/FindIndicesWithIndexAndValueDifferenceII/"><![CDATA[<ul> <li>You are given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code> having length <code class="language-plaintext highlighter-rouge">n</code>, an integer <code class="language-plaintext highlighter-rouge">indexDifference</code>, and an integer <code class="language-plaintext highlighter-rouge">valueDifference</code>.</li> <li>Your task is to find <strong>two</strong> indices <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code>, both in the range <code class="language-plaintext highlighter-rouge">[0, n - 1]</code>, that satisfy the following conditions: <ul> <li><code class="language-plaintext highlighter-rouge">abs(i - j) &gt;= indexDifference</code>, and</li> <li><code class="language-plaintext highlighter-rouge">abs(nums[i] - nums[j]) &gt;= valueDifference</code></li> </ul> </li> <li>Return <em>an integer array</em> <code class="language-plaintext highlighter-rouge">answer</code>, <em>where</em> <code class="language-plaintext highlighter-rouge">answer = [i, j]</code> <em>if there are two such indices</em>, <em>and</em> <code class="language-plaintext highlighter-rouge">answer = [-1, -1]</code> <em>otherwise</em>. If there are multiple choices for the two indices, return <em>any of them</em>.</li> <li><strong>Note:</strong> <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> may be <strong>equal</strong>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,1,4,1], indexDifference = 2, valueDifference = 4
 Output: [0,3]
 Explanation: In this example, i = 0 and j = 3 can be selected.
 abs(0 - 3) &gt;= 2 and abs(nums[0] - nums[3]) &gt;= 4.
@@ -649,70 +710,4 @@ The longest subarray with that value is [4], so we return 1.
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of size n. Consider a non-empty subarray from nums that has the maximum possible bitwise AND. In other words, let k be the maximum value of the bitwise AND of any subarray of nums. Then, only subarrays with a bitwise AND equal to k should be considered. Return the length of the longest such subarray. The bitwise AND of an array is the bitwise AND of all the numbers in it. A subarray is a contiguous sequence of elements within an array.]]></summary></entry><entry><title type="html">16.24. Pairs With Sum LCCI</title><link href="https://zhengstar94.github.io//blog/2025/PairsWithSumLCCI/" rel="alternate" type="text/html" title="16.24. Pairs With Sum LCCI"/><published>2025-07-28T00:00:00+00:00</published><updated>2025-07-28T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/PairsWithSumLCCI</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/PairsWithSumLCCI/"><![CDATA[<ul> <li>Design an algorithm to find all pairs of integers within an array which sum to a specified value.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,6,5], target = 11
-Output: [ [ 5,6 ] ]
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [5,6,5,6], target = 11
-Output: [ [ 5,6],[5,6 ] ]
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/28
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PairsWithSumLCCI</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">pairSums</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="c1">// This map records how many times each number appears in the array.</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">countMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-
-        <span class="c1">// Count the occurrences of each number in the array.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Iterate through the array to find valid pairs.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">complement</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span><span class="o">;</span> <span class="c1">// The number needed to form the target sum with 'num'.</span>
-
-            <span class="c1">// Check if both 'num' and its complement are still available (not used up in previous pairs).</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">countMap</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">complement</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// Special case: when num == complement, we need at least two of this number to form a pair.</span>
-                <span class="c1">// For example, if target=10 and num=5, we need two 5's to form [5,5].</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="n">complement</span> <span class="o">&amp;&amp;</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="c1">// If there is only one occurrence left, we cannot form a pair [num, num].</span>
-                    <span class="k">continue</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="c1">// Add the pair [num, complement] to the result list.</span>
-                <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">complement</span><span class="o">));</span>
-                <span class="c1">// Decrement the count for both numbers, since they have been used in a pair.</span>
-                <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-                <span class="n">countMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">complement</span><span class="o">,</span> <span class="n">countMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">complement</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="c1">// If either number is not available, skip to the next.</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target1</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
-        <span class="c1">// Output: [ [5, 6] ]</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pairSums</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">target1</span><span class="o">));</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target2</span> <span class="o">=</span> <span class="mi">11</span><span class="o">;</span>
-        <span class="c1">// Output: [ [5, 6], [5, 6] ]</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pairSums</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">target2</span><span class="o">));</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-        <span class="kt">int</span> <span class="n">target3</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
-        <span class="c1">// Output: [ [1, 5], [2, 4] ]</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pairSums</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="n">target3</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[Design an algorithm to find all pairs of integers within an array which sum to a specified value.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of size n. Consider a non-empty subarray from nums that has the maximum possible bitwise AND. In other words, let k be the maximum value of the bitwise AND of any subarray of nums. Then, only subarrays with a bitwise AND equal to k should be considered. Return the length of the longest such subarray. The bitwise AND of an array is the bitwise AND of all the numbers in it. A subarray is a contiguous sequence of elements within an array.]]></summary></entry></feed>
