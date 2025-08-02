@@ -635,6 +635,7 @@ Shard by tweet ID hash combined with read-write separation; use Vitess manager f
 - **Cost Impacts**: Big data tools expensive (monthly $20 k+), complex operations.
 
 #### Comparison
+
 | Scheme               | Advantages                                                                 | Disadvantages                                                                 | Applicable Scenario Comparison |
 |----------------------|----------------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------|
 | **Elasticsearch vs. Solr** | - ES: Strong distributed real-time, good scaling. <br> - Solr: Faster queries (<50ms). | - ES: Complex configuration. <br> - Solr: Poor scaling (single-machine limit). | ES wins for massive (30% higher throughput), Solr for small scale. |
