@@ -341,6 +341,7 @@ Select storage based on data characteristics to support efficient operation of t
 ### Table Design
 
 - **User Table (SQL, e.g., MySQL)**:
+
   | Field        | Type         |
   |--------------|--------------|
   | userId      | Integer     |
@@ -351,6 +352,7 @@ Select storage based on data characteristics to support efficient operation of t
   | isHotUser   | Boolean     |
 
 - **Tweet Table (NoSQL, e.g., Cassandra)**:
+
   | Field        | Type         |
   |--------------|--------------|
   | tweetId     | Integer     |
@@ -359,6 +361,7 @@ Select storage based on data characteristics to support efficient operation of t
   | creationTime| DateTime    |
 
 - **Follow Table (Graph DB, e.g., Neo 4 j)**:
+
   | Field       | Type     |
   |-------------|----------|
   | userId     | Integer |
@@ -634,9 +637,9 @@ Shard by tweet ID hash combined with read-write separation; use Vitess manager f
 #### Comparison
 | Scheme               | Advantages                                                                 | Disadvantages                                                                 | Applicable Scenario Comparison |
 |----------------------|----------------------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------|
-| **Elasticsearch vs. Solr** | - ES: Strong distributed real-time, good scaling.<br>- Solr: Faster queries (<50ms). | - ES: Complex configuration.<br>- Solr: Poor scaling (single-machine limit). | ES wins for massive (30% higher throughput), Solr for small scale. |
-| **Stream Processing vs. Batch Processing** | - Stream (Spark): Real-time <1min.<br>- Batch (Hadoop): Low cost. | - Stream: High resources (high CPU).<br>- Batch: Hourly latency. | Stream suitable for trends (90% latency reduction), batch for history. |
-| **Precomputation vs. Real-Time** | - Precomputation: Queries <100ms.<br>- Real-Time: Latest accuracy. | - Precomputation: Inaccurate for events.<br>- Real-Time: Slow computation. | Precomputation wins for peaks (low cost), real-time for precision. |
+| **Elasticsearch vs. Solr** | - ES: Strong distributed real-time, good scaling. <br> - Solr: Faster queries (<50ms). | - ES: Complex configuration. <br> - Solr: Poor scaling (single-machine limit). | ES wins for massive (30% higher throughput), Solr for small scale. |
+| **Stream Processing vs. Batch Processing** | - Stream (Spark): Real-time < 1min. <br> - Batch (Hadoop): Low cost. | - Stream: High resources (high CPU). <br> - Batch: Hourly latency. | Stream suitable for trends (90% latency reduction), batch for history. |
+| **Precomputation vs. Real-Time** | - Precomputation: Queries <100ms. <br> - Real-Time: Latest accuracy. | - Precomputation: Inaccurate for events. <br> - Real-Time: Slow computation. | Precomputation wins for peaks (low cost), real-time for precision. |
 
 #### Solutions
 - **Multiple Methods**:
