@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-08-03T05:00:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1031. Maximum Sum of Two Non-Overlapping Subarrays</title><link href="https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays/" rel="alternate" type="text/html" title="1031. Maximum Sum of Two Non-Overlapping Subarrays"/><published>2025-08-03T00:00:00+00:00</published><updated>2025-08-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">firstLen</code> and <code class="language-plaintext highlighter-rouge">secondLen</code>, return <em>the maximum sum of elements in two non-overlapping <strong>subarrays</strong> with lengths</em> <code class="language-plaintext highlighter-rouge">firstLen</code> <em>and</em> <code class="language-plaintext highlighter-rouge">secondLen</code>.</li> <li>The array with length <code class="language-plaintext highlighter-rouge">firstLen</code> could occur before or after the array with length <code class="language-plaintext highlighter-rouge">secondLen</code>, but they have to be non-overlapping.</li> <li>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,6,5,2,2,5,1,9,4], firstLen = 1, secondLen = 2
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-08-03T05:30:47+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1995. Count Special Quadruplets</title><link href="https://zhengstar94.github.io//blog/2025/CountSpecialQuadruplets/" rel="alternate" type="text/html" title="1995. Count Special Quadruplets"/><published>2025-08-03T00:00:00+00:00</published><updated>2025-08-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountSpecialQuadruplets</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountSpecialQuadruplets/"><![CDATA[<ul> <li>Given a <strong>0-indexed</strong> integer array <code class="language-plaintext highlighter-rouge">nums</code>, return <em>the number of <strong>distinct</strong> quadruplets</em> <code class="language-plaintext highlighter-rouge">(a, b, c, d)</code> <em>such that:</em> <ul> <li><code class="language-plaintext highlighter-rouge">nums[a] + nums[b] + nums[c] == nums[d]</code>, and</li> <li><code class="language-plaintext highlighter-rouge">a &lt; b &lt; c &lt; d</code></li> </ul> </li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,6]
+Output: 1
+Explanation: The only quadruplet that satisfies the requirement is (0, 1, 2, 3) because 1 + 2 + 3 == 6.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,3,6,4,5]
+Output: 0
+Explanation: There are no such quadruplets in [3,3,6,4,5].
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,3,5]
+Output: 4
+Explanation: The 4 quadruplets that satisfy the requirement are:
+- (0, 1, 2, 3): 1 + 1 + 1 == 3
+- (0, 1, 3, 4): 1 + 1 + 3 == 5
+- (0, 2, 3, 4): 1 + 1 + 3 == 5
+- (1, 2, 3, 4): 1 + 1 + 3 == 5
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n<span class="p">^</span>2) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/08/03
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountSpecialQuadruplets</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Counts the number of distinct quadruplets (a, b, c, d) such that:
+     * nums[a] + nums[b] + nums[c] == nums[d] and a &lt; b &lt; c &lt; d
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">countQuadruplets</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="c1">// This HashMap will store the count of each possible value of (nums[d] - nums[b+1])</span>
+        <span class="c1">// for all valid d and fixed b. The key is the difference, the value is the count.</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+        <span class="c1">// Loop for b from n-3 down to 1.</span>
+        <span class="c1">// Why n-3? Because we need at least two elements after b: one for c (which is b+1), one for d (which is at least b+2).</span>
+        <span class="c1">// Why down to 1? Because a must be less than b, so b cannot be 0.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="o">;</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="o">;</span> <span class="o">--</span><span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="c1">// For each b, we want to consider all possible d &gt; b+1 (so c = b+1, d &gt; c).</span>
+            <span class="c1">// For each such d, we calculate nums[d] - nums[b+1] and count its occurrences.</span>
+            <span class="c1">// This is because the original equation can be rearranged as:</span>
+            <span class="c1">// nums[a] + nums[b] = nums[d] - nums[c], where c = b+1.</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="o">++</span><span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">d</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+                <span class="c1">// Increment the count for this difference in the map.</span>
+                <span class="n">cnt</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="n">cnt</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Now, for all a &lt; b, we check if nums[a] + nums[b] matches any previously seen difference.</span>
+            <span class="c1">// If so, it means there exists at least one (c, d) pair such that</span>
+            <span class="c1">// nums[a] + nums[b] + nums[c] == nums[d] with a &lt; b &lt; c &lt; d.</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">;</span> <span class="o">++</span><span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ans</span> <span class="o">+=</span> <span class="n">cnt</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">a</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">b</span><span class="o">],</span> <span class="mi">0</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countQuadruplets</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Output: 1</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countQuadruplets</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Output: 0</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">countQuadruplets</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Output: 4</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Easy"/><summary type="html"><![CDATA[Given a 0-indexed integer array nums, return the number of distinct quadruplets (a, b, c, d) such that: nums[a] + nums[b] + nums[c] == nums[d], and a &lt; b &lt; c &lt; d]]></summary></entry><entry><title type="html">1031. Maximum Sum of Two Non-Overlapping Subarrays</title><link href="https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays/" rel="alternate" type="text/html" title="1031. Maximum Sum of Two Non-Overlapping Subarrays"/><published>2025-08-03T00:00:00+00:00</published><updated>2025-08-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">firstLen</code> and <code class="language-plaintext highlighter-rouge">secondLen</code>, return <em>the maximum sum of elements in two non-overlapping <strong>subarrays</strong> with lengths</em> <code class="language-plaintext highlighter-rouge">firstLen</code> <em>and</em> <code class="language-plaintext highlighter-rouge">secondLen</code>.</li> <li>The array with length <code class="language-plaintext highlighter-rouge">firstLen</code> could occur before or after the array with length <code class="language-plaintext highlighter-rouge">secondLen</code>, but they have to be non-overlapping.</li> <li>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,6,5,2,2,5,1,9,4], firstLen = 1, secondLen = 2
 Output: 20
 Explanation: One choice of subarrays is [9] with length 1, and [6,5] with length 2.
 </code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,8,1,3,2,1,8,9,0], firstLen = 3, secondLen = 2
@@ -638,86 +713,4 @@ Output: 4
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums that consists of non-negative integers. Let us define rev(x) as the reverse of the non-negative integer x. For example, rev(123) = 321, and rev(120) = 21. A pair of indices (i, j) is nice if it satisfies all of the following conditions: 0 &lt;= i &lt; j &lt; nums.length nums[i] + rev(nums[j]) == nums[j] + rev(nums[i]) Return the number of nice pairs of indices. Since that number can be too large, return it modulo 10^9 + 7.]]></summary></entry><entry><title type="html">3371. Identify the Largest Outlier in an Array</title><link href="https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray/" rel="alternate" type="text/html" title="3371. Identify the Largest Outlier in an Array"/><published>2025-07-30T00:00:00+00:00</published><updated>2025-07-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/IdentifyTheLargestOutlierInAnArray/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code>. This array contains <code class="language-plaintext highlighter-rouge">n</code> elements, where <strong>exactly</strong> <code class="language-plaintext highlighter-rouge">n - 2</code> elements are <strong>special</strong> <strong>numbers</strong>. One of the remaining <strong>two</strong> elements is the <em>sum</em> of these <strong>special numbers</strong>, and the other is an <strong>outlier</strong>.</li> <li>An <strong>outlier</strong> is defined as a number that is <em>neither</em> one of the original special numbers <em>nor</em> the element representing the sum of those numbers.</li> <li><strong>Note</strong> that special numbers, the sum element, and the outlier must have <strong>distinct</strong> indices, but <em>may</em> share the <strong>same</strong> value.</li> <li>Return the <strong>largest</strong> potential <strong>outlier</strong> in <code class="language-plaintext highlighter-rouge">nums</code>.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,3,5,10]
-
-Output: 10
-
-Explanation:
-
-The special numbers could be 2 and 3, thus making their sum 5 and the outlier 10.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [-2,-1,-3,-6,4]
-
-Output: 4
-
-Explanation:
-
-The special numbers could be -2, -1, and -3, thus making their sum -6 and the outlier 4.
-</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,1,1,1,1,5,5]
-
-Output: 5
-
-Explanation:
-
-The special numbers could be 1, 1, 1, 1, and 1, thus making their sum 5 and the other 5 as the outlier.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.HashTable</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/30
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IdentifyTheLargestOutlierInAnArray</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getLargestOutlier</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Create a HashMap to count the occurrences of each number in the array.</span>
-        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">cnt</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">// Calculate the total sum of the array and populate the count map.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">cnt</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">sum</span><span class="o">);</span> <span class="c1">// Equivalent to cnt[num]++</span>
-            <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
-        <span class="c1">// Iterate through each element, treating it as a possible outlier.</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// (total - x) must be even for y to be an integer.</span>
-            <span class="c1">// This ensures that y = (total - x) / 2 is a valid integer.</span>
-            <span class="k">if</span> <span class="o">((</span><span class="n">total</span> <span class="o">-</span> <span class="n">x</span><span class="o">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">total</span> <span class="o">-</span> <span class="n">x</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
-                <span class="cm">/*
-                 * Explanation of this block:
-                 * - We are considering x as the possible outlier.
-                 * - According to the problem, the sum of all numbers is: total = 2 * y + x,
-                 *   where y is the sum of all "special numbers".
-                 * - Rearranging gives y = (total - x) / 2.
-                 * - We need to check if y exists in the array (cnt.containsKey(y)).
-                 * - Additionally, if y == x, we must ensure that there are at least two occurrences
-                 *   (so that x and y are at different indices).
-                 * - If these conditions are met, x is a valid outlier candidate.
-                 * - We update ans to be the maximum outlier found so far.
-                 */</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">cnt</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">y</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">x</span> <span class="o">||</span> <span class="n">cnt</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">y</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
-                    <span class="n">ans</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">ans</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="k">return</span> <span class="n">ans</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">,</span> <span class="o">-</span><span class="mi">6</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getLargestOutlier</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Output: 10</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getLargestOutlier</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Output: 4</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getLargestOutlier</span><span class="o">(</span><span class="n">nums3</span><span class="o">));</span> <span class="c1">// Output: 5</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums. This array contains n elements, where exactly n - 2 elements are special numbers. One of the remaining two elements is the sum of these special numbers, and the other is an outlier. An outlier is defined as a number that is neither one of the original special numbers nor the element representing the sum of those numbers. Note that special numbers, the sum element, and the outlier must have distinct indices, but may share the same value. Return the largest potential outlier in nums.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given an array nums that consists of non-negative integers. Let us define rev(x) as the reverse of the non-negative integer x. For example, rev(123) = 321, and rev(120) = 21. A pair of indices (i, j) is nice if it satisfies all of the following conditions: 0 &lt;= i &lt; j &lt; nums.length nums[i] + rev(nums[j]) == nums[j] + rev(nums[i]) Return the number of nice pairs of indices. Since that number can be too large, return it modulo 10^9 + 7.]]></summary></entry></feed>
