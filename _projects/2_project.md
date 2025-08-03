@@ -303,10 +303,18 @@ When a user publishes a tweet, the request first reaches the tweet write service
 sequenceDiagram
 Client->>API Gateway: POST /tweets
 API Gateway->>Tweet Service: Store Tweet
-Tweet Service->>Cassandra: Insert
-Tweet Service->>Kafka: Publish Event
-Kafka->>Fanout Consumer: Process
-Fanout Consumer->>Redis: Update Fans' Timeline
+Tweet Service->>Cassandra: Insert Tweet
+Tweet Service->>Tweet Service: Check if Hot User? (e.g., fans > 10k)
+alt Not Hot User (Ordinary)
+    Tweet Service->>Kafka: Publish Event for Fanout
+    Kafka->>Fanout Consumer: Process Event
+    Fanout Consumer->>Redis: Push Tweet ID to Fans' Timeline Cache
+else Hot User (Celebrity)
+    Tweet Service->>Redis: Update Hot User's Own Timeline Cache (No Fanout)
+end
+Tweet Service-->>API Gateway: Return Tweet ID
+API Gateway-->>Client: Success Response
+Note over Fanout Consumer,Redis: For Hot Users, Pull happens at Read Time (separate Timeline fetch flow)
 ```
 
 #### 2. Timeline Generation (Core Challenge)

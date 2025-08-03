@@ -6,7 +6,7 @@ pretty_table: true
 mermaid:
     enabled: true
     zoomable: true
-title: Design a URL Shortener
+title: URL Shortener
 date: "2024-11-03"
 description: How to design a URL Shortener
 img: assets/img/2024/11/DesignaURLShortener.png
