@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-08-02T02:43:23+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">3185. Count Pairs That Form a Complete Day II</title><link href="https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII/" rel="alternate" type="text/html" title="3185. Count Pairs That Form a Complete Day II"/><published>2025-08-02T00:00:00+00:00</published><updated>2025-08-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">hours</code> representing times in <strong>hours</strong>, return an integer denoting the number of pairs <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">j</code> where <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">hours[i] + hours[j]</code> forms a <strong>complete day</strong>.</li> <li>A <strong>complete day</strong> is defined as a time duration that is an <strong>exact</strong> <strong>multiple</strong> of 24 hours.</li> <li>For example, 1 day is 24 hours, 2 days is 48 hours, 3 days is 72 hours, and so on.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: hours = [12,12,30,24,24]
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://zhengstar94.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://zhengstar94.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2025-08-03T05:00:43+00:00</updated><id>https://zhengstar94.github.io//feed.xml</id><title type="html">zhengxingxing</title><subtitle>Welcome to Xingxing&apos;s blog, where I share my thoughts and experiences on various topics. </subtitle><entry><title type="html">1031. Maximum Sum of Two Non-Overlapping Subarrays</title><link href="https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays/" rel="alternate" type="text/html" title="1031. Maximum Sum of Two Non-Overlapping Subarrays"/><published>2025-08-03T00:00:00+00:00</published><updated>2025-08-03T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/MaximumSumOfTwoNonOverlappingSubarrays/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">nums</code> and two integers <code class="language-plaintext highlighter-rouge">firstLen</code> and <code class="language-plaintext highlighter-rouge">secondLen</code>, return <em>the maximum sum of elements in two non-overlapping <strong>subarrays</strong> with lengths</em> <code class="language-plaintext highlighter-rouge">firstLen</code> <em>and</em> <code class="language-plaintext highlighter-rouge">secondLen</code>.</li> <li>The array with length <code class="language-plaintext highlighter-rouge">firstLen</code> could occur before or after the array with length <code class="language-plaintext highlighter-rouge">secondLen</code>, but they have to be non-overlapping.</li> <li>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [0,6,5,2,2,5,1,9,4], firstLen = 1, secondLen = 2
+Output: 20
+Explanation: One choice of subarrays is [9] with length 1, and [6,5] with length 2.
+</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [3,8,1,3,2,1,8,9,0], firstLen = 3, secondLen = 2
+Output: 29
+Explanation: One choice of subarrays is [3,8,1] with length 3, and [8,9] with length 2.
+</code></pre></div></div> <p><strong>Example 3</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [2,1,5,6,0,9,5,0,3,8], firstLen = 4, secondLen = 3
+Output: 31
+Explanation: One choice of subarrays is [5,6,0,9] with length 4, and [0,3,8] with length 3.
+</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(n) space】
+</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.SlideWindow</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @Author zhengxingxing
+ * @Date 2025/08/03
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaximumSumOfTwoNonOverlappingSubarrays</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxSumTwoNoOverlap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">firstLen</span><span class="o">,</span> <span class="kt">int</span> <span class="n">secondLen</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Try both possible orders: firstLen before secondLen, and secondLen before firstLen.</span>
+        <span class="c1">// Return the maximum result from both orders.</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span>
+                <span class="n">maxSum</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">firstLen</span><span class="o">,</span> <span class="n">secondLen</span><span class="o">),</span>
+                <span class="n">maxSum</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">secondLen</span><span class="o">,</span> <span class="n">firstLen</span><span class="o">)</span>
+        <span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="no">L</span><span class="o">,</span> <span class="kt">int</span> <span class="no">M</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="c1">// prefix[i] stores the sum of nums[0] to nums[i-1].</span>
+        <span class="c1">// This allows us to quickly calculate the sum of any subarray in O(1) time.</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">prefix</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">prefix</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">maxL</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// The maximum sum of any subarray of length L that ends before the current M-length window.</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// The overall maximum sum of two non-overlapping subarrays.</span>
+
+        <span class="c1">// Start from i = L + M, so that both L-length and M-length subarrays are fully within the range.</span>
+        <span class="c1">// i represents the right boundary (exclusive) of the current M-length subarray.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="no">L</span> <span class="o">+</span> <span class="no">M</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="c1">// Calculate the sum of the L-length subarray that ends right before the current M-length subarray.</span>
+            <span class="c1">// prefix[i - M] - prefix[i - M - L] gives the sum of nums[(i-M-L) ... (i-M-1)].</span>
+            <span class="c1">// We keep track of the maximum such sum seen so far in maxL.</span>
+            <span class="n">maxL</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxL</span><span class="o">,</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="no">M</span><span class="o">]</span> <span class="o">-</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="no">M</span> <span class="o">-</span> <span class="no">L</span><span class="o">]);</span>
+
+            <span class="c1">// Calculate the sum of the current M-length subarray: nums[(i-M) ... (i-1)].</span>
+            <span class="c1">// prefix[i] - prefix[i - M] gives this sum.</span>
+            <span class="c1">// Add it to maxL (the best L-length subarray sum before this window) to get the total sum.</span>
+            <span class="c1">// Update res if this total sum is greater than the previous maximum.</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">res</span><span class="o">,</span> <span class="n">maxL</span> <span class="o">+</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">prefix</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="no">M</span><span class="o">]);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSumTwoNoOverlap</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Output: 20</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">0</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSumTwoNoOverlap</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// Output: 29</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums3</span> <span class="o">=</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">8</span><span class="o">};</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">maxSumTwoNoOverlap</span><span class="o">(</span><span class="n">nums3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span> <span class="c1">// Output: 31</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode SlideWindow"/><category term="Medium"/><summary type="html"><![CDATA[Given an integer array nums and two integers firstLen and secondLen, return the maximum sum of elements in two non-overlapping subarrays with lengths firstLen and secondLen. The array with length firstLen could occur before or after the array with length secondLen, but they have to be non-overlapping. A subarray is a contiguous part of an array.]]></summary></entry><entry><title type="html">3185. Count Pairs That Form a Complete Day II</title><link href="https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII/" rel="alternate" type="text/html" title="3185. Count Pairs That Form a Complete Day II"/><published>2025-08-02T00:00:00+00:00</published><updated>2025-08-02T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/CountPairsThatFormACompleteDayII/"><![CDATA[<ul> <li>Given an integer array <code class="language-plaintext highlighter-rouge">hours</code> representing times in <strong>hours</strong>, return an integer denoting the number of pairs <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">j</code> where <code class="language-plaintext highlighter-rouge">i &lt; j</code> and <code class="language-plaintext highlighter-rouge">hours[i] + hours[j]</code> forms a <strong>complete day</strong>.</li> <li>A <strong>complete day</strong> is defined as a time duration that is an <strong>exact</strong> <strong>multiple</strong> of 24 hours.</li> <li>For example, 1 day is 24 hours, 2 days is 48 hours, 3 days is 72 hours, and so on.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: hours = [12,12,30,24,24]
 
 Output: 2
 
@@ -650,64 +720,4 @@ The special numbers could be 1, 1, 1, 1, and 1, thus making their sum 5 and the 
     <span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums. This array contains n elements, where exactly n - 2 elements are special numbers. One of the remaining two elements is the sum of these special numbers, and the other is an outlier. An outlier is defined as a number that is neither one of the original special numbers nor the element representing the sum of those numbers. Note that special numbers, the sum element, and the outlier must have distinct indices, but may share the same value. Return the largest potential outlier in nums.]]></summary></entry><entry><title type="html">2419. Longest Subarray With Maximum Bitwise AND</title><link href="https://zhengstar94.github.io//blog/2025/LongestSubarrayWithMaximumBitwiseAND/" rel="alternate" type="text/html" title="2419. Longest Subarray With Maximum Bitwise AND"/><published>2025-07-30T00:00:00+00:00</published><updated>2025-07-30T00:00:00+00:00</updated><id>https://zhengstar94.github.io//blog/2025/LongestSubarrayWithMaximumBitwiseAND</id><content type="html" xml:base="https://zhengstar94.github.io//blog/2025/LongestSubarrayWithMaximumBitwiseAND/"><![CDATA[<ul> <li>You are given an integer array <code class="language-plaintext highlighter-rouge">nums</code> of size <code class="language-plaintext highlighter-rouge">n</code>.</li> <li>Consider a <strong>non-empty</strong> subarray from <code class="language-plaintext highlighter-rouge">nums</code> that has the <strong>maximum</strong> possible <strong>bitwise AND</strong>. <ul> <li>In other words, let <code class="language-plaintext highlighter-rouge">k</code> be the maximum value of the bitwise AND of <strong>any</strong> subarray of <code class="language-plaintext highlighter-rouge">nums</code>. Then, only subarrays with a bitwise AND equal to <code class="language-plaintext highlighter-rouge">k</code> should be considered.</li> </ul> </li> <li>Return <em>the length of the <strong>longest</strong> such subarray</em>.</li> <li>The bitwise AND of an array is the bitwise AND of all the numbers in it.</li> <li>A <strong>subarray</strong> is a contiguous sequence of elements within an array.</li> </ul> <p><strong>Example 1</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,3,2,2]
-Output: 2
-Explanation:
-The maximum possible bitwise AND of a subarray is 3.
-The longest subarray with that value is [3,3], so we return 2.
-</code></pre></div></div> <p><strong>Example 2</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: nums = [1,2,3,4]
-Output: 1
-Explanation:
-The maximum possible bitwise AND of a subarray is 4.
-The longest subarray with that value is [4], so we return 1.
-</code></pre></div></div> <h2 id="method-1">Method 1</h2> <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>【O(n) time | O(1) space】
-</code></pre></div></div> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">Leetcode.Array</span><span class="o">;</span>
-
-<span class="cm">/**
- * @Author zhengxingxing
- * @Date 2025/07/30
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestSubarrayWithMaximumBitwiseAND</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">longestSubarray</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Step 1: Find the maximum value in the array.</span>
-        <span class="kt">int</span> <span class="n">maxVal</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="n">maxVal</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">maxVal</span> <span class="o">=</span> <span class="n">num</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Step 2: Find the longest sequence of consecutive elements equal to maxVal.</span>
-        <span class="kt">int</span> <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>   <span class="c1">// To store the maximum length found.</span>
-        <span class="kt">int</span> <span class="n">currLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// To store the current length of consecutive maxVal elements.</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="n">maxVal</span><span class="o">)</span> <span class="o">{</span>
-                <span class="c1">// If the current element equals maxVal, increment the current length.</span>
-                <span class="n">currLen</span><span class="o">++;</span>
-                <span class="c1">// Update maxLen if the current sequence is longer.</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">currLen</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">maxLen</span> <span class="o">=</span> <span class="n">currLen</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                <span class="c1">// If the current element is not maxVal, reset the current length.</span>
-                <span class="n">currLen</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">// Return the length of the longest subarray found.</span>
-        <span class="k">return</span> <span class="n">maxLen</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Example 1: The longest subarray with maximum bitwise AND is [3, 3], length is 2.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">};</span>
-        <span class="c1">// Example 2: The longest subarray with maximum bitwise AND is [4], length is 1.</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums1</span><span class="o">));</span> <span class="c1">// Output: 2</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">longestSubarray</span><span class="o">(</span><span class="n">nums2</span><span class="o">));</span> <span class="c1">// Output: 1</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode Array"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums of size n. Consider a non-empty subarray from nums that has the maximum possible bitwise AND. In other words, let k be the maximum value of the bitwise AND of any subarray of nums. Then, only subarrays with a bitwise AND equal to k should be considered. Return the length of the longest such subarray. The bitwise AND of an array is the bitwise AND of all the numbers in it. A subarray is a contiguous sequence of elements within an array.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="LeetCode HashTable"/><category term="Medium"/><summary type="html"><![CDATA[You are given an integer array nums. This array contains n elements, where exactly n - 2 elements are special numbers. One of the remaining two elements is the sum of these special numbers, and the other is an outlier. An outlier is defined as a number that is neither one of the original special numbers nor the element representing the sum of those numbers. Note that special numbers, the sum element, and the outlier must have distinct indices, but may share the same value. Return the largest potential outlier in nums.]]></summary></entry></feed>
