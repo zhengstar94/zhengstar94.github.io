@@ -2,7 +2,7 @@
 toc:
   sidebar: left
 layout: post
-title: Design a Rate Limiter
+title: Rate Limiter
 date: "2025-06-30"
 description: How to design a Rate Limiter
 img: assets/img/2025/06/rate_limiter_2.png
