@@ -1,6 +1,6 @@
 ---
 toc:
-sidebar: left
+    sidebar: left
 layout: post
 title: Design YouTube
 pretty_table: true
