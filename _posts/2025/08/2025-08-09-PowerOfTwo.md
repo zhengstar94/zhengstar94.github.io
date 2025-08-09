@@ -30,7 +30,7 @@ Output: true
 Explanation: 2^4 = 16
 ```
 
-**Example 2**
+**Example 3**
 
 ```
 Input: n = 3
