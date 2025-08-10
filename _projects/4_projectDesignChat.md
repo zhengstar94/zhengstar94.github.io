@@ -273,7 +273,7 @@ For real-time chat, the core goal is to ensure low latency, bidirectional commun
 
 **Java Code Example (WebSocket Gateway)** :
 
-{% Click here to know more %}
+{% details Click here to know more %}
 
 ```java
 import io.netty.channel.ChannelHandlerContext;
