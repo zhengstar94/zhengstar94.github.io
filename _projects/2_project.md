@@ -526,7 +526,9 @@ Latency rises to 500 ms+, high resource consumption, increased user churn rate.
 #### Solution Strategy
 Adopt hybrid fan-out strategy: Push for ordinary users on write, pull for celebrities on read; combine Redis precomputation cache and Kafka asynchronous processing.
 
-### [2. Database Read/Write and Sharding](https://zhengxingxing.com/blog/2025/TwitterDatabaseReadAndWriteAndShardingSystemDesignDetailedGuide/)
+### [2. Database Read/Write and Sharding][Twitter Database Read and Write and Sharding System Design Detailed Guide]
+
+[Twitter Database Read and Write and Sharding System Design Detailed Guide]: https://zhengxingxing.com/blog/2025/TwitterDatabaseReadAndWriteAndShardingSystemDesignDetailedGuide/
 
 #### Causes
 Massive data scale and uneven distribution lead to hotspots; high cross-shard query overhead; consistency and fault mechanisms increase latency.

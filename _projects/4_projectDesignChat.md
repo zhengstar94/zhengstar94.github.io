@@ -10,7 +10,7 @@ mermaid:
 date: "2025-08-01"
 description: How to design Chat System
 img: assets/img/2025/chat/1.png
-importance: 5
+importance: 6
 category: SystemDesign
 giscus_comments: true
 ---
