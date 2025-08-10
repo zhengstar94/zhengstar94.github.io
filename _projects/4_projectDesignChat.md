@@ -4,6 +4,7 @@ toc:
 layout: post
 title: Design Chat
 pretty_table: true
+tabs: true
 mermaid:
     enabled: true
     zoomable: true
@@ -109,28 +110,6 @@ All APIs must undergo authentication via an API gateway (e.g., using JWT). APIs 
 
 - **`POST /v1/messages/send`**
     - **Description**: Send message to user or group, routed to Kafka for processing. Supports idempotency (via client-generated ID) to prevent duplicates.
-    - **Request Body**:
-      ```json
-      {
-        "to": "user123 or group456",
-        "content": "Hello",
-        "type": "text"
-      }
-      ```
-    - **Response Body (200 OK)**:
-      ```json
-      {
-        "messageId": "m98765",
-        "status": "sent"
-      }
-      ```
-    - **Error Response (400 Bad Request)** (detailed example to show complete error handling):
-      ```json
-      {
-        "error": "invalid to",
-        "details": "The 'to' field must be a valid user or group ID"
-      }
-      ```
 
 {% tabs send-message %}
 
@@ -292,7 +271,31 @@ For real-time chat, the core goal is to ensure low latency, bidirectional commun
 5.  **Serialization and Compression**: Use Protobuf serialization and LZ 4 compression to optimize network transmission efficiency.
 6.  **Extensions**: Support gRPC streaming as an alternative for more complex streaming communication scenarios.
 
-**Java Code Example (WebSocket Gateway)** (complete version, including exception handling):
+**Java Code Example (WebSocket Gateway)** :
+
+{% Click here to know more %}
+
+```java
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+
+public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
+        try {
+            // Process message
+            String content = msg.text();
+            // Route to logic layer
+            ctx.channel().writeAndFlush(new TextWebSocketFrame("Echo: " + content));
+        } catch (Exception e) {
+            ctx.channel().writeAndFlush(new TextWebSocketFrame("Error: " + e.getMessage()));
+        }
+    }
+}
+```
+
+{% enddetails %}
 
 ```java
 import io.netty.channel.ChannelHandlerContext;
