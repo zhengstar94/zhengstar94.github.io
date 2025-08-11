@@ -15,27 +15,6 @@ importance: 6
 category: SystemDesign
 giscus_comments: true
 
-_styles: >
-    .details {
-        color: var(--global-text-color);
-        background-color: var(--global-code-bg-color);
-        margin-top: 0;
-        padding: 8px 12px;
-        position: relative;
-        border-radius: 6px;
-        display: block;
-        margin-bottom: 20px;
-        grid-column: text;
-        overflow: auto;
-        max-width: 100%;
-        .summary {
-            color: var(--global-theme-color);
-        }
-        .p {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-    }
 ---
 
 
