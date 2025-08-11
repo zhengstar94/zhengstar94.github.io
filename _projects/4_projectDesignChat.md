@@ -273,31 +273,6 @@ For real-time chat, the core goal is to ensure low latency, bidirectional commun
 
 **Java Code Example (WebSocket Gateway)** :
 
-{% details Click here to know more %}
-
-```java
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-
-public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
-        try {
-            // Process message
-            String content = msg.text();
-            // Route to logic layer
-            ctx.channel().writeAndFlush(new TextWebSocketFrame("Echo: " + content));
-        } catch (Exception e) {
-            ctx.channel().writeAndFlush(new TextWebSocketFrame("Error: " + e.getMessage()));
-        }
-    }
-}
-```
-
-{% enddetails %}
-
-
 ```java
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
