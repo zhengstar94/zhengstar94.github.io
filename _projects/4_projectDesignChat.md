@@ -1,7 +1,7 @@
 ---
 toc:
     sidebar: left
-layout: distill
+layout: post
 title: Design Chat
 pretty_table: true
 tabs: true
