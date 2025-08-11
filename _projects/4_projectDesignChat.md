@@ -387,7 +387,7 @@ public class MessageRouter {
 **Sequence Diagram** (including failure branches):
 
 ```mermaid
-SequenceDiagram
+sequenceDiagram
     Participant C as Client
     Participant G as Gateway
     Participant M as Message Service
