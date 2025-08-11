@@ -165,19 +165,26 @@ All APIs must undergo authentication via an API gateway (e.g., using JWT). APIs 
 
 - **`POST /v1/status/update`**
     - **Description**: Update user online status, synchronized to Redis. This includes integration with heartbeat mechanisms for accurate status.
-    - **Request Body**:
+  
+{% tabs send-message2 %}
+{% tab send-message2 Request Body %}
       ```json
       {
         "userId": "u12345",
         "status": "online"
       }
       ```
-    - **Response Body (200 OK)**:
+{% endtab %}
+
+{% tab send-message2 Response Body (200 OK) %}
       ```json
       {
         "status": "updated"
       }
       ```
+{% endtab %}
+
+{% endtabs %}
 
 **4. Query Online Status**
 
@@ -197,24 +204,16 @@ All APIs must undergo authentication via an API gateway (e.g., using JWT). APIs 
 
 ### 3.1. Architecture Diagram
 
+
 ```mermaid
 graph TD
-    A[Client: Web/App] -->|WebSocket| B[Access Layer: WebSocket Gateway Cluster<br>TLS, 16.67M Concurrency]
-    B -->|gRPC| C[Logic Layer: Microservices]
-    C --> D[Message Service]
-    C --> E[Group Service]
-    C --> F[User Service]
-    C -->|Asynchronous| G[Base Services]
-    G --> H[Kafka: Message Queue<br>694K QPS]
-    G --> I[ZooKeeper: Service Discovery]
-    G --> J[ID Generator: Snowflake]
-    C -->|Read/Write| K[Storage Layer]
-    K --> L[Cassandra: Message Storage<br>2B Messages/Day]
-    K --> M[MySQL: Metadata]
-    K --> N[Redis: Online Status<br>1.6GB]
-    O[Monitoring: Prometheus] --> C
-    P[Security: WAF] --> B
-    Q[Push Service: FCM/APNS] --> A
+    A[Client: Web/App] -->|WebSocket| B[Access Layer: WebSocket Gateway<br>TLS]
+    B -->|gRPC| C[Logic Layer: Microservices<br>Message/Group/User Services]
+    C -->|Asynchronous| D[Base Services: Kafka/ZooKeeper/ID Generator]
+    C -->|Read/Write| E[Storage Layer: Cassandra/MySQL/Redis]
+    F[Monitoring: Prometheus] --> C
+    G[Security: WAF] --> B
+    H[Push Service: FCM/APNS] --> A
 ```
 
 ### 3.2. Core Components
