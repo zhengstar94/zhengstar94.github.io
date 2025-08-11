@@ -14,6 +14,28 @@ img: assets/img/2025/chat/1.png
 importance: 6
 category: SystemDesign
 giscus_comments: true
+
+_styles: >
+    .details {
+        color: var(--global-text-color);
+        background-color: var(--global-code-bg-color);
+        margin-top: 0;
+        padding: 8px 12px;
+        position: relative;
+        border-radius: 6px;
+        display: block;
+        margin-bottom: 20px;
+        grid-column: text;
+        overflow: auto;
+        max-width: 100%;
+        .summary {
+            color: var(--global-theme-color);
+        }
+        .p {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    }
 ---
 
 
@@ -271,6 +293,30 @@ For real-time chat, the core goal is to ensure low latency, bidirectional commun
 6.  **Extensions**: Support gRPC streaming as an alternative for more complex streaming communication scenarios.
 
 **Java Code Example (WebSocket Gateway)** :
+
+{% details Click here to know more %}
+
+```java
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+
+public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
+        try {
+            // Process message
+            String content = msg.text();
+            // Route to logic layer
+            ctx.channel().writeAndFlush(new TextWebSocketFrame("Echo: " + content));
+        } catch (Exception e) {
+            ctx.channel().writeAndFlush(new TextWebSocketFrame("Error: " + e.getMessage()));
+        }
+    }
+}
+```
+
+{% enddetails %}
 
 
 ```java
