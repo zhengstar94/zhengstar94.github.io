@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Learning
+title: learning
 permalink: /projects/
 description: Personal learning
 nav: true
