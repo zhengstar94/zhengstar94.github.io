@@ -3,7 +3,7 @@ toc:
     sidebar: left
 giscus_comments: true
 layout: post
-title: "滑动窗口"
+title: "双指针 - 滑动窗口"
 date: "2025-09-06"
 pretty_table: true
 categories: 
