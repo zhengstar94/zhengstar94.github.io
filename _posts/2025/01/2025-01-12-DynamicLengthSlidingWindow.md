@@ -3,377 +3,328 @@ toc:
     sidebar: left
 giscus_comments: true
 layout: post
-title: "Sliding Window Techniques"
-date: "2025-01-12"
+title: "滑动窗口"
+date: "2025-09-06"
+pretty_table: true
 categories: 
   - "Data Structure"
 giscus_comments: true
 ---
 
-
-## Comparison of Fixed-Length and Dynamic-Length Windows
-
-| Type    | Window Length | Typical Problems                                             | Core Operations                                             |
-|:------- | ------------- | ------------------------------------------------------------ | -----------------------------------------------------------:|
-| Fixed   | Constant      | Fixed-length substring statistics, K-size subarray calculations | Element enters and exits immediately to maintain fixed size |
-| Dynamic | Variable      | Longest/shortest substring search, Condition-based subarray finding | Window contracts only when conditions are violated          |
+## 介绍
+滑动窗口用于“连续子串/子数组”的最长/最短/计数类问题。简单来说，滑动窗口就是使用 2 个指针维护一个"活动区间"，右指针扩张窗口，左指针在不满足或满足条件时收缩。这样算法通常能做到线性复杂度。
 
 
------
+## 定长窗口（固定长度 k）
 
-## Part 1: Master Fixed-Length Sliding Window - A Universal Approach
+LeetCode 例子：**643. Maximum Average Subarray I**
 
-### Core Concept
+题意就是找长度为 k 的子数组的最大平均值，本质上等价于固定长度子数组的最大和问题。
 
-We aim to calculate the maximum number of vowels in any substring with a length of exactly k. While brute-forcing all substrings results in a time complexity of O(nk), this approach is too slow. Can we achieve O(1) substring property calculations? Yes!
+### 思路要点
 
-For instance, in the string "abci", if we already know the vowel count in substring "abc", then to compute it for "bci":
+固定长度的滑动窗口其实很直接：
 
-1. Check if the leaving character ('a') is a vowel
-2. Check if the entering character ('i') is a vowel
+1. **右指针往前走**，新元素加进窗口和；
+2. 当窗口长度到达 k，就可以结算一次答案；
+3. 然后把左端移出（减掉 nums[left]），left++，继续下一个窗口。
 
-This works because the middle characters ('b' and 'c') remain unchanged in both substrings.
+这样窗口始终保持长度 = k，更新完全是 O(1) 的。
 
-### Example Walkthrough
-
-**Input:** s = "abciiidef", k = 3
-
-**Step-by-step:**
-
-1. Traverse s from left to right
-2. Count vowels in the first k-1 = 2 characters. Initially, there is 1 vowel
-3. Start processing the sliding window:
-   - s[2] = 'c' enters window, forming "abc" (1 vowel). Update max count. Then s[0] = 'a' exits window, reducing count to 0
-   - s[3] = 'i' enters window, forming "bci" (1 vowel). Update max count. Then s[1] = 'b' exits, keeping count at 1
-   - s[4] = 'i' enters window, forming "cii" (2 vowels). Update max count. Then s[2] = 'c' exits, keeping count at 2
-   - s[5] = 'i' enters window, forming "iii" (3 vowels). Update max count. Then s[3] = 'i' exits, reducing count to 2
-   - s[6] = 'd' enters window, forming "iid" (2 vowels). Update max count. Then s[4] = 'i' exits, reducing count to 1
-   - s[7] = 'e' enters window, forming "ide" (2 vowels). Update max count. Then s[5] = 'i' exits, reducing count to 1
-   - s[8] = 'f' enters window, forming "def" (1 vowel). Update max count. Traversal complete
-
-### Fixed-Length Sliding Window Pattern
-
-This pattern follows three simple steps: **Enter-Update-Exit**
-
-1. **Enter**: Element at index i enters the window; update statistics. Repeat if i < k-1
-2. **Update**: Update the answer (usually max/min value)
-3. **Exit**: Element at index i-k+1 exits the window; update statistics
-
-This pattern is universally applicable to all fixed-length sliding window problems.
-
-### Implementation
+### 核心代码
 
 ```java
-class Solution {
-    public int maxVowels(String S, int k) {
-        char[] s = S.toCharArray();
-        int ans = 0;
-        int vowel = 0;
-        for (int i = 0; i < s.length; i++) {
-            // 1. Enter window
-            if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' ||
-                s[i] == 'o' || s[i] == 'u') {
-                vowel++;
-            }
-            if (i < k - 1) { // Window size less than k
-                continue;
-            }
-            // 2. Update answer
-            ans = Math.max(ans, vowel);
-            // 3. Exit window
-            char out = s[i - k + 1];
-            if (out == 'a' || out == 'e' || out == 'i' ||
-                out == 'o' || out == 'u') {
-                vowel--;
-            }
-        }
-        return ans;
+int left = 0, windowSum = 0, best = Integer.MIN_VALUE;
+for (int right = 0; right < nums.length; right++) {
+    windowSum += nums[right];           // 扩张：加上右端
+    if (right - left + 1 == k) {        // 窗口长度正好等于 k
+        best = Math.max(best, windowSum); 
+        windowSum -= nums[left];        // 收缩：移出左端
+        left++;
     }
+}
+
+```
+
+
+### 完整函数写法
+
+```java
+public int maxSumOfSizeK(int[] nums, int k) {
+    int left = 0, windowSum = 0, best = Integer.MIN_VALUE;
+    for (int right = 0; right < nums.length; right++) {
+        windowSum += nums[right];
+        if (right - left + 1 == k) {
+            best = Math.max(best, windowSum); // 结算一次答案
+            windowSum -= nums[left];          // 左端移出
+            left++;
+        }
+    }
+    return best;
 }
 ```
 
-### Complexity Analysis
 
-- **Time Complexity:** O(n), where n is the length of s
-- **Space Complexity:** O(1), using only a few extra variables
+## 变长窗口（求最长）
 
-### Key Benefits
+LeetCode 例子：**3. Longest Substring Without Repeating Characters**
 
-1. Universal applicability to fixed-length sliding window problems
-2. Simple and easy-to-remember three-step process: **Enter-Update-Exit**
-3. Efficient O(n) time complexity
-4. Minimal space usage (O(1))
+题意：找最长的不含重复字符的子串。
 
-### Best Practices
+### 思路要点
 
-1. Initialize your window with the first k-1 elements
-2. Update the answer after forming the complete window
-3. Update statistics for both entering and exiting elements
-4. Handle boundary conditions carefully
+变长窗口和定长的差别在于：
 
-### Applications
+- **右指针一直扩张**，新元素加入窗口；
+- 一旦违反约束（比如出现重复字符），就用 **while** 循环收缩左指针，直到窗口重新合法；
+- 每次窗口满足条件，就可以尝试更新答案。
 
-This pattern can be adapted for various fixed-length sliding window problems, such as:
+核心技巧就是「**违规就收缩到刚刚合法**」，这样不会错过最优解。
 
-- Finding the maximum/minimum sum of k consecutive elements
-- Finding the maximum/minimum average of k consecutive elements
-- Counting occurrences of specific patterns in k-length windows
-- Calculating statistics over k-length sliding windows
-
------
-
-## Part 2: Dynamic-Length Sliding Window
-
-### Core Concept
-
-The sliding window is a powerful and efficient algorithmic technique for solving problems involving subarrays or substrings. It is particularly useful for problems requiring dynamic adjustments to window size. With sliding window techniques, we reduce time complexity from O(n²) to O(n) by avoiding unnecessary recalculations.
-
-This technique helps efficiently compute subarray properties by dynamically adjusting window boundaries (start and end points). The general process involves three key steps:
-
-1. **Window Expansion**: Expand the window by moving the right boundary while updating required properties
-2. **Condition Validation**: After every expansion, check whether the current window satisfies the required conditions
-3. **Window Contraction**: If the condition is violated, shrink the window from the left while recalculating the required properties
-
-### Example Problem
-
-**Problem:**
-Given a binary array nums containing only 0 and 1, delete exactly one element, and return the length of the longest subarray that consists only of 1.
-
-**Input**: nums = [1, 1, 0, 1]
-**Output**: 3
-
-### Dynamic Sliding Window Steps
-
-For this problem, we apply the sliding window pattern as follows:
-
-1. **Enter Window**: Track the count of zeros as we expand the window
-2. **Validate Condition**: Ensure we don't have more than one zero in our window
-3. **Exit Window**: Shrink the window when we exceed our zero limit
-
-### Implementation
+### 核心代码
 
 ```java
-class Solution {
-    public int longestSubarray(int[] nums) {
-        int zeroCount = 0;
-        int maxLength = 0;
-        int start = 0;
+Map<Character, Integer> window = new HashMap<>();
+int left = 0, best = 0;
+for (int right = 0; right < s.length(); right++) {
+    char c = s.charAt(right);
+    window.put(c, window.getOrDefault(c, 0) + 1); // 加入右端
 
-        for (int end = 0; end < nums.length; end++) {
-            // 1. Expand window
-            if (nums[end] == 0) {
-                zeroCount++;
-            }
-
-            // 2. Contract window
-            while (zeroCount > 1) {
-                if (nums[start] == 0) {
-                    zeroCount--;
-                }
-                start++;
-            }
-
-            // 3. Update result
-            maxLength = Math.max(maxLength, end - start);
-        }
-
-        // Handle edge case: all ones array
-        return maxLength == nums.length ? maxLength - 1 : maxLength;
+    // 出现重复时收缩左边
+    while (window.get(c) > 1) {
+        char d = s.charAt(left);
+        window.put(d, window.get(d) - 1);
+        if (window.get(d) == 0) window.remove(d);
+        left++;
     }
+
+    // 到这里窗口已经合法，可以尝试更新答案
+    best = Math.max(best, right - left + 1);
 }
 ```
 
-### Explanation of Key Steps
 
-1. **Window Expansion**: Add the current element to the window and update zero count
-2. **Window Contraction**: When zero count exceeds 1, shrink window from left while reducing zero count
-3. **Update Result**: Continuously calculate valid window size and track maximum length
-
-### Complexity Analysis
-
-1. **Time Complexity**:
-   - O(n): Each element is processed at most twice—once when entering the window and once when exiting
-2. **Space Complexity**:
-   - O(1): Only a few extra variables are used to track the window's start and end, with no additional data structures
-
-### Applications and Scenarios
-
-Dynamic sliding windows are highly versatile and applicable across various scenarios:
-
-1. **Longest Subarray Problems**:
-   - Example: Finding the longest substring with at most K distinct characters
-2. **Frequency or Condition Checks**:
-   - Example: Tracking the frequency of a specific element within a window
-3. **Subarray/Substring Property Calculation**:
-   - Example: Dynamically calculating sums, products, or maximum/minimum values
-4. **Pattern Matching**:
-   - Example: Detecting valid substrings that meet complex pattern requirements
-
-### Edge Cases
-
-When utilizing the sliding window technique, it's essential to consider edge cases to avoid errors in extreme scenarios. Key edge cases for this problem include:
-
-1. **All Ones**:
-   - Input: [1, 1, 1]
-   - Output: Must subtract one, resulting in length len(nums) - 1
-2. **All Zeros**:
-   - Input: [0, 0, 0]
-   - Output: No valid subarrays exist, resulting in output 0
-3. **Empty Input**:
-   - Input: []
-   - Output: Should return 0 as there are no valid subarrays
-4. **Single Element**:
-   - Input: [1] or [0]
-   - Output: Results in 0 due to the removal leaving no elements
-
-### Summary
-
-By mastering the dynamic sliding window approach, you can efficiently solve a wide variety of problems that require handling variable-sized subarrays or substrings. Its flexibility and high efficiency make it a crucial technique for algorithmic problem-solving.
-
----
-
-## Part 3: Exact Count Dynamic Sliding Window
-
-### Core Concept
-
-The Exact Count Sliding Window is a specialized variant of the dynamic sliding window technique, designed to solve subarray problems that require "exactly meeting" certain conditions. This type of problem typically employs a "dual-pointer control group" approach, using two sliding windows to calculate differences.
-
-### Key Features
-
-1. **Dual Window Technique**:
-   - Window 1: Tracks counts greater than or equal to the target value
-   - Window 2: Tracks counts greater than or equal to the target value + 1
-   - Final Result: Count from Window 1 - Count from Window 2
-
-2. **Application Scenarios**:
-   - Finding the number of subarrays with sum exactly equal to K
-   - Finding subarrays containing exactly K specific elements
-   - Scenarios requiring exact counting rather than finding max/min values
-
-### Universal Template
-
-Below is a universal template for solving exact count sliding window problems:
+### 完整函数写法
 
 ```java
-/**
- * Universal template for exact count sliding window
- * Suitable for problems requiring counting subarrays that exactly meet certain conditions
- * @param nums input array
- * @param target target value
- * @return count of subarrays meeting the condition
- */
-public static int countExactWindow(int[] nums, int target) {
-    int result = 0;
-    int value1 = 0;  // value for first window (>= target)
-    int value2 = 0;  // value for second window (>= target + 1)
+import java.util.*;
 
-    // l1: left boundary of first window
-    // l2: left boundary of second window
-    // r: shared right boundary for both windows
-    for (int l1 = 0, l2 = 0, r = 0; r < nums.length; r++) {
-        // 1. Expand windows
-        value1 += nums[r];
-        value2 += nums[r];
+public int lengthOfLongestSubstring(String s) {
+    Map<Character, Integer> window = new HashMap<>();
+    int left = 0, best = 0;
+    for (int right = 0; right < s.length(); right++) {
+        char c = s.charAt(right);
+        window.put(c, window.getOrDefault(c, 0) + 1);
 
-        // 2. Contract first window
-        while (l1 <= r && value1 >= target) {
-            value1 -= nums[l1];
-            l1++;
+        // 收缩直到没有重复
+        while (window.get(c) > 1) {
+            char d = s.charAt(left);
+            window.put(d, window.get(d) - 1);
+            if (window.get(d) == 0) window.remove(d);
+            left++;
         }
 
-        // 3. Contract second window
-        while (l2 <= r && value2 >= target + 1) {
-            value2 -= nums[l2];
-            l2++;
-        }
-
-        // 4. Calculate result at current position: difference between windows
-        result += l1 - l2;
+        best = Math.max(best, right - left + 1);
     }
-    
-    return result;
+    return best;
 }
+
 ```
 
-### Technical Points
 
-1. **Dual Window Maintenance**:
-   - Maintain two windows, each with its own left pointer
-   - Share the right pointer to ensure synchronized expansion
-   - Window values must be updated synchronously
+## 变长窗口（求最短覆盖）
 
-2. **Window Contraction Conditions**:
-   - First Window: Contract when value >= target
-   - Second Window: Contract when value >= target + 1
-   - Update corresponding window values during contraction
+LeetCode 例子：**209. Minimum Size Subarray Sum**
 
-3. **Result Calculation**:
-   - Use l1 - l2 to calculate valid subarray count at each position
-   - Accumulate counts at each position for final result
+题意：给定一个正整数数组 `nums` 和一个目标值 `target`，找出和 ≥ `target` 的最短子数组长度。如果不存在则返回 0。
 
-### Implementation Details
+### 思路要点
 
-1. **Variable Design**:
-   - result: stores the final count
-   - value1, value2: store current values for both windows
-   - l1, l2: represent left boundaries of both windows
-   - r: shared right boundary
+- - 右指针不断扩张，把元素加进窗口和；
+- 当窗口和 ≥ target 时，开始收缩左指针，尽量缩短窗口；
+- 收缩过程中更新「最短长度」。
 
-2. **Loop Structure**:
-   - Outer Loop: traverse array, expand windows
-   - Inner Loops: contract windows based on conditions
+### 核心代码
 
-3. **Boundary Handling**:
-   - Ensure l1, l2 don't exceed r
-   - Carefully update values during window contraction
+```java
+int left = 0, windowSum = 0, best = Integer.MAX_VALUE;
+for (int right = 0; right < nums.length; right++) {
+    windowSum += nums[right];
 
-### Complexity Analysis
+    // 满足条件，尝试收缩
+    while (windowSum >= target) {
+        best = Math.min(best, right - left + 1);
+        windowSum -= nums[left];
+        left++;
+    }
+}
+return best == Integer.MAX_VALUE ? 0 : best;
+```
 
-- **Time Complexity**: O(n)
-   - Each element is added and removed at most once
-   - Operations for both windows are linear
 
-- **Space Complexity**: O(1)
-   - Uses only constant extra space
-   - No additional data structures required
+### 完整函数写法
 
-### Use Cases
+```java
+public int minSubArrayLen(int target, int[] nums) {
+    int left = 0, windowSum = 0, best = Integer.MAX_VALUE;
+    for (int right = 0; right < nums.length; right++) {
+        windowSum += nums[right];
+        while (windowSum >= target) {
+            best = Math.min(best, right - left + 1);
+            windowSum -= nums[left];
+            left++;
+        }
+    }
+    return best == Integer.MAX_VALUE ? 0 : best;
+}
 
-1. **Counting Problems**:
-   - Subarrays with specific sum
-   - Subarrays containing specific number of elements
-   - Subsequences meeting exact conditions
+```
 
-2. **Pattern Matching**:
-   - Subarrays with fixed number of features
-   - Exact pattern matching requirements
 
-3. **Statistical Analysis**:
-   - Interval sum statistics
-   - Frequency counting
-   - Exact property statistics
+## 计数型窗口（统计子数组个数）
 
-### Key Considerations
+LeetCode 例子：**992. Subarrays with K Different Integers**
 
-1. **Initialization**:
-   - Ensure correct initialization of window values
-   - Set proper initial positions for boundary pointers
+题意：给定一个整数数组 `nums` 和一个整数 `K`，统计数组中恰好有 K 个不同整数的子数组个数。  核心技巧是先写一个 **atMost(K)** 函数，统计至多 K 个不同整数的子数组个数，再用  `exactly(K) = atMost(K) - atMost(K - 1)`。
 
-2. **Update Logic**:
-   - Maintain synchronized window expansion
-   - Properly update window values
+### 思路要点
 
-3. **Result Accumulation**:
-   - Understand the meaning of l1 - l2
-   - Update result at correct timing
+- 右指针扩张，把元素加入窗口，并更新窗口中每个元素的计数；
+- 当窗口中的不同元素数 > K 时，收缩左指针，移出不必要的元素；
+- 每次循环时，窗口内以 `right` 结尾的所有子数组个数是 `right - left + 1`，累加到结果。
 
-### Summary
+### 核心代码
 
-The Exact Count Sliding Window is an elegant solution particularly suited for subarray problems requiring precise counting. By maintaining the difference between two windows, we can efficiently find all subarrays meeting exact conditions. The key aspects are:
+```java
+int left = 0, count = 0;
+Map<Integer, Integer> window = new HashMap<>();
+for (int right = 0; right < nums.length; right++) {
+    int c = nums[right];
+    window.put(c, window.getOrDefault(c, 0) + 1);
 
-1. Understanding the relationship between dual windows
-2. Correctly maintaining window expansion and contraction
-3. Accurately calculating result accumulation
-4. Handling boundary conditions
+    // 种类数超过 K，收缩左指针
+    while (window.size() > K) {
+        int d = nums[left];
+        window.put(d, window.get(d) - 1);
+        if (window.get(d) == 0) window.remove(d);
+        left++;
+    }
 
-Mastering this technique enables solving various subarray problems requiring exact counting, especially when finding subarrays that "exactly meet" certain conditions.
+    count += right - left + 1;
+}
+return count;
+```
+
+
+### 完整函数写法
+
+```java
+import java.util.*;
+
+public int subarraysWithKDistinct(int[] nums, int K) {
+    return atMostK(nums, K) - atMostK(nums, K - 1);
+}
+
+private int atMostK(int[] nums, int K) {
+    int left = 0, count = 0;
+    Map<Integer, Integer> window = new HashMap<>();
+    for (int right = 0; right < nums.length; right++) {
+        int c = nums[right];
+        window.put(c, window.getOrDefault(c, 0) + 1);
+
+        while (window.size() > K) {
+            int d = nums[left];
+            window.put(d, window.get(d) - 1);
+            if (window.get(d) == 0) window.remove(d);
+            left++;
+        }
+
+        count += right - left + 1;
+    }
+    return count;
+}
+
+```
+
+
+## 单调队列窗口（快速求最大/最小值）
+
+LeetCode 例子：**239. Sliding Window Maximum**
+
+题意：给定一个整数数组 `nums` 和一个窗口大小 `k`，求每个窗口内的最大值。  
+核心技巧是用 **双端队列（deque）维护窗口单调递减**，保证队头总是最大值，窗口移动时及时剔除过期或较小的元素。
+### 思路要点
+
+- 右指针扩张，将元素加入队列前先剔除队尾小于当前元素的值，保持单调递减；
+- 当窗口左端移出时，队头元素如果等于移出的值，需要同步移除；
+- 每次窗口长度达到 `k` 时，队头就是该窗口最大值，加入结果。
+
+### 核心代码
+
+```java
+Deque<Integer> deque = new ArrayDeque<>();
+int[] res = new int[nums.length - k + 1];
+int ri = 0;
+
+for (int i = 0; i < nums.length; i++) {
+    // 移除队尾比当前元素小的，保持单调递减
+    while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+        deque.pollLast();
+    }
+    deque.offerLast(i);
+
+    // 移除队头过期元素
+    if (deque.peekFirst() <= i - k) {
+        deque.pollFirst();
+    }
+
+    // 当窗口长度达到 k，记录最大值
+    if (i >= k - 1) {
+        res[ri++] = nums[deque.peekFirst()];
+    }
+}
+return res;
+
+```
+
+
+### 完整函数写法
+
+```java
+import java.util.*;
+
+public int[] maxSlidingWindow(int[] nums, int k) {
+    if (nums == null || nums.length == 0) return new int[0];
+
+    Deque<Integer> deque = new ArrayDeque<>();
+    int[] res = new int[nums.length - k + 1];
+    int ri = 0;
+
+    for (int i = 0; i < nums.length; i++) {
+        while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+            deque.pollLast();
+        }
+        deque.offerLast(i);
+
+        if (deque.peekFirst() <= i - k) {
+            deque.pollFirst();
+        }
+
+        if (i >= k - 1) {
+            res[ri++] = nums[deque.peekFirst()];
+        }
+    }
+    return res;
+}
+
+```
+
+## 总结
+
+|窗口类型|核心目标|窗口变化|窗口维护|统计方式|Leetcode|
+|---|---|---|---|---|---|
+|**定长窗口**|求固定长度子数组的最大/最小/平均值|右指针推进，长度满 k 时左指针同步右移|进入元素加法/减法，O(1) 更新|满足长度时更新结果|LC 643, 最大平均子数组|
+|**变长窗口（求最长）**|求最长满足条件的子串/子数组|右指针扩张，违反条件收缩左指针|Map/Set/计数表维护状态|每次合法窗口更新最长|LC 3, 最长不含重复字符子串|
+|**变长窗口（求最短 / 覆盖）**|求最短子串/子数组满足条件|右指针扩张，条件满足收缩左指针|Map/计数/窗口和维护状态|收缩过程中更新最短|LC 209, 76|
+|**计数型窗口**|统计满足条件的子数组/子串个数|右指针扩张，条件超限收缩左指针|Map/Set/计数表维护种类或频率|窗口长度累加（right-left+1）|LC 992, 至多/恰好 K 个不同整数|
+|**单调队列窗口**|窗口内快速求最大/最小|右指针扩张，队尾剔除不符合单调的元素|双端队列维护单调递减/递增|队头即窗口最大/最小|LC 239, 滑动窗口最大值|
