@@ -115,35 +115,34 @@ public class ReverseLinkedList {
 
 ## Step
 
-1. **Initial List and Pre(head) Node**
+1.**Initial List and Pre(head) Node**
 
-​	**left = 2, right = 4. After the pre loop, pre points to 1 and curr points to 2.**
+**left = 2, right = 4. After the pre loop, pre points to 1 and curr points to 2.**
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/1.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-2. **Initial List and Next Node, `next = curr.next`**
+2.**Initial List and Next Node, `next = curr.next`**
 
-​	**Before: curr.next = 3**
+**Before: curr.next = 3**
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/2.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-3. **The current.next points to the pre.next node, `curr.next = next.next`**
+3.**The current.next points to the pre.next node, `curr.next = next.next`**
 
 **After: curr.next = 4**
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/3.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-4. **The next.next node points to the pre.next. `next.next = pre.next`**
+4.**The next.next node points to the pre.next. `next.next = pre.next`**
 
 **next.next = pre.next;**
-
 **curr.next = 4**
 **next.next = 2**
 **pre.next = 2**
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/4.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-5. **The pre node points to the next node, `pre.next = next`**
+5.**The pre node points to the next node, `pre.next = next`**
 
 **curr.next = 4**
 **next.next = 2**
@@ -151,11 +150,11 @@ public class ReverseLinkedList {
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/5.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-6. Loop1
+6.Loop1
 
-   {% include figure.liquid loading="eager" path="assets/img/2025/09/6.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
+{% include figure.liquid loading="eager" path="assets/img/2025/09/6.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-7. **Repeat step 2 to 5 , loop traversal, until to meet the end of range**
+7.**Repeat step 2 to 5 , loop traversal, until to meet the end of range**
 
 **ListNode next = 4**
 **curr.next = 4**
@@ -164,7 +163,7 @@ public class ReverseLinkedList {
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/7.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
-7.**Loop traversal**
+8.**Loop traversal**
 
 {% include figure.liquid loading="eager" path="assets/img/2025/09/8.png" class="img-fluid rounded z-depth-1" zoomable=true width="70%"%}
 
