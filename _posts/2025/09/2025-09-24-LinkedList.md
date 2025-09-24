@@ -26,7 +26,7 @@ giscus_comments: true
 
 ## 1. 反转链表
 
-反转链表是链表题基础，必须掌握迭代和递归两种方法，并能扩展到区间反转和 k 组反转。
+[反转链表](https://zhengxingxing.com/blog/2025/Reverse-LinkedList/)是链表题基础，必须掌握迭代和递归两种方法，并能扩展到区间反转和 k 组反转。
 
 ### 思路要点
 - 迭代法：用 `prev`、`curr` 逐节点反转 `next` 指针；
